@@ -1,0 +1,184 @@
+\section{Reasoning Distillation}
+\label{sec:reasoning}
+
+The pursuit of complex reasoning capabilities represents the most active frontier in Large Language Model (LLM) research. In this context, On-Policy Distillation (OPD) is not merely a technique for model compression; it is a fundamental mechanism for structured knowledge transfer. By shifting the training distribution from the teacher's static dataset to the student's active exploration space, OPD has become the de facto standard for instilling Chain-of-Thought (CoT) and multi-step reasoning capabilities into smaller models. We dedicate this section to analyzing the theoretical and empirical mechanisms driving this transformation.
+
+\subsection{Chain-of-Thought Distillation}
+Traditional Off-Policy distillation forces the student to mimic the teacher's reasoning traces over a fixed dataset. However, reasoning is highly path-dependent. As established by Distilling Step-by-Step \citep{2305.02301}, allowing a smaller model to learn from rationales generated in an on-policy manner leads to a paradigm where small models can outperform un-fine-tuned large models. 
+
+Recent advancements in CoT reasoning distillation \citep{2402.00857, 2405.04434} emphasize the necessity of aligning the reasoning path with the student's inherent linguistic manifold. When a student generates its own intermediate reasoning steps, the teacher's role shifts from a static dictator of the output to an active evaluator of the student's intrinsic logic. Formally, let $x$ be the input prompt, $y$ be the final answer, and $r = (r_1, r_2, \dots, r_T)$ be the sequence of intermediate reasoning tokens. The student model $P_\theta$ generates rollouts $r^S \sim P_\theta(\cdot | x)$. The objective function in on-policy CoT distillation minimizes the Reverse Kullback-Leibler (KL) divergence at each generative step:
+\begin{align}
+\mathcal{L}_{\text{CoT-OPD}}(\theta) &= \mathbb{E}_{x \sim \mathcal{D}, r^S \sim P_\theta(\cdot|x)} \left[ \sum_{t=1}^{|r^S|} \mathcal{D}_{\text{KL}} \Big( P_{\text{Teacher}}(\cdot | x, r^S_{<t}) \parallel P_\theta(\cdot | x, r^S_{<t}) \Big) \right] \label{eq:cot_opd}
+\end{align}
+Unlike off-policy Forward-KL, which is mean-seeking and forces the student to cover all modes of the teacher's reasoning (often leading to zero-forcing errors where the student is forced to output tokens it assigns low probability to), the Reverse-KL nature of Equation~\ref{eq:cot_opd} is mode-seeking. This ensures the student reinforces reasoning paths that are highly probable under its own parameterization, provided they are validated by the teacher.
+
+This formulation is further augmented by frameworks like SuperCorrect \citep{2410.09008}, which introduce cognitive templates and self-correction mechanisms into the on-policy loop. In the SuperCorrect paradigm, the generation space is partitioned into thought generation $z \sim P_\theta(\cdot|x)$ and answer generation $y \sim P_\theta(\cdot|x, z)$. If the teacher's verifier detects an error in $y$, the student is prompted to generate a correction trace $c \sim P_\theta(\cdot|x, z, y)$. The objective expands to include a self-correction penalty:
+\begin{align}
+\mathcal{L}_{\text{SuperCorrect}}(\theta) &= \mathbb{E}_{x, z, y} \left[ \lambda_1 \mathcal{L}_{\text{KD}}(P_T \parallel P_\theta | x, z, y, c) + \lambda_2 \mathcal{R}(c, y_{\text{true}}) \right]
+\end{align}
+where $\mathcal{R}$ is an outcome-based reward indicating whether the correction trace $c$ successfully recovered the true answer $y_{\text{true}}$. By querying the teacher iteratively on the student's revised reasoning paths, the student learns not just the final answer, but the meta-skill of error detection and cognitive recovery. This recursive application of OPD fundamentally breaks the limitations of standard behavioral cloning, allowing the student to build a robust topological map of the reasoning space.
+
+\subsection{Reward-Guided On-Policy Distillation}
+The integration of Reinforcement Learning (RL) into the distillation pipeline has bridged the gap between imitation learning and outcome-driven optimization. Here, we observe a fusion of technical routes: Outcome-based (sparse but flexible) and Logit-based (dense but requiring white-box access). The objective transitions from pure distribution matching to expected reward maximization subject to a distillation constraint.
+
+Frameworks like RLKD \citep{2505.16142} and AlignDistil \citep{2503.02832} represent a conceptual leap: alignment is intrinsically a form of distillation. Instead of treating alignment and distillation as separate post-training stages, these methods unify them by using the teacher's implicit reward model or preference scores to guide the student's on-policy generation. Let $R_T(x, y)$ denote the reward signal provided by a teacher model (which could be an explicit Reward Model or derived from a teacher's Direct Preference Optimization reference policy). The unified optimization problem is given by:
+\begin{align}
+\max_{\theta} \mathcal{J}(\theta) = \mathbb{E}_{x \sim \mathcal{D}, y \sim P_\theta(\cdot|x)} \left[ R_T(x, y) - \beta \mathcal{D}_{\text{KL}}\big(P_\theta(\cdot|x) \parallel P_{\text{Teacher}}(\cdot|x)\big) \right] \label{eq:rlkd}
+\end{align}
+In DistillReasoner \citep{2408.06037} and recent reward-aware OPD frameworks \citep{2503.04711}, sparse outcome rewards are utilized to weight the dense token-level distillation loss. The gradient of the objective with respect to the student parameters $\theta$ relies on the REINFORCE estimator modified by a dense distillation baseline:
+\begin{align}
+\nabla_\theta \mathcal{J}(\theta) \approx \mathbb{E}_{y \sim P_\theta} \left[ \sum_{t=1}^{|y|} \nabla_\theta \log P_\theta(y_t | x, y_{<t}) \Big( \hat{A}_t(x, y) - \lambda \nabla_\theta \mathcal{D}_{\text{KL}}(P_T \parallel P_\theta) \Big) \right]
+\end{align}
+where $\hat{A}_t$ is the advantage estimated via the teacher's value function. This mathematical synergy allows the student to extrapolate beyond the teacher's capabilities, an effect documented as Reward Extrapolation \citep{2602.12125}. Extrapolation occurs because the student explores novel, structurally sound reasoning paths in regions of the state space $\mathcal{S}_{\text{novel}}$ where the teacher's generation probability $P_T(y|x)$ might be low, but the teacher's outcome verification reward $R_T(x, y)$ remains highly positive. By optimizing against this joint signal, the student escapes the performance ceiling imposed by strict behavioral cloning, discovering algorithmic shortcuts that the teacher's default decoding strategy would never have reached, mitigating the saturation typically seen in pure self-play RL paradigms.
+
+\subsection{The DeepSeek-R1 Paradigm Shift}
+The release of DeepSeek-R1 \citep{2501.12948} fundamentally altered the landscape of reasoning distillation. Prior to this, the community largely assumed that small models could directly mimic the RL trajectories of large models or undergo RL themselves. DeepSeek-R1 demonstrated that massive RL applied directly to a large foundational model produces highly structured, verifiable reasoning traces, leading to an emergent ``Aha moment'' where the model self-allocates computation to verify its logic. 
+
+However, applying pure RL directly to smaller models (e.g., those with fewer than 10 billion parameters) often results in catastrophic mode collapse, reward hacking, or highly unstable training dynamics. We can analyze this theoretically through the variance of the policy gradient estimator. In a pure RL setting, the gradient variance is proportional to the scale of the advantages and inversely proportional to the batch size. Let $\hat{g}_{\text{RL}}$ be the RL gradient and $\hat{g}_{\text{KD}}$ be the distillation gradient:
+\begin{align}
+\text{Var}(\hat{g}_{\text{RL}}) &\propto \mathbb{E}\left[ \Big( \sum_t \nabla_\theta \log P_\theta(a_t|s_t) A(s_t, a_t) \Big)^2 \right] \\
+\text{Var}(\hat{g}_{\text{KD}}) &\propto \mathbb{E}\left[ \Big( \nabla_\theta \mathcal{D}_{\text{KL}}(P_T \parallel P_\theta) \Big)^2 \right] \ll \text{Var}(\hat{g}_{\text{RL}})
+\end{align}
+Small models lack the representational capacity (i.e., width and depth) to act as stable function approximators under the high variance $\text{Var}(\hat{g}_{\text{RL}})$. Their latent spaces easily degenerate when exposed to the noisy exploration phase of Proximal Policy Optimization (PPO) or Group Relative Policy Optimization (GRPO).
+
+The DeepSeek-R1 pipeline solves this architectural bottleneck by decoupling the discovery of reasoning structures from their internalization. The large model performs the heavy lifting of RL-driven exploration. Then, its generated reasoning trajectories—and more crucially, its dense token-level distributions produced in response to the smaller model's on-policy rollouts—are distilled into smaller models. This pipeline proves that OPD is the optimal variance-reduction vehicle for transferring the emergent structures of large-scale RL without paying the prohibitive optimization tax of running RL on constrained architectures. By utilizing the large RL-aligned model as a white-box or black-box teacher in an OPD setup, the smaller model inherits the complex sequence-planning capabilities while optimizing over a smooth, convex-like KL landscape rather than a rugged RL reward surface.
+
+\section{Industrial Systems and Scaling}
+\label{sec:systems}
+
+As On-Policy Distillation transitions from theoretical explorations in academia to massive industrial applications, engineering challenges regarding compute efficiency, scaling laws, and architectural mismatches take center stage. Implementing OPD at the scale of trillions of tokens requires systemic innovations in how gradients are computed, how teacher models are queried, and how latency is hidden during the training loop.
+
+\subsection{Large-Scale Deployment}
+Recent foundational models have heavily relied on on-policy distillation for their post-training phases, proving its scalability. The Qwen3 technical report \citep{2505.09388} highlights industrial-grade OPD where student generations are evaluated by a dynamic ensemble of teacher models in real-time. In an ensemble OPD setting, the teacher probability distribution is an aggregate of $K$ distinct experts. Formally, let $w_k$ be the confidence weighting of the $k$-th teacher model $T_k$. The target distribution is constructed as a convex combination:
+\begin{align}
+\tilde{P}_{\text{ensemble}}(y_t | x, y_{<t}) = \sum_{k=1}^K w_k(x) P_{T_k}(y_t | x, y_{<t}), \quad \text{where } \sum w_k(x) = 1
+\end{align}
+This effectively smoothens the target distribution and prevents the student from overfitting to the idiosyncrasies of a single teacher. Similarly, Gemma 2 \citep{2406.06608} utilizes online KD to bridge the performance gap between its parameter tiers, embedding the distillation loop directly into the continuous pre-training phase. 
+
+For edge devices, MobileLLM \citep{2509.24945} demonstrates that sub-billion parameter models can punch significantly above their weight class through rigorous OPD. When deploying to edge architectures, the parameter budget is strict, demanding maximal entropy transfer per parameter. Furthermore, the boundaries of the three distinct feedback routes (Logits, Outcomes, Self-play) are blurring at scale. MiMo-V2 \citep{2601.02780} successfully implements Multi-Teacher OPD by simultaneously combining dense multi-teacher logits with token-level rewards derived from outcome verifiers. By utilizing a multi-objective loss function that interpolates between representation matching and reward maximization, it proves that heterogeneous feedback signals are highly synergistic, stabilizing the gradient trajectories in ultra-large-scale deployments.
+
+\subsection{Efficiency Innovations}
+The primary systemic bottleneck of OPD is the requirement for the massive teacher model to perform forward passes on dynamically generated student tokens. If a student generates a sequence of length $N$, a naive implementation requires the teacher to perform $O(N)$ autoregressive forward passes or one massive $O(N^2)$ attention forward pass, crippling training throughput. 
+
+Speculative KD \citep{2410.11325, 2510.24021} directly addresses this bottleneck by using the student's training generations as speculative drafts. During the rollout phase, the student generates a block of $K$ tokens $(y_{t+1}, \dots, y_{t+K})$. The teacher then verifies and scores these drafts in parallel. The expected computational speedup $E[S]$ can be mathematically modeled by the acceptance rate $\alpha$ of the student's tokens under the teacher's distribution:
+\begin{align}
+E[S] = \frac{\mathbb{E}[K_{\text{accepted}}] + 1}{1 + c} \quad \text{where } \mathbb{E}[K_{\text{accepted}}] = \sum_{k=1}^K \prod_{i=1}^k \min \left(1, \frac{P_T(y_{t+i} | y_{<t+i})}{P_S(y_{t+i} | y_{<t+i})} \right)
+\end{align}
+where $c$ is the ratio of the cost of a student forward pass to a teacher forward pass. By hiding the teacher's latency and vectorizing the KL divergence computation over accepted blocks, Speculative KD accelerates the on-policy loop by 3-5$\times$.
+
+Furthermore, cross-tokenizer distillation \citep{2402.12030, 2310.13332} has matured, enabling OPD between entirely disparate model families (e.g., Llama to Mistral) by matching latent semantics rather than strict token logits. If the student uses vocabulary $V_S$ and the teacher uses $V_T$, a dynamic projection matrix $W_{S \to T}$ or an optimal transport plan $\Pi$ is computed to minimize the Wasserstein distance between the latent spaces:
+\begin{align}
+\mathcal{L}_{\text{CrossTok}} = \inf_{\pi \in \Pi(P_S, P_T)} \mathbb{E}_{(z_S, z_T) \sim \pi} \left[ \parallel W_{S \to T} z_S - z_T \parallel_2^2 \right]
+\end{align}
+From a structural perspective, Minitron \citep{2311.09829} combines continuous structured pruning with OPD to inherit the teacher's optimal sub-network. By maintaining a binary mask over the teacher's weight matrices and updating it jointly with the OPD loss, the student model physically emerges from the teacher's architecture, dramatically reducing the burn-in time and compute requirements for the student's convergence.
+
+\subsection{Compute-Quality Tradeoff Analysis}
+A surprisingly neglected area in the literature is a rigorous cost-benefit analysis of OPD. System designers constantly face the dilemma of allocating compute budgets between more tokens (Off-Policy) versus better supervision (On-Policy). We formulate the expected compute cost (measured in FLOPs) of Off-Policy Distillation ($C_{\text{off}}$) and On-Policy Distillation ($C_{\text{on}}$) for $N$ tokens as follows:
+\begin{align}
+C_{\text{off}} &\approx N \times (F_{\text{teacher}} + F_{\text{student}} + B_{\text{student}}) \\
+C_{\text{on}} &\approx N \times \left( G_{\text{student}} + \lambda F_{\text{teacher}} + F_{\text{student}} + B_{\text{student}} \right)
+\end{align}
+where $F, B$ denote the FLOPs required for forward and backward passes, $G$ is the auto-regressive generation cost (which scales quadratically with sequence length due to the KV cache updates), and $\lambda \in (0, 1]$ is the refresh rate of the teacher's supervision (e.g., scoring every token vs scoring sequence ends). Because auto-regressive generation demands $G_{\text{student}} \gg F_{\text{student}}$, $C_{\text{on}}$ is typically 4 to 10 times higher than $C_{\text{off}}$.
+
+Let $\mathcal{U}(\theta, C)$ represent the utility (downstream performance) of the student model given a compute budget $C$. We face a constrained optimization problem:
+\begin{align}
+\max \mathcal{U}(\theta, C) \quad \text{subject to } C = \gamma C_{\text{on}} + (1 - \gamma) C_{\text{off}} \le C_{\text{max}}
+\end{align}
+where $\gamma$ is the ratio of data processed on-policy. System design guidelines dictate that for generic knowledge transfer and syntax alignment, $\gamma \to 0$ (Off-Policy) is sufficient because the data manifold is dense and easy to traverse. However, for reasoning tasks, code generation, and complex mathematics, the output space is highly multimodal and fragile. The performance gradient $\frac{\partial \mathcal{U}}{\partial C_{\text{on}}}$ in these domains vastly exceeds $\frac{\partial \mathcal{U}}{\partial C_{\text{off}}}$, easily justifying the compute multiplier. We recommend a hybrid curriculum where training begins with $C_{\text{off}}$ to warm up the student's latent representations, dynamically shifting to $\gamma \to 1$ (pure $C_{\text{on}}$) during the final 20\% of training to refine reasoning trajectories.
+
+\section{Open Problems and Future Directions}
+\label{sec:future}
+
+Despite the empirical triumphs of On-Policy Distillation, the theoretical foundations remain sparse, and numerous scaling bottlenecks persist. In this section, we outline the most critical open problems in the field, detailing the problem definitions, mathematical formalisms, existing preliminary attempts, and concrete pathways for future solutions.
+
+\subsection{Distillation Scaling Laws}
+\textbf{Problem Definition \& Importance:} While the Chinchilla scaling laws rigorously define the optimal parameter-to-dataset-size ratio for pretraining, no such equivalent exists for On-Policy Distillation. Practitioners currently guess the optimal generation budget relative to student size. Understanding how distillation loss scales with student parameters $N_S$, teacher parameters $N_T$, and the number of on-policy generated tokens $D_{\text{on}}$ is vital for optimal compute allocation.
+
+\textbf{Existing Attempts \& Solutions:} Preliminary studies often fit empirical power-law curves without theoretical grounding. A concrete future direction is to derive a joint scaling law formulated as:
+\begin{align}
+L(N_S, N_T, D_{\text{on}}) = E + \frac{A}{N_S^\alpha} + \frac{B}{N_T^\beta} + \frac{C}{D_{\text{on}}^\gamma} + f(N_S, N_T) \label{eq:scaling}
+\end{align}
+where $E$ is the irreducible entropy of the task, and $f(N_S, N_T)$ is an interference term modeling the architectural mismatch (capacity gap) between student and teacher. Future work must conduct massive grid searches to empirically compute the exponents $\alpha, \beta, \gamma$, allowing practitioners to definitively answer questions such as: "Given 10$^4$ GPU hours, should I distill from a 70B teacher for 1B tokens or a 405B teacher for 200M tokens?"
+
+\subsection{Uncertainty-Aware On-Policy Distillation}
+\textbf{Problem Definition \& Importance:} In standard OPD, the teacher's distribution is treated as ground truth. However, teachers suffer from hallucination and overconfidence, especially in out-of-distribution regions explored by the student. If the student wanders into a state where the teacher's epistemic uncertainty is high, minimizing the KL divergence forces the student to confidently mimic noise, creating a catastrophic echo chamber.
+
+\textbf{Existing Attempts \& Solutions:} Current methods assign uniform weight to the KL loss across all tokens. Future solutions must decompose the teacher's uncertainty into aleatoric (data inherent) and epistemic (model inherent) components. Let the teacher's predictive variance over a Bayesian posterior $q(\phi)$ be $U_{\text{epi}}(x) = \text{Var}_{\phi \sim q}[P_\phi(y|x)]$. An uncertainty-aware OPD objective would dynamically weight the distillation loss:
+\begin{align}
+\mathcal{L}_{\text{Uncertainty-OPD}} = \mathbb{E}_{r \sim P_\theta} \left[ \sum_t \exp\big(-U_{\text{epi}}(r_{<t})\big) \mathcal{D}_{\text{KL}}\Big(P_T(\cdot | r_{<t}) \parallel P_\theta(\cdot | r_{<t})\Big) \right]
+\end{align}
+By attenuating the gradient signal when $U_{\text{epi}}$ is high, the student relies on its own intrinsic priors rather than mimicking the teacher's hallucinations, significantly improving robustness.
+
+\subsection{Dynamic Curriculum Distillation}
+\textbf{Problem Definition \& Importance:} Uniformly sampling prompts during OPD ignores the student's evolving capacity. Exposing a novice student to complex reasoning prompts leads to gradient noise, while exposing an advanced student to trivial prompts wastes compute. 
+
+\textbf{Existing Attempts \& Solutions:} Inspired by frameworks like PACED \citep{2603.11178}, we propose a theoretically grounded dynamic curriculum based on adaptive divergence. Let $\mathcal{H}(x)$ be the difficulty of a prompt, quantified by the entropy of the teacher's reasoning paths. The sampling probability of a prompt $P(x)$ should dynamically evolve with the student's training step $t$:
+\begin{align}
+P_t(x) \propto \exp\left( -\frac{| \mathcal{D}_{\text{KL}}(P_T || P_{\theta_t}) - \delta_t |}{\tau} \right)
+\end{align}
+where $\delta_t$ is a pacing function that monotonically increases over time, and $\tau$ is a temperature hyperparameter. This guarantees the student is always trained on prompts that reside exactly at the boundary of its current capabilities (the zone of proximal development), maximizing the efficiency of every forward pass.
+
+\subsection{Latent Space Distillation for Vocabulary Mismatch}
+\textbf{Problem Definition \& Importance:} The fundamental assumption of Equation~\ref{eq:cot_opd} is that the student and teacher share the exact same vocabulary space. In practice, distilling a Llama model into a Phi model involves severe tokenizer mismatch. Marginalizing over misaligned tokenizers is computationally prohibitive and destroys the high-frequency semantic signals.
+
+\textbf{Existing Attempts \& Solutions:} While early cross-tokenizer methods exist, they rely on heuristic string matching or static embeddings. The optimal solution lies in deep latent space alignment. Let $h_t^S \in \mathbb{R}^{d_S}$ and $h_t^T \in \mathbb{R}^{d_T}$ be the final hidden states before the unembedding layer. We formulate a continuous optimal transport loss:
+\begin{align}
+\mathcal{L}_{\text{Latent}} = \min_{W \in \mathbb{R}^{d_T \times d_S}} \mathbb{E}_{x} \left[ \parallel W h^S(x) - h^T(x) \parallel_2^2 + \lambda \mathcal{R}(W) \right]
+\end{align}
+where $\mathcal{R}(W)$ enforces orthogonality or sparsity. By bypassing the vocabulary bottleneck entirely, latent distillation allows the student to directly mimic the geometric structure of the teacher's reasoning manifold, enabling seamless cross-architecture OPD.
+
+\subsection{On-Policy Distillation for Autonomous Agents}
+\textbf{Problem Definition \& Importance:} Current OPD targets single-turn generation or linear CoT. However, LLMs are increasingly deployed as autonomous agents interacting with environments (APIs, terminals, databases). In agentic settings, the action space is vast, and the feedback is highly delayed. Token-level distillation fails to capture the long-horizon temporal credit assignment required for multi-step planning.
+
+\textbf{Existing Attempts \& Solutions:} We must reframe Agentic OPD as a Partially Observable Markov Decision Process (POMDP). Let $\tau = (o_1, a_1, \dots, o_T, a_T)$ be a trajectory generated by the student interacting with an environment. The teacher, acting as an omniscient value function $Q_T(o_t, a_t)$, scores the student's intermediate actions. The trajectory-level distillation objective becomes:
+\begin{align}
+\mathcal{L}_{\text{Agent-OPD}} = \mathbb{E}_{\tau \sim P_\theta} \left[ \sum_{t=1}^T \mathcal{D}_{\text{KL}}\Big( \pi_T(\cdot | h_t) \parallel \pi_\theta(\cdot | h_t) \Big) \cdot Q_T(h_t, a_t) \right]
+\end{align}
+This bridges the gap between language modeling and reinforcement learning, allowing the student to distill the teacher's strategic foresight and tool-use capabilities rather than just its linguistic syntax.
+
+\subsection{The Distillation-RL Virtuous Loop}
+\textbf{Problem Definition \& Importance:} Distillation and RL are historically viewed as linear stages: either Distill $\to$ RL, or RL $\to$ Distill. However, static distillation saturates, and pure RL diverges. The true upper bound of model capability lies in closing the loop, but doing so without causing catastrophic forgetting or mode collapse remains an open mathematical challenge.
+
+\textbf{Existing Attempts \& Solutions:} We propose formalizing the Distillation-RL loop as an alternating projection optimization algorithm. Let the target capability manifold be $\mathcal{M}^*$. The student $\theta_k$ undergoes RL to expand its frontier $\theta_{k+1/2} = \theta_k + \eta \nabla J_{\text{RL}}$. Because RL warps the parameter space, causing it to drift from linguistic priors, a distillation projection operator $\mathcal{P}_{\text{KD}}$ pulls the model back to the stable teacher manifold:
+\begin{align}
+\theta_{k+1} &= \arg\min_{\theta} \left( \parallel \theta - \theta_{k+1/2} \parallel_2^2 + \lambda \mathcal{D}_{\text{KL}}(P_T \parallel P_\theta) \right)
+\end{align}
+Proving the convergence bounds of this alternating operator and mapping its contraction properties is a vital theoretical direction that will dictate the future of recursive self-improvement in LLMs.
+
+\subsection{Beyond Benchmarks: Evaluation Methodology}
+\textbf{Problem Definition \& Importance:} Standard benchmarks (e.g., MMLU, GSM8K) are heavily contaminated and evaluate static behavioral cloning. They fail to measure the intrinsic robustness, out-of-distribution (OOD) generalization, and hallucination rates of a distilled student compared to its teacher.
+
+\textbf{Existing Attempts \& Solutions:} Evaluation must move towards dynamic adversarial testing. We define the generalization gap $\Delta_{\text{OOD}}$ as the Jensen-Shannon (JS) divergence between the student and teacher distributions under adversarial perturbation $\epsilon$:
+\begin{align}
+\Delta_{\text{OOD}} = \max_{\parallel \epsilon \parallel \le \delta} \text{JS}\Big( P_T(\cdot | x + \epsilon) \parallel P_S(\cdot | x + \epsilon) \Big)
+\end{align}
+Future benchmarking suites must systematically compute this divergence across semantically equivalent but syntactically diverse prompts to verify if the student has learned the underlying causal mechanism of reasoning, rather than superficial statistical correlations.
+
+\subsection{Practical Guidelines: Decision Matrix}
+\textbf{Problem Definition \& Importance:} Engineering teams lack algorithmic frameworks to select the correct distillation method. The sheer volume of techniques (Off-policy, Logit-OPD, Reward-OPD, Speculative KD) causes decision paralysis.
+
+\textbf{Existing Attempts \& Solutions:} We formalize the decision process as a piecewise selection function based on three variables: Available Compute ($C$), Student Capacity ($S$), and Task Complexity ($\mathcal{T}$). The optimal policy $\Pi^*(C, S, \mathcal{T})$ is defined as:
+\begin{align}
+\Pi^*(C, S, \mathcal{T}) = 
+\begin{cases} 
+\text{Off-Policy KD}, & \text{if } C \le \tau_{\text{low}} \lor \mathcal{T} \in \text{Syntax/Chat} \\
+\text{Logit-based OPD}, & \text{if } C > \tau_{\text{low}} \land S < 3B \land \mathcal{T} \in \text{Reasoning} \\
+\text{Reward-aware OPD}, & \text{if } C \gg \tau_{\text{high}} \land S \ge 3B \land \text{Access to Verifier} \\
+\text{Speculative OPD}, & \text{if Latency Bound is strict } \land \text{Teacher is white-box}
+\end{cases}
+\end{align}
+Developing an automated hyperparameter optimizer that maps network topologies directly to this decision matrix will be critical for democratizing large-scale LLM training.
+
+\section{Conclusion}
+\label{sec:conclusion}
+On-Policy Distillation has fundamentally rewritten the rules of LLM scaling and deployment. By moving away from static dataset mimicry and embracing active, trajectory-level exploration guided by a teacher's rich latent distributions, the community has unlocked reasoning capabilities in constrained architectures that were previously thought impossible. Throughout this survey, we have dissected the algorithmic taxonomy of OPD, from Chain-of-Thought extraction to Reward-Guided formulations and the paradigm-shifting DeepSeek-R1 pipeline. We mathematically formalized the compute-quality tradeoffs, examined the architectural innovations making large-scale deployment feasible, and laid out a rigorous roadmap for the unsolved theoretical challenges regarding scaling laws, uncertainty, and latent alignments. As the frontier of artificial intelligence shifts towards autonomous agents and recursive self-improvement, the mathematical frameworks and systemic optimizations governing On-Policy Distillation will unequivocally serve as the bedrock for the next generation of highly capable, aligned, and efficient language models.
+
+\section*{Author Contributions}
+This survey was conceptualized and rigorously structured by the authors to provide a deep mathematical and systemic analysis of On-Policy Distillation. The authors contributed equally to the formulation of the equations, the taxonomy of industrial systems, and the projection of future research directions.
+
+\section*{Acknowledgments}
+We acknowledge the vast open-source LLM community and the authors of the foundational papers surveyed herein. The rapid acceleration of On-Policy Distillation techniques is a direct result of the collaborative ethos driving modern AI research.
+
+\bibliography{references}
+\bibliographystyle{colm2026_conference}
+\end{document}
