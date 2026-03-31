@@ -4,7 +4,7 @@
 @article{2305.02301,
   author    = {Cheng-Yu Hsieh and Chun-Liang Li and Chih-Kuan Yeh and Hootan Nakhost and Yasuhisa Fujii and Alexander Ratner and Ranjay Krishna and Chen-Yu Lee and Tomas Pfister},
   title     = {{Distilling Step-by-Step! Outperforming Larger Language Models with Less Training Data and Smaller Model Sizes}},
-  journal   = {Findings of ACL},
+  journal   = {arXiv preprint arXiv:2305.02301},
   year      = {2023},
   url       = {https://arxiv.org/abs/2305.02301},
 }
@@ -12,7 +12,7 @@
 @article{2305.12870,
   author    = {Yuxin Jiang and Chunkit Chan and Mingyang Chen and Wei Wang},
   title     = {{Lion: Adversarial Distillation of Proprietary Large Language Models}},
-  journal   = {Proceedings of EMNLP},
+  journal   = {arXiv preprint arXiv:2305.12870},
   year      = {2023},
   url       = {https://arxiv.org/abs/2305.12870},
 }
@@ -28,39 +28,47 @@
 @article{2305.20050,
   author    = {Hunter Lightman and Vineet Kosaraju and Yura Burda and Harri Edwards and Bowen Baker and Teddy Lee and Jan Leike and John Schulman and Ilya Sutskever and Karl Cobbe},
   title     = {{Let's Verify Step by Step}},
-  journal   = {Proceedings of ICLR},
-  year      = {2024},
+  journal   = {arXiv preprint arXiv:2305.20050},
+  year      = {2023},
   url       = {https://arxiv.org/abs/2305.20050},
 }
 
 @article{2306.08543,
   author    = {Yuxian Gu and Li Dong and Furu Wei and Minlie Huang},
   title     = {{MiniLLM: On-Policy Distillation of Large Language Models}},
-  journal   = {Proceedings of ICLR},
-  year      = {2024},
+  journal   = {arXiv preprint arXiv:2306.08543},
+  year      = {2023},
   url       = {https://arxiv.org/abs/2306.08543},
 }
 
 @article{2306.13649,
   author    = {Rishabh Agarwal and Nino Vieillard and Yongchao Zhou and Piotr Stanczyk and Sabela Ramos and Matthieu Geist and Olivier Bachem},
   title     = {{On-Policy Distillation of Language Models: Learning from Self-Generated Mistakes}},
-  journal   = {Proceedings of ICLR},
-  year      = {2024},
+  journal   = {arXiv preprint arXiv:2306.13649},
+  year      = {2023},
   url       = {https://arxiv.org/abs/2306.13649},
 }
 
 @article{2307.15190,
   author    = {Yuqiao Wen and Zichao Li and Wenyu Du and Lili Mou},
   title     = {{f-Divergence Minimization for Sequence-Level Knowledge Distillation}},
-  journal   = {Proceedings of ACL},
+  journal   = {arXiv preprint arXiv:2307.15190},
   year      = {2023},
   url       = {https://arxiv.org/abs/2307.15190},
+}
+
+@article{2310.16944,
+  author    = {Lewis Tunstall and Edward Beeching and Nathan Lambert and Nazneen Rajani and Kashif Rasul and Younes Belkada and Shengyi Huang and Leandro von Werra and Cl{\'e}mentine Fourrier and Nathan Habib and others},
+  title     = {{Zephyr: Direct Distillation of LM Alignment}},
+  journal   = {arXiv preprint arXiv:2310.16944},
+  year      = {2023},
+  url       = {https://arxiv.org/abs/2310.16944},
 }
 
 @article{2401.01335,
   author    = {Zixiang Chen and Yihe Deng and Huizhuo Yuan and Kaixuan Ji and Quanquan Gu},
   title     = {{Self-Play Fine-Tuning Converts Weak Language Models to Strong Language Models}},
-  journal   = {Proceedings of ICML},
+  journal   = {arXiv preprint arXiv:2401.01335},
   year      = {2024},
   url       = {https://arxiv.org/abs/2401.01335},
 }
@@ -68,7 +76,7 @@
 @article{2402.03898,
   author    = {Jongwoo Ko and Sungnyun Kim and Tianyi Chen and Se-Young Yun},
   title     = {{DistiLLM: Towards Streamlined Distillation for Large Language Models}},
-  journal   = {Proceedings of ICML},
+  journal   = {arXiv preprint arXiv:2402.03898},
   year      = {2024},
   url       = {https://arxiv.org/abs/2402.03898},
 }
@@ -76,7 +84,7 @@
 @article{2402.11890,
   author    = {Qihuang Zhong and Liang Ding and Li Shen and Juhua Liu and Bo Du and Dacheng Tao},
   title     = {{Revisiting Knowledge Distillation for Autoregressive Language Models}},
-  journal   = {Proceedings of ACL},
+  journal   = {arXiv preprint arXiv:2402.11890},
   year      = {2024},
   url       = {https://arxiv.org/abs/2402.11890},
 }
@@ -84,15 +92,15 @@
 @article{2402.12030,
   author    = {Nicolas Boizard and Kevin El Haddad and Céline Hudelot and Pierre Colombo},
   title     = {{Towards Cross-Tokenizer Distillation: the Universal Logit Distillation Loss for LLMs}},
-  journal   = {Transactions on Machine Learning Research},
-  year      = {2025},
+  journal   = {Transactions on Machine Learning Research, January 2025},
+  year      = {2024},
   url       = {https://arxiv.org/abs/2402.12030},
 }
 
 @article{2402.12842,
   author    = {Gyeongman Kim and Doohyuk Jang and Eunho Yang},
   title     = {{PromptKD: Distilling Student-Friendly Knowledge for Generative Language Models via Prompt Tuning}},
-  journal   = {Findings of EMNLP},
+  journal   = {arXiv preprint arXiv:2402.12842},
   year      = {2024},
   url       = {https://arxiv.org/abs/2402.12842},
 }
@@ -108,8 +116,8 @@
 @article{2404.02657,
   author    = {Taiqiang Wu and Chaofan Tao and Jiahao Wang and Runming Yang and Zhe Zhao and Ngai Wong},
   title     = {{Rethinking Kullback-Leibler Divergence in Knowledge Distillation for Large Language Models}},
-  journal   = {Proceedings of COLING},
-  year      = {2025},
+  journal   = {arXiv preprint arXiv:2404.02657},
+  year      = {2024},
   url       = {https://arxiv.org/abs/2404.02657},
 }
 
@@ -132,25 +140,23 @@
 @article{2410.09008,
   author    = {Ling Yang and Zhaochen Yu and Tianjun Zhang and Minkai Xu and Joseph E. Gonzalez and Bin Cui and Shuicheng Yan},
   title     = {{SuperCorrect: Advancing Small LLM Reasoning with Thought Template Distillation and Self-Correction}},
-  journal   = {Proceedings of ICLR},
-  year      = {2025},
+  journal   = {arXiv preprint arXiv:2410.09008},
+  year      = {2024},
   url       = {https://arxiv.org/abs/2410.09008},
 }
 
 @article{2410.11325,
   author    = {Wenda Xu and Rujun Han and Zifeng Wang and Long T. Le and Dhruv Madeka and Lei Li and William Yang Wang and Rishabh Agarwal and Chen-Yu Lee and Tomas Pfister},
   title     = {{Speculative Knowledge Distillation: Bridging the Teacher-Student Gap Through Interleaved Sampling}},
-  journal   = {Proceedings of ICLR},
-  year      = {2025},
+  journal   = {arXiv preprint arXiv:2410.11325},
+  year      = {2024},
   url       = {https://arxiv.org/abs/2410.11325},
 }
 
 @article{2501.12948,
   author    = {DeepSeek-AI and Daya Guo and Dejian Yang and Haowei Zhang and Junxiao Song and Peiyi Wang and Qihao Zhu and Runxin Xu and Ruoyu Zhang and Shirong Ma and Xiao Bi and Xiaokang Zhang and Xingkai Yu and Yu Wu and Z. F. Wu and others},
   title     = {{DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning}},
-  journal   = {Nature},
-  volume    = {645},
-  pages     = {633--638},
+  journal   = {Nature volume 645, pages 633-638 (2025)},
   year      = {2025},
   url       = {https://arxiv.org/abs/2501.12948},
 }
@@ -158,7 +164,7 @@
 @article{2503.02832,
   author    = {Songming Zhang and Xue Zhang and Tong Zhang and Bojie Hu and Yufeng Chen and Jinan Xu},
   title     = {{AlignDistil: Token-Level Language Model Alignment as Adaptive Policy Distillation}},
-  journal   = {Proceedings of ACL},
+  journal   = {arXiv preprint arXiv:2503.02832},
   year      = {2025},
   url       = {https://arxiv.org/abs/2503.02832},
 }
@@ -190,7 +196,7 @@
 @article{2505.16297,
   author    = {Seongryong Jung and Suwan Yoon and DongGeon Kim and Hwanhee Lee},
   title     = {{ToDi: Token-wise Distillation via Fine-Grained Divergence Control}},
-  journal   = {Proceedings of EMNLP},
+  journal   = {arXiv preprint arXiv:2505.16297},
   year      = {2025},
   url       = {https://arxiv.org/abs/2505.16297},
 }
@@ -211,11 +217,18 @@
   url       = {https://arxiv.org/abs/2509.22921},
 }
 
+@article{2509.24945,
+  author    = {Changsheng Zhao and Ernie Chang and Zechun Liu and Chia-Jung Chang and Wei Wen and Chen Lai and Sheng Cao and Yuandong Tian and Raghuraman Krishnamoorthi and Yangyang Shi and Vikas Chandra},
+  title     = {{MobileLLM-R1: Exploring the Limits of Sub-Billion Language Model Reasoners with Open Training Recipes}},
+  journal   = {arXiv preprint arXiv:2509.24945},
+  year      = {2025},
+  url       = {https://arxiv.org/abs/2509.24945},
+}
 
 @article{2509.25100,
   author    = {Aasheesh Singh and Vishal Vaddina and Dagnachew Birru},
   title     = {{ORPO-Distill: Mixed-Policy Preference Optimization for Cross-Architecture LLM Distillation}},
-  journal   = {NeurIPS Workshop on Efficient Reasoning},
+  journal   = {arXiv preprint arXiv:2509.25100},
   year      = {2025},
   url       = {https://arxiv.org/abs/2509.25100},
 }
@@ -237,7 +250,7 @@
 }
 
 @article{2601.02780,
-  author    = {{Xiaomi LLM-Core Team} and Bangjun Xiao and Bingquan Xia and Bo Yang and Bofei Gao and Bowen Shen and Chen Zhang and Chenhong He and Chiheng Lou and Fuli Luo and Gang Wang and Gang Xie and Hailin Zhang and Hanglong Lv and others},
+  author    = {Xiaomi LLM-Core Team and : and Bangjun Xiao and Bingquan Xia and Bo Yang and Bofei Gao and Bowen Shen and Chen Zhang and Chenhong He and Chiheng Lou and Fuli Luo and Gang Wang and Gang Xie and Hailin Zhang and Hanglong Lv and others},
   title     = {{MiMo-V2-Flash Technical Report}},
   journal   = {arXiv preprint arXiv:2601.02780},
   year      = {2026},
@@ -340,6 +353,14 @@
 }
 
 
+@article{2009.07253,
+  author    = {Alexander Lin and Jeremy Wohlwend and Howard Chen and Tao Lei},
+  title     = {{Autoregressive Knowledge Distillation through Imitation Learning}},
+  journal   = {Proceedings of EMNLP},
+  year      = {2020},
+  url       = {https://arxiv.org/abs/2009.07253},
+}
+
 @article{2510.07842,
   author    = {Jingyu Peng and Jiaxin Mao and Yong Jiang and Zheng Liu and Pengjie Ren and Zhumin Chen and Maarten de Rijke and Xiangyu Zhao},
   title     = {{AdaSwitch: Balancing Exploration and Guidance in Knowledge Distillation via Adaptive Switching}},
@@ -351,7 +372,7 @@
 @article{2503.07067,
   author    = {Jongwoo Ko and Tianyi Chen and Sungnyun Kim and Tianyu Ding and Luming Liang and Ilya Zharkov and Se-Young Yun},
   title     = {{DistiLLM-2: A Contrastive Approach Boosts the Distillation of LLMs}},
-  journal   = {Proceedings of ICML},
+  journal   = {arXiv preprint arXiv:2503.07067},
   year      = {2025},
   url       = {https://arxiv.org/abs/2503.07067},
 }
@@ -367,8 +388,8 @@
 @article{2410.17215,
   author    = {Yuxian Gu and Hao Zhou and Fandong Meng and Jie Zhou and Minlie Huang},
   title     = {{MiniPLM: Knowledge Distillation for Pre-Training Language Models}},
-  journal   = {Proceedings of ICLR},
-  year      = {2025},
+  journal   = {arXiv preprint arXiv:2410.17215},
+  year      = {2024},
   url       = {https://arxiv.org/abs/2410.17215},
 }
 
@@ -462,8 +483,8 @@
 @article{2509.25837,
   author    = {Yeongmin Kim and Donghyeok Shin and Mina Kang and Byeonghu Na and Il-Chul Moon},
   title     = {{Distillation of Large Language Models via Concrete Score Matching}},
-  journal   = {Proceedings of ICLR},
-  year      = {2026},
+  journal   = {arXiv preprint arXiv:2509.25837},
+  year      = {2025},
   url       = {https://arxiv.org/abs/2509.25837},
 }
 
@@ -478,7 +499,7 @@
 @article{2501.16937,
   author    = {Makoto Shing and Kou Misaki and Han Bao and Sho Yokoi and Takuya Akiba},
   title     = {{TAID: Temporally Adaptive Interpolated Distillation for Efficient Knowledge Transfer in Language Models}},
-  journal   = {Proceedings of ICLR},
+  journal   = {arXiv preprint arXiv:2501.16937},
   year      = {2025},
   url       = {https://arxiv.org/abs/2501.16937},
 }
@@ -486,7 +507,7 @@
 @article{2505.13111,
   author    = {Sungmin Cha and Kyunghyun Cho},
   title     = {{Why Knowledge Distillation Works in Generative Models: A Minimal Working Explanation}},
-  journal   = {Advances in Neural Information Processing Systems (NeurIPS)},
+  journal   = {arXiv preprint arXiv:2505.13111},
   year      = {2025},
   url       = {https://arxiv.org/abs/2505.13111},
 }
@@ -530,116 +551,3 @@
   year      = {2026},
   url       = {https://arxiv.org/abs/2602.04942},
 }
-
-@article{2603.11137,
-  author    = {Jongwoo Ko and Sara Abdali and Young Jin Kim and Tianyi Chen and Pashmina Cameron},
-  title     = {{Scaling Reasoning Efficiently via Relaxed On-Policy Distillation}},
-  journal   = {arXiv preprint arXiv:2603.11137},
-  year      = {2026},
-  url       = {https://arxiv.org/abs/2603.11137},
-}
-
-@article{2603.23871,
-  author    = {Ken Ding},
-  title     = {{HDPO: Hybrid Distillation Policy Optimization via Privileged Self-Distillation}},
-  journal   = {arXiv preprint arXiv:2603.23871},
-  year      = {2026},
-  url       = {https://arxiv.org/abs/2603.23871},
-}
-
-@article{2602.03073,
-  author    = {Rana Muhammad Shahroz Khan and Zijie Liu and Zhen Tan and Charles Fleming and Tianlong Chen},
-  title     = {{TMS: Trajectory-Mixed Supervision for Reward-Free, On-Policy SFT}},
-  journal   = {arXiv preprint arXiv:2602.03073},
-  year      = {2026},
-  url       = {https://arxiv.org/abs/2602.03073},
-}
-
-@article{2601.09088,
-  author    = {Shaotian Yan and Kaiyuan Liu and Chen Shen and Bing Wang and Sinan Fan and Jun Zhang and Yue Wu and Zheng Wang and Jieping Ye},
-  title     = {{Distribution-Aligned Sequence Distillation for Superior Long-CoT Reasoning}},
-  journal   = {arXiv preprint arXiv:2601.09088},
-  year      = {2026},
-  url       = {https://arxiv.org/abs/2601.09088},
-}
-
-@article{2603.13260,
-  author    = {Minsang Kim and Seung Jun Baek},
-  title     = {{Explain in Your Own Words: Improving Reasoning via Token-Selective Dual Knowledge Distillation}},
-  journal   = {Proceedings of ICLR},
-  year      = {2026},
-  url       = {https://arxiv.org/abs/2603.13260},
-}
-
-@article{2602.12222,
-  author    = {Miaosen Zhang and Yishan Liu and Shuxia Lin and Xu Yang and Qi Dai and Chong Luo and Weihao Jiang and Peng Hou and Anxiang Zeng and Xin Geng and Baining Guo},
-  title     = {{Towards On-Policy SFT: Distribution Discriminant Theory and its Applications in LLM Training}},
-  journal   = {arXiv preprint arXiv:2602.12222},
-  year      = {2026},
-  url       = {https://arxiv.org/abs/2602.12222},
-}
-
-@article{2601.07155,
-  author    = {Ijun Jang and Jewon Yeom and Juan Yeo and Hyunggu Lim and Taesup Kim},
-  title     = {{Stable On-Policy Distillation through Adaptive Target Reformulation}},
-  journal   = {arXiv preprint arXiv:2601.07155},
-  year      = {2026},
-  url       = {https://arxiv.org/abs/2601.07155},
-}
-
-@article{2603.25562,
-  author    = {Yuqian Fu and Haohuan Huang and Kaiwen Jiang and Yuanheng Zhu and Dongbin Zhao},
-  title     = {{Revisiting On-Policy Distillation: Empirical Failure Modes and Simple Fixes}},
-  journal   = {arXiv preprint arXiv:2603.25562},
-  year      = {2026},
-  url       = {https://arxiv.org/abs/2603.25562},
-}
-
-@article{2601.21968,
-  author    = {Jing Xiong and Hui Shen and Shansan Gong and Yuxin Cheng and Jianghan Shen and Chaofan Tao and Haochen Tan and Haoli Bai and Lifeng Shang and Ngai Wong},
-  title     = {{OVD: On-policy Verbal Distillation}},
-  journal   = {arXiv preprint arXiv:2601.21968},
-  year      = {2026},
-  url       = {https://arxiv.org/abs/2601.21968},
-}
-
-@article{2504.19024,
-  author    = {Jiabin Fan and Guoqing Luo and Michael Bowling and Lili Mou},
-  title     = {{KETCHUP: K-Step Return Estimation for Sequential Knowledge Distillation}},
-  journal   = {arXiv preprint arXiv:2504.19024},
-  year      = {2025},
-  url       = {https://arxiv.org/abs/2504.19024},
-}
-
-@article{2603.24472,
-  author    = {Jeonghye Kim and Xufang Luo and Minbeom Kim and Sangmook Lee and Dohyung Kim and Jiwon Jeon and Dongsheng Li and Yuqing Yang},
-  title     = {{Why Does Self-Distillation (Sometimes) Degrade the Reasoning Capability of LLMs?}},
-  journal   = {arXiv preprint arXiv:2603.24472},
-  year      = {2026},
-  url       = {https://arxiv.org/abs/2603.24472},
-}
-
-@article{2603.24596,
-  author    = {Di Cao and Dongjie Fu and Hai Yu and Siqi Zheng and Xu Tan and Tao Jin},
-  title     = {{X-OPD: Cross-Modal On-Policy Distillation for Capability Alignment in Speech LLMs}},
-  journal   = {arXiv preprint arXiv:2603.24596},
-  year      = {2026},
-  url       = {https://arxiv.org/abs/2603.24596},
-}
-
-@inproceedings{2203.15556,
-  author    = {Jordan Hoffmann and Sebastian Borgeaud and Arthur Mensch and Elena Buchatskaya and Trevor Cai and Eliza Rutherford and Diego de Las Casas and Lisa Anne Hendricks and Johannes Welbl and Aidan Clark and Tom Hennigan and Eric Noland and Katie Millican and George van den Driessche and Bogdan Damoc and Aurelia Guy and Simon Osindero and Karen Simonyan and Erich Elsen and Jack W. Rae and Oriol Vinyals and Laurent Sifre},
-  title     = {{Training Compute-Optimal Large Language Models}},
-  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
-  year      = {2022},
-  url       = {https://arxiv.org/abs/2203.15556},
-}
-
-@inproceedings{2502.08606,
-  author    = {Dan Busbridge and Amitis Shidani and Floris Weers and Jason Ramapuram and Etai Littwin and Russ Webb},
-  title     = {{Distillation Scaling Laws}},
-  booktitle = {Proceedings of the International Conference on Machine Learning (ICML)},
-  year      = {2025},
-  url       = {https://arxiv.org/abs/2502.08606},
-}
-

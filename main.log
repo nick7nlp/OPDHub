@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.3.22)  26 MAR 2026 12:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.3.29)  31 MAR 2026 10:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -890,33 +890,55 @@ Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
 \multirow@dima=\skip68
 \bigstrutjot=\dimen294
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 17.
-LaTeX Font Info:    Trying to load font information for OT1+ppl on input line 3
-8.
+(/usr/share/texlive/texmf-dist/tex/latex/placeins/placeins.sty
+Package: placeins 2005/04/18  v 2.2
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tex-gyre/tgheros.sty
+Package: tgheros 2009/09/27 v1.2 TeX Gyre Heros as default sans serif family
+)
+(/usr/share/texlive/texmf-dist/tex/latex/sansmath/sansmath.sty
+Package: sansmath 2007/02/28  ver 1.1 Donald Arseneau
+\c@mv@sans=\count353
+LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `sans'
+(Font)                  OT1/ppl/m/n --> OT1/qhv/m/n on input line 103.
+LaTeX Font Info:    Overwriting math alphabet `\mathsfsl' in version `sans'
+(Font)                  OT1/qhv/m/sl --> OT1/qhv/m/sl on input line 104.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `sans'
+(Font)                  OT1/ppl/m/n --> OT1/qhv/m/n on input line 105.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `sans'
+(Font)                  OML/zplm/m/it --> OML/cmm/m/it on input line 109.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `sans'
+(Font)                  OMS/zplm/m/n --> OMS/cmsy/m/n on input line 110.
+LaTeX Font Info:    Overwriting math alphabet `\mathsfbf' in version `sans'
+(Font)                  OT1/qhv/bx/sl --> OT1/qhv/bx/n on input line 112.
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 41.
+LaTeX Font Info:    Trying to load font information for OT1+ppl on input line 6
+2.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ppl.fd
 File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
 ) (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
 
 (/usr/share/texlive/texmf-dist/tex/latex/upquote/upquote.sty
 Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
@@ -924,16 +946,16 @@ tim
 )
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count353
+\scratchcounter=\count354
 \scratchdimen=\dimen295
 \scratchbox=\box91
-\nofMPsegments=\count354
-\nofMParguments=\count355
+\nofMPsegments=\count355
+\nofMParguments=\count356
 \everyMPshowfont=\toks54
-\MPscratchCnt=\count356
+\MPscratchCnt=\count357
 \MPscratchDim=\dimen296
-\MPnumerator=\count357
-\makeMPintoPDFobject=\count358
+\MPnumerator=\count358
+\makeMPintoPDFobject=\count359
 \everyMPtoPDFconversion=\toks55
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -944,19 +966,19 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Info: Redefining \microtypecontext on input line 38.
-Package microtype Info: Applying patch `item' on input line 38.
-Package microtype Info: Applying patch `toc' on input line 38.
-Package microtype Info: Applying patch `eqnum' on input line 38.
-Package microtype Info: Applying patch `footnote' on input line 38.
-Package microtype Info: Applying patch `verbatim' on input line 38.
+LaTeX Info: Redefining \microtypecontext on input line 62.
+Package microtype Info: Applying patch `item' on input line 62.
+Package microtype Info: Applying patch `toc' on input line 62.
+Package microtype Info: Applying patch `eqnum' on input line 62.
+Package microtype Info: Applying patch `footnote' on input line 62.
+Package microtype Info: Applying patch `verbatim' on input line 62.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 38.
+LaTeX Info: Redefining \showhyphens on input line 62.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -964,31 +986,31 @@ Package microtype Info: No adjustment of character kerning.
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-ppl.cfg
 File: mt-ppl.cfg 2005/11/16 v1.6 microtype config. file: Palatino (RS)
 )
-Package hyperref Info: Link coloring ON on input line 38.
+Package hyperref Info: Link coloring ON on input line 62.
  (./main.out)
 (./main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
 
 LaTeX Font Info:    Trying to load font information for OML+zplm on input line 
-45.
+69.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlzplm.fd
 File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
 )
 LaTeX Font Info:    Trying to load font information for OMS+zplm on input line 
-45.
+69.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omszplm.fd
 File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
 )
 LaTeX Font Info:    Trying to load font information for OMX+zplm on input line 
-45.
+69.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omxzplm.fd
 File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
 )
 LaTeX Font Info:    Trying to load font information for OT1+zplm on input line 
-45.
+69.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1zplm.fd
 File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
@@ -998,33 +1020,33 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 10.42007pt on input line 45.
+(Font)              scaled to size 10.42007pt on input line 69.
 
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 7.91925pt on input line 45.
+(Font)              scaled to size 7.91925pt on input line 69.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 6.25204pt on input line 45.
+(Font)              scaled to size 6.25204pt on input line 69.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 10.42007pt on input line 45.
+(Font)              scaled to size 10.42007pt on input line 69.
 
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.91925pt on input line 45.
+(Font)              scaled to size 7.91925pt on input line 69.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 6.25204pt on input line 45.
-LaTeX Font Info:    Trying to load font information for OT1+zi4 on input line 4
-5.
+(Font)              scaled to size 6.25204pt on input line 69.
+LaTeX Font Info:    Trying to load font information for OT1+zi4 on input line 6
+9.
 
 (/usr/share/texlive/texmf-dist/tex/latex/inconsolata/ot1zi4.fd
 File: ot1zi4.fd 2018/01/14 OT1/zi4 (Inconsolata)
 )
 LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
-(Font)              scaled to size 10.0pt on input line 45.
+(Font)              scaled to size 10.0pt on input line 69.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `zi4' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
@@ -1033,89 +1055,140 @@ Package microtype Info: Loading generic protrusion settings for font family
 -dist/fonts/enc/dvips/base/8r.enc}
 
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-ot1-0.enc}]
-LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 6
-6.
+LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 9
+0.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ppl.fd
 File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
 )
-[2]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [2]
 LaTeX Font Info:    Trying to load font information for U+fplmbb on input line 
-84.
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ufplmbb.fd
+110.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ufplmbb.fd
 File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
-) [3] [4]
-[5] [6]
+) [3] [4] [5]
+LaTeX Font Info:    Trying to load font information for OT1+qhv on input line 3
+57.
 
-LaTeX Font Warning: Font shape `OT1/cmss/b/n' undefined
-(Font)              using `OT1/cmss/m/n' instead on input line 261.
-
+(/usr/share/texlive/texmf-dist/tex/latex/tex-gyre/ot1qhv.fd
+File: ot1qhv.fd 2009/09/25 v1.2 font definition file for OT1/qhv
+)
 Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `cmss' (encoding: OT1).
+(microtype)             `qhv' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-[7] [8]
-Underfull \vbox (badness 2221) has occurred while \output is active []
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 12.50409pt on input line 357.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 9.37807pt on input line 357.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 7.29405pt on input line 357.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 12.50409pt on input line 357.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 9.37807pt on input line 357.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 7.29405pt on input line 357.
 
- [9]
-[10] [11] [12]
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 396.
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 396.
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 5.21004pt on input line 396.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 396.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 396.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 5.21004pt on input line 396.
 
+LaTeX Font Warning: Font shape `OT1/qhv/m/sl' in size <12> not available
+(Font)              Font shape `OT1/qhv/m/it' tried instead on input line 357.
+
+
+LaTeX Font Warning: Font shape `OT1/qhv/m/sl' in size <9> not available
+(Font)              Font shape `OT1/qhv/m/it' tried instead on input line 357.
+
+
+LaTeX Font Warning: Font shape `OT1/qhv/m/sl' in size <7> not available
+(Font)              Font shape `OT1/qhv/m/it' tried instead on input line 357.
+
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 5.21004pt on input line 357.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 5.21004pt on input line 357.
+
+LaTeX Font Warning: Font shape `OT1/qhv/m/sl' in size <5> not available
+(Font)              Font shape `OT1/qhv/m/it' tried instead on input line 357.
+
+
+LaTeX Font Warning: Font shape `OT1/qhv/m/sl' in size <10> not available
+(Font)              Font shape `OT1/qhv/m/it' tried instead on input line 357.
+
+
+LaTeX Font Warning: Font shape `OT1/qhv/m/sl' in size <7.6> not available
+(Font)              Font shape `OT1/qhv/m/it' tried instead on input line 357.
+
+
+LaTeX Font Warning: Font shape `OT1/qhv/m/sl' in size <6> not available
+(Font)              Font shape `OT1/qhv/m/it' tried instead on input line 357.
+
+[6]
+Underfull \vbox (badness 1024) has occurred while \output is active []
+
+ [7{/usr/share/texlive/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm.enc}]
+LaTeX Font Info:    Trying to load font information for TS1+qhv on input line 4
+51.
+
+(/usr/share/texlive/texmf-dist/tex/latex/tex-gyre/ts1qhv.fd
+File: ts1qhv.fd 2009/09/25 v1.2 font definition file for TS1/qhv
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `qhv' (encoding: TS1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+ [8] [9{/usr/share/texlive/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [13]
-[14]
+ [10]
+[11] [12] [13]
+Underfull \vbox (badness 1629) has occurred while \output is active []
+
+ [14]
+[15] [16]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [15]
-[16] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26] [27] [28] [29] [30]
-[31] [32] [33] (./main.bbl [34] [35]
-Underfull \hbox (badness 1102) in paragraph at lines 291--296
-\OT1/ppl/m/n/10 (+20) Pref-er-ence Op-ti-miza-tion for Cross-Architecture LLM D
-is-til-la-tion.  \OT1/ppl/m/it/10 (+20) arXiv preprint
- []
+ [17]
+[18]
+Underfull \vbox (badness 1584) has occurred while \output is active []
 
-[36] [37]) [38] (./main.aux)
+ [19]
+[20] [21] [22] [23] [24]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
+ [25]
+[26] [27] [28] [29] [30] [31] [32] (./main.bbl [33] [34] [35] [36] [37])
+[38] (./main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 7E3BDC0CBF8DF9D673F0B0F78DDB75A1;8789.
+(rerunfilecheck)             Checksum: 4004C492C77FD3D547E1E55E9C492537;9194.
  ) 
 Here is how much of TeX's memory you used:
- 37337 strings out of 477985
- 794443 string characters out of 5839380
- 1884388 words of memory out of 6000000
- 56297 multiletter control sequences out of 15000+600000
- 569913 words of font info for 406 fonts, out of 8000000 for 9000
+ 38215 strings out of 477985
+ 811813 string characters out of 5839380
+ 1899388 words of memory out of 6000000
+ 57113 multiletter control sequences out of 15000+600000
+ 649539 words of font info for 460 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 131i,17n,135p,1708b,2029s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 131i,19n,135p,2033b,2097s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4
 r.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/mathpazo/fplmbb.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/mathpazo/fplmr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/m
-athpazo/fplmri.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb
-8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (38 pages, 367759 bytes).
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/mathpazo/fplmr.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/mathpazo/fplmri.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/tex-gyre/qhvb.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/tex-gyre
+/qhvr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/tex-gyre/qhvri.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/font
+s/type1/urw/palatino/uplri8a.pfb>
+Output written on main.pdf (38 pages, 451634 bytes).
 PDF statistics:
- 1125 PDF objects out of 1200 (max. 8388607)
- 1032 compressed objects within 11 object streams
- 239 named destinations out of 1000 (max. 500000)
- 63397 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 1354 PDF objects out of 1440 (max. 8388607)
+ 1250 compressed objects within 13 object streams
+ 220 named destinations out of 1000 (max. 500000)
+ 100821 words of extra memory for PDF output out of 106986 (max. 10000000)
 

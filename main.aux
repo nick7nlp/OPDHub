@@ -13,23 +13,27 @@
 \gdef\HyperFirstAtBeginDocument#1{#1}
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{hinton2015distilling}
 \citation{2501.12948}
 \citation{2305.15717}
 \citation{ross2011reduction}
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
 \newlabel{sec:intro}{{1}{1}{Introduction}{section.1}{}}
+\citation{2306.13649,2306.08543}
+\citation{2511.10643,2305.12870}
+\citation{2401.01335}
+\citation{ross2011reduction}
 \citation{2306.13649}
 \citation{2306.08543}
+\citation{2402.03898}
+\citation{2505.16142}
 \citation{2401.01335}
 \citation{2402.13116}
 \citation{2306.13649}
 \citation{2306.08543}
 \citation{2402.03898}
-\citation{2305.20050}
-\citation{2503.02832}
-\citation{2601.02780}
-\citation{2305.12870}
 \citation{2511.10643}
+\citation{2305.12870}
 \citation{hinton2015distilling}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Background and Preliminaries}{3}{section.2}\protected@file@percent }
 \newlabel{sec:background}{{2}{3}{Background and Preliminaries}{section.2}{}}
@@ -40,39 +44,34 @@
 \citation{kim2016sequence}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Token-Level vs. Sequence-Level Distillation}{4}{subsection.2.2}\protected@file@percent }
 \newlabel{subsec:token_vs_sequence}{{2.2}{4}{Token-Level vs. Sequence-Level Distillation}{subsection.2.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}The Distribution Mismatch Problem and Exposure Bias}{4}{subsection.2.3}\protected@file@percent }
-\newlabel{subsec:exposure_bias}{{2.3}{4}{The Distribution Mismatch Problem and Exposure Bias}{subsection.2.3}{}}
 \citation{ross2011reduction}
-\citation{2009.07253}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}The Distribution Mismatch Problem and Exposure Bias}{5}{subsection.2.3}\protected@file@percent }
+\newlabel{subsec:exposure_bias}{{2.3}{5}{The Distribution Mismatch Problem and Exposure Bias}{subsection.2.3}{}}
 \citation{2306.13649}
 \citation{2402.03898}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}The f-Divergence Family and Geometric Intuition}{5}{subsection.2.4}\protected@file@percent }
-\newlabel{subsec:f_divergence}{{2.4}{5}{The f-Divergence Family and Geometric Intuition}{subsection.2.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}The f-Divergence Family and Geometric Intuition}{6}{subsection.2.4}\protected@file@percent }
+\newlabel{subsec:f_divergence}{{2.4}{6}{The f-Divergence Family and Geometric Intuition}{subsection.2.4}{}}
 \citation{2306.13649}
 \citation{2306.08543}
 \citation{2402.03898}
 \citation{2306.13649}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}A Unified Mathematical View of Modern OPD}{6}{subsection.2.5}\protected@file@percent }
-\newlabel{subsec:unified_view}{{2.5}{6}{A Unified Mathematical View of Modern OPD}{subsection.2.5}{}}
 \citation{2306.08543}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Forward KL vs.\ Reverse KL divergence for fitting a student distribution $P_S$ to a bimodal teacher $P_T$. (a)\nobreakspace  {}The teacher distribution with two modes. (b)\nobreakspace  {}Forward KL is mean-seeking: the student covers both modes but places mass in the inter-mode ``hallucination zone.'' (c)\nobreakspace  {}Reverse KL is mode-seeking: the student concentrates on a single peak, dropping the other mode entirely. Adaptive methods (ToDi, Entropy-Aware OPD) dynamically switch between the two based on teacher confidence.}}{7}{figure.1}\protected@file@percent }
+\newlabel{fig:forward_vs_reverse_kl}{{1}{7}{Forward KL vs.\ Reverse KL divergence for fitting a student distribution $P_S$ to a bimodal teacher $P_T$. (a)~The teacher distribution with two modes. (b)~Forward KL is mean-seeking: the student covers both modes but places mass in the inter-mode ``hallucination zone.'' (c)~Reverse KL is mode-seeking: the student concentrates on a single peak, dropping the other mode entirely. Adaptive methods (ToDi, Entropy-Aware OPD) dynamically switch between the two based on teacher confidence}{figure.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}A Unified Mathematical View of Modern OPD}{7}{subsection.2.5}\protected@file@percent }
+\newlabel{subsec:unified_view}{{2.5}{7}{A Unified Mathematical View of Modern OPD}{subsection.2.5}{}}
 \citation{2402.03898}
 \citation{2306.13649}
 \citation{2306.08543}
 \citation{2505.16297}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Taxonomy of On-Policy Distillation}{7}{section.3}\protected@file@percent }
-\newlabel{sec:taxonomy}{{3}{7}{Taxonomy of On-Policy Distillation}{section.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Feedback Signal}{7}{subsection.3.1}\protected@file@percent }
-\newlabel{subsec:tax_feedback}{{3.1}{7}{Feedback Signal}{subsection.3.1}{}}
 \citation{2505.16142}
-\citation{2305.20050}
 \citation{2401.01335}
 \citation{2601.18734}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Taxonomy of On-Policy Distillation}{8}{section.3}\protected@file@percent }
+\newlabel{sec:taxonomy}{{3}{8}{Taxonomy of On-Policy Distillation}{section.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Feedback Signal}{8}{subsection.3.1}\protected@file@percent }
+\newlabel{subsec:tax_feedback}{{3.1}{8}{Feedback Signal}{subsection.3.1}{}}
 \citation{2402.03898}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Taxonomy of on-policy distillation for large language models. The methodology space is organized along three orthogonal dimensions with representative methods. A single method may appear across multiple categories as these axes are independent.}}{8}{figure.1}\protected@file@percent }
-\newlabel{fig:taxonomy_tree}{{1}{8}{Taxonomy of on-policy distillation for large language models. The methodology space is organized along three orthogonal dimensions with representative methods. A single method may appear across multiple categories as these axes are independent}{figure.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Teacher Access}{8}{subsection.3.2}\protected@file@percent }
-\newlabel{subsec:tax_access}{{3.2}{8}{Teacher Access}{subsection.3.2}{}}
-\citation{2310.16944}
 \citation{2305.12870}
 \citation{2511.10643}
 \citation{2401.01335}
@@ -80,217 +79,286 @@
 \citation{2602.20574}
 \citation{2601.20802}
 \citation{2602.04942}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Granularity}{9}{subsection.3.3}\protected@file@percent }
-\newlabel{subsec:tax_granularity}{{3.3}{9}{Granularity}{subsection.3.3}{}}
-\citation{2305.02301}
-\citation{2410.09008}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Taxonomy of on-policy distillation for large language models. The methodology space is organized along three orthogonal dimensions with representative methods. A single method may appear across multiple categories as these axes are independent.}}{9}{figure.2}\protected@file@percent }
+\newlabel{fig:taxonomy_tree}{{2}{9}{Taxonomy of on-policy distillation for large language models. The methodology space is organized along three orthogonal dimensions with representative methods. A single method may appear across multiple categories as these axes are independent}{figure.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Teacher Access}{9}{subsection.3.2}\protected@file@percent }
+\newlabel{subsec:tax_access}{{3.2}{9}{Teacher Access}{subsection.3.2}{}}
+\citation{2305.20050,2410.09008,2505.16142,2602.12674}
 \citation{2305.20050}
+\citation{2410.09008}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Granularity}{10}{subsection.3.3}\protected@file@percent }
+\newlabel{subsec:tax_granularity}{{3.3}{10}{Granularity}{subsection.3.3}{}}
 \citation{2306.13649}
-\citation{2602.12125}
-\@writefile{toc}{\contentsline {section}{\numberline {4}White-Box On-Policy Methods}{10}{section.4}\protected@file@percent }
-\newlabel{sec:white_box}{{4}{10}{White-Box On-Policy Methods}{section.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Token-Level Divergence Minimization}{10}{subsection.4.1}\protected@file@percent }
-\newlabel{subsec:token_level}{{4.1}{10}{Token-Level Divergence Minimization}{subsection.4.1}{}}
-\@writefile{toc}{\contentsline {paragraph}{Generalized Knowledge Distillation (GKD)}{10}{section*.1}\protected@file@percent }
-\newlabel{eq:gkd}{{16}{10}{Generalized Knowledge Distillation (GKD)}{equation.4.16}{}}
 \citation{2402.03898}
 \citation{2503.07067}
+\@writefile{toc}{\contentsline {section}{\numberline {4}White-Box On-Policy Methods}{11}{section.4}\protected@file@percent }
+\newlabel{sec:white_box}{{4}{11}{White-Box On-Policy Methods}{section.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Token-Level Divergence Minimization}{11}{subsection.4.1}\protected@file@percent }
+\newlabel{subsec:token_level}{{4.1}{11}{Token-Level Divergence Minimization}{subsection.4.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.1}From Fixed to Adaptive Divergences}{11}{subsubsection.4.1.1}\protected@file@percent }
+\newlabel{eq:gkd}{{16}{11}{From Fixed to Adaptive Divergences}{equation.4.16}{}}
+\newlabel{eq:distillm}{{17}{11}{From Fixed to Adaptive Divergences}{equation.4.17}{}}
 \citation{2505.16297}
 \citation{2404.02657}
-\citation{2509.14526}
-\@writefile{toc}{\contentsline {paragraph}{Generalized OPD with Reward Extrapolation (G-OPD)}{11}{section*.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{DistiLLM}{11}{section*.3}\protected@file@percent }
-\newlabel{eq:distillm}{{17}{11}{DistiLLM}{equation.4.17}{}}
-\@writefile{toc}{\contentsline {paragraph}{DistiLLM-2}{11}{section*.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{ToDi}{11}{section*.5}\protected@file@percent }
-\newlabel{eq:todi}{{18}{11}{ToDi}{equation.4.18}{}}
-\@writefile{toc}{\contentsline {paragraph}{Adaptive KL (AKL) and Delta KD}{11}{section*.6}\protected@file@percent }
+\citation{2404.02657}
 \citation{2603.07079}
-\citation{2504.11426}
-\citation{2306.13649}
-\citation{2402.03898}
+\citation{2602.12125}
+\newlabel{eq:todi}{{18}{12}{From Fixed to Adaptive Divergences}{equation.4.18}{}}
 \citation{2510.11615}
 \citation{2510.24021}
 \citation{2509.25837}
-\@writefile{toc}{\contentsline {paragraph}{Entropy-Aware OPD}{12}{section*.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Dual Space Knowledge Distillation (DSKD)}{12}{section*.8}\protected@file@percent }
+\citation{2504.11426}
+\citation{2509.14526}
+\citation{2306.13649}
+\citation{2402.03898}
 \citation{2505.16297}
 \citation{2603.07079}
-\citation{2306.08543}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Sequence-Level On-Policy Methods}{13}{subsection.4.2}\protected@file@percent }
-\newlabel{subsec:sequence_level}{{4.2}{13}{Sequence-Level On-Policy Methods}{subsection.4.2}{}}
-\@writefile{toc}{\contentsline {paragraph}{MiniLLM and the Full REINFORCE Derivation}{13}{section*.9}\protected@file@percent }
-\citation{2509.22921}
-\citation{2602.15260}
-\citation{2402.12842}
-\newlabel{eq:minillm_final}{{24}{14}{MiniLLM and the Full REINFORCE Derivation}{equation.4.24}{}}
-\@writefile{toc}{\contentsline {paragraph}{Constrained Optimization View}{14}{section*.10}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Theoretical Comparison of Token-level and Sequence-level Methods}{14}{section*.11}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Hybrid and Adaptive Approaches}{14}{subsection.4.3}\protected@file@percent }
-\newlabel{subsec:hybrid}{{4.3}{14}{Hybrid and Adaptive Approaches}{subsection.4.3}{}}
-\@writefile{toc}{\contentsline {paragraph}{Fast OPD from Reasoning Prefixes}{14}{section*.12}\protected@file@percent }
-\citation{2603.11178}
-\citation{2510.07842}
-\citation{2602.12674}
-\citation{2501.16937}
-\citation{2404.02657}
-\citation{2402.11890}
-\@writefile{toc}{\contentsline {paragraph}{PromptKD}{15}{section*.13}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{PACED}{15}{section*.14}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{AdaSwitch}{15}{section*.15}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{$\mathcal  {X}$-KD: Experiential Knowledge Distillation}{15}{section*.16}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{TAID: Temporally Adaptive Interpolated Distillation}{15}{section*.17}\protected@file@percent }
-\citation{2307.15190}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2}Token Weighting and Selection}{13}{subsubsection.4.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.3}Cross-Architecture Distillation}{13}{subsubsection.4.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.4}Cross-Method Analysis}{13}{subsubsection.4.1.4}\protected@file@percent }
 \citation{2306.13649}
 \citation{2602.12125}
 \citation{2306.08543}
 \citation{2402.03898}
 \citation{2503.07067}
-\citation{2402.12842}
-\citation{2404.02657}
 \citation{2504.11426}
-\citation{2509.14526}
-\citation{2505.16297}
 \citation{2509.22921}
 \citation{2603.07079}
 \citation{2602.15260}
 \citation{2603.11178}
 \citation{2602.12674}
 \citation{2510.07842}
-\citation{2501.16937}
 \citation{2509.25837}
+\citation{2603.11137}
+\citation{2603.13260}
+\citation{2601.07155}
+\citation{2601.09088}
+\citation{2602.12222}
 \citation{2306.13649}
-\citation{2306.13649}
-\citation{2306.08543}
-\citation{2306.08543}
+\citation{2602.12125}
 \citation{2402.03898}
-\citation{2402.03898}
-\citation{2310.16944}
-\citation{2401.01335}
-\citation{2501.12948}
-\citation{2501.12948}
-\citation{2501.12948}
-\citation{2501.12948}
-\citation{2501.12948}
-\citation{2501.12948}
-\citation{2501.12948}
-\citation{2505.16142}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Theoretical Analysis and Method Comparison}{16}{subsection.4.4}\protected@file@percent }
-\newlabel{subsec:theory_whitebox}{{4.4}{16}{Theoretical Analysis and Method Comparison}{subsection.4.4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Black-Box and Self-Distillation Methods}{16}{section.5}\protected@file@percent }
-\newlabel{sec:black_box}{{5}{16}{Black-Box and Self-Distillation Methods}{section.5}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Comprehensive comparison of white-box on-policy distillation methods.}}{17}{table.1}\protected@file@percent }
-\newlabel{tab:white_box_comparison}{{1}{17}{Comprehensive comparison of white-box on-policy distillation methods}{table.1}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Performance comparison of representative distillation methods. Numbers for R1-Distill, RLKD, SPIN, and Zephyr are taken directly from result tables in the original papers. Numbers for GKD, MiniLLM, and DistiLLM are approximate values read from figures, as these papers report results primarily through plots rather than tables. ``T $\to $ S'' denotes teacher and student. $\dagger $ denotes black-box teacher. Dashes indicate metrics not reported.}}{17}{table.2}\protected@file@percent }
-\newlabel{tab:performance_comparison}{{2}{17}{Performance comparison of representative distillation methods. Numbers for R1-Distill, RLKD, SPIN, and Zephyr are taken directly from result tables in the original papers. Numbers for GKD, MiniLLM, and DistiLLM are approximate values read from figures, as these papers report results primarily through plots rather than tables. ``T $\to $ S'' denotes teacher and student. $\dagger $ denotes black-box teacher. Dashes indicate metrics not reported}{table.2}{}}
+\citation{2503.07067}
+\citation{2603.07079}
+\citation{2509.25837}
+\citation{2601.07155}
+\citation{2603.25562}
+\citation{2504.11426}
+\citation{2603.11137}
+\citation{2603.13260}
+\citation{2306.08543}
+\citation{2509.22921}
+\citation{2504.19024}
+\citation{2602.15260}
+\citation{2603.11178}
+\citation{2510.07842}
+\citation{2602.12674}
+\citation{2601.09088}
+\citation{2602.12222}
 \citation{2511.10643}
 \citation{2305.12870}
-\citation{2310.16944}
+\citation{2601.21968}
 \citation{2509.25100}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Black-Box On-Policy Distillation}{18}{subsection.5.1}\protected@file@percent }
-\newlabel{subsec:black_box}{{5.1}{18}{Black-Box On-Policy Distillation}{subsection.5.1}{}}
-\@writefile{toc}{\contentsline {paragraph}{Generative Adversarial Distillation (GAD)}{18}{section*.18}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Lion}{18}{section*.19}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Zephyr and dDPO}{18}{section*.20}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{ORPO-Distill}{18}{section*.21}\protected@file@percent }
 \citation{2602.02405}
 \citation{2401.01335}
 \citation{2601.18734}
-\@writefile{toc}{\contentsline {paragraph}{DAIL: Distribution Aligned Imitation Learning}{19}{section*.22}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Self-Play and Self-Distillation}{19}{subsection.5.2}\protected@file@percent }
-\newlabel{subsec:self_distill}{{5.2}{19}{Self-Play and Self-Distillation}{subsection.5.2}{}}
-\@writefile{toc}{\contentsline {paragraph}{SPIN}{19}{section*.23}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{OPSD}{19}{section*.24}\protected@file@percent }
-\citation{2602.06019}
-\citation{2602.12275}
-\citation{2603.16856}
 \citation{2603.05433}
 \citation{2602.20574}
 \citation{2601.20802}
-\@writefile{toc}{\contentsline {paragraph}{MTP and Context Distillation}{20}{section*.25}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{OPSDC: Compressed Reasoning via Self-Distillation}{20}{section*.26}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{GATES: Gated Self-Distillation from Privileged Context}{20}{section*.27}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{SDPO: Self-Distillation Policy Optimization}{20}{section*.28}\protected@file@percent }
-\citation{2602.04942}
+\citation{2602.06019}
+\citation{2602.12275}
 \citation{2603.16856}
-\@writefile{toc}{\contentsline {paragraph}{Privileged Information Distillation}{21}{section*.29}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Online Experiential Learning}{21}{section*.30}\protected@file@percent }
+\citation{2601.19897}
+\citation{2602.04942}
+\citation{2603.23871}
+\citation{2602.03073}
+\citation{2505.16142}
+\citation{2602.22495}
+\citation{2503.02832}
+\citation{2504.14945}
+\citation{2410.09008}
+\citation{2506.02208}
+\citation{2602.00400}
+\citation{2509.14257}
+\citation{2510.23497}
+\citation{2602.02994}
+\citation{2603.24596}
+\citation{2410.11325}
+\citation{2310.08461}
+\citation{2402.12030}
+\citation{2408.00118}
+\citation{2505.09388}
+\citation{2601.02780}
+\citation{2603.19220}
+\citation{2306.08543}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Comprehensive comparison of white-box on-policy distillation methods.}}{14}{table.1}\protected@file@percent }
+\newlabel{tab:white_box_comparison}{{1}{14}{Comprehensive comparison of white-box on-policy distillation methods}{table.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Sequence-Level On-Policy Methods}{14}{subsection.4.2}\protected@file@percent }
+\newlabel{subsec:sequence_level}{{4.2}{14}{Sequence-Level On-Policy Methods}{subsection.4.2}{}}
+\citation{2509.22921}
+\citation{2504.19024}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Experimental configurations of representative on-policy distillation methods. ``Self'' indicates self-distillation where the same model serves as both teacher and student. Dashes indicate information not available from the original paper.}}{15}{table.2}\protected@file@percent }
+\newlabel{tab:experimental_configs}{{2}{15}{Experimental configurations of representative on-policy distillation methods. ``Self'' indicates self-distillation where the same model serves as both teacher and student. Dashes indicate information not available from the original paper}{table.2}{}}
+\newlabel{eq:minillm_final}{{22}{15}{Sequence-Level On-Policy Methods}{equation.4.22}{}}
+\citation{2602.15260}
+\citation{2410.11325}
+\citation{2501.16937}
+\citation{2402.12842}
+\citation{2601.07155}
+\citation{2603.11178,2510.07842,2305.12870}
+\citation{2603.11178}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Hybrid and Adaptive Approaches}{16}{subsection.4.3}\protected@file@percent }
+\newlabel{subsec:hybrid}{{4.3}{16}{Hybrid and Adaptive Approaches}{subsection.4.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1}Compute Efficiency}{16}{subsubsection.4.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2}Capacity Gap Bridging}{16}{subsubsection.4.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3}Curriculum and Difficulty Adaptation}{16}{subsubsection.4.3.3}\protected@file@percent }
+\citation{2510.07842}
+\citation{2602.12674,2603.11137,2603.13260,2601.09088,2602.12222}
+\citation{2602.12674}
+\citation{2603.11137}
+\citation{2603.13260}
+\citation{2601.09088}
+\citation{2602.12222}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.4}Novel Paradigms}{17}{subsubsection.4.3.4}\protected@file@percent }
+\citation{2404.02657}
+\citation{2402.11890}
+\citation{2307.15190}
+\citation{2603.25562}
+\citation{2511.10643}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Theoretical Analysis and Method Comparison}{18}{subsection.4.4}\protected@file@percent }
+\newlabel{subsec:theory_whitebox}{{4.4}{18}{Theoretical Analysis and Method Comparison}{subsection.4.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Black-Box and Self-Distillation Methods}{18}{section.5}\protected@file@percent }
+\newlabel{sec:black_box}{{5}{18}{Black-Box and Self-Distillation Methods}{section.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Black-Box On-Policy Distillation}{18}{subsection.5.1}\protected@file@percent }
+\newlabel{subsec:black_box}{{5.1}{18}{Black-Box On-Policy Distillation}{subsection.5.1}{}}
+\citation{2305.12870}
+\citation{2601.21968}
+\citation{2509.25100}
+\citation{2602.02405}
+\citation{2401.01335}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Self-Play and Self-Distillation}{19}{subsection.5.2}\protected@file@percent }
+\newlabel{subsec:self_distill}{{5.2}{19}{Self-Play and Self-Distillation}{subsection.5.2}{}}
+\citation{2601.18734}
+\citation{2602.20574}
+\citation{2602.04942}
+\citation{2602.12275}
+\citation{2603.16856}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.1}Self-Play and Its Saturation Ceiling}{20}{subsubsection.5.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.2}Privileged Information: Breaking the Self-Play Ceiling}{20}{subsubsection.5.2.2}\protected@file@percent }
+\citation{2603.05433}
+\citation{2602.06019}
+\citation{2601.20802,2602.03073,2603.23871,2601.19897}
+\citation{2601.20802}
+\citation{2602.03073}
+\citation{2603.23871}
+\citation{2601.19897}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.3}Reasoning Compression}{21}{subsubsection.5.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.4}Reward-Free Alignment via Self-Distillation}{21}{subsubsection.5.2.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Why Self-Play Saturates and Breakthrough Strategies}{21}{subsection.5.3}\protected@file@percent }
 \newlabel{subsec:saturation_analysis}{{5.3}{21}{Why Self-Play Saturates and Breakthrough Strategies}{subsection.5.3}{}}
+\citation{2603.24472}
 \citation{2305.02301}
-\citation{2410.09008}
 \@writefile{toc}{\contentsline {section}{\numberline {6}Reasoning Distillation}{22}{section.6}\protected@file@percent }
 \newlabel{sec:reasoning}{{6}{22}{Reasoning Distillation}{section.6}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Chain-of-Thought Distillation}{22}{subsection.6.1}\protected@file@percent }
-\newlabel{eq:cot_opd}{{32}{22}{Chain-of-Thought Distillation}{equation.6.32}{}}
+\citation{2410.09008}
 \citation{2505.16142}
 \citation{2503.02832}
 \citation{2602.12125}
+\newlabel{eq:cot_opd}{{27}{23}{Chain-of-Thought Distillation}{equation.6.27}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Reward-Guided On-Policy Distillation}{23}{subsection.6.2}\protected@file@percent }
+\newlabel{sec:reward_guided_opd}{{6.2}{23}{Reward-Guided On-Policy Distillation}{subsection.6.2}{}}
+\newlabel{eq:rlkd}{{29}{23}{Reward-Guided On-Policy Distillation}{equation.6.29}{}}
 \citation{2504.14945}
 \citation{2501.12948}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Reward-Guided On-Policy Distillation}{23}{subsection.6.2}\protected@file@percent }
-\newlabel{eq:rlkd}{{34}{23}{Reward-Guided On-Policy Distillation}{equation.6.34}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}DeepSeek-R1: Off-Policy Reasoning Distillation}{23}{subsection.6.3}\protected@file@percent }
 \citation{kim2016sequence}
 \citation{2505.16142}
 \citation{2506.02208}
 \citation{2602.22495}
 \citation{2602.00400}
 \citation{2512.23097}
-\@writefile{toc}{\contentsline {paragraph}{Why Off-Policy Distillation Works So Well Here}{24}{section*.31}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{The Case for On-Policy Methods on Top of R1 Distillation}{24}{section*.32}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}DeepSeek-R1: Off-Policy Reasoning Distillation}{24}{subsection.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Why Off-Policy Distillation Works So Well Here}{24}{section*.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{The Case for On-Policy Methods on Top of R1 Distillation}{24}{section*.2}\protected@file@percent }
 \citation{2601.18734}
 \citation{2603.11178}
 \citation{2603.05433}
+\@writefile{toc}{\contentsline {paragraph}{Empirical Results: Off-Policy R1 Distillation}{25}{section*.3}\protected@file@percent }
 \citation{2505.09388}
-\@writefile{toc}{\contentsline {paragraph}{Empirical Results: Off-Policy R1 Distillation}{25}{section*.33}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Distillation vs.\ Direct RL}{25}{section*.34}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Post-R1 Evolution: Qwen3 and Beyond}{25}{section*.35}\protected@file@percent }
 \citation{2505.09388}
 \citation{2408.00118}
 \citation{2410.17215}
-\citation{2509.24945}
 \citation{2601.02780}
+\@writefile{toc}{\contentsline {paragraph}{Distillation vs.\ Direct RL}{26}{section*.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Post-R1 Evolution: Qwen3 and Beyond}{26}{section*.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {7}Industrial Systems and Scaling}{26}{section.7}\protected@file@percent }
 \newlabel{sec:systems}{{7}{26}{Industrial Systems and Scaling}{section.7}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Large-Scale Deployment}{26}{subsection.7.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Efficiency Innovations}{26}{subsection.7.2}\protected@file@percent }
 \citation{2410.11325}
 \citation{2310.08461}
 \citation{2402.12030}
 \citation{2407.14679}
 \citation{2603.19220}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Efficiency Innovations}{27}{subsection.7.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {7.3}Compute-Quality Tradeoff Analysis}{27}{subsection.7.3}\protected@file@percent }
 \citation{2402.03898}
 \citation{2410.11325}
-\@writefile{toc}{\contentsline {paragraph}{Concrete Cost Example}{28}{section*.36}\protected@file@percent }
+\citation{2203.15556}
+\citation{2502.08606}
+\@writefile{toc}{\contentsline {paragraph}{Concrete Cost Example}{28}{section*.6}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {8}Open Problems and Future Directions}{28}{section.8}\protected@file@percent }
 \newlabel{sec:future}{{8}{28}{Open Problems and Future Directions}{section.8}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}Distillation Scaling Laws}{28}{subsection.8.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Distillation Scaling Laws.}{28}{section*.7}\protected@file@percent }
 \citation{2501.12948}
 \citation{2505.09388}
 \citation{2505.13111}
-\newlabel{eq:scaling}{{42}{29}{Distillation Scaling Laws}{equation.8.42}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.2}Uncertainty-Aware On-Policy Distillation}{29}{subsection.8.2}\protected@file@percent }
+\citation{2603.07079}
+\citation{2603.07079}
+\citation{2602.20574}
 \citation{2603.11178}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.3}Dynamic Curriculum Distillation}{30}{subsection.8.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.4}Latent Space Distillation for Vocabulary Mismatch}{30}{subsection.8.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.5}On-Policy Distillation for Autonomous Agents}{30}{subsection.8.5}\protected@file@percent }
+\citation{2602.20574}
+\citation{2603.11178}
+\citation{2510.07842}
+\citation{2305.12870}
+\@writefile{toc}{\contentsline {paragraph}{Teacher Calibration and Uncertainty-Aware Distillation.}{29}{section*.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Dynamic Curriculum Distillation.}{29}{section*.9}\protected@file@percent }
+\citation{2603.11178}
+\citation{2504.11426}
+\citation{2402.12030}
+\citation{2509.14526}
+\citation{2504.11426}
 \citation{2509.14257}
+\citation{2603.16856}
+\citation{2602.04942}
+\@writefile{toc}{\contentsline {paragraph}{Latent Space Distillation for Vocabulary Mismatch.}{30}{section*.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{On-Policy Distillation for Autonomous Agents.}{30}{section*.11}\protected@file@percent }
 \citation{2510.23497}
 \citation{2602.02994}
+\citation{2603.24596}
 \citation{2510.18874}
 \citation{2601.19897}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.6}Multimodal On-Policy Distillation}{31}{subsection.8.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.7}The Distillation-RL Virtuous Loop}{31}{subsection.8.7}\protected@file@percent }
-\citation{2310.16944}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.8}Evaluation Methodology Beyond Benchmarks}{32}{subsection.8.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.9}Practical Guidelines and Decision Framework}{32}{subsection.8.9}\protected@file@percent }
+\citation{2506.02208}
+\citation{2512.23097}
+\citation{2603.25562}
+\@writefile{toc}{\contentsline {paragraph}{Multimodal On-Policy Distillation.}{31}{section*.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Closing the Distillation-RL Loop.}{31}{section*.13}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Evaluation Methodology Beyond Benchmarks.}{31}{section*.14}\protected@file@percent }
+\citation{2503.02832}
+\citation{2305.15717}
+\citation{2602.12125}
+\citation{2306.13649}
+\citation{2402.03898}
+\citation{2505.16142}
+\citation{2503.02832}
+\citation{2501.12948}
 \citation{2505.16297}
 \citation{2603.07079}
 \citation{2602.12125}
 \citation{2602.22495}
 \citation{2512.23097}
+\@writefile{toc}{\contentsline {paragraph}{Practical Guidelines and Decision Framework.}{32}{section*.15}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {9}Conclusion}{32}{section.9}\protected@file@percent }
+\newlabel{sec:conclusion}{{9}{32}{Conclusion}{section.9}{}}
+\@writefile{toc}{\contentsline {paragraph}{Key Findings.}{32}{section*.16}\protected@file@percent }
 \citation{2306.13649}
 \citation{2402.03898}
 \citation{2306.08543}
@@ -302,80 +370,89 @@
 \citation{2601.20802}
 \citation{2410.11325}
 \citation{2602.15260}
-\@writefile{toc}{\contentsline {section}{\numberline {9}Conclusion}{33}{section.9}\protected@file@percent }
-\newlabel{sec:conclusion}{{9}{33}{Conclusion}{section.9}{}}
-\@writefile{toc}{\contentsline {paragraph}{Key Findings.}{33}{section*.37}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Practical Takeaways.}{33}{section*.38}\protected@file@percent }
+\citation{2203.15556}
 \bibdata{references}
-\bibcite{2306.13649}{{1}{2023}{{Agarwal et~al.}}{{Agarwal, Vieillard, Zhou, Stanczyk, Ramos, Geist, and Bachem}}}
-\bibcite{2402.12030}{{2}{2024}{{Boizard et~al.}}{{Boizard, Haddad, Hudelot, and Colombo}}}
+\bibcite{2306.13649}{{1}{2024}{{Agarwal et~al.}}{{Agarwal, Vieillard, Zhou, Stanczyk, Ramos, Geist, and Bachem}}}
+\bibcite{2402.12030}{{2}{2025}{{Boizard et~al.}}{{Boizard, Haddad, Hudelot, and Colombo}}}
 \bibcite{2510.23497}{{3}{2025}{{Bousselham et~al.}}{{Bousselham, Kuehne, and Schmid}}}
-\bibcite{2602.12674}{{4}{2026}{{Cai \& Yuan}}{{Cai and Yuan}}}
-\bibcite{2509.14526}{{5}{2025}{{Cao et~al.}}{{Cao, Kang, Xing, and Jiang}}}
-\bibcite{2505.13111}{{6}{2025}{{Cha \& Cho}}{{Cha and Cho}}}
-\bibcite{2510.18874}{{7}{2025}{{Chen et~al.}}{{Chen, Razin, Narasimhan, and Chen}}}
-\bibcite{2401.01335}{{8}{2024}{{Chen et~al.}}{{Chen, Deng, Yuan, Ji, and Gu}}}
-\bibcite{2501.12948}{{9}{2025}{{DeepSeek-AI et~al.}}{{DeepSeek-AI, Guo, Yang, Zhang, Song, Wang, Zhu, Xu, Zhang, Ma, Bi, Zhang, Yu, Wu, Wu, et~al.}}}
-\bibcite{2408.00118}{{10}{2024}{{{Gemma Team} et~al.}}{{{Gemma Team}, Riviere, Pathak, Sessa, Hardin, Bhupatiraju, Hussenot, Mesnard, Shahriari, Ram{\'e}, et~al.}}}
-\bibcite{2306.08543}{{11}{2023}{{Gu et~al.}}{{Gu, Dong, Wei, and Huang}}}
-\@writefile{toc}{\contentsline {paragraph}{Looking Ahead.}{34}{section*.39}\protected@file@percent }
-\bibcite{2410.17215}{{12}{2024}{{Gu et~al.}}{{Gu, Zhou, Meng, Zhou, and Huang}}}
-\bibcite{2305.15717}{{13}{2023}{{Gudibande et~al.}}{{Gudibande, Wallace, Snell, Geng, Liu, Abbeel, Levine, and Song}}}
-\bibcite{hinton2015distilling}{{14}{2015}{{Hinton et~al.}}{{Hinton, Vinyals, and Dean}}}
-\bibcite{2305.02301}{{15}{2023}{{Hsieh et~al.}}{{Hsieh, Li, Yeh, Nakhost, Fujii, Ratner, Krishna, Lee, and Pfister}}}
-\bibcite{2510.24021}{{16}{2025}{{Huang et~al.}}{{Huang, Song, Zhang, and Ren}}}
-\bibcite{2601.20802}{{17}{2026}{{H{\"u}botter et~al.}}{{H{\"u}botter, L{\"u}beck, Behric, Baumann, Bagatella, Marta, et~al.}}}
-\bibcite{2305.12870}{{18}{2023}{{Jiang et~al.}}{{Jiang, Chan, Chen, and Wang}}}
-\bibcite{2603.07079}{{19}{2026}{{Jin et~al.}}{{Jin, Min, Yang, Kadhe, Zhou, Wei, Baracaldo, and Lee}}}
-\bibcite{2505.16297}{{20}{2025}{{Jung et~al.}}{{Jung, Yoon, Kim, and Lee}}}
-\bibcite{2402.12842}{{21}{2024}{{Kim et~al.}}{{Kim, Jang, and Yang}}}
-\bibcite{2509.25837}{{22}{2025}{{Kim et~al.}}{{Kim, Shin, Kang, Na, and Moon}}}
-\bibcite{kim2016sequence}{{23}{2016}{{Kim \& Rush}}{{Kim and Rush}}}
-\bibcite{2602.06019}{{24}{2026}{{Kirchenbauer et~al.}}{{Kirchenbauer, Hans, Bartoldson, Goldblum, Panda, and Goldstein}}}
-\bibcite{2402.03898}{{25}{2024}{{Ko et~al.}}{{Ko, Kim, Chen, and Yun}}}
-\bibcite{2503.07067}{{26}{2025}{{Ko et~al.}}{{Ko, Chen, Kim, Ding, Liang, Zharkov, and Yun}}}
-\bibcite{2602.02994}{{27}{2026}{{Li et~al.}}{{Li, Yin, Xu, Xu, Tan, He, et~al.}}}
-\bibcite{2512.23097}{{28}{2025}{{Li et~al.}}{{Li, Li, and Liu}}}
-\bibcite{2305.20050}{{29}{2023}{{Lightman et~al.}}{{Lightman, Kosaraju, Burda, Edwards, Baker, Lee, Leike, Schulman, Sutskever, and Cobbe}}}
-\bibcite{2009.07253}{{30}{2020}{{Lin et~al.}}{{Lin, Wohlwend, Chen, and Lei}}}
-\bibcite{2509.14257}{{31}{2025}{{Lyu et~al.}}{{Lyu, Wang, Huang, and Xu}}}
-\bibcite{2602.02405}{{32}{2026}{{Mendes et~al.}}{{Mendes, Park, and Ritter}}}
-\bibcite{2407.14679}{{33}{2024}{{Muralidharan et~al.}}{{Muralidharan, Sreenivas, Joshi, Chochowski, Patwary, Shoeybi, Catanzaro, Kautz, and Molchanov}}}
-\bibcite{2602.04942}{{34}{2026}{{Penaloza et~al.}}{{Penaloza, Vattikonda, Gontier, Lacoste, Charlin, and Caccia}}}
-\bibcite{2510.07842}{{35}{2025}{{Peng et~al.}}{{Peng, Mao, Jiang, Liu, Ren, Chen, de~Rijke, and Zhao}}}
-\bibcite{ross2011reduction}{{36}{2011}{{Ross et~al.}}{{Ross, Gordon, and Bagnell}}}
-\bibcite{2603.05433}{{37}{2026}{{Sang et~al.}}{{Sang, Xu, Zhou, He, Wang, and Sun}}}
-\bibcite{2601.19897}{{38}{2026}{{Shenfeld et~al.}}{{Shenfeld, Damani, H{\"u}botter, and Agrawal}}}
-\bibcite{2501.16937}{{39}{2025}{{Shing et~al.}}{{Shing, Misaki, Bao, Yokoi, and Akiba}}}
-\bibcite{2509.25100}{{40}{2025}{{Singh et~al.}}{{Singh, Vaddina, and Birru}}}
-\bibcite{2602.20574}{{41}{2026}{{Stein et~al.}}{{Stein, Huang, and Goldstein}}}
-\bibcite{2601.02780}{{42}{2026}{{Team et~al.}}{{Team, :, Xiao, Xia, Yang, Gao, Shen, Zhang, He, Lou, Luo, Wang, Xie, Zhang, Lv, et~al.}}}
-\bibcite{2310.16944}{{43}{2023}{{Tunstall et~al.}}{{Tunstall, Beeching, Lambert, Rajani, Rasul, Belkada, Huang, von Werra, Fourrier, Habib, et~al.}}}
-\bibcite{2307.15190}{{44}{2023}{{Wen et~al.}}{{Wen, Li, Du, and Mou}}}
-\bibcite{2404.02657}{{45}{2024}{{Wu et~al.}}{{Wu, Tao, Wang, Yang, Zhao, and Wong}}}
-\bibcite{2510.11615}{{46}{2025}{{Xie et~al.}}{{Xie, Xue, Wu, Li, Wang, Hu, et~al.}}}
-\bibcite{2506.02208}{{47}{2025{a}}{{Xu et~al.}}{{Xu, Zhu, Deng, Li, Hou, Wang, et~al.}}}
-\bibcite{2505.16142}{{48}{2025{b}}{{Xu et~al.}}{{Xu, Pang, Zhu, Gu, Wei, Deng, Pan, Shen, and Cheng}}}
-\bibcite{2410.11325}{{49}{2024{a}}{{Xu et~al.}}{{Xu, Han, Wang, Le, Madeka, Li, Wang, Agarwal, Lee, and Pfister}}}
-\bibcite{2402.13116}{{50}{2024{b}}{{Xu et~al.}}{{Xu, Li, Tao, Shen, Cheng, Li, Xu, Tao, and Zhou}}}
-\bibcite{2603.11178}{{51}{2026}{{Xu et~al.}}{{Xu, Sang, Zhou, He, and Wang}}}
-\bibcite{2504.14945}{{52}{2025}{{Yan et~al.}}{{Yan, Li, Hu, Wang, Cui, Qu, Cheng, and Zhang}}}
-\bibcite{2505.09388}{{53}{2025}{{Yang et~al.}}{{Yang, Li, Yang, Zhang, Hui, Zheng, Yu, Gao, Huang, Lv, Zheng, Liu, Zhou, Huang, Hu, et~al.}}}
-\bibcite{2602.00400}{{54}{2026{a}}{{Yang et~al.}}{{Yang, Meng, Qi, Ezzati, and Wen}}}
-\bibcite{2410.09008}{{55}{2024}{{Yang et~al.}}{{Yang, Yu, Zhang, Xu, Gonzalez, Cui, and Yan}}}
-\bibcite{2602.12125}{{56}{2026{b}}{{Yang et~al.}}{{Yang, Liu, Xie, Yang, Yang, and Lin}}}
-\bibcite{2603.19220}{{57}{2026{c}}{{Yang et~al.}}{{Yang, Liu, Chen, Dai, Wang, Lin, Lee, Chen, Jiang, He, Pi, Lam, Lee, Bukharin, Shoeybi, Catanzaro, and Ping}}}
-\bibcite{2511.10643}{{58}{2025}{{Ye et~al.}}{{Ye, Dong, Chi, Wu, Huang, and Wei}}}
-\bibcite{2603.16856}{{59}{2026{a}}{{Ye et~al.}}{{Ye, Dong, Dong, Wu, Huang, and Wei}}}
-\bibcite{2602.12275}{{60}{2026{b}}{{Ye et~al.}}{{Ye, Dong, Wu, Huang, and Wei}}}
-\bibcite{2602.15260}{{61}{2026{a}}{{Zhang et~al.}}{{Zhang, Yang, Janghorbani, Han, Ressler, Qian, Lyng, Batra, and Tillman}}}
-\bibcite{2503.02832}{{62}{2025{a}}{{Zhang et~al.}}{{Zhang, Zhang, Zhang, Hu, Chen, and Xu}}}
-\bibcite{2504.11426}{{63}{2025{b}}{{Zhang et~al.}}{{Zhang, Zhang, Liang, Meng, Chen, Xu, and Zhou}}}
-\bibcite{2602.22495}{{64}{2026{b}}{{Zhang et~al.}}{{Zhang, Jiang, Shen, Zhang, Ram, Yang, et~al.}}}
-\bibcite{2509.24945}{{65}{2025}{{Zhao et~al.}}{{Zhao, Chang, Liu, Chang, Wen, Lai, Cao, Tian, Krishnamoorthi, Shi, and Chandra}}}
-\bibcite{2601.18734}{{66}{2026}{{Zhao et~al.}}{{Zhao, Xie, Liu, Huang, Pang, Chen, and Grover}}}
-\bibcite{2402.11890}{{67}{2024}{{Zhong et~al.}}{{Zhong, Ding, Shen, Liu, Du, and Tao}}}
-\bibcite{2310.08461}{{68}{2023}{{Zhou et~al.}}{{Zhou, Lyu, Rawat, Menon, Rostamizadeh, Kumar, Kagy, and Agarwal}}}
-\bibcite{2509.22921}{{69}{2025}{{Zimmer et~al.}}{{Zimmer, Ji, Nguyen, and Ammar}}}
+\bibcite{2502.08606}{{4}{2025}{{Busbridge et~al.}}{{Busbridge, Shidani, Weers, Ramapuram, Littwin, and Webb}}}
+\bibcite{2602.12674}{{5}{2026}{{Cai \& Yuan}}{{Cai and Yuan}}}
+\bibcite{2603.24596}{{6}{2026}{{Cao et~al.}}{{Cao, Fu, Yu, Zheng, Tan, and Jin}}}
+\bibcite{2509.14526}{{7}{2025}{{Cao et~al.}}{{Cao, Kang, Xing, and Jiang}}}
+\@writefile{toc}{\contentsline {paragraph}{Practical Takeaways.}{33}{section*.17}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Looking Ahead.}{33}{section*.18}\protected@file@percent }
+\bibcite{2505.13111}{{8}{2025}{{Cha \& Cho}}{{Cha and Cho}}}
+\bibcite{2510.18874}{{9}{2025}{{Chen et~al.}}{{Chen, Razin, Narasimhan, and Chen}}}
+\bibcite{2401.01335}{{10}{2024}{{Chen et~al.}}{{Chen, Deng, Yuan, Ji, and Gu}}}
+\bibcite{2501.12948}{{11}{2025}{{DeepSeek-AI et~al.}}{{DeepSeek-AI, Guo, Yang, Zhang, Song, Wang, Zhu, Xu, Zhang, Ma, Bi, Zhang, Yu, Wu, Wu, et~al.}}}
+\bibcite{2603.23871}{{12}{2026}{{Ding}}{{}}}
+\bibcite{2504.19024}{{13}{2025}{{Fan et~al.}}{{Fan, Luo, Bowling, and Mou}}}
+\bibcite{2603.25562}{{14}{2026}{{Fu et~al.}}{{Fu, Huang, Jiang, Zhu, and Zhao}}}
+\bibcite{2408.00118}{{15}{2024}{{{Gemma Team} et~al.}}{{{Gemma Team}, Riviere, Pathak, Sessa, Hardin, Bhupatiraju, Hussenot, Mesnard, Shahriari, Ram{\'e}, et~al.}}}
+\bibcite{2306.08543}{{16}{2024}{{Gu et~al.}}{{Gu, Dong, Wei, and Huang}}}
+\bibcite{2410.17215}{{17}{2025}{{Gu et~al.}}{{Gu, Zhou, Meng, Zhou, and Huang}}}
+\bibcite{2305.15717}{{18}{2023}{{Gudibande et~al.}}{{Gudibande, Wallace, Snell, Geng, Liu, Abbeel, Levine, and Song}}}
+\bibcite{hinton2015distilling}{{19}{2015}{{Hinton et~al.}}{{Hinton, Vinyals, and Dean}}}
+\bibcite{2203.15556}{{20}{2022}{{Hoffmann et~al.}}{{Hoffmann, Borgeaud, Mensch, Buchatskaya, Cai, Rutherford, de~Las~Casas, Hendricks, Welbl, Clark, Hennigan, Noland, Millican, van~den Driessche, Damoc, Guy, Osindero, Simonyan, Elsen, Rae, Vinyals, and Sifre}}}
+\bibcite{2305.02301}{{21}{2023}{{Hsieh et~al.}}{{Hsieh, Li, Yeh, Nakhost, Fujii, Ratner, Krishna, Lee, and Pfister}}}
+\bibcite{2510.24021}{{22}{2025}{{Huang et~al.}}{{Huang, Song, Zhang, and Ren}}}
+\bibcite{2601.20802}{{23}{2026}{{H{\"u}botter et~al.}}{{H{\"u}botter, L{\"u}beck, Behric, Baumann, Bagatella, Marta, et~al.}}}
+\bibcite{2601.07155}{{24}{2026}{{Jang et~al.}}{{Jang, Yeom, Yeo, Lim, and Kim}}}
+\bibcite{2305.12870}{{25}{2023}{{Jiang et~al.}}{{Jiang, Chan, Chen, and Wang}}}
+\bibcite{2603.07079}{{26}{2026}{{Jin et~al.}}{{Jin, Min, Yang, Kadhe, Zhou, Wei, Baracaldo, and Lee}}}
+\bibcite{2505.16297}{{27}{2025}{{Jung et~al.}}{{Jung, Yoon, Kim, and Lee}}}
+\bibcite{2602.03073}{{28}{2026}{{Khan et~al.}}{{Khan, Liu, Tan, Fleming, and Chen}}}
+\bibcite{2402.12842}{{29}{2024}{{Kim et~al.}}{{Kim, Jang, and Yang}}}
+\bibcite{2603.24472}{{30}{2026{a}}{{Kim et~al.}}{{Kim, Luo, Kim, Lee, Kim, Jeon, Li, and Yang}}}
+\bibcite{2603.13260}{{31}{2026}{{Kim \& Baek}}{{Kim and Baek}}}
+\bibcite{2509.25837}{{32}{2026{b}}{{Kim et~al.}}{{Kim, Shin, Kang, Na, and Moon}}}
+\bibcite{kim2016sequence}{{33}{2016}{{Kim \& Rush}}{{Kim and Rush}}}
+\bibcite{2602.06019}{{34}{2026}{{Kirchenbauer et~al.}}{{Kirchenbauer, Hans, Bartoldson, Goldblum, Panda, and Goldstein}}}
+\bibcite{2402.03898}{{35}{2024}{{Ko et~al.}}{{Ko, Kim, Chen, and Yun}}}
+\bibcite{2503.07067}{{36}{2025}{{Ko et~al.}}{{Ko, Chen, Kim, Ding, Liang, Zharkov, and Yun}}}
+\bibcite{2603.11137}{{37}{2026}{{Ko et~al.}}{{Ko, Abdali, Kim, Chen, and Cameron}}}
+\bibcite{2602.02994}{{38}{2026}{{Li et~al.}}{{Li, Yin, Xu, Xu, Tan, He, et~al.}}}
+\bibcite{2512.23097}{{39}{2025}{{Li et~al.}}{{Li, Li, and Liu}}}
+\bibcite{2305.20050}{{40}{2024}{{Lightman et~al.}}{{Lightman, Kosaraju, Burda, Edwards, Baker, Lee, Leike, Schulman, Sutskever, and Cobbe}}}
+\bibcite{2509.14257}{{41}{2025}{{Lyu et~al.}}{{Lyu, Wang, Huang, and Xu}}}
+\bibcite{2602.02405}{{42}{2026}{{Mendes et~al.}}{{Mendes, Park, and Ritter}}}
+\bibcite{2407.14679}{{43}{2024}{{Muralidharan et~al.}}{{Muralidharan, Sreenivas, Joshi, Chochowski, Patwary, Shoeybi, Catanzaro, Kautz, and Molchanov}}}
+\bibcite{2602.04942}{{44}{2026}{{Penaloza et~al.}}{{Penaloza, Vattikonda, Gontier, Lacoste, Charlin, and Caccia}}}
+\bibcite{2510.07842}{{45}{2025}{{Peng et~al.}}{{Peng, Mao, Jiang, Liu, Ren, Chen, de~Rijke, and Zhao}}}
+\bibcite{ross2011reduction}{{46}{2011}{{Ross et~al.}}{{Ross, Gordon, and Bagnell}}}
+\bibcite{2603.05433}{{47}{2026}{{Sang et~al.}}{{Sang, Xu, Zhou, He, Wang, and Sun}}}
+\bibcite{2601.19897}{{48}{2026}{{Shenfeld et~al.}}{{Shenfeld, Damani, H{\"u}botter, and Agrawal}}}
+\bibcite{2501.16937}{{49}{2025}{{Shing et~al.}}{{Shing, Misaki, Bao, Yokoi, and Akiba}}}
+\bibcite{2509.25100}{{50}{2025}{{Singh et~al.}}{{Singh, Vaddina, and Birru}}}
+\bibcite{2602.20574}{{51}{2026}{{Stein et~al.}}{{Stein, Huang, and Goldstein}}}
+\bibcite{2307.15190}{{52}{2023}{{Wen et~al.}}{{Wen, Li, Du, and Mou}}}
+\bibcite{2404.02657}{{53}{2025}{{Wu et~al.}}{{Wu, Tao, Wang, Yang, Zhao, and Wong}}}
+\bibcite{2601.02780}{{54}{2026}{{{Xiaomi LLM-Core Team} et~al.}}{{{Xiaomi LLM-Core Team}, Xiao, Xia, Yang, Gao, Shen, Zhang, He, Lou, Luo, Wang, Xie, Zhang, Lv, et~al.}}}
+\bibcite{2510.11615}{{55}{2025}{{Xie et~al.}}{{Xie, Xue, Wu, Li, Wang, Hu, et~al.}}}
+\bibcite{2601.21968}{{56}{2026}{{Xiong et~al.}}{{Xiong, Shen, Gong, Cheng, Shen, Tao, Tan, Bai, Shang, and Wong}}}
+\bibcite{2506.02208}{{57}{2025{a}}{{Xu et~al.}}{{Xu, Zhu, Deng, Li, Hou, Wang, et~al.}}}
+\bibcite{2505.16142}{{58}{2025{b}}{{Xu et~al.}}{{Xu, Pang, Zhu, Gu, Wei, Deng, Pan, Shen, and Cheng}}}
+\bibcite{2410.11325}{{59}{2025{c}}{{Xu et~al.}}{{Xu, Han, Wang, Le, Madeka, Li, Wang, Agarwal, Lee, and Pfister}}}
+\bibcite{2402.13116}{{60}{2024}{{Xu et~al.}}{{Xu, Li, Tao, Shen, Cheng, Li, Xu, Tao, and Zhou}}}
+\bibcite{2603.11178}{{61}{2026}{{Xu et~al.}}{{Xu, Sang, Zhou, He, and Wang}}}
+\bibcite{2504.14945}{{62}{2025}{{Yan et~al.}}{{Yan, Li, Hu, Wang, Cui, Qu, Cheng, and Zhang}}}
+\bibcite{2601.09088}{{63}{2026}{{Yan et~al.}}{{Yan, Liu, Shen, Wang, Fan, Zhang, Wu, Wang, and Ye}}}
+\bibcite{2505.09388}{{64}{2025{a}}{{Yang et~al.}}{{Yang, Li, Yang, Zhang, Hui, Zheng, Yu, Gao, Huang, Lv, Zheng, Liu, Zhou, Huang, Hu, et~al.}}}
+\bibcite{2602.00400}{{65}{2026{a}}{{Yang et~al.}}{{Yang, Meng, Qi, Ezzati, and Wen}}}
+\bibcite{2410.09008}{{66}{2025{b}}{{Yang et~al.}}{{Yang, Yu, Zhang, Xu, Gonzalez, Cui, and Yan}}}
+\bibcite{2602.12125}{{67}{2026{b}}{{Yang et~al.}}{{Yang, Liu, Xie, Yang, Yang, and Lin}}}
+\bibcite{2603.19220}{{68}{2026{c}}{{Yang et~al.}}{{Yang, Liu, Chen, Dai, Wang, Lin, Lee, Chen, Jiang, He, Pi, Lam, Lee, Bukharin, Shoeybi, Catanzaro, and Ping}}}
+\bibcite{2511.10643}{{69}{2025}{{Ye et~al.}}{{Ye, Dong, Chi, Wu, Huang, and Wei}}}
+\bibcite{2603.16856}{{70}{2026{a}}{{Ye et~al.}}{{Ye, Dong, Dong, Wu, Huang, and Wei}}}
+\bibcite{2602.12275}{{71}{2026{b}}{{Ye et~al.}}{{Ye, Dong, Wu, Huang, and Wei}}}
+\bibcite{2602.15260}{{72}{2026{a}}{{Zhang et~al.}}{{Zhang, Yang, Janghorbani, Han, Ressler, Qian, Lyng, Batra, and Tillman}}}
+\bibcite{2602.12222}{{73}{2026{b}}{{Zhang et~al.}}{{Zhang, Liu, Lin, Yang, Dai, Luo, Jiang, Hou, Zeng, Geng, and Guo}}}
+\bibcite{2503.02832}{{74}{2025{a}}{{Zhang et~al.}}{{Zhang, Zhang, Zhang, Hu, Chen, and Xu}}}
+\bibcite{2504.11426}{{75}{2025{b}}{{Zhang et~al.}}{{Zhang, Zhang, Liang, Meng, Chen, Xu, and Zhou}}}
+\bibcite{2602.22495}{{76}{2026{c}}{{Zhang et~al.}}{{Zhang, Jiang, Shen, Zhang, Ram, Yang, et~al.}}}
+\bibcite{2601.18734}{{77}{2026}{{Zhao et~al.}}{{Zhao, Xie, Liu, Huang, Pang, Chen, and Grover}}}
+\bibcite{2402.11890}{{78}{2024}{{Zhong et~al.}}{{Zhong, Ding, Shen, Liu, Du, and Tao}}}
+\bibcite{2310.08461}{{79}{2023}{{Zhou et~al.}}{{Zhou, Lyu, Rawat, Menon, Rostamizadeh, Kumar, Kagy, and Agarwal}}}
+\bibcite{2509.22921}{{80}{2025}{{Zimmer et~al.}}{{Zimmer, Ji, Nguyen, and Ammar}}}
 \bibstyle{colm2026_conference}
 \gdef \@abspage@last{38}
