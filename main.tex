@@ -495,14 +495,14 @@ The temporal resolution of the distillation loss determines whether the student 
 \section{White-Box On-Policy Methods}
 \label{sec:white_box}
 
-The defining feature of on-policy distillation is not the choice o$f$-divergence metric but the distribution that governs training: traditional off-policy KD forces the student to mimic the teacher under the teacher's marginal $\pteacher(x,y)$, whereas OPD returns sampling authority to the student's own evolving policy $\ptheta(x,y)$. This shift eliminates exposure bias but introduces the challenge of efficiently and stably aligning the teacher's dense logit signals over trajectories that the student, not the teacher, has generated.
+The defining feature of on-policy distillation is not the choice of divergence metric but the distribution that governs training: traditional off-policy KD forces the student to mimic the teacher under the teacher's marginal $\pteacher(x,y)$, whereas OPD returns sampling authority to the student's own evolving policy $\ptheta(x,y)$. This shift eliminates exposure bias but introduces the challenge of efficiently and stably aligning the teacher's dense logit signals over trajectories that the student, not the teacher, has generated.
 
 White-box methods enjoy a powerful advantage: full access to the teacher's probability distributions enables dense, token-level feedback at every decoding step. This section traces the technical evolution of white-box OPD along four subsections. Section~\ref{subsec:token_level} covers token-level divergence minimization, the most active research direction, organized around three conceptual threads: the progression from fixed to adaptive divergences, the orthogonal dimension of token weighting and selection, and cross-architecture distillation. Section~\ref{subsec:sequence_level} examines sequence-level methods that reframe distillation as reinforcement learning. Section~\ref{subsec:hybrid} surveys hybrid approaches that bridge the granularity gap and address practical bottlenecks. Section~\ref{subsec:theory_whitebox} consolidates the theoretical analysis.
 
 \subsection{Token-Level Divergence Minimization}
 \label{subsec:token_level}
 
-Token-level methods allow the student to generate trajectories $y_{<t} \sim \ptheta$ and then minimize a divergence between teacher and student distributions at each position. The choice o$f$-divergence heavily influences stability, convergence, and downstream task quality. As established in the unified framework of Section~\ref{subsec:unified_view}, all such methods instantiate a common objective parameterized by a sampling policy $\pi_{\mathrm{mix}}$ and an $f$-divergence $\mathcal{D}_f$. Rather than reviewing each method in isolation, we organize this subsection around three conceptual threads that capture the field's technical evolution.
+Token-level methods allow the student to generate trajectories $y_{<t} \sim \ptheta$ and then minimize a divergence between teacher and student distributions at each position. The choice of divergence heavily influences stability, convergence, and downstream task quality. As established in the unified framework of Section~\ref{subsec:unified_view}, all such methods instantiate a common objective parameterized by a sampling policy $\pi_{\mathrm{mix}}$ and an $f$-divergence $\mathcal{D}_f$. Rather than reviewing each method in isolation, we organize this subsection around three conceptual threads that capture the field's technical evolution.
 
 \subsubsection{From Fixed to Adaptive Divergences}
 
@@ -550,7 +550,7 @@ G-OPD~\citep{2602.12125} provides a unifying theoretical lens by proving that st
 
 \subsubsection{Token Weighting and Selection}
 
-Orthogonal to the choice o$f$-divergence is the question of \emph{which tokens matter most}. Standard OPD objectives treat all positions uniformly, ignoring that some tokens (reasoning steps, rare vocabulary) carry far more information than others (articles, punctuation).
+Orthogonal to the choice of divergence is the question of \emph{which tokens matter most}. Standard OPD objectives treat all positions uniformly, ignoring that some tokens (reasoning steps, rare vocabulary) carry far more information than others (articles, punctuation).
 
 AdaKD~\citep{2510.11615} dynamically adjusts per-token distillation weights based on the student's current learning state, upweighting tokens where the student--teacher gap is large and the student's confidence is low. SelecTKD~\citep{2510.24021} takes a complementary approach, selecting and reweighting tokens based on their learning value and filtering out tokens that contribute little to knowledge transfer. Both methods implement a curriculum-like strategy that improves distillation efficiency without modifying the underlying divergence.
 
@@ -773,7 +773,7 @@ DDT~\citep{2602.12222} provides a theoretical framework explaining why RL genera
 \subsection{Theoretical Analysis and Method Comparison}
 \label{subsec:theory_whitebox}
 
-The theoretical landscape of white-box OPD centers on the geometry o$f$-divergence functions in high-dimensional probability spaces. We synthesize the key analytical results and their practical implications.
+The theoretical landscape of white-box OPD centers on the geometry of divergence functions in high-dimensional probability spaces. We synthesize the key analytical results and their practical implications.
 
 \textbf{Forward KL vs.\ Reverse KL: beyond the standard dichotomy.}
 The conventional view holds that Forward KL is zero-avoiding (mode-covering), meaning the student spreads mass to cover all teacher modes, risking probability in inter-mode regions, while Reverse KL is zero-forcing (mode-seeking), concentrating on a single mode at the cost of diversity. However, \citet{2404.02657} challenge this dichotomy for discrete distributions in LLMs, demonstrating that the mode-seeking and mean-seeking characterizations do not strictly hold, and that both divergences converge to the same objective given sufficient training epochs. Under practical epoch budgets, the difference is better understood through the lens of \emph{head-tail focus}: Forward KL concentrates learning on the head of the teacher distribution, while Reverse KL emphasizes the tail. \citet{2402.11890} provide complementary evidence that the choice between Forward and Reverse KL is task-dependent rather than universally prescribable, with adaptive combinations consistently outperforming either fixed choice.
