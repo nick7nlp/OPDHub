@@ -182,7 +182,7 @@ This $O(T^2)$ compounding bound is significant for modern LLMs, which routinely 
 
 \textbf{Remark: The Nuance of the DAgger Bound in LLMs.} While the theoretical transition from $O(\epsilon T^2)$ to $O(\epsilon T)$ is appealing, applying the DAgger bound to LLMs requires nuance. The original DAgger theorem assumes an \textit{interactive expert} providing optimal actions in any state. In white-box OPD, the ``expert'' provides a next-token distribution $\pteacher(y_t | \hat{y}_{<t})$ conditioned on the student's prefix $\hat{y}_{<t}$. If the student hallucinates a severely out-of-distribution prefix, the teacher's conditional distribution may itself become poorly calibrated. Forcing the student to match this noisy distribution violates the core assumption of interactive imitation learning, potentially destabilizing training rather than recovering the $O(\epsilon T)$ bound. This underscores why adaptive divergence methods (Section~\ref{subsec:token_level}) are critical for selectively trusting the teacher.
 
-This imitation learning perspective (train on student rollouts, supervise with teacher feedback) directly inspired the modern LLM distillation methods. GKD \citep{2306.13649} and DistiLLM \citep{2402.03898} generalized this DAgger-style pattern to the large language model setting, replacing NMT-scale architectures with billion-parameter models and introducing divergence-aware training objectives.
+This imitation learning perspective (train on student rollouts, supervise with teacher feedback) directly inspired the modern LLM distillation methods. GKD \citep{2306.13649} and DistiLLM \citep{2402.03898} generalized this DAgger-style pattern to the large language model setting, replacing neural machine translation-scale architectures with billion-parameter models and introducing divergence-aware training objectives.
 
 
 \subsection{The $f$-Divergence Family and Geometric Intuition}
@@ -836,7 +836,7 @@ On-Policy Self-Distillation (OPSD)~\citep{2601.18734} instantiates this principl
 \begin{equation}
     \mathcal{L}_{\text{OPSD}}(\theta) = \mathbb{E}_{(x, y^\star) \sim \mathcal{S}} \mathbb{E}_{\hat{y} \sim \ptheta(\cdot|x)} \left[ \sum_{n=1}^{|\hat{y}|} D\!\left( \pteacher(\cdot|x, y^\star, \hat{y}_{<n}) \;\|\; \ptheta(\cdot|x, \hat{y}_{<n}) \right) \right]
 \end{equation}
-On competition-level math benchmarks (AIME 2024/2025, HMMT), OPSD matches or exceeds GRPO at 4B and 8B scales while using an order of magnitude fewer generated tokens, though at 1.7B scale OPSD underperforms GRPO, indicating that sufficient model capacity is necessary.
+On competition-level math benchmarks (AIME 2024/2025, HMMT), OPSD matches or exceeds Group Relative Policy Optimization (GRPO) at 4B and 8B scales while using an order of magnitude fewer generated tokens, though at 1.7B scale OPSD underperforms GRPO, indicating that sufficient model capacity is necessary.
 
 GATES~\citep{2602.20574} extends privileged self-distillation to settings without ground-truth labels or external verifiers. A single model acts as \emph{tutor} (conditioned on a source document) and \emph{student} (answering from the question alone). The core innovation is a consensus-based gating mechanism: for each question, $k$ tutor responses are sampled, and distillation proceeds only when the tutor demonstrates high agreement, suppressing the gradient when tutor uncertainty is high. This directly addresses the ``echo chamber'' problem where distilling uncertain teacher signals amplifies noise.
 
@@ -871,7 +871,7 @@ A critical theoretical bottleneck in self-distillation is the rapid onset of pol
 Mathematically, this connects to mode collapse in GANs. Because the student optimizes against a target sharing its own inductive biases and architectural limitations, the hypothesis space progressively collapses. If the model discovers a syntactic ``hack'' or a highly confident but flawed reasoning heuristic, no external signal penalizes it. The model self-reinforces this flawed trajectory, driving $\ptheta(y_{flawed}|x) \to 1$. Once entirely certain of its own hallucinations, gradients vanish, exploration ceases, and the policy is trapped.
 
 \textbf{Strategies to break through saturation.}
-Two primary approaches have emerged. First, \emph{external verifiers and symbolic grounding}: as demonstrated in OPSD, self-play must be anchored by non-differentiable truth metrics (code execution engines, symbolic math verifiers). Even if the model becomes highly confident in a flawed derivation, the verifier assigns $R=0$, shattering the self-reinforcing echo chamber. Second, \emph{the distillation--RL loop}: to maintain trajectory diversity, state-of-the-art frameworks interleave self-distillation with PPO-based RL:
+Two primary approaches have emerged. First, \emph{external verifiers and symbolic grounding}: as demonstrated in OPSD, self-play must be anchored by non-differentiable truth metrics (code execution engines, symbolic math verifiers). Even if the model becomes highly confident in a flawed derivation, the verifier assigns $R=0$, shattering the self-reinforcing echo chamber. Second, \emph{the distillation--RL loop}: to maintain trajectory diversity, state-of-the-art frameworks interleave self-distillation with Proximal Policy Optimization (PPO)-based RL:
 \begin{equation}
     \max_\theta \mathbb{E}_{y \sim \ptheta} \left[ R(y) - \beta \KL(\ptheta \parallel p_{\mathrm{ref}}) \right]
 \end{equation}
@@ -901,7 +901,7 @@ where $\mathcal{L}_{\text{template}}$ distills the teacher's thought templates i
 
 \subsection{Reward-Guided On-Policy Distillation}
 \label{sec:reward_guided_opd}
-The integration of Reinforcement Learning (RL) into the distillation pipeline bridges the gap between imitation learning and outcome-driven optimization. Two technical routes converge here. Outcome-based rewards (sparse but flexible) and logit-based signals (dense but requiring white-box access). The objective transitions from pure distribution matching to expected reward maximization subject to a distillation constraint.
+The integration of RL into the distillation pipeline bridges the gap between imitation learning and outcome-driven optimization. Two technical routes converge here. Outcome-based rewards (sparse but flexible) and logit-based signals (dense but requiring white-box access). The objective transitions from pure distribution matching to expected reward maximization subject to a distillation constraint.
 
 
 Frameworks like RLKD \citep{2505.16142} and AlignDistil \citep{2503.02832} unify alignment and distillation through reward-guided learning. RLKD proposes a Generative Structure Reward Model (GSRM) that converts reasoning paths into meta-reasoning-solving steps and computes rewards measuring structural alignment between student and teacher reasoning. Rather than merely mimicking the teacher's flat token sequence through SFT, the RL-based framework lets the student internalize the teacher's implicit multi-branch reasoning structure, surpassing standard SFT-RL pipelines even on 0.1\% of data under an RL-only regime.
