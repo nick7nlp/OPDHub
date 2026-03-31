@@ -432,17 +432,17 @@ The structural hierarchy of this classification is visualized in Figure~\ref{fig
   }
   [\textbf{On-Policy Distillation}, rbox, text width=2.8cm
     [{Feedback Signal}, dimA, edge={draw=dimteal!60, line width=1.2pt}
-      [{\textbf{Logit-Based} \textbullet~\textit{GKD, MiniLLM, DistiLLM, DistiLLM-2, ToDi, AKL, DSKD, Entropy-Aware, CSD, Fast OPD,} \\ \textit{$\mathcal{X}$-KD, G-OPD, REOPOLD, TSD-KD, PACED, KETCHUP, DASD, DDT, Veto}}, leaf=dimteal, edge={draw=dimteal!30}]
+      [{\textbf{Logit-Based} \textbullet~\textit{GKD, MiniLLM, DistiLLM, DistiLLM-2, DSKD, Entropy-Aware, CSD, Fast OPD,} \\ \textit{$\mathcal{X}$-KD, G-OPD, REOPOLD, TSD-KD, PACED, KETCHUP, DASD, DDT, Veto}}, leaf=dimteal, edge={draw=dimteal!30}]
       [{\textbf{Outcome-Based} \textbullet~\textit{RLKD, AlignDistil, KDRL, RLAD, KEPO, SuperCorrect, LUFFY, SCoRe, VOLD, OVD}}, leaf=dimteal, edge={draw=dimteal!30}]
       [{\textbf{Self-Play} \textbullet~\textit{SPIN, OPSD, OPSDC, GATES, SDPO, OPCD,} \\ \textit{OEL, SDFT, MTP Self-Distill, Priv.\ Info.\ Distill, HDPO, TMS}}, leaf=dimteal, edge={draw=dimteal!30}]
     ]
     [{Teacher Access}, dimB, edge={draw=dimviolet!60, line width=1.2pt}
-      [{\textbf{White-Box} \textbullet~\textit{GKD, MiniLLM, DistiLLM, DistiLLM-2, ToDi, AKL, PACED, Fast OPD, Entropy-Aware,} \\ \textit{DSKD, REOPOLD, TSD-KD, DASD, $\mathcal{X}$-KD, AdaSwitch, Constrained, KETCHUP, CSD, G-OPD, Veto}}, leaf=dimviolet, edge={draw=dimviolet!30}]
+      [{\textbf{White-Box} \textbullet~\textit{GKD, MiniLLM, DistiLLM, DistiLLM-2, PACED, Fast OPD, Entropy-Aware,} \\ \textit{DSKD, REOPOLD, TSD-KD, DASD, $\mathcal{X}$-KD, AdaSwitch, Constrained, KETCHUP, CSD, G-OPD, Veto}}, leaf=dimviolet, edge={draw=dimviolet!30}]
       [{\textbf{Black-Box} \textbullet~\textit{GAD, Lion, OVD, ORPO-Distill, DAIL, LUFFY, SuperCorrect}}, leaf=dimviolet, edge={draw=dimviolet!30}]
       [{\textbf{Self-Distillation} \textbullet~\textit{SPIN, OPSD, OPSDC, GATES, SDPO, OPCD,} \\ \textit{OEL, SDFT, HDPO, TMS, DDT, MTP Self-Distill, Priv.\ Info.\ Distill}}, leaf=dimviolet, edge={draw=dimviolet!30}]
     ]
     [{Granularity}, dimC, edge={draw=dimorange!60, line width=1.2pt}
-      [{\textbf{Token-Level} \textbullet~\textit{GKD, G-OPD, DistiLLM, DistiLLM-2, ToDi, AKL, DSKD, CSD, Entropy-Aware, REOPOLD, TSD-KD, Veto}}, leaf=dimorange, edge={draw=dimorange!30}]
+      [{\textbf{Token-Level} \textbullet~\textit{GKD, G-OPD, DistiLLM, DistiLLM-2, DSKD, CSD, Entropy-Aware, REOPOLD, TSD-KD, Veto}}, leaf=dimorange, edge={draw=dimorange!30}]
       [{\textbf{Sequence-Level} \textbullet~\textit{MiniLLM, Constrained, KETCHUP, DASD, DDT, RLKD, KDRL, SCoRe}}, leaf=dimorange, edge={draw=dimorange!30}]
       [{\textbf{Hybrid / Adaptive} \textbullet~\textit{AdaSwitch, PACED, Fast OPD, $\mathcal{X}$-KD}}, leaf=dimorange, edge={draw=dimorange!30}]
     ]
