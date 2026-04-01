@@ -49,15 +49,15 @@
 \newlabel{subsec:exposure_bias}{{2.3}{5}{The Distribution Mismatch Problem and Exposure Bias}{subsection.2.3}{}}
 \citation{2306.13649}
 \citation{2402.03898}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}The f-Divergence Family and Geometric Intuition}{6}{subsection.2.4}\protected@file@percent }
-\newlabel{subsec:f_divergence}{{2.4}{6}{The f-Divergence Family and Geometric Intuition}{subsection.2.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}The $f$-Divergence Family and Geometric Intuition}{6}{subsection.2.4}\protected@file@percent }
+\newlabel{subsec:f_divergence}{{2.4}{6}{The $f$-Divergence Family and Geometric Intuition}{subsection.2.4}{}}
 \citation{2306.13649}
 \citation{2306.08543}
 \citation{2402.03898}
 \citation{2306.13649}
 \citation{2306.08543}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Forward KL vs.\ Reverse KL divergence for fitting a student distribution $P_S$ to a bimodal teacher $P_T$. (a)\nobreakspace  {}The teacher distribution with two modes. (b)\nobreakspace  {}Forward KL is mean-seeking: the student covers both modes but places mass in the inter-mode ``hallucination zone.'' (c)\nobreakspace  {}Reverse KL is mode-seeking: the student concentrates on a single peak, dropping the other mode entirely. Adaptive methods (ToDi, Entropy-Aware OPD) dynamically switch between the two based on teacher confidence.}}{7}{figure.1}\protected@file@percent }
-\newlabel{fig:forward_vs_reverse_kl}{{1}{7}{Forward KL vs.\ Reverse KL divergence for fitting a student distribution $P_S$ to a bimodal teacher $P_T$. (a)~The teacher distribution with two modes. (b)~Forward KL is mean-seeking: the student covers both modes but places mass in the inter-mode ``hallucination zone.'' (c)~Reverse KL is mode-seeking: the student concentrates on a single peak, dropping the other mode entirely. Adaptive methods (ToDi, Entropy-Aware OPD) dynamically switch between the two based on teacher confidence}{figure.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Forward KL vs.\ Reverse KL divergence for fitting a student distribution $P_S$ to a bimodal teacher $P_T$. (a)\nobreakspace  {}The teacher distribution with two modes. (b)\nobreakspace  {}Forward KL is mode-covering (zero-avoiding): the student covers both modes but places mass in the inter-mode ``hallucination zone.'' (c)\nobreakspace  {}Reverse KL is mode-seeking (zero-forcing): the student concentrates on a single peak, dropping the other mode entirely. Adaptive methods (ToDi, Entropy-Aware OPD) dynamically switch between the two based on teacher confidence.}}{7}{figure.1}\protected@file@percent }
+\newlabel{fig:forward_vs_reverse_kl}{{1}{7}{Forward KL vs.\ Reverse KL divergence for fitting a student distribution $P_S$ to a bimodal teacher $P_T$. (a)~The teacher distribution with two modes. (b)~Forward KL is mode-covering (zero-avoiding): the student covers both modes but places mass in the inter-mode ``hallucination zone.'' (c)~Reverse KL is mode-seeking (zero-forcing): the student concentrates on a single peak, dropping the other mode entirely. Adaptive methods (ToDi, Entropy-Aware OPD) dynamically switch between the two based on teacher confidence}{figure.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.5}A Unified Mathematical View of Modern OPD}{7}{subsection.2.5}\protected@file@percent }
 \newlabel{subsec:unified_view}{{2.5}{7}{A Unified Mathematical View of Modern OPD}{subsection.2.5}{}}
 \citation{2402.03898}
@@ -102,8 +102,9 @@
 \citation{2404.02657}
 \citation{2404.02657}
 \citation{2603.07079}
-\citation{2602.12125}
+\citation{2603.07079}
 \newlabel{eq:todi}{{18}{12}{From Fixed to Adaptive Divergences}{equation.4.18}{}}
+\citation{2602.12125}
 \citation{2510.11615}
 \citation{2510.24021}
 \citation{2509.25837}
@@ -115,7 +116,6 @@
 \citation{2603.07079}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2}Token Weighting and Selection}{13}{subsubsection.4.1.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.3}Cross-Architecture Distillation}{13}{subsubsection.4.1.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.4}Cross-Method Analysis}{13}{subsubsection.4.1.4}\protected@file@percent }
 \citation{2306.13649}
 \citation{2602.12125}
 \citation{2306.08543}
@@ -123,12 +123,12 @@
 \citation{2503.07067}
 \citation{2504.11426}
 \citation{2509.22921}
+\citation{2504.19024}
 \citation{2603.07079}
 \citation{2602.15260}
 \citation{2603.11178}
 \citation{2602.12674}
 \citation{2510.07842}
-\citation{2509.25837}
 \citation{2603.11137}
 \citation{2603.13260}
 \citation{2601.07155}
@@ -139,7 +139,6 @@
 \citation{2402.03898}
 \citation{2503.07067}
 \citation{2603.07079}
-\citation{2509.25837}
 \citation{2601.07155}
 \citation{2603.25562}
 \citation{2504.11426}
@@ -192,6 +191,7 @@
 \citation{2306.08543}
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Comprehensive comparison of white-box on-policy distillation methods.}}{14}{table.1}\protected@file@percent }
 \newlabel{tab:white_box_comparison}{{1}{14}{Comprehensive comparison of white-box on-policy distillation methods}{table.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.4}Cross-Method Analysis}{14}{subsubsection.4.1.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Sequence-Level On-Policy Methods}{14}{subsection.4.2}\protected@file@percent }
 \newlabel{subsec:sequence_level}{{4.2}{14}{Sequence-Level On-Policy Methods}{subsection.4.2}{}}
 \citation{2509.22921}
@@ -205,12 +205,11 @@
 \citation{2402.12842}
 \citation{2601.07155}
 \citation{2603.11178,2510.07842,2305.12870}
-\citation{2603.11178}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Hybrid and Adaptive Approaches}{16}{subsection.4.3}\protected@file@percent }
 \newlabel{subsec:hybrid}{{4.3}{16}{Hybrid and Adaptive Approaches}{subsection.4.3}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1}Compute Efficiency}{16}{subsubsection.4.3.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2}Capacity Gap Bridging}{16}{subsubsection.4.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3}Curriculum and Difficulty Adaptation}{16}{subsubsection.4.3.3}\protected@file@percent }
+\citation{2603.11178}
 \citation{2510.07842}
 \citation{2602.12674,2603.11137,2603.13260,2601.09088,2602.12222}
 \citation{2602.12674}
@@ -218,30 +217,31 @@
 \citation{2603.13260}
 \citation{2601.09088}
 \citation{2602.12222}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3}Curriculum and Difficulty Adaptation}{17}{subsubsection.4.3.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.4}Novel Paradigms}{17}{subsubsection.4.3.4}\protected@file@percent }
 \citation{2404.02657}
 \citation{2402.11890}
 \citation{2307.15190}
 \citation{2603.25562}
-\citation{2511.10643}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Theoretical Analysis and Method Comparison}{18}{subsection.4.4}\protected@file@percent }
 \newlabel{subsec:theory_whitebox}{{4.4}{18}{Theoretical Analysis and Method Comparison}{subsection.4.4}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {5}Black-Box and Self-Distillation Methods}{18}{section.5}\protected@file@percent }
 \newlabel{sec:black_box}{{5}{18}{Black-Box and Self-Distillation Methods}{section.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Black-Box On-Policy Distillation}{18}{subsection.5.1}\protected@file@percent }
-\newlabel{subsec:black_box}{{5.1}{18}{Black-Box On-Policy Distillation}{subsection.5.1}{}}
+\citation{2511.10643}
 \citation{2305.12870}
 \citation{2601.21968}
 \citation{2509.25100}
 \citation{2602.02405}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Black-Box On-Policy Distillation}{19}{subsection.5.1}\protected@file@percent }
+\newlabel{subsec:black_box}{{5.1}{19}{Black-Box On-Policy Distillation}{subsection.5.1}{}}
 \citation{2401.01335}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Self-Play and Self-Distillation}{19}{subsection.5.2}\protected@file@percent }
-\newlabel{subsec:self_distill}{{5.2}{19}{Self-Play and Self-Distillation}{subsection.5.2}{}}
 \citation{2601.18734}
 \citation{2602.20574}
 \citation{2602.04942}
 \citation{2602.12275}
 \citation{2603.16856}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Self-Play and Self-Distillation}{20}{subsection.5.2}\protected@file@percent }
+\newlabel{subsec:self_distill}{{5.2}{20}{Self-Play and Self-Distillation}{subsection.5.2}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.1}Self-Play and Its Saturation Ceiling}{20}{subsubsection.5.2.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.2}Privileged Information: Breaking the Self-Play Ceiling}{20}{subsubsection.5.2.2}\protected@file@percent }
 \citation{2603.05433}
@@ -253,10 +253,10 @@
 \citation{2601.19897}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.3}Reasoning Compression}{21}{subsubsection.5.2.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.4}Reward-Free Alignment via Self-Distillation}{21}{subsubsection.5.2.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Why Self-Play Saturates and Breakthrough Strategies}{21}{subsection.5.3}\protected@file@percent }
-\newlabel{subsec:saturation_analysis}{{5.3}{21}{Why Self-Play Saturates and Breakthrough Strategies}{subsection.5.3}{}}
 \citation{2603.24472}
 \citation{2305.02301}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Why Self-Play Saturates and Breakthrough Strategies}{22}{subsection.5.3}\protected@file@percent }
+\newlabel{subsec:saturation_analysis}{{5.3}{22}{Why Self-Play Saturates and Breakthrough Strategies}{subsection.5.3}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {6}Reasoning Distillation}{22}{section.6}\protected@file@percent }
 \newlabel{sec:reasoning}{{6}{22}{Reasoning Distillation}{section.6}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Chain-of-Thought Distillation}{22}{subsection.6.1}\protected@file@percent }
@@ -271,17 +271,17 @@
 \citation{2504.14945}
 \citation{2501.12948}
 \citation{kim2016sequence}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}DeepSeek-R1: Off-Policy Reasoning Distillation}{24}{subsection.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Why Off-Policy Distillation Works So Well Here}{24}{section*.1}\protected@file@percent }
 \citation{2505.16142}
 \citation{2506.02208}
 \citation{2602.22495}
 \citation{2602.00400}
 \citation{2512.23097}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}DeepSeek-R1: Off-Policy Reasoning Distillation}{24}{subsection.6.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Why Off-Policy Distillation Works So Well Here}{24}{section*.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{The Case for On-Policy Methods on Top of R1 Distillation}{24}{section*.2}\protected@file@percent }
 \citation{2601.18734}
 \citation{2603.11178}
 \citation{2603.05433}
+\@writefile{toc}{\contentsline {paragraph}{The Case for On-Policy Methods on Top of R1 Distillation}{25}{section*.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{Empirical Results: Off-Policy R1 Distillation}{25}{section*.3}\protected@file@percent }
 \citation{2505.09388}
 \citation{2505.09388}
@@ -302,12 +302,11 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {7.3}Compute-Quality Tradeoff Analysis}{27}{subsection.7.3}\protected@file@percent }
 \citation{2402.03898}
 \citation{2410.11325}
-\citation{2203.15556}
-\citation{2502.08606}
 \@writefile{toc}{\contentsline {paragraph}{Concrete Cost Example}{28}{section*.6}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {8}Open Problems and Future Directions}{28}{section.8}\protected@file@percent }
 \newlabel{sec:future}{{8}{28}{Open Problems and Future Directions}{section.8}{}}
-\@writefile{toc}{\contentsline {paragraph}{Distillation Scaling Laws.}{28}{section*.7}\protected@file@percent }
+\citation{2203.15556}
+\citation{2502.08606}
 \citation{2501.12948}
 \citation{2505.09388}
 \citation{2505.13111}
@@ -316,11 +315,12 @@
 \citation{2602.20574}
 \citation{2603.11178}
 \citation{2602.20574}
+\@writefile{toc}{\contentsline {paragraph}{Distillation Scaling Laws.}{29}{section*.7}\protected@file@percent }
+\newlabel{eq:scaling}{{37}{29}{Distillation Scaling Laws}{equation.8.37}{}}
+\@writefile{toc}{\contentsline {paragraph}{Teacher Calibration and Uncertainty-Aware Distillation.}{29}{section*.8}\protected@file@percent }
 \citation{2603.11178}
 \citation{2510.07842}
 \citation{2305.12870}
-\@writefile{toc}{\contentsline {paragraph}{Teacher Calibration and Uncertainty-Aware Distillation.}{29}{section*.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Dynamic Curriculum Distillation.}{29}{section*.9}\protected@file@percent }
 \citation{2603.11178}
 \citation{2504.11426}
 \citation{2402.12030}
@@ -329,6 +329,7 @@
 \citation{2509.14257}
 \citation{2603.16856}
 \citation{2602.04942}
+\@writefile{toc}{\contentsline {paragraph}{Dynamic Curriculum Distillation.}{30}{section*.9}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{Latent Space Distillation for Vocabulary Mismatch.}{30}{section*.10}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{On-Policy Distillation for Autonomous Agents.}{30}{section*.11}\protected@file@percent }
 \citation{2510.23497}
@@ -338,10 +339,9 @@
 \citation{2601.19897}
 \citation{2506.02208}
 \citation{2512.23097}
-\citation{2603.25562}
 \@writefile{toc}{\contentsline {paragraph}{Multimodal On-Policy Distillation.}{31}{section*.12}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{Closing the Distillation-RL Loop.}{31}{section*.13}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Evaluation Methodology Beyond Benchmarks.}{31}{section*.14}\protected@file@percent }
+\citation{2603.25562}
 \citation{2503.02832}
 \citation{2305.15717}
 \citation{2602.12125}
@@ -350,15 +350,13 @@
 \citation{2505.16142}
 \citation{2503.02832}
 \citation{2501.12948}
+\@writefile{toc}{\contentsline {paragraph}{Evaluation Methodology Beyond Benchmarks.}{32}{section*.14}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Practical Guidelines and Decision Framework.}{32}{section*.15}\protected@file@percent }
 \citation{2505.16297}
 \citation{2603.07079}
 \citation{2602.12125}
 \citation{2602.22495}
 \citation{2512.23097}
-\@writefile{toc}{\contentsline {paragraph}{Practical Guidelines and Decision Framework.}{32}{section*.15}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {9}Conclusion}{32}{section.9}\protected@file@percent }
-\newlabel{sec:conclusion}{{9}{32}{Conclusion}{section.9}{}}
-\@writefile{toc}{\contentsline {paragraph}{Key Findings.}{32}{section*.16}\protected@file@percent }
 \citation{2306.13649}
 \citation{2402.03898}
 \citation{2306.08543}
@@ -376,11 +374,14 @@
 \bibcite{2402.12030}{{2}{2025}{{Boizard et~al.}}{{Boizard, Haddad, Hudelot, and Colombo}}}
 \bibcite{2510.23497}{{3}{2025}{{Bousselham et~al.}}{{Bousselham, Kuehne, and Schmid}}}
 \bibcite{2502.08606}{{4}{2025}{{Busbridge et~al.}}{{Busbridge, Shidani, Weers, Ramapuram, Littwin, and Webb}}}
+\@writefile{toc}{\contentsline {section}{\numberline {9}Conclusion}{33}{section.9}\protected@file@percent }
+\newlabel{sec:conclusion}{{9}{33}{Conclusion}{section.9}{}}
+\@writefile{toc}{\contentsline {paragraph}{Key Findings.}{33}{section*.16}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Practical Takeaways.}{33}{section*.17}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Looking Ahead.}{33}{section*.18}\protected@file@percent }
 \bibcite{2602.12674}{{5}{2026}{{Cai \& Yuan}}{{Cai and Yuan}}}
 \bibcite{2603.24596}{{6}{2026}{{Cao et~al.}}{{Cao, Fu, Yu, Zheng, Tan, and Jin}}}
 \bibcite{2509.14526}{{7}{2025}{{Cao et~al.}}{{Cao, Kang, Xing, and Jiang}}}
-\@writefile{toc}{\contentsline {paragraph}{Practical Takeaways.}{33}{section*.17}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Looking Ahead.}{33}{section*.18}\protected@file@percent }
 \bibcite{2505.13111}{{8}{2025}{{Cha \& Cho}}{{Cha and Cho}}}
 \bibcite{2510.18874}{{9}{2025}{{Chen et~al.}}{{Chen, Razin, Narasimhan, and Chen}}}
 \bibcite{2401.01335}{{10}{2024}{{Chen et~al.}}{{Chen, Deng, Yuan, Ji, and Gu}}}
@@ -455,4 +456,4 @@
 \bibcite{2310.08461}{{79}{2023}{{Zhou et~al.}}{{Zhou, Lyu, Rawat, Menon, Rostamizadeh, Kumar, Kagy, and Agarwal}}}
 \bibcite{2509.22921}{{80}{2025}{{Zimmer et~al.}}{{Zimmer, Ji, Nguyen, and Ammar}}}
 \bibstyle{colm2026_conference}
-\gdef \@abspage@last{38}
+\gdef \@abspage@last{39}
