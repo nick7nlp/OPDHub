@@ -1,0 +1,25 @@
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.pdf
+*.synctex.gz
+texput.log
+
+# Backups
+*.bak
+*.bak.*
+
+# Archive
+.archive_cleanup_*/
+
+# Preview images
+*.png
+
+# PDFs (stored separately)
+pdfs/
+
+# OS
+.DS_Store

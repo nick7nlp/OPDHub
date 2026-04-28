@@ -1,0 +1,782 @@
+\begin{thebibliography}{99}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Afsharrad et~al.(2026)Afsharrad, Abedsoltan, Moradipari, and
+  Lall]{afsharrad2026onpolicy}
+Amirhossein Afsharrad, Amirhesam Abedsoltan, Ahmadreza Moradipari, and Sanjay
+  Lall.
+\newblock {On-Policy Distillation of Language Models for Autonomous Vehicle
+  Motion Planning}.
+\newblock \emph{arXiv preprint arXiv:2604.07944}, 2026.
+\newblock URL \url{https://arxiv.org/abs/2604.07944}.
+
+\bibitem[Agarwal et~al.(2024)Agarwal, Vieillard, Zhou, Stanczyk, Ramos, Geist,
+  and Bachem]{2306.13649}
+Rishabh Agarwal, Nino Vieillard, Yongchao Zhou, Piotr Stanczyk, Sabela Ramos,
+  Matthieu Geist, and Olivier Bachem.
+\newblock {On-Policy Distillation of Language Models: Learning from
+  Self-Generated Mistakes}.
+\newblock \emph{Proceedings of ICLR}, 2024.
+\newblock URL \url{https://arxiv.org/abs/2306.13649}.
+
+\bibitem[Boizard et~al.(2025)Boizard, Haddad, Hudelot, and Colombo]{2402.12030}
+Nicolas Boizard, Kevin~El Haddad, Céline Hudelot, and Pierre Colombo.
+\newblock {Towards Cross-Tokenizer Distillation: the Universal Logit
+  Distillation Loss for LLMs}.
+\newblock \emph{Transactions on Machine Learning Research}, 2025.
+\newblock URL \url{https://arxiv.org/abs/2402.12030}.
+
+\bibitem[Bousselham et~al.(2025)Bousselham, Kuehne, and Schmid]{2510.23497}
+Walid Bousselham, Hilde Kuehne, and Cordelia Schmid.
+\newblock {VOLD: Reasoning Transfer from LLMs to Vision-Language Models via
+  On-Policy Distillation}.
+\newblock \emph{arXiv preprint arXiv:2510.23497}, 2025.
+\newblock URL \url{https://arxiv.org/abs/2510.23497}.
+
+\bibitem[Busbridge et~al.(2025)Busbridge, Shidani, Weers, Ramapuram, Littwin,
+  and Webb]{2502.08606}
+Dan Busbridge, Amitis Shidani, Floris Weers, Jason Ramapuram, Etai Littwin, and
+  Russ Webb.
+\newblock {Distillation Scaling Laws}.
+\newblock In \emph{Proceedings of the International Conference on Machine
+  Learning (ICML)}, 2025.
+\newblock URL \url{https://arxiv.org/abs/2502.08606}.
+
+\bibitem[Cai \& Yuan(2026)Cai and Yuan]{2602.12674}
+Yuang Cai and Yuyu Yuan.
+\newblock {$\mathcal{X}$-KD: General Experiential Knowledge Distillation for
+  Large Language Models}.
+\newblock \emph{arXiv preprint arXiv:2602.12674}, 2026.
+\newblock URL \url{https://arxiv.org/abs/2602.12674}.
+
+\bibitem[Cao et~al.(2026)Cao, Fu, Yu, Zheng, Tan, and Jin]{2603.24596}
+Di~Cao, Dongjie Fu, Hai Yu, Siqi Zheng, Xu~Tan, and Tao Jin.
+\newblock {X-OPD: Cross-Modal On-Policy Distillation for Capability Alignment
+  in Speech LLMs}.
+\newblock \emph{arXiv preprint arXiv:2603.24596}, 2026.
+\newblock URL \url{https://arxiv.org/abs/2603.24596}.
+
+\bibitem[Cha \& Cho(2025)Cha and Cho]{2505.13111}
+Sungmin Cha and Kyunghyun Cho.
+\newblock {Why Knowledge Distillation Works in Generative Models: A Minimal
+  Working Explanation}.
+\newblock \emph{Advances in Neural Information Processing Systems (NeurIPS)},
+  2025.
+\newblock URL \url{https://arxiv.org/abs/2505.13111}.
+
+\bibitem[Chen et~al.(2025)Chen, Razin, Narasimhan, and Chen]{2510.18874}
+Howard Chen, Noam Razin, Karthik Narasimhan, and Danqi Chen.
+\newblock {Retaining by Doing: The Role of On-Policy Data in Mitigating
+  Forgetting}.
+\newblock \emph{arXiv preprint arXiv:2510.18874}, 2025.
+\newblock URL \url{https://arxiv.org/abs/2510.18874}.
+
+\bibitem[Chen et~al.(2024)Chen, Deng, Yuan, Ji, and Gu]{2401.01335}
+Zixiang Chen, Yihe Deng, Huizhuo Yuan, Kaixuan Ji, and Quanquan Gu.
+\newblock {Self-Play Fine-Tuning Converts Weak Language Models to Strong
+  Language Models}.
+\newblock \emph{Proceedings of ICML}, 2024.
+\newblock URL \url{https://arxiv.org/abs/2401.01335}.
+
+\bibitem[DeepSeek-AI et~al.(2025)DeepSeek-AI, Guo, Yang, Zhang, Song, Wang,
+  Zhu, Xu, Zhang, Ma, Bi, Zhang, Yu, Wu, Wu, et~al.]{2501.12948}
+DeepSeek-AI, Daya Guo, Dejian Yang, Haowei Zhang, Junxiao Song, Peiyi Wang,
+  Qihao Zhu, Runxin Xu, Ruoyu Zhang, Shirong Ma, Xiao Bi, Xiaokang Zhang,
+  Xingkai Yu, Yu~Wu, Z.~F. Wu, et~al.
+\newblock {DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via
+  Reinforcement Learning}.
+\newblock \emph{Nature}, 645:\penalty0 633--638, 2025.
+\newblock URL \url{https://arxiv.org/abs/2501.12948}.
+
+\bibitem[Ding(2026)]{2603.23871}
+Ken Ding.
+\newblock {HDPO: Hybrid Distillation Policy Optimization via Privileged
+  Self-Distillation}.
+\newblock \emph{arXiv preprint arXiv:2603.23871}, 2026.
+\newblock URL \url{https://arxiv.org/abs/2603.23871}.
+
+\bibitem[Fan et~al.(2025)Fan, Luo, Bowling, and Mou]{2504.19024}
+Jiabin Fan, Guoqing Luo, Michael Bowling, and Lili Mou.
+\newblock {KETCHUP: K-Step Return Estimation for Sequential Knowledge
+  Distillation}.
+\newblock \emph{arXiv preprint arXiv:2504.19024}, 2025.
+\newblock URL \url{https://arxiv.org/abs/2504.19024}.
+
+\bibitem[Fu et~al.(2026)Fu, Huang, Jiang, Zhu, and Zhao]{2603.25562}
+Yuqian Fu, Haohuan Huang, Kaiwen Jiang, Yuanheng Zhu, and Dongbin Zhao.
+\newblock {Revisiting On-Policy Distillation: Empirical Failure Modes and
+  Simple Fixes}.
+\newblock \emph{arXiv preprint arXiv:2603.25562}, 2026.
+\newblock URL \url{https://arxiv.org/abs/2603.25562}.
+
+\bibitem[{Gemma Team} et~al.(2024){Gemma Team}, Riviere, Pathak, Sessa, Hardin,
+  Bhupatiraju, Hussenot, Mesnard, Shahriari, Ram{\'e}, et~al.]{2408.00118}
+{Gemma Team}, Morgane Riviere, Shreya Pathak, Pier~Giuseppe Sessa, Cassidy
+  Hardin, Surya Bhupatiraju, L{\'e}onard Hussenot, Thomas Mesnard, Bobak
+  Shahriari, Alexandre Ram{\'e}, et~al.
+\newblock {Gemma 2: Improving Open Language Models at a Practical Size}.
+\newblock \emph{arXiv preprint arXiv:2408.00118}, 2024.
+\newblock URL \url{https://arxiv.org/abs/2408.00118}.
+
+\bibitem[Gu et~al.(2024)Gu, Dong, Wei, and Huang]{2306.08543}
+Yuxian Gu, Li~Dong, Furu Wei, and Minlie Huang.
+\newblock {MiniLLM: On-Policy Distillation of Large Language Models}.
+\newblock \emph{Proceedings of ICLR}, 2024.
+\newblock URL \url{https://arxiv.org/abs/2306.08543}.
+
+\bibitem[Gu et~al.(2025)Gu, Zhou, Meng, Zhou, and Huang]{2410.17215}
+Yuxian Gu, Hao Zhou, Fandong Meng, Jie Zhou, and Minlie Huang.
+\newblock {MiniPLM: Knowledge Distillation for Pre-Training Language Models}.
+\newblock \emph{Proceedings of ICLR}, 2025.
+\newblock URL \url{https://arxiv.org/abs/2410.17215}.
+
+\bibitem[Gudibande et~al.(2023)Gudibande, Wallace, Snell, Geng, Liu, Abbeel,
+  Levine, and Song]{2305.15717}
+Arnav Gudibande, Eric Wallace, Charlie Snell, Xinyang Geng, Hao Liu, Pieter
+  Abbeel, Sergey Levine, and Dawn Song.
+\newblock {The False Promise of Imitating Proprietary LLMs}.
+\newblock \emph{arXiv preprint arXiv:2305.15717}, 2023.
+\newblock URL \url{https://arxiv.org/abs/2305.15717}.
+
+\bibitem[He et~al.(2026)He, Kaur, Bhaskar, Yang, Liu, Ri, Fowl, Panigrahi,
+  Chen, and Arora]{he2026selfdistillation}
+Yinghui He, Simran Kaur, Adithya Bhaskar, Yongjin Yang, Jiarui Liu, Narutatsu
+  Ri, Liam Fowl, Abhishek Panigrahi, Danqi Chen, and Sanjeev Arora.
+\newblock {Self-Distillation Zero: Self-Revision Turns Binary Rewards into
+  Dense Supervision}.
+\newblock \emph{arXiv preprint arXiv:2604.12002}, 2026.
+\newblock URL \url{https://arxiv.org/abs/2604.12002}.
+
+\bibitem[Hinton et~al.(2015)Hinton, Vinyals, and Dean]{hinton2015distilling}
+Geoffrey Hinton, Oriol Vinyals, and Jeff Dean.
+\newblock Distilling the knowledge in a neural network.
+\newblock \emph{arXiv preprint arXiv:1503.02531}, 2015.
+
+\bibitem[Hoffmann et~al.(2022)Hoffmann, Borgeaud, Mensch, Buchatskaya, Cai,
+  Rutherford, de~Las~Casas, Hendricks, Welbl, Clark, Hennigan, Noland,
+  Millican, van~den Driessche, Damoc, Guy, Osindero, Simonyan, Elsen, Rae,
+  Vinyals, and Sifre]{2203.15556}
+Jordan Hoffmann, Sebastian Borgeaud, Arthur Mensch, Elena Buchatskaya, Trevor
+  Cai, Eliza Rutherford, Diego de~Las~Casas, Lisa~Anne Hendricks, Johannes
+  Welbl, Aidan Clark, Tom Hennigan, Eric Noland, Katie Millican, George van~den
+  Driessche, Bogdan Damoc, Aurelia Guy, Simon Osindero, Karen Simonyan, Erich
+  Elsen, Jack~W. Rae, Oriol Vinyals, and Laurent Sifre.
+\newblock {Training Compute-Optimal Large Language Models}.
+\newblock In \emph{Advances in Neural Information Processing Systems
+  (NeurIPS)}, 2022.
+\newblock URL \url{https://arxiv.org/abs/2203.15556}.
+
+\bibitem[Hsieh et~al.(2023)Hsieh, Li, Yeh, Nakhost, Fujii, Ratner, Krishna,
+  Lee, and Pfister]{2305.02301}
+Cheng-Yu Hsieh, Chun-Liang Li, Chih-Kuan Yeh, Hootan Nakhost, Yasuhisa Fujii,
+  Alexander Ratner, Ranjay Krishna, Chen-Yu Lee, and Tomas Pfister.
+\newblock {Distilling Step-by-Step! Outperforming Larger Language Models with
+  Less Training Data and Smaller Model Sizes}.
+\newblock \emph{Findings of ACL}, 2023.
+\newblock URL \url{https://arxiv.org/abs/2305.02301}.
+
+\bibitem[Hu et~al.(2026)Hu, Zhu, Luo, Zhang, He, Lei, Zheng, Feng, He, Sun, Wu,
+  and Wang]{hu2026cord}
+Jing Hu, Danxiang Zhu, Xianlong Luo, Dan Zhang, Shuwei He, Yishu Lei, Haitao
+  Zheng, Shikun Feng, Jingzhou He, Yu~Sun, Hua Wu, and Haifeng Wang.
+\newblock {CORD: Bridging the Audio-Text Reasoning Gap via Weighted On-policy
+  Cross-modal Distillation}.
+\newblock \emph{arXiv preprint arXiv:2601.16547}, 2026.
+\newblock URL \url{https://arxiv.org/abs/2601.16547}.
+
+\bibitem[Huang et~al.(2025)Huang, Song, Zhang, and Ren]{2510.24021}
+Haiduo Huang, Jiangcheng Song, Yadong Zhang, and Pengju Ren.
+\newblock {SelecTKD: Selective Token-Weighted Knowledge Distillation for LLMs}.
+\newblock \emph{arXiv preprint arXiv:2510.24021}, 2025.
+\newblock URL \url{https://arxiv.org/abs/2510.24021}.
+
+\bibitem[H{\"u}botter et~al.(2026)H{\"u}botter, L{\"u}beck, Behric, Baumann,
+  Bagatella, Marta, et~al.]{2601.20802}
+Jonas H{\"u}botter, Frederike L{\"u}beck, Lejs Behric, Anton Baumann, Marco
+  Bagatella, Daniel Marta, et~al.
+\newblock {Reinforcement Learning via Self-Distillation}.
+\newblock \emph{arXiv preprint arXiv:2601.20802}, 2026.
+\newblock URL \url{https://arxiv.org/abs/2601.20802}.
+
+\bibitem[Jang et~al.(2026)Jang, Yeom, Yeo, Lim, and Kim]{2601.07155}
+Ijun Jang, Jewon Yeom, Juan Yeo, Hyunggu Lim, and Taesup Kim.
+\newblock {Stable On-Policy Distillation through Adaptive Target
+  Reformulation}.
+\newblock In \emph{Findings of ACL}, 2026.
+\newblock URL \url{https://arxiv.org/abs/2601.07155}.
+
+\bibitem[Jiang et~al.(2023)Jiang, Chan, Chen, and Wang]{2305.12870}
+Yuxin Jiang, Chunkit Chan, Mingyang Chen, and Wei Wang.
+\newblock {Lion: Adversarial Distillation of Proprietary Large Language
+  Models}.
+\newblock \emph{Proceedings of EMNLP}, 2023.
+\newblock URL \url{https://arxiv.org/abs/2305.12870}.
+
+\bibitem[Jin et~al.(2026)Jin, Min, Yang, Kadhe, Zhou, Wei, Baracaldo, and
+  Lee]{2603.07079}
+Woogyeol Jin, Taywon Min, Yongjin Yang, Swanand~Ravindra Kadhe, Yi~Zhou, Dennis
+  Wei, Nathalie Baracaldo, and Kimin Lee.
+\newblock {Entropy-Aware On-Policy Distillation of Language Models}.
+\newblock \emph{arXiv preprint arXiv:2603.07079}, 2026.
+\newblock URL \url{https://arxiv.org/abs/2603.07079}.
+
+\bibitem[Jung et~al.(2025)Jung, Yoon, Kim, and Lee]{2505.16297}
+Seongryong Jung, Suwan Yoon, DongGeon Kim, and Hwanhee Lee.
+\newblock {ToDi: Token-wise Distillation via Fine-Grained Divergence Control}.
+\newblock In \emph{Proceedings of EMNLP}, 2025.
+\newblock URL \url{https://arxiv.org/abs/2505.16297}.
+
+\bibitem[Khadem et~al.(2026)Khadem, Mousavi, Fang, and Liu]{khadem2026dpopd}
+Fatemeh Khadem, Sajad Mousavi, Yi~Fang, and Yuhong Liu.
+\newblock {DP-OPD: Differentially Private On-Policy Distillation for Language
+  Models}.
+\newblock \emph{arXiv preprint arXiv:2604.04461}, 2026.
+\newblock URL \url{https://arxiv.org/abs/2604.04461}.
+
+\bibitem[Kim et~al.(2024)Kim, Jang, and Yang]{2402.12842}
+Gyeongman Kim, Doohyuk Jang, and Eunho Yang.
+\newblock {PromptKD: Distilling Student-Friendly Knowledge for Generative
+  Language Models via Prompt Tuning}.
+\newblock In \emph{Findings of EMNLP}, 2024.
+\newblock URL \url{https://arxiv.org/abs/2402.12842}.
+
+\bibitem[Kim et~al.(2026{\natexlab{a}})Kim, Luo, Kim, Lee, Kim, Jeon, Li, and
+  Yang]{2603.24472}
+Jeonghye Kim, Xufang Luo, Minbeom Kim, Sangmook Lee, Dohyung Kim, Jiwon Jeon,
+  Dongsheng Li, and Yuqing Yang.
+\newblock {Why Does Self-Distillation (Sometimes) Degrade the Reasoning
+  Capability of LLMs?}
+\newblock \emph{arXiv preprint arXiv:2603.24472}, 2026{\natexlab{a}}.
+\newblock URL \url{https://arxiv.org/abs/2603.24472}.
+
+\bibitem[Kim \& Baek(2026)Kim and Baek]{2603.13260}
+Minsang Kim and Seung~Jun Baek.
+\newblock {Explain in Your Own Words: Improving Reasoning via Token-Selective
+  Dual Knowledge Distillation}.
+\newblock \emph{Proceedings of ICLR}, 2026.
+\newblock URL \url{https://arxiv.org/abs/2603.13260}.
+
+\bibitem[Kim et~al.(2026{\natexlab{b}})Kim, Shin, Kang, Na, and
+  Moon]{2509.25837}
+Yeongmin Kim, Donghyeok Shin, Mina Kang, Byeonghu Na, and Il-Chul Moon.
+\newblock {Distillation of Large Language Models via Concrete Score Matching}.
+\newblock In \emph{International Conference on Learning Representations
+  (ICLR)}, 2026{\natexlab{b}}.
+\newblock URL \url{https://arxiv.org/abs/2509.25837}.
+
+\bibitem[Kim \& Rush(2016)Kim and Rush]{kim2016sequence}
+Yoon Kim and Alexander~M. Rush.
+\newblock Sequence-level knowledge distillation.
+\newblock In \emph{Proceedings of the 2016 Conference on Empirical Methods in
+  Natural Language Processing}, pp.\  1317--1327, 2016.
+
+\bibitem[Kirchenbauer et~al.(2026)Kirchenbauer, Hans, Bartoldson, Goldblum,
+  Panda, and Goldstein]{2602.06019}
+John Kirchenbauer, Abhimanyu Hans, Brian Bartoldson, Micah Goldblum, Ashwinee
+  Panda, and Tom Goldstein.
+\newblock {Multi-Token Prediction via Self-Distillation}.
+\newblock \emph{arXiv preprint arXiv:2602.06019}, 2026.
+\newblock URL \url{https://arxiv.org/abs/2602.06019}.
+
+\bibitem[Ko et~al.(2024)Ko, Kim, Chen, and Yun]{2402.03898}
+Jongwoo Ko, Sungnyun Kim, Tianyi Chen, and Se-Young Yun.
+\newblock {DistiLLM: Towards Streamlined Distillation for Large Language
+  Models}.
+\newblock \emph{Proceedings of ICML}, 2024.
+\newblock URL \url{https://arxiv.org/abs/2402.03898}.
+
+\bibitem[Ko et~al.(2025)Ko, Chen, Kim, Ding, Liang, Zharkov, and
+  Yun]{2503.07067}
+Jongwoo Ko, Tianyi Chen, Sungnyun Kim, Tianyu Ding, Luming Liang, Ilya Zharkov,
+  and Se-Young Yun.
+\newblock {DistiLLM-2: A Contrastive Approach Boosts the Distillation of LLMs}.
+\newblock In \emph{Proceedings of ICML}, 2025.
+\newblock URL \url{https://arxiv.org/abs/2503.07067}.
+
+\bibitem[Ko et~al.(2026)Ko, Abdali, Kim, Chen, and Cameron]{2603.11137}
+Jongwoo Ko, Sara Abdali, Young~Jin Kim, Tianyi Chen, and Pashmina Cameron.
+\newblock {Scaling Reasoning Efficiently via Relaxed On-Policy Distillation}.
+\newblock \emph{arXiv preprint arXiv:2603.11137}, 2026.
+\newblock URL \url{https://arxiv.org/abs/2603.11137}.
+
+\bibitem[Li et~al.(2026{\natexlab{a}})Li, Zhang, Huang,
+  et~al.]{li2026katcoderv2}
+Fengxiang Li, Han Zhang, Haoyang Huang, et~al.
+\newblock {KAT-Coder-V2 Technical Report}.
+\newblock \emph{arXiv preprint arXiv:2603.27703}, 2026{\natexlab{a}}.
+\newblock URL \url{https://arxiv.org/abs/2603.27703}.
+
+\bibitem[Li et~al.(2026{\natexlab{b}})Li, Yang, Fang, Song, Zheng, Guo, Zhang,
+  Wang, and Chua]{li2026unifying}
+Gengsheng Li, Tianyu Yang, Junfeng Fang, Mingyang Song, Mao Zheng, Haiyun Guo,
+  Dan Zhang, Jinqiao Wang, and Tat-Seng Chua.
+\newblock {Unifying Group-Relative and Self-Distillation Policy Optimization
+  via Sample Routing}.
+\newblock \emph{arXiv preprint arXiv:2604.02288}, 2026{\natexlab{b}}.
+\newblock URL \url{https://arxiv.org/abs/2604.02288}.
+
+\bibitem[Li et~al.(2026{\natexlab{c}})Li, Yin, Xu, Xu, Tan, He,
+  et~al.]{2602.02994}
+Jiaze Li, Hao Yin, Haoran Xu, Boshen Xu, Wenhui Tan, Zewen He, et~al.
+\newblock {Video-OPD: Efficient Post-Training of Multimodal Large Language
+  Models for Temporal Video Grounding via On-Policy Distillation}.
+\newblock \emph{arXiv preprint arXiv:2602.02994}, 2026{\natexlab{c}}.
+\newblock URL \url{https://arxiv.org/abs/2602.02994}.
+
+\bibitem[Li et~al.(2026{\natexlab{d}})Li, Zuo, He, Zhang, Xiao, Qian, Yu, ang
+  Gao, Yang, Liu, and Ding]{li2026rethinking}
+Yaxuan Li, Yuxin Zuo, Bingxiang He, Jinqian Zhang, Chaojun Xiao, Cheng Qian,
+  Tianyu Yu, Huan ang Gao, Wenkai Yang, Zhiyuan Liu, and Ning Ding.
+\newblock {Rethinking On-Policy Distillation of Large Language Models:
+  Phenomenology, Mechanism, and Recipe}.
+\newblock \emph{arXiv preprint arXiv:2604.13016}, 2026{\natexlab{d}}.
+\newblock URL \url{https://arxiv.org/abs/2604.13016}.
+
+\bibitem[Li et~al.(2025)Li, Li, and Liu]{2512.23097}
+Yingru Li, Ziniu Li, and Jiacai Liu.
+\newblock {A Note on Hybrid Online Reinforcement and Imitation Learning for
+  LLMs: Formulations and Algorithms}.
+\newblock \emph{arXiv preprint arXiv:2512.23097}, 2025.
+\newblock URL \url{https://arxiv.org/abs/2512.23097}.
+
+\bibitem[Liang et~al.(2026)Liang, Bai, Xu, Tang, Lee, Liu, Yang, and
+  Wu]{liang2026orbit}
+Kun Liang, Clive Bai, Xin Xu, Chenming Tang, Sanwoo Lee, Weijie Liu, Saiyong
+  Yang, and Yunfang Wu.
+\newblock {ORBIT: On-policy Exploration-Exploitation for Controllable
+  Multi-Budget Reasoning}.
+\newblock \emph{arXiv preprint arXiv:2601.08310}, 2026.
+\newblock URL \url{https://arxiv.org/abs/2601.08310}.
+
+\bibitem[Lightman et~al.(2024)Lightman, Kosaraju, Burda, Edwards, Baker, Lee,
+  Leike, Schulman, Sutskever, and Cobbe]{2305.20050}
+Hunter Lightman, Vineet Kosaraju, Yura Burda, Harri Edwards, Bowen Baker, Teddy
+  Lee, Jan Leike, John Schulman, Ilya Sutskever, and Karl Cobbe.
+\newblock {Let's Verify Step by Step}.
+\newblock \emph{Proceedings of ICLR}, 2024.
+\newblock URL \url{https://arxiv.org/abs/2305.20050}.
+
+\bibitem[Luo et~al.(2026)Luo, Chuang, Wang, Xu, Han, Zhang, and
+  Braverman]{luo2026demystifying}
+Feng Luo, Yu-Neng Chuang, Guanchu Wang, Zicheng Xu, Xiaotian Han, Tianyi Zhang,
+  and Vladimir Braverman.
+\newblock {Demystifying OPD: Length Inflation and Stabilization Strategies for
+  Large Language Models}.
+\newblock \emph{arXiv preprint arXiv:2604.08527}, 2026.
+\newblock URL \url{https://arxiv.org/abs/2604.08527}.
+
+\bibitem[Lyu et~al.(2025)Lyu, Wang, Huang, and Xu]{2509.14257}
+Yuanjie Lyu, Chengyu Wang, Jun Huang, and Tong Xu.
+\newblock {From Correction to Mastery: Reinforced Distillation of Large
+  Language Model Agents}.
+\newblock \emph{arXiv preprint arXiv:2509.14257}, 2025.
+\newblock URL \url{https://arxiv.org/abs/2509.14257}.
+
+\bibitem[Mendes et~al.(2026)Mendes, Park, and Ritter]{2602.02405}
+Ethan Mendes, Jungsoo Park, and Alan Ritter.
+\newblock {Didactic to Constructive: Turning Expert Solutions into Learnable
+  Reasoning}.
+\newblock \emph{arXiv preprint arXiv:2602.02405}, 2026.
+\newblock URL \url{https://arxiv.org/abs/2602.02405}.
+
+\bibitem[Mitra \& Ulukus(2025)Mitra and Ulukus]{mitra2025semantic}
+Purbesh Mitra and Sennur Ulukus.
+\newblock {Semantic Soft Bootstrapping: Long Context Reasoning in LLMs without
+  Reinforcement Learning}.
+\newblock \emph{arXiv preprint arXiv:2512.05105}, 2025.
+\newblock URL \url{https://arxiv.org/abs/2512.05105}.
+
+\bibitem[Penaloza et~al.(2026)Penaloza, Vattikonda, Gontier, Lacoste, Charlin,
+  and Caccia]{2602.04942}
+Emiliano Penaloza, Dheeraj Vattikonda, Nicolas Gontier, Alexandre Lacoste,
+  Laurent Charlin, and Massimo Caccia.
+\newblock {Privileged Information Distillation for Language Models}.
+\newblock \emph{arXiv preprint arXiv:2602.04942}, 2026.
+\newblock URL \url{https://arxiv.org/abs/2602.04942}.
+
+\bibitem[Peng et~al.(2025)Peng, Mao, Jiang, Liu, Ren, Chen, de~Rijke, and
+  Zhao]{2510.07842}
+Jingyu Peng, Jiaxin Mao, Yong Jiang, Zheng Liu, Pengjie Ren, Zhumin Chen,
+  Maarten de~Rijke, and Xiangyu Zhao.
+\newblock {AdaSwitch: Balancing Exploration and Guidance in Knowledge
+  Distillation via Adaptive Switching}.
+\newblock \emph{arXiv preprint arXiv:2510.07842}, 2025.
+\newblock URL \url{https://arxiv.org/abs/2510.07842}.
+
+\bibitem[Ross et~al.(2011)Ross, Gordon, and Bagnell]{ross2011reduction}
+St{\'e}phane Ross, Geoffrey~J. Gordon, and J.~Andrew Bagnell.
+\newblock A reduction of imitation learning and structured prediction to
+  no-regret online learning.
+\newblock In \emph{Proceedings of the 14th International Conference on
+  Artificial Intelligence and Statistics}, pp.\  627--635, 2011.
+
+\bibitem[RRV et~al.(2025)RRV, Dineen, Handa, Uddin, Parmar, Baral, and
+  Zhou]{rrv2025thinktuning}
+Aswin RRV, Jacob Dineen, Divij Handa, Md~Nayem Uddin, Mihir Parmar, Chitta
+  Baral, and Ben Zhou.
+\newblock {ThinkTuning: Instilling Cognitive Reflections without Distillation}.
+\newblock In \emph{Proceedings of the 2025 Conference on Empirical Methods in
+  Natural Language Processing (EMNLP)}, 2025.
+\newblock URL \url{https://arxiv.org/abs/2508.07616}.
+
+\bibitem[Sang et~al.(2026)Sang, Xu, Zhou, He, Wang, and Sun]{2603.05433}
+Hejian Sang, Yuanda Xu, Zhengze Zhou, Ran He, Zhipeng Wang, and Jiachen Sun.
+\newblock {CRISP: Compressed Reasoning via Iterative Self-Policy Distillation}.
+\newblock \emph{arXiv preprint arXiv:2603.05433}, 2026.
+\newblock URL \url{https://arxiv.org/abs/2603.05433}.
+
+\bibitem[Shenfeld et~al.(2026)Shenfeld, Damani, H{\"u}botter, and
+  Agrawal]{2601.19897}
+Idan Shenfeld, Mehul Damani, Jonas H{\"u}botter, and Pulkit Agrawal.
+\newblock {Self-Distillation Enables Continual Learning}.
+\newblock \emph{arXiv preprint arXiv:2601.19897}, 2026.
+\newblock URL \url{https://arxiv.org/abs/2601.19897}.
+
+\bibitem[Singh et~al.(2025)Singh, Vaddina, and Birru]{2509.25100}
+Aasheesh Singh, Vishal Vaddina, and Dagnachew Birru.
+\newblock {ORPO-Distill: Mixed-Policy Preference Optimization for
+  Cross-Architecture LLM Distillation}.
+\newblock \emph{NeurIPS Workshop on Efficient Reasoning}, 2025.
+\newblock URL \url{https://arxiv.org/abs/2509.25100}.
+
+\bibitem[Song et~al.(2026)Song, Chen, Tajwar, Munos, Pathak, Bagnell, Singh,
+  and Zanette]{song2026expanding}
+Yuda Song, Lili Chen, Fahim Tajwar, Remi Munos, Deepak Pathak, J.~Andrew
+  Bagnell, Aarti Singh, and Andrea Zanette.
+\newblock {Expanding the Capabilities of Reinforcement Learning via Text
+  Feedback}.
+\newblock \emph{arXiv preprint arXiv:2602.02482}, 2026.
+\newblock URL \url{https://arxiv.org/abs/2602.02482}.
+
+\bibitem[Stein et~al.(2026)Stein, Huang, and Goldstein]{2602.20574}
+Alex Stein, Furong Huang, and Tom Goldstein.
+\newblock {GATES: Self-Distillation under Privileged Context with Consensus
+  Gating}.
+\newblock \emph{arXiv preprint arXiv:2602.20574}, 2026.
+\newblock URL \url{https://arxiv.org/abs/2602.20574}.
+
+\bibitem[{Tencent Robotics X and HY Vision Team}(2026)]{tencent2026hyembodied}
+{Tencent Robotics X and HY Vision Team}.
+\newblock {HY-Embodied-0.5: Embodied Foundation Models for Real-World Agents}.
+\newblock \emph{arXiv preprint arXiv:2604.07430}, 2026.
+\newblock URL \url{https://arxiv.org/abs/2604.07430}.
+
+\bibitem[Wang et~al.(2026{\natexlab{a}})Wang, Wang, Xiao, Zhou, Pan, Wang, Xu,
+  Wen, Ruan, Chen, and Qi]{wang2026skillsd}
+Hao Wang, Guozhi Wang, Han Xiao, Yufeng Zhou, Yue Pan, Jichao Wang, Ke~Xu,
+  Yafei Wen, Xiaohu Ruan, Xiaoxin Chen, and Honggang Qi.
+\newblock {Skill-SD: Skill-Conditioned Self-Distillation for Multi-turn LLM
+  Agents}.
+\newblock \emph{arXiv preprint arXiv:2604.10674}, 2026{\natexlab{a}}.
+\newblock URL \url{https://arxiv.org/abs/2604.10674}.
+
+\bibitem[Wang et~al.(2026{\natexlab{b}})Wang, Chen, Jin, Wang, and
+  Yang]{wang2026openclawrl}
+Yinjie Wang, Xuyang Chen, Xiaolong Jin, Mengdi Wang, and Ling Yang.
+\newblock {OpenClaw-RL: Train Any Agent Simply by Talking}.
+\newblock \emph{arXiv preprint arXiv:2603.10165}, 2026{\natexlab{b}}.
+\newblock URL \url{https://arxiv.org/abs/2603.10165}.
+
+\bibitem[Wen et~al.(2023)Wen, Li, Du, and Mou]{2307.15190}
+Yuqiao Wen, Zichao Li, Wenyu Du, and Lili Mou.
+\newblock {f-Divergence Minimization for Sequence-Level Knowledge
+  Distillation}.
+\newblock \emph{Proceedings of ACL}, 2023.
+\newblock URL \url{https://arxiv.org/abs/2307.15190}.
+
+\bibitem[Wu et~al.(2025)Wu, Tao, Wang, Yang, Zhao, and Wong]{2404.02657}
+Taiqiang Wu, Chaofan Tao, Jiahao Wang, Runming Yang, Zhe Zhao, and Ngai Wong.
+\newblock {Rethinking Kullback-Leibler Divergence in Knowledge Distillation for
+  Large Language Models}.
+\newblock \emph{Proceedings of COLING}, 2025.
+\newblock URL \url{https://arxiv.org/abs/2404.02657}.
+
+\bibitem[Wu et~al.(2026)Wu, Han, and Cai]{wu2026lightning}
+Yecheng Wu, Song Han, and Han Cai.
+\newblock {Lightning OPD: Efficient Post-Training for Large Reasoning Models
+  with Offline On-Policy Distillation}.
+\newblock \emph{arXiv preprint arXiv:2604.13010}, 2026.
+\newblock URL \url{https://arxiv.org/abs/2604.13010}.
+
+\bibitem[{Xiaomi LLM-Core Team} et~al.(2026){Xiaomi LLM-Core Team}, Xiao, Xia,
+  Yang, Gao, Shen, Zhang, He, Lou, Luo, Wang, Xie, Zhang, Lv,
+  et~al.]{2601.02780}
+{Xiaomi LLM-Core Team}, Bangjun Xiao, Bingquan Xia, Bo~Yang, Bofei Gao, Bowen
+  Shen, Chen Zhang, Chenhong He, Chiheng Lou, Fuli Luo, Gang Wang, Gang Xie,
+  Hailin Zhang, Hanglong Lv, et~al.
+\newblock {MiMo-V2-Flash Technical Report}.
+\newblock \emph{arXiv preprint arXiv:2601.02780}, 2026.
+\newblock URL \url{https://arxiv.org/abs/2601.02780}.
+
+\bibitem[Xie et~al.(2025)Xie, Xue, Wu, Li, Wang, Hu, et~al.]{2510.11615}
+Xurong Xie, Zhucun Xue, Jiafu Wu, Jian Li, Yabiao Wang, Xiaobin Hu, et~al.
+\newblock {LLM-Oriented Token-Adaptive Knowledge Distillation}.
+\newblock \emph{arXiv preprint arXiv:2510.11615}, 2025.
+\newblock URL \url{https://arxiv.org/abs/2510.11615}.
+
+\bibitem[Xiong et~al.(2026)Xiong, Shen, Gong, Cheng, Shen, Tao, Tan, Bai,
+  Shang, and Wong]{2601.21968}
+Jing Xiong, Hui Shen, Shansan Gong, Yuxin Cheng, Jianghan Shen, Chaofan Tao,
+  Haochen Tan, Haoli Bai, Lifeng Shang, and Ngai Wong.
+\newblock {OVD: On-policy Verbal Distillation}.
+\newblock \emph{arXiv preprint arXiv:2601.21968}, 2026.
+\newblock URL \url{https://arxiv.org/abs/2601.21968}.
+
+\bibitem[Xu et~al.(2025{\natexlab{a}})Xu, Zhu, Deng, Li, Hou, Wang,
+  et~al.]{2506.02208}
+Hongling Xu, Qi~Zhu, Heyuan Deng, Jinpeng Li, Lu~Hou, Yasheng Wang, et~al.
+\newblock {KDRL: Post-Training Reasoning LLMs via Unified Knowledge
+  Distillation and Reinforcement Learning}.
+\newblock \emph{arXiv preprint arXiv:2506.02208}, 2025{\natexlab{a}}.
+\newblock URL \url{https://arxiv.org/abs/2506.02208}.
+
+\bibitem[Xu et~al.(2025{\natexlab{b}})Xu, Pang, Zhu, Gu, Wei, Deng, Pan, Shen,
+  and Cheng]{2505.16142}
+Shicheng Xu, Liang Pang, Yunchang Zhu, Jia Gu, Zihao Wei, Jingcheng Deng,
+  Feiyang Pan, Huawei Shen, and Xueqi Cheng.
+\newblock {RLKD: Distilling LLMs' Reasoning via Reinforcement Learning}.
+\newblock \emph{arXiv preprint arXiv:2505.16142}, 2025{\natexlab{b}}.
+\newblock URL \url{https://arxiv.org/abs/2505.16142}.
+
+\bibitem[Xu et~al.(2025{\natexlab{c}})Xu, Han, Wang, Le, Madeka, Li, Wang,
+  Agarwal, Lee, and Pfister]{2410.11325}
+Wenda Xu, Rujun Han, Zifeng Wang, Long~T. Le, Dhruv Madeka, Lei Li,
+  William~Yang Wang, Rishabh Agarwal, Chen-Yu Lee, and Tomas Pfister.
+\newblock {Speculative Knowledge Distillation: Bridging the Teacher-Student Gap
+  Through Interleaved Sampling}.
+\newblock \emph{Proceedings of ICLR}, 2025{\natexlab{c}}.
+\newblock URL \url{https://arxiv.org/abs/2410.11325}.
+
+\bibitem[Xu et~al.(2024)Xu, Li, Tao, Shen, Cheng, Li, Xu, Tao, and
+  Zhou]{2402.13116}
+Xiaohan Xu, Ming Li, Chongyang Tao, Tao Shen, Reynold Cheng, Jinyang Li, Can
+  Xu, Dacheng Tao, and Tianyi Zhou.
+\newblock {A Survey on Knowledge Distillation of Large Language Models}.
+\newblock \emph{arXiv preprint arXiv:2402.13116}, 2024.
+\newblock URL \url{https://arxiv.org/abs/2402.13116}.
+
+\bibitem[Xu et~al.(2026{\natexlab{a}})Xu, Sang, Zhou, He, and Wang]{2603.11178}
+Yuanda Xu, Hejian Sang, Zhengze Zhou, Ran He, and Zhipeng Wang.
+\newblock {PACED: Distillation and On-Policy Self-Distillation at the Frontier
+  of Student Competence}.
+\newblock \emph{arXiv preprint arXiv:2603.11178}, 2026{\natexlab{a}}.
+\newblock URL \url{https://arxiv.org/abs/2603.11178}.
+
+\bibitem[Xu et~al.(2026{\natexlab{b}})Xu, Sang, Zhou, He, Wang, and
+  Geramifard]{xu2026tip}
+Yuanda Xu, Hejian Sang, Zhengze Zhou, Ran He, Zhipeng Wang, and Alborz
+  Geramifard.
+\newblock {TIP: Token Importance in On-Policy Distillation}.
+\newblock \emph{arXiv preprint arXiv:2604.14084}, 2026{\natexlab{b}}.
+\newblock URL \url{https://arxiv.org/abs/2604.14084}.
+
+\bibitem[Yan et~al.(2025)Yan, Li, Hu, Wang, Cui, Qu, Cheng, and
+  Zhang]{2504.14945}
+Jianhao Yan, Yafu Li, Zican Hu, Zhi Wang, Ganqu Cui, Xiaoye Qu, Yu~Cheng, and
+  Yue Zhang.
+\newblock {Learning to Reason under Off-Policy Guidance}.
+\newblock \emph{arXiv preprint arXiv:2504.14945}, 2025.
+\newblock URL \url{https://arxiv.org/abs/2504.14945}.
+
+\bibitem[Yan et~al.(2026)Yan, Liu, Shen, Wang, Fan, Zhang, Wu, Wang, and
+  Ye]{2601.09088}
+Shaotian Yan, Kaiyuan Liu, Chen Shen, Bing Wang, Sinan Fan, Jun Zhang, Yue Wu,
+  Zheng Wang, and Jieping Ye.
+\newblock {Distribution-Aligned Sequence Distillation for Superior Long-CoT
+  Reasoning}.
+\newblock \emph{arXiv preprint arXiv:2601.09088}, 2026.
+\newblock URL \url{https://arxiv.org/abs/2601.09088}.
+
+\bibitem[Yang et~al.(2025{\natexlab{a}})Yang, Li, Yang, Zhang, Hui, Zheng, Yu,
+  Gao, Huang, Lv, Zheng, Liu, Zhou, Huang, Hu, et~al.]{2505.09388}
+An~Yang, Anfeng Li, Baosong Yang, Beichen Zhang, Binyuan Hui, Bo~Zheng, Bowen
+  Yu, Chang Gao, Chengen Huang, Chenxu Lv, Chujie Zheng, Dayiheng Liu, Fan
+  Zhou, Fei Huang, Feng Hu, et~al.
+\newblock {Qwen3 Technical Report}.
+\newblock \emph{arXiv preprint arXiv:2505.09388}, 2025{\natexlab{a}}.
+\newblock URL \url{https://arxiv.org/abs/2505.09388}.
+
+\bibitem[Yang et~al.(2026{\natexlab{a}})Yang, Qin, Si, Chen, Gu, Yao, Lin,
+  Wang, Wang, and Duan]{yang2026selfdistilled}
+Chenxu Yang, Chuanyu Qin, Qingyi Si, Minghui Chen, Naibin Gu, Dingyu Yao, Zheng
+  Lin, Weiping Wang, Jiaqi Wang, and Nan Duan.
+\newblock {Self-Distilled RLVR}.
+\newblock \emph{arXiv preprint arXiv:2604.03128}, 2026{\natexlab{a}}.
+\newblock URL \url{https://arxiv.org/abs/2604.03128}.
+
+\bibitem[Yang et~al.(2026{\natexlab{b}})Yang, Meng, Qi, Ezzati, and
+  Wen]{2602.00400}
+Fan Yang, Rui Meng, Trudi~Di Qi, Ali Ezzati, and Yuxin Wen.
+\newblock {KEPO: Knowledge-Enhanced Preference Optimization for Reinforcement
+  Learning with Reasoning}.
+\newblock \emph{arXiv preprint arXiv:2602.00400}, 2026{\natexlab{b}}.
+\newblock URL \url{https://arxiv.org/abs/2602.00400}.
+
+\bibitem[Yang et~al.(2025{\natexlab{b}})Yang, Yu, Zhang, Xu, Gonzalez, Cui, and
+  Yan]{2410.09008}
+Ling Yang, Zhaochen Yu, Tianjun Zhang, Minkai Xu, Joseph~E. Gonzalez, Bin Cui,
+  and Shuicheng Yan.
+\newblock {SuperCorrect: Advancing Small LLM Reasoning with Thought Template
+  Distillation and Self-Correction}.
+\newblock \emph{Proceedings of ICLR}, 2025{\natexlab{b}}.
+\newblock URL \url{https://arxiv.org/abs/2410.09008}.
+
+\bibitem[Yang et~al.(2026{\natexlab{c}})Yang, Liu, Xie, Yang, Yang, and
+  Lin]{2602.12125}
+Wenkai Yang, Weijie Liu, Ruobing Xie, Kai Yang, Saiyong Yang, and Yankai Lin.
+\newblock {Learning beyond Teacher: Generalized On-Policy Distillation with
+  Reward Extrapolation}.
+\newblock \emph{arXiv preprint arXiv:2602.12125}, 2026{\natexlab{c}}.
+\newblock URL \url{https://arxiv.org/abs/2602.12125}.
+
+\bibitem[Yang et~al.(2026{\natexlab{d}})Yang, Liu, Chen, Dai, Wang, Lin, Lee,
+  Chen, Jiang, He, Pi, Lam, Lee, Bukharin, Shoeybi, Catanzaro, and
+  Ping]{2603.19220}
+Zhuolin Yang, Zihan Liu, Yang Chen, Wenliang Dai, Boxin Wang, Sheng-Chieh Lin,
+  Chankyu Lee, Yangyi Chen, Dongfu Jiang, Jiafan He, Renjie Pi, Grace Lam,
+  Nayeon Lee, Alexander Bukharin, Mohammad Shoeybi, Bryan Catanzaro, and Wei
+  Ping.
+\newblock {Nemotron-Cascade 2: Post-Training LLMs with Cascade RL and
+  Multi-Domain On-Policy Distillation}.
+\newblock \emph{arXiv preprint arXiv:2603.19220}, 2026{\natexlab{d}}.
+\newblock URL \url{https://arxiv.org/abs/2603.19220}.
+
+\bibitem[Ye et~al.(2025)Ye, Dong, Chi, Wu, Huang, and Wei]{2511.10643}
+Tianzhu Ye, Li~Dong, Zewen Chi, Xun Wu, Shaohan Huang, and Furu Wei.
+\newblock {Black-Box On-Policy Distillation of Large Language Models}.
+\newblock \emph{arXiv preprint arXiv:2511.10643}, 2025.
+\newblock URL \url{https://arxiv.org/abs/2511.10643}.
+
+\bibitem[Ye et~al.(2026{\natexlab{a}})Ye, Dong, Dong, Wu, Huang, and
+  Wei]{2603.16856}
+Tianzhu Ye, Li~Dong, Qingxiu Dong, Xun Wu, Shaohan Huang, and Furu Wei.
+\newblock {Online Experiential Learning for Language Models}.
+\newblock \emph{arXiv preprint arXiv:2603.16856}, 2026{\natexlab{a}}.
+\newblock URL \url{https://arxiv.org/abs/2603.16856}.
+
+\bibitem[Ye et~al.(2026{\natexlab{b}})Ye, Dong, Wu, Huang, and Wei]{2602.12275}
+Tianzhu Ye, Li~Dong, Xun Wu, Shaohan Huang, and Furu Wei.
+\newblock {On-Policy Context Distillation for Language Models}.
+\newblock \emph{arXiv preprint arXiv:2602.12275}, 2026{\natexlab{b}}.
+\newblock URL \url{https://arxiv.org/abs/2602.12275}.
+
+\bibitem[Zhang et~al.(2026{\natexlab{a}})Zhang, Yang, Janghorbani, Han,
+  Ressler, Qian, Lyng, Batra, and Tillman]{2602.15260}
+Dongxu Zhang, Zhichao Yang, Sepehr Janghorbani, Jun Han, Andrew Ressler, Qian
+  Qian, Gregory~D. Lyng, Sanjit~Singh Batra, and Robert~E. Tillman.
+\newblock {Fast and Effective On-policy Distillation from Reasoning Prefixes}.
+\newblock \emph{arXiv preprint arXiv:2602.15260}, 2026{\natexlab{a}}.
+\newblock URL \url{https://arxiv.org/abs/2602.15260}.
+
+\bibitem[Zhang et~al.(2026{\natexlab{b}})Zhang, Liu, Lin, Yang, Dai, Luo,
+  Jiang, Hou, Zeng, Geng, and Guo]{2602.12222}
+Miaosen Zhang, Yishan Liu, Shuxia Lin, Xu~Yang, Qi~Dai, Chong Luo, Weihao
+  Jiang, Peng Hou, Anxiang Zeng, Xin Geng, and Baining Guo.
+\newblock {Towards On-Policy SFT: Distribution Discriminant Theory and its
+  Applications in LLM Training}.
+\newblock \emph{arXiv preprint arXiv:2602.12222}, 2026{\natexlab{b}}.
+\newblock URL \url{https://arxiv.org/abs/2602.12222}.
+
+\bibitem[Zhang et~al.(2026{\natexlab{c}})Zhang, Bai, Zheng, Jaitly, Collobert,
+  and Zhang]{zhang2026embarrassingly}
+Ruixiang Zhang, Richard~He Bai, Huangjie Zheng, Navdeep Jaitly, Ronan
+  Collobert, and Yizhe Zhang.
+\newblock {Embarrassingly Simple Self-Distillation Improves Code Generation}.
+\newblock \emph{arXiv preprint arXiv:2604.01193}, 2026{\natexlab{c}}.
+\newblock URL \url{https://arxiv.org/abs/2604.01193}.
+
+\bibitem[Zhang et~al.(2025{\natexlab{a}})Zhang, Zhang, Zhang, Hu, Chen, and
+  Xu]{2503.02832}
+Songming Zhang, Xue Zhang, Tong Zhang, Bojie Hu, Yufeng Chen, and Jinan Xu.
+\newblock {AlignDistil: Token-Level Language Model Alignment as Adaptive Policy
+  Distillation}.
+\newblock In \emph{Proceedings of ACL}, 2025{\natexlab{a}}.
+\newblock URL \url{https://arxiv.org/abs/2503.02832}.
+
+\bibitem[Zhang et~al.(2025{\natexlab{b}})Zhang, Zhang, Liang, Meng, Chen, Xu,
+  and Zhou]{2504.11426}
+Xue Zhang, Songming Zhang, Yunlong Liang, Fandong Meng, Yufeng Chen, Jinan Xu,
+  and Jie Zhou.
+\newblock {A Dual-Space Framework for General Knowledge Distillation of Large
+  Language Models}.
+\newblock \emph{arXiv preprint arXiv:2504.11426}, 2025{\natexlab{b}}.
+\newblock URL \url{https://arxiv.org/abs/2504.11426}.
+
+\bibitem[Zhang et~al.(2026{\natexlab{d}})Zhang, Zhu, Chong, Tu, Zhang, Chai,
+  Wang, Lin, Yin, and Zhao]{zhang2026piplay}
+Yaocheng Zhang, Yuanheng Zhu, Wenyue Chong, Songjun Tu, Qichao Zhang, Jiajun
+  Chai, Xiaohan Wang, Wei Lin, Guojun Yin, and Dongbin Zhao.
+\newblock {$\pi$-Play: Multi-Agent Self-Play via Privileged Self-Distillation
+  without External Data}.
+\newblock \emph{arXiv preprint arXiv:2604.14054}, 2026{\natexlab{d}}.
+\newblock URL \url{https://arxiv.org/abs/2604.14054}.
+
+\bibitem[Zhang et~al.(2026{\natexlab{e}})Zhang, Jiang, Shen, Zhang, Ram, Yang,
+  et~al.]{2602.22495}
+Zhaoyang Zhang, Shuli Jiang, Yantao Shen, Yuting Zhang, Dhananjay Ram, Shuo
+  Yang, et~al.
+\newblock {Reinforcement-aware Knowledge Distillation for LLM Reasoning}.
+\newblock \emph{arXiv preprint arXiv:2602.22495}, 2026{\natexlab{e}}.
+\newblock URL \url{https://arxiv.org/abs/2602.22495}.
+
+\bibitem[Zhao et~al.(2026{\natexlab{a}})Zhao, Chen, Tong, Fan, Ye, Li, Ma, Li,
+  and Shen]{zhao2026onpolicy}
+Anhao Zhao, Ziyang Chen, Junlong Tong, Yingqi Fan, Fanghua Ye, Shuhao Li, Yunpu
+  Ma, Wenjie Li, and Xiaoyu Shen.
+\newblock {On-Policy Supervised Fine-Tuning for Efficient Reasoning}.
+\newblock \emph{arXiv preprint arXiv:2602.13407}, 2026{\natexlab{a}}.
+\newblock URL \url{https://arxiv.org/abs/2602.13407}.
+
+\bibitem[Zhao et~al.(2026{\natexlab{b}})Zhao, Xie, Liu, Huang, Pang, Chen, and
+  Grover]{2601.18734}
+Siyan Zhao, Zhihui Xie, Mengchen Liu, Jing Huang, Guan Pang, Feiyu Chen, and
+  Aditya Grover.
+\newblock {Self-Distilled Reasoner: On-Policy Self-Distillation for Large
+  Language Models}.
+\newblock \emph{arXiv preprint arXiv:2601.18734}, 2026{\natexlab{b}}.
+\newblock URL \url{https://arxiv.org/abs/2601.18734}.
+
+\bibitem[Zheng et~al.(2026)Zheng, Ma, Liang, Ruan, Fu, Lin, Zhu, Zeng, and
+  Cai]{zheng2026scope}
+Binbin Zheng, Xing Ma, Yiheng Liang, Jingqing Ruan, Xiaoliang Fu, Kepeng Lin,
+  Benchang Zhu, Ke~Zeng, and Xunliang Cai.
+\newblock {SCOPE: Signal-Calibrated On-Policy Distillation Enhancement with
+  Dual-Path Adaptive Weighting}.
+\newblock \emph{arXiv preprint arXiv:2604.10688}, 2026.
+\newblock URL \url{https://arxiv.org/abs/2604.10688}.
+
+\bibitem[Zhong et~al.(2024)Zhong, Ding, Shen, Liu, Du, and Tao]{2402.11890}
+Qihuang Zhong, Liang Ding, Li~Shen, Juhua Liu, Bo~Du, and Dacheng Tao.
+\newblock {Revisiting Knowledge Distillation for Autoregressive Language
+  Models}.
+\newblock \emph{Proceedings of ACL}, 2024.
+\newblock URL \url{https://arxiv.org/abs/2402.11890}.
+
+\bibitem[Zhong et~al.(2026)Zhong, Yan, Li, He, Zhang, and Li]{zhong2026vlaopd}
+Zhide Zhong, Haodong Yan, Junfeng Li, Junjie He, Tianran Zhang, and Haoang Li.
+\newblock {VLA-OPD: Bridging Offline SFT and Online RL for
+  Vision-Language-Action Models via On-Policy Distillation}.
+\newblock \emph{arXiv preprint arXiv:2603.26666}, 2026.
+\newblock URL \url{https://arxiv.org/abs/2603.26666}.
+
+\bibitem[Zhou et~al.(2023)Zhou, Lyu, Rawat, Menon, Rostamizadeh, Kumar, Kagy,
+  and Agarwal]{2310.08461}
+Yongchao Zhou, Kaifeng Lyu, Ankit~Singh Rawat, Aditya~Krishna Menon, Afshin
+  Rostamizadeh, Sanjiv Kumar, Jean-Fran\c{c}ois Kagy, and Rishabh Agarwal.
+\newblock {DistillSpec: Improving Speculative Decoding via Knowledge
+  Distillation}.
+\newblock \emph{arXiv preprint arXiv:2310.08461}, 2023.
+\newblock URL \url{https://arxiv.org/abs/2310.08461}.
+
+\bibitem[Zimmer et~al.(2025)Zimmer, Ji, Nguyen, and Ammar]{2509.22921}
+Matthieu Zimmer, Xiaotong Ji, Tu~Nguyen, and Haitham~Bou Ammar.
+\newblock {Rethinking Large Language Model Distillation: A Constrained Markov
+  Decision Process Perspective}.
+\newblock \emph{arXiv preprint arXiv:2509.22921}, 2025.
+\newblock URL \url{https://arxiv.org/abs/2509.22921}.
+
+\end{thebibliography}
