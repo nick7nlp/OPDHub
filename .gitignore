@@ -1,25 +1,19 @@
-# LaTeX build artifacts
-*.aux
-*.bbl
-*.blg
-*.log
-*.out
-*.pdf
-*.synctex.gz
-texput.log
-
-# Backups
-*.bak
-*.bak.*
+# Build artifacts (root only)
+/texput.log
 
 # Archive
 .archive_cleanup_*/
 
-# Preview images
-*.png
-
-# PDFs (stored separately)
-pdfs/
-
 # OS
 .DS_Store
+
+# LaTeX build artifacts (inside latex/)
+latex/*.aux
+latex/*.bbl
+latex/*.blg
+latex/*.log
+latex/*.out
+latex/*.pdf
+latex/*.synctex.gz
+latex/*.bak
+latex/*.bak.*
