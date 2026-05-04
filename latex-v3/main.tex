@@ -99,9 +99,21 @@ We contribute the following:
 
 The necessity of OPD stems from the compounding geometry of autoregressive generation. This section formalizes the distribution mismatch, establishes the unified $f$-divergence framework that subsumes modern OPD objectives, and traces the historical arc from classical KD to modern on-policy methods.
 
+\textbf{Notation.} Throughout this survey, we use lowercase $p$ for token-level conditional distributions ($\pteacher(\cdot|x, y_{<t})$ for teacher, $\ptheta(\cdot|x, y_{<t})$ for student) and uppercase $P$ for sequence-level distributions ($P_T(y|x)$, $P_\theta(y|x)$). $\mathcal{D}$ denotes the training dataset, $\pdata$ the data distribution, and $|V|$ the vocabulary size. $\KL$ and $D_f$ denote KL divergence and general $f$-divergence respectively. In the RL formalization, $\pi$ denotes policies and $R(x,y)$ the outcome reward. When discussing individual methods, we follow each paper's conventions where clarity demands.
+
 \subsection{Classical Knowledge Distillation}
 
-The original KD formulation~\citep{hinton2015distilling} trains the student to match the teacher's temperature-softened output distribution $p_T^{(\tau)}(y|x) \propto \exp(z_y / \tau)$, where $z_y$ are the teacher's logits and $\tau > 1$ is a temperature parameter that reveals the teacher's ``dark knowledge'' about inter-class similarities. For autoregressive LLMs, \citet{kim2016sequence} extended this to sequence-level matching, showing that distilling at the full-sequence level outperforms token-level matching when the teacher's distributional structure encodes long-range dependencies.
+The original KD formulation~\citep{hinton2015distilling} trains the student to match the teacher's temperature-softened output distribution:
+\begin{equation}
+    p_T^{(\tau)}(y|x) = \frac{\exp(z_y / \tau)}{\sum_{j} \exp(z_j / \tau)}
+\end{equation}
+where $z_y$ are the teacher's logits and $\tau > 1$ is a temperature parameter. When $\tau \to \infty$, the softened distribution approaches a uniform distribution over the vocabulary, revealing the teacher's ``dark knowledge'' about inter-class similarities that are hidden in the hard labels. The gradient of the distillation loss with respect to the student's logits $z_i^{\mathcal{S}}$ is proportional to $\frac{1}{\tau}(p_i^{\mathcal{S}} - p_i^{\mathcal{T}})$, demonstrating that higher temperatures amplify the contribution of non-peak tokens, effectively transferring the teacher's relational structure between vocabulary items.
+
+For autoregressive LLMs, \citet{kim2016sequence} extended this to Sequence-Level Knowledge Distillation (Seq-KD). Instead of factorizing the loss token-by-token over fixed dataset prefixes, Seq-KD minimizes the global KL divergence over the entire sequence space:
+\begin{equation}
+    \loss_{\text{Seq-KD}} = -\sum_{y \in \mathcal{Y}} P_T(y|x) \log P_\theta(y|x)
+\end{equation}
+Since $|\mathcal{Y}| = |V|^T$ grows exponentially with length, this is intractable. Seq-KD approximates $P_T(y|x)$ with a Dirac delta at the beam-search output $\hat{y} = \arg\max_y P_T(y|x)$, reducing to standard negative log-likelihood on teacher-generated sequences. This approximation works well when the teacher is confident but discards all information about the teacher's uncertainty, a limitation that motivates the softer distributional methods below.
 
 Subsequent work~\citep{2402.11890} revisited these foundations for modern LLMs, demonstrating that classical assumptions (small teacher-student gap, shared vocabulary, similar architectural inductive biases) frequently fail in the era of heterogeneous model families. This motivates the more general $f$-divergence framework below.
 
@@ -121,7 +133,11 @@ OPD resolves exposure bias by altering the training expectation to sample from t
 \begin{equation}
     \loss_{\mathrm{OPD}}(\theta) = \E_{y \sim \pi_{\mathrm{mix}}} \left[ \sum_{t=1}^{|y|} \mathcal{D}_f \left( \pteacher(\cdot | x, y_{<t}),\; \ptheta(\cdot | x, y_{<t}) \right) \right]
 \end{equation}
-Here, $\mathcal{D}_f$ represents a divergence from the $f$-divergence family~\citep{2307.15190}. The choice of generator function $f(u)$ determines the implicit weighting of likelihood ratios $\pteacher(y)/\ptheta(y)$:
+Here, $\mathcal{D}_f$ represents a divergence from the $f$-divergence family~\citep{2307.15190}. Formally, given two distributions $P$ and $Q$, an $f$-divergence is defined as:
+\begin{equation}
+    D_f(P \parallel Q) = \E_{y \sim Q}\left[f\!\left(\frac{P(y)}{Q(y)}\right)\right]
+\end{equation}
+where $f: (0,\infty) \to \mathbb{R}$ is a convex generator with $f(1) = 0$. The choice of $f$ determines the implicit weighting of likelihood ratios $\pteacher(y)/\ptheta(y)$:
 
 \begin{itemize}[nosep]
     \item \textbf{Forward KL} ($f(u) = u \log u$): Mode-covering (zero-avoiding). The student must allocate probability mass wherever the teacher does, often bridging distinct teacher modes and hallucinating in the inter-mode space.
@@ -275,7 +291,9 @@ Both methods consistently outperform any fixed divergence on math reasoning (MAT
 
 AKL~\citep{2404.02657} takes a more aggressive approach, dynamically interpolating between Forward KL and Reverse KL based on a per-token confidence metric derived from the teacher-student probability ratio. Unlike entropy-based routing, which depends only on the teacher's distributional shape, AKL considers the \emph{relative} geometry of teacher and student, adapting more aggressively at positions where the gap is largest.
 
-These adaptive methods admit a natural interpretation through information geometry. The Fisher information metric on the statistical manifold of autoregressive distributions varies across token positions. At reasoning-critical positions, the manifold is highly curved (the teacher concentrates on few tokens), making Reverse KL's mode-seeking behavior locally appropriate. At generation-flexible positions, the manifold is nearly flat (many synonyms are equally valid), and Forward KL's mode-covering behavior preserves useful entropy. Adaptive divergences implicitly navigate this varying curvature by selecting the locally optimal metric.
+These adaptive methods admit a natural interpretation through information geometry. The Fisher information metric on the statistical manifold of autoregressive distributions varies across token positions. At reasoning-critical positions, the manifold is highly curved (the teacher concentrates probability on few tokens), making Reverse KL's mode-seeking behavior locally appropriate because it follows the manifold's natural gradient. At generation-flexible positions, the manifold is nearly flat (many synonyms are equally valid), and Forward KL's mode-covering behavior preserves useful entropy. Adaptive divergences implicitly navigate this varying curvature by selecting the locally optimal metric, which explains their consistent empirical superiority over any fixed choice.
+
+The practical implication is clear: the field has moved decisively from ``which divergence?'' to ``which divergence \emph{where}?'' The evidence from ToDi, AKL, and Entropy-Aware OPD converges on a single recommendation: no fixed divergence is ever optimal, and the simplest adaptive routing (even a hard entropy threshold) consistently outperforms the best-tuned fixed alternative.
 
 \subsection{RL-Augmented Objectives}
 \label{subsec:rl_objectives}
@@ -313,6 +331,10 @@ The progression across objective types reveals a fundamental insight. Fixed dive
 
 The second major decision in the OPD pipeline concerns the origin and nature of the supervisory signal. Given a fixed objective function (Section~\ref{sec:objectives}), the practitioner must determine \emph{where the teacher signal comes from}: full logit access (white-box), API-only text outputs (black-box), or the model's own internal asymmetries (self-distillation). Each signal source imposes distinct constraints on the applicable objectives and achievable performance, creating a structured design space that this section maps comprehensively.
 
+The evolution of signal sources mirrors the broader trend toward accessibility and self-sufficiency. Early OPD methods (GKD, DistiLLM) assumed full white-box access to model internals, a requirement that limits distillation to same-organization deployments. The rise of proprietary API-only models (GPT-4, Claude) necessitated black-box methods that can extract knowledge from text outputs alone. Most recently, self-distillation methods eliminate the external teacher entirely, enabling continuous improvement without access to any stronger model. This progression, from full access through limited access to no external access, represents increasing autonomy at the cost of signal density, creating a fundamental trade-off that practitioners must navigate.
+
+Complex reasoning is where OPD proves most indispensable and where off-policy methods encounter their hardest limits. The reason is structural: reasoning is \emph{path-dependent}. A proof that begins ``assume for contradiction...'' requires entirely different subsequent tokens than one beginning ``we proceed by induction...'' If the student has never generated the inductive approach during training, it cannot recover at inference time when that path would be optimal. Off-policy training over a fixed dataset of teacher reasoning traces can only cover a finite set of solution paths, while the student needs to navigate its own unique landscape of partial solutions, dead ends, and recovery strategies. This insight motivates the on-policy formulation for reasoning transfer: the student generates its own intermediate reasoning steps, and the teacher evaluates these student-generated chains rather than dictating its own.
+
 \subsection{White-Box Logit Supervision}
 \label{subsec:white_box}
 
@@ -322,7 +344,9 @@ White-box access provides the densest possible signal: the full probability dist
 
 \textbf{Token-level adaptive supervision.} Within the white-box setting, several methods refine \emph{which} tokens receive supervision. SelecTKD~\citep{2510.24021} applies confidence-based filtering, discarding loss gradients from positions where the teacher's top-1 probability falls below a threshold. AdaSwitch~\citep{2510.07842} dynamically switches between exploration (student generates freely) and guidance (teacher provides dense supervision) based on the student's cumulative error on the current prefix, balancing the exploration benefit of on-policy generation against the stability of teacher guidance. Token-Adaptive KD~\citep{2510.11615} computes per-token importance weights using the gradient magnitude of the KL loss, concentrating compute on tokens where the teacher-student gap is largest.
 
-\textbf{Pre-training distillation.} MiniPLM~\citep{2410.17215} extends on-policy distillation to the \emph{pre-training} stage, showing that distilling during pre-training (rather than post-training) yields stronger foundations for downstream fine-tuning. This represents a qualitative shift in how OPD is deployed: rather than being a post-hoc compression step, it becomes an integral part of the model creation pipeline.
+\textbf{Token-Adaptive KD.} \citet{2510.11615} compute per-token importance weights using the gradient magnitude of the KL loss, concentrating compute on tokens where the teacher-student gap is largest. This approach is complementary to entropy-based routing (ToDi, Entropy-Aware): while the latter selects \emph{which divergence} to use at each position, Token-Adaptive KD selects \emph{how much gradient signal} to propagate, providing a second dimension of per-token adaptation that can be combined with adaptive divergence selection.
+
+\textbf{Pre-training distillation.} MiniPLM~\citep{2410.17215} extends on-policy distillation to the \emph{pre-training} stage, showing that distilling during pre-training (rather than post-training) yields stronger foundations for downstream fine-tuning. This represents a qualitative shift: rather than being a post-hoc compression step, OPD becomes an integral part of the model creation pipeline. Gemma~2~\citep{2408.00118} validates this approach at industrial scale, embedding KD directly into the pre-training loop for its 27B$\to$9B$\to$2B model cascade.
 
 \textbf{Cross-architecture alignment.} A critical challenge arises when teacher and student use different tokenizers or vocabulary sizes. Direct KL divergence over mismatched vocabularies is undefined. DSKD~\citep{2504.11426} solves this through \emph{dual-space} knowledge distillation, introducing projectors that map between teacher and student representation spaces:
 \begin{equation}
@@ -419,7 +443,9 @@ Pure self-play is inherently bounded by the information already present in the m
 \section{Training Dynamics and Efficiency}
 \label{sec:dynamics}
 
-Given an objective function (Section~\ref{sec:objectives}) and a signal source (Section~\ref{sec:signal}), the final engineering decision is \emph{how to stabilize and accelerate the on-policy training loop}. On-policy generation introduces unique optimization challenges absent from standard supervised fine-tuning: non-stationary data distributions, gradient signal-to-noise ratio (SNR) collapse on hard prompts, and the computational overhead of autoregressive student rollouts followed by teacher scoring. The methods in this section address these challenges through three complementary mechanisms: token-level and sample-level weighting that modulates the loss based on supervision quality, curriculum strategies that control which prompts are presented and when, and systems-level optimizations that reduce the computational cost of on-policy training.
+Given an objective function (Section~\ref{sec:objectives}) and a signal source (Section~\ref{sec:signal}), the final engineering decision is \emph{how to stabilize and accelerate the on-policy training loop}. On-policy generation introduces unique optimization challenges absent from standard supervised fine-tuning: non-stationary data distributions (the student's policy shifts during training, making older rollouts stale), gradient signal-to-noise ratio (SNR) collapse on hard prompts (where all rollouts fail and no useful gradient emerges), and the computational overhead of autoregressive student rollouts followed by teacher scoring (typically $4$--$5\times$ more expensive than off-policy training).
+
+These challenges are not independent. SNR collapse on hard prompts wastes compute, motivating curriculum strategies that avoid such prompts. Non-stationarity invalidates cached teacher signals, motivating efficient online scoring. And the compute overhead of autoregressive generation creates a systems-level bottleneck that requires architectural solutions. The methods in this section address these challenges through three complementary mechanisms.
 
 \subsection{Token and Sample Weighting}
 \label{subsec:weighting}
@@ -475,7 +501,9 @@ This reveals a virtuous cycle: better distillation produces better draft models,
 \section{Understanding OPD: Theory, Failure Modes, and Cost}
 \label{sec:understanding}
 
-The preceding sections addressed the \emph{how} of on-policy distillation: what to optimize, where the signal comes from, and how to stabilize training. This section turns to the equally important \emph{why} and \emph{when}: under what conditions does OPD succeed, how does it fail, what theoretical frameworks unify the diverse methods surveyed above, and when should practitioners invest in OPD versus simpler off-policy pipelines? Answering these questions is essential for moving OPD from an empirical art toward a principled engineering discipline with predictable outcomes.
+The preceding sections addressed the \emph{how} of on-policy distillation: what to optimize (Section~\ref{sec:objectives}), where the signal comes from (Section~\ref{sec:signal}), and how to stabilize training (Section~\ref{sec:dynamics}). This section turns to the equally important \emph{why} and \emph{when}: under what conditions does OPD succeed, how does it fail, what theoretical frameworks unify the diverse methods surveyed above, and when should practitioners invest in OPD versus simpler off-policy pipelines?
+
+Crucially, these four dimensions of understanding are not independent: they form a cumulative argument. Identifying \emph{when} OPD works (Section~\ref{subsec:success}) reveals the preconditions that the theoretical framework must explain. Cataloging \emph{how} it fails (Section~\ref{subsec:failure}) motivates the specific design choices, adaptive divergences, curriculum weighting, and hybrid RL objectives, whose theoretical grounding Section~\ref{subsec:theory} provides. Both the success conditions and the failure modes then inform the practical cost-benefit analysis in Section~\ref{subsec:on_vs_off}, which distills the theoretical insights into engineering guidelines. Answering these questions is essential for moving OPD from an empirical art toward a principled engineering discipline with predictable outcomes.
 
 \subsection{Success Conditions}
 \label{subsec:success}
@@ -500,6 +528,8 @@ Complementing the success conditions, a growing body of work catalogs the specif
 \textbf{Gradient SNR collapse.} When the student's pass rate on a prompt approaches zero, all rollouts contain early errors, the teacher's signals are dominated by noise, and the gradient SNR vanishes. This is the mathematical explanation for why hard prompts yield no learning signal in standard OPD, motivating PACED's competence-boundary curriculum (Section~\ref{subsec:curriculum}) and HDPO's gradient augmentation (Section~\ref{subsec:self_pi}).
 
 \textbf{Epistemic suppression.} \citet{2603.24472} identify a subtle failure mode in self-distillation: when the process shortens reasoning traces (a common desirable outcome), it disproportionately removes \emph{hedging phrases and uncertainty markers} that serve as implicit attention flags for difficult sub-problems. The result is shorter but less calibrated reasoning, where the model confidently commits to flawed steps it would have reconsidered in longer traces. This calibration degradation connects directly to the teacher uncertainty challenge: an overconfident student produces unreliable self-play targets, creating a vicious cycle.
+
+\textbf{Self-play saturation (the Ouroboros problem).} In self-distillation settings, the student optimizes against a target sharing its own inductive biases and architectural limitations, causing the hypothesis space to progressively collapse. If the model discovers a syntactic ``hack'' or a highly confident but flawed reasoning heuristic, no external signal penalizes it. The model self-reinforces this flawed trajectory, driving $\ptheta(y_{\text{flawed}}|x) \to 1$. Once entirely certain of its own hallucinations, gradients vanish, exploration ceases, and the policy is trapped. This is distinct from exposure bias (which arises from train-test distribution mismatch in off-policy settings): saturation arises from the \emph{absence} of distributional diversity in fully on-policy self-play, and is mathematically analogous to mode collapse in generative adversarial networks.
 
 \subsection{Unified Theoretical Perspectives}
 \label{subsec:theory}
@@ -693,7 +723,7 @@ where $\gamma$ is the fraction processed on-policy. For generic knowledge transf
 \section{Applications, Systems, and Emerging Domains}
 \label{sec:applications}
 
-The preceding sections developed OPD from theory through methods to unified understanding. This section examines how these algorithmic advances translate into practice. As OPD moves from academic prototypes to industrial-scale deployments, new challenges emerge: multi-teacher coordination, system-level throughput bottlenecks, cross-modal transfer, and privacy constraints.
+The preceding sections developed OPD from theory through methods to unified understanding. This section examines how these algorithmic advances translate into practice. The transition from academic prototypes to industrial deployment reveals that the choice of OPD method is ultimately driven not by theoretical elegance but by practical constraints: available compute, teacher access level, the need for multi-teacher coordination, system-level throughput bottlenecks, and domain-specific challenges (cross-modal transfer, privacy). We organize industrial applications by their \emph{deployment pattern} and emerging domains by the new challenges they introduce.
 
 \subsection{Industrial Deployment}
 \label{subsec:industrial}
@@ -724,6 +754,17 @@ KEPO~\citep{2602.00400} identifies a distinct failure mode in multimodal setting
 \textbf{Privacy-preserving OPD.} DP-OPD~\citep{khadem2026dpopd} injects differential privacy noise (DP-SGD) into the student's gradients during on-policy training while keeping the teacher frozen, proving that on-policy querying can extract utility while mathematically guaranteeing protection of the teacher's training data.
 
 \textbf{Autonomous driving.} OPD-AV~\citep{afsharrad2026onpolicy} applies GKD with $5\times$ compression for autonomous driving planning, distilling a Qwen3-8B SFT model into a 1.7B student on the nuScenes dataset.
+
+\subsection{The Distillation Tax: Compute Budget Allocation}
+\label{subsec:budget}
+
+Based on the compute analysis in Section~\ref{subsec:compute} and the staged pipelines described in recent industrial reports~\citep{2501.12948,2505.09388}, a practical rule of thumb emerges for compute budget allocation. The most effective industrial pipelines follow a three-stage pattern:
+\begin{enumerate}
+    \item \textbf{Off-policy warm-up} (50--70\% of budget): Standard SFT on teacher-generated data provides cheap, high-bandwidth learning that establishes the student's basic capabilities and aligns its distribution close enough to the teacher for effective on-policy training.
+    \item \textbf{On-policy logit distillation} (20--35\% of budget): Token-level OPD with adaptive divergences (GKD, DistiLLM, ToDi) closes the distribution gap on the student's own generation trajectories, addressing exposure bias where it matters most.
+    \item \textbf{Reward-guided refinement} (10--20\% of budget): RL-augmented objectives (G-OPD, KDRL, RLAD) push the student beyond the teacher's capability ceiling on reasoning tasks, using sparse outcome rewards to discover novel solution paths.
+\end{enumerate}
+This staged approach front-loads cheap, high-bandwidth learning and reserves expensive on-policy compute for the final quality push. Qwen3~\citep{2505.09388} exemplifies this pattern, with its four-stage pipeline (pre-train $\to$ SFT $\to$ RL $\to$ long-context) allocating progressively more compute to on-policy methods as training progresses. The key insight is that on-policy training is most valuable \emph{after} off-policy warm-up has brought the student close to the teacher's distribution, minimizing the wasted rollouts that occur when the student-teacher gap is too large (Section~\ref{subsec:success}).
 
 \section{Open Problems and Future Directions}
 \label{sec:future}
