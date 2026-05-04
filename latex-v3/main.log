@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.4.16)  4 MAY 2026 22:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.4.16)  4 MAY 2026 22:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1160,15 +1160,16 @@ Underfull \vbox (badness 1742) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [23]
-[24] [25] [26] [27]
+[24]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [25]
+[26] [27]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [28]
-[29] [30]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [31]
-[32] (./main.bbl [33] [34] [35] [36] [37] [38] [39]) [40] (./main.aux)
+[29] [30] [31] [32] (./main.bbl [33] [34] [35] [36] [37] [38] [39]) [40]
+(./main.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1178,7 +1179,7 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 Here is how much of TeX's memory you used:
  37407 strings out of 477901
  793559 string characters out of 5837010
- 1907388 words of memory out of 6000000
+ 1908388 words of memory out of 6000000
  56382 multiletter control sequences out of 15000+600000
  570044 words of font info for 382 fonts, out of 8000000 for 9000
  56 hyphenation exceptions out of 8191
@@ -1195,7 +1196,7 @@ pe1/public/mathpazo/fplmri.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
 c/tex-gyre/qhvb.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/upl
 b8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (40 pages, 386544 bytes).
+Output written on main.pdf (40 pages, 388096 bytes).
 PDF statistics:
  1435 PDF objects out of 1440 (max. 8388607)
  1337 compressed objects within 14 object streams
