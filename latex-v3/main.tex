@@ -201,22 +201,34 @@ PACED \citep{2603.11178} & & Beta-kernel curriculum pacing & White-Box Logits & 
 \end{table}
 
 \subsection{Practitioner Decision Tree}
+
+The following decision tree provides actionable guidance for selecting OPD methods based on access constraints, task requirements, and compute budgets. These recommendations are derived from the empirical patterns observed across the methods surveyed in Sections~\ref{sec:objectives}--\ref{sec:dynamics}.
+
 \begin{enumerate}
     \item \textbf{Do you have full logit access to the teacher?}
     \begin{itemize}
-        \item \textit{Yes (White-Box):} Use DistiLLM for stable token-level matching, or G-OPD if strong reasoning extrapolation is required. If architectures mismatch, deploy DSKD.
-        \item \textit{No, API only (Black-Box):} Use DAIL or AlignDistil to treat distillation as imitation learning over textual trajectories.
-        \item \textit{No teacher available (Self-Distillation):} If oracle answers are available, use Privileged Information (OPSD). Otherwise, use Self-Play (SPIN, SD-ZERO).
+        \item \textit{Yes (White-Box):} Use DistiLLM~\citep{2402.03898} for stable token-level matching on instruction following, or G-OPD~\citep{2602.12125} if strong reasoning extrapolation is required. For adaptive divergences, ToDi~\citep{2505.16297} or Entropy-Aware~\citep{2603.07079} provide automatic switching. If teacher and student use different tokenizers, deploy DSKD~\citep{2504.11426} or Cross-Tokenizer KD~\citep{2402.12030}.
+        \item \textit{No, API only (Black-Box):} Use OVD~\citep{2601.21968} for verbal score distillation (simplest), GAD~\citep{2511.10643} for adversarial training (strongest signal), or DAIL~\citep{2602.02405} for inverse-RL framing. If only text outputs are available and the student is small, LUFFY~\citep{2504.14945} with mixed-policy GRPO provides a strong baseline.
+        \item \textit{No teacher available (Self-Distillation):} If oracle answers are available, use Privileged Information methods: OPSD~\citep{2601.18734} for math reasoning, GATES~\citep{2602.20574} for open-domain QA. If no oracle is available, start with SD-ZERO~\citep{he2026selfdistillation} (requires only a binary verifier) or SSD~\citep{zhang2026embarrassingly} (requires nothing at all, but saturates quickly).
     \end{itemize}
     \item \textbf{What is the task profile?}
     \begin{itemize}
-        \item \textit{Reasoning / Math:} Mode-seeking objectives are mandatory. Use MiniLLM or RL-augmented KD (G-OPD).
-        \item \textit{Open-ended Generation:} Mode-covering is preferred to maintain diversity. Use Forward KL or Entropy-Aware adaptive divergences (ToDi).
+        \item \textit{Reasoning / Math:} Mode-seeking objectives are mandatory to prevent hallucination. Use Reverse KL (MiniLLM~\citep{2306.08543}) or RL-augmented KD (G-OPD, KDRL~\citep{2506.02208}). Combine with curriculum pacing (PACED~\citep{2603.11178}) for compute efficiency.
+        \item \textit{Open-ended Generation:} Mode-covering objectives preserve diversity. Use Forward KL or adaptive entropy-aware divergences. Avoid aggressive Reverse KL, which collapses creative diversity.
+        \item \textit{Instruction Following:} GKD~\citep{2306.13649} with $\lambda \geq 0.5$ provides the best quality-compute tradeoff. AlignDistil~\citep{2503.02832} adds preference alignment.
+        \item \textit{Multi-step Agentic Tasks:} Requires sequence-level objectives with trajectory-aware credit assignment. SCoRe~\citep{2509.14257} for error correction, RLAD~\citep{2602.22495} for trust-region stability.
     \end{itemize}
     \item \textbf{What are the compute limits?}
     \begin{itemize}
-        \item \textit{Low compute:} Standard GKD or Fast OPD (prefix truncation).
-        \item \textit{High compute:} Multi-stage self-play (SPIN) or PPO-based Sequence-KD.
+        \item \textit{Low compute ($<$500 GPU-hours):} Standard GKD, Fast OPD~\citep{2602.15260} (prefix truncation), or Lightning OPD~\citep{wu2026lightning} ($4\times$ cost reduction via offline caching).
+        \item \textit{Medium compute:} Full on-policy training with adaptive divergences (ToDi, AKL~\citep{2404.02657}). Add PACED for efficient sample selection.
+        \item \textit{High compute ($>$5000 GPU-hours):} Multi-stage pipelines: off-policy warmup $\to$ on-policy refinement $\to$ RL exploration. This is the recipe used by Qwen3~\citep{2505.09388} and MiMo-V2~\citep{2601.02780}.
+    \end{itemize}
+    \item \textbf{Stability concerns?}
+    \begin{itemize}
+        \item \textit{Length inflation:} Apply Stable-OPD~\citep{luo2026demystifying} stabilization (reference divergence + rollout mixing).
+        \item \textit{Flawed prefix trap:} Deploy TIP~\citep{xu2026tip} or SCOPE~\citep{zheng2026scope} for teacher reliability filtering.
+        \item \textit{Thinking-pattern mismatch:} Start with off-policy cold start~\citep{li2026rethinking}, then transition to on-policy after initial distribution alignment.
     \end{itemize}
 \end{enumerate}
 
@@ -312,7 +324,11 @@ White-box access provides the densest possible signal: the full probability dist
 
 \textbf{Pre-training distillation.} MiniPLM~\citep{2410.17215} extends on-policy distillation to the \emph{pre-training} stage, showing that distilling during pre-training (rather than post-training) yields stronger foundations for downstream fine-tuning. This represents a qualitative shift in how OPD is deployed: rather than being a post-hoc compression step, it becomes an integral part of the model creation pipeline.
 
-\textbf{Cross-architecture alignment.} A critical challenge arises when teacher and student use different tokenizers or vocabulary sizes. Direct KL divergence over mismatched vocabularies is undefined. DSKD~\citep{2504.11426} solves this through \emph{dual-space} knowledge distillation, projecting both teacher and student distributions into a shared continuous semantic space via learned linear transformations, then computing KL divergence in this projected space. The key insight is that vocabulary tokens with similar semantic embeddings should receive similar probability mass, even when the tokenization schemes differ. This enables distillation across fundamentally different architectures (e.g., Llama teacher to Qwen student) that share no vocabulary overlap.
+\textbf{Cross-architecture alignment.} A critical challenge arises when teacher and student use different tokenizers or vocabulary sizes. Direct KL divergence over mismatched vocabularies is undefined. DSKD~\citep{2504.11426} solves this through \emph{dual-space} knowledge distillation, introducing projectors that map between teacher and student representation spaces:
+\begin{equation}
+    \mathcal{L}_{\text{DSKD}} = \KL(P_{T \to S} \parallel P_S) + \KL(P_{S \to T} \parallel P_T)
+\end{equation}
+where $P_{T \to S}$ denotes the teacher's hidden states projected into the student's space and decoded through the student's prediction head. An exact token alignment algorithm handles vocabulary mismatches by identifying identical tokens across tokenizers. The key insight is that vocabulary tokens with similar semantic embeddings should receive similar probability mass, even when the tokenization schemes differ. This enables distillation across fundamentally different architectures (e.g., Llama teacher to Qwen student) that share no vocabulary overlap.
 
 Cross-Tokenizer KD~\citep{2402.12030} takes a complementary approach based on optimal transport, computing an alignment matrix between teacher and student token sequences that minimizes the earth mover's distance in latent space:
 \begin{equation}
@@ -723,6 +739,10 @@ Despite rapid progress, several fundamental challenges remain unresolved. We org
 \textbf{Continual and lifelong distillation.} Production models undergo repeated fine-tuning cycles (safety patches, capability updates, domain adaptation). How should the distillation objective adapt when the teacher itself is being updated? SDFT~\citep{2601.19897} and OEL~\citep{2603.16856} provide initial answers for self-distillation, but the problem of distilling from a non-stationary teacher remains open.
 
 \textbf{Efficiency frontiers.} The $3$--$8\times$ compute overhead of on-policy training remains a barrier. While Fast OPD, Lightning OPD, and Speculative KD have made progress, the theoretical minimum cost of on-policy distillation (the information-theoretic lower bound on how much on-policy data is needed to achieve a given quality level) is unknown.
+
+\textbf{Latent-space distillation.} Current OPD operates exclusively in vocabulary space, where cross-architecture alignment requires expensive projections (DSKD, Cross-Tokenizer KD). A more fundamental approach would distill in a \emph{shared latent space} that both teacher and student can access, bypassing the vocabulary bottleneck entirely. This would require learning a common semantic manifold where distances correspond to functional similarity, enabling distillation between architecturally dissimilar models (e.g., diffusion-based text generators and autoregressive LLMs) that share no structural overlap. Recent progress in representation learning and universal sentence embeddings suggests this direction is within reach.
+
+\textbf{Cross-modal OPD theory.} The extension of OPD to multimodal settings (Section~\ref{subsec:emerging}) is currently driven by empirical experimentation with minimal theoretical grounding. Key open questions include: How does exposure bias manifest when multiple modalities must maintain coherence? What are the optimal divergence choices when the teacher and student operate in different modality spaces? Can the unified $f$-divergence framework (Section~\ref{sec:background}) be extended to handle continuous signal spaces (images, audio) alongside discrete token spaces? VOLD, X-OPD, and CORD provide empirical starting points, but the theoretical foundations for cross-modal OPD remain to be established.
 
 \section{Conclusion}
 \label{sec:conclusion}
