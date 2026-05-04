@@ -128,6 +128,8 @@ Since $|\mathcal{Y}| = |V|^T$ grows exponentially with length, this is intractab
 
 Subsequent work~\citep{2402.11890} revisited these foundations for modern LLMs, demonstrating that classical assumptions (small teacher-student gap, shared vocabulary, similar architectural inductive biases) frequently fail in the era of heterogeneous model families. This motivates the more general $f$-divergence framework below.
 
+\textbf{From classical KD to on-policy.} The historical progression from Hinton's classical KD to modern OPD can be understood as a series of relaxations. Classical KD assumes: (1)~shared vocabulary, (2)~i.i.d.\ data, (3)~static teacher, (4)~off-policy training data. Seq-KD~\citep{1606.07947} relaxes assumption (2) by operating at the sequence level but retains the static data assumption. GKD~\citep{2306.13649} relaxes assumption (4) by training on student-generated sequences. DSKD~\citep{2504.11426} relaxes assumption (1) through dual-space alignment. G-OPD~\citep{2602.12125} relaxes all four simultaneously while adding RL-augmented objectives. Each relaxation addresses a specific failure mode that becomes more severe as model scale increases: vocabulary mismatch is irrelevant for same-family distillation but catastrophic for cross-family (relaxation 1); exposure bias is negligible for short sequences but devastating for multi-step reasoning (relaxation 4). This progression is not merely historical but prescriptive: practitioners should identify which assumptions hold in their specific setting and select the minimally relaxed method, avoiding unnecessary complexity.
+
 \subsection{Off-Policy Exposure Bias}
 
 Standard Knowledge Distillation minimizes the KL divergence over states drawn from the dataset distribution $d_{\mathcal{D}}(s)$:

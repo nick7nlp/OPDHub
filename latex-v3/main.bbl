@@ -1,4 +1,4 @@
-\begin{thebibliography}{99}
+\begin{thebibliography}{100}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -268,11 +268,17 @@ Yeongmin Kim, Donghyeok Shin, Mina Kang, Byeonghu Na, and Il-Chul Moon.
   (ICLR)}, 2026{\natexlab{b}}.
 \newblock URL \url{https://arxiv.org/abs/2509.25837}.
 
-\bibitem[Kim \& Rush(2016)Kim and Rush]{kim2016sequence}
+\bibitem[Kim \& Rush(2016{\natexlab{a}})Kim and Rush]{1606.07947}
 Yoon Kim and Alexander~M. Rush.
 \newblock Sequence-level knowledge distillation.
 \newblock In \emph{Proceedings of the 2016 Conference on Empirical Methods in
-  Natural Language Processing}, pp.\  1317--1327, 2016.
+  Natural Language Processing (EMNLP)}, 2016{\natexlab{a}}.
+
+\bibitem[Kim \& Rush(2016{\natexlab{b}})Kim and Rush]{kim2016sequence}
+Yoon Kim and Alexander~M. Rush.
+\newblock Sequence-level knowledge distillation.
+\newblock In \emph{Proceedings of the 2016 Conference on Empirical Methods in
+  Natural Language Processing}, pp.\  1317--1327, 2016{\natexlab{b}}.
 
 \bibitem[Kirchenbauer et~al.(2026)Kirchenbauer, Hans, Bartoldson, Goldblum,
   Panda, and Goldstein]{2602.06019}
