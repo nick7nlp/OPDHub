@@ -1,0 +1,685 @@
+\documentclass{article} % For LaTeX2e
+\usepackage[preprint]{colm2026_conference}
+
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{lineno}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{tikz}
+\usetikzlibrary{trees, shapes.geometric, arrows.meta, positioning, calc, shadows, backgrounds, fit}
+\usepackage[edges]{forest}
+\usepackage{enumitem}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{placeins}
+\usepackage{fontawesome}
+
+% === Figure fonts and colors (shared by inline TikZ figures) ===
+\usepackage{tgheros}
+\usepackage{sansmath}
+\definecolor{deepblue}{HTML}{1A5276}
+\definecolor{midblue}{HTML}{2980B9}
+\definecolor{lightblue}{HTML}{AED6F1}
+\definecolor{lightblue2}{HTML}{D4E6F1}
+\definecolor{deeppurple}{HTML}{6C3483}
+\definecolor{deepgray}{HTML}{2C3E50}
+\definecolor{darkblue}{rgb}{0, 0, 0.5}
+\hypersetup{colorlinks=true, citecolor=darkblue, linkcolor=darkblue, urlcolor=darkblue}
+
+\title{A Survey of On-Policy Distillation for Large Language Models}
+
+\author{Mingyang Song \& Mao Zheng \\
+Large Language Model Department \\Tencent, China\\
+\texttt{nickmysong@tencent.com}}
+
+\newcommand{\fix}{\marginpar{FIX}}
+\newcommand{\new}{\marginpar{NEW}}
+
+% Math macros
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\KL}{D_{\mathrm{KL}}}
+\newcommand{\ptheta}{p_\theta}
+\newcommand{\pteacher}{p_T}
+\newcommand{\pdata}{p_{\mathrm{data}}}
+\newcommand{\loss}{\mathcal{L}}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Knowledge distillation has transitioned from a model compression technique into a general capability transfer engine for Large Language Models (LLMs). The dominant off-policy paradigm forces students to learn from static, teacher-generated trajectories, triggering exposure bias when students encounter their own distribution shifts during autoregressive generation. On-Policy Distillation (OPD) eliminates this mismatch by soliciting teacher feedback on the student's self-generated trajectories, transforming distillation into an interactive optimization loop. We present the first comprehensive survey of OPD, abandoning descriptive enumeration in favor of a structured practitioner's decision chain. We formulate a unified mathematical framework for trajectory-based divergence minimization. We then classify the rapidly growing literature not by heuristic boundaries, but by the core technical contribution of each method: objective function design, signal source architecture, and training dynamics. By charting the transition from token-level logit matching to RL-augmented sequence objectives and self-play, we reveal the theoretical success conditions of OPD and chart future directions in scaling laws, uncertainty-aware feedback, and agentic distillation.
+\end{abstract}
+
+% === GitHub Banner ===
+\vspace{-0.3em}
+\begin{center}
+\begin{tikzpicture}
+  \node[draw=midblue!60, fill=lightblue2!40, rounded corners=6pt, inner sep=8pt, line width=0.8pt] (box) {
+    \begin{minipage}{0.82\textwidth}
+      \centering
+      {\sffamily\small%
+        \textcolor{deepblue}{\textbf{\faGithub\;\; Awesome List \& Paper Collection}}\\[3pt]
+        \textcolor{midblue}{\url{https://github.com/nick7nlp/Awesome-LLM-On-Policy-Distillation}}
+      }
+    \end{minipage}
+  };
+\end{tikzpicture}
+\end{center}
+\vspace{-0.3em}
+
+\section{Introduction}
+\label{sec:intro}
+
+Knowledge distillation, introduced by~\citet{hinton2015distilling}, compresses the knowledge of a large teacher network into a smaller student by training the student to match the teacher's softened output distribution. For autoregressive language models, this paradigm was extended to sequence-level objectives by~\citet{kim2016sequence}, who showed that matching the teacher's full sequence distribution outperforms word-level matching for machine translation. These foundational works established the template that dominated the field for nearly a decade: generate a dataset from the teacher, then train the student on this static corpus.
+
+The emergence of Large Language Models (LLMs) has elevated distillation from a compression technique to the primary vector for capability transfer. DeepSeek-R1~\citep{2501.12948} demonstrated that distilling chain-of-thought reasoning from a 671B MoE teacher can produce small models (1.5B--70B) that rival frontier systems on competition-level mathematics. However, this success masks a fundamental limitation: the student is trained on the teacher's trajectories, not its own.
+
+Conventional distillation operates \textit{off-policy}. The student model $\ptheta$ learns to replicate the teacher's next-token distribution over a static corpus $\pdata$. During training, the student is teacher-forced, conditioning its predictions on flawless prefixes. During inference, it must generate autoregressively, conditioning on its own (often imperfect) outputs. This train-test discrepancy is a classic manifestation of \textit{exposure bias}~\citep{ross2011reduction}. When a student makes a slight error, the resulting prefix shifts away from the training manifold. Lacking supervisory signals for these self-induced out-of-distribution states, the student's errors compound, with the expected discrepancy scaling quadratically as $O(\epsilon T^2)$ over a trajectory of length $T$.
+
+\citet{2305.15717} provided an influential early warning: imitating proprietary LLMs through off-policy distillation on API-generated data produces models that mimic surface style while failing to transfer genuine reasoning capability. This ``false promise'' of imitation learning motivated the search for training paradigms that force the student to confront its own weaknesses.
+
+On-Policy Distillation (OPD) directly attacks exposure bias. It shifts the sampling distribution from the static dataset to the student's evolving policy. The student generates its own trajectories, explores sub-optimal states, and queries the teacher for corrective feedback on those specific states. This transitions distillation from supervised sequence modeling to an interactive reinforcement learning framework, recovering the theoretical $O(T)$ compounding error bounds of the DAgger algorithm~\citep{ross2011reduction, 2306.13649}.
+
+The resulting literature is dense and highly fragmented. Methods drawing from imitation learning (GKD~\citep{2306.13649}), reinforcement learning (MiniLLM~\citep{2306.08543}), and self-play (SPIN~\citep{2401.01335}) often mask identical mathematical objectives behind disparate terminology. Previous surveys~\citep{2402.13116} treat OPD as a sub-feature of general distillation. This survey reorients the field around a structural decision pipeline for practitioners.
+
+We contribute the following:
+\begin{enumerate}
+    \item \textbf{A Unified Formalism:} We construct a continuous mathematical framework mapping fixed divergences, adaptive divergences, and RL-augmented KD into a shared geometric space (Section~\ref{sec:background}).
+    \item \textbf{A Decision-Centric Taxonomy:} We replace fuzzy descriptive categories with a practitioner's decision tree (Section~\ref{sec:landscape}), organizing methods by their exact functional contribution: Objective Design (Section~\ref{sec:objectives}), Signal Source (Section~\ref{sec:signal}), and Training Dynamics (Section~\ref{sec:dynamics}).
+    \item \textbf{Theoretical Failure Analysis:} We synthesize empirical failures (flawed prefix traps, saturation) into a coherent understanding of when and why OPD breaks down (Section~\ref{sec:understanding}).
+    \item \textbf{Comprehensive Coverage:} We survey over 90 methods spanning white-box logit distillation, black-box API distillation, self-distillation, and RL-augmented objectives, with detailed comparison tables (Tables~\ref{tab:method_comparison},~\ref{tab:white_box_comparison}, and~\ref{tab:experimental_configs}).
+\end{enumerate}
+
+\section{Background and Unified Math}
+\label{sec:background}
+
+The necessity of OPD stems from the compounding geometry of autoregressive generation. This section formalizes the distribution mismatch, establishes the unified $f$-divergence framework that subsumes modern OPD objectives, and traces the historical arc from classical KD to modern on-policy methods.
+
+\subsection{Classical Knowledge Distillation}
+
+The original KD formulation~\citep{hinton2015distilling} trains the student to match the teacher's temperature-softened output distribution $p_T^{(\tau)}(y|x) \propto \exp(z_y / \tau)$, where $z_y$ are the teacher's logits and $\tau > 1$ is a temperature parameter that reveals the teacher's ``dark knowledge'' about inter-class similarities. For autoregressive LLMs, \citet{kim2016sequence} extended this to sequence-level matching, showing that distilling at the full-sequence level outperforms token-level matching when the teacher's distributional structure encodes long-range dependencies.
+
+Subsequent work~\citep{2402.11890} revisited these foundations for modern LLMs, demonstrating that classical assumptions (small teacher-student gap, shared vocabulary, similar architectural inductive biases) frequently fail in the era of heterogeneous model families. This motivates the more general $f$-divergence framework below.
+
+\subsection{Off-Policy Exposure Bias}
+
+Standard Knowledge Distillation minimizes the KL divergence over states drawn from the dataset distribution $d_{\mathcal{D}}(s)$:
+\begin{equation}
+    \loss_{\mathrm{Off-Policy}} = \E_{x, y \sim \pdata} \left[ \sum_{t=1}^{|y|} \KL(\pteacher(\cdot | x, y_{<t}) \parallel \ptheta(\cdot | x, y_{<t})) \right]
+\end{equation}
+At inference, the student acts according to its own policy, inducing a different state visitation distribution $d_{\pi_\theta}(s)$. By the DAgger theorem~\citep{ross2011reduction}, if a policy mimics an expert with per-step error $\epsilon$ under the training distribution, the expected total discrepancy over a trajectory of length $T$ under the student's own distribution scales quadratically, bounded by $O(\epsilon T^2)$.
+
+This quadratic compounding has severe practical consequences for reasoning tasks. A mathematical proof requiring 10 reasoning steps with per-step accuracy 95\% yields only $(0.95)^{10} \approx 60\%$ trajectory-level correctness under off-policy training, because the student never learns to recover from its own intermediate errors. On-policy training exposes the student to its own error states during training, enabling it to learn correction strategies that reduce the effective per-step error rate when errors have already occurred.
+
+\subsection{The Unified $f$-Divergence Framework}
+
+OPD resolves exposure bias by altering the training expectation to sample from the student's own rollouts, or a mixture policy $\pi_{\mathrm{mix}}$. The generalized on-policy objective decouples the sampling trajectory from the local matching metric:
+\begin{equation}
+    \loss_{\mathrm{OPD}}(\theta) = \E_{y \sim \pi_{\mathrm{mix}}} \left[ \sum_{t=1}^{|y|} \mathcal{D}_f \left( \pteacher(\cdot | x, y_{<t}),\; \ptheta(\cdot | x, y_{<t}) \right) \right]
+\end{equation}
+Here, $\mathcal{D}_f$ represents a divergence from the $f$-divergence family~\citep{2307.15190}. The choice of generator function $f(u)$ determines the implicit weighting of likelihood ratios $\pteacher(y)/\ptheta(y)$:
+
+\begin{itemize}[nosep]
+    \item \textbf{Forward KL} ($f(u) = u \log u$): Mode-covering (zero-avoiding). The student must allocate probability mass wherever the teacher does, often bridging distinct teacher modes and hallucinating in the inter-mode space.
+    \item \textbf{Reverse KL} ($f(u) = -\log u$): Mode-seeking (zero-forcing). The student collapses its mass onto the teacher's single highest peak, ignoring secondary acceptable outputs but guaranteeing high precision.
+    \item \textbf{JSD} ($f(u) = u\log u - (u+1)\log\frac{u+1}{2}$): Symmetric, bounded, and smoothly interpolates between mode-covering and mode-seeking behavior.
+    \item \textbf{$\alpha$-divergence}: Parameterized family that continuously interpolates between Forward KL ($\alpha \to 1$) and Reverse KL ($\alpha \to 0$), enabling fine-grained control over the mode-seeking/covering tradeoff.
+\end{itemize}
+
+This framework subsumes all modern OPD objectives: the choice of $f$ determines the geometric behavior, while the choice of $\pi_{\mathrm{mix}}$ controls the degree of on-policy exploration. Modern OPD is a progressive exploration of this equation: finding the optimal sampling $\pi_{\mathrm{mix}}$ to balance exploration, and selecting $\mathcal{D}_f$ to balance mode-seeking precision against mode-covering diversity.
+
+\subsection{Distillation Scaling Laws}
+\label{subsec:scaling}
+
+A critical gap in the field is the absence of scaling laws specific to distillation. While \citet{2203.15556} established compute-optimal scaling for pre-training (the Chinchilla laws), and~\citet{2502.08606} initiated the study of distillation-specific scaling, no comprehensive framework yet predicts how distillation quality scales with teacher size, student size, data volume, and on-policy rollout budget. This absence forces practitioners to rely on expensive trial-and-error. The theoretical frameworks developed in Section~\ref{sec:understanding} provide partial answers, but a complete distillation scaling law remains an open problem (Section~\ref{sec:future}).
+
+\section{Landscape and Practitioner Guide}
+\label{sec:landscape}
+
+To navigate the fragmented OPD literature, we construct a functional landscape. Methods are classified not by arbitrary labels, but by the specific step in the engineering pipeline they optimize.
+
+\subsection{Method Landscape}
+
+The practitioner faces three sequential decisions: (1) what objective to optimize, (2) where the supervisory signal originates, and (3) how to stabilize the resulting training dynamics. Figure~\ref{fig:taxonomy} illustrates this pipeline.
+
+\begin{figure}[h]
+\centering
+\fbox{\parbox{0.9\textwidth}{\centering
+\textbf{Objective Design (\S\ref{sec:objectives})} $\longrightarrow$ \textbf{Signal Source (\S\ref{sec:signal})} $\longrightarrow$ \textbf{Training Dynamics (\S\ref{sec:dynamics})}\\
+\small Fixed/Adaptive/RL \hfill White-Box/Black-Box/Self \hfill Weighting/Curriculum/Efficiency
+}}
+\caption{The functional landscape of On-Policy Distillation. The taxonomy reflects the practitioner's decision chain: first choose the objective, then identify the signal source, then stabilize the training loop.}
+\label{fig:taxonomy}
+\end{figure}
+
+\subsection{Method Comparison Table}
+\begin{table}[h]
+\centering
+\caption{Comparison of key OPD methods categorized by their primary contribution dimension.}
+\label{tab:method_comparison}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{@{}llp{5cm}ll@{}}
+\toprule
+\textbf{Method} & \textbf{Category} & \textbf{Core Contribution} & \textbf{Signal Source} & \textbf{Loss Granularity} \\
+\midrule
+GKD \citep{2306.13649} & \multirow{3}{*}{Objective (Fixed)} & DAgger for LLMs; interpolation & White-Box Logits & Token \\
+DistiLLM \citep{2402.03898} & & Skewed KL mixtures & White-Box Logits & Token \\
+MiniLLM \citep{2306.08543} & & Sequence-level Reverse KL via RL & White-Box Logits & Sequence \\
+\midrule
+ToDi \citep{2505.16297} & \multirow{2}{*}{Objective (Adaptive)} & Entropy-routed token divergence & White-Box Logits & Token \\
+Entropy-Aware \citep{2603.07079} & & Entropy-based KL interpolation & White-Box Logits & Token \\
+\midrule
+G-OPD \citep{2602.12125} & \multirow{2}{*}{Objective (RL)} & OPD equivalence to KL-RL & White-Box Logits & Sequence/Token \\
+RLKD \citep{2505.16142} & & KD augmented with reward model & Reward Model & Sequence \\
+\midrule
+DSKD \citep{2504.11426} & \multirow{2}{*}{Signal (White-Box)} & Cross-architecture alignment & White-Box Logits & Token \\
+Delta-KD \citep{2603.11137} & & Base-to-Instruct delta isolation & White-Box Logits & Token \\
+\midrule
+Lion \citep{2305.12870} & \multirow{2}{*}{Signal (Black-Box)} & Verbal feedback curriculum & Black-Box API & Sequence \\
+GAD \citep{2511.10643} & & Adversarial distribution matching & Black-Box API & Sequence \\
+\midrule
+OPSD \citep{2601.18734} & \multirow{2}{*}{Signal (Self)} & Privileged Info (PI) conditioning & Self-Generated & Token \\
+SPIN \citep{2401.01335} & & Self-play vs reference responses & Self-Generated & Sequence \\
+\midrule
+TIP \citep{xu2026tip} & \multirow{2}{*}{Dynamics (Weight)} & Token importance profiling via diff & White-Box Logits & Token \\
+PACED \citep{2603.11178} & & Beta-kernel curriculum pacing & White-Box Logits & Token \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\subsection{Practitioner Decision Tree}
+\begin{enumerate}
+    \item \textbf{Do you have full logit access to the teacher?}
+    \begin{itemize}
+        \item \textit{Yes (White-Box):} Use DistiLLM for stable token-level matching, or G-OPD if strong reasoning extrapolation is required. If architectures mismatch, deploy DSKD.
+        \item \textit{No, API only (Black-Box):} Use DAIL or AlignDistil to treat distillation as imitation learning over textual trajectories.
+        \item \textit{No teacher available (Self-Distillation):} If oracle answers are available, use Privileged Information (OPSD). Otherwise, use Self-Play (SPIN, SD-ZERO).
+    \end{itemize}
+    \item \textbf{What is the task profile?}
+    \begin{itemize}
+        \item \textit{Reasoning / Math:} Mode-seeking objectives are mandatory. Use MiniLLM or RL-augmented KD (G-OPD).
+        \item \textit{Open-ended Generation:} Mode-covering is preferred to maintain diversity. Use Forward KL or Entropy-Aware adaptive divergences (ToDi).
+    \end{itemize}
+    \item \textbf{What are the compute limits?}
+    \begin{itemize}
+        \item \textit{Low compute:} Standard GKD or Fast OPD (prefix truncation).
+        \item \textit{High compute:} Multi-stage self-play (SPIN) or PPO-based Sequence-KD.
+    \end{itemize}
+\end{enumerate}
+
+\section{Objective Functions and Optimization}
+\label{sec:objectives}
+
+The foundational algorithmic decision in OPD is the choice of objective function: what mathematical quantity does the student optimize at each training step? This choice governs gradient geometry, mode coverage, and ultimately the ceiling of achievable performance. The field has evolved through three distinct phases: fixed divergences that apply a single metric uniformly, adaptive divergences that modulate the metric per-token based on local distributional geometry, and RL-augmented objectives that break through the teacher's capability ceiling entirely. We trace this progression below, emphasizing the mathematical relationships that connect seemingly disparate methods.
+
+\subsection{Fixed Divergence Objectives}
+\label{subsec:fixed_div}
+
+GKD~\citep{2306.13649} established the canonical OPD framework by adapting the DAgger algorithm~\citep{ross2011reduction} for autoregressive language models. It samples trajectories from a mixture policy $\pi_{\mathrm{mix}} = \lambda \ptheta + (1-\lambda) \pdata$ and applies standard $f$-divergences (Forward KL, Reverse KL, or JSD) at each token position. The mixture coefficient $\lambda$ interpolates between fully off-policy ($\lambda=0$) and fully on-policy ($\lambda=1$), providing a single knob for exposure bias mitigation. On instruction-following and summarization benchmarks, even moderate on-policy mixing ($\lambda \geq 0.5$) consistently outperforms pure off-policy training, validating the distributional alignment hypothesis.
+
+However, pure KL divergences exhibit numerical instability during on-policy exploration. When the student generates tokens to which the teacher assigns near-zero probability, Forward KL produces unbounded gradients; conversely, Reverse KL ignores these regions entirely, creating blind spots in the loss landscape. DistiLLM~\citep{2402.03898} addresses this through \emph{Skewed KL} (SKL), constructing a smoothed target $\tilde{p} = \alpha \pteacher + (1-\alpha)\ptheta$:
+\begin{equation}
+    \loss_{\text{SKL}} = \E_{y \sim \ptheta} \left[ \sum_{t=1}^{|y|} \KL\big(\pteacher(\cdot|y_{<t}) \parallel \alpha \pteacher(\cdot|y_{<t}) + (1-\alpha) \ptheta(\cdot|y_{<t})\big) \right]
+\end{equation}
+Skewing guarantees the target density is bounded below by $(1-\alpha)\ptheta$, eliminating gradient explosion without requiring RL policy gradients. DistiLLM further introduces Skewed Reverse KL (SRKL) for mode-seeking applications, creating a symmetric pair of stabilized divergences. Its successor, DistiLLM-2~\citep{2503.07067}, extends this to contrastive objectives that apply asymmetric losses depending on whether the training data is teacher-generated or student-generated, recognizing that the optimal divergence differs between these two sources.
+
+The fixed-divergence family faces a fundamental limitation: the choice between Forward KL (mode-covering) and Reverse KL (mode-seeking) is a global decision applied uniformly across all token positions. Yet the teacher's distributional structure varies dramatically within a single sequence. At a mathematical operator token, the teacher concentrates probability mass on one or two correct symbols. At a conjunction or filler word, dozens of tokens share comparable probability. Applying a single divergence to both positions necessarily compromises: Forward KL wastes gradient signal on high-entropy positions where any token is acceptable, while Reverse KL discards useful coverage information at low-entropy positions where multiple valid continuations exist.
+
+Sequence-level objectives offer a complementary perspective. MiniLLM~\citep{2306.08543} elevates Reverse KL to the full sequence level, where the student $\ptheta$ appears inside the sampling expectation. Computing exact sequence-level Reverse KL requires policy gradients. MiniLLM treats the teacher log-probability as a per-step reward $r_t = \log(\pteacher(y_t|y_{<t}) / \ptheta(y_t|y_{<t}))$ and derives a REINFORCE-style objective:
+\begin{equation}
+    \nabla_\theta \loss_{\text{MiniLLM}} = -\E_{y \sim \ptheta} \left[ \sum_{t=1}^{|y|} \left( R_t - b \right) \nabla_\theta \log \ptheta(y_t|y_{<t}) \right]
+\end{equation}
+where $R_t = \sum_{t'=t}^{|y|} r_{t'}$ is the return-to-go and $b$ is a learned baseline for variance reduction. This formulation places the optimization squarely in the RL framework, with the teacher's log-probability serving as a dense reward signal. The connection to policy optimization explains MiniLLM's strong performance on reasoning tasks where sequence-level coherence matters more than token-level accuracy.
+
+KETCHUP~\citep{2504.19024} refines this approach by replacing the single-sample REINFORCE estimator with a $K$-step truncated return, reducing gradient variance while preserving the sequence-level objective. The constrained KD framework of~\citet{2509.22921} augments the sequence-level Reverse KL with a hard KL constraint implemented via state-augmented CMDP, ensuring that the student's divergence from the teacher remains bounded even during aggressive exploration.
+
+\subsection{Adaptive Divergence Objectives}
+\label{subsec:adaptive_div}
+
+The limitations of fixed divergences motivate \emph{adaptive} methods that select or interpolate divergences based on local distributional geometry. The core insight is that the optimal divergence at each token position depends on the teacher's local confidence: when the teacher is certain (low entropy), mode-seeking Reverse KL preserves precision; when the teacher is uncertain (high entropy), mode-covering Forward KL preserves diversity.
+
+ToDi~\citep{2505.16297} operationalizes this by routing each token through either Forward KL or Reverse KL based on the teacher's entropy $H(\pteacher(\cdot|y_{<t}))$:
+\begin{equation}
+    \loss_{\text{ToDi}} = \E_{y \sim \ptheta} \left[ \sum_{t=1}^{|y|} \mathbb{1}[H_t < \tau] \cdot \KL(\ptheta \parallel \pteacher) + \mathbb{1}[H_t \geq \tau] \cdot \KL(\pteacher \parallel \ptheta) \right]
+\end{equation}
+where $\tau$ is a learned or fixed entropy threshold. Entropy-Aware OPD~\citep{2603.07079} replaces the hard routing with a continuous interpolation coefficient $\alpha_t \propto H_t$, yielding a smooth blend:
+\begin{equation}
+    \loss_{\text{EA}} = \E_{y \sim \ptheta} \left[ \sum_{t=1}^{|y|} (1 - \alpha_t) \KL(\ptheta \parallel \pteacher) + \alpha_t \KL(\pteacher \parallel \ptheta) \right]
+\end{equation}
+Both methods consistently outperform any fixed divergence on math reasoning (MATH, GSM8K) and open-ended generation (AlpacaEval), confirming that the optimal divergence is indeed position-dependent.
+
+AKL~\citep{2404.02657} takes a more aggressive approach, dynamically interpolating between Forward KL and Reverse KL based on a per-token confidence metric derived from the teacher-student probability ratio. Unlike entropy-based routing, which depends only on the teacher's distributional shape, AKL considers the \emph{relative} geometry of teacher and student, adapting more aggressively at positions where the gap is largest.
+
+These adaptive methods admit a natural interpretation through information geometry. The Fisher information metric on the statistical manifold of autoregressive distributions varies across token positions. At reasoning-critical positions, the manifold is highly curved (the teacher concentrates on few tokens), making Reverse KL's mode-seeking behavior locally appropriate. At generation-flexible positions, the manifold is nearly flat (many synonyms are equally valid), and Forward KL's mode-covering behavior preserves useful entropy. Adaptive divergences implicitly navigate this varying curvature by selecting the locally optimal metric.
+
+\subsection{RL-Augmented Objectives}
+\label{subsec:rl_objectives}
+
+Divergence matching, whether fixed or adaptive, intrinsically limits the student to the teacher's capability ceiling: perfect optimization yields a student that matches (but never exceeds) the teacher's distribution. RL-augmented objectives break this ceiling by introducing an external performance signal that can steer the student toward solutions the teacher would never produce.
+
+\textbf{OPD as KL-constrained RL.} G-OPD~\citep{2602.12125} establishes a formal equivalence between standard OPD and dense KL-constrained reinforcement learning. It formulates distillation as maximizing a token-level reward derived from teacher logits, penalized by divergence from a reference policy:
+\begin{equation}
+    \max_\theta \E_{y \sim \ptheta} \left[ \sum_{t=1}^{|y|} \alpha \log \pteacher(y_t | y_{<t}) - \KL\big(\ptheta(\cdot | y_{<t}) \parallel p_{\text{ref}}(\cdot | y_{<t})\big) \right]
+\end{equation}
+When $\alpha = 1$, this reduces to standard Reverse KL distillation. When $\alpha > 1$, the objective forces the student to \emph{extrapolate} beyond the teacher's probability mass, enabling a phenomenon documented as \emph{Reward Extrapolation}: the student discovers novel, structurally sound reasoning paths in regions where the teacher's generation probability $\pteacher(y|x)$ is low but the outcome reward remains high. On competition-level math, a 4B student trained with G-OPD surpasses a 30B teacher, demonstrating that OPD need not be a lossy compression step.
+
+This equivalence has a deeper theoretical consequence: it bridges the distillation and RL communities, providing a shared analytical language. Any advance in KL-constrained RL (better trust regions, adaptive penalty coefficients, variance reduction) immediately transfers to OPD, and vice versa.
+
+\textbf{Gradient decomposition and the KD+RL complementarity.} The unified KD+RL framework of~\citet{2512.23097} decomposes the hybrid gradient into two orthogonal components: a dense KD gradient for token-level imitation and a Monte Carlo RL gradient for reward maximization. The KD component dampens the high variance inherent in policy gradient estimation, while the RL component prevents the student from collapsing onto teacher modes that are suboptimal for the downstream task. REOPOLD~\citep{2512.23097} further formalizes this decomposition, splitting each parameter update into an imitation vector (pulling toward the teacher) and an exploration vector (pushing toward higher trajectory returns), making the complementarity explicit and tunable.
+
+\textbf{Dense KD + sparse reward.} RLKD~\citep{2505.16142} exemplifies the integration of dense teacher supervision with sparse outcome feedback. It introduces a Generative Structure Reward Model (GSRM) that scores reasoning paths for structural coherence, combining token-level KL regularization with trajectory-level reward:
+\begin{equation}
+    \max_{\theta} \mathcal{J}(\theta) = \E_{x \sim \mathcal{D}, y \sim \ptheta(\cdot|x)} \left[ R(x, y) - \beta \KL\big(\ptheta(\cdot|x) \parallel \pteacher(\cdot|x)\big) \right]
+\end{equation}
+The mathematical structure explains why the combination works: the KL term provides analytically computable dense gradients, while the reward term contributes Monte Carlo policy gradients for outcome-driven exploration.
+
+\textbf{Joint vs.\ sequential optimization.} A persistent engineering challenge is \emph{how} to combine KD and RL within a training pipeline. Sequential approaches (distill-then-RL or RL-then-distill) suffer from catastrophic interference: the RL stage erases distilled knowledge through policy drift, while the KD stage suppresses novel solutions discovered through exploration. KDRL~\citep{2506.02208} operationalizes joint optimization by adding an on-policy KL regularizer between student and teacher \emph{during} RL training. RLAD~\citep{2602.22495} refines this with Trust Region Ratio Distillation (TRRD), replacing the standard KL regularizer with a PPO-style likelihood-ratio objective anchored to a teacher-old-policy mixture. This selective strategy follows the teacher only when its signal improves the policy update and ignores it otherwise, a principled solution to the problem that blind KL minimization can drag the student toward suboptimal trajectories on problems the teacher itself struggles with.
+
+\textbf{Preference-based objectives.} When logit access is insufficient to capture global intent, several methods map the problem onto Direct Preference Optimization (DPO). AlignDistil~\citep{2503.02832} constructs synthetic preference pairs from student rollouts scored by the teacher, applying both standard DPO and reverse DPO objectives for alignment. OVD~\citep{2601.21968} queries the teacher for pairwise preferences over student-generated responses, avoiding the need for continuous probability extraction entirely.
+
+\textbf{Targeted correction vs.\ wholesale imitation.} The RL-augmented methods above still provide uniform supervision across the entire trajectory. A distinct failure mode emerges from this uniformity: when the student makes a single error in step 3 of a 10-step proof, wholesale imitation retrains all 10 steps, diluting the corrective gradient. SuperCorrect~\citep{2410.09008} introduces hierarchical thought templates that scaffold the student's reasoning at both strategic and step-level granularity, then applies cross-model DPO to teach error localization. SCoRe~\citep{2509.14257} pushes targeting to its logical extreme: rather than providing complete correction traces, the teacher identifies and corrects \emph{only the earliest error} in the student's trajectory, concentrating all supervision at the single point of maximum leverage. This approach exploits a structural property of reasoning chains: errors cascade, so correcting the root cause eliminates all downstream consequences simultaneously.
+
+\textbf{From signal matching to environment reconstruction.} The most radical extension asks whether the student can recover the teacher's \emph{underlying optimization landscape}. $\mathcal{X}$-KD~\citep{2602.12674} adopts the AVRIL framework to jointly model the teacher's latent reward function and perform policy distillation, encouraging the student to optimize in a reconstructed version of the teacher's training environment rather than simply mimicking its outputs. TSD-KD~\citep{2603.13260} combines indirect distillation (student generates candidates that the teacher re-ranks via preference feedback) with direct distillation (KL matching applied selectively to high-entropy tokens). These methods represent the current frontier: moving from matching the teacher's \emph{behavior} to understanding its \emph{incentives}.
+
+\section{Signal Source and Teacher Architecture}
+\label{sec:signal}
+
+The second major decision in the OPD pipeline concerns the origin and nature of the supervisory signal. Given a fixed objective function (Section~\ref{sec:objectives}), the practitioner must determine \emph{where the teacher signal comes from}: full logit access (white-box), API-only text outputs (black-box), or the model's own internal asymmetries (self-distillation). Each signal source imposes distinct constraints on the applicable objectives and achievable performance, creating a structured design space that this section maps comprehensively.
+
+\subsection{White-Box Logit Supervision}
+\label{subsec:white_box}
+
+White-box access provides the densest possible signal: the full probability distribution across $|V|$ tokens at every decoding step. This exposes the teacher's implicit decision boundaries, including the relative probabilities among incorrect tokens (Hinton's ``dark knowledge''), which carry information about similarity structure that binary labels cannot capture.
+
+\textbf{Standard logit distillation.} The majority of methods surveyed in Section~\ref{sec:objectives} assume white-box access. GKD, DistiLLM, ToDi, G-OPD, and their variants all require computing $\pteacher(\cdot|x, y_{<t})$ at each student-generated token position. The computational cost is dominated by the teacher forward pass, which must be executed once per student-generated token (or once per sequence for cached implementations).
+
+\textbf{Token-level adaptive supervision.} Within the white-box setting, several methods refine \emph{which} tokens receive supervision. SelecTKD~\citep{2510.24021} applies confidence-based filtering, discarding loss gradients from positions where the teacher's top-1 probability falls below a threshold. AdaSwitch~\citep{2510.07842} dynamically switches between exploration (student generates freely) and guidance (teacher provides dense supervision) based on the student's cumulative error on the current prefix, balancing the exploration benefit of on-policy generation against the stability of teacher guidance. Token-Adaptive KD~\citep{2510.11615} computes per-token importance weights using the gradient magnitude of the KL loss, concentrating compute on tokens where the teacher-student gap is largest.
+
+\textbf{Pre-training distillation.} MiniPLM~\citep{2410.17215} extends on-policy distillation to the \emph{pre-training} stage, showing that distilling during pre-training (rather than post-training) yields stronger foundations for downstream fine-tuning. This represents a qualitative shift in how OPD is deployed: rather than being a post-hoc compression step, it becomes an integral part of the model creation pipeline.
+
+\textbf{Cross-architecture alignment.} A critical challenge arises when teacher and student use different tokenizers or vocabulary sizes. Direct KL divergence over mismatched vocabularies is undefined. DSKD~\citep{2504.11426} solves this through \emph{dual-space} knowledge distillation, projecting both teacher and student distributions into a shared continuous semantic space via learned linear transformations, then computing KL divergence in this projected space. The key insight is that vocabulary tokens with similar semantic embeddings should receive similar probability mass, even when the tokenization schemes differ. This enables distillation across fundamentally different architectures (e.g., Llama teacher to Qwen student) that share no vocabulary overlap.
+
+Cross-Tokenizer KD~\citep{2402.12030} takes a complementary approach based on optimal transport, computing an alignment matrix between teacher and student token sequences that minimizes the earth mover's distance in latent space. Concrete Score Matching~\citep{2509.25837} provides yet another solution, distilling via a continuous score function that bypasses the discrete vocabulary mismatch entirely. Together, these methods ensure that OPD is architecture-agnostic, not limited to same-family distillation.
+
+\textbf{Signal isolation.} Not all information in the teacher's logits is equally useful. Delta-KD~\citep{2603.11137} introduces the principle of \emph{signal isolation}: rather than distilling the teacher's full distribution, it distills only the \emph{differential shift} between a base model and its instruction-tuned variant. The base model's distribution captures generic language modeling knowledge that the student already possesses (or should acquire through standard pre-training), so distilling it is redundant at best and harmful at worst. By extracting only the instruction-following delta, Delta-KD provides a cleaner supervisory signal that transfers the teacher's alignment without overwriting the student's foundation.
+
+\textbf{Stable target reformulation.} A subtle but important challenge in white-box OPD is that the teacher's logit distribution can be \emph{overconfident} on tokens outside the student's reachable space, creating optimization targets that are simultaneously precise and useless. Adaptive Target Reformulation~\citep{2601.07155} addresses this by dynamically reformulating the teacher's target distribution based on the student's current capability, smoothing the teacher's predictions at positions where the student cannot yet match them. This prevents the pathological gradient behavior where an overconfident teacher creates extremely sharp loss landscapes that the student oscillates around without converging.
+
+\textbf{Selective supervision and prompt-based distillation.} PromptKD~\citep{2402.12842} takes a radically different approach to white-box distillation: rather than matching the teacher's output distribution directly, it trains prompts that elicit teacher-like behavior from the student. The key insight is that a well-chosen prompt can activate latent capabilities in the student that direct logit matching cannot reach, because the prompt operates on the model's \emph{input representation} rather than its \emph{output distribution}.
+
+\subsection{Black-Box and API-Constrained Distillation}
+\label{subsec:black_box}
+
+When only API access is available, the student observes the teacher's top-1 text output (or at best, top-$k$ log-probabilities) rather than the full distribution. This information bottleneck eliminates token-level divergence matching and forces methods to operate at the sequence level. Despite this limitation, black-box methods have proven surprisingly effective, suggesting that much of the teacher's knowledge is recoverable from text-only observations.
+
+\textbf{Distilling Step-by-Step.} \citet{2305.02301} demonstrated an influential early approach: extracting not just the teacher's final answers but its intermediate reasoning steps (rationales) as additional supervision. The student is trained with a multi-task objective combining answer prediction and rationale generation, enabling it to outperform the teacher on downstream tasks with significantly less data. This work established the principle that \emph{how} the teacher reasons is often more valuable than \emph{what} it concludes, a principle that pervades modern OPD.
+
+\textbf{Adversarial distribution matching.} GAD~\citep{2511.10643} reformulates the distillation problem as a generative adversarial game. A discriminator is trained to distinguish student rollouts from teacher API outputs, and its confidence serves as a proxy reward for the student's policy gradient update. This approach recovers distributional information that text-only observation loses: even though the teacher's full distribution is hidden, the discriminator learns to identify systematic differences between teacher and student output distributions, providing a dense training signal from sparse observations.
+
+\textbf{Verbal feedback and curriculum.} Lion~\citep{2305.12870} exploits the teacher's capacity as a natural language critic. Rather than extracting numerical probabilities, it queries the teacher for verbal feedback on student errors, then uses this feedback to construct a curriculum of increasingly difficult prompts. This approach requires no gradient information whatsoever, making it applicable to any instruction-following API.
+
+\textbf{Didactic-to-constructive learning.} DAIL~\citep{2602.02405} treats text-only distillation as an imitation learning problem, applying inverse reinforcement learning to infer the implicit reward function guiding the teacher's generation choices from observed text trajectories. Distribution-Aligned Sequence Distillation~\citep{2601.09088} complements this by aligning the student's long chain-of-thought generation distribution with the teacher's through sequence-level distribution matching, addressing the specific challenge that long reasoning traces are particularly vulnerable to distribution shift in black-box settings.
+
+\textbf{Verbal score distillation.} OVD~\citep{2601.21968} replaces token-level probability matching entirely with trajectory matching using discrete verbal scores (0--9) from teacher models. This eliminates the requirement for token-level alignment between vocabularies, dramatically reduces memory consumption by avoiding logit storage, and delivers up to +12.9\% absolute EM improvement on web QA.
+
+\textbf{Preference-based formulations.} ORPO-Distill~\citep{2509.25100} maps black-box distillation onto preference optimization, generating candidate responses from the student and querying the teacher API for pairwise rankings. The student then optimizes an ORPO-style objective on these teacher-ranked pairs, recovering alignment signal without logit access. ThinkTuning~\citep{rrv2025thinktuning} instills cognitive reflections into the student by training it to generate ``thinking'' traces that the teacher evaluates for quality, combining black-box feedback with reasoning transparency.
+
+\textbf{Off-policy knowledge integration.} A related challenge is incorporating knowledge from off-policy sources (e.g., pre-existing teacher-generated datasets) into an on-policy framework. LUFFY~\citep{2504.14945} addresses this by extending GRPO to a mixed-policy objective that incorporates off-policy reasoning traces alongside the student's on-policy rollouts. The critical design challenge is preventing \emph{superficial imitation}: without correction, the student tends to copy high-probability tokens from off-policy traces while ignoring low-probability but critical reasoning steps. LUFFY's policy shaping via regularized importance sampling reweights gradients to emphasize learning from unfamiliar yet effective actions, achieving +6.4 average points over standard RLVR.
+
+\subsection{Self-Distillation: Privileged Information}
+\label{subsec:self_pi}
+
+Self-distillation eliminates the need for an external teacher entirely. Instead, the model exploits asymmetries \emph{within itself} to construct a training signal. The first family of self-distillation methods creates this asymmetry through \emph{privileged information} (PI): training-time access to context that is unavailable at inference. The central insight is that conditioning the same model on additional context produces a strictly stronger policy that can supervise the unconditioned version, turning a single network into both teacher and student.
+
+\textbf{Ground-truth as PI.} OPSD~\citep{2601.18734} constructs the teacher policy by conditioning on both the problem $x$ and the ground-truth answer $y^\star$, while the student conditions only on $x$. The student generates on-policy rollouts, and the teacher provides dense token-level supervision:
+\begin{equation}
+    \loss_{\text{OPSD}}(\theta) = \E_{(x, y^\star) \sim \mathcal{S}} \E_{\hat{y} \sim \ptheta(\cdot|x)} \left[ \sum_{n=1}^{|\hat{y}|} D\!\left( p_\theta(\cdot|x, y^\star, \hat{y}_{<n}) \;\|\; \ptheta(\cdot|x, \hat{y}_{<n}) \right) \right]
+\end{equation}
+On competition-level math (AIME 2024/2025), OPSD matches or exceeds GRPO at 4B and 8B scales while using only a single rollout per problem versus GRPO's eight, though at 1.7B the gains are minimal, indicating that sufficient model capacity is necessary for the PI mechanism to provide useful supervision.
+
+HDPO~\citep{2603.23871} addresses a specific failure mode of OPSD: when all student rollouts fail (the ``cliff prompt'' problem), the policy gradient vanishes entirely. HDPO augments GRPO with a JSD-based self-distillation term on ground-truth-conditioned rollouts, ensuring non-zero gradients even at the boundary of the student's competence.
+
+\textbf{Relaxing the ground-truth requirement.} Ground-truth labels are not always available. GATES~\citep{2602.20574} demonstrates that \emph{any} training-time context can serve as PI by having a single model act as tutor (conditioned on a source document) and student (answering from the question alone). Because source documents do not guarantee correct answers, GATES introduces a consensus-based gating mechanism that suppresses the gradient when tutor uncertainty is high, preventing the model from reinforcing unreliable self-supervision.~\citet{2602.04942} generalize the OPSD and GATES paradigms into a unified theoretical framework, formalizing the conditions under which privileged self-distillation provably improves over standard training.
+
+\textbf{Behavioral PI: context distillation.} The PI paradigm extends beyond factual ground truth to behavioral instructions. OPCD~\citep{2602.12275} treats system prompts, exemplars, and retrieval context as privileged information, enabling a model to internalize behaviors that would otherwise require expensive in-context demonstrations at inference time. OEL~\citep{2603.16856} extends to continuous post-deployment learning, using interaction outcomes as dynamic PI that updates the model's teacher policy as it accumulates experience, closing a loop that OPCD opened.
+
+\textbf{Reasoning compression via PI.} CRISP~\citep{2603.05433} demonstrates that a model prompted to ``be concise'' can serve as a teacher for its own verbose version, reducing chain-of-thought token count by 57--59\% on MATH-500 while \emph{improving} accuracy by 9--16 percentage points. This reveals that much of the verbosity in distilled reasoning models is a trainable inefficiency, not a necessary feature of competent reasoning.
+
+\subsection{Self-Distillation: Self-Play}
+\label{subsec:self_play}
+
+A more radical question is whether a model can improve using nothing but its own rollouts, with no PI, no external feedback, and no additional context. The answer is a qualified yes, subject to important saturation limitations.
+
+\textbf{Self-play as a two-player game.} SPIN~\citep{2401.01335} casts self-improvement as an adversarial game between successive checkpoints, training the updated model to distinguish its previous iteration's generations from human-written responses:
+\begin{equation}
+    \loss_{\text{SPIN}} = \E_{x, y \sim p_{\text{data}}, y' \sim p_{\theta_t}} \left[ \ell\!\left( \lambda\left(\log \frac{p_{\theta_{t+1}}(y|x)}{p_{\theta_t}(y|x)} - \log \frac{p_{\theta_{t+1}}(y'|x)}{p_{\theta_t}(y'|x)}\right) \right) \right]
+\end{equation}
+SPIN provides a theoretical convergence guarantee at $\ptheta = p_{\text{data}}$. Starting from Zephyr-7B-SFT, it improves MT-Bench from 5.94 to 6.78 over 3 iterations, with diminishing returns at each round, revealing a fundamental limitation: pure self-play recycles existing knowledge rather than generating new knowledge.
+
+\textbf{Temporal self-supervision.} SDFT~\citep{2601.19897} positions on-policy self-distillation as a mechanism for forgetting resistance via implicit KL regularization against the model's own prior checkpoint, converting the model's optimization trajectory into a regularization resource for continual learning.
+
+\textbf{Self-play for efficiency.} MTP via self-distillation~\citep{2602.06019} converts a pre-trained autoregressive model into a multi-token predictor, achieving $>3\times$ faster decoding at $<5\%$ accuracy drop. On-Policy SFT~\citep{zhao2026onpolicy} shows that truncation-based length penalties can simplify RL to standard SFT on self-generated data filtered for correctness and conciseness. Self-Distilled RLVR~\citep{yang2026selfdistilled} combines self-distillation with verification-based RL, showing that the two mechanisms are complementary: self-distillation provides the dense signal for stable training while RLVR provides the sparse but accurate outcome signal for quality improvement.
+
+\textbf{Minimalist self-distillation.} SSD~\citep{zhang2026embarrassingly} requires no RL, no verifier, no external teacher, and no code execution. It samples solutions at training-time temperature, fine-tunes via standard SFT, and reshapes token distributions in a context-dependent manner. On LiveCodeBench v6, SSD improves Qwen3-30B-Instruct from 42.4\% to 55.3\%, revealing that when the base model is sufficiently capable, even the simplest self-play yields substantial gains.
+
+\textbf{Unifying PI and self-play.} $\pi$-Play~\citep{zhang2026piplay} unifies privileged information and self-play within a single multi-agent self-evolution framework. The key observation is that self-play naturally produces a byproduct: during task generation, the examiner agent constructs a question construction path (QCP) that provides high-quality PI at no additional cost. Three co-evolving agents (examiner, teacher conditioned on QCP, student without it) are jointly optimized through alternating updates. As the student strengthens, the examiner generates harder tasks, establishing a self-adjusting curriculum that requires no external data. On Qwen3 (4B, 8B), data-free $\pi$-Play surpasses supervised search agents by 5--15\% and improves efficiency by $2$--$3\times$ over conventional self-play.
+
+\subsection{Self-Distillation: External Feedback}
+\label{subsec:external_feedback}
+
+Pure self-play is inherently bounded by the information already present in the model's pre-training distribution. External signals, such as compiler outputs, test results, and textual critiques, ground self-distillation in objective reality and bridge the gap to reinforcement learning.
+
+\textbf{From binary rewards to dense supervision.} SD-ZERO~\citep{he2026selfdistillation} converts sparse verifier signals into dense self-supervision through self-revision: after generating a solution and receiving a binary reward, the model generates a \emph{revised} solution conditioned on the original attempt. When the revision succeeds where the original failed, the (original, revision) pair provides a natural preference signal. SDPO~\citep{2601.20802} extends this to preference optimization, using the model's own correct and incorrect rollouts as preference pairs scored by external verifiers.
+
+\textbf{Environmental grounding.} RLTF and related methods use compiler outputs, unit test results, and symbolic math verifiers as external feedback that shatters self-reinforcing echo chambers. Even if the model becomes highly confident in a flawed derivation, the verifier assigns $R=0$, providing an unambiguous correction signal that pure self-play cannot generate.
+
+\textbf{Saturation analysis.} \citet{2603.24472} trace self-distillation degradation in mathematical reasoning to the suppression of \emph{epistemic verbalization}: the model's expression of uncertainty during reasoning. When self-distillation shortens reasoning traces, it disproportionately removes hedging phrases and uncertainty markers that serve as implicit ``attention flags'' for difficult sub-problems. The result is shorter but less calibrated reasoning, where the model confidently commits to flawed steps. This connects to the teacher uncertainty challenge in Section~\ref{sec:understanding}: an overconfident student produces unreliable self-play targets, and the saturation problem ultimately requires either external grounding or the internally generated PI mechanism of $\pi$-Play to overcome.
+
+\section{Training Dynamics and Efficiency}
+\label{sec:dynamics}
+
+Given an objective function (Section~\ref{sec:objectives}) and a signal source (Section~\ref{sec:signal}), the final engineering decision is \emph{how to stabilize and accelerate the on-policy training loop}. On-policy generation introduces unique optimization challenges absent from standard supervised fine-tuning: non-stationary data distributions, gradient signal-to-noise ratio (SNR) collapse on hard prompts, and the computational overhead of autoregressive student rollouts followed by teacher scoring. The methods in this section address these challenges through three complementary mechanisms: token-level and sample-level weighting that modulates the loss based on supervision quality, curriculum strategies that control which prompts are presented and when, and systems-level optimizations that reduce the computational cost of on-policy training.
+
+\subsection{Token and Sample Weighting}
+\label{subsec:weighting}
+
+Not all teacher supervision is equally reliable in the on-policy setting. The core problem is the \emph{flawed prefix trap}: when a student generates an erroneous token early in a sequence, all subsequent teacher predictions are conditioned on this out-of-distribution prefix. Because the teacher has never been trained on such prefixes, its conditional distribution $\pteacher(\cdot|x, \hat{y}_{<t}^{\text{bad}})$ becomes noisy and unreliable. Naively matching this corrupted signal propagates errors rather than correcting them.
+
+\textbf{Teacher reliability filtering.} TIP~\citep{xu2026tip} (Token Importance Profiling) quantifies this problem by computing the discrepancy between the teacher's predictions conditioned on the student's prefix versus the teacher's own prefix. At positions where this discrepancy exceeds a threshold, the teacher is deemed unreliable and the loss gradient is attenuated. SCOPE~\citep{zheng2026scope} extends this to a routing mechanism that redirects student rollouts through the teacher's own generation when the student's prefix quality falls below a confidence threshold, ensuring that the teacher always evaluates sequences within its training distribution.
+
+SelecTKD~\citep{2510.24021} applies confidence-based filtering at the token level, discarding loss gradients from positions where the teacher's top-1 probability falls below a threshold. The reasoning is that low teacher confidence indicates either genuine ambiguity (where any student token is acceptable) or distributional confusion (where the teacher cannot provide useful supervision), and in neither case does the gradient carry reliable information.
+
+AdaSwitch~\citep{2510.07842} introduces a dynamic switching mechanism between pure exploration and guided distillation. Unlike static filtering that simply attenuates unreliable signals, AdaSwitch maintains a running estimate of the student's cumulative prefix quality and switches between on-policy exploration (when the prefix is reasonable) and off-policy guidance (when the prefix has drifted too far). This binary switching is computationally simpler than continuous weighting while empirically achieving similar stability.
+
+\textbf{Sample-level weighting.} Beyond token-level filtering, several methods weight entire samples based on their informativeness. The flawed prefix trap manifests most severely on \emph{hard} prompts where the student's pass rate approaches zero. On these prompts, nearly all rollouts contain early catastrophic errors, and the resulting teacher signals are dominated by noise. Methods that uniformly sample prompts waste most of their gradient budget on uninformative hard prompts or trivially correct easy prompts, with the productive learning concentrated on prompts at the boundary of the student's competence.
+
+\textbf{Failure-mode analysis.} \citet{2603.25562} provide a systematic empirical analysis of why sampled-token OPD is fragile in long-horizon settings. They identify three failure modes: (1) an imbalanced one-token signal that reduces distribution matching to a single sample, (2) unreliable teacher guidance on student-generated prefixes that deviate from the teacher's training distribution, and (3) distortions caused by tokenizer or special-token mismatch. Their proposed fix, teacher top-$K$ local support matching via truncated Reverse KL with top-$p$ rollout sampling and special-token masking, yields more stable optimization across math reasoning and agentic training.
+
+\subsection{Curriculum and Difficulty Adaptation}
+\label{subsec:curriculum}
+
+The sample weighting problem motivates a more principled solution: \emph{curriculum design} that actively selects prompts matching the student's current competence level.
+
+\textbf{Competence-boundary sampling.} PACED~\citep{2603.11178} models prompt difficulty dynamically using a Beta-kernel distribution centered on the student's current pass rate. The curriculum progressively shifts toward harder prompts as the student improves, but critically avoids prompts where the pass rate is near zero (where gradient SNR vanishes) or near one (where the student has already mastered the content). This ``frontier sampling'' strategy concentrates the gradient budget on the narrow band of prompts where learning is most efficient.
+
+The mathematical justification connects to the gradient SNR analysis: for a prompt with pass rate $p$, the expected gradient magnitude scales as $p(1-p)$, which is maximized at $p=0.5$ and vanishes at both extremes. PACED's Beta-kernel sampling directly optimizes for this quantity, providing a theoretically grounded alternative to uniform prompt sampling.
+
+\textbf{Self-adjusting curricula.} $\pi$-Play's multi-agent framework (Section~\ref{subsec:self_play}) provides an alternative curriculum mechanism: as the student strengthens, the examiner agent automatically generates harder tasks, creating a self-adjusting difficulty ladder that requires no external difficulty estimation. This approach is attractive when difficulty metrics are hard to define, but its effectiveness depends on the quality of the examiner's task generation.
+
+\textbf{Off-policy cold start.} \citet{li2026rethinking} identify that OPD can fail catastrophically when the student's initial policy is too far from the teacher's distribution (the ``thinking-pattern mismatch'' problem). Their proposed solution is an off-policy cold-start phase: a brief period of standard SFT on teacher-generated data that reduces the pattern gap before switching to on-policy training. This two-phase approach, off-policy warmup followed by on-policy refinement, has become the standard industrial pattern (Section~\ref{sec:applications}).
+
+\textbf{Retaining knowledge during on-policy training.} A complementary concern is that on-policy training can cause \emph{catastrophic forgetting} of capabilities the student acquired during pre-training. \citet{2510.18874} (``Retaining by Doing'') demonstrate that on-policy data generation itself serves as an implicit rehearsal mechanism: by generating sequences from its own distribution, the student naturally revisits and reinforces its existing capabilities while learning new ones. This insight suggests that the on-policy generation step provides a dual benefit: it both exposes the student to its own error states (enabling correction) and rehearses its existing capabilities (preventing forgetting), offering a theoretical explanation for why on-policy methods empirically suffer less from catastrophic forgetting than sequential fine-tuning approaches.
+
+\textbf{Semantic bootstrapping.} Semantic Soft Bootstrapping~\citep{mitra2025semantic} provides a different perspective on curriculum design: rather than adapting the \emph{difficulty} of prompts, it adapts the \emph{semantic granularity} of supervision. The method progressively refines the teacher's supervision from coarse semantic alignment (matching high-level reasoning structure) to fine-grained token-level matching, allowing the student to first acquire the overall reasoning pattern before optimizing the precise token distributions.
+
+\subsection{Compute Optimization}
+\label{subsec:compute}
+
+OPD requires generating student rollouts \emph{and} scoring them with the teacher at every training step, creating a compute overhead of $3$--$8\times$ compared to off-policy SFT. Several methods target this bottleneck.
+
+\textbf{Prefix truncation.} Fast OPD~\citep{2602.15260} observes that exposure bias is concentrated in the early tokens of a sequence, where errors compound most severely. It truncates on-policy rollouts to a prefix of length $k$ and reverts to off-policy KD for the remainder, achieving comparable quality at substantially reduced cost. The optimal truncation point $k$ depends on the task: for mathematical reasoning, where errors cascade rapidly, short prefixes suffice; for open-ended generation, longer on-policy segments are needed.
+
+\textbf{Offline teacher caching.} Lightning OPD~\citep{wu2026lightning} decouples student optimization from teacher inference entirely by precomputing teacher distributions into an offline memory bank and asynchronously refreshing them. When teacher distributions are \emph{consistent} (i.e., the teacher's output depends primarily on the prompt and only weakly on the specific student prefix), the cached distributions remain valid even as the student's policy evolves. Lightning OPD demonstrates that offline distillation under teacher consistency can match online OPD at $4\times$ lower cost, significantly lowering the barrier for academic research.
+
+\textbf{Speculative knowledge distillation.} Speculative KD~\citep{2410.11325} adapts speculative decoding to the distillation setting: the student generates candidate tokens that the teacher \emph{verifies and selectively replaces}, amortizing the teacher's inference cost across multiple student tokens per teacher forward pass. DistillSpec~\citep{2310.08461} extends this to block-level verification, where the student generates entire draft blocks that the teacher accepts or rejects.
+
+\textbf{GPU memory management.} Beyond FLOPs, the most severe constraint for white-box OPD is GPU memory. Holding a 70B teacher alongside a 7B student requires the teacher's weights ($\sim$140\,GB in BF16), the student's weights and optimizer states ($\sim$84\,GB), and the full-vocabulary logits tensor $[B, T, |V|]$ for distillation. Peak memory can easily exceed an $8\times80$\,GB H100 node. Practitioners alleviate this via: (1) \textit{teacher quantization}, serving the teacher in FP8 or INT4 for a 2--4$\times$ memory reduction at negligible precision loss; (2) \textit{logit offloading}, immediately streaming logits to CPU RAM or retaining only the top-$k$; and (3) \textit{aggressive gradient checkpointing} to minimize student activation memory during the backward pass.
+
+\section{Understanding OPD: Theory, Failure Modes, and Cost}
+\label{sec:understanding}
+
+The preceding sections addressed the \emph{how} of on-policy distillation: what to optimize, where the signal comes from, and how to stabilize training. This section turns to the equally important \emph{why} and \emph{when}: under what conditions does OPD succeed, how does it fail, what theoretical frameworks unify the diverse methods surveyed above, and when should practitioners invest in OPD versus simpler off-policy pipelines? Answering these questions is essential for moving OPD from an empirical art toward a principled engineering discipline with predictable outcomes.
+
+\subsection{Success Conditions}
+\label{subsec:success}
+
+\citet{li2026rethinking} provide the most systematic investigation of OPD training dynamics, identifying two necessary conditions for effective distillation.
+
+\textbf{Thinking-pattern consistency.} The student and teacher must share compatible reasoning patterns, operationalized as a high overlap ratio in their top-$k$ token distributions. Even when the teacher achieves higher benchmark scores, a mismatched thinking pattern (e.g., a non-thinking teacher distilling into a thinking student) causes low initial overlap that training cannot fully recover. This finding implies that the teacher selection problem is not simply about capability but about \emph{distributional compatibility}.
+
+\textbf{Genuine new knowledge.} The teacher must provide capabilities beyond what the student has already acquired. When both models are trained on the same data and recipe, they converge to similar distributions at their respective scales, leaving the teacher with little transferable signal. Reverse distillation experiments show that same-family 1.5B and 7B teachers are distributionally indistinguishable from the student's perspective.
+
+At the token level, successful OPD is characterized by progressive alignment on \emph{high-probability overlap tokens}, a small shared token set concentrating 97--99\% of the probability mass. When these conditions fail, recovery strategies include off-policy cold start (SFT initialization that reduces the pattern gap) and teacher-aligned prompt selection. Critically, the quality of OPD's dense supervision degrades systematically with trajectory depth, with instability originating at later tokens and propagating backward, raising fundamental questions about OPD's applicability to long-horizon reasoning.
+
+These findings point toward a general principle: OPD's benefit scales with the \emph{exploitable gap} between teacher and student. When this gap is too small (same-recipe models), the teacher offers no new information. When too large (thinking-pattern mismatch), the student cannot absorb the supervision. The productive regime lies in between, and identifying it is the central diagnostic challenge.
+
+\subsection{Failure Modes}
+\label{subsec:failure}
+
+Complementing the success conditions, a growing body of work catalogs the specific ways OPD can fail \emph{even when structural preconditions hold}, as artifacts of the on-policy training dynamics themselves.
+
+\textbf{The flawed prefix trap.} As detailed in Section~\ref{subsec:weighting}, when the student generates an erroneous prefix, the teacher's conditional distribution over subsequent tokens is poorly calibrated because the teacher was never trained on such out-of-distribution inputs. \citet{2603.25562} formally characterize three specific failure modes: (1) an imbalanced one-token signal that reduces distribution matching to a single sample, (2) unreliable teacher guidance on out-of-distribution student prefixes, and (3) tokenizer mismatch distortions. The theoretical analysis reveals a fundamental bias-variance tradeoff: token-level OPD is biased relative to sequence-level Reverse KL but enjoys tighter worst-case variance bounds.
+
+\textbf{Gradient SNR collapse.} When the student's pass rate on a prompt approaches zero, all rollouts contain early errors, the teacher's signals are dominated by noise, and the gradient SNR vanishes. This is the mathematical explanation for why hard prompts yield no learning signal in standard OPD, motivating PACED's competence-boundary curriculum (Section~\ref{subsec:curriculum}) and HDPO's gradient augmentation (Section~\ref{subsec:self_pi}).
+
+\textbf{Epistemic suppression.} \citet{2603.24472} identify a subtle failure mode in self-distillation: when the process shortens reasoning traces (a common desirable outcome), it disproportionately removes \emph{hedging phrases and uncertainty markers} that serve as implicit attention flags for difficult sub-problems. The result is shorter but less calibrated reasoning, where the model confidently commits to flawed steps it would have reconsidered in longer traces. This calibration degradation connects directly to the teacher uncertainty challenge: an overconfident student produces unreliable self-play targets, creating a vicious cycle.
+
+\subsection{Unified Theoretical Perspectives}
+\label{subsec:theory}
+
+The success conditions and failure modes above raise a natural question: can they be explained by a single theoretical framework? Several recent works demonstrate that they share common mathematical roots.
+
+\textbf{The unified $f$-divergence perspective.} The framework of \citet{2307.15190} subsumes Forward KL, Reverse KL, JSD, and $\alpha$-divergences as special cases parameterized by a single convexity function $f$. Since all these divergences can be expressed as expectations under the student's on-policy distribution, the choice of divergence is a \emph{regularization} decision. The generator function $f$ determines the implicit weighting of likelihood ratios $\pteacher(y)/\ptheta(y)$: Forward KL up-weights regions where the student underestimates the teacher (coverage), while Reverse KL up-weights regions of overestimation (precision). This ratio-weighting interpretation explains why adaptive methods that switch between divergences based on local geometry consistently outperform any fixed choice.
+
+\textbf{Why KD works: minimal explanations.} \citet{2505.13111} provide a theoretical grounding for \emph{why} knowledge distillation works at all in generative models, identifying the minimal conditions under which a student can provably benefit from teacher supervision versus learning from data alone. Their analysis shows that the benefit of KD scales with the \emph{information gap} between the teacher's distribution and the data distribution as seen by the student, providing a theoretical foundation for the ``exploitable gap'' identified empirically by~\citet{li2026rethinking}.
+
+\textbf{Unifying self-distillation and group-relative optimization.} \citet{li2026unifying} prove that Group-Relative Policy Optimization (GRPO) and self-distillation are mathematically equivalent under certain conditions, with the preference signal in GRPO being implicitly a form of self-distillation against the model's own best rollouts. This unification has practical implications: it suggests that the choice between GRPO-style RL and explicit self-distillation is often a matter of implementation convenience rather than fundamental algorithmic difference.
+
+\textbf{Demystifying OPD dynamics.} \citet{luo2026demystifying} address a persistent practical concern: OPD often causes \emph{length inflation}, where the student's outputs grow progressively longer during on-policy training. They identify the root cause as an asymmetry in the KL gradient: positive KL gradients (pushing the student toward teacher-preferred tokens) are stronger than negative KL gradients (pulling away from teacher-dispreferred tokens), creating a net bias toward longer sequences. Their proposed stabilization strategies, including length-normalized objectives and adaptive KL coefficients, provide practical solutions to a problem that has plagued many OPD implementations.
+
+\textbf{OPD as KL-constrained RL.} G-OPD's equivalence proof (Section~\ref{subsec:rl_objectives}) establishes that standard OPD is a special case of dense KL-constrained RL. This bridges the distillation and RL communities, providing a shared analytical language and ensuring that advances in either field immediately transfer to the other.
+
+\textbf{The KD+RL gradient complementarity.} The unified KD+RL framework of~\citet{2512.23097} decomposes the hybrid gradient into a dense KD component (stable, analytically computable) and a Monte Carlo RL component (high variance, reward-driven). The KD component dampens variance in policy gradient estimation, while the RL component prevents collapse onto suboptimal teacher modes. This theoretical insight implies that the optimal KD-to-RL weighting ratio should decrease over training as the student's policy stabilizes.
+
+\textbf{Expanding RL capabilities via text feedback.} \citet{song2026expanding} show that textual feedback from a teacher can expand the effective capabilities of RL beyond what outcome-only rewards achieve, providing theoretical justification for the verbal feedback methods (Lion, OVD, ThinkTuning) surveyed in Section~\ref{subsec:black_box}. The key insight is that text feedback provides a \emph{denser} reward signal than binary outcomes, enabling the student to learn from partial successes that binary verification would discard.
+
+Together, these perspectives converge on a central insight: on-policy distillation, reinforcement learning, and preference optimization are not separate training approaches but rather points on a continuous spectrum parameterized by the density of supervision, the choice of divergence, and the source of the training signal.
+
+\subsection{On-Policy vs.\ Off-Policy: The DeepSeek-R1 Analysis}
+\label{subsec:on_vs_off}
+
+The theoretical frameworks above establish that on-policy training offers principled advantages. But theory alone cannot settle the question of when practitioners should invest in on-policy infrastructure versus relying on simpler off-policy pipelines.
+
+\textbf{The DeepSeek-R1 anomaly.} DeepSeek-R1~\citep{2501.12948} represents the most prominent off-policy distillation success, training students from 1.5B to 70B on $\sim$800K samples of long chain-of-thought reasoning traces via purely off-policy SFT. On AIME 2024 (pass@1), R1-Distill-Qwen-7B reaches 55.5\%, and R1-Distill-Qwen-32B reaches 72.6\%. Crucially, off-policy distillation \emph{decisively outperforms direct RL} for small-to-medium models: at the 32B scale, GRPO applied directly to Qwen2.5-32B-Base achieves only 47.0\% on AIME 2024, a gap of 25.6 percentage points.
+
+Three factors explain why off-policy works so well here: (1) the teacher is an exceptionally strong 671B MoE model whose reasoning traces cover a wide region of the problem space; (2) the $\sim$800K traces provide sufficient coverage to mitigate exposure bias for most standard reasoning paths; and (3) the student models are relatively small, so the effective complexity of the target distribution (conditioned on long reasoning traces) is manageable.
+
+\textbf{Why on-policy remains necessary.} DDT~\citep{2602.12222} provides formal justification: the key factor driving RL's generalization advantage is on-policy data generation, which keeps training aligned with the model's evolving distribution. The off-policy ceiling, the maximum achievable performance regardless of data volume, is strictly lower because static datasets cannot cover the combinatorial space of valid reasoning paths. This ceiling gap widens with task complexity, providing the strongest motivation for on-policy methods.
+
+Qwen3~\citep{2505.09388} and MiMo-V2~\citep{2601.02780} operationalize this insight, combining off-policy cold-start with on-policy refinement. This two-phase pattern, off-policy SFT to establish a strong foundation followed by on-policy OPD or RL to close the remaining distribution gap, has emerged as the standard industrial recipe.
+
+\textbf{Compute-quality tradeoff.} The expected compute cost for $N$ tokens:
+\begin{align}
+    C_{\text{off}} &\approx N \times (F_{\text{teacher}} + F_{\text{student}} + B_{\text{student}}) \\
+    C_{\text{on}} &\approx N \times \left( G_{\text{student}} + \lambda F_{\text{teacher}} + F_{\text{student}} + B_{\text{student}} \right)
+\end{align}
+where $F, B$ denote forward and backward FLOPs, $G$ is the autoregressive generation cost, and $\lambda \in (0, 1]$ is the teacher supervision refresh rate. Because $G_{\text{student}} \gg F_{\text{student}}$, on-policy training is typically $4$--$5\times$ more expensive. For generic knowledge transfer, this overhead is rarely justified. For reasoning, code generation, and complex mathematics, where the off-policy ceiling is low and the on-policy marginal return is high, the investment pays off decisively.
+
+\begin{table*}[t]
+    \centering
+    \caption{Comprehensive comparison of on-policy distillation methods organized by primary contribution dimension.}
+    \label{tab:white_box_comparison}
+    \resizebox{\textwidth}{!}{
+    \begin{tabular}{@{}lclllll@{}}
+        \toprule
+        \textbf{Method} & \textbf{Year} & \textbf{Category} & \textbf{Divergence/Objective} & \textbf{Signal} & \textbf{Granularity} & \textbf{Key Innovation} \\
+        \midrule
+        \multicolumn{7}{l}{\textit{Objective: Fixed Divergences}} \\
+        \midrule
+        GKD \citep{2306.13649} & 2024 & Objective & F-KL / R-KL / JSD & White-box & Token & Unified OPD framework, DAgger for LLMs \\
+        MiniLLM \citep{2306.08543} & 2024 & Objective & Reverse KL & White-box & Sequence & REINFORCE with teacher as reward \\
+        DistiLLM \citep{2402.03898} & 2024 & Objective & Skew KL (SKL+SRKL) & White-box & Token & $\alpha$-smoothing for KL stability \\
+        DistiLLM-2 \citep{2503.07067} & 2025 & Objective & Contrastive SKL/SRKL & White-box & Token & Asymmetric loss per data source \\
+        KETCHUP \citep{2504.19024} & 2025 & Objective & Reverse KL & White-box & Sequence & $K$-step truncated REINFORCE \\
+        Constrained \citep{2509.22921} & 2025 & Objective & Constrained KL & White-box & Sequence & State-augmented CMDP \\
+        \midrule
+        \multicolumn{7}{l}{\textit{Objective: Adaptive Divergences}} \\
+        \midrule
+        AKL \citep{2404.02657} & 2025 & Objective & Adaptive FKL+RKL & White-box & Token & Ratio-based confidence routing \\
+        ToDi \citep{2505.16297} & 2025 & Objective & Entropy-routed FKL/RKL & White-box & Token & Hard entropy threshold switching \\
+        Entropy-Aware \citep{2603.07079} & 2026 & Objective & Continuous FKL+RKL blend & White-box & Token & Smooth entropy interpolation \\
+        \midrule
+        \multicolumn{7}{l}{\textit{Objective: RL-Augmented}} \\
+        \midrule
+        G-OPD \citep{2602.12125} & 2026 & Objective & KL-Constrained RL & White-box & Token/Seq & OPD $\equiv$ dense KL-RL, reward extrapolation \\
+        RLKD \citep{2505.16142} & 2025 & Objective & KD + Reward Model & White-box & Sequence & Structure-aware reward model \\
+        KDRL \citep{2506.02208} & 2026 & Objective & Joint KD + RL & White-box & Token/Seq & On-policy KL regularizer during RL \\
+        RLAD \citep{2602.22495} & 2026 & Objective & Trust Region Ratio & White-box & Token/Seq & PPO-style selective teacher following \\
+        AlignDistil \citep{2503.02832} & 2025 & Objective & DPO + Reverse DPO & White-box & Sequence & Synthetic preference from rollouts \\
+        SuperCorrect \citep{2410.09008} & 2025 & Objective & Template + Cross-DPO & White-box & Sequence & Hierarchical thought scaffolding \\
+        SCoRe \citep{2509.14257} & 2025 & Objective & Earliest-error correction & White-box & Sequence & Root-cause error targeting \\
+        \midrule
+        \multicolumn{7}{l}{\textit{Signal: White-Box Innovations}} \\
+        \midrule
+        DSKD \citep{2504.11426} & 2025 & Signal & Dual-Space KL & White-box & Token & Cross-vocabulary projection \\
+        Cross-Tok.\ KD \citep{2402.12030} & 2025 & Signal & Latent OT alignment & White-box & Token & Optimal transport for tokenizer mismatch \\
+        Delta-KD \citep{2603.11137} & 2026 & Signal & Base-to-Instruct delta & White-box & Token & Signal isolation \\
+        PromptKD \citep{2402.12842} & 2024 & Signal & Prompt-based elicitation & White-box & Token & Input-side distillation \\
+        MiniPLM \citep{2410.17215} & 2025 & Signal & Pre-training KD & White-box & Token & OPD during pre-training \\
+        \midrule
+        \multicolumn{7}{l}{\textit{Signal: Black-Box}} \\
+        \midrule
+        Lion \citep{2305.12870} & 2023 & Signal & Verbal feedback & Black-box & Sequence & NL critique curriculum \\
+        GAD \citep{2511.10643} & 2025 & Signal & Adversarial matching & Black-box & Sequence & Discriminator as proxy reward \\
+        DAIL \citep{2602.02405} & 2026 & Signal & Inverse RL & Black-box & Sequence & Inferred reward from text \\
+        OVD \citep{2601.21968} & 2026 & Signal & Verbal scores (0--9) & Black-box & Sequence & Score-based trajectory matching \\
+        ORPO-Distill \citep{2509.25100} & 2025 & Signal & Preference optimization & Black-box & Sequence & Teacher-ranked pairs \\
+        \midrule
+        \multicolumn{7}{l}{\textit{Signal: Self-Distillation}} \\
+        \midrule
+        OPSD \citep{2601.18734} & 2026 & Signal (PI) & KL on GT-conditioned & Self & Token & Ground-truth as privileged info \\
+        GATES \citep{2602.20574} & 2026 & Signal (PI) & Gated consensus KL & Self & Token & Document as PI, gated supervision \\
+        CRISP \citep{2603.05433} & 2026 & Signal (PI) & Conciseness PI & Self & Token & 57\% token reduction, +9\% accuracy \\
+        SPIN \citep{2401.01335} & 2024 & Signal (SP) & Self-play DPO & Self & Sequence & Iterative self-vs-reference game \\
+        SD-ZERO \citep{he2026selfdistillation} & 2026 & Signal (EF) & Self-revision preference & Self + Verifier & Sequence & Binary reward $\to$ dense self-supervision \\
+        $\pi$-Play \citep{zhang2026piplay} & 2026 & Signal (PI+SP) & Multi-agent co-evolution & Self & Token & Internally generated PI from self-play \\
+        \midrule
+        \multicolumn{7}{l}{\textit{Training Dynamics}} \\
+        \midrule
+        TIP \citep{xu2026tip} & 2026 & Dynamics & Teacher reliability filter & White-box & Token & Prefix discrepancy attenuation \\
+        SCOPE \citep{zheng2026scope} & 2026 & Dynamics & Rollout routing & White-box & Token & Redirect on flawed prefix \\
+        SelecTKD \citep{2510.24021} & 2025 & Dynamics & Confidence filtering & White-box & Token & Top-1 probability threshold \\
+        AdaSwitch \citep{2510.07842} & 2025 & Dynamics & Exploration/guidance switch & White-box & Token & Binary mode switching \\
+        PACED \citep{2603.11178} & 2026 & Dynamics & Beta-kernel curriculum & White-box & Sample & Frontier difficulty sampling \\
+        Fast OPD \citep{2602.15260} & 2026 & Dynamics & Prefix truncation & White-box & Hybrid & Early-token focus \\
+        Lightning OPD \citep{wu2026lightning} & 2026 & Dynamics & Offline caching & White-box & Token & $4\times$ cost reduction \\
+        Speculative KD \citep{2410.11325} & 2025 & Dynamics & Draft-verify & White-box & Block & Amortized teacher cost \\
+        \bottomrule
+    \end{tabular}
+    }
+\end{table*}
+
+\begin{table*}[t]
+    \centering
+    \caption{Representative experimental configurations of OPD methods across different application domains.}
+    \label{tab:experimental_configs}
+    \resizebox{\textwidth}{!}{
+    \begin{tabular}{@{}lllll@{}}
+        \toprule
+        \textbf{Method} & \textbf{Teacher} & \textbf{Student} & \textbf{Training Signal} & \textbf{Key Benchmarks} \\
+        \midrule
+        \multicolumn{5}{l}{\textit{Mathematical Reasoning}} \\
+        \midrule
+        G-OPD \citep{2602.12125} & Qwen2.5-32B-Instruct & Qwen2.5-Math-1.5B/7B & Dense logit + reward extrap. & MATH, GSM8K, AIME \\
+        OPSD \citep{2601.18734} & Self (GT-conditioned) & Qwen2.5-Math-1.5B/7B & GT-PI self-distillation & AIME, HMMT \\
+        PACED \citep{2603.11178} & Qwen2.5-32B & Qwen2.5-Math-1.5B & Beta-kernel curriculum & MATH, GSM8K \\
+        KDRL \citep{2506.02208} & Skywork-OR1-Math-7B & R1-Distill-Qwen-1.5B & Joint KD + RL & AIME, MATH \\
+        LUFFY \citep{2504.14945} & DeepSeek-R1 (off-policy traces) & Qwen2.5-Math-7B/1.5B & Mixed-policy GRPO & AIME, AMC, MATH-500 \\
+        SCoRe \citep{2509.14257} & Qwen2.5-72B-Inst & Qwen2.5-7B/3B, Llama-3.1-8B & Earliest-error correction & AIME, MATH, Multi-hop QA \\
+        \midrule
+        \multicolumn{5}{l}{\textit{Instruction Following \& General}} \\
+        \midrule
+        GKD \citep{2306.13649} & T5-XXL (11B) & T5-Small/Base & On-policy FKL/RKL/JSD & XSum, WMT \\
+        DistiLLM \citep{2402.03898} & GPT-2 XL (1.5B) & GPT-2 (124M) & Skewed KL & ROUGE-L, BERTScore \\
+        AlignDistil \citep{2503.02832} & Qwen2.5-72B-Inst & Qwen2.5-1.5B-Inst & DPO + token-level KD & AlpacaEval, MT-Bench \\
+        \midrule
+        \multicolumn{5}{l}{\textit{Industrial Scale}} \\
+        \midrule
+        Qwen3 \citep{2505.09388} & Qwen3-32B/235B-A22B & Qwen3-0.6B--14B & On-policy logit distillation & AIME, MATH, LiveCode \\
+        Gemma 2 \citep{2408.00118} & Gemma 2 27B & Gemma 2 9B / 2B & KD in pre-training & MMLU, HellaSwag \\
+        MiMo-V2 \citep{2601.02780} & Domain specialists & MiMo-V2-Flash (309B/15B MoE) & Multi-teacher logit + reward & AIME, MATH, GPQA \\
+        KAT-Coder-V2 \citep{li2026katcoderv2} & 5 domain specialists & Unified agentic coder & Specialize-then-Unify OPD & SWE-bench (79.6\%) \\
+        Nemotron-Cascade 2 \citep{2603.19220} & Domain RL/SFT teachers & 30B MoE (3B active) & Cascade RL + domain OPD & IMO, IOI, ICPC \\
+        ORBIT \citep{liang2026orbit} & Multi-mode RL experts & DeepSeek-R1-1.5B, Qwen3-4B & Multi-teacher mode fusion & AIME, GPQA, MMLU-Pro \\
+        \midrule
+        \multicolumn{5}{l}{\textit{Multimodal \& Domain-Specific}} \\
+        \midrule
+        VOLD \citep{2510.23497} & Qwen3-8B (text-only) & Qwen2.5-VL-3B & GRPO + token-level KL & MMMU-Pro, MathVision \\
+        CORD \citep{hu2026cord} & Text-mode LALM & Audio-mode LALM & Cross-modal R-KL + GRPO & Audio QA/reasoning \\
+        Speculative KD \citep{2410.11325} & Gemma-7B-IT, Qwen2-7B & Gemma-2B, Qwen2-0.5B & Block-verified on-policy KL & Translation, Dialogue \\
+        Cross-Tok.\ KD \citep{2402.12030} & Llama-2-7B, Mistral-7B & OPT-350M, Pythia-160M--1B & Latent OT alignment & QA, Summarization \\
+        DP-OPD \citep{khadem2026dpopd} & GPT-2 Large 774M & DistilGPT-2 82M & GKD + DP-SGD (student only) & Yelp, BigPatent \\
+        \bottomrule
+    \end{tabular}
+    }
+\end{table*}
+
+\section{Applications, Systems, and Emerging Domains}
+\label{sec:applications}
+
+The preceding sections developed OPD from theory through methods to unified understanding. This section examines how these algorithmic advances translate into practice. As OPD moves from academic prototypes to industrial-scale deployments, new challenges emerge: multi-teacher coordination, system-level throughput bottlenecks, cross-modal transfer, and privacy constraints.
+
+\subsection{Industrial Deployment}
+\label{subsec:industrial}
+
+Recent foundation models have increasingly incorporated OPD into their post-training pipelines, revealing three distinct industrial use patterns.
+
+\textbf{Two-phase distillation pipelines.} The most common industrial pattern combines off-policy cold-start with on-policy refinement. Qwen3~\citep{2505.09388} employs strong-to-weak distillation where larger models provide logit-level supervision on student-generated on-policy sequences, with the student generating responses in either thinking or non-thinking mode. Gemma~2~\citep{2408.00118} embeds knowledge distillation directly into pre-training to bridge performance gaps between parameter tiers (27B$\to$9B$\to$2B). MiMo-V2~\citep{2601.02780} combines distillation from multiple domain-specialized teachers with RL-based training.
+
+\textbf{OPD as model consolidation.} A second pattern uses on-policy distillation for \emph{merging} multiple specialized experts into a single deployable model. KAT-Coder-V2~\citep{li2026katcoderv2} decomposes agentic coding into five expert domains, each undergoing independent SFT and RL training, and consolidates them via on-policy distillation, achieving 79.6\% on SWE-bench Verified. Nemotron-Cascade~2~\citep{2603.19220} applies the same principle to a 30B MoE model with only 3B activated parameters, achieving Gold Medal-level performance on IMO, IOI, and ICPC World Finals with $20\times$ fewer parameters than DeepSeek-V3.2-Speciale.
+
+\textbf{OPD for multi-budget reasoning.} ORBIT~\citep{liang2026orbit} addresses the deployment challenge of variable reasoning depth: users need different compute budgets depending on query difficulty. It produces stage-wise expert policies through RLVR under progressively tighter context budgets ($L_{k+1} = L_k/2$), then fuses them into a single model through mode-aware Reverse KL:
+\begin{equation}
+    \loss_{\text{fusion}}(\phi) = \E_{k \sim U(1,K)} \E_{\substack{q \sim \mathcal{D} \\ o \sim \pi_\phi(\cdot|q, p_k)}} \left[ \sum_t \log \frac{\pi_\phi(o_t | q, p_k, o_{<t})}{\pi_{\theta_k}(o_t | q, p_k, o_{<t})} \right]
+\end{equation}
+where $p_k$ is the mode-specific prompt and $\{\pi_{\theta_k}\}$ are the frontier experts. This demonstrates that on-policy distillation is emerging as a general-purpose multi-teacher fusion tool for any axis of model specialization.
+
+\textbf{Agentic distillation.} OpenClaw-RL~\citep{wang2026openclawrl} extends OPD to the agentic setting where the student must learn long-horizon tool use and environmental state tracking. Using hindsight-guided OPD with a Process Reward Model (PRM), it trains a Qwen3-4B agent that operates across personal, terminal, GUI, and SWE environments. Skill-SD~\citep{wang2026skillsd} applies importance-weighted Reverse KL with GRPO for skill-conditioned agentic learning on AppWorld and Sokoban.
+
+\subsection{Emerging Domains}
+\label{subsec:emerging}
+
+\textbf{Multimodal OPD.} Vision-language models face unique exposure bias challenges because multimodal interleaved generation must maintain coherence across modalities. VOLD~\citep{2510.23497} applies on-policy GRPO with token-level KL to distill text-only reasoning into vision-language students. Video-OPD~\citep{2602.02994} extends to temporal video grounding. X-OPD~\citep{2603.24596} crosses the text-speech boundary, distilling a text-mode Qwen3-Omni into its own speech mode. CORD~\citep{hu2026cord} applies cross-modal self-distillation between text and audio modes of the same model using weighted Reverse KL with GRPO.
+
+KEPO~\citep{2602.00400} identifies a distinct failure mode in multimodal settings: sparse RLVR fails due to exploration collapse when initial solve rates are near zero. By conditioning preference optimization on teacher knowledge, KEPO provides the dense signal necessary to bootstrap capable VLMs.
+
+\textbf{Embodied intelligence.} VLA-OPD~\citep{zhong2026vlaopd} applies Reverse KL on self-generated robot trajectories, distilling expert demonstrations into a Vision-Language-Action student. HY-Embodied-0.5~\citep{tencent2026hyembodied} uses multi-stage OPD to compress a 32B expert VLM into a 2B embodied MoT model for spatial reasoning.
+
+\textbf{Privacy-preserving OPD.} DP-OPD~\citep{khadem2026dpopd} injects differential privacy noise (DP-SGD) into the student's gradients during on-policy training while keeping the teacher frozen, proving that on-policy querying can extract utility while mathematically guaranteeing protection of the teacher's training data.
+
+\textbf{Autonomous driving.} OPD-AV~\citep{afsharrad2026onpolicy} applies GKD with $5\times$ compression for autonomous driving planning, distilling a Qwen3-8B SFT model into a 1.7B student on the nuScenes dataset.
+
+\section{Open Problems and Future Directions}
+\label{sec:future}
+
+Despite rapid progress, several fundamental challenges remain unresolved. We organize open problems by their potential impact on the field.
+
+\textbf{Distillation scaling laws.} While parameter-scaling laws (Chinchilla~\citep{2203.15556}, Kaplan) are well-established for pre-training, no analogous framework exists for distillation. \citet{2502.08606} initiated the study of distillation-specific scaling, but the relationship between teacher-student size ratios, online rollout volume, divergence choice, and asymptotic performance remains largely unquantified. Practitioners rely on costly trial-and-error for compute allocation. Establishing distillation-specific scaling laws would transform OPD from an empirical art to a predictable engineering discipline.
+
+\textbf{Uncertainty-aware feedback.} Teachers currently provide point-estimate probabilities. When the teacher itself is uncertain about a token, its logits carry little useful information, yet the student treats all teacher signals equally. Future OPD frameworks must incorporate the teacher's \emph{epistemic uncertainty}, allowing the student to discount feedback on queries where the teacher is guessing. Process reward models~\citep{2305.20050} provide a potential path: by scoring each reasoning step independently, they could identify precisely where teacher supervision is reliable versus speculative. The connection to the failure-mode analysis of Section~\ref{subsec:failure} is direct: the flawed prefix trap is fundamentally a problem of unrecognized teacher uncertainty, and explicitly modeling this uncertainty would provide a principled solution.
+
+\textbf{Agent-level distillation.} Current OPD focuses on single-turn generation. Extending OPD to multi-turn agentic settings, where the student must learn long-horizon tool use, environmental state tracking, and error recovery across entire interaction trajectories, requires fundamentally new credit assignment mechanisms. OpenClaw-RL~\citep{wang2026openclawrl} and Skill-SD~\citep{wang2026skillsd} represent early steps, but the systematic degradation of teacher supervision with trajectory depth~\citep{li2026rethinking} poses a fundamental challenge for multi-turn distillation.
+
+\textbf{Continual and lifelong distillation.} Production models undergo repeated fine-tuning cycles (safety patches, capability updates, domain adaptation). How should the distillation objective adapt when the teacher itself is being updated? SDFT~\citep{2601.19897} and OEL~\citep{2603.16856} provide initial answers for self-distillation, but the problem of distilling from a non-stationary teacher remains open.
+
+\textbf{Efficiency frontiers.} The $3$--$8\times$ compute overhead of on-policy training remains a barrier. While Fast OPD, Lightning OPD, and Speculative KD have made progress, the theoretical minimum cost of on-policy distillation (the information-theoretic lower bound on how much on-policy data is needed to achieve a given quality level) is unknown.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+On-Policy Distillation has resolved the exposure bias bottleneck that constrained classical knowledge distillation. By having students explore their own generation manifolds and leveraging teacher feedback on self-generated states, OPD achieves bounded compounding errors and superior generalization.
+
+This survey organized the rapidly growing OPD literature around a practitioner's decision chain rather than descriptive categories. We traced three fundamental design axes: \emph{objective function} design (from fixed divergences through adaptive routing to RL-augmented objectives that break the teacher ceiling), \emph{signal source} architecture (from dense white-box logits through black-box API access to self-distillation that eliminates the external teacher entirely), and \emph{training dynamics} (token weighting, curriculum adaptation, and compute optimization). We showed that these axes are not independent: the choice of signal source constrains the applicable objectives, and the training dynamics must be tuned to the specific failure modes that each objective-signal combination introduces.
+
+Our theoretical synthesis reveals that OPD, RL, and preference optimization lie on a continuous spectrum parameterized by supervision density, divergence choice, and signal source. The field is converging toward unified KD+RL frameworks that treat distillation not as a separate training stage but as a continuous regularization mechanism throughout the model's lifecycle, from pre-training through deployment. As LLMs transition from static text generators to interactive reasoning agents, the principles of on-policy alignment will only grow in centrality.
+
+
+\bibliographystyle{colm2026_conference}
+\bibliography{references}
+
+\end{document}
