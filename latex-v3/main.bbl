@@ -1,4 +1,4 @@
-\begin{thebibliography}{105}
+\begin{thebibliography}{108}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -22,6 +22,20 @@ Rishabh Agarwal, Nino Vieillard, Yongchao Zhou, Piotr Stanczyk, Sabela Ramos,
   Self-Generated Mistakes}.
 \newblock \emph{Proceedings of ICLR}, 2024.
 \newblock URL \url{https://arxiv.org/abs/2306.13649}.
+
+\bibitem[Anonymous(2026{\natexlab{a}})]{2604.17535}
+Anonymous.
+\newblock {OPSDL: On-Policy Self-Distillation for Long-Context Language
+  Models}.
+\newblock \emph{arXiv preprint arXiv:2604.17535}, 2026{\natexlab{a}}.
+\newblock URL \url{https://arxiv.org/abs/2604.17535}.
+
+\bibitem[Anonymous(2026{\natexlab{b}})]{2604.20933}
+Anonymous.
+\newblock {IRIS: Interpolative R\'{e}nyi Iterative Self-play for Large Language
+  Model Fine-Tuning}.
+\newblock \emph{arXiv preprint arXiv:2604.20933}, 2026{\natexlab{b}}.
+\newblock URL \url{https://arxiv.org/abs/2604.20933}.
 
 \bibitem[Boizard et~al.(2025)Boizard, Haddad, Hudelot, and Colombo]{2402.12030}
 Nicolas Boizard, Kevin~El Haddad, Céline Hudelot, and Pierre Colombo.
@@ -709,21 +723,28 @@ Dongxu Zhang, Zhichao Yang, Sepehr Janghorbani, Jun Han, Andrew Ressler, Qian
 \newblock \emph{arXiv preprint arXiv:2602.15260}, 2026{\natexlab{a}}.
 \newblock URL \url{https://arxiv.org/abs/2602.15260}.
 
-\bibitem[Zhang et~al.(2026{\natexlab{b}})Zhang, Liu, Lin, Yang, Dai, Luo,
+\bibitem[Zhang et~al.(2026{\natexlab{b}})]{2604.16830}
+Jiaxin Zhang et~al.
+\newblock {The Illusion of Certainty: Decoupling Capability and Calibration in
+  On-Policy Distillation}.
+\newblock \emph{arXiv preprint arXiv:2604.16830}, 2026{\natexlab{b}}.
+\newblock URL \url{https://arxiv.org/abs/2604.16830}.
+
+\bibitem[Zhang et~al.(2026{\natexlab{c}})Zhang, Liu, Lin, Yang, Dai, Luo,
   Jiang, Hou, Zeng, Geng, and Guo]{2602.12222}
 Miaosen Zhang, Yishan Liu, Shuxia Lin, Xu~Yang, Qi~Dai, Chong Luo, Weihao
   Jiang, Peng Hou, Anxiang Zeng, Xin Geng, and Baining Guo.
 \newblock {Towards On-Policy SFT: Distribution Discriminant Theory and its
   Applications in LLM Training}.
-\newblock \emph{arXiv preprint arXiv:2602.12222}, 2026{\natexlab{b}}.
+\newblock \emph{arXiv preprint arXiv:2602.12222}, 2026{\natexlab{c}}.
 \newblock URL \url{https://arxiv.org/abs/2602.12222}.
 
-\bibitem[Zhang et~al.(2026{\natexlab{c}})Zhang, Bai, Zheng, Jaitly, Collobert,
+\bibitem[Zhang et~al.(2026{\natexlab{d}})Zhang, Bai, Zheng, Jaitly, Collobert,
   and Zhang]{zhang2026embarrassingly}
 Ruixiang Zhang, Richard~He Bai, Huangjie Zheng, Navdeep Jaitly, Ronan
   Collobert, and Yizhe Zhang.
 \newblock {Embarrassingly Simple Self-Distillation Improves Code Generation}.
-\newblock \emph{arXiv preprint arXiv:2604.01193}, 2026{\natexlab{c}}.
+\newblock \emph{arXiv preprint arXiv:2604.01193}, 2026{\natexlab{d}}.
 \newblock URL \url{https://arxiv.org/abs/2604.01193}.
 
 \bibitem[Zhang et~al.(2025{\natexlab{a}})Zhang, Zhang, Zhang, Hu, Chen, and
@@ -743,21 +764,21 @@ Xue Zhang, Songming Zhang, Yunlong Liang, Fandong Meng, Yufeng Chen, Jinan Xu,
 \newblock \emph{arXiv preprint arXiv:2504.11426}, 2025{\natexlab{b}}.
 \newblock URL \url{https://arxiv.org/abs/2504.11426}.
 
-\bibitem[Zhang et~al.(2026{\natexlab{d}})Zhang, Zhu, Chong, Tu, Zhang, Chai,
+\bibitem[Zhang et~al.(2026{\natexlab{e}})Zhang, Zhu, Chong, Tu, Zhang, Chai,
   Wang, Lin, Yin, and Zhao]{zhang2026piplay}
 Yaocheng Zhang, Yuanheng Zhu, Wenyue Chong, Songjun Tu, Qichao Zhang, Jiajun
   Chai, Xiaohan Wang, Wei Lin, Guojun Yin, and Dongbin Zhao.
 \newblock {$\pi$-Play: Multi-Agent Self-Play via Privileged Self-Distillation
   without External Data}.
-\newblock \emph{arXiv preprint arXiv:2604.14054}, 2026{\natexlab{d}}.
+\newblock \emph{arXiv preprint arXiv:2604.14054}, 2026{\natexlab{e}}.
 \newblock URL \url{https://arxiv.org/abs/2604.14054}.
 
-\bibitem[Zhang et~al.(2026{\natexlab{e}})Zhang, Jiang, Shen, Zhang, Ram, Yang,
+\bibitem[Zhang et~al.(2026{\natexlab{f}})Zhang, Jiang, Shen, Zhang, Ram, Yang,
   et~al.]{2602.22495}
 Zhaoyang Zhang, Shuli Jiang, Yantao Shen, Yuting Zhang, Dhananjay Ram, Shuo
   Yang, et~al.
 \newblock {Reinforcement-aware Knowledge Distillation for LLM Reasoning}.
-\newblock \emph{arXiv preprint arXiv:2602.22495}, 2026{\natexlab{e}}.
+\newblock \emph{arXiv preprint arXiv:2602.22495}, 2026{\natexlab{f}}.
 \newblock URL \url{https://arxiv.org/abs/2602.22495}.
 
 \bibitem[Zhao et~al.(2026{\natexlab{a}})Zhao, Chen, Tong, Fan, Ye, Li, Ma, Li,
