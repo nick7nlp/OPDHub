@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.4.16)  5 MAY 2026 15:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.4.16)  5 MAY 2026 15:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1152,12 +1152,10 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [26]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 2221) has occurred while \output is active []
 
  [27]
-Underfull \vbox (badness 4013) has occurred while \output is active []
-
- [28]
+[28]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [29]
@@ -1195,7 +1193,7 @@ pe1/public/mathpazo/fplmri.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
 c/tex-gyre/qhvb.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/upl
 b8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (46 pages, 421378 bytes).
+Output written on main.pdf (46 pages, 421774 bytes).
 PDF statistics:
  1555 PDF objects out of 1728 (max. 8388607)
  1450 compressed objects within 15 object streams
