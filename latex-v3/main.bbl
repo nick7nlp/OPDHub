@@ -1,4 +1,4 @@
-\begin{thebibliography}{109}
+\begin{thebibliography}{110}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -73,6 +73,12 @@ Di~Cao, Dongjie Fu, Hai Yu, Siqi Zheng, Xu~Tan, and Tao Jin.
   in Speech LLMs}.
 \newblock \emph{arXiv preprint arXiv:2603.24596}, 2026.
 \newblock URL \url{https://arxiv.org/abs/2603.24596}.
+
+\bibitem[Cao et~al.(2025)Cao, Kang, Xing, and Jiang]{2509.14526}
+Yihan Cao, Yanbin Kang, Zhengming Xing, and Ruijie Jiang.
+\newblock {Delta Knowledge Distillation for Large Language Models}.
+\newblock \emph{arXiv preprint arXiv:2509.14526}, 2025.
+\newblock URL \url{https://arxiv.org/abs/2509.14526}.
 
 \bibitem[Cha \& Cho(2025)Cha and Cho]{2505.13111}
 Sungmin Cha and Kyunghyun Cho.
