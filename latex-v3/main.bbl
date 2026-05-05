@@ -1,4 +1,4 @@
-\begin{thebibliography}{110}
+\begin{thebibliography}{109}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -359,19 +359,13 @@ Jiaze Li, Hao Yin, Haoran Xu, Boshen Xu, Wenhui Tan, Zewen He, et~al.
 \newblock \emph{arXiv preprint arXiv:2602.02994}, 2026{\natexlab{c}}.
 \newblock URL \url{https://arxiv.org/abs/2602.02994}.
 
-\bibitem[Li et~al.(2026{\natexlab{d}})]{li2026prism}
-Wenxuan Li et~al.
-\newblock Prism: Progressive reasoning via iterative self-distillation with
-  mastery-based curriculum.
-\newblock \emph{arXiv preprint arXiv:2604.18892}, 2026{\natexlab{d}}.
-
-\bibitem[Li et~al.(2026{\natexlab{e}})Li, Zuo, He, Zhang, Xiao, Qian, Yu, ang
+\bibitem[Li et~al.(2026{\natexlab{d}})Li, Zuo, He, Zhang, Xiao, Qian, Yu, ang
   Gao, Yang, Liu, and Ding]{li2026rethinking}
 Yaxuan Li, Yuxin Zuo, Bingxiang He, Jinqian Zhang, Chaojun Xiao, Cheng Qian,
   Tianyu Yu, Huan ang Gao, Wenkai Yang, Zhiyuan Liu, and Ning Ding.
 \newblock {Rethinking On-Policy Distillation of Large Language Models:
   Phenomenology, Mechanism, and Recipe}.
-\newblock \emph{arXiv preprint arXiv:2604.13016}, 2026{\natexlab{e}}.
+\newblock \emph{arXiv preprint arXiv:2604.13016}, 2026{\natexlab{d}}.
 \newblock URL \url{https://arxiv.org/abs/2604.13016}.
 
 \bibitem[Li et~al.(2025)Li, Li, and Liu]{2512.23097}
@@ -511,6 +505,13 @@ Alex Stein, Furong Huang, and Tom Goldstein.
 \newblock \emph{arXiv preprint arXiv:2602.20574}, 2026.
 \newblock URL \url{https://arxiv.org/abs/2602.20574}.
 
+\bibitem[Tan \& Hong(2026)Tan and Hong]{wang2026paint}
+Zhiquan Tan and Yinrong Hong.
+\newblock {PAINT: Partial-Solution Adaptive Interpolated Training for
+  Self-Distilled Reasoners}.
+\newblock \emph{arXiv preprint arXiv:2604.26573}, 2026.
+\newblock URL \url{https://arxiv.org/abs/2604.26573}.
+
 \bibitem[{Tencent Robotics X and HY Vision Team}(2026)]{tencent2026hyembodied}
 {Tencent Robotics X and HY Vision Team}.
 \newblock {HY-Embodied-0.5: Embodied Foundation Models for Real-World Agents}.
@@ -526,17 +527,22 @@ Hao Wang, Guozhi Wang, Han Xiao, Yufeng Zhou, Yue Pan, Jichao Wang, Ke~Xu,
 \newblock \emph{arXiv preprint arXiv:2604.10674}, 2026{\natexlab{a}}.
 \newblock URL \url{https://arxiv.org/abs/2604.10674}.
 
-\bibitem[Wang et~al.(2026{\natexlab{b}})Wang, Chen, Jin, Wang, and
+\bibitem[Wang et~al.(2026{\natexlab{b}})Wang, Huang, Yu, Yang, Lin, Wu, Xiao,
+  Chen, Wang, Zhu, Zhang, and Qin]{wang2026prism}
+Sudong Wang, Weiquan Huang, Xiaomin Yu, Zuhao Yang, Hehai Lin, Keming Wu,
+  Chaojun Xiao, Chen Chen, Wenxuan Wang, Beier Zhu, Yunjian Zhang, and Chengwei
+  Qin.
+\newblock {Beyond SFT-to-RL: Pre-alignment via Black-Box On-Policy Distillation
+  for Multimodal RL}.
+\newblock \emph{arXiv preprint arXiv:2604.28123}, 2026{\natexlab{b}}.
+\newblock URL \url{https://arxiv.org/abs/2604.28123}.
+
+\bibitem[Wang et~al.(2026{\natexlab{c}})Wang, Chen, Jin, Wang, and
   Yang]{wang2026openclawrl}
 Yinjie Wang, Xuyang Chen, Xiaolong Jin, Mengdi Wang, and Ling Yang.
 \newblock {OpenClaw-RL: Train Any Agent Simply by Talking}.
-\newblock \emph{arXiv preprint arXiv:2603.10165}, 2026{\natexlab{b}}.
+\newblock \emph{arXiv preprint arXiv:2603.10165}, 2026{\natexlab{c}}.
 \newblock URL \url{https://arxiv.org/abs/2603.10165}.
-
-\bibitem[Wang et~al.(2026{\natexlab{c}})]{wang2026paint}
-Zihao Wang et~al.
-\newblock Paint: Prefix-aligned instruction tuning for on-policy distillation.
-\newblock \emph{arXiv preprint arXiv:2604.16028}, 2026{\natexlab{c}}.
 
 \bibitem[Wen et~al.(2023)Wen, Li, Du, and Mou]{2307.15190}
 Yuqiao Wen, Zichao Li, Wenyu Du, and Lili Mou.
@@ -779,18 +785,12 @@ Yaocheng Zhang, Yuanheng Zhu, Wenyue Chong, Songjun Tu, Qichao Zhang, Jiajun
 \newblock \emph{arXiv preprint arXiv:2604.14054}, 2026{\natexlab{e}}.
 \newblock URL \url{https://arxiv.org/abs/2604.14054}.
 
-\bibitem[Zhang et~al.(2026{\natexlab{f}})]{zhang2026copd}
-Yuxiang Zhang et~al.
-\newblock Copd: Collaborative on-policy distillation with multi-agent
-  self-play.
-\newblock \emph{arXiv preprint arXiv:2605.00123}, 2026{\natexlab{f}}.
-
-\bibitem[Zhang et~al.(2026{\natexlab{g}})Zhang, Jiang, Shen, Zhang, Ram, Yang,
+\bibitem[Zhang et~al.(2026{\natexlab{f}})Zhang, Jiang, Shen, Zhang, Ram, Yang,
   et~al.]{2602.22495}
 Zhaoyang Zhang, Shuli Jiang, Yantao Shen, Yuting Zhang, Dhananjay Ram, Shuo
   Yang, et~al.
 \newblock {Reinforcement-aware Knowledge Distillation for LLM Reasoning}.
-\newblock \emph{arXiv preprint arXiv:2602.22495}, 2026{\natexlab{g}}.
+\newblock \emph{arXiv preprint arXiv:2602.22495}, 2026{\natexlab{f}}.
 \newblock URL \url{https://arxiv.org/abs/2602.22495}.
 
 \bibitem[Zhao et~al.(2026{\natexlab{a}})Zhao, Chen, Tong, Fan, Ye, Li, Ma, Li,
