@@ -1,4 +1,4 @@
-\begin{thebibliography}{109}
+\begin{thebibliography}{110}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -147,6 +147,14 @@ Yuqian Fu, Haohuan Huang, Kaiwen Jiang, Yuanheng Zhu, and Dongbin Zhao.
 \newblock {Gemma 2: Improving Open Language Models at a Practical Size}.
 \newblock \emph{arXiv preprint arXiv:2408.00118}, 2024.
 \newblock URL \url{https://arxiv.org/abs/2408.00118}.
+
+\bibitem[Gu et~al.(2026)Gu, Yang, Si, Qin, Yao, Fu, Lin, Wang, Duan, and
+  Wang]{gu2026copd}
+Naibin Gu, Chenxu Yang, Qingyi Si, Chuanyu Qin, Dingyu Yao, Peng Fu, Zheng Lin,
+  Weiping Wang, Nan Duan, and Jiaqi Wang.
+\newblock {Co-Evolving Policy Distillation}.
+\newblock \emph{arXiv preprint arXiv:2604.27083}, 2026.
+\newblock URL \url{https://arxiv.org/abs/2604.27083}.
 
 \bibitem[Gu et~al.(2024)Gu, Dong, Wei, and Huang]{2306.08543}
 Yuxian Gu, Li~Dong, Furu Wei, and Minlie Huang.
