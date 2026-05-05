@@ -3,44 +3,44 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: colm2026_conference.bst
 Database file #1: references.bib
-You've used 108 entries,
+You've used 109 entries,
             2773 wiz_defined-function locations,
-            1120 strings with 30845 characters,
-and the built_in function-call counts, 64637 in all, are:
-= -- 5098
-> -- 6439
-< -- 16
-+ -- 2178
-- -- 2046
-* -- 6037
-:= -- 10802
-add.period$ -- 424
-call.type$ -- 108
-change.case$ -- 991
+            1124 strings with 30983 characters,
+and the built_in function-call counts, 64990 in all, are:
+= -- 5129
+> -- 6459
+< -- 17
++ -- 2186
+- -- 2052
+* -- 6059
+:= -- 10859
+add.period$ -- 427
+call.type$ -- 109
+change.case$ -- 995
 chr.to.int$ -- 84
-cite$ -- 216
-duplicate$ -- 2215
-empty$ -- 3493
-format.name$ -- 2170
-if$ -- 12802
-int.to.chr$ -- 25
+cite$ -- 218
+duplicate$ -- 2234
+empty$ -- 3523
+format.name$ -- 2178
+if$ -- 12876
+int.to.chr$ -- 26
 int.to.str$ -- 1
-missing$ -- 108
-newline$ -- 648
-num.names$ -- 432
-pop$ -- 1928
+missing$ -- 109
+newline$ -- 653
+num.names$ -- 436
+pop$ -- 1937
 preamble$ -- 1
-purify$ -- 883
+purify$ -- 886
 quote$ -- 0
-skip$ -- 1974
+skip$ -- 1988
 stack$ -- 0
-substring$ -- 313
-swap$ -- 177
+substring$ -- 315
+swap$ -- 179
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1188
+type$ -- 1199
 warning$ -- 0
-while$ -- 332
+while$ -- 335
 width$ -- 0
-write$ -- 1506
+write$ -- 1518
