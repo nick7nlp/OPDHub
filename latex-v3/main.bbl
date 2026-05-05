@@ -1,4 +1,4 @@
-\begin{thebibliography}{100}
+\begin{thebibliography}{103}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -74,6 +74,12 @@ Howard Chen, Noam Razin, Karthik Narasimhan, and Danqi Chen.
   Forgetting}.
 \newblock \emph{arXiv preprint arXiv:2510.18874}, 2025.
 \newblock URL \url{https://arxiv.org/abs/2510.18874}.
+
+\bibitem[Chen et~al.(2026)]{chen2026guisd}
+Kai Chen et~al.
+\newblock Learn where to click from yourself: On-policy self-distillation for
+  gui grounding.
+\newblock \emph{arXiv preprint arXiv:2605.00642}, 2026.
 
 \bibitem[Chen et~al.(2024)Chen, Deng, Yuan, Ji, and Gu]{2401.01335}
 Zixiang Chen, Yihe Deng, Huizhuo Yuan, Kaixuan Ji, and Quanquan Gu.
@@ -333,13 +339,19 @@ Jiaze Li, Hao Yin, Haoran Xu, Boshen Xu, Wenhui Tan, Zewen He, et~al.
 \newblock \emph{arXiv preprint arXiv:2602.02994}, 2026{\natexlab{c}}.
 \newblock URL \url{https://arxiv.org/abs/2602.02994}.
 
-\bibitem[Li et~al.(2026{\natexlab{d}})Li, Zuo, He, Zhang, Xiao, Qian, Yu, ang
+\bibitem[Li et~al.(2026{\natexlab{d}})]{li2026prism}
+Wenxuan Li et~al.
+\newblock Prism: Progressive reasoning via iterative self-distillation with
+  mastery-based curriculum.
+\newblock \emph{arXiv preprint arXiv:2604.18892}, 2026{\natexlab{d}}.
+
+\bibitem[Li et~al.(2026{\natexlab{e}})Li, Zuo, He, Zhang, Xiao, Qian, Yu, ang
   Gao, Yang, Liu, and Ding]{li2026rethinking}
 Yaxuan Li, Yuxin Zuo, Bingxiang He, Jinqian Zhang, Chaojun Xiao, Cheng Qian,
   Tianyu Yu, Huan ang Gao, Wenkai Yang, Zhiyuan Liu, and Ning Ding.
 \newblock {Rethinking On-Policy Distillation of Large Language Models:
   Phenomenology, Mechanism, and Recipe}.
-\newblock \emph{arXiv preprint arXiv:2604.13016}, 2026{\natexlab{d}}.
+\newblock \emph{arXiv preprint arXiv:2604.13016}, 2026{\natexlab{e}}.
 \newblock URL \url{https://arxiv.org/abs/2604.13016}.
 
 \bibitem[Li et~al.(2025)Li, Li, and Liu]{2512.23097}
@@ -486,6 +498,11 @@ Yinjie Wang, Xuyang Chen, Xiaolong Jin, Mengdi Wang, and Ling Yang.
 \newblock {OpenClaw-RL: Train Any Agent Simply by Talking}.
 \newblock \emph{arXiv preprint arXiv:2603.10165}, 2026{\natexlab{b}}.
 \newblock URL \url{https://arxiv.org/abs/2603.10165}.
+
+\bibitem[Wang et~al.(2026{\natexlab{c}})]{wang2026paint}
+Zihao Wang et~al.
+\newblock Paint: Prefix-aligned instruction tuning for on-policy distillation.
+\newblock \emph{arXiv preprint arXiv:2604.16028}, 2026{\natexlab{c}}.
 
 \bibitem[Wen et~al.(2023)Wen, Li, Du, and Mou]{2307.15190}
 Yuqiao Wen, Zichao Li, Wenyu Du, and Lili Mou.
