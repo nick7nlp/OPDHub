@@ -83,8 +83,8 @@
 \citation{2603.07079}
 \citation{2504.11426}
 \citation{2402.12030}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces The functional landscape of On-Policy Distillation. The taxonomy reflects the practitioner's decision chain: first choose the objective, then identify the signal source, then stabilize the training loop.}}{8}{figure.1}\protected@file@percent }
-\newlabel{fig:taxonomy}{{1}{8}{The functional landscape of On-Policy Distillation. The taxonomy reflects the practitioner's decision chain: first choose the objective, then identify the signal source, then stabilize the training loop}{figure.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Taxonomy of On-Policy Distillation methods organized by the practitioner's decision chain. Each method is placed in the category corresponding to its \emph  {core contribution}. The three stages are sequential: first choose the optimization objective, then identify the signal source, then address training dynamics.}}{8}{figure.1}\protected@file@percent }
+\newlabel{fig:taxonomy}{{1}{8}{Taxonomy of On-Policy Distillation methods organized by the practitioner's decision chain. Each method is placed in the category corresponding to its \emph {core contribution}. The three stages are sequential: first choose the optimization objective, then identify the signal source, then address training dynamics}{figure.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Method Comparison Table}{8}{subsection.3.2}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Comparison of key OPD methods categorized by their primary contribution dimension.}}{8}{table.1}\protected@file@percent }
 \newlabel{tab:method_comparison}{{1}{8}{Comparison of key OPD methods categorized by their primary contribution dimension}{table.1}{}}
@@ -114,28 +114,30 @@
 \citation{xu2026tip}
 \citation{zheng2026scope}
 \citation{li2026rethinking}
-\citation{2306.13649}
-\citation{ross2011reduction}
 \@writefile{toc}{\contentsline {section}{\numberline {4}Objective Functions and Optimization}{9}{section.4}\protected@file@percent }
 \newlabel{sec:objectives}{{4}{9}{Objective Functions and Optimization}{section.4}{}}
+\citation{2306.13649}
+\citation{ross2011reduction}
 \citation{2402.03898}
 \citation{2503.07067}
-\citation{2306.08543}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Forward KL vs.\ Reverse KL for fitting a student distribution $P_S$ to a bimodal teacher $P_T$. (a)\nobreakspace  {}The teacher has two modes. (b)\nobreakspace  {}Forward KL is mode-covering (zero-avoiding): the student covers both modes but places mass in the inter-mode hallucination zone. (c)\nobreakspace  {}Reverse KL is mode-seeking (zero-forcing): the student concentrates on a single mode, dropping the other entirely. Adaptive methods (ToDi, AKL) dynamically switch between the two based on local distributional geometry.}}{10}{figure.2}\protected@file@percent }
+\newlabel{fig:kl_divergence}{{2}{10}{Forward KL vs.\ Reverse KL for fitting a student distribution $P_S$ to a bimodal teacher $P_T$. (a)~The teacher has two modes. (b)~Forward KL is mode-covering (zero-avoiding): the student covers both modes but places mass in the inter-mode hallucination zone. (c)~Reverse KL is mode-seeking (zero-forcing): the student concentrates on a single mode, dropping the other entirely. Adaptive methods (ToDi, AKL) dynamically switch between the two based on local distributional geometry}{figure.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Fixed Divergence Objectives}{10}{subsection.4.1}\protected@file@percent }
 \newlabel{subsec:fixed_div}{{4.1}{10}{Fixed Divergence Objectives}{subsection.4.1}{}}
+\citation{2306.08543}
 \citation{2504.19024}
 \citation{2509.22921}
 \citation{2505.16297}
 \citation{2603.07079}
-\citation{2404.02657}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Adaptive Divergence Objectives}{11}{subsection.4.2}\protected@file@percent }
 \newlabel{subsec:adaptive_div}{{4.2}{11}{Adaptive Divergence Objectives}{subsection.4.2}{}}
+\citation{2404.02657}
 \citation{2602.12125}
 \citation{2512.23097}
 \citation{2603.11137}
-\citation{2505.16142}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3}RL-Augmented Objectives}{12}{subsection.4.3}\protected@file@percent }
 \newlabel{subsec:rl_objectives}{{4.3}{12}{RL-Augmented Objectives}{subsection.4.3}{}}
+\citation{2505.16142}
 \citation{2506.02208}
 \citation{2602.22495}
 \citation{2503.02832}
@@ -145,26 +147,26 @@
 \citation{2602.12674}
 \citation{2603.13260}
 \citation{2305.02301}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Signal Source and Teacher Architecture}{14}{section.5}\protected@file@percent }
+\newlabel{sec:signal}{{5}{14}{Signal Source and Teacher Architecture}{section.5}{}}
 \citation{2510.24021}
 \citation{2510.07842}
 \citation{2510.11615}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Signal Source and Teacher Architecture}{14}{section.5}\protected@file@percent }
-\newlabel{sec:signal}{{5}{14}{Signal Source and Teacher Architecture}{section.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}White-Box Logit Supervision}{14}{subsection.5.1}\protected@file@percent }
-\newlabel{subsec:white_box}{{5.1}{14}{White-Box Logit Supervision}{subsection.5.1}{}}
 \citation{2410.17215}
 \citation{2408.00118}
 \citation{2504.11426}
 \citation{2402.12030}
 \citation{2509.25837}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}White-Box Logit Supervision}{15}{subsection.5.1}\protected@file@percent }
+\newlabel{subsec:white_box}{{5.1}{15}{White-Box Logit Supervision}{subsection.5.1}{}}
 \citation{2509.14526}
 \citation{2601.07155}
 \citation{2402.12842}
 \citation{2501.16937}
-\citation{2305.02301}
-\citation{2511.10643}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Black-Box and API-Constrained Distillation}{16}{subsection.5.2}\protected@file@percent }
 \newlabel{subsec:black_box}{{5.2}{16}{Black-Box and API-Constrained Distillation}{subsection.5.2}{}}
+\citation{2305.02301}
+\citation{2511.10643}
 \citation{2305.12870}
 \citation{2602.02405}
 \citation{2601.09088}
@@ -174,19 +176,19 @@
 \citation{rrv2025thinktuning}
 \citation{2504.14945}
 \citation{2601.18734}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Self-Distillation: Privileged Information}{18}{subsection.5.3}\protected@file@percent }
+\newlabel{subsec:self_pi}{{5.3}{18}{Self-Distillation: Privileged Information}{subsection.5.3}{}}
 \citation{2603.23871}
 \citation{2602.20574}
 \citation{2602.04942}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Self-Distillation: Privileged Information}{18}{subsection.5.3}\protected@file@percent }
-\newlabel{subsec:self_pi}{{5.3}{18}{Self-Distillation: Privileged Information}{subsection.5.3}{}}
 \citation{2602.12275}
 \citation{2604.17535}
 \citation{2603.16856}
 \citation{2603.05433}
 \citation{2401.01335}
-\citation{2604.20933}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Self-Distillation: Self-Play}{19}{subsection.5.4}\protected@file@percent }
 \newlabel{subsec:self_play}{{5.4}{19}{Self-Distillation: Self-Play}{subsection.5.4}{}}
+\citation{2604.20933}
 \citation{2601.19897}
 \citation{2602.06019}
 \citation{zhao2026onpolicy}
@@ -197,45 +199,45 @@
 \citation{2601.20802}
 \citation{song2026expanding}
 \citation{li2026unifying}
-\citation{2603.24472}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Self-Distillation: External Feedback}{21}{subsection.5.5}\protected@file@percent }
 \newlabel{subsec:external_feedback}{{5.5}{21}{Self-Distillation: External Feedback}{subsection.5.5}{}}
-\citation{xu2026tip}
+\citation{2603.24472}
 \@writefile{toc}{\contentsline {section}{\numberline {6}Training Dynamics and Efficiency}{22}{section.6}\protected@file@percent }
 \newlabel{sec:dynamics}{{6}{22}{Training Dynamics and Efficiency}{section.6}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Token and Sample Weighting}{22}{subsection.6.1}\protected@file@percent }
 \newlabel{subsec:weighting}{{6.1}{22}{Token and Sample Weighting}{subsection.6.1}{}}
+\citation{xu2026tip}
 \citation{zheng2026scope}
 \citation{2510.24021}
 \citation{2510.07842}
 \citation{2603.25562}
 \citation{2603.11178}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Curriculum and Difficulty Adaptation}{23}{subsection.6.2}\protected@file@percent }
-\newlabel{subsec:curriculum}{{6.2}{23}{Curriculum and Difficulty Adaptation}{subsection.6.2}{}}
 \citation{wang2026paint}
 \citation{wang2026prism}
 \citation{li2026rethinking}
 \citation{2510.18874}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Curriculum and Difficulty Adaptation}{24}{subsection.6.2}\protected@file@percent }
+\newlabel{subsec:curriculum}{{6.2}{24}{Curriculum and Difficulty Adaptation}{subsection.6.2}{}}
 \citation{mitra2025semantic}
 \citation{li2026rethinking}
 \citation{2505.09388}
 \citation{2501.12948}
 \citation{2602.15260}
 \citation{wu2026lightning}
-\citation{2410.11325}
-\citation{2310.08461}
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Compute Optimization}{25}{subsection.6.3}\protected@file@percent }
 \newlabel{subsec:compute}{{6.3}{25}{Compute Optimization}{subsection.6.3}{}}
-\citation{li2026rethinking}
+\citation{2410.11325}
+\citation{2310.08461}
 \@writefile{toc}{\contentsline {section}{\numberline {7}Understanding OPD: Theory, Failure Modes, and Cost}{26}{section.7}\protected@file@percent }
 \newlabel{sec:understanding}{{7}{26}{Understanding OPD: Theory, Failure Modes, and Cost}{section.7}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Success Conditions}{26}{subsection.7.1}\protected@file@percent }
-\newlabel{subsec:success}{{7.1}{26}{Success Conditions}{subsection.7.1}{}}
+\citation{li2026rethinking}
 \citation{luo2026demystifying}
-\citation{2603.25562}
-\citation{2603.24472}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Success Conditions}{27}{subsection.7.1}\protected@file@percent }
+\newlabel{subsec:success}{{7.1}{27}{Success Conditions}{subsection.7.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Failure Modes}{27}{subsection.7.2}\protected@file@percent }
 \newlabel{subsec:failure}{{7.2}{27}{Failure Modes}{subsection.7.2}{}}
+\citation{2603.25562}
+\citation{2603.24472}
 \citation{2505.13111}
 \citation{2604.16830}
 \citation{2307.15190}
@@ -243,15 +245,15 @@
 \citation{2505.13111}
 \citation{li2026rethinking}
 \citation{li2026unifying}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}Unified Theoretical Perspectives}{28}{subsection.7.3}\protected@file@percent }
-\newlabel{subsec:theory}{{7.3}{28}{Unified Theoretical Perspectives}{subsection.7.3}{}}
 \citation{luo2026demystifying}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}Unified Theoretical Perspectives}{29}{subsection.7.3}\protected@file@percent }
+\newlabel{subsec:theory}{{7.3}{29}{Unified Theoretical Perspectives}{subsection.7.3}{}}
 \citation{2512.23097}
 \citation{song2026expanding}
 \citation{2501.12948}
-\citation{2602.12222}
 \@writefile{toc}{\contentsline {subsection}{\numberline {7.4}On-Policy vs.\ Off-Policy: The DeepSeek-R1 Analysis}{30}{subsection.7.4}\protected@file@percent }
 \newlabel{subsec:on_vs_off}{{7.4}{30}{On-Policy vs.\ Off-Policy: The DeepSeek-R1 Analysis}{subsection.7.4}{}}
+\citation{2602.12222}
 \citation{2505.09388}
 \citation{2601.02780}
 \citation{2306.13649}
@@ -287,6 +289,7 @@
 \citation{2603.25562}
 \citation{luo2026demystifying}
 \citation{2601.07155}
+\citation{chen2026tcod}
 \citation{2401.01335}
 \citation{2604.20933}
 \citation{2601.18734}
@@ -341,65 +344,67 @@
 \citation{2511.10643}
 \citation{2305.12870}
 \citation{2601.21968}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Applications, Systems, and Emerging Domains}{31}{section.8}\protected@file@percent }
+\newlabel{sec:applications}{{8}{31}{Applications, Systems, and Emerging Domains}{section.8}{}}
 \citation{2505.09388}
 \citation{2408.00118}
 \citation{2601.02780}
-\@writefile{toc}{\contentsline {section}{\numberline {8}Applications, Systems, and Emerging Domains}{31}{section.8}\protected@file@percent }
-\newlabel{sec:applications}{{8}{31}{Applications, Systems, and Emerging Domains}{section.8}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}Industrial Deployment}{31}{subsection.8.1}\protected@file@percent }
-\newlabel{subsec:industrial}{{8.1}{31}{Industrial Deployment}{subsection.8.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Comprehensive comparison of on-policy distillation methods organized by primary contribution dimension.}}{32}{table.2}\protected@file@percent }
+\newlabel{tab:white_box_comparison}{{2}{32}{Comprehensive comparison of on-policy distillation methods organized by primary contribution dimension}{table.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}Industrial Deployment}{32}{subsection.8.1}\protected@file@percent }
+\newlabel{subsec:industrial}{{8.1}{32}{Industrial Deployment}{subsection.8.1}{}}
 \citation{li2026katcoderv2}
 \citation{2603.19220}
 \citation{gu2026copd}
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Comprehensive comparison of on-policy distillation methods organized by primary contribution dimension.}}{32}{table.2}\protected@file@percent }
-\newlabel{tab:white_box_comparison}{{2}{32}{Comprehensive comparison of on-policy distillation methods organized by primary contribution dimension}{table.2}{}}
 \citation{liang2026orbit}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Representative experimental configurations of OPD methods across different application domains.}}{33}{table.3}\protected@file@percent }
+\newlabel{tab:experimental_configs}{{3}{33}{Representative experimental configurations of OPD methods across different application domains}{table.3}{}}
 \citation{2601.07155}
 \citation{wang2026openclawrl}
 \citation{wang2026skillsd}
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Representative experimental configurations of OPD methods across different application domains.}}{33}{table.3}\protected@file@percent }
-\newlabel{tab:experimental_configs}{{3}{33}{Representative experimental configurations of OPD methods across different application domains}{table.3}{}}
+\citation{chen2026tcod}
 \citation{2510.23497}
 \citation{2602.02994}
 \citation{2603.24596}
 \citation{hu2026cord}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2}Emerging Domains}{34}{subsection.8.2}\protected@file@percent }
+\newlabel{subsec:emerging}{{8.2}{34}{Emerging Domains}{subsection.8.2}{}}
 \citation{2602.00400}
 \citation{zhong2026vlaopd}
 \citation{tencent2026hyembodied}
 \citation{chen2026guisd}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.2}Emerging Domains}{34}{subsection.8.2}\protected@file@percent }
-\newlabel{subsec:emerging}{{8.2}{34}{Emerging Domains}{subsection.8.2}{}}
 \citation{khadem2026dpopd}
 \citation{afsharrad2026onpolicy}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.3}System-Level Integration}{35}{subsection.8.3}\protected@file@percent }
+\newlabel{subsec:systems}{{8.3}{35}{System-Level Integration}{subsection.8.3}{}}
 \citation{2501.12948}
 \citation{ross2011reduction,2305.15717}
 \citation{2602.12125}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.3}System-Level Integration}{35}{subsection.8.3}\protected@file@percent }
-\newlabel{subsec:systems}{{8.3}{35}{System-Level Integration}{subsection.8.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.4}When to Use On-Policy vs.\ Off-Policy}{35}{subsection.8.4}\protected@file@percent }
-\newlabel{subsec:when_onpolicy}{{8.4}{35}{When to Use On-Policy vs.\ Off-Policy}{subsection.8.4}{}}
 \citation{2506.02208}
 \citation{2602.12125}
 \citation{2505.09388}
 \citation{2601.02780}
 \citation{2603.11137}
 \citation{2501.12948,2505.09388}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.4}When to Use On-Policy vs.\ Off-Policy}{36}{subsection.8.4}\protected@file@percent }
+\newlabel{subsec:when_onpolicy}{{8.4}{36}{When to Use On-Policy vs.\ Off-Policy}{subsection.8.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.5}The Distillation Tax: Compute Budget Allocation}{36}{subsection.8.5}\protected@file@percent }
+\newlabel{subsec:budget}{{8.5}{36}{The Distillation Tax: Compute Budget Allocation}{subsection.8.5}{}}
 \citation{2505.09388}
 \citation{2203.15556}
 \citation{2502.08606}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.5}The Distillation Tax: Compute Budget Allocation}{36}{subsection.8.5}\protected@file@percent }
-\newlabel{subsec:budget}{{8.5}{36}{The Distillation Tax: Compute Budget Allocation}{subsection.8.5}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {9}Open Problems and Future Directions}{36}{section.9}\protected@file@percent }
-\newlabel{sec:future}{{9}{36}{Open Problems and Future Directions}{section.9}{}}
 \citation{2501.12948}
 \citation{2505.09388}
 \citation{2305.20050}
 \citation{xu2026tip}
 \citation{wang2026openclawrl}
 \citation{wang2026skillsd}
+\citation{chen2026tcod}
 \citation{li2026rethinking}
 \citation{2601.19897}
 \citation{2603.16856}
+\@writefile{toc}{\contentsline {section}{\numberline {9}Open Problems and Future Directions}{37}{section.9}\protected@file@percent }
+\newlabel{sec:future}{{9}{37}{Open Problems and Future Directions}{section.9}{}}
 \citation{2410.17215}
 \citation{khadem2026dpopd}
 \citation{2603.25562}
@@ -408,8 +413,6 @@
 \citation{2506.02208}
 \citation{2603.11137}
 \citation{2603.16856}
-\@writefile{toc}{\contentsline {section}{\numberline {10}Conclusion}{38}{section.10}\protected@file@percent }
-\newlabel{sec:conclusion}{{10}{38}{Conclusion}{section.10}{}}
 \citation{2505.16297}
 \citation{2603.07079}
 \citation{2602.12125}
@@ -429,13 +432,17 @@
 \citation{2410.11325}
 \citation{2602.15260}
 \citation{wu2026lightning}
-\citation{2203.15556}
-\citation{li2026rethinking}
+\@writefile{toc}{\contentsline {section}{\numberline {10}Conclusion}{39}{section.10}\protected@file@percent }
+\newlabel{sec:conclusion}{{10}{39}{Conclusion}{section.10}{}}
 \@writefile{toc}{\contentsline {paragraph}{Key Findings.}{39}{section*.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{Practical Takeaways.}{39}{section*.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Looking Ahead.}{39}{section*.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Limitations.}{39}{section*.4}\protected@file@percent }
+\citation{2203.15556}
+\citation{li2026rethinking}
 \citation{2211.09110}
+\@writefile{toc}{\contentsline {paragraph}{Looking Ahead.}{40}{section*.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Limitations.}{40}{section*.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Reproducibility challenges.}{40}{section*.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Broader impact.}{40}{section*.6}\protected@file@percent }
 \bibstyle{colm2026_conference}
 \bibdata{references}
 \bibcite{afsharrad2026onpolicy}{{1}{2026}{{Afsharrad et~al.}}{{Afsharrad, Abedsoltan, Moradipari, and Lall}}}
@@ -444,8 +451,6 @@
 \bibcite{2604.20933}{{4}{2026{b}}{{Anonymous}}{{}}}
 \bibcite{2402.12030}{{5}{2025}{{Boizard et~al.}}{{Boizard, Haddad, Hudelot, and Colombo}}}
 \bibcite{2510.23497}{{6}{2025}{{Bousselham et~al.}}{{Bousselham, Kuehne, and Schmid}}}
-\@writefile{toc}{\contentsline {paragraph}{Reproducibility challenges.}{40}{section*.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Broader impact.}{40}{section*.6}\protected@file@percent }
 \bibcite{2502.08606}{{7}{2025}{{Busbridge et~al.}}{{Busbridge, Shidani, Weers, Ramapuram, Littwin, and Webb}}}
 \bibcite{2602.12674}{{8}{2026}{{Cai \& Yuan}}{{Cai and Yuan}}}
 \bibcite{2603.24596}{{9}{2026}{{Cao et~al.}}{{Cao, Fu, Yu, Zheng, Tan, and Jin}}}
