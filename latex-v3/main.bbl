@@ -1,4 +1,4 @@
-\begin{thebibliography}{104}
+\begin{thebibliography}{105}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -460,6 +460,13 @@ Idan Shenfeld, Mehul Damani, Jonas H{\"u}botter, and Pulkit Agrawal.
 \newblock {Self-Distillation Enables Continual Learning}.
 \newblock \emph{arXiv preprint arXiv:2601.19897}, 2026.
 \newblock URL \url{https://arxiv.org/abs/2601.19897}.
+
+\bibitem[Shing et~al.(2025)Shing, Misaki, Bao, Yokoi, and Akiba]{2501.16937}
+Makoto Shing, Kou Misaki, Han Bao, Sho Yokoi, and Takuya Akiba.
+\newblock {TAID: Temporally Adaptive Interpolated Distillation for Efficient
+  Knowledge Transfer in Language Models}.
+\newblock \emph{Proceedings of ICLR}, 2025.
+\newblock URL \url{https://arxiv.org/abs/2501.16937}.
 
 \bibitem[Singh et~al.(2025)Singh, Vaddina, and Birru]{2509.25100}
 Aasheesh Singh, Vishal Vaddina, and Dagnachew Birru.
