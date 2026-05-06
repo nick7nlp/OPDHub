@@ -334,7 +334,7 @@ GKD \citep{2306.13649} & \multirow{3}{*}{Objective (Fixed)} & DAgger for LLMs; i
 DistiLLM \citep{2402.03898} & & Skewed KL mixtures & White-Box Logits & Token \\
 MiniLLM \citep{2306.08543} & & Sequence-level Reverse KL via RL & White-Box Logits & Sequence \\
 \midrule
-ToDi \citep{2505.16297} & \multirow{2}{*}{Objective (Adaptive)} & Entropy-routed token divergence & White-Box Logits & Token \\
+ToDi \citep{2505.16297} & \multirow{2}{*}{Objective (Adaptive)} & Log-ratio-routed token divergence & White-Box Logits & Token \\
 Entropy-Aware \citep{2603.07079} & & Entropy-based KL interpolation & White-Box Logits & Token \\
 \midrule
 G-OPD \citep{2602.12125} & \multirow{2}{*}{Objective (RL)} & OPD equivalence to KL-RL & White-Box Logits & Sequence/Token \\
@@ -542,11 +542,11 @@ KETCHUP~\citep{2504.19024} refines this approach by replacing the single-sample 
 
 The limitations of fixed divergences motivate \emph{adaptive} methods that select or interpolate divergences based on local distributional geometry. The core insight is that the optimal divergence at each token position depends on the teacher's local confidence: when the teacher is certain (low entropy), mode-seeking Reverse KL preserves precision, and when the teacher is uncertain (high entropy), mode-covering Forward KL preserves diversity.
 
-ToDi~\citep{2505.16297} operationalizes this by routing each token through either Forward KL or Reverse KL based on the teacher's entropy $H(\pteacher(\cdot|y_{<t}))$:
+ToDi~\citep{2505.16297} operationalizes this insight through per-token weighting derived from the teacher-student probability log-ratio. A sigmoid-based function $w_t = \sigma(\log p_T(y_t|y_{<t}) - \log p_\theta(y_t|y_{<t}))$ dynamically blends Forward KL and Reverse KL for each token:
 \begin{equation}
-    \loss_{\text{ToDi}} = \E_{y \sim \ptheta} \left[ \sum_{t=1}^{|y|} \mathbb{1}[H_t < \tau] \cdot \KL(\ptheta \parallel \pteacher) + \mathbb{1}[H_t \geq \tau] \cdot \KL(\pteacher \parallel \ptheta) \right]
+    \loss_{\text{ToDi}} = \E_{y \sim \ptheta} \left[ \sum_{t=1}^{|y|} w_t \cdot \KL(\ptheta \parallel \pteacher) + (1-w_t) \cdot \KL(\pteacher \parallel \ptheta) \right]
 \end{equation}
-where $\tau$ is a learned or fixed entropy threshold. Entropy-Aware OPD~\citep{2603.07079} replaces the hard routing with a continuous interpolation coefficient $\alpha_t \propto H_t$, yielding a smooth blend:
+where $w_t$ emphasizes Reverse KL for tokens the student overestimates and Forward KL for tokens it underestimates. Entropy-Aware OPD~\citep{2603.07079} takes an alternative approach, using the teacher's entropy $H(\pteacher(\cdot|y_{<t}))$ as the interpolation signal:
 \begin{equation}
     \loss_{\text{EA}} = \E_{y \sim \ptheta} \left[ \sum_{t=1}^{|y|} (1 - \alpha_t) \KL(\ptheta \parallel \pteacher) + \alpha_t \KL(\pteacher \parallel \ptheta) \right]
 \end{equation}
@@ -913,8 +913,8 @@ where $\gamma$ is the fraction processed on-policy. For generic knowledge transf
         \midrule
         \multicolumn{7}{l}{\textit{Objective: Adaptive Divergences}} \\
         \midrule
-        AKL \citep{2404.02657} & 2025 & Objective & Adaptive FKL+RKL & White-box & Token & Ratio-based confidence routing \\
-        ToDi \citep{2505.16297} & 2025 & Objective & Entropy-routed FKL/RKL & White-box & Token & Hard entropy threshold switching \\
+        AKL \citep{2404.02657} & 2025 & Objective & Adaptive FKL+RKL & White-box & Token & Head/tail gap-weighted blending \\
+        ToDi \citep{2505.16297} & 2025 & Objective & Log-ratio-weighted FKL/RKL & White-box & Token & Sigmoid per-token blending \\
         Entropy-Aware \citep{2603.07079} & 2026 & Objective & Continuous FKL+RKL blend & White-box & Token & Smooth entropy interpolation \\
         \midrule
         \multicolumn{7}{l}{\textit{Objective: RL-Augmented}} \\
@@ -938,7 +938,7 @@ where $\gamma$ is the fraction processed on-policy. For generic knowledge transf
         \midrule
         \multicolumn{7}{l}{\textit{Training Dynamics}} \\
         \midrule
-        TIP \citep{xu2026tip} & 2026 & Dynamics & Teacher reliability filter & White-box & Token & Prefix discrepancy attenuation \\
+        TIP \citep{xu2026tip} & 2026 & Dynamics & Soft-OR token weighting & White-box & Token & Entropy$\times$divergence quadrant scoring \\
         SCOPE \citep{zheng2026scope} & 2026 & Dynamics & Rollout routing & White-box & Token & Redirect on flawed prefix \\
         SelecTKD \citep{2510.24021} & 2025 & Dynamics & Confidence filtering & White-box & Token & Top-1 probability threshold \\
         AdaSwitch \citep{2510.07842} & 2025 & Dynamics & Exploration/guidance switch & White-box & Token & Binary mode switching \\
