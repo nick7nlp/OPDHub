@@ -200,6 +200,7 @@ To navigate the fragmented OPD literature, we construct a functional landscape. 
 
 The practitioner faces three sequential decisions: (1) what objective to optimize, (2) where the supervisory signal originates, and (3) how to stabilize the resulting training dynamics. Figure~\ref{fig:taxonomy} illustrates this pipeline.
 
+\providecommand{\mtag}[1]{{\scriptsize\textcolor{gray!65!black}{[#1]}}}
 \begin{figure*}[t]
 \centering
 \definecolor{rootblue}{HTML}{2C3E6B}
@@ -226,7 +227,6 @@ The practitioner faces three sequential decisions: (1) what objective to optimiz
     font=\footnotesize, inner xsep=8pt, inner ysep=6pt, align=left,
     drop shadow={shadow xshift=0.5pt, shadow yshift=-0.5pt, opacity=0.15}}
 }
-
 \begin{forest}
   for tree={
     grow=east,
@@ -244,67 +244,89 @@ The practitioner faces three sequential decisions: (1) what objective to optimiz
     anchor=west
   }
   [\textbf{On-Policy}\\\textbf{Distillation}, rbox, text width=2.0cm
-    %% ===== Stage 1: Objective Functions and Optimization (§4) =====
     [{\S 4 Objective Functions\\and Optimization}, catObj, edge={draw=tgcolor!60, line width=1.2pt}
       [{\textbf{4.1 Fixed Divergence Objectives}~{\tikz[baseline=-0.5ex]\node[badge=tgcolor]{5};}\\[2pt]%
-        GKD~\citep{2306.13649}, MiniLLM~\citep{2306.08543}, DistiLLM~\citep{2402.03898},\\[1pt]%
-        DistiLLM-2~\citep{2503.07067}, KETCHUP~\citep{2504.19024}%
+        GKD~\citep{2306.13649}\,\mtag{Tok|WB|JSD/FKL/RKL}, MiniLLM~\citep{2306.08543}\,\mtag{Seq|WB|RKL+RL},\\[1pt]%
+        DistiLLM~\citep{2402.03898}\,\mtag{Tok|WB|Skewed KL}, DistiLLM-2~\citep{2503.07067}\,\mtag{Tok|WB|CALD},\\[1pt]%
+        KETCHUP~\citep{2504.19024}\,\mtag{Hyb|WB|K-step return}%
         }, leaf=tgcolor, edge={draw=tgcolor!30}]
       [{\textbf{4.2 Adaptive Divergence Objectives}~{\tikz[baseline=-0.5ex]\node[badge=tgcolor]{3};}\\[2pt]%
-        ToDi~\citep{2505.16297}, AKL~\citep{2404.02657}, Entropy-Aware OPD~\citep{2603.07079}%
+        ToDi~\citep{2505.16297}\,\mtag{Tok|WB|Entropy-routed FKL+RKL},\\[1pt]%
+        AKL~\citep{2404.02657}\,\mtag{Tok|WB|Adaptive KL schedule},\\[1pt]%
+        Entropy-Aware OPD~\citep{2603.07079}\,\mtag{Tok|WB|Entropy-gated FKL+RKL}%
         }, leaf=tgcolor, edge={draw=tgcolor!30}]
       [{\textbf{4.3 RL-Augmented Objectives}~{\tikz[baseline=-0.5ex]\node[badge=tgcolor]{11};}\\[2pt]%
-        G-OPD~\citep{2602.12125}, RLKD~\citep{2505.16142}, KDRL~\citep{2506.02208},\\[1pt]%
-        RLAD~\citep{2602.22495}, SuperCorrect~\citep{2410.09008}, SCoRe~\citep{2509.14257},\\[1pt]%
-        AlignDistil~\citep{2503.02832}, $\mathcal{X}$-KD~\citep{2602.12674}, TSD-KD~\citep{2603.13260},\\[1pt]%
-        REOPOLD~\citep{2603.11137}, Constrained~\citep{2509.22921}%
+        G-OPD~\citep{2602.12125}\,\mtag{Hyb|WB|KL-constrained RL}, RLKD~\citep{2505.16142}\,\mtag{Seq|WB+RM|KL+GSRM},\\[1pt]%
+        KDRL~\citep{2506.02208}\,\mtag{Hyb|WB+RM|KD+PPO}, RLAD~\citep{2602.22495}\,\mtag{Tok|WB+RM|Trust-region},\\[1pt]%
+        SuperCorrect~\citep{2410.09008}\,\mtag{Hyb|WB+PRM|Hier.\ template+DPO}, SCoRe~\citep{2509.14257}\,\mtag{Seq|Self-verify|RL-revision},\\[1pt]%
+        AlignDistil~\citep{2503.02832}\,\mtag{Hyb|WB+Pref|DPO+tok.\ KD}, $\mathcal{X}$-KD~\citep{2602.12674}\,\mtag{Hyb|WB+RM|Cross KD+RL},\\[1pt]%
+        TSD-KD~\citep{2603.13260}\,\mtag{Tok|WB|Think-then-speak},\\[1pt]%
+        REOPOLD~\citep{2603.11137}\,\mtag{Hyb|WB+RM|Reward-weighted OPD}, Constrained~\citep{2509.22921}\,\mtag{Seq|WB+RM|CMDP}%
         }, leaf=tgcolor, edge={draw=tgcolor!30}]
     ]
-    %% ===== Stage 2: Signal Source and Teacher Architecture (§5) =====
     [{\S 5 Signal Source and\\Teacher Architecture}, catSig, edge={draw=sdcolor!60, line width=1.2pt}
       [{\textbf{5.1 White-Box Logit Supervision}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{11};}\\[2pt]%
-        DSKD~\citep{2504.11426}, Cross-Tokenizer KD~\citep{2402.12030}, TAID~\citep{2501.16937},\\[1pt]%
-        Delta-KD~\citep{2509.14526}, Veto~\citep{2601.07155}, PromptKD~\citep{2402.12842},\\[1pt]%
-        CSD~\citep{2509.25837}, AdaKD~\citep{2510.11615}, SelecTKD~\citep{2510.24021},\\[1pt]%
-        AdaSwitch~\citep{2510.07842}, MiniPLM~\citep{2410.17215}%
+        DSKD~\citep{2504.11426}\,\mtag{Tok|WB|Dual-space KL}, Cross-Tokenizer KD~\citep{2402.12030}\,\mtag{Tok|WB|Vocab align},\\[1pt]%
+        TAID~\citep{2501.16937}\,\mtag{Tok|WB|Temporal interp.}, Delta-KD~\citep{2509.14526}\,\mtag{Tok|WB|Base-to-Inst delta},\\[1pt]%
+        Veto~\citep{2601.07155}\,\mtag{Tok|WB|Gradient veto+geom.\ KL}, PromptKD~\citep{2402.12842}\,\mtag{Tok|WB|Prompt-cond},\\[1pt]%
+        CSD~\citep{2509.25837}\,\mtag{Tok|WB|Co-supervision}, AdaKD~\citep{2510.11615}\,\mtag{Tok|WB|Adaptive weight},\\[1pt]%
+        SelecTKD~\citep{2510.24021}\,\mtag{Tok|WB|Selective tok.\ mask},\\[1pt]%
+        AdaSwitch~\citep{2510.07842}\,\mtag{Tok|WB|Policy switching}, MiniPLM~\citep{2410.17215}\,\mtag{Seq|WB|Off$\to$on warmup}%
         }, leaf=sdcolor, edge={draw=sdcolor!30}]
       [{\textbf{5.2 Black-Box and API-Constrained Distillation}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{9};}\\[2pt]%
-        Lion~\citep{2305.12870}, GAD~\citep{2511.10643}, OVD~\citep{2601.21968},\\[1pt]%
-        DAIL~\citep{2602.02405}, ORPO-Distill~\citep{2509.25100}, LUFFY~\citep{2504.14945},\\[1pt]%
-        ThinkTuning~\citep{rrv2025thinktuning}, DASD~\citep{2601.09088}, DDT~\citep{2602.12222}%
+        Lion~\citep{2305.12870}\,\mtag{Seq|BB|Adversarial curriculum}, GAD~\citep{2511.10643}\,\mtag{Seq|BB|Adv.\ minimax},\\[1pt]%
+        OVD~\citep{2601.21968}\,\mtag{Seq|BB|Verbal score}, DAIL~\citep{2602.02405}\,\mtag{Seq|BB|Inverse RL},\\[1pt]%
+        ORPO-Distill~\citep{2509.25100}\,\mtag{Hyb|BB|Preference}, LUFFY~\citep{2504.14945}\,\mtag{Seq|BB|Mixed-policy GRPO},\\[1pt]%
+        ThinkTuning~\citep{rrv2025thinktuning}\,\mtag{Seq|BB|Verbal+GRPO},\\[1pt]%
+        DASD~\citep{2601.09088}\,\mtag{Tok|BB|Draft-assist}, DDT~\citep{2602.12222}\,\mtag{Tok|BB|Decoder-distill}%
         }, leaf=sdcolor, edge={draw=sdcolor!30}]
       [{\textbf{5.3 Self-Distillation: Privileged Information}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{8};}\\[2pt]%
-        OPSD~\citep{2601.18734}, GATES~\citep{2602.20574}, Priv. Info. Distill~\citep{2602.04942},\\[1pt]%
-        OPCD~\citep{2602.12275}, OEL~\citep{2603.16856}, HDPO~\citep{2603.23871},\\[1pt]%
-        CRISP~\citep{2603.05433}, OPSDL~\citep{2604.17535}%
+        OPSD~\citep{2601.18734}\,\mtag{Tok|Self-PI|Oracle-cond FKL},\\[1pt]%
+        GATES~\citep{2602.20574}\,\mtag{Tok|Self-PI|Consensus-gated}, Priv.\ Info.\ Distill~\citep{2602.04942}\,\mtag{Tok|Self-PI|GT-cond},\\[1pt]%
+        OPCD~\citep{2602.12275}\,\mtag{Tok|Self-PI|Context-distill}, OEL~\citep{2603.16856}\,\mtag{Seq|Self-PI|Expert-lookup},\\[1pt]%
+        HDPO~\citep{2603.23871}\,\mtag{Seq|Self-PI|Hindsight-DPO}, CRISP~\citep{2603.05433}\,\mtag{Tok|Self-PI|Per-tok RKL},\\[1pt]%
+        OPSDL~\citep{2604.17535}\,\mtag{Tok|Self-PI|Long-context}%
         }, leaf=sdcolor, edge={draw=sdcolor!30}]
       [{\textbf{5.4 Self-Distillation: Self-Play}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{7};}\\[2pt]%
-        SPIN~\citep{2401.01335}, MTP Self-Distill~\citep{2602.06019}, SDFT~\citep{2601.19897},\\[1pt]%
-        On-Policy SFT~\citep{zhao2026onpolicy}, SSD~\citep{zhang2026embarrassingly}, $\pi$-Play~\citep{zhang2026piplay},\\[1pt]%
-        IRIS~\citep{2604.20933}%
+        SPIN~\citep{2401.01335}\,\mtag{Seq|Self-Play|DPO 2-player}, MTP Self-Distill~\citep{2602.06019}\,\mtag{Tok|Self-Play|Multi-tok pred.},\\[1pt]%
+        SDFT~\citep{2601.19897}\,\mtag{Tok|Self-Play|Self-gen FT}, On-Policy SFT~\citep{zhao2026onpolicy}\,\mtag{Seq|Self-Play|SFT loop},\\[1pt]%
+        SSD~\citep{zhang2026embarrassingly}\,\mtag{Tok|Self-Play|Minimalist},\\[1pt]%
+        $\pi$-Play~\citep{zhang2026piplay}\,\mtag{Tok|Self-Play|Multi-agent}, IRIS~\citep{2604.20933}\,\mtag{Seq|Self-Play|R\'enyi unified}%
         }, leaf=sdcolor, edge={draw=sdcolor!30}]
       [{\textbf{5.5 Self-Distillation: External Feedback}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{5};}\\[2pt]%
-        SDPO~\citep{2601.20802}, SD-ZERO~\citep{he2026selfdistillation}, RLSD~\citep{yang2026selfdistilled},\\[1pt]%
-        SRPO~\citep{li2026unifying}, RLTF~\citep{song2026expanding}%
+        SDPO~\citep{2601.20802}\,\mtag{Hyb|Self-Ext|Self-DPO+credit},\\[1pt]%
+        SD-ZERO~\citep{he2026selfdistillation}\,\mtag{Tok|Self-Ext|Verifier-only}, RLSD~\citep{yang2026selfdistilled}\,\mtag{Seq|Self-Ext|GRPO+SD},\\[1pt]%
+        SRPO~\citep{li2026unifying}\,\mtag{Seq|Self-Ext|GRPO+refine}, RLTF~\citep{song2026expanding}\,\mtag{Seq|Self-Ext|2nd-turn teacher}%
         }, leaf=sdcolor, edge={draw=sdcolor!30}]
     ]
-    %% ===== Stage 3: Training Dynamics and Efficiency (§6) =====
     [{\S 6 Training Dynamics\\and Efficiency}, catDyn, edge={draw=dycolor!60, line width=1.2pt}
       [{\textbf{6.1 Token and Sample Weighting}~{\tikz[baseline=-0.5ex]\node[badge=dycolor]{4};}\\[2pt]%
-        TIP~\citep{xu2026tip}, SCOPE~\citep{zheng2026scope}, SelecTKD~\citep{2510.24021}, AdaSwitch~\citep{2510.07842}%
+        TIP~\citep{xu2026tip}\,\mtag{Tok|WB|Importance profiling}, SCOPE~\citep{zheng2026scope}\,\mtag{Tok|WB|Teacher reliability},\\[1pt]%
+        SelecTKD~\citep{2510.24021}\,\mtag{Tok|WB|Selective tok.}, AdaSwitch~\citep{2510.07842}\,\mtag{Tok|WB|Policy switching}%
         }, leaf=dycolor, edge={draw=dycolor!30}]
       [{\textbf{6.2 Curriculum and Difficulty Adaptation}~{\tikz[baseline=-0.5ex]\node[badge=dycolor]{6};}\\[2pt]%
-        PACED~\citep{2603.11178}, Stable-OPD~\citep{luo2026demystifying}, SSB~\citep{mitra2025semantic},\\[1pt]%
-        PAINT~\citep{wang2026paint}, PRISM~\citep{wang2026prism}, CaOPD~\citep{2604.16830}%
+        PACED~\citep{2603.11178}\,\mtag{Tok|WB|Beta-kernel pacing}, Stable-OPD~\citep{luo2026demystifying}\,\mtag{Hyb|WB|Ref-div+rollout mix},\\[1pt]%
+        SSB~\citep{mitra2025semantic}\,\mtag{Seq|Self|Semantic bootstrap}, PAINT~\citep{wang2026paint}\,\mtag{Hyb|WB|Hybrid SFT+OPD},\\[1pt]%
+        PRISM~\citep{wang2026prism}\,\mtag{Tok|WB|Self-adjust curriculum},\\[1pt]%
+        CaOPD~\citep{2604.16830}\,\mtag{Tok|WB|Miscalibration scaling}%
         }, leaf=dycolor, edge={draw=dycolor!30}]
       [{\textbf{6.3 Compute Optimization}~{\tikz[baseline=-0.5ex]\node[badge=dycolor]{3};}\\[2pt]%
-        Fast OPD~\citep{2602.15260}, Lightning OPD~\citep{wu2026lightning}, Speculative KD~\citep{2410.11325}%
+        Fast OPD~\citep{2602.15260}\,\mtag{Hyb|WB|Prefix truncation},\\[1pt]%
+        Lightning OPD~\citep{wu2026lightning}\,\mtag{Hyb|WB|Offline teacher cache},\\[1pt]%
+        Speculative KD~\citep{2410.11325}\,\mtag{Tok|WB|Draft model accel.}%
         }, leaf=dycolor, edge={draw=dycolor!30}]
     ]
   ]
 \end{forest}
 }
-\caption{Taxonomy of On-Policy Distillation methods organized by the practitioner's decision chain: (1) Objective function design (\S\ref{sec:objectives}), (2) Signal source and teacher architecture (\S\ref{sec:signal}), and (3) Training dynamics and efficiency (\S\ref{sec:dynamics}). Each leaf lists the representative methods in that subsection; the badge shows the method count. Methods that contribute to multiple dimensions are placed under their most distinctive contribution.}
+
+\vspace{0.3em}
+{\footnotesize\textbf{Annotation key.} Each method carries a compact three-field tag \mtag{Granularity $|$ Signal $|$ Divergence/Loss}.
+\textit{Granularity:} Tok = token-level, Seq = sequence-level, Hyb = hybrid.
+\textit{Signal:} WB = white-box logits, BB = black-box API, RM = reward model, PRM = process reward model, Pref = preference pairs, Self-PI = privileged information, Self-Play = self vs.\ reference, Self-Ext = external verifier/reward, Self-verify = self-verification.
+\textit{Divergence/Loss:} FKL/RKL = forward/reverse KL, JSD = Jensen-Shannon, CALD = contrastive-approximated likelihood difference, CMDP = constrained MDP, DPO = direct preference optimization, GRPO = group relative policy optimization, PPO = proximal policy optimization. The numeric badge on each leaf gives the method count.}
+
+\caption{Taxonomy of On-Policy Distillation methods organized by the practitioner's decision chain: (1) Objective function design (\S\ref{sec:objectives}), (2) Signal source and teacher architecture (\S\ref{sec:signal}), and (3) Training dynamics and efficiency (\S\ref{sec:dynamics}). Each leaf lists representative methods with a compact three-field annotation \mtag{Granularity $|$ Signal $|$ Divergence/Loss}, condensing the multi-axis design space (cf.\ Table~\ref{tab:method_comparison}) into a single figure. Methods that contribute across multiple dimensions are placed under their most distinctive contribution.}
 \label{fig:taxonomy}
 \end{figure*}
 
