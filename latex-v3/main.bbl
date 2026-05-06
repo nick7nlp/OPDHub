@@ -95,19 +95,13 @@ Howard Chen, Noam Razin, Karthik Narasimhan, and Danqi Chen.
 \newblock \emph{arXiv preprint arXiv:2510.18874}, 2025.
 \newblock URL \url{https://arxiv.org/abs/2510.18874}.
 
-\bibitem[Chen et~al.(2026{\natexlab{a}})]{chen2026guisd}
-Kai Chen et~al.
-\newblock Learn where to click from yourself: On-policy self-distillation for
-  gui grounding.
-\newblock \emph{arXiv preprint arXiv:2605.00642}, 2026{\natexlab{a}}.
-
-\bibitem[Chen et~al.(2026{\natexlab{b}})Chen, Qian, Li, Yu, Kong, Li, Wu, Yu,
-  and You]{chen2026tcod}
+\bibitem[Chen et~al.(2026)Chen, Qian, Li, Yu, Kong, Li, Wu, Yu, and
+  You]{chen2026tcod}
 Zirui Chen, Cheng Qian, Yiwei Li, Zhaoyang Yu, Linghao Kong, Gang Li, Zhizheng
   Wu, Tao Yu, and Jiaxuan You.
 \newblock {TCOD: Exploring Temporal Curriculum in On-Policy Distillation for
   Multi-turn Autonomous Agents}.
-\newblock \emph{arXiv preprint arXiv:2604.24005}, 2026{\natexlab{b}}.
+\newblock \emph{arXiv preprint arXiv:2604.24005}, 2026.
 \newblock URL \url{https://arxiv.org/abs/2604.24005}.
 
 \bibitem[Chen et~al.(2024)Chen, Deng, Yuan, Ji, and Gu]{2401.01335}
@@ -117,11 +111,54 @@ Zixiang Chen, Yihe Deng, Huizhuo Yuan, Kaixuan Ji, and Quanquan Gu.
 \newblock \emph{Proceedings of ICML}, 2024.
 \newblock URL \url{https://arxiv.org/abs/2401.01335}.
 
-\bibitem[DeepSeek-AI et~al.(2025)DeepSeek-AI, Guo, Yang, Zhang, Song, Wang,
-  Zhu, Xu, Zhang, Ma, Bi, Zhang, Yu, Wu, Wu, et~al.]{2501.12948}
-DeepSeek-AI, Daya Guo, Dejian Yang, Haowei Zhang, Junxiao Song, Peiyi Wang,
+\bibitem[{DeepSeek-AI} et~al.(2025){DeepSeek-AI}, Guo, Yang, Zhang, Song, Wang,
+  Zhu, Xu, Zhang, Ma, Bi, Zhang, Yu, Wu, Wu, Gou, Shao, Li, Gao, Liu, Xue,
+  Wang, Wu, Feng, Lu, Zhao, Deng, Zhang, Ruan, Dai, Chen, Ji, Li, Lin, Dai,
+  Luo, Hao, Chen, Li, Zhang, Bao, Xu, Wang, Ding, Xin, Gao, Qu, Li, Guo, Li,
+  Wang, Chen, Yuan, Qiu, Li, Cai, Ni, Liang, Chen, Dong, Hu, Gao, Guan, Huang,
+  Yu, Wang, Zhang, Zhao, Wang, Zhang, Xu, Xia, Zhang, Zhang, Tang, Li, Wang,
+  Li, Tian, Huang, Zhang, Wang, Chen, Du, Ge, Zhang, Pan, Wang, Chen, Jin,
+  Chen, Lu, Zhou, Chen, Ye, Wang, Yu, Zhou, Pan, Li, Zhou, Wu, Ye, Yun, Pei,
+  Sun, Wang, Zeng, Zhao, Liu, Liang, Gao, Yu, Zhang, Xiao, An, Liu, Wang, Chen,
+  Nie, Cheng, Liu, Xie, Liu, Yang, Li, Su, Lin, Li, Jin, Shen, Chen, Sun, Wang,
+  Song, Zhou, Wang, Shan, Li, Wang, Wei, Zhang, Xu, Li, Zhao, Sun, Wang, Yu,
+  Zhang, Shi, Xiong, He, Piao, Wang, Tan, Ma, Liu, Guo, Ou, Wang, Gong, Zou,
+  He, Xiong, Luo, You, Liu, Zhou, Zhu, Xu, Huang, Li, Zheng, Zhu, Ma, Tang,
+  Zha, Yan, Ren, Ren, Sha, Fu, Xu, Xie, Zhang, Hao, Ma, Yan, Wu, Gu, Zhu, Liu,
+  Li, Xie, Song, Pan, Huang, Xu, Zhang, and Zhang]{2501.12948}
+{DeepSeek-AI}, Daya Guo, Dejian Yang, Haowei Zhang, Junxiao Song, Peiyi Wang,
   Qihao Zhu, Runxin Xu, Ruoyu Zhang, Shirong Ma, Xiao Bi, Xiaokang Zhang,
-  Xingkai Yu, Yu~Wu, Z.~F. Wu, et~al.
+  Xingkai Yu, Yu~Wu, Z.~F. Wu, Zhibin Gou, Zhihong Shao, Zhuoshu Li, Ziyi Gao,
+  Aixin Liu, Bing Xue, Bingxuan Wang, Bochao Wu, Bei Feng, Chengda Lu,
+  Chenggang Zhao, Chengqi Deng, Chenyu Zhang, Chong Ruan, Damai Dai, Deli Chen,
+  Dongjie Ji, Erhang Li, Fangyun Lin, Fucong Dai, Fuli Luo, Guangbo Hao,
+  Guanting Chen, Guowei Li, H.~Zhang, Han Bao, Hanwei Xu, Haocheng Wang,
+  Honghui Ding, Huajian Xin, Huazuo Gao, Hui Qu, Hui Li, Jianzhong Guo, Jiashi
+  Li, Jiawei Wang, Jingchang Chen, Jingyang Yuan, Junjie Qiu, Junlong Li, J.~L.
+  Cai, Jiaqi Ni, Jian Liang, Jin Chen, Kai Dong, Kai Hu, Kaige Gao, Kang Guan,
+  Kexin Huang, Kuai Yu, Lean Wang, Lecong Zhang, Liang Zhao, Litong Wang, Liyue
+  Zhang, Lei Xu, Leyi Xia, Mingchuan Zhang, Minghua Zhang, Minghui Tang, Meng
+  Li, Miaojun Wang, Mingming Li, Ning Tian, Panpan Huang, Peng Zhang, Qiancheng
+  Wang, Qinyu Chen, Qiushi Du, Ruiqi Ge, Ruisong Zhang, Ruizhe Pan, Runji Wang,
+  R.~J. Chen, R.~L. Jin, Ruyi Chen, Shanghao Lu, Shangyan Zhou, Shanhuang Chen,
+  Shengfeng Ye, Shiyu Wang, Shuiping Yu, Shunfeng Zhou, Shuting Pan, S.~S. Li,
+  Shuang Zhou, Shaoqing Wu, Shengfeng Ye, Tao Yun, Tian Pei, Tianyu Sun,
+  T.~Wang, Wangding Zeng, Wanjia Zhao, Wen Liu, Wenfeng Liang, Wenjun Gao,
+  Wenqin Yu, Wentao Zhang, W.~L. Xiao, Wei An, Xiaodong Liu, Xiaohan Wang,
+  Xiaokang Chen, Xiaotao Nie, Xin Cheng, Xin Liu, Xin Xie, Xingchao Liu, Xinyu
+  Yang, Xinyuan Li, Xuecheng Su, Xuheng Lin, X.~Q. Li, Xiangyue Jin, Xiaojin
+  Shen, Xiaosha Chen, Xiaowen Sun, Xiaoxiang Wang, Xinnan Song, Xinyi Zhou,
+  Xianzu Wang, Xinxia Shan, Y.~K. Li, Y.~Q. Wang, Y.~X. Wei, Yang Zhang,
+  Yanhong Xu, Yao Li, Yao Zhao, Yaofeng Sun, Yaohui Wang, Yi~Yu, Yichao Zhang,
+  Yifan Shi, Yiliang Xiong, Ying He, Yishi Piao, Yisong Wang, Yixuan Tan,
+  Yiyang Ma, Yiyuan Liu, Yongqiang Guo, Yuan Ou, Yuduan Wang, Yue Gong, Yuheng
+  Zou, Yujia He, Yunfan Xiong, Yuxiang Luo, Yuxiang You, Yuxuan Liu, Yuyang
+  Zhou, Y.~X. Zhu, Yanhong Xu, Yanping Huang, Yaohui Li, Yi~Zheng, Yuchen Zhu,
+  Yunxian Ma, Ying Tang, Yukun Zha, Yuting Yan, Z.~Z. Ren, Zehui Ren, Zhangli
+  Sha, Zhe Fu, Zhean Xu, Zhenda Xie, Zhengyan Zhang, Zhewen Hao, Zhicheng Ma,
+  Zhigang Yan, Zhiyu Wu, Zihui Gu, Zijia Zhu, Zijun Liu, Zilin Li, Ziwei Xie,
+  Ziyang Song, Zizheng Pan, Zhen Huang, Zhipeng Xu, Zhongyu Zhang, and Zhen
+  Zhang.
 \newblock {DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via
   Reinforcement Learning}.
 \newblock \emph{Nature}, 645:\penalty0 633--638, 2025.
@@ -149,10 +186,70 @@ Yuqian Fu, Haohuan Huang, Kaiwen Jiang, Yuanheng Zhu, and Dongbin Zhao.
 \newblock URL \url{https://arxiv.org/abs/2603.25562}.
 
 \bibitem[{Gemma Team} et~al.(2024){Gemma Team}, Riviere, Pathak, Sessa, Hardin,
-  Bhupatiraju, Hussenot, Mesnard, Shahriari, Ram{\'e}, et~al.]{2408.00118}
+  Bhupatiraju, Hussenot, Mesnard, Shahriari, Ram{\'e}, Ferret, Liu, Tafti,
+  Friesen, Casbon, Ramos, Kumar, Lan, Jerome, Tsitsulin, Vieillard, Stanczyk,
+  Girgin, Momchev, Hoffman, Thakoor, Grill, Neyshabur, Bachem, Walton, Severyn,
+  Parrish, Ahmad, Hutchison, Abdagic, Carl, Shen, Brock, Coenen, Laforge,
+  Paterson, Bastian, Piot, Wu, Royal, Chen, Kumar, Perry, Welty,
+  Choquette-Choo, Sinopalnikov, Weinberger, Vijaykumar, Rogozi{\'n}ska,
+  Herbison, Bandy, Wang, Noland, Moreira, Senter, Eltyshev, Visin, Rasskin,
+  Wei, Cameron, Martins, Hashemi, Klimczak-Pluci{\'n}ska, Batra, Dhand,
+  Nardini, Mein, Zhou, Svensson, Stanway, Chan, Zhou, Carrasqueira, Iljazi,
+  Becker, Fernandez, van Amersfoort, Gordon, Lipschultz, Newlan, yeong Ji,
+  Mohamed, Badola, Black, Millican, McDonell, Nguyen, Sodhia, Greene, Sjoesund,
+  Usui, Sifre, Heuermann, Lago, McNealus, Soares, Kilpatrick, Dixon, Martins,
+  Reid, Singh, Iverson, G{\"o}rner, Velloso, Wirth, Davidow, Miller, Rahtz,
+  Watson, Risdal, Kazemi, Moynihan, Zhang, Kahng, Park, Rahman, Khatwani, Dao,
+  Bardoliwalla, Devanathan, Dumai, Chauhan, Wahltinez, Botarda, Barnes, Barham,
+  Michel, Jin, Georgiev, Culliton, Kuppala, Comanescu, Merhej, Jana, Rokni,
+  Agarwal, Mullins, Saadat, Carthy, Cogan, Perrin, Arnold, Krause, Dai, Garg,
+  Sheth, Ronstrom, Chan, Jordan, Yu, Eccles, Hennigan, Kocisky, Doshi, Jain,
+  Yadav, Meshram, Dharmadhikari, Barkley, Wei, Ye, Han, Kwon, Xu, Shen, Gong,
+  Wei, Cotruta, Kirk, Rao, Giang, Peran, Warkentin, Collins, Barral,
+  Ghahramani, Hadsell, Sculley, Banks, Dragan, Petrov, Vinyals, Dean, Hassabis,
+  Kavukcuoglu, Farabet, Buchatskaya, Borgeaud, Fiedel, Joulin, Kenealy,
+  Dadashi, and Andreev]{2408.00118}
 {Gemma Team}, Morgane Riviere, Shreya Pathak, Pier~Giuseppe Sessa, Cassidy
   Hardin, Surya Bhupatiraju, L{\'e}onard Hussenot, Thomas Mesnard, Bobak
-  Shahriari, Alexandre Ram{\'e}, et~al.
+  Shahriari, Alexandre Ram{\'e}, Johan Ferret, Peter Liu, Pouya Tafti, Abe
+  Friesen, Michelle Casbon, Sabela Ramos, Ravin Kumar, Charline~Le Lan, Sammy
+  Jerome, Anton Tsitsulin, Nino Vieillard, Piotr Stanczyk, Sertan Girgin,
+  Nikola Momchev, Matt Hoffman, Shantanu Thakoor, Jean-Bastien Grill, Behnam
+  Neyshabur, Olivier Bachem, Alanna Walton, Aliaksei Severyn, Alicia Parrish,
+  Aliya Ahmad, Allen Hutchison, Alvin Abdagic, Amanda Carl, Amy Shen, Andy
+  Brock, Andy Coenen, Anthony Laforge, Antonia Paterson, Ben Bastian, Bilal
+  Piot, Bo~Wu, Brandon Royal, Charlie Chen, Chintu Kumar, Chris Perry, Chris
+  Welty, Christopher~A. Choquette-Choo, Danila Sinopalnikov, David Weinberger,
+  Dimple Vijaykumar, Dominika Rogozi{\'n}ska, Dustin Herbison, Elisa Bandy,
+  Emma Wang, Eric Noland, Erica Moreira, Evan Senter, Evgenii Eltyshev,
+  Francesco Visin, Gabriel Rasskin, Gary Wei, Glenn Cameron, Gus Martins, Hadi
+  Hashemi, Hanna Klimczak-Pluci{\'n}ska, Harleen Batra, Harsh Dhand, Ivan
+  Nardini, Jacinda Mein, Jack Zhou, James Svensson, Jeff Stanway, Jetha Chan,
+  Jin~Peng Zhou, Joana Carrasqueira, Joana Iljazi, Jocelyn Becker, Joe
+  Fernandez, Joost van Amersfoort, Josh Gordon, Josh Lipschultz, Josh Newlan,
+  Ju~yeong Ji, Kareem Mohamed, Kartikeya Badola, Kat Black, Katie Millican,
+  Keelin McDonell, Kelvin Nguyen, Kiranbir Sodhia, Kish Greene, Lars~Lowe
+  Sjoesund, Lauren Usui, Laurent Sifre, Lena Heuermann, Leticia Lago, Lilly
+  McNealus, Livio~Baldini Soares, Logan Kilpatrick, Lucas Dixon, Luciano
+  Martins, Machel Reid, Manvinder Singh, Mark Iverson, Martin G{\"o}rner, Mat
+  Velloso, Mateo Wirth, Matt Davidow, Matt Miller, Matthew Rahtz, Matthew
+  Watson, Meg Risdal, Mehran Kazemi, Michael Moynihan, Ming Zhang, Minsuk
+  Kahng, Minwoo Park, Mofi Rahman, Mohit Khatwani, Natalie Dao, Nenshad
+  Bardoliwalla, Nesh Devanathan, Neta Dumai, Nilay Chauhan, Oscar Wahltinez,
+  Pankil Botarda, Parker Barnes, Paul Barham, Paul Michel, Pengchong Jin, Petko
+  Georgiev, Phil Culliton, Pradeep Kuppala, Ramona Comanescu, Ramona Merhej,
+  Reena Jana, Reza~Ardeshir Rokni, Rishabh Agarwal, Ryan Mullins, Samaneh
+  Saadat, Sara~Mc Carthy, Sarah Cogan, Sarah Perrin, S{\'e}bastien M.~R.
+  Arnold, Sebastian Krause, Shengyang Dai, Shruti Garg, Shruti Sheth, Sue
+  Ronstrom, Susan Chan, Timothy Jordan, Ting Yu, Tom Eccles, Tom Hennigan,
+  Tomas Kocisky, Tulsee Doshi, Vihan Jain, Vikas Yadav, Vilobh Meshram, Vishal
+  Dharmadhikari, Warren Barkley, Wei Wei, Wenming Ye, Woohyun Han, Woosuk Kwon,
+  Xiang Xu, Zhe Shen, Zhitao Gong, Zichuan Wei, Victor Cotruta, Phoebe Kirk,
+  Anand Rao, Minh Giang, Ludovic Peran, Tris Warkentin, Eli Collins, Joelle
+  Barral, Zoubin Ghahramani, Raia Hadsell, D.~Sculley, Jeanine Banks, Anca
+  Dragan, Slav Petrov, Oriol Vinyals, Jeff Dean, Demis Hassabis, Koray
+  Kavukcuoglu, Clement Farabet, Elena Buchatskaya, Sebastian Borgeaud, Noah
+  Fiedel, Armand Joulin, Kathleen Kenealy, Robert Dadashi, and Alek Andreev.
 \newblock {Gemma 2: Improving Open Language Models at a Practical Size}.
 \newblock \emph{arXiv preprint arXiv:2408.00118}, 2024.
 \newblock URL \url{https://arxiv.org/abs/2408.00118}.
@@ -238,9 +335,11 @@ Haiduo Huang, Jiangcheng Song, Yadong Zhang, and Pengju Ren.
 \newblock URL \url{https://arxiv.org/abs/2510.24021}.
 
 \bibitem[H{\"u}botter et~al.(2026)H{\"u}botter, L{\"u}beck, Behric, Baumann,
-  Bagatella, Marta, et~al.]{2601.20802}
+  Bagatella, Marta, Hakimi, Shenfeld, Buening, Guestrin, and
+  Krause]{2601.20802}
 Jonas H{\"u}botter, Frederike L{\"u}beck, Lejs Behric, Anton Baumann, Marco
-  Bagatella, Daniel Marta, et~al.
+  Bagatella, Daniel Marta, Ido Hakimi, Idan Shenfeld, Thomas~Kleine Buening,
+  Carlos Guestrin, and Andreas Krause.
 \newblock {Reinforcement Learning via Self-Distillation}.
 \newblock \emph{arXiv preprint arXiv:2601.20802}, 2026.
 \newblock URL \url{https://arxiv.org/abs/2601.20802}.
@@ -352,9 +451,19 @@ Jongwoo Ko, Sara Abdali, Young~Jin Kim, Tianyi Chen, and Pashmina Cameron.
 \newblock \emph{arXiv preprint arXiv:2603.11137}, 2026.
 \newblock URL \url{https://arxiv.org/abs/2603.11137}.
 
-\bibitem[Li et~al.(2026{\natexlab{a}})Li, Zhang, Huang,
-  et~al.]{li2026katcoderv2}
-Fengxiang Li, Han Zhang, Haoyang Huang, et~al.
+\bibitem[Li et~al.(2026{\natexlab{a}})Li, Zhang, Huang, Wang, Hao, Yuan, Li,
+  Zhang, Xu, Zhuang, Shao, Feng, Tang, Wang, Tong, Yang, Xiong, Gao, Gao, Wang,
+  Liu, Sun, Li, Chang, Du, Peng, Cui, Jing, Wu, Yan, Qi, Xu, Zhao, Sun, Xie,
+  Wang, Xia, Cui, Chen, Wang, Shi, Shen, Wang, Sun, Ye, and
+  Chen]{li2026katcoderv2}
+Fengxiang Li, Han Zhang, Haoyang Huang, Jinghui Wang, Jinhua Hao, Kun Yuan,
+  Mengtong Li, Minglei Zhang, Pengcheng Xu, Wenhao Zhuang, Yizhen Shao,
+  Zongxian Feng, Can Tang, Chao Wang, Chengxiao Tong, Fan Yang, Gang Xiong,
+  Haixuan Gao, Han Gao, Hao Wang, Haochen Liu, Hongliang Sun, Jiabao Li,
+  Jingwen Chang, Jun Du, Junyi Peng, Leizhen Cui, Meimei Jing, Mingqi Wu,
+  Shangpeng Yan, Shaotong Qi, Suzhe Xu, Wenxuan Zhao, Xianda Sun, Xuan Xie,
+  Yanbo Wang, Yao Xia, Yinghan Cui, Yingpeng Chen, Yong Wang, Yuze Shi, Zhiwei
+  Shen, Ziyu Wang, Ming Sun, Lin Ye, and Bin Chen.
 \newblock {KAT-Coder-V2 Technical Report}.
 \newblock \emph{arXiv preprint arXiv:2603.27703}, 2026{\natexlab{a}}.
 \newblock URL \url{https://arxiv.org/abs/2603.27703}.
@@ -368,9 +477,10 @@ Gengsheng Li, Tianyu Yang, Junfeng Fang, Mingyang Song, Mao Zheng, Haiyun Guo,
 \newblock \emph{arXiv preprint arXiv:2604.02288}, 2026{\natexlab{b}}.
 \newblock URL \url{https://arxiv.org/abs/2604.02288}.
 
-\bibitem[Li et~al.(2026{\natexlab{c}})Li, Yin, Xu, Xu, Tan, He,
-  et~al.]{2602.02994}
-Jiaze Li, Hao Yin, Haoran Xu, Boshen Xu, Wenhui Tan, Zewen He, et~al.
+\bibitem[Li et~al.(2026{\natexlab{c}})Li, Yin, Xu, Xu, Tan, He, Ju, Luo, and
+  Luan]{2602.02994}
+Jiaze Li, Hao Yin, Haoran Xu, Boshen Xu, Wenhui Tan, Zewen He, Jianzhong Ju,
+  Zhenbo Luo, and Jian Luan.
 \newblock {Video-OPD: Efficient Post-Training of Multimodal Large Language
   Models for Temporal Video Grounding via On-Policy Distillation}.
 \newblock \emph{arXiv preprint arXiv:2602.02994}, 2026{\natexlab{c}}.
@@ -402,9 +512,22 @@ Kun Liang, Clive Bai, Xin Xu, Chenming Tang, Sanwoo Lee, Weijie Liu, Saiyong
 \newblock URL \url{https://arxiv.org/abs/2601.08310}.
 
 \bibitem[Liang et~al.(2023)Liang, Bommasani, Lee, Tsipras, Soylu, Yasunaga,
-  Zhang, Narang, Hashimoto, et~al.]{2211.09110}
+  Zhang, Narayanan, Wu, Kumar, Newman, Yuan, Yan, Zhang, Cosgrove, Manning,
+  R{\'e}, Acosta-Navas, Hudson, Zelikman, Durmus, Ladhak, Rong, Ren, Yao, Wang,
+  Santhanam, Orr, Zheng, Yuksekgonul, Suzgun, Kim, Guha, Chatterji, Khattab,
+  Henderson, Huang, Chi, Xie, Santurkar, Ganguli, Hashimoto, Icard, Zhang,
+  Chaudhary, Wang, Li, Mai, Zhang, and Koreeda]{2211.09110}
 Percy Liang, Rishi Bommasani, Tony Lee, Dimitris Tsipras, Dilara Soylu,
-  Michihiro Yasunaga, Yian Zhang, Deepak Narang, Tatsunori Hashimoto, et~al.
+  Michihiro Yasunaga, Yian Zhang, Deepak Narayanan, Yuhuai Wu, Ananya Kumar,
+  Benjamin Newman, Binhang Yuan, Bobby Yan, Ce~Zhang, Christian Cosgrove,
+  Christopher~D. Manning, Christopher R{\'e}, Diana Acosta-Navas, Drew~A.
+  Hudson, Eric Zelikman, Esin Durmus, Faisal Ladhak, Frieda Rong, Hongyu Ren,
+  Huaxiu Yao, Jue Wang, Keshav Santhanam, Laurel Orr, Lucia Zheng, Mert
+  Yuksekgonul, Mirac Suzgun, Nathan Kim, Neel Guha, Niladri Chatterji, Omar
+  Khattab, Peter Henderson, Qian Huang, Ryan Chi, Sang~Michael Xie, Shibani
+  Santurkar, Surya Ganguli, Tatsunori Hashimoto, Thomas Icard, Tianyi Zhang,
+  Vishrav Chaudhary, William Wang, Xuechen Li, Yifan Mai, Yuhui Zhang, and Yuta
+  Koreeda.
 \newblock Holistic evaluation of language models.
 \newblock \emph{Transactions on Machine Learning Research}, 2023.
 
@@ -529,8 +652,13 @@ Zhiquan Tan and Yinrong Hong.
 \newblock \emph{arXiv preprint arXiv:2604.26573}, 2026.
 \newblock URL \url{https://arxiv.org/abs/2604.26573}.
 
-\bibitem[{Tencent Robotics X and HY Vision Team}(2026)]{tencent2026hyembodied}
-{Tencent Robotics X and HY Vision Team}.
+\bibitem[{Tencent Robotics X} et~al.(2026){Tencent Robotics X}, {HY Vision
+  Team}, Yu, Liu, Wang, Zhang, Rao, Liu, Zhang, Zhao, Wang, Liang, Lin, Wang,
+  Dong, Cheng, Ni, Huang, Hu, Zhang, Linus, and Yao]{tencent2026hyembodied}
+{Tencent Robotics X}, {HY Vision Team}, Xumin Yu, Zuyan Liu, Ziyi Wang,
+  He~Zhang, Yongming Rao, Fangfu Liu, Yani Zhang, Ruowen Zhao, Oran Wang, Yves
+  Liang, Haitao Lin, Minghui Wang, Yubo Dong, Kevin Cheng, Bolin Ni, Rui Huang,
+  Han Hu, Zhengyou Zhang, Linus, and Shunyu Yao.
 \newblock {HY-Embodied-0.5: Embodied Foundation Models for Real-World Agents}.
 \newblock \emph{arXiv preprint arXiv:2604.07430}, 2026.
 \newblock URL \url{https://arxiv.org/abs/2604.07430}.
@@ -583,17 +711,44 @@ Yecheng Wu, Song Han, and Han Cai.
 \newblock URL \url{https://arxiv.org/abs/2604.13010}.
 
 \bibitem[{Xiaomi LLM-Core Team} et~al.(2026){Xiaomi LLM-Core Team}, Xiao, Xia,
-  Yang, Gao, Shen, Zhang, He, Lou, Luo, Wang, Xie, Zhang, Lv,
-  et~al.]{2601.02780}
+  Yang, Gao, Shen, Zhang, He, Lou, Luo, Wang, Xie, Zhang, Lv, Li, Chen, Xu,
+  Zhang, Liu, Duo, Wei, Xiao, Dong, Shi, Hu, Bao, Zhou, Li, Zhao, Zhang, Li,
+  Chen, Liu, Yu, Cao, Chen, Yu, Liu, Zhou, Su, Wang, Ma, Deng, Mao, Ye, Cai,
+  Wang, Zhu, Ma, Chen, Li, Zhu, Xiao, Zhang, Zhang, Liu, Yang, Shi, Wang, Tian,
+  Wu, Qu, Yi, An, Guan, Zhang, Song, Yan, Zhao, Lai, Gao, Cheng, Tian, Wang,
+  Tang, Tang, Wen, Song, Zheng, Jiang, Wen, Sun, Li, Xue, Xia, Fang, Zhu, Chen,
+  Tu, Zhang, Wang, Li, Ma, Zhang, Wang, Li, Gu, Ren, Deng, Guo, Lu, Zhuang,
+  Zhang, Xiong, Huang, Yang, Zhang, Yong, Wang, Xie, Jiang, Yang, He, Tu, Dong,
+  Liu, Ma, Yu, Xiang, Huang, Lin, Xu, Chen, Deng, Zhang, and Yue]{2601.02780}
 {Xiaomi LLM-Core Team}, Bangjun Xiao, Bingquan Xia, Bo~Yang, Bofei Gao, Bowen
   Shen, Chen Zhang, Chenhong He, Chiheng Lou, Fuli Luo, Gang Wang, Gang Xie,
-  Hailin Zhang, Hanglong Lv, et~al.
+  Hailin Zhang, Hanglong Lv, Hanyu Li, Heyu Chen, Hongshen Xu, Houbin Zhang,
+  Huaqiu Liu, Jiangshan Duo, Jianyu Wei, Jiebao Xiao, Jinhao Dong, Jun Shi,
+  Junhao Hu, Kainan Bao, Kang Zhou, Lei Li, Liang Zhao, Linghao Zhang, Peidian
+  Li, Qianli Chen, Shaohui Liu, Shihua Yu, Shijie Cao, Shimao Chen, Shouqiu Yu,
+  Shuo Liu, Tianling Zhou, Weijiang Su, Weikun Wang, Wenhan Ma, Xiangwei Deng,
+  Bohan Mao, Bowen Ye, Can Cai, Chenghua Wang, Chengxuan Zhu, Chong Ma, Chun
+  Chen, Chunan Li, Dawei Zhu, Deshan Xiao, Dong Zhang, Duo Zhang, Fangyue Liu,
+  Feiyu Yang, Fengyuan Shi, Guoan Wang, Hao Tian, Hao Wu, Heng Qu, Hongfei Yi,
+  Hongxu An, Hongyi Guan, Xing Zhang, Yifan Song, Yihan Yan, Yihao Zhao,
+  Yingchun Lai, Yizhao Gao, Yu~Cheng, Yuanyuan Tian, Yudong Wang, Zhen Tang,
+  Zhengju Tang, Zhengtao Wen, Zhichao Song, Zhixian Zheng, Zihan Jiang, Jian
+  Wen, Jiarui Sun, Jiawei Li, Jinlong Xue, Jun Xia, Kai Fang, Menghang Zhu, Nuo
+  Chen, Qian Tu, Qihao Zhang, Qiying Wang, Rang Li, Rui Ma, Shaolei Zhang,
+  Shengfan Wang, Shicheng Li, Shuhao Gu, Shuhuai Ren, Sirui Deng, Tao Guo,
+  Tianyang Lu, Weiji Zhuang, Weikang Zhang, Weimin Xiong, Wenshan Huang, Wenyu
+  Yang, Xin Zhang, Xing Yong, Xu~Wang, Xueyang Xie, Yilin Jiang, Yixin Yang,
+  Yongzhe He, Yu~Tu, Yuanliang Dong, Yuchen Liu, Yue Ma, Yue Yu, Yuxing Xiang,
+  Zhaojun Huang, Zhenru Lin, Zhipeng Xu, Zhiyang Chen, Zhonghua Deng, Zihan
+  Zhang, and Zihao Yue.
 \newblock {MiMo-V2-Flash Technical Report}.
 \newblock \emph{arXiv preprint arXiv:2601.02780}, 2026.
 \newblock URL \url{https://arxiv.org/abs/2601.02780}.
 
-\bibitem[Xie et~al.(2025)Xie, Xue, Wu, Li, Wang, Hu, et~al.]{2510.11615}
-Xurong Xie, Zhucun Xue, Jiafu Wu, Jian Li, Yabiao Wang, Xiaobin Hu, et~al.
+\bibitem[Xie et~al.(2025)Xie, Xue, Wu, Li, Wang, Hu, Liu, and
+  Zhang]{2510.11615}
+Xurong Xie, Zhucun Xue, Jiafu Wu, Jian Li, Yabiao Wang, Xiaobin Hu, Yong Liu,
+  and Jiangning Zhang.
 \newblock {LLM-Oriented Token-Adaptive Knowledge Distillation}.
 \newblock \emph{arXiv preprint arXiv:2510.11615}, 2025.
 \newblock URL \url{https://arxiv.org/abs/2510.11615}.
@@ -606,9 +761,10 @@ Jing Xiong, Hui Shen, Shansan Gong, Yuxin Cheng, Jianghan Shen, Chaofan Tao,
 \newblock \emph{arXiv preprint arXiv:2601.21968}, 2026.
 \newblock URL \url{https://arxiv.org/abs/2601.21968}.
 
-\bibitem[Xu et~al.(2025{\natexlab{a}})Xu, Zhu, Deng, Li, Hou, Wang,
-  et~al.]{2506.02208}
-Hongling Xu, Qi~Zhu, Heyuan Deng, Jinpeng Li, Lu~Hou, Yasheng Wang, et~al.
+\bibitem[Xu et~al.(2025{\natexlab{a}})Xu, Zhu, Deng, Li, Hou, Wang, Shang, Xu,
+  and Mi]{2506.02208}
+Hongling Xu, Qi~Zhu, Heyuan Deng, Jinpeng Li, Lu~Hou, Yasheng Wang, Lifeng
+  Shang, Ruifeng Xu, and Fei Mi.
 \newblock {KDRL: Post-Training Reasoning LLMs via Unified Knowledge
   Distillation and Reinforcement Learning}.
 \newblock \emph{arXiv preprint arXiv:2506.02208}, 2025{\natexlab{a}}.
@@ -672,10 +828,20 @@ Shaotian Yan, Kaiyuan Liu, Chen Shen, Bing Wang, Sinan Fan, Jun Zhang, Yue Wu,
 \newblock URL \url{https://arxiv.org/abs/2601.09088}.
 
 \bibitem[Yang et~al.(2025{\natexlab{a}})Yang, Li, Yang, Zhang, Hui, Zheng, Yu,
-  Gao, Huang, Lv, Zheng, Liu, Zhou, Huang, Hu, et~al.]{2505.09388}
+  Gao, Huang, Lv, Zheng, Liu, Zhou, Huang, Hu, Ge, Wei, Lin, Tang, Yang, Tu,
+  Zhang, Yang, Yang, Zhou, Zhou, Lin, Dang, Bao, Yang, Yu, Deng, Li, Xue, Li,
+  Zhang, Wang, Zhu, Men, Gao, Liu, Luo, Li, Tang, Yin, Ren, Wang, Zhang, Ren,
+  Fan, Su, Zhang, Zhang, Wan, Liu, Wang, Cui, Zhang, Zhou, and Qiu]{2505.09388}
 An~Yang, Anfeng Li, Baosong Yang, Beichen Zhang, Binyuan Hui, Bo~Zheng, Bowen
   Yu, Chang Gao, Chengen Huang, Chenxu Lv, Chujie Zheng, Dayiheng Liu, Fan
-  Zhou, Fei Huang, Feng Hu, et~al.
+  Zhou, Fei Huang, Feng Hu, Hao Ge, Haoran Wei, Huan Lin, Jialong Tang, Jian
+  Yang, Jianhong Tu, Jianwei Zhang, Jianxin Yang, Jiaxi Yang, Jing Zhou,
+  Jingren Zhou, Junyang Lin, Kai Dang, Keqin Bao, Kexin Yang, Le~Yu, Lianghao
+  Deng, Mei Li, Mingfeng Xue, Mingze Li, Pei Zhang, Peng Wang, Qin Zhu, Rui
+  Men, Ruize Gao, Shixuan Liu, Shuang Luo, Tianhao Li, Tianyi Tang, Wenbiao
+  Yin, Xingzhang Ren, Xinyu Wang, Xinyu Zhang, Xuancheng Ren, Yang Fan, Yang
+  Su, Yichang Zhang, Yinger Zhang, Yu~Wan, Yuqiong Liu, Zekun Wang, Zeyu Cui,
+  Zhenru Zhang, Zhipeng Zhou, and Zihan Qiu.
 \newblock {Qwen3 Technical Report}.
 \newblock \emph{arXiv preprint arXiv:2505.09388}, 2025{\natexlab{a}}.
 \newblock URL \url{https://arxiv.org/abs/2505.09388}.
@@ -752,8 +918,10 @@ Dongxu Zhang, Zhichao Yang, Sepehr Janghorbani, Jun Han, Andrew Ressler, Qian
 \newblock \emph{arXiv preprint arXiv:2602.15260}, 2026{\natexlab{a}}.
 \newblock URL \url{https://arxiv.org/abs/2602.15260}.
 
-\bibitem[Zhang et~al.(2026{\natexlab{b}})]{2604.16830}
-Jiaxin Zhang et~al.
+\bibitem[Zhang et~al.(2026{\natexlab{b}})Zhang, Peng, Chen, Ye, Xiong, and
+  Wu]{2604.16830}
+Jiaxin Zhang, Xiangyu Peng, Qinglin Chen, Qinyuan Ye, Caiming Xiong, and
+  Chien-Sheng Wu.
 \newblock {The Illusion of Certainty: Decoupling Capability and Calibration in
   On-Policy Distillation}.
 \newblock \emph{arXiv preprint arXiv:2604.16830}, 2026{\natexlab{b}}.
@@ -793,21 +961,28 @@ Xue Zhang, Songming Zhang, Yunlong Liang, Fandong Meng, Yufeng Chen, Jinan Xu,
 \newblock \emph{arXiv preprint arXiv:2504.11426}, 2025{\natexlab{b}}.
 \newblock URL \url{https://arxiv.org/abs/2504.11426}.
 
-\bibitem[Zhang et~al.(2026{\natexlab{e}})Zhang, Zhu, Chong, Tu, Zhang, Chai,
+\bibitem[Zhang et~al.(2026{\natexlab{e}})Zhang, Wu, Shen, Zhou, and
+  Ma]{zhang2026guisd}
+Yan Zhang, Daiqing Wu, Huawen Shen, Yu~Zhou, and Can Ma.
+\newblock Learn where to click from yourself: On-policy self-distillation for
+  gui grounding.
+\newblock \emph{arXiv preprint arXiv:2605.00642}, 2026{\natexlab{e}}.
+
+\bibitem[Zhang et~al.(2026{\natexlab{f}})Zhang, Zhu, Chong, Tu, Zhang, Chai,
   Wang, Lin, Yin, and Zhao]{zhang2026piplay}
 Yaocheng Zhang, Yuanheng Zhu, Wenyue Chong, Songjun Tu, Qichao Zhang, Jiajun
   Chai, Xiaohan Wang, Wei Lin, Guojun Yin, and Dongbin Zhao.
 \newblock {$\pi$-Play: Multi-Agent Self-Play via Privileged Self-Distillation
   without External Data}.
-\newblock \emph{arXiv preprint arXiv:2604.14054}, 2026{\natexlab{e}}.
+\newblock \emph{arXiv preprint arXiv:2604.14054}, 2026{\natexlab{f}}.
 \newblock URL \url{https://arxiv.org/abs/2604.14054}.
 
-\bibitem[Zhang et~al.(2026{\natexlab{f}})Zhang, Jiang, Shen, Zhang, Ram, Yang,
-  et~al.]{2602.22495}
+\bibitem[Zhang et~al.(2026{\natexlab{g}})Zhang, Jiang, Shen, Zhang, Ram, Yang,
+  Tu, Xia, and Soatto]{2602.22495}
 Zhaoyang Zhang, Shuli Jiang, Yantao Shen, Yuting Zhang, Dhananjay Ram, Shuo
-  Yang, et~al.
+  Yang, Zhuowen Tu, Wei Xia, and Stefano Soatto.
 \newblock {Reinforcement-aware Knowledge Distillation for LLM Reasoning}.
-\newblock \emph{arXiv preprint arXiv:2602.22495}, 2026{\natexlab{f}}.
+\newblock \emph{arXiv preprint arXiv:2602.22495}, 2026{\natexlab{g}}.
 \newblock URL \url{https://arxiv.org/abs/2602.22495}.
 
 \bibitem[Zhao et~al.(2026{\natexlab{a}})Zhao, Chen, Tong, Fan, Ye, Li, Ma, Li,

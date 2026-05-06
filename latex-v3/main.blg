@@ -5,37 +5,37 @@ The style file: colm2026_conference.bst
 Database file #1: references.bib
 You've used 111 entries,
             2773 wiz_defined-function locations,
-            1137 strings with 31829 characters,
-and the built_in function-call counts, 67172 in all, are:
-= -- 5288
-> -- 6747
-< -- 15
-+ -- 2280
-- -- 2145
-* -- 6307
-:= -- 11235
+            1137 strings with 42297 characters,
+and the built_in function-call counts, 99669 in all, are:
+= -- 7242
+> -- 12585
+< -- 12
++ -- 4221
+- -- 4086
+* -- 10232
+:= -- 17057
 add.period$ -- 438
 call.type$ -- 111
-change.case$ -- 1035
+change.case$ -- 1695
 chr.to.int$ -- 87
 cite$ -- 222
-duplicate$ -- 2276
-empty$ -- 3587
-format.name$ -- 2272
-if$ -- 13288
+duplicate$ -- 2279
+empty$ -- 3590
+format.name$ -- 4211
+if$ -- 19139
 int.to.chr$ -- 25
 int.to.str$ -- 1
 missing$ -- 111
 newline$ -- 668
 num.names$ -- 444
-pop$ -- 2008
+pop$ -- 3325
 preamble$ -- 1
-purify$ -- 924
+purify$ -- 1584
 quote$ -- 0
-skip$ -- 2041
+skip$ -- 2688
 stack$ -- 0
 substring$ -- 319
-swap$ -- 181
+swap$ -- 180
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
