@@ -544,11 +544,11 @@ The limitations of fixed divergences motivate \emph{adaptive} methods that selec
 
 ToDi~\citep{2505.16297} operationalizes this insight through per-token weighting derived from the teacher-student probability log-ratio. A sigmoid-based function $w_t = \sigma(\log p_T(y_t|y_{<t}) - \log p_\theta(y_t|y_{<t}))$ dynamically blends Forward KL and Reverse KL for each token:
 \begin{equation}
-    \loss_{\text{ToDi}} = \E_{y \sim \ptheta} \left[ \sum_{t=1}^{|y|} w_t \cdot \KL(\ptheta \parallel \pteacher) + (1-w_t) \cdot \KL(\pteacher \parallel \ptheta) \right]
+    \loss_{\text{ToDi}} = \E_{y \sim \ptheta} \left[ \sum_{t=1}^{|y|} w_t \cdot \KL(\pteacher \parallel \ptheta) + (1-w_t) \cdot \KL(\ptheta \parallel \pteacher) \right]
 \end{equation}
-where $w_t$ emphasizes Reverse KL for tokens the student overestimates and Forward KL for tokens it underestimates. Entropy-Aware OPD~\citep{2603.07079} takes an alternative approach, using the teacher's entropy $H(\pteacher(\cdot|y_{<t}))$ as the interpolation signal:
+where $w_t$ emphasizes Forward KL for tokens the student underestimates (boosting their probability) and Reverse KL for tokens it overestimates (suppressing excess probability). Entropy-Aware OPD~\citep{2603.07079} takes an alternative approach, using the teacher's per-token entropy $H(\pteacher(\cdot|y_{<t}))$ as a gating signal. The base objective is Reverse KL at all positions, with Forward KL \emph{additively} activated at high-entropy tokens where the teacher distributes probability across multiple valid continuations:
 \begin{equation}
-    \loss_{\text{EA}} = \E_{y \sim \ptheta} \left[ \sum_{t=1}^{|y|} (1 - \alpha_t) \KL(\ptheta \parallel \pteacher) + \alpha_t \KL(\pteacher \parallel \ptheta) \right]
+    \loss_{\text{EA}} = \E_{y \sim \ptheta} \left[ \sum_{t=1}^{|y|} \KL(\ptheta \parallel \pteacher) + \mathbb{I}[H_t > \tau] \cdot \KL(\pteacher \parallel \ptheta) \right]
 \end{equation}
 Both methods consistently outperform any fixed divergence on math reasoning (MATH, GSM8K) and open-ended generation (AlpacaEval), confirming that the optimal divergence is indeed position-dependent.
 
@@ -600,7 +600,7 @@ Complex reasoning is where OPD proves most indispensable and where off-policy me
 \begin{equation}
     \loss_{\text{CoT-OPD}}(\theta) = \E_{x \sim \mathcal{D},\; r^S \sim P_\theta(\cdot|x)} \left[ \sum_{t=1}^{|r^S|} \KL\!\left( P_T(\cdot|x, r^S_{<t}) \;\|\; P_\theta(\cdot|x, r^S_{<t}) \right) \right]
 \end{equation}
-The Reverse KL direction is mode-seeking by design: rather than forcing the student to spread probability across all teacher-approved continuations (which would blur distinct reasoning strategies), it reinforces the student's own high-probability paths that the teacher validates. This self-consistent learning dynamic, where the student practices its own reasoning style under expert supervision, is why on-policy CoT distillation has become the de facto standard for instilling multi-step reasoning into smaller models~\citep{2305.02301}.
+The Forward KL direction ensures mode-covering: the student must allocate probability wherever the teacher does on the student's own prefixes, effectively receiving corrective feedback on its actual generation patterns rather than memorizing the teacher's preferred trajectories. This self-consistent learning dynamic, where the student practices its own reasoning style under expert supervision, is why on-policy CoT distillation has become the de facto standard for instilling multi-step reasoning into smaller models~\citep{2305.02301}.
 
 \subsection{White-Box Logit Supervision}
 \label{subsec:white_box}
@@ -1077,9 +1077,9 @@ These four patterns reflect a broader shift in how industry views OPD. The first
 
 Video-OPD~\citep{2602.02994} extends to temporal video grounding, where the student must learn to localize events within video sequences. X-OPD~\citep{2603.24596} crosses the text-speech boundary, distilling a text-mode Qwen3-Omni into its own speech mode by generating on-policy speech responses and aligning them with the model's own text-mode reasoning. CORD~\citep{hu2026cord} applies cross-modal self-distillation between text and audio modes of the same model using weighted Reverse KL:
 \begin{equation}
-    \loss_{\text{CORD}} = \E_{x \sim \mathcal{D}} \E_{\hat{y} \sim \pi_{\text{audio}}(\cdot|x)} \left[ \sum_{t} w_t \cdot \KL\!\left(\pi_{\text{text}}(\cdot|x, \hat{y}_{<t}) \;\|\; \pi_{\text{audio}}(\cdot|x, \hat{y}_{<t})\right) \right]
+    \loss_{\text{CORD}} = \E_{x \sim \mathcal{D}} \E_{\hat{y} \sim \pi_{\text{audio}}(\cdot|x)} \left[ \sum_{t} w_t \cdot \KL\!\left(\pi_{\text{audio}}(\cdot|x, \hat{y}_{<t}) \;\|\; \pi_{\text{text}}(\cdot|x, \hat{y}_{<t})\right) \right]
 \end{equation}
-where the audio mode generates on-policy rollouts and the text mode provides token-level targets, combined with GRPO for outcome reward maximization. CORD achieves state-of-the-art speech reasoning performance, demonstrating that different modality modes of the same model can serve as effective mutual teachers through on-policy interaction.
+where the audio mode generates on-policy rollouts and the text mode provides token-level targets through Reverse KL, combined with GRPO for outcome reward maximization. CORD achieves state-of-the-art speech reasoning performance, demonstrating that different modality modes of the same model can serve as effective mutual teachers through on-policy interaction.
 
 KEPO~\citep{2602.00400} identifies a distinct failure mode in multimodal settings: sparse RLVR fails due to exploration collapse when initial solve rates are near zero. By conditioning preference optimization on teacher knowledge, KEPO provides the dense signal necessary to bootstrap capable VLMs.
 
