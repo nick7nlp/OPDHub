@@ -270,11 +270,10 @@ The practitioner faces three sequential decisions: (1) what objective to optimiz
     ]
     %% ===== Stage 2: Signal Source and Teacher Architecture (§5) =====
     [{\S 5 Signal Source and\\Teacher Architecture}, catSig, edge={draw=sdcolor!60, line width=1.2pt}
-      [{\textbf{5.1 White-Box Logit Supervision}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{11};}\\[2pt]%
+      [{\textbf{5.1 White-Box Logit Supervision}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{9};}\\[2pt]%
         DSKD~\citep{2504.11426}, Cross-Tokenizer KD~\citep{2402.12030}, TAID~\citep{2501.16937},\\[1pt]%
         Delta-KD~\citep{2509.14526}, Veto~\citep{2601.07155}, PromptKD~\citep{2402.12842},\\[1pt]%
-        CSD~\citep{2509.25837}, AdaKD~\citep{2510.11615}, SelecTKD~\citep{2510.24021},\\[1pt]%
-        AdaSwitch~\citep{2510.07842}, MiniPLM~\citep{2410.17215}%
+        CSD~\citep{2509.25837}, AdaKD~\citep{2510.11615}, MiniPLM~\citep{2410.17215}%
         }, leaf=sdcolor, edge={draw=sdcolor!30}]
       [{\textbf{5.2 Black-Box and API-Constrained Distillation}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{9};}\\[2pt]%
         Lion~\citep{2305.12870}, GAD~\citep{2511.10643}, OVD~\citep{2601.21968},\\[1pt]%
@@ -413,21 +412,21 @@ Skewing guarantees the target density is bounded below by $(1-\alpha)\ptheta$, e
   % =================== Panel (a): Teacher P_T ===================
   \fill[black, opacity=0.04, rounded corners=11pt] (0.08, -1.87) rectangle (6.58, 5.53);
   \fill[panelbg, rounded corners=10pt] (0, -1.8) rectangle (6.5, 5.6);
-  \draw[lightpurple, line width=1.2pt, rounded corners=10pt] (0, -1.8) rectangle (6.5, 5.6);
+  \draw[lightpurple, line width=0.8pt, rounded corners=10pt] (0, -1.8) rectangle (6.5, 5.6);
 
   \begin{scope}[shift={(1.05, 0.15)}]
     \node[font=\large\bfseries, deeppurple] at (2.25, 4.85) {(a)\; Teacher $P_T$};
     \node[font=\small, midpurple] at (2.25, 4.35) {\textit{Bimodal reference}};
-    \draw[-{Stealth[length=5pt,width=4pt]}, line width=1.2pt, midgray]
+    \draw[-{Stealth[length=5pt,width=4pt]}, line width=0.8pt, midgray]
       (0, 0) -- (4.6, 0);
     \node[font=\small, midgray, anchor=north] at (4.45, -0.08) {$y$};
-    \draw[-{Stealth[length=5pt,width=4pt]}, line width=1.2pt, midgray]
+    \draw[-{Stealth[length=5pt,width=4pt]}, line width=0.8pt, midgray]
       (0, 0) -- (0, 3.6);
     \node[font=\small, midgray, anchor=south west] at (0.1, 3.45) {$P(y)$};
     \shade[top color=midpurple!35, bottom color=midpurple!3, smooth, samples=100, domain=0.05:4.5]
       plot (\x, {2.3*(exp(-((\x-1.2)^2)/(2*0.42^2)) + exp(-((\x-3.4)^2)/(2*0.42^2)))/(0.42*sqrt(2*pi))})
       -- (4.5,0) -- (0.05,0) -- cycle;
-    \draw[deeppurple, line width=2.8pt, smooth, samples=100, domain=0.05:4.5]
+    \draw[deeppurple, line width=1.5pt, smooth, samples=100, domain=0.05:4.5]
       plot (\x, {2.3*(exp(-((\x-1.2)^2)/(2*0.42^2)) + exp(-((\x-3.4)^2)/(2*0.42^2)))/(0.42*sqrt(2*pi))});
     \fill[midpurple!12, rounded corners=4pt] (0.3, 2.95) rectangle (2.1, 3.29);
     \node[font=\small\bfseries, deeppurple] at (1.2, 3.12) {Mode 1};
@@ -436,7 +435,7 @@ Skewing guarantees the target density is bounded below by $(1-\alpha)\ptheta$, e
     \draw[-{Stealth[length=3pt,width=2.5pt]}, deeppurple!40, line width=0.6pt] (1.2, 2.92) -- (1.2, 2.45);
     \draw[-{Stealth[length=3pt,width=2.5pt]}, deeppurple!40, line width=0.6pt] (3.4, 2.92) -- (3.4, 2.45);
     \fill[midpurple!8, rounded corners=3pt] (0.6, -0.6) rectangle (2.8, -0.95);
-    \draw[deeppurple, line width=2.2pt] (0.8, -0.78) -- (1.5, -0.78);
+    \draw[deeppurple, line width=0.9pt] (0.8, -0.78) -- (1.5, -0.78);
     \node[font=\small, deepgray, anchor=west] at (1.6, -0.78) {$P_T$};
     \node[font=\normalsize, deepgray] at (2.25, -1.42)
       {Two equally valid modes};
@@ -445,36 +444,36 @@ Skewing guarantees the target density is bounded below by $(1-\alpha)\ptheta$, e
   % =================== Panel (b): Forward KL ===================
   \fill[black, opacity=0.04, rounded corners=11pt] (7.08, -1.87) rectangle (13.48, 5.53);
   \fill[panelbg, rounded corners=10pt] (7.0, -1.8) rectangle (13.4, 5.6);
-  \draw[lightblue, line width=1.2pt, rounded corners=10pt] (7.0, -1.8) rectangle (13.4, 5.6);
+  \draw[lightblue, line width=0.8pt, rounded corners=10pt] (7.0, -1.8) rectangle (13.4, 5.6);
 
   \begin{scope}[shift={(8.05, 0.15)}]
     \node[font=\large\bfseries, deepblue] at (2.15, 4.85) {(b)\; Forward KL};
     \node[font=\small, midblue] at (2.15, 4.35) {\textit{Mode-covering (zero-avoiding)}};
-    \draw[-{Stealth[length=5pt,width=4pt]}, line width=1.2pt, midgray]
+    \draw[-{Stealth[length=5pt,width=4pt]}, line width=0.8pt, midgray]
       (0, 0) -- (4.6, 0);
     \node[font=\small, midgray, anchor=north] at (4.45, -0.08) {$y$};
-    \draw[-{Stealth[length=5pt,width=4pt]}, line width=1.2pt, midgray]
+    \draw[-{Stealth[length=5pt,width=4pt]}, line width=0.8pt, midgray]
       (0, 0) -- (0, 3.6);
     \node[font=\small, midgray, anchor=south west] at (0.1, 3.45) {$P(y)$};
     \shade[top color=midblue!20, bottom color=midblue!2, opacity=0.5, smooth, samples=100, domain=0.05:4.5]
       plot (\x, {1.9*exp(-((\x-2.3)^2)/(2*0.78^2))/(0.78*sqrt(2*pi))})
       -- (4.5,0) -- (0.05,0) -- cycle;
-    \draw[coralpink, line width=1.2pt, dash pattern=on 3pt off 2pt, smooth, samples=60, domain=1.5:3.0]
+    \draw[coralpink, line width=0.9pt, dash pattern=on 3pt off 2pt, smooth, samples=60, domain=1.5:3.0]
       plot (\x, {1.9*exp(-((\x-2.3)^2)/(2*0.78^2))/(0.78*sqrt(2*pi))});
-    \draw[coralpink, line width=1.2pt, dash pattern=on 3pt off 2pt] (1.5, 0) -- (3.0, 0);
+    \draw[coralpink, line width=0.9pt, dash pattern=on 3pt off 2pt] (1.5, 0) -- (3.0, 0);
     \shade[top color=coralpink!18, bottom color=coralpink!2, opacity=0.4, smooth, samples=60, domain=1.5:3.0]
       plot (\x, {1.9*exp(-((\x-2.3)^2)/(2*0.78^2))/(0.78*sqrt(2*pi))})
       -- (3.0, 0) -- (1.5, 0) -- cycle;
-    \draw[midgray, line width=1.5pt, dash pattern=on 4pt off 3pt, smooth, samples=100, domain=0.05:4.5]
+    \draw[midgray, line width=1.0pt, dash pattern=on 4pt off 3pt, smooth, samples=100, domain=0.05:4.5]
       plot (\x, {2.3*(exp(-((\x-1.2)^2)/(2*0.42^2)) + exp(-((\x-3.4)^2)/(2*0.42^2)))/(0.40*sqrt(2*pi))});
-    \draw[deepblue, line width=2.8pt, smooth, samples=100, domain=0.05:4.5]
+    \draw[deepblue, line width=1.5pt, smooth, samples=100, domain=0.05:4.5]
       plot (\x, {1.9*exp(-((\x-2.3)^2)/(2*0.78^2))/(0.78*sqrt(2*pi))});
     \node[font=\footnotesize\bfseries, coralpink, inner sep=0pt] at (2.3, 0.15) {Hallucination};
     \draw[-{Stealth[length=3pt,width=2.5pt]}, coralpink, line width=0.7pt] (2.3, 0.28) -- (2.3, 0.55);
     \fill[midgray!5, rounded corners=3pt] (0.25, -0.6) rectangle (4.35, -0.95);
-    \draw[midgray, line width=1.5pt, dash pattern=on 4pt off 3pt] (0.45, -0.78) -- (1.15, -0.78);
+    \draw[midgray, line width=1.0pt, dash pattern=on 4pt off 3pt] (0.45, -0.78) -- (1.15, -0.78);
     \node[font=\small, deepgray, anchor=west] at (1.25, -0.78) {$P_T$};
-    \draw[deepblue, line width=2.2pt] (2.65, -0.78) -- (3.35, -0.78);
+    \draw[deepblue, line width=0.9pt] (2.65, -0.78) -- (3.35, -0.78);
     \node[font=\small, deepgray, anchor=west] at (3.45, -0.78) {$P_S$};
     \node[font=\normalsize, deepgray] at (2.3, -1.42)
       {$\displaystyle\min_{P_S}\; D_{\mathrm{KL}}(P_T \,\|\, P_S)$};
@@ -483,33 +482,33 @@ Skewing guarantees the target density is bounded below by $(1-\alpha)\ptheta$, e
   % =================== Panel (c): Reverse KL ===================
   \fill[black, opacity=0.04, rounded corners=11pt] (13.98, -1.87) rectangle (20.38, 5.53);
   \fill[panelbg, rounded corners=10pt] (13.9, -1.8) rectangle (20.3, 5.6);
-  \draw[lightorange, line width=1.2pt, rounded corners=10pt] (13.9, -1.8) rectangle (20.3, 5.6);
+  \draw[lightorange, line width=0.8pt, rounded corners=10pt] (13.9, -1.8) rectangle (20.3, 5.6);
 
   \begin{scope}[shift={(14.95, 0.15)}]
     \node[font=\large\bfseries, deeporange] at (2.15, 4.85) {(c)\; Reverse KL};
     \node[font=\small, midorange] at (2.15, 4.35) {\textit{Mode-seeking (zero-forcing)}};
-    \draw[-{Stealth[length=5pt,width=4pt]}, line width=1.2pt, midgray]
+    \draw[-{Stealth[length=5pt,width=4pt]}, line width=0.8pt, midgray]
       (0, 0) -- (4.6, 0);
     \node[font=\small, midgray, anchor=north] at (4.45, -0.08) {$y$};
-    \draw[-{Stealth[length=5pt,width=4pt]}, line width=1.2pt, midgray]
+    \draw[-{Stealth[length=5pt,width=4pt]}, line width=0.8pt, midgray]
       (0, 0) -- (0, 3.6);
     \node[font=\small, midgray, anchor=south west] at (0.1, 3.45) {$P(y)$};
     \shade[top color=midorange!28, bottom color=midorange!3, opacity=0.5, smooth, samples=100, domain=0.05:4.5]
       plot (\x, {2.4*exp(-((\x-3.4)^2)/(2*0.36^2))/(0.36*sqrt(2*pi))})
       -- (4.5,0) -- (0.05,0) -- cycle;
-    \draw[midgray, line width=1.5pt, dash pattern=on 4pt off 3pt, smooth, samples=100, domain=0.05:4.5]
+    \draw[midgray, line width=1.0pt, dash pattern=on 4pt off 3pt, smooth, samples=100, domain=0.05:4.5]
       plot (\x, {2.3*(exp(-((\x-1.2)^2)/(2*0.42^2)) + exp(-((\x-3.4)^2)/(2*0.42^2)))/(0.40*sqrt(2*pi))});
-    \draw[deeporange, line width=2.8pt, smooth, samples=100, domain=0.05:4.5]
+    \draw[deeporange, line width=1.5pt, smooth, samples=100, domain=0.05:4.5]
       plot (\x, {2.4*exp(-((\x-3.4)^2)/(2*0.36^2))/(0.36*sqrt(2*pi))});
-    \draw[midgray!40, line width=1.8pt] (0.8, 0.95) -- (1.6, 1.65);
-    \draw[midgray!40, line width=1.8pt] (0.8, 1.65) -- (1.6, 0.95);
-    \draw[midgray!30, line width=1.3pt] (1.2, 1.3) circle (0.5);
+    \draw[midgray!40, line width=1.2pt] (0.8, 0.95) -- (1.6, 1.65);
+    \draw[midgray!40, line width=1.2pt] (0.8, 1.65) -- (1.6, 0.95);
+    \draw[midgray!30, line width=0.9pt] (1.2, 1.3) circle (0.5);
     \fill[midgray!8, rounded corners=3pt] (0.25, 0.2) rectangle (2.15, 0.54);
     \node[font=\footnotesize\bfseries, midgray!80!black] at (1.2, 0.37) {Mode Dropped};
     \fill[midgray!5, rounded corners=3pt] (0.25, -0.6) rectangle (4.35, -0.95);
-    \draw[midgray, line width=1.5pt, dash pattern=on 4pt off 3pt] (0.45, -0.78) -- (1.15, -0.78);
+    \draw[midgray, line width=1.0pt, dash pattern=on 4pt off 3pt] (0.45, -0.78) -- (1.15, -0.78);
     \node[font=\small, deepgray, anchor=west] at (1.25, -0.78) {$P_T$};
-    \draw[deeporange, line width=2.2pt] (2.65, -0.78) -- (3.35, -0.78);
+    \draw[deeporange, line width=0.9pt] (2.65, -0.78) -- (3.35, -0.78);
     \node[font=\small, deepgray, anchor=west] at (3.45, -0.78) {$P_S$};
     \node[font=\normalsize, deepgray] at (2.3, -1.42)
       {$\displaystyle\min_{P_S}\; D_{\mathrm{KL}}(P_S \,\|\, P_T)$};
@@ -1024,7 +1023,7 @@ where $\gamma$ is the fraction processed on-policy. For generic knowledge transf
         DP-OPD \citep{khadem2026dpopd} & GPT-2 Large 774M & DistilGPT-2 82M & GKD + DP-SGD (student only) & Yelp, BigPatent \\
         Veto \citep{2601.07155} & Qwen2-7B-IT & Qwen2-0.5B-IT & Geometric bridge KL & Reasoning, Generation \\
         TAID \citep{2501.16937} & GPT-2 XL, Llama-3-8B & GPT-2 Base/Med, Llama-3-2B & Temporal interpolation & Summarization, QA \\
-        GUI-SD \citep{chen2026guisd} & Self (visual PI) & Qwen3-VL-Inst-8B & Entropy-guided KL & ScreenSpot, RefExp, VisGround \\
+        GUI-SD \citep{zhang2026guisd} & Self (visual PI) & Qwen3-VL-Inst-8B & Entropy-guided KL & ScreenSpot, RefExp, VisGround \\
         \midrule
         \multicolumn{5}{l}{\textit{Self-Distillation}} \\
         \midrule
@@ -1083,7 +1082,7 @@ where the audio mode generates on-policy rollouts and the text mode provides tok
 
 KEPO~\citep{2602.00400} identifies a distinct failure mode in multimodal settings: sparse RLVR fails due to exploration collapse when initial solve rates are near zero. By conditioning preference optimization on teacher knowledge, KEPO provides the dense signal necessary to bootstrap capable VLMs.
 
-\textbf{Embodied intelligence and physical reasoning.} Moving beyond language-only domains, OPD is increasingly applied to settings where the output space is continuous and errors are physically irreversible. VLA-OPD~\citep{zhong2026vlaopd} applies Reverse KL on self-generated robot trajectories, distilling expert demonstrations into a Vision-Language-Action student. Because the action space is continuous rather than discrete, the student must learn precise motor control from the teacher's dense token-level supervision on self-generated trajectories, significantly improving sample efficiency over RL and robustness over SFT. HY-Embodied-0.5~\citep{tencent2026hyembodied} uses multi-stage OPD to compress a 32B expert VLM into a 2B embodied MoT model for spatial reasoning, outperforming similarly sized models on 16 out of 22 benchmarks. OPD-AV~\citep{afsharrad2026onpolicy} extends to autonomous driving, applying GKD with $5\times$ compression for planning, distilling a Qwen3-8B SFT model into a 1.7B student on nuScenes. GUI-SD~\citep{chen2026guisd} occupies an intermediate position between text and physical interaction: the student generates click trajectories on graphical interfaces while a privileged version of itself (with access to bounding boxes and Gaussian soft masks) provides token-level KL supervision. Its entropy-guided distillation selectively weights tokens where teacher-student divergence is highest, achieving state-of-the-art on 6 GUI grounding benchmarks with Qwen3-VL-Instruct-8B.
+\textbf{Embodied intelligence and physical reasoning.} Moving beyond language-only domains, OPD is increasingly applied to settings where the output space is continuous and errors are physically irreversible. VLA-OPD~\citep{zhong2026vlaopd} applies Reverse KL on self-generated robot trajectories, distilling expert demonstrations into a Vision-Language-Action student. Because the action space is continuous rather than discrete, the student must learn precise motor control from the teacher's dense token-level supervision on self-generated trajectories, significantly improving sample efficiency over RL and robustness over SFT. HY-Embodied-0.5~\citep{tencent2026hyembodied} uses multi-stage OPD to compress a 32B expert VLM into a 2B embodied MoT model for spatial reasoning, outperforming similarly sized models on 16 out of 22 benchmarks. OPD-AV~\citep{afsharrad2026onpolicy} extends to autonomous driving, applying GKD with $5\times$ compression for planning, distilling a Qwen3-8B SFT model into a 1.7B student on nuScenes. GUI-SD~\citep{zhang2026guisd} occupies an intermediate position between text and physical interaction: the student generates click trajectories on graphical interfaces while a privileged version of itself (with access to bounding boxes and Gaussian soft masks) provides token-level KL supervision. Its entropy-guided distillation selectively weights tokens where teacher-student divergence is highest, achieving state-of-the-art on 6 GUI grounding benchmarks with Qwen3-VL-Instruct-8B.
 
 The consistent finding across these physical and multimodal domains is that on-policy generation is \emph{even more critical} than in text-only settings, because the diversity of valid outputs (multiple correct grasping trajectories, multiple valid temporal localizations, multiple acceptable visual descriptions) makes off-policy data coverage impractical, and the consequence of distributional mismatch is not merely lower benchmark scores but physical failure.
 
