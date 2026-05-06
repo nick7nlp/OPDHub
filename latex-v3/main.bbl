@@ -1,4 +1,4 @@
-\begin{thebibliography}{111}
+\begin{thebibliography}{113}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -571,6 +571,12 @@ Jingyu Peng, Maolin Wang, Hengyi Cai, Yuchen Li, Kai Zhang, Shuaiqiang Wang,
 \newblock \emph{arXiv preprint arXiv:2510.07842}, 2025.
 \newblock URL \url{https://arxiv.org/abs/2510.07842}.
 
+\bibitem[Qin et~al.(2026)Qin, Wang, Liu, Li, Wei, and Shen]{qin2026msd}
+Ruiyang Qin, Qingzhuo Wang, Dongrui Liu, Qiang Li, Zhihua Wei, and Wen Shen.
+\newblock {Multilingual Safety Alignment via Self-Distillation}.
+\newblock \emph{arXiv preprint arXiv:2605.02971}, 2026.
+\newblock URL \url{https://arxiv.org/abs/2605.02971}.
+
 \bibitem[Ross et~al.(2011)Ross, Gordon, and Bagnell]{ross2011reduction}
 St{\'e}phane Ross, Geoffrey~J. Gordon, and J.~Andrew Bagnell.
 \newblock A reduction of imitation learning and structured prediction to
@@ -657,29 +663,38 @@ Hao Wang, Guozhi Wang, Han Xiao, Yufeng Zhou, Yue Pan, Jichao Wang, Ke~Xu,
 \newblock \emph{arXiv preprint arXiv:2604.10674}, 2026{\natexlab{a}}.
 \newblock URL \url{https://arxiv.org/abs/2604.10674}.
 
-\bibitem[Wang et~al.(2026{\natexlab{b}})Wang, Zhang, Shi, Li, and
+\bibitem[Wang et~al.(2026{\natexlab{b}})Wang, Liu, Chen, Hu, Zhang, Cao, Wang,
+  Yang, Xie, and Chen]{wang2026madopd}
+Jianze Wang, Ying Liu, Jinlong Chen, Xuchun Hu, Qilong Zhang, Yu~Cao, Jun Wang,
+  Hua Yang, Yong Xie, and Qianglong Chen.
+\newblock {MAD-OPD: Breaking the Ceiling in On-Policy Distillation via
+  Multi-Agent Debate}.
+\newblock \emph{arXiv preprint arXiv:2605.01347}, 2026{\natexlab{b}}.
+\newblock URL \url{https://arxiv.org/abs/2605.01347}.
+
+\bibitem[Wang et~al.(2026{\natexlab{c}})Wang, Zhang, Shi, Li, and
   Cheng]{chen2026tcod}
 Jiaqi Wang, Wenhao Zhang, Weijie Shi, Yaliang Li, and James Cheng.
 \newblock {TCOD: Exploring Temporal Curriculum in On-Policy Distillation for
   Multi-turn Autonomous Agents}.
-\newblock \emph{arXiv preprint arXiv:2604.24005}, 2026{\natexlab{b}}.
+\newblock \emph{arXiv preprint arXiv:2604.24005}, 2026{\natexlab{c}}.
 \newblock URL \url{https://arxiv.org/abs/2604.24005}.
 
-\bibitem[Wang et~al.(2026{\natexlab{c}})Wang, Huang, Yu, Yang, Lin, Wu, Xiao,
+\bibitem[Wang et~al.(2026{\natexlab{d}})Wang, Huang, Yu, Yang, Lin, Wu, Xiao,
   Chen, Wang, Zhu, Zhang, and Qin]{wang2026prism}
 Sudong Wang, Weiquan Huang, Xiaomin Yu, Zuhao Yang, Hehai Lin, Keming Wu,
   Chaojun Xiao, Chen Chen, Wenxuan Wang, Beier Zhu, Yunjian Zhang, and Chengwei
   Qin.
 \newblock {Beyond SFT-to-RL: Pre-alignment via Black-Box On-Policy Distillation
   for Multimodal RL}.
-\newblock \emph{arXiv preprint arXiv:2604.28123}, 2026{\natexlab{c}}.
+\newblock \emph{arXiv preprint arXiv:2604.28123}, 2026{\natexlab{d}}.
 \newblock URL \url{https://arxiv.org/abs/2604.28123}.
 
-\bibitem[Wang et~al.(2026{\natexlab{d}})Wang, Chen, Jin, Wang, and
+\bibitem[Wang et~al.(2026{\natexlab{e}})Wang, Chen, Jin, Wang, and
   Yang]{wang2026openclawrl}
 Yinjie Wang, Xuyang Chen, Xiaolong Jin, Mengdi Wang, and Ling Yang.
 \newblock {OpenClaw-RL: Train Any Agent Simply by Talking}.
-\newblock \emph{arXiv preprint arXiv:2603.10165}, 2026{\natexlab{d}}.
+\newblock \emph{arXiv preprint arXiv:2603.10165}, 2026{\natexlab{e}}.
 \newblock URL \url{https://arxiv.org/abs/2603.10165}.
 
 \bibitem[Wen et~al.(2023)Wen, Li, Du, and Mou]{2307.15190}

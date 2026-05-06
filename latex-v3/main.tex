@@ -270,29 +270,31 @@ The practitioner faces three sequential decisions: (1) what objective to optimiz
     ]
     %% ===== Stage 2: Signal Source and Teacher Architecture (§5) =====
     [{\S 5 Signal Source and\\Teacher Architecture}, catSig, edge={draw=sdcolor!60, line width=1.2pt}
-      [{\textbf{5.1 White-Box Logit Supervision}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{9};}\\[2pt]%
+      [{\textbf{5.1 White-Box Logit Supervision}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{10};}\\[2pt]%
         DSKD~\citep{2504.11426}, Cross-Tokenizer KD~\citep{2402.12030}, TAID~\citep{2501.16937},\\[1pt]%
         Delta-KD~\citep{2509.14526}, Veto~\citep{2601.07155}, PromptKD~\citep{2402.12842},\\[1pt]%
-        CSD~\citep{2509.25837}, AdaKD~\citep{2510.11615}, MiniPLM~\citep{2410.17215}%
+        CSD~\citep{2509.25837}, AdaKD~\citep{2510.11615}, MiniPLM~\citep{2410.17215},\\[1pt]%
+        MAD-OPD~\citep{wang2026madopd}%
         }, leaf=sdcolor, edge={draw=sdcolor!30}]
       [{\textbf{5.2 Black-Box and API-Constrained Distillation}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{9};}\\[2pt]%
         Lion~\citep{2305.12870}, GAD~\citep{2511.10643}, OVD~\citep{2601.21968},\\[1pt]%
         DAIL~\citep{2602.02405}, ORPO-Distill~\citep{2509.25100}, LUFFY~\citep{2504.14945},\\[1pt]%
         ThinkTuning~\citep{rrv2025thinktuning}, DASD~\citep{2601.09088}, DDT~\citep{2602.12222}%
         }, leaf=sdcolor, edge={draw=sdcolor!30}]
-      [{\textbf{5.3 Self-Distillation: Privileged Information}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{8};}\\[2pt]%
+      [{\textbf{5.3 Self-Distillation: Privileged Information}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{9};}\\[2pt]%
         OPSD~\citep{2601.18734}, GATES~\citep{2602.20574}, Priv. Info. Distill~\citep{2602.04942},\\[1pt]%
         OPCD~\citep{2602.12275}, OEL~\citep{2603.16856}, HDPO~\citep{2603.23871},\\[1pt]%
-        CRISP~\citep{2603.05433}, OPSDL~\citep{2604.17535}%
+        CRISP~\citep{2603.05433}, OPSDL~\citep{2604.17535}, GUI-SD~\citep{zhang2026guisd}%
         }, leaf=sdcolor, edge={draw=sdcolor!30}]
       [{\textbf{5.4 Self-Distillation: Self-Play}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{7};}\\[2pt]%
         SPIN~\citep{2401.01335}, MTP Self-Distill~\citep{2602.06019}, SDFT~\citep{2601.19897},\\[1pt]%
         On-Policy SFT~\citep{zhao2026onpolicy}, SSD~\citep{zhang2026embarrassingly}, $\pi$-Play~\citep{zhang2026piplay},\\[1pt]%
         IRIS~\citep{2604.20933}%
         }, leaf=sdcolor, edge={draw=sdcolor!30}]
-      [{\textbf{5.5 Self-Distillation: External Feedback}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{5};}\\[2pt]%
+      [{\textbf{5.5 Self-Distillation: External Feedback}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{7};}\\[2pt]%
         SDPO~\citep{2601.20802}, SD-ZERO~\citep{he2026selfdistillation}, RLSD~\citep{yang2026selfdistilled},\\[1pt]%
-        SRPO~\citep{li2026unifying}, RLTF~\citep{song2026expanding}%
+        SRPO~\citep{li2026unifying}, RLTF~\citep{song2026expanding}, CoPD~\citep{gu2026copd},\\[1pt]%
+        MSD~\citep{qin2026msd}%
         }, leaf=sdcolor, edge={draw=sdcolor!30}]
     ]
     %% ===== Stage 3: Training Dynamics and Efficiency (§6) =====
@@ -300,9 +302,10 @@ The practitioner faces three sequential decisions: (1) what objective to optimiz
       [{\textbf{6.1 Token and Sample Weighting}~{\tikz[baseline=-0.5ex]\node[badge=dycolor]{4};}\\[2pt]%
         TIP~\citep{xu2026tip}, SCOPE~\citep{zheng2026scope}, SelecTKD~\citep{2510.24021}, AdaSwitch~\citep{2510.07842}%
         }, leaf=dycolor, edge={draw=dycolor!30}]
-      [{\textbf{6.2 Curriculum and Difficulty Adaptation}~{\tikz[baseline=-0.5ex]\node[badge=dycolor]{6};}\\[2pt]%
+      [{\textbf{6.2 Curriculum and Difficulty Adaptation}~{\tikz[baseline=-0.5ex]\node[badge=dycolor]{7};}\\[2pt]%
         PACED~\citep{2603.11178}, Stable-OPD~\citep{luo2026demystifying}, SSB~\citep{mitra2025semantic},\\[1pt]%
-        PAINT~\citep{wang2026paint}, PRISM~\citep{wang2026prism}, CaOPD~\citep{2604.16830}%
+        PAINT~\citep{wang2026paint}, PRISM~\citep{wang2026prism}, CaOPD~\citep{2604.16830},\\[1pt]%
+        TCOD~\citep{chen2026tcod}%
         }, leaf=dycolor, edge={draw=dycolor!30}]
       [{\textbf{6.3 Compute Optimization}~{\tikz[baseline=-0.5ex]\node[badge=dycolor]{3};}\\[2pt]%
         Fast OPD~\citep{2602.15260}, Lightning OPD~\citep{wu2026lightning}, Speculative KD~\citep{2410.11325}%
