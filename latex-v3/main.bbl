@@ -1,4 +1,4 @@
-\begin{thebibliography}{110}
+\begin{thebibliography}{111}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -95,11 +95,20 @@ Howard Chen, Noam Razin, Karthik Narasimhan, and Danqi Chen.
 \newblock \emph{arXiv preprint arXiv:2510.18874}, 2025.
 \newblock URL \url{https://arxiv.org/abs/2510.18874}.
 
-\bibitem[Chen et~al.(2026)]{chen2026guisd}
+\bibitem[Chen et~al.(2026{\natexlab{a}})]{chen2026guisd}
 Kai Chen et~al.
 \newblock Learn where to click from yourself: On-policy self-distillation for
   gui grounding.
-\newblock \emph{arXiv preprint arXiv:2605.00642}, 2026.
+\newblock \emph{arXiv preprint arXiv:2605.00642}, 2026{\natexlab{a}}.
+
+\bibitem[Chen et~al.(2026{\natexlab{b}})Chen, Qian, Li, Yu, Kong, Li, Wu, Yu,
+  and You]{chen2026tcod}
+Zirui Chen, Cheng Qian, Yiwei Li, Zhaoyang Yu, Linghao Kong, Gang Li, Zhizheng
+  Wu, Tao Yu, and Jiaxuan You.
+\newblock {TCOD: Exploring Temporal Curriculum in On-Policy Distillation for
+  Multi-turn Autonomous Agents}.
+\newblock \emph{arXiv preprint arXiv:2604.24005}, 2026{\natexlab{b}}.
+\newblock URL \url{https://arxiv.org/abs/2604.24005}.
 
 \bibitem[Chen et~al.(2024)Chen, Deng, Yuan, Ji, and Gu]{2401.01335}
 Zixiang Chen, Yihe Deng, Huizhuo Yuan, Kaixuan Ji, and Quanquan Gu.

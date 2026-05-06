@@ -202,35 +202,91 @@ The practitioner faces three sequential decisions: (1) what objective to optimiz
 
 \begin{figure*}[t]
 \centering
-\resizebox{\textwidth}{!}{%
-\begin{tikzpicture}[%
-  every node/.style={font=\small},
-  level 1/.style={sibling distance=60mm, level distance=18mm},
-  level 2/.style={sibling distance=28mm, level distance=16mm},
-  root/.style={draw=deepblue, fill=lightblue2!60, rounded corners=5pt, line width=1.2pt, font=\bfseries\small, inner sep=6pt, minimum width=50mm},
-  branch/.style={draw=midblue, fill=lightblue!40, rounded corners=4pt, line width=0.8pt, font=\bfseries\footnotesize, inner sep=5pt, minimum width=38mm},
-  leaf/.style={draw=midblue!50, fill=white, rounded corners=3pt, line width=0.5pt, font=\scriptsize, inner sep=3pt, text width=26mm, align=center},
-  edge from parent/.style={draw=midblue!70, line width=0.8pt, -{Stealth[length=4pt]}}
-]
-\node[root] {On-Policy Distillation}
-  child {node[branch] {\S\ref{sec:objectives} Objective}
-    child {node[leaf] {Fixed Divergence\\{\tiny GKD, MiniLLM, DistiLLM}}}
-    child {node[leaf] {Adaptive Divergence\\{\tiny ToDi, AKL, Entropy-Aware}}}
-    child {node[leaf] {RL-Augmented\\{\tiny G-OPD, KDRL, RLAD}}}
+\definecolor{rootblue}{HTML}{2C3E6B}
+\definecolor{tgcolor}{HTML}{0D7377}
+\definecolor{sdcolor}{HTML}{6C4FA0}
+\definecolor{dycolor}{HTML}{C0392B}
+\resizebox{\textwidth}{!}{
+\tikzset{
+  rbox/.style={fill=rootblue, text=white, rounded corners=10pt,
+    font=\normalsize\bfseries, minimum height=1cm, text centered,
+    inner xsep=10pt},
+  catObj/.style={fill=tgcolor, text=white, rounded corners=8pt,
+    font=\small\bfseries, minimum height=0.75cm,
+    text centered, inner xsep=8pt},
+  catSig/.style={fill=sdcolor, text=white, rounded corners=8pt,
+    font=\small\bfseries, minimum height=0.75cm,
+    text centered, inner xsep=8pt},
+  catDyn/.style={fill=dycolor, text=white, rounded corners=8pt,
+    font=\small\bfseries, minimum height=0.75cm,
+    text centered, inner xsep=8pt},
+  badge/.style={fill=#1, text=white, rounded corners=3pt,
+    font=\tiny\bfseries, inner sep=2pt, minimum width=14pt},
+  leaf/.style={fill=#1!6, draw=#1!25, rounded corners=6pt,
+    font=\footnotesize, inner xsep=8pt, inner ysep=6pt, align=left,
+    drop shadow={shadow xshift=0.5pt, shadow yshift=-0.5pt, opacity=0.15}}
+}
+
+\begin{forest}
+  for tree={
+    grow=east,
+    reversed=true,
+    growth parent anchor=east,
+    parent anchor=east,
+    child anchor=west,
+    l sep=12mm,
+    s sep=3.5mm,
+    edge={draw=gray!40, line width=1pt, -{Stealth[length=4pt, width=3.5pt, round]}},
+    edge path={
+      \noexpand\path[\forestoption{edge}]
+      (!u.parent anchor) -- +(10pt,0) |- (.child anchor)\forestoption{edge label};
+    },
+    anchor=west
   }
-  child {node[branch] {\S\ref{sec:signal} Signal Source}
-    child {node[leaf] {White-Box\\{\tiny DSKD, Delta-KD, Cross-Tok, TAID}}}
-    child {node[leaf] {Black-Box / API\\{\tiny GAD, Lion, OVD, DAIL}}}
-    child {node[leaf] {Self-Distillation\\{\tiny OPSD, SPIN, SD-ZERO, $\pi$-Play}}}
-  }
-  child {node[branch] {\S\ref{sec:dynamics} Dynamics}
-    child {node[leaf] {Token/Sample Weight\\{\tiny TIP, SCOPE, SelecTKD}}}
-    child {node[leaf] {Curriculum\\{\tiny PACED, AdaSwitch}}}
-    child {node[leaf] {Compute Efficiency\\{\tiny Fast OPD, Lightning, Spec.KD}}}
-  };
-\end{tikzpicture}
-}%
-\caption{Taxonomy of On-Policy Distillation methods organized by the practitioner's decision chain. Each method is placed in the category corresponding to its \emph{core contribution}. The three stages are sequential: first choose the optimization objective, then identify the signal source, then address training dynamics.}
+  [\textbf{On-Policy}\\\textbf{Distillation}, rbox, text width=2.0cm
+    %% ===== Stage 1: Objective =====
+    [{\S 4 Objective}, catObj, edge={draw=tgcolor!60, line width=1.2pt}
+      [{\textbf{4.1 Fixed Divergence}~{\tikz[baseline=-0.5ex]\node[badge=tgcolor]{4};}\\[2pt]%
+        GKD~\citep{2306.13649}, MiniLLM~\citep{2306.08543}, DistiLLM~\citep{2402.03898}, DistiLLM-2~\citep{2503.07067}%
+        }, leaf=tgcolor, edge={draw=tgcolor!30}]
+      [{\textbf{4.2 Adaptive Divergence}~{\tikz[baseline=-0.5ex]\node[badge=tgcolor]{3};}\\[2pt]%
+        ToDi~\citep{2505.16297}, AKL~\citep{2404.02657}, Entropy-Aware~\citep{2603.07079}%
+        }, leaf=tgcolor, edge={draw=tgcolor!30}]
+      [{\textbf{4.3 RL-Augmented}~{\tikz[baseline=-0.5ex]\node[badge=tgcolor]{5};}\\[2pt]%
+        G-OPD~\citep{2602.12125}, KDRL~\citep{2506.02208}, RLAD~\citep{2602.22495},\\[1pt]
+        SuperCorrect~\citep{2410.09008}, $\mathcal{X}$-KD~\citep{2602.12674}%
+        }, leaf=tgcolor, edge={draw=tgcolor!30}]
+    ]
+    %% ===== Stage 2: Signal Source =====
+    [{\S 5 Signal Source}, catSig, edge={draw=sdcolor!60, line width=1.2pt}
+      [{\textbf{5.1 White-Box Logits}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{4};}\\[2pt]%
+        DSKD~\citep{2504.11426}, Delta-KD~\citep{2505.16297}, Cross-Tok.\ KD~\citep{2402.12030}, TAID~\citep{2501.16937}%
+        }, leaf=sdcolor, edge={draw=sdcolor!30}]
+      [{\textbf{5.2 Black-Box / API}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{5};}\\[2pt]%
+        GAD~\citep{2511.10643}, Lion~\citep{2305.12870}, OVD~\citep{2601.21968}, DAIL~\citep{2602.02405}, ORPO-Distill~\citep{2509.25100}%
+        }, leaf=sdcolor, edge={draw=sdcolor!30}]
+      [{\textbf{5.3 Self-Distillation}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{8};}\\[2pt]%
+        OPSD~\citep{2601.18734}, SPIN~\citep{2401.01335}, SD-ZERO~\citep{he2026selfdistillation}, $\pi$-Play~\citep{zhang2026piplay},\\[1pt]%
+        OPSDL~\citep{2604.17535}, CaOPD~\citep{2604.16830}, SDFT~\citep{2601.19897}, OPCD~\citep{2602.12275}%
+        }, leaf=sdcolor, edge={draw=sdcolor!30}]
+    ]
+    %% ===== Stage 3: Dynamics =====
+    [{\S 6 Dynamics}, catDyn, edge={draw=dycolor!60, line width=1.2pt}
+      [{\textbf{6.1 Token/Sample Weighting}~{\tikz[baseline=-0.5ex]\node[badge=dycolor]{5};}\\[2pt]%
+        TIP~\citep{xu2026tip}, SCOPE~\citep{zheng2026scope}, SelecTKD~\citep{2510.24021},\\[1pt]%
+        AdaKD~\citep{2510.11615}, PromptKD~\citep{2402.12842}%
+        }, leaf=dycolor, edge={draw=dycolor!30}]
+      [{\textbf{6.2 Curriculum \& Stability}~{\tikz[baseline=-0.5ex]\node[badge=dycolor]{4};}\\[2pt]%
+        PACED~\citep{2603.11178}, AdaSwitch~\citep{2510.07842}, Stable-OPD~\citep{luo2026demystifying}, CSD~\citep{2509.25837}%
+        }, leaf=dycolor, edge={draw=dycolor!30}]
+      [{\textbf{6.3 Compute Efficiency}~{\tikz[baseline=-0.5ex]\node[badge=dycolor]{3};}\\[2pt]%
+        Fast OPD~\citep{2602.15260}, Lightning OPD~\citep{wu2026lightning}, Spec.KD~\citep{2602.12222}%
+        }, leaf=dycolor, edge={draw=dycolor!30}]
+    ]
+  ]
+\end{forest}
+}
+\caption{Taxonomy of On-Policy Distillation methods organized by the practitioner's decision chain: (1) Objective function design (\S\ref{sec:objectives}), (2) Signal source selection (\S\ref{sec:signal}), and (3) Training dynamics stabilization (\S\ref{sec:dynamics}). Bracketed numbers indicate the total methods cited in each leaf node.}
 \label{fig:taxonomy}
 \end{figure*}
 
