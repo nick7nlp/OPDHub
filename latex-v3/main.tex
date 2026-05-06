@@ -318,10 +318,11 @@ The practitioner faces three sequential decisions: (1) what objective to optimiz
 The three-stage pipeline is not merely organizational convenience: it reflects the actual engineering workflow. A practitioner first chooses an objective function (Forward KL? Reverse KL? Adaptive? RL-augmented?), then selects a signal source (white-box logits, black-box API, or self-generated), and finally addresses the training dynamics challenges that arise from the chosen combination. Some combinations are incompatible (e.g., Forward KL requires white-box logits, eliminating all black-box signal sources), which our decision tree (Section~\ref{subsec:decision_tree}) makes explicit. Other combinations are synergistic: RL-augmented objectives (G-OPD) naturally pair with external feedback signal sources (verifiers, reward models), while fixed divergences pair most naturally with white-box sources where the full distribution is available for exact computation.
 
 \subsection{Method Comparison Table}
-\begin{table}[h]
-\centering
+
 \textbf{Classification methodology.} Each method is assigned to exactly one primary category based on its \emph{core contribution dimension}: if a paper's novelty lies in the loss function (e.g., G-OPD's KL-constrained RL reformulation), it belongs to ``Objective.'' If it introduces a novel signal architecture (e.g., DSKD's dual-space projection), it belongs to ``Signal.'' If it solves a training stability or efficiency problem (e.g., TIP's token weighting), it belongs to ``Dynamics.'' Methods that contribute to multiple dimensions are classified by their \emph{most distinctive} contribution. This strict one-method-one-category rule prevents the overlap and confusion that plagued previous multi-dimensional taxonomies.
 
+\begin{table}[h]
+\centering
 \caption{Comparison of key OPD methods categorized by their primary contribution dimension.}
 \label{tab:method_comparison}
 \resizebox{\textwidth}{!}{
