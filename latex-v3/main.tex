@@ -244,49 +244,67 @@ The practitioner faces three sequential decisions: (1) what objective to optimiz
     anchor=west
   }
   [\textbf{On-Policy}\\\textbf{Distillation}, rbox, text width=2.0cm
-    %% ===== Stage 1: Objective =====
-    [{\S 4 Objective}, catObj, edge={draw=tgcolor!60, line width=1.2pt}
-      [{\textbf{4.1 Fixed Divergence}~{\tikz[baseline=-0.5ex]\node[badge=tgcolor]{4};}\\[2pt]%
-        GKD~\citep{2306.13649}, MiniLLM~\citep{2306.08543}, DistiLLM~\citep{2402.03898}, DistiLLM-2~\citep{2503.07067}%
+    %% ===== Stage 1: Objective Functions and Optimization (§4) =====
+    [{\S 4 Objective Functions\\and Optimization}, catObj, edge={draw=tgcolor!60, line width=1.2pt}
+      [{\textbf{4.1 Fixed Divergence Objectives}~{\tikz[baseline=-0.5ex]\node[badge=tgcolor]{5};}\\[2pt]%
+        GKD~\citep{2306.13649}, MiniLLM~\citep{2306.08543}, DistiLLM~\citep{2402.03898},\\[1pt]%
+        DistiLLM-2~\citep{2503.07067}, KETCHUP~\citep{2504.19024}%
         }, leaf=tgcolor, edge={draw=tgcolor!30}]
-      [{\textbf{4.2 Adaptive Divergence}~{\tikz[baseline=-0.5ex]\node[badge=tgcolor]{3};}\\[2pt]%
-        ToDi~\citep{2505.16297}, AKL~\citep{2404.02657}, Entropy-Aware~\citep{2603.07079}%
+      [{\textbf{4.2 Adaptive Divergence Objectives}~{\tikz[baseline=-0.5ex]\node[badge=tgcolor]{3};}\\[2pt]%
+        ToDi~\citep{2505.16297}, AKL~\citep{2404.02657}, Entropy-Aware OPD~\citep{2603.07079}%
         }, leaf=tgcolor, edge={draw=tgcolor!30}]
-      [{\textbf{4.3 RL-Augmented}~{\tikz[baseline=-0.5ex]\node[badge=tgcolor]{5};}\\[2pt]%
-        G-OPD~\citep{2602.12125}, KDRL~\citep{2506.02208}, RLAD~\citep{2602.22495},\\[1pt]
-        SuperCorrect~\citep{2410.09008}, $\mathcal{X}$-KD~\citep{2602.12674}%
+      [{\textbf{4.3 RL-Augmented Objectives}~{\tikz[baseline=-0.5ex]\node[badge=tgcolor]{11};}\\[2pt]%
+        G-OPD~\citep{2602.12125}, RLKD~\citep{2505.16142}, KDRL~\citep{2506.02208},\\[1pt]%
+        RLAD~\citep{2602.22495}, SuperCorrect~\citep{2410.09008}, SCoRe~\citep{2509.14257},\\[1pt]%
+        AlignDistil~\citep{2503.02832}, $\mathcal{X}$-KD~\citep{2602.12674}, TSD-KD~\citep{2603.13260},\\[1pt]%
+        REOPOLD~\citep{2603.11137}, Constrained~\citep{2509.22921}%
         }, leaf=tgcolor, edge={draw=tgcolor!30}]
     ]
-    %% ===== Stage 2: Signal Source =====
-    [{\S 5 Signal Source}, catSig, edge={draw=sdcolor!60, line width=1.2pt}
-      [{\textbf{5.1 White-Box Logits}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{4};}\\[2pt]%
-        DSKD~\citep{2504.11426}, Delta-KD~\citep{2505.16297}, Cross-Tok.\ KD~\citep{2402.12030}, TAID~\citep{2501.16937}%
+    %% ===== Stage 2: Signal Source and Teacher Architecture (§5) =====
+    [{\S 5 Signal Source and\\Teacher Architecture}, catSig, edge={draw=sdcolor!60, line width=1.2pt}
+      [{\textbf{5.1 White-Box Logit Supervision}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{11};}\\[2pt]%
+        DSKD~\citep{2504.11426}, Cross-Tokenizer KD~\citep{2402.12030}, TAID~\citep{2501.16937},\\[1pt]%
+        Delta-KD~\citep{2509.14526}, Veto~\citep{2601.07155}, PromptKD~\citep{2402.12842},\\[1pt]%
+        CSD~\citep{2509.25837}, AdaKD~\citep{2510.11615}, SelecTKD~\citep{2510.24021},\\[1pt]%
+        AdaSwitch~\citep{2510.07842}, MiniPLM~\citep{2410.17215}%
         }, leaf=sdcolor, edge={draw=sdcolor!30}]
-      [{\textbf{5.2 Black-Box / API}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{5};}\\[2pt]%
-        GAD~\citep{2511.10643}, Lion~\citep{2305.12870}, OVD~\citep{2601.21968}, DAIL~\citep{2602.02405}, ORPO-Distill~\citep{2509.25100}%
+      [{\textbf{5.2 Black-Box and API-Constrained Distillation}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{9};}\\[2pt]%
+        Lion~\citep{2305.12870}, GAD~\citep{2511.10643}, OVD~\citep{2601.21968},\\[1pt]%
+        DAIL~\citep{2602.02405}, ORPO-Distill~\citep{2509.25100}, LUFFY~\citep{2504.14945},\\[1pt]%
+        ThinkTuning~\citep{rrv2025thinktuning}, DASD~\citep{2601.09088}, DDT~\citep{2602.12222}%
         }, leaf=sdcolor, edge={draw=sdcolor!30}]
-      [{\textbf{5.3 Self-Distillation}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{8};}\\[2pt]%
-        OPSD~\citep{2601.18734}, SPIN~\citep{2401.01335}, SD-ZERO~\citep{he2026selfdistillation}, $\pi$-Play~\citep{zhang2026piplay},\\[1pt]%
-        OPSDL~\citep{2604.17535}, CaOPD~\citep{2604.16830}, SDFT~\citep{2601.19897}, OPCD~\citep{2602.12275}%
+      [{\textbf{5.3 Self-Distillation: Privileged Information}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{8};}\\[2pt]%
+        OPSD~\citep{2601.18734}, GATES~\citep{2602.20574}, Priv. Info. Distill~\citep{2602.04942},\\[1pt]%
+        OPCD~\citep{2602.12275}, OEL~\citep{2603.16856}, HDPO~\citep{2603.23871},\\[1pt]%
+        CRISP~\citep{2603.05433}, OPSDL~\citep{2604.17535}%
+        }, leaf=sdcolor, edge={draw=sdcolor!30}]
+      [{\textbf{5.4 Self-Distillation: Self-Play}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{7};}\\[2pt]%
+        SPIN~\citep{2401.01335}, MTP Self-Distill~\citep{2602.06019}, SDFT~\citep{2601.19897},\\[1pt]%
+        On-Policy SFT~\citep{zhao2026onpolicy}, SSD~\citep{zhang2026embarrassingly}, $\pi$-Play~\citep{zhang2026piplay},\\[1pt]%
+        IRIS~\citep{2604.20933}%
+        }, leaf=sdcolor, edge={draw=sdcolor!30}]
+      [{\textbf{5.5 Self-Distillation: External Feedback}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{5};}\\[2pt]%
+        SDPO~\citep{2601.20802}, SD-ZERO~\citep{he2026selfdistillation}, RLSD~\citep{yang2026selfdistilled},\\[1pt]%
+        SRPO~\citep{li2026unifying}, RLTF~\citep{song2026expanding}%
         }, leaf=sdcolor, edge={draw=sdcolor!30}]
     ]
-    %% ===== Stage 3: Dynamics =====
-    [{\S 6 Dynamics}, catDyn, edge={draw=dycolor!60, line width=1.2pt}
-      [{\textbf{6.1 Token/Sample Weighting}~{\tikz[baseline=-0.5ex]\node[badge=dycolor]{5};}\\[2pt]%
-        TIP~\citep{xu2026tip}, SCOPE~\citep{zheng2026scope}, SelecTKD~\citep{2510.24021},\\[1pt]%
-        AdaKD~\citep{2510.11615}, PromptKD~\citep{2402.12842}%
+    %% ===== Stage 3: Training Dynamics and Efficiency (§6) =====
+    [{\S 6 Training Dynamics\\and Efficiency}, catDyn, edge={draw=dycolor!60, line width=1.2pt}
+      [{\textbf{6.1 Token and Sample Weighting}~{\tikz[baseline=-0.5ex]\node[badge=dycolor]{4};}\\[2pt]%
+        TIP~\citep{xu2026tip}, SCOPE~\citep{zheng2026scope}, SelecTKD~\citep{2510.24021}, AdaSwitch~\citep{2510.07842}%
         }, leaf=dycolor, edge={draw=dycolor!30}]
-      [{\textbf{6.2 Curriculum \& Stability}~{\tikz[baseline=-0.5ex]\node[badge=dycolor]{4};}\\[2pt]%
-        PACED~\citep{2603.11178}, AdaSwitch~\citep{2510.07842}, Stable-OPD~\citep{luo2026demystifying}, CSD~\citep{2509.25837}%
+      [{\textbf{6.2 Curriculum and Difficulty Adaptation}~{\tikz[baseline=-0.5ex]\node[badge=dycolor]{6};}\\[2pt]%
+        PACED~\citep{2603.11178}, Stable-OPD~\citep{luo2026demystifying}, SSB~\citep{mitra2025semantic},\\[1pt]%
+        PAINT~\citep{wang2026paint}, PRISM~\citep{wang2026prism}, CaOPD~\citep{2604.16830}%
         }, leaf=dycolor, edge={draw=dycolor!30}]
-      [{\textbf{6.3 Compute Efficiency}~{\tikz[baseline=-0.5ex]\node[badge=dycolor]{3};}\\[2pt]%
-        Fast OPD~\citep{2602.15260}, Lightning OPD~\citep{wu2026lightning}, Spec.KD~\citep{2602.12222}%
+      [{\textbf{6.3 Compute Optimization}~{\tikz[baseline=-0.5ex]\node[badge=dycolor]{3};}\\[2pt]%
+        Fast OPD~\citep{2602.15260}, Lightning OPD~\citep{wu2026lightning}, Speculative KD~\citep{2410.11325}%
         }, leaf=dycolor, edge={draw=dycolor!30}]
     ]
   ]
 \end{forest}
 }
-\caption{Taxonomy of On-Policy Distillation methods organized by the practitioner's decision chain: (1) Objective function design (\S\ref{sec:objectives}), (2) Signal source selection (\S\ref{sec:signal}), and (3) Training dynamics stabilization (\S\ref{sec:dynamics}). Bracketed numbers indicate the total methods cited in each leaf node.}
+\caption{Taxonomy of On-Policy Distillation methods organized by the practitioner's decision chain: (1) Objective function design (\S\ref{sec:objectives}), (2) Signal source and teacher architecture (\S\ref{sec:signal}), and (3) Training dynamics and efficiency (\S\ref{sec:dynamics}). Each leaf lists the representative methods in that subsection; the badge shows the method count. Methods that contribute to multiple dimensions are placed under their most distinctive contribution.}
 \label{fig:taxonomy}
 \end{figure*}
 
