@@ -1,4 +1,4 @@
-\begin{thebibliography}{113}
+\begin{thebibliography}{114}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -288,6 +288,15 @@ Jordan Hoffmann, Sebastian Borgeaud, Arthur Mensch, Elena Buchatskaya, Trevor
 \newblock In \emph{Advances in Neural Information Processing Systems
   (NeurIPS)}, 2022.
 \newblock URL \url{https://arxiv.org/abs/2203.15556}.
+
+\bibitem[Hou et~al.(2026)Hou, Peng, Wang, Ruan, Zhang, Zhou, Gao, Chen, Wang,
+  Yang, Zhang, Tian, Hu, Yang, Wu, and Fan]{arxiv2605_03677}
+Wenjin Hou, Shangpin Peng, Weinong Wang, Zheng Ruan, Yue Zhang, Zhenglin Zhou,
+  Mingqi Gao, Yifei Chen, Kaiqi Wang, Hongming Yang, Chengquan Zhang, Zhuotao
+  Tian, Han Hu, Yi~Yang, Fei Wu, and Hehe Fan.
+\newblock Uni-opd: Unifying on-policy distillation with a dual-perspective
+  recipe.
+\newblock \emph{arXiv preprint arXiv:2605.03677}, 2026.
 
 \bibitem[Hsieh et~al.(2023)Hsieh, Li, Yeh, Nakhost, Fujii, Ratner, Krishna,
   Lee, and Pfister]{2305.02301}
