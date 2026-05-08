@@ -3,7 +3,7 @@
   "started_at": "2026-05-08T15:50Z",
   "planned_end_at": "2026-05-09T01:50Z",
   "tick_interval_min": 10,
-  "round": 23,
+  "round": 24,
   "paper_root": "/apdcephfs_cq8/share_1324356/nickmysong/daily_research/on-policy-distillation-survey",
   "survey_dir": "latex-v2",
   "main_tex": "main.tex",
@@ -102,12 +102,12 @@
   ],
   "notes": "Each round reads one bounded slice of the survey deeply, checks facts against local PDFs (never grep-only), rewrites for insight+flow, compiles, commits.",
   "last_completed": {
-    "round": 22,
-    "mode": "DEEPEN",
+    "round": 23,
+    "mode": "POLISH",
     "section": "5-Signal-Source",
-    "log": ".loop/round-22.md",
-    "by": "cron tick 22",
-    "summary": "Fixed 3 factual errors (1000x\u2192500x, misleading off-policy cite, SRPO table benchmarks), qualified MTP accuracy drop, added benchmark context to PAINT/SRPO, added cross-ref \u00a75\u2192\u00a76, clarified Distilling Step-by-Step as off-policy ancestor"
+    "log": ".loop/round-23.md",
+    "by": "cron tick 23",
+    "summary": "17 line-level prose fixes: tighter verbs (instilling\u2192transferring, shows\u2192demonstrates), remove filler (turns out to be, The answer is not everything), merge fragments, eliminate unnecessary commas"
   },
   "pending_verify": [
     {
