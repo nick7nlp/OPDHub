@@ -3,7 +3,7 @@
   "started_at": "2026-05-08T15:50Z",
   "planned_end_at": "2026-05-09T01:50Z",
   "tick_interval_min": 10,
-  "round": 43,
+  "round": 44,
   "paper_root": "/apdcephfs_cq8/share_1324356/nickmysong/daily_research/on-policy-distillation-survey",
   "survey_dir": "latex-v2",
   "main_tex": "main.tex",
@@ -102,12 +102,12 @@
   ],
   "notes": "Each round reads one bounded slice of the survey deeply, checks facts against local PDFs (never grep-only), rewrites for insight+flow, compiles, commits.",
   "last_completed": {
-    "round": 42,
-    "mode": "DEEPEN",
+    "round": 43,
+    "mode": "POLISH",
     "section": "9-Future-Directions",
-    "log": ".loop/round-42.md",
-    "by": "cron tick 42",
-    "summary": "Removed 2 self-invented formulas (boss directive), fixed 2502.08606 characterization (non-monotone not sub-linear), added 7 missing citations (Kaplan, Fast OPD, Lightning OPD, Speculative KD, VOLD, X-OPD, CORD), improved paragraph structure. Build clean 59p/0err."
+    "log": ".loop/round-43.md",
+    "by": "cron tick 43",
+    "summary": "15 line-level prose fixes: em-dashes for comma-separated parentheticals, filler removal (dramatically, correspondingly, non-trivially), active voice (historically treated\u2192field has treated), tighter verbs (avoiding\u2192skipping, must\u2192should). Build clean 59p/0err."
   },
   "pending_verify": [
     {
