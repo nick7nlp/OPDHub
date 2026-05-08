@@ -7,13 +7,35 @@
 # OS
 .DS_Store
 
-# LaTeX build artifacts (inside latex/)
-latex/*.aux
-latex/*.bbl
-latex/*.blg
-latex/*.log
-latex/*.out
-latex/*.pdf
-latex/*.synctex.gz
-latex/*.bak
-latex/*.bak.*
+# LaTeX build artifacts (all latex* dirs)
+latex*/*.aux
+latex*/*.bbl
+latex*/*.blg
+latex*/*.log
+latex*/*.out
+latex*/*.synctex.gz
+latex*/*.bak
+latex*/*.bak.*
+latex*/*.bak-*
+latex*/missfont.log
+latex*/compile.log
+
+# Keep main.pdf per version dir (committed artifacts)
+# but ignore transient work-in-progress files
+latex*/main_wip.*
+latex*/main_wip_*
+latex*/main_wip-*
+
+# Independent sub-repo (has its own remote)
+Awesome-LLM-On-Policy-Distillation/
+
+# Large binary paper PDFs (not versioned in main repo)
+pdfs/
+
+# Scratch work
+narrative-patches/
+
+# Process logs (obsolete)
+factcheck-phase1-log.md
+integration-verification-log.md
+round3-changelog.md
