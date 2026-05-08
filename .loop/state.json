@@ -3,7 +3,7 @@
   "started_at": "2026-05-08T15:50Z",
   "planned_end_at": "2026-05-09T01:50Z",
   "tick_interval_min": 10,
-  "round": 1,
+  "round": 2,
   "paper_root": "/apdcephfs_cq8/share_1324356/nickmysong/daily_research/on-policy-distillation-survey",
   "survey_dir": "latex-v2",
   "main_tex": "main.tex",
@@ -37,7 +37,7 @@
     "9-Future-Directions",
     "10-Conclusion"
   ],
-  "last_committed_section": null,
+  "last_committed_section": "1-Introduction",
   "findings_so_far": [
     {
       "section": "\u00a71",
@@ -102,12 +102,12 @@
   ],
   "notes": "Each round reads one bounded slice of the survey deeply, checks facts against local PDFs (never grep-only), rewrites for insight+flow, compiles, commits.",
   "last_completed": {
-    "round": 0,
-    "mode": "READ",
+    "round": 1,
+    "mode": "VERIFY",
     "section": "\u00a71 Introduction",
-    "log": ".loop/round-01-seed.md",
-    "by": "main (pre-seed before first cron tick)",
-    "priority_issues_flagged": 5
+    "log": ".loop/round-01.md",
+    "by": "cron tick 1",
+    "summary": "7 claims verified: 5 accurate, 2 overclaims flagged (near-human, GKD first unified)"
   },
   "pending_verify": [
     {
