@@ -3,7 +3,7 @@
   "started_at": "2026-05-08T15:50Z",
   "planned_end_at": "2026-05-09T01:50Z",
   "tick_interval_min": 10,
-  "round": 26,
+  "round": 27,
   "paper_root": "/apdcephfs_cq8/share_1324356/nickmysong/daily_research/on-policy-distillation-survey",
   "survey_dir": "latex-v2",
   "main_tex": "main.tex",
@@ -102,12 +102,12 @@
   ],
   "notes": "Each round reads one bounded slice of the survey deeply, checks facts against local PDFs (never grep-only), rewrites for insight+flow, compiles, commits.",
   "last_completed": {
-    "round": 25,
-    "mode": "READ",
+    "round": 26,
+    "mode": "VERIFY",
     "section": "6-Training-Dynamics",
-    "log": ".loop/round-25.md",
-    "by": "cron tick 25",
-    "summary": "Deep read of \u00a76. Found 4 factual issues (Fast OPD framing, PACED p(1-p) oversimplification, AdaSwitch mechanism desc, Retaining-by-Doing scope). Verified 9/11 claims accurate. Flagged Uni-OPD 5-domains as unverifiable without PDF."
+    "log": ".loop/round-26.md",
+    "by": "cron tick 26",
+    "summary": "Verified 7 claims from r25 READ. 3 inaccurate: Fast OPD framing (signal concentration not exposure bias), PACED p(1-p) oversimplified (general Beta kernel), AdaSwitch mechanism (sliding window divergence not cumulative prefix quality). 2 accurate (Retaining by Doing, Semantic Bootstrapping). 1 uncited (cost example). 1 unverifiable (Uni-OPD 5/16)."
   },
   "pending_verify": [
     {
