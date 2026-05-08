@@ -3,7 +3,7 @@
   "started_at": "2026-05-08T15:50Z",
   "planned_end_at": "2026-05-09T01:50Z",
   "tick_interval_min": 10,
-  "round": 7,
+  "round": 8,
   "paper_root": "/apdcephfs_cq8/share_1324356/nickmysong/daily_research/on-policy-distillation-survey",
   "survey_dir": "latex-v2",
   "main_tex": "main.tex",
@@ -102,12 +102,12 @@
   ],
   "notes": "Each round reads one bounded slice of the survey deeply, checks facts against local PDFs (never grep-only), rewrites for insight+flow, compiles, commits.",
   "last_completed": {
-    "round": 6,
-    "mode": "VERIFY",
+    "round": 7,
+    "mode": "DEEPEN",
     "section": "\u00a72 Background",
-    "log": ".loop/round-06.md",
-    "by": "cron tick 6",
-    "summary": "Verified 10 claims: 5 correct (incl. FKL computability false alarm), 4 need fix (G-OPD overclaim, GKD JSD, Busbridge misattr, log-linear unsupported), 1 factual error"
+    "log": ".loop/round-07.md",
+    "by": "cron tick 7",
+    "summary": "Fixed G-OPD overclaim (all four\u21922-4), GKD JSD nuance, rewrote \u00a72.4 scaling laws with accurate Busbridge capacity gap, added TT-OPD collapse cross-ref to DAgger remark, hedged tail noise claim"
   },
   "pending_verify": [
     {
