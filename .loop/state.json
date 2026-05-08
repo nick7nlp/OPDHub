@@ -1,0 +1,43 @@
+{
+  "loop_name": "v2-deep-read-and-polish",
+  "started_at": "2026-05-08T15:50Z",
+  "planned_end_at": "2026-05-09T01:50Z",
+  "tick_interval_min": 10,
+  "round": 0,
+  "paper_root": "/apdcephfs_cq8/share_1324356/nickmysong/daily_research/on-policy-distillation-survey",
+  "survey_dir": "latex-v2",
+  "main_tex": "main.tex",
+  "bib": "references.bib",
+  "pdfs_dir": "pdfs",
+  "factcheck_dir": ".factcheck",
+  "loop_dir": ".loop",
+  "initial_head": "7537807",
+  "baseline_stats": {
+    "pages": 57,
+    "citations": 118,
+    "errors": 0,
+    "lines": 1219
+  },
+  "task_rotation": [
+    "READ",
+    "VERIFY",
+    "DEEPEN",
+    "POLISH",
+    "COMPILE"
+  ],
+  "sections_priority": [
+    "1-Introduction",
+    "2-Background",
+    "3.1-Method-Landscape",
+    "4-Objectives",
+    "5-Signal-Source",
+    "6-Training-Dynamics",
+    "7-Understanding-OPD",
+    "8-Applications",
+    "9-Future-Directions",
+    "10-Conclusion"
+  ],
+  "last_committed_section": null,
+  "findings_so_far": [],
+  "notes": "Each round reads one bounded slice of the survey deeply, checks facts against local PDFs (never grep-only), rewrites for insight+flow, compiles, commits."
+}
