@@ -206,7 +206,7 @@ The rapid proliferation of OPD methods creates a navigation challenge for practi
 
 \subsection{Method Landscape}
 
-The practitioner faces three sequential decisions, specifically (1) what objective to optimize, (2) where the supervisory signal originates, and (3) how to stabilize the resulting training dynamics. Figure~\ref{fig:taxonomy} illustrates this pipeline.
+The practitioner faces three sequential decisions: (1) what objective to optimize, (2) where the supervisory signal originates, and (3) how to stabilize the resulting training dynamics. Figure~\ref{fig:taxonomy} illustrates this pipeline.
 
 \begin{figure*}[t]
 \centering
@@ -321,7 +321,9 @@ The practitioner faces three sequential decisions, specifically (1) what objecti
 \label{fig:taxonomy}
 \end{figure*}
 
-The three-stage pipeline is not merely organizational convenience but reflects the actual engineering workflow. A practitioner first chooses an objective function (Forward KL? Reverse KL? Adaptive? RL-augmented?), then selects a signal source (white-box logits, black-box API, or self-generated), and finally addresses the training dynamics challenges that arise from the chosen combination. Some combinations are incompatible (e.g., Forward KL requires white-box logits, eliminating all black-box signal sources), which our decision tree (Section~\ref{subsec:decision_tree}) makes explicit. Other combinations are synergistic. RL-augmented objectives (G-OPD) naturally pair with external feedback signal sources (verifiers, reward models), while fixed divergences pair most naturally with white-box sources where the full distribution is available for exact computation.
+The three-stage pipeline is not merely organizational convenience but reflects the actual engineering workflow of state-of-the-art systems. DeepSeek-R1~\citep{2501.12948}, for instance, first selects Group Relative Policy Optimization as its objective, then decides on cold-start data from DeepSeek-V3 as the signal source, and finally tunes batch size, learning-rate decay, and sampling temperature to stabilize training dynamics. A practitioner navigates the same sequence: choose an objective (Forward KL? Reverse KL? Adaptive? RL-augmented?), select a signal source (white-box logits, black-box API, or self-generated), and address the training dynamics challenges that arise from the chosen combination.
+
+Crucially, the three stages are not independent. Some combinations are incompatible: Forward KL in its exact token-level form requires access to the teacher's full output distribution, which precludes purely API-constrained settings where only generated text is available. Our decision tree (Section~\ref{subsec:decision_tree}) makes such constraints explicit. Other combinations are synergistic: RL-augmented objectives (G-OPD) naturally pair with external feedback signal sources (verifiers, reward models), while fixed divergences pair most naturally with white-box sources where the full distribution is available for exact computation. This interdependence means that choosing an objective implicitly constrains the viable signal sources and dynamics strategies, making the taxonomy a practical navigation tool rather than a flat catalog of methods.
 
 \subsection{Method Comparison Table}
 
