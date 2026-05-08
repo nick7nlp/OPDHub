@@ -3,7 +3,7 @@
   "started_at": "2026-05-08T15:50Z",
   "planned_end_at": "2026-05-09T01:50Z",
   "tick_interval_min": 10,
-  "round": 36,
+  "round": 37,
   "paper_root": "/apdcephfs_cq8/share_1324356/nickmysong/daily_research/on-policy-distillation-survey",
   "survey_dir": "latex-v2",
   "main_tex": "main.tex",
@@ -37,7 +37,7 @@
     "9-Future-Directions",
     "10-Conclusion"
   ],
-  "last_committed_section": "7-Understanding-OPD",
+  "last_committed_section": "8-Applications",
   "findings_so_far": [
     {
       "section": "\u00a71",
@@ -102,12 +102,12 @@
   ],
   "notes": "Each round reads one bounded slice of the survey deeply, checks facts against local PDFs (never grep-only), rewrites for insight+flow, compiles, commits.",
   "last_completed": {
-    "round": 35,
-    "mode": "READ",
+    "round": 36,
+    "mode": "VERIFY",
     "section": "8-Applications",
-    "log": ".loop/round-35.md",
-    "by": "cron tick 35",
-    "summary": "Deep-read \u00a78 (82 lines). 36 issues: Gemma2 cascade notation, missing framework cites, 16GB calc, several pending PDFs."
+    "log": ".loop/round-36.md",
+    "by": "cron tick 36",
+    "summary": "17 claims verified: 9 accurate, 5 need softening, 3 need fixing (Gemma2 cascade=parallel not sequential, Qwen3 4-stage inaccurate, 4 framework citations missing)."
   },
   "pending_verify": [
     {
