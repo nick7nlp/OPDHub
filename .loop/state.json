@@ -3,7 +3,7 @@
   "started_at": "2026-05-08T15:50Z",
   "planned_end_at": "2026-05-09T01:50Z",
   "tick_interval_min": 10,
-  "round": 40,
+  "round": 41,
   "paper_root": "/apdcephfs_cq8/share_1324356/nickmysong/daily_research/on-policy-distillation-survey",
   "survey_dir": "latex-v2",
   "main_tex": "main.tex",
@@ -37,7 +37,7 @@
     "9-Future-Directions",
     "10-Conclusion"
   ],
-  "last_committed_section": "8-Applications",
+  "last_committed_section": "9-Future-Directions",
   "findings_so_far": [
     {
       "section": "\u00a71",
@@ -102,12 +102,12 @@
   ],
   "notes": "Each round reads one bounded slice of the survey deeply, checks facts against local PDFs (never grep-only), rewrites for insight+flow, compiles, commits.",
   "last_completed": {
-    "round": 39,
-    "mode": "COMPILE",
-    "section": "8-Applications",
-    "log": ".loop/round-39.md",
-    "by": "cron tick 39",
-    "summary": "Clean build: 59 pages, 122 citations, 0 errors/0 undefined refs/0 undefined cites. Applications cycle (r35-39) complete."
+    "round": 40,
+    "mode": "READ",
+    "section": "9-Future-Directions",
+    "log": ".loop/round-40.md",
+    "by": "cron tick 40",
+    "summary": "Identified 2 self-invented formulas violating boss directive, 4 missing citation groups, 1 prose colon, weak grounding in latent-space and self-improving paragraphs."
   },
   "pending_verify": [
     {
