@@ -3,7 +3,7 @@
   "started_at": "2026-05-08T15:50Z",
   "planned_end_at": "2026-05-09T01:50Z",
   "tick_interval_min": 10,
-  "round": 41,
+  "round": 42,
   "paper_root": "/apdcephfs_cq8/share_1324356/nickmysong/daily_research/on-policy-distillation-survey",
   "survey_dir": "latex-v2",
   "main_tex": "main.tex",
@@ -102,12 +102,12 @@
   ],
   "notes": "Each round reads one bounded slice of the survey deeply, checks facts against local PDFs (never grep-only), rewrites for insight+flow, compiles, commits.",
   "last_completed": {
-    "round": 40,
-    "mode": "READ",
+    "round": 41,
+    "mode": "VERIFY",
     "section": "9-Future-Directions",
-    "log": ".loop/round-40.md",
-    "by": "cron tick 40",
-    "summary": "Identified 2 self-invented formulas violating boss directive, 4 missing citation groups, 1 prose colon, weak grounding in latent-space and self-improving paragraphs."
+    "log": ".loop/round-41.md",
+    "by": "cron tick 41",
+    "summary": "Verified DeepSeek-R1 AIME numbers (all exact). Flagged 2502.08606 claim as inaccurate (non-monotone relationship, not sub-linear growth). MiniPLM Difference Sampling characterization confirmed accurate. Identified 4 missing citation groups."
   },
   "pending_verify": [
     {
