@@ -379,7 +379,7 @@ PACED \citep{2603.11178} & & Beta-kernel curriculum pacing & White-Box Logits & 
         MiniLLM \citep{2306.08543} & 2024 & Objective & Reverse KL & White-box & Sequence & REINFORCE with teacher as reward \\
         DistiLLM \citep{2402.03898} & 2024 & Objective & Skew KL (SKL+SRKL) & White-box & Token & $\alpha$-smoothing for KL stability \\
         DistiLLM-2 \citep{2503.07067} & 2025 & Objective & Contrastive SKL/SRKL & White-box & Token & Asymmetric loss per data source \\
-        KETCHUP \citep{2504.19024} & 2025 & Objective & Reverse KL & White-box & Sequence & $K$-step truncated REINFORCE \\
+        KETCHUP \citep{2504.19024} & 2026 & Objective & Reverse KL & White-box & Sequence & $K$-step truncated REINFORCE \\
         Constrained \citep{2509.22921} & 2025 & Objective & Constrained KL & White-box & Sequence & State-augmented CMDP \\
         \midrule
         \multicolumn{7}{l}{\textit{Objective: Adaptive Divergences}} \\
@@ -391,8 +391,8 @@ PACED \citep{2603.11178} & & Beta-kernel curriculum pacing & White-Box Logits & 
         \multicolumn{7}{l}{\textit{Objective: RL-Augmented}} \\
         \midrule
         G-OPD \citep{2602.12125} & 2026 & Objective & KL-Constrained RL & White-box & Token/Seq & OPD $\equiv$ dense KL-RL, reward extrapolation \\
-        RLKD \citep{2505.16142} & 2025 & Objective & KD + Reward Model & White-box & Sequence & Structure-aware reward model \\
-        KDRL \citep{2506.02208} & 2026 & Objective & Joint KD + RL & White-box & Token/Seq & On-policy KL regularizer during RL \\
+        RLKD \citep{2505.16142} & 2025 & Objective & KD + Reward Model & Reward Model & Sequence & Structure-aware reward model (GSRM) \\
+        KDRL \citep{2506.02208} & 2025 & Objective & Joint KD + RL & White-box & Token/Seq & On-policy KL regularizer during RL \\
         RLAD \citep{2602.22495} & 2026 & Objective & Trust Region Ratio & White-box & Token/Seq & PPO-style selective teacher following \\
         AlignDistil \citep{2503.02832} & 2025 & Objective & DPO + Reverse DPO & White-box & Sequence & Synthetic preference from rollouts \\
         SuperCorrect \citep{2410.09008} & 2025 & Objective & Template + Cross-DPO & White-box & Sequence & Hierarchical thought scaffolding \\
