@@ -1,6 +1,6 @@
 {
-  "round": 33,
-  "phase": 3,
+  "round": 34,
+  "phase": 4,
   "task_rotation": ["READ", "VERIFY", "DEEPEN", "POLISH", "COMPILE"],
   "current_mode": "READ",
   "sections_priority": [
@@ -15,8 +15,8 @@
     "FutureDirections",
     "Conclusion"
   ],
-  "current_section_idx": 0,
-  "last_completed": "R32-COMPILE-full-document-verification",
+  "current_section_idx": 2,
+  "last_completed": "R33-READ-Introduction-Background-clean",
   "pending_verify": [],
   "findings_so_far": [
     "Intro: AI-taste words fixed (striking, rich and fast-growing, arguably, however x2)",
