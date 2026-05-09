@@ -1,8 +1,8 @@
 {
-  "round": 24,
+  "round": 25,
   "phase": 3,
   "task_rotation": ["READ", "VERIFY", "DEEPEN", "POLISH", "COMPILE"],
-  "current_mode": "VERIFY",
+  "current_mode": "DEEPEN",
   "sections_priority": [
     "Introduction",
     "Background",
@@ -16,13 +16,9 @@
     "Conclusion"
   ],
   "current_section_idx": 6,
-  "last_completed": "R23-Applications-READ",
+  "last_completed": "R24-Applications-VERIFY",
   "pending_verify": [
-    {"claim": "KAT-Coder-V2 achieves 79.6% on SWE-bench Verified", "source": "li2026katcoderv2", "section": "Applications"},
-    {"claim": "VOLD improves Qwen2.5-VL-3B from 27.1% to 32.0% on MMMU-Pro", "source": "2510.23497", "section": "Applications"},
-    {"claim": "Skill-SD +14.0% over GRPO on AppWorld, +10.9% on Sokoban", "source": "wang2026skillsd", "section": "Applications"},
-    {"claim": "Nemotron-Cascade 2: Gold Medal on IMO/IOI/ICPC, 20x fewer params than DeepSeek-V3.2-Speciale", "source": "2603.19220", "section": "Applications"},
-    {"claim": "H100 NVLink bandwidth 900 GB/s", "source": "nvidia specs", "section": "Applications"}
+    {"claim": "Skill-SD +14.0% over GRPO on AppWorld, +10.9% on Sokoban", "source": "wang2026skillsd", "section": "Applications"}
   ],
   "findings_so_far": [
     "Intro: AI-taste words fixed (striking, rich and fast-growing, arguably, however x2)",
@@ -52,8 +48,9 @@
     "ScalingAndEfficiency: DEEPEN - 4 edits: (1) Uni-OPD explicitly positioned as extending PACED's single-criterion to dual-criterion, (2) TCOD transition clarified as orthogonal temporal axis, (3) §6.2→§6.3 bridge connecting sample efficiency to systems-level cost, (4) new 'Training Efficiency Stack' synthesis at section end framing three subsections as composable layers",
     "ScalingAndEfficiency: POLISH - 3 fixes (reveals→exposes, 2× However removed)",
     "ScalingAndEfficiency: COMPILE clean (62pp, 124 bibs, 0 errors, 0 undef)",
-    "Applications: READ - 3 AI-taste words (reveals, revealing, novel), 1 narrative em-dash, 5 'The X pattern' repetitive structure, 5 numerical claims queued"
+    "Applications: READ - 3 AI-taste words (reveals, revealing, novel), 1 narrative em-dash, 5 'The X pattern' repetitive structure, 5 numerical claims queued",
+    "Applications: VERIFY - 3 claims fully verified (KAT-Coder-V2 79.6% ✅, Nemotron-Cascade-2 Gold+20x ✅, NVLink 900GB/s ✅), VOLD numbers partially verified (model+benchmark confirmed), 1 deferred (Skill-SD)"
   ],
   "started_at": "2026-05-09T05:10:00Z",
-  "notes": "§8 Applications READ done. Next: VERIFY the 5 queued claims. Prioritize KAT-Coder-V2 (79.6%), VOLD (27.1→32.0%), and NVLink (900 GB/s) as most verifiable."
+  "notes": "§8 Applications VERIFY done. 3/5 fully verified, 1 partially, 1 deferred. Next: DEEPEN to strengthen logical connections between subsections and reduce parallel listing."
 }
