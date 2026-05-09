@@ -22,7 +22,7 @@ Each 10-minute tick picks ONE section slice and ONE task mode:
 | VERIFY  | Take READ's issues list and cross-check numbers/formulas/method attributions against PDFs; write verdict list |
 | DEEPEN  | Rewrite targeted paragraphs to add insight (tie method X to broader trend, explain WHY something works, compare across methods, surface trade-offs) |
 | POLISH  | Line-level prose pass: sentence flow, remove filler, fix colons/semicolons, tighten verbs |
-| COMPILE | Full pdflatex run + bibtex + pdflatex×2; check page count, citation match, 0 errors; commit with message `loop(rN-<section>-<mode>)` |
+| COMPILE | Full pdflatex run + bibtex + pdflatex×2; check page count, citation match, 0 errors; **verify Figure 1 taxonomy badge counts match actual \citep per leaf**; commit with message `loop(rN-<section>-<mode>)` |
 
 ## Section priority (round-robin)
 
