@@ -3,7 +3,7 @@
   "started_at": "2026-05-08T15:50Z",
   "planned_end_at": "2026-05-09T01:50Z",
   "tick_interval_min": 10,
-  "round": 65,
+  "round": 66,
   "paper_root": "/apdcephfs_cq8/share_1324356/nickmysong/daily_research/on-policy-distillation-survey",
   "survey_dir": "latex-v2",
   "main_tex": "main.tex",
@@ -98,16 +98,22 @@
       "claim": "GKD π_mix = λp_θ + (1-λ)p_data",
       "verdict": "Correct (GKD uses fixed dataset including teacher-gen or ground-truth as non-student branch — matches p_data)",
       "priority": "DONE"
+    },
+    {
+      "section": "§4.2",
+      "claim": "no fixed divergence is ever optimal (universal)",
+      "verdict": "potentially overclaiming — qualify with 'across evaluated settings'",
+      "priority": "medium"
     }
   ],
   "notes": "Each round reads one bounded slice of the survey deeply, checks facts against local PDFs (never grep-only), rewrites for insight+flow, compiles, commits.",
   "last_completed": {
-    "round": 64,
-    "mode": "COMPILE",
-    "section": "3.1-Method-Landscape",
-    "log": ".loop/round-64.md",
-    "by": "cron tick 64",
-    "summary": "Clean compile: 60 pages, 124 cites, 0 errors, 0 undefined. Completes §3.1 cycle."
+    "round": 65,
+    "mode": "READ",
+    "section": "4-Objectives",
+    "log": ".loop/round-65.md",
+    "by": "cron tick 65",
+    "summary": "Deep read of §4. Found 2 However instances, 1 potential overclaim ('no fixed divergence is ever optimal'), 3 new numeric claims to verify (REOPOLD, RLKD, Lightning OPD). Section structure is strong."
   },
   "pending_verify": [
     {
@@ -189,6 +195,21 @@
       "claim": "MTP <5% drop clarification (actually 3-7% by model)",
       "paper": "2602.06019",
       "section": "§5.3.2"
+    },
+    {
+      "claim": "REOPOLD 6.7-12x sample efficiency + 7B matches 32B + 3.3x speedup",
+      "paper": "2603.11137",
+      "section": "§4.3"
+    },
+    {
+      "claim": "RLKD 0.1% data surpasses SFT-RL pipelines",
+      "paper": "2505.16142",
+      "section": "§4.3"
+    },
+    {
+      "claim": "Lightning OPD 4x speedup under teacher consistency",
+      "paper": "wu2026lightning",
+      "section": "§4.1"
     }
   ]
 }
