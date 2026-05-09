@@ -1,8 +1,8 @@
 {
-  "round": 13,
+  "round": 14,
   "phase": 3,
   "task_rotation": ["READ", "VERIFY", "DEEPEN", "POLISH", "COMPILE"],
-  "current_mode": "READ",
+  "current_mode": "VERIFY",
   "sections_priority": [
     "Introduction",
     "Background",
@@ -16,8 +16,27 @@
     "Conclusion"
   ],
   "current_section_idx": 3,
-  "last_completed": "R12-Taxonomy-COMPILE",
-  "pending_verify": [],
+  "last_completed": "R13-Objectives-READ",
+  "pending_verify": [
+    {
+      "id": "pv-13-1",
+      "claim": "REOPOLD achieves 6.7--12x greater sample efficiency than recent RL approaches and enables 7B student to match 32B teacher with ~3.3x inference speedup",
+      "source": "2603.11137",
+      "line": 761
+    },
+    {
+      "id": "pv-13-2",
+      "claim": "RLKD trained on only 0.1% of the data under a pure RL regime surpasses standard SFT-RL pipelines",
+      "source": "2505.16142",
+      "line": 770
+    },
+    {
+      "id": "pv-13-3",
+      "claim": "Lightning OPD achieves 4x speedup over standard OPD under teacher consistency condition",
+      "source": "wu2026lightning",
+      "line": 724
+    }
+  ],
   "findings_so_far": [
     "Intro: AI-taste words fixed (striking, rich and fast-growing, arguably, however x2)",
     "Intro: DeepSeek-V4 claim verified against tech report",
@@ -35,8 +54,9 @@
     "Taxonomy: CRISP 57%/+9% VERIFIED (paper reports 57-59% reduction, 9-16pt improvement)",
     "Taxonomy: DEEPEN - convergence thesis (3 waves → autonomous loops), causal distributional analysis, table-to-tree bridge paragraph",
     "Taxonomy: POLISH - eliminated repetitive 'The three' openings, removed 2 narrative em-dashes, tightened wordy constructions (field's recognition→addressing, passive→active)",
-    "Taxonomy: COMPILE clean (61pp, 124 bibs, 0 errors, 0 undef)"
+    "Taxonomy: COMPILE clean (61pp, 124 bibs, 0 errors, 0 undef)",
+    "Objectives: READ clean - no AI-taste words, no semicolons, no em-dashes; 2 minor prose colons; 3 numerical claims queued for verification"
   ],
   "started_at": "2026-05-09T05:10:00Z",
-  "notes": "Taxonomy full cycle complete and verified. Round 13 starts §4 (sec:objectives / Data Generation & Training Objectives) with READ pass."
+  "notes": "§4 Objectives READ pass complete. Section is high quality with strong logical flow. 3 numerical claims queued. Next: VERIFY pass on all 3 claims."
 }
