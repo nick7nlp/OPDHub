@@ -1,8 +1,8 @@
 {
-  "round": 17,
+  "round": 18,
   "phase": 3,
   "task_rotation": ["READ", "VERIFY", "DEEPEN", "POLISH", "COMPILE"],
-  "current_mode": "COMPILE",
+  "current_mode": "READ",
   "sections_priority": [
     "Introduction",
     "Background",
@@ -15,8 +15,8 @@
     "FutureDirections",
     "Conclusion"
   ],
-  "current_section_idx": 4,
-  "last_completed": "R16-Objectives-POLISH",
+  "current_section_idx": 5,
+  "last_completed": "R17-Objectives-COMPILE",
   "pending_verify": [],
   "findings_so_far": [
     "Intro: AI-taste words fixed (striking, rich and fast-growing, arguably, however x2)",
@@ -39,8 +39,9 @@
     "Objectives: READ clean - no AI-taste words, no semicolons, no em-dashes; 2 minor prose colons; 3 numerical claims queued",
     "Objectives: VERIFY - all 3 claims CORRECT (REOPOLD 6.7-12x/3.32x, RLKD 0.1% data, Lightning OPD 4x speedup)",
     "Objectives: DEEPEN - strengthened RL-Augmented subsection logical flow (G-OPD→REOPOLD→RLKD abstraction ladder, KDRL→RLAD mirrors fixed→adaptive, new headings for preference-based and fine-grained credit assignment, cross-method synthesis)",
-    "Objectives: POLISH - 8 fixes (1 semicolon removed, 5 prose colons rewritten, 'operationalizes'×3→varied, 'reveals'→'exposes')"
+    "Objectives: POLISH - 8 fixes (1 semicolon removed, 5 prose colons rewritten, 'operationalizes'×3→varied, 'reveals'→'exposes')",
+    "Objectives: COMPILE clean (61pp, 124 bibs, 0 errors, 0 undef)"
   ],
   "started_at": "2026-05-09T05:10:00Z",
-  "notes": "§4 Objectives POLISH done. 8 targeted edits: removed semicolons, prose colons, repetitive 'operationalizes', AI-taste 'reveals'. Compile clean (61pp, 0 errors). Next: COMPILE pass for §4 (verify clean state), then move to §5 Signal Source."
+  "notes": "§4 Objectives full cycle complete. Moving to §5 ScalingAndEfficiency with READ mode."
 }
