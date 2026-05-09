@@ -1,8 +1,8 @@
 {
-  "round": 25,
+  "round": 26,
   "phase": 3,
   "task_rotation": ["READ", "VERIFY", "DEEPEN", "POLISH", "COMPILE"],
-  "current_mode": "DEEPEN",
+  "current_mode": "POLISH",
   "sections_priority": [
     "Introduction",
     "Background",
@@ -16,7 +16,7 @@
     "Conclusion"
   ],
   "current_section_idx": 6,
-  "last_completed": "R24-Applications-VERIFY",
+  "last_completed": "R25-Applications-DEEPEN",
   "pending_verify": [
     {"claim": "Skill-SD +14.0% over GRPO on AppWorld, +10.9% on Sokoban", "source": "wang2026skillsd", "section": "Applications"}
   ],
@@ -49,8 +49,9 @@
     "ScalingAndEfficiency: POLISH - 3 fixes (reveals→exposes, 2× However removed)",
     "ScalingAndEfficiency: COMPILE clean (62pp, 124 bibs, 0 errors, 0 undef)",
     "Applications: READ - 3 AI-taste words (reveals, revealing, novel), 1 narrative em-dash, 5 'The X pattern' repetitive structure, 5 numerical claims queued",
-    "Applications: VERIFY - 3 claims fully verified (KAT-Coder-V2 79.6% ✅, Nemotron-Cascade-2 Gold+20x ✅, NVLink 900GB/s ✅), VOLD numbers partially verified (model+benchmark confirmed), 1 deferred (Skill-SD)"
+    "Applications: VERIFY - 3 claims fully verified (KAT-Coder-V2 79.6% ✅, Nemotron-Cascade-2 Gold+20x ✅, NVLink 900GB/s ✅), VOLD numbers partially verified (model+benchmark confirmed), 1 deferred (Skill-SD)",
+    "Applications: DEEPEN - restructured Multimodal OPD (parallel list → logical progression: cross-modal transfer → temporal/self-alignment → bootstrapping prerequisite), restructured Embodied Intelligence (list → cognitive-planning-motor spectrum with escalating OPD criticality)"
   ],
   "started_at": "2026-05-09T05:10:00Z",
-  "notes": "§8 Applications VERIFY done. 3/5 fully verified, 1 partially, 1 deferred. Next: DEEPEN to strengthen logical connections between subsections and reduce parallel listing."
+  "notes": "§8 Applications DEEPEN done. Major improvements to Emerging Domains subsection logical flow. Next: POLISH to eliminate remaining AI-taste words and sentence-level issues."
 }
