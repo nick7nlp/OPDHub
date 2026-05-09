@@ -1,8 +1,8 @@
 {
-  "round": 6,
+  "round": 7,
   "phase": 3,
   "task_rotation": ["READ", "VERIFY", "DEEPEN", "POLISH", "COMPILE"],
-  "current_mode": "DEEPEN",
+  "current_mode": "POLISH",
   "sections_priority": [
     "Introduction",
     "Background",
@@ -16,7 +16,7 @@
     "Conclusion"
   ],
   "current_section_idx": 1,
-  "last_completed": "R5-Background-VERIFY",
+  "last_completed": "R6-Background-DEEPEN",
   "pending_verify": [],
   "findings_so_far": [
     "Intro: AI-taste words fixed (striking, rich and fast-growing, arguably, however x2)",
@@ -26,8 +26,9 @@
     "Background: Minor AI-taste ('critical limitation'), 'revealing/reveals' repetition in one para",
     "Background: 'all information' slight overclaim in Seq-KD description",
     "Background: 3 claims queued for verification (ttopd KL numbers, MiniLLM alpha, DistiLLM formula)",
-    "Background: All 3 claims VERIFIED correct (ttopd KL 2.637->0.343, MiniLLM alpha=0.2, DistiLLM SKL formula direction)"
+    "Background: All 3 claims VERIFIED correct (ttopd KL 2.637->0.343, MiniLLM alpha=0.2, DistiLLM SKL formula direction)",
+    "Background: DEEPEN - added comparative synthesis (GKD/MiniLLM/DistiLLM tradeoff triangle), strengthened all 3 inter-subsection transitions, connected scaling laws to divergence choice"
   ],
   "started_at": "2026-05-09T05:10:00Z",
-  "notes": "All pending_verify cleared. Background numerics are solid. Next: DEEPEN Background to improve logical flow between methods."
+  "notes": "Background DEEPEN complete. Section now has strong logical flow. Next: POLISH Background for AI-taste words, passive voice, repetitive structures."
 }
