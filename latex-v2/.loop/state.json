@@ -1,8 +1,8 @@
 {
-  "round": 18,
+  "round": 19,
   "phase": 3,
   "task_rotation": ["READ", "VERIFY", "DEEPEN", "POLISH", "COMPILE"],
-  "current_mode": "READ",
+  "current_mode": "VERIFY",
   "sections_priority": [
     "Introduction",
     "Background",
@@ -16,8 +16,13 @@
     "Conclusion"
   ],
   "current_section_idx": 5,
-  "last_completed": "R17-Objectives-COMPILE",
-  "pending_verify": [],
+  "last_completed": "R18-ScalingAndEfficiency-READ",
+  "pending_verify": [
+    "TIP: 50% token retention across three model families with capacity gaps from 2x to 9x",
+    "SCOPE: +5.5% over standard OPD (diversity collapse)",
+    "TCOD: gains of up to +18 points over vanilla multi-turn OPD",
+    "Fast OPD: 2-47x reduced training FLOPs"
+  ],
   "findings_so_far": [
     "Intro: AI-taste words fixed (striking, rich and fast-growing, arguably, however x2)",
     "Intro: DeepSeek-V4 claim verified against tech report",
@@ -40,8 +45,9 @@
     "Objectives: VERIFY - all 3 claims CORRECT (REOPOLD 6.7-12x/3.32x, RLKD 0.1% data, Lightning OPD 4x speedup)",
     "Objectives: DEEPEN - strengthened RL-Augmented subsection logical flow (G-OPD→REOPOLD→RLKD abstraction ladder, KDRL→RLAD mirrors fixed→adaptive, new headings for preference-based and fine-grained credit assignment, cross-method synthesis)",
     "Objectives: POLISH - 8 fixes (1 semicolon removed, 5 prose colons rewritten, 'operationalizes'×3→varied, 'reveals'→'exposes')",
-    "Objectives: COMPILE clean (61pp, 124 bibs, 0 errors, 0 undef)"
+    "Objectives: COMPILE clean (61pp, 124 bibs, 0 errors, 0 undef)",
+    "ScalingAndEfficiency: READ - 2 AI-taste words (reveals, However), no semicolons/em-dashes/prose colons, 4 numerical claims queued for verification"
   ],
   "started_at": "2026-05-09T05:10:00Z",
-  "notes": "§4 Objectives full cycle complete. Moving to §5 ScalingAndEfficiency with READ mode."
+  "notes": "§6 Training Dynamics READ done. 2 AI-taste issues found (reveals, However). 4 numerical claims queued. Next: VERIFY those 4 claims."
 }
