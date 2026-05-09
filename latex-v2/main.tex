@@ -143,7 +143,7 @@ Since $|\mathcal{Y}| = |V|^T$ grows exponentially with length, exact computation
 \begin{equation}
     \loss_{\text{Seq-KD}} \approx -\log P_\theta(\hat{y}|x)
 \end{equation}
-This approximation works well when the teacher is highly confident but discards all information about the teacher's uncertainty and alternative modes. The practical consequence is twofold: Seq-KD collapses the teacher's distributional richness into a single point estimate, and it still trains on a \emph{static} dataset disconnected from the student's own generation behavior. These two limitations---loss of distributional signal and off-policy training---motivate the richer objectives below.
+This approximation works well when the teacher is highly confident but discards all information about the teacher's uncertainty and alternative modes. The practical consequence is twofold: Seq-KD collapses the teacher's distributional richness into a single point estimate, and it still trains on a \emph{static} dataset disconnected from the student's own generation behavior. These two limitations (loss of distributional signal and off-policy training) motivate the richer objectives below.
 
 Subsequent work~\citep{2402.11890} revisited these foundations for modern LLMs and showed that classical assumptions (small teacher-student gap, shared vocabulary, similar architectural inductive biases) frequently fail when distilling across heterogeneous model families. The gap between classical assumptions and modern reality motivates the more general $f$-divergence framework below.
 
