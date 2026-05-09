@@ -1,8 +1,8 @@
 {
-  "round": 5,
+  "round": 6,
   "phase": 3,
   "task_rotation": ["READ", "VERIFY", "DEEPEN", "POLISH", "COMPILE"],
-  "current_mode": "VERIFY",
+  "current_mode": "DEEPEN",
   "sections_priority": [
     "Introduction",
     "Background",
@@ -16,27 +16,8 @@
     "Conclusion"
   ],
   "current_section_idx": 1,
-  "last_completed": "R4-Background-READ",
-  "pending_verify": [
-    {
-      "source": "ttopd2026",
-      "claim": "KL divergence dropping from 2.637 to 0.343 at a single teacher-reset event",
-      "section": "Background",
-      "priority": "high"
-    },
-    {
-      "source": "2306.08543",
-      "claim": "MiniLLM uses alpha=0.2 for mixture policy stability",
-      "section": "Background",
-      "priority": "medium"
-    },
-    {
-      "source": "2402.03898",
-      "claim": "DistiLLM computes KL(p_teacher || p_tilde) with p_tilde = alpha*p_teacher + (1-alpha)*p_student",
-      "section": "Background",
-      "priority": "medium"
-    }
-  ],
+  "last_completed": "R5-Background-VERIFY",
+  "pending_verify": [],
   "findings_so_far": [
     "Intro: AI-taste words fixed (striking, rich and fast-growing, arguably, however x2)",
     "Intro: DeepSeek-V4 claim verified against tech report",
@@ -44,8 +25,9 @@
     "Background: Overall strong, 14 citations all present",
     "Background: Minor AI-taste ('critical limitation'), 'revealing/reveals' repetition in one para",
     "Background: 'all information' slight overclaim in Seq-KD description",
-    "Background: 3 claims queued for verification (ttopd KL numbers, MiniLLM alpha, DistiLLM formula)"
+    "Background: 3 claims queued for verification (ttopd KL numbers, MiniLLM alpha, DistiLLM formula)",
+    "Background: All 3 claims VERIFIED correct (ttopd KL 2.637->0.343, MiniLLM alpha=0.2, DistiLLM SKL formula direction)"
   ],
   "started_at": "2026-05-09T05:10:00Z",
-  "notes": "Background section is mathematically solid. Main concerns are 3 numerical/formula claims to verify. Moving to VERIFY next round."
+  "notes": "All pending_verify cleared. Background numerics are solid. Next: DEEPEN Background to improve logical flow between methods."
 }
