@@ -1,0 +1,43 @@
+{
+  "round": 2,
+  "phase": 3,
+  "task_rotation": ["READ", "VERIFY", "DEEPEN", "POLISH", "COMPILE"],
+  "current_mode": "VERIFY",
+  "sections_priority": [
+    "Introduction",
+    "Background",
+    "Taxonomy",
+    "DataGeneration",
+    "TrainingObjectives",
+    "ScalingAndEfficiency",
+    "Applications",
+    "Evaluation",
+    "FutureDirections",
+    "Conclusion"
+  ],
+  "current_section_idx": 0,
+  "last_completed": "R1-Introduction-READ",
+  "pending_verify": [
+    {
+      "id": "pv-001",
+      "claim": "over one hundred papers in OPD literature (fewer than two years after GKD/MiniLLM)",
+      "location": "Introduction para 5",
+      "source": "R1-READ",
+      "status": "pending"
+    },
+    {
+      "id": "pv-002",
+      "claim": "DeepSeek-V4 replaced its mixed RL stage with pure multi-teacher OPD for model consolidation",
+      "location": "Introduction para 4",
+      "source": "R1-READ",
+      "status": "pending"
+    }
+  ],
+  "findings_so_far": [
+    "Intro: AI-taste words (striking, rich and fast-growing, arguably)",
+    "Intro: Repeated 'The...' paragraph openings (4 of 7 paras)",
+    "Intro: Two 'however' parentheticals with same syntax",
+    "Intro: First sentence overloaded (53+ words)"
+  ],
+  "started_at": "2026-05-09T05:10:00Z"
+}
