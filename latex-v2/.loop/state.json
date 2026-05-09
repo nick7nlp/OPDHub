@@ -1,5 +1,5 @@
 {
-  "round": 2,
+  "round": 5,
   "phase": 3,
   "task_rotation": ["READ", "VERIFY", "DEEPEN", "POLISH", "COMPILE"],
   "current_mode": "VERIFY",
@@ -15,29 +15,37 @@
     "FutureDirections",
     "Conclusion"
   ],
-  "current_section_idx": 0,
-  "last_completed": "R1-Introduction-READ",
+  "current_section_idx": 1,
+  "last_completed": "R4-Background-READ",
   "pending_verify": [
     {
-      "id": "pv-001",
-      "claim": "over one hundred papers in OPD literature (fewer than two years after GKD/MiniLLM)",
-      "location": "Introduction para 5",
-      "source": "R1-READ",
-      "status": "pending"
+      "source": "ttopd2026",
+      "claim": "KL divergence dropping from 2.637 to 0.343 at a single teacher-reset event",
+      "section": "Background",
+      "priority": "high"
     },
     {
-      "id": "pv-002",
-      "claim": "DeepSeek-V4 replaced its mixed RL stage with pure multi-teacher OPD for model consolidation",
-      "location": "Introduction para 4",
-      "source": "R1-READ",
-      "status": "pending"
+      "source": "2306.08543",
+      "claim": "MiniLLM uses alpha=0.2 for mixture policy stability",
+      "section": "Background",
+      "priority": "medium"
+    },
+    {
+      "source": "2402.03898",
+      "claim": "DistiLLM computes KL(p_teacher || p_tilde) with p_tilde = alpha*p_teacher + (1-alpha)*p_student",
+      "section": "Background",
+      "priority": "medium"
     }
   ],
   "findings_so_far": [
-    "Intro: AI-taste words (striking, rich and fast-growing, arguably)",
-    "Intro: Repeated 'The...' paragraph openings (4 of 7 paras)",
-    "Intro: Two 'however' parentheticals with same syntax",
-    "Intro: First sentence overloaded (53+ words)"
+    "Intro: AI-taste words fixed (striking, rich and fast-growing, arguably, however x2)",
+    "Intro: DeepSeek-V4 claim verified against tech report",
+    "Intro: 'over 100 papers' claim verified (124 bib entries + broader lit)",
+    "Background: Overall strong, 14 citations all present",
+    "Background: Minor AI-taste ('critical limitation'), 'revealing/reveals' repetition in one para",
+    "Background: 'all information' slight overclaim in Seq-KD description",
+    "Background: 3 claims queued for verification (ttopd KL numbers, MiniLLM alpha, DistiLLM formula)"
   ],
-  "started_at": "2026-05-09T05:10:00Z"
+  "started_at": "2026-05-09T05:10:00Z",
+  "notes": "Background section is mathematically solid. Main concerns are 3 numerical/formula claims to verify. Moving to VERIFY next round."
 }
