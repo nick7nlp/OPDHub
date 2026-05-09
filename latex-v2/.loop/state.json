@@ -1,8 +1,8 @@
 {
-  "round": 7,
+  "round": 8,
   "phase": 3,
   "task_rotation": ["READ", "VERIFY", "DEEPEN", "POLISH", "COMPILE"],
-  "current_mode": "POLISH",
+  "current_mode": "COMPILE",
   "sections_priority": [
     "Introduction",
     "Background",
@@ -16,7 +16,7 @@
     "Conclusion"
   ],
   "current_section_idx": 1,
-  "last_completed": "R6-Background-DEEPEN",
+  "last_completed": "R7-Background-POLISH",
   "pending_verify": [],
   "findings_so_far": [
     "Intro: AI-taste words fixed (striking, rich and fast-growing, arguably, however x2)",
@@ -27,8 +27,9 @@
     "Background: 'all information' slight overclaim in Seq-KD description",
     "Background: 3 claims queued for verification (ttopd KL numbers, MiniLLM alpha, DistiLLM formula)",
     "Background: All 3 claims VERIFIED correct (ttopd KL 2.637->0.343, MiniLLM alpha=0.2, DistiLLM SKL formula direction)",
-    "Background: DEEPEN - added comparative synthesis (GKD/MiniLLM/DistiLLM tradeoff triangle), strengthened all 3 inter-subsection transitions, connected scaling laws to divergence choice"
+    "Background: DEEPEN - added comparative synthesis (GKD/MiniLLM/DistiLLM tradeoff triangle), strengthened all 3 inter-subsection transitions, connected scaling laws to divergence choice",
+    "Background: POLISH - 6 fixes (revealing/reveals→exposing/shows, Crucially removed, passive→active x2, filler trimmed, demonstrating→showed)"
   ],
   "started_at": "2026-05-09T05:10:00Z",
-  "notes": "Background DEEPEN complete. Section now has strong logical flow. Next: POLISH Background for AI-taste words, passive voice, repetitive structures."
+  "notes": "Background POLISH complete. Next: COMPILE round to verify Background page count and citation integrity before moving to Taxonomy section."
 }
