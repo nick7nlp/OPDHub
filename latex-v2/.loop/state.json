@@ -1,8 +1,8 @@
 {
-  "round": 26,
+  "round": 27,
   "phase": 3,
   "task_rotation": ["READ", "VERIFY", "DEEPEN", "POLISH", "COMPILE"],
-  "current_mode": "POLISH",
+  "current_mode": "COMPILE",
   "sections_priority": [
     "Introduction",
     "Background",
@@ -16,7 +16,7 @@
     "Conclusion"
   ],
   "current_section_idx": 6,
-  "last_completed": "R25-Applications-DEEPEN",
+  "last_completed": "R26-Applications-POLISH",
   "pending_verify": [
     {"claim": "Skill-SD +14.0% over GRPO on AppWorld, +10.9% on Sokoban", "source": "wang2026skillsd", "section": "Applications"}
   ],
@@ -50,8 +50,9 @@
     "ScalingAndEfficiency: COMPILE clean (62pp, 124 bibs, 0 errors, 0 undef)",
     "Applications: READ - 3 AI-taste words (reveals, revealing, novel), 1 narrative em-dash, 5 'The X pattern' repetitive structure, 5 numerical claims queued",
     "Applications: VERIFY - 3 claims fully verified (KAT-Coder-V2 79.6% ✅, Nemotron-Cascade-2 Gold+20x ✅, NVLink 900GB/s ✅), VOLD numbers partially verified (model+benchmark confirmed), 1 deferred (Skill-SD)",
-    "Applications: DEEPEN - restructured Multimodal OPD (parallel list → logical progression: cross-modal transfer → temporal/self-alignment → bootstrapping prerequisite), restructured Embodied Intelligence (list → cognitive-planning-motor spectrum with escalating OPD criticality)"
+    "Applications: DEEPEN - restructured Multimodal OPD (parallel list → logical progression: cross-modal transfer → temporal/self-alignment → bootstrapping prerequisite), restructured Embodied Intelligence (list → cognitive-planning-motor spectrum with escalating OPD criticality)",
+    "Applications: POLISH - 7 fixes (reveals→exposes, revealing→indicating, novel→new, 3 narrative em-dashes removed, repetitive 'The first/second/third/fourth' pattern restructured)"
   ],
   "started_at": "2026-05-09T05:10:00Z",
-  "notes": "§8 Applications DEEPEN done. Major improvements to Emerging Domains subsection logical flow. Next: POLISH to eliminate remaining AI-taste words and sentence-level issues."
+  "notes": "Applications POLISH done. All AI-taste words and structural issues resolved. Next: COMPILE round to verify the full section is clean, then advance to §9 Evaluation (next section in priority: FutureDirections, but state.json lists it as idx 7 = Evaluation)."
 }
