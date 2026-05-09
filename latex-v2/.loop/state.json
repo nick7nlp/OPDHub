@@ -1,8 +1,8 @@
 {
-  "round": 30,
+  "round": 32,
   "phase": 3,
   "task_rotation": ["READ", "VERIFY", "DEEPEN", "POLISH", "COMPILE"],
-  "current_mode": "DEEPEN",
+  "current_mode": "COMPILE",
   "sections_priority": [
     "Introduction",
     "Background",
@@ -16,7 +16,7 @@
     "Conclusion"
   ],
   "current_section_idx": 0,
-  "last_completed": "R29-Conclusion-READ+POLISH+VERIFY",
+  "last_completed": "R31-POLISH-full-document-sweep",
   "pending_verify": [],
   "findings_so_far": [
     "Intro: AI-taste words fixed (striking, rich and fast-growing, arguably, however x2)",
@@ -53,8 +53,10 @@
     "Applications: COMPILE clean (62pp, 124 bibs, 0 errors, 0 undef)",
     "FutureDirections: READ+POLISH combined - 5 AI-taste words (revealing, surprisingly, However, Furthermore, Complementarily, operationalizes) + 2 em-dashes fixed in 7 edits. Section well-structured, no verification needed, no overclaims.",
     "Conclusion: READ+POLISH - 1 AI-taste word (However→Yet). No semicolons/em-dashes/overclaims. Section clean.",
-    "Conclusion: VERIFY (pending) - Skill-SD +14.0%/+10.9% on AppWorld/Sokoban VERIFIED from arXiv abstract."
+    "Conclusion: VERIFY (pending) - Skill-SD +14.0%/+10.9% on AppWorld/Sokoban VERIFIED from arXiv abstract.",
+    "DEEPEN scan (R30): Introduction already has strong argumentative flow (no parallel listing). Signal Source (§5) has clear method progressions within each subsection + cross-subsection bridges. Understanding OPD (§7) has root-cause organization + explicit cross-method connections. No DEEPEN edits needed for remaining sections.",
+    "POLISH full-document sweep (R31): 12 edits across 5 sections. Removed 5× reveals/revealing, 2× novel, 1× highlights, 1× However opener, 1× passive voice, 1× narrative em-dash. All sections now clean."
   ],
   "started_at": "2026-05-09T05:10:00Z",
-  "notes": "Phase 3 READ pass complete for all 10 sections. All pending_verify resolved. Now entering DEEPEN pass starting from §1 Introduction. Next: R30 DEEPEN Introduction."
+  "notes": "Phase 3 full POLISH sweep complete. Moving to COMPILE verification round to confirm clean state and get final stats."
 }
