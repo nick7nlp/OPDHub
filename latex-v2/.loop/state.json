@@ -1,8 +1,8 @@
 {
-  "round": 19,
+  "round": 21,
   "phase": 3,
   "task_rotation": ["READ", "VERIFY", "DEEPEN", "POLISH", "COMPILE"],
-  "current_mode": "VERIFY",
+  "current_mode": "POLISH",
   "sections_priority": [
     "Introduction",
     "Background",
@@ -16,13 +16,8 @@
     "Conclusion"
   ],
   "current_section_idx": 5,
-  "last_completed": "R18-ScalingAndEfficiency-READ",
-  "pending_verify": [
-    "TIP: 50% token retention across three model families with capacity gaps from 2x to 9x",
-    "SCOPE: +5.5% over standard OPD (diversity collapse)",
-    "TCOD: gains of up to +18 points over vanilla multi-turn OPD",
-    "Fast OPD: 2-47x reduced training FLOPs"
-  ],
+  "last_completed": "R20-ScalingAndEfficiency-DEEPEN",
+  "pending_verify": [],
   "findings_so_far": [
     "Intro: AI-taste words fixed (striking, rich and fast-growing, arguably, however x2)",
     "Intro: DeepSeek-V4 claim verified against tech report",
@@ -46,8 +41,10 @@
     "Objectives: DEEPEN - strengthened RL-Augmented subsection logical flow (G-OPD→REOPOLD→RLKD abstraction ladder, KDRL→RLAD mirrors fixed→adaptive, new headings for preference-based and fine-grained credit assignment, cross-method synthesis)",
     "Objectives: POLISH - 8 fixes (1 semicolon removed, 5 prose colons rewritten, 'operationalizes'×3→varied, 'reveals'→'exposes')",
     "Objectives: COMPILE clean (61pp, 124 bibs, 0 errors, 0 undef)",
-    "ScalingAndEfficiency: READ - 2 AI-taste words (reveals, However), no semicolons/em-dashes/prose colons, 4 numerical claims queued for verification"
+    "ScalingAndEfficiency: READ - 2 AI-taste words (reveals, However), 4 numerical claims queued",
+    "ScalingAndEfficiency: VERIFY - TIP 50%/3 families VERIFIED, TCOD +18 VERIFIED, Fast OPD 2-47x VERIFIED, SCOPE +5.5% CORRECTED to +7.3% Pass@32",
+    "ScalingAndEfficiency: DEEPEN - 4 edits: (1) Uni-OPD explicitly positioned as extending PACED's single-criterion to dual-criterion, (2) TCOD transition clarified as orthogonal temporal axis, (3) §6.2→§6.3 bridge connecting sample efficiency to systems-level cost, (4) new 'Training Efficiency Stack' synthesis at section end framing three subsections as composable layers"
   ],
   "started_at": "2026-05-09T05:10:00Z",
-  "notes": "§6 Training Dynamics READ done. 2 AI-taste issues found (reveals, However). 4 numerical claims queued. Next: VERIFY those 4 claims."
+  "notes": "§6 DEEPEN complete. Added inter-subsection synthesis and composable-stack framing. Next: POLISH §6 — clean AI-taste words (reveals, However identified in READ), check for semicolons and repetitive patterns."
 }
