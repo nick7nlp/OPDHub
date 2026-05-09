@@ -3,7 +3,7 @@
   "started_at": "2026-05-08T15:50Z",
   "planned_end_at": "2026-05-09T01:50Z",
   "tick_interval_min": 10,
-  "round": 72,
+  "round": 73,
   "paper_root": "/apdcephfs_cq8/share_1324356/nickmysong/daily_research/on-policy-distillation-survey",
   "survey_dir": "latex-v2",
   "main_tex": "main.tex",
@@ -40,171 +40,178 @@
   "last_committed_section": "5-Signal-Source",
   "findings_so_far": [
     {
-      "section": "\u00a71",
+      "section": "§1",
       "claim": "near-human competence in reasoning/code/multilingual",
       "verdict": "overclaim, soften to SOTA on specific benchmarks",
       "priority": "high"
     },
     {
-      "section": "\u00a71",
+      "section": "§1",
       "claim": "DeepSeek-V4 replacing mixed RL with pure multi-teacher OPD",
       "verdict": "verify pure wording against DeepSeek-V4 paper",
       "priority": "high"
     },
     {
-      "section": "\u00a71",
+      "section": "§1",
       "claim": "GKD first unified on-policy framework",
       "verdict": "qualify with decoder-only LLM",
       "priority": "medium"
     },
     {
-      "section": "\u00a71",
+      "section": "§1",
       "claim": "architecturally necessary",
       "verdict": "add cite or soften",
       "priority": "medium"
     },
     {
-      "section": "\u00a71",
+      "section": "§1",
       "claim": "calibration-capability gap",
       "verdict": "check if novel term; mark we-term",
       "priority": "low"
     },
     {
-      "section": "\u00a72.1",
+      "section": "§2.1",
       "claim": "Hinton tau->inf gradient formula",
-      "verdict": "FIXED by main \u2014 was missing 1/tau^2 factor (commit dd6a495)",
+      "verdict": "FIXED by main — was missing 1/tau^2 factor (commit dd6a495)",
       "priority": "DONE"
     },
     {
-      "section": "\u00a72.1",
+      "section": "§2.1",
       "claim": "moderate temperatures tau in [1,3]",
       "verdict": "FIXED: replaced with tau=1 or low-moderate + cite 2402.11890",
       "priority": "DONE"
     },
     {
-      "section": "\u00a74-\u00a75 numerics",
+      "section": "§4-§5 numerics",
       "claim": "SPIN/CRISP/DAIL/OVD/PRISM/LUFFY/SSD/PAINT/SD-ZERO/SDPO/RLTF/SRPO/ThinkTuning/MTP",
       "verdict": "Bundle A verified 25/30 claims ACCURATE, 3 minor-defensible, 0 wrong. See .factcheck/bundle-A.md",
       "priority": "DONE"
     },
     {
-      "section": "\u00a76 TCOD",
+      "section": "§6 TCOD",
       "claim": "+18 points on multi-turn agentic tasks",
       "verdict": "Bundle B verified ACCURATE (max gain +18.67)",
       "priority": "DONE"
     },
     {
-      "section": "\u00a72.3",
-      "claim": "GKD \u03c0_mix = \u03bbp_\u03b8 + (1-\u03bb)p_data",
-      "verdict": "Correct (GKD uses fixed dataset including teacher-gen or ground-truth as non-student branch \u2014 matches p_data)",
+      "section": "§2.3",
+      "claim": "GKD π_mix = λp_θ + (1-λ)p_data",
+      "verdict": "Correct (GKD uses fixed dataset including teacher-gen or ground-truth as non-student branch — matches p_data)",
       "priority": "DONE"
     },
     {
-      "section": "\u00a74.2",
-      "claim": "no fixed divergence is ever optimal (universal)",
-      "verdict": "potentially overclaiming \u2014 qualify with 'across evaluated settings'",
-      "priority": "medium"
-    },
-    {
-      "section": "\u00a74.2",
+      "section": "§4.2",
       "claim": "no fixed divergence is ever optimal (universal)",
       "verdict": "FIXED: qualified to no single fixed divergence dominates uniformly across evaluated settings",
       "priority": "DONE"
     },
     {
-      "section": "\u00a71",
+      "section": "§1",
       "claim": "DeepSeek-V4 pure multi-teacher OPD",
       "verdict": "VERIFIED ACCURATE",
       "priority": "DONE"
     },
     {
-      "section": "\u00a71",
+      "section": "§1",
       "claim": "GKD first unified on-policy framework (alongside MiniLLM)",
       "verdict": "VERIFIED ACCURATE - survey correctly credits both",
       "priority": "DONE"
     },
     {
-      "section": "\u00a76.2",
+      "section": "§6.2",
       "claim": "Semantic Bootstrapping +10.6% MATH-500",
       "verdict": "VERIFIED ACCURATE per arXiv:2512.05105 abstract",
       "priority": "DONE"
     },
     {
-      "section": "\u00a71",
+      "section": "§1",
       "claim": "existing survey 2402.13116 retains compression framing",
       "verdict": "VERIFIED ACCURATE from PDF text extraction",
+      "priority": "DONE"
+    },
+    {
+      "section": "§5.3.2",
+      "claim": "MTP >3× faster decoding at 3-7% accuracy drop",
+      "verdict": "VERIFIED CONSISTENT — abstract says <5% on GSM8K, 3-7% is fair characterization across models",
+      "priority": "DONE"
+    },
+    {
+      "section": "§5.3.1",
+      "claim": "CRISP 57-59% token reduction + 9-16pp accuracy on MATH-500",
+      "verdict": "VERIFIED EXACT MATCH with abstract",
+      "priority": "DONE"
+    },
+    {
+      "section": "§5.3.3",
+      "claim": "SSD Qwen3-30B-Instruct 42.4% → 55.3% LiveCodeBench v6",
+      "verdict": "VERIFIED EXACT MATCH with abstract",
       "priority": "DONE"
     }
   ],
   "notes": "Each round reads one bounded slice of the survey deeply, checks facts against local PDFs (never grep-only), rewrites for insight+flow, compiles, commits.",
   "last_completed": {
-    "round": 71,
-    "mode": "READ",
+    "round": 72,
+    "mode": "VERIFY",
     "section": "5-Signal-Source",
-    "log": ".loop/round-71.md",
-    "by": "cron tick 71",
-    "summary": "Deep-read \u00a75: identified 7 language issues (2x However, 2x reveals, 1x highlights, 1x novel, 1x em-dash), 6 numeric claims to verify, no structural problems. Section is well-organized."
+    "log": ".loop/round-72.md",
+    "by": "cron tick 72",
+    "summary": "Verified 3 claims: MTP 3-7% drop (consistent with <5% abstract), CRISP 57-59% + 9-16pp (exact match), SSD 42.4→55.3% (exact match). All accurate, no edits needed."
   },
   "pending_verify": [
     {
       "claim": "calibration-capability gap novel term",
-      "paper": "internal \u00a77",
-      "section": "\u00a71/\u00a77"
+      "paper": "internal §7",
+      "section": "§1/§7"
     },
     {
       "claim": "TT-OPD 54.5%->49% collapse / KL 2.637->0.343 / 7.82->5.52 turns",
       "paper": "/tmp/opd_papers/ttopd.pdf",
-      "section": "\u00a77.2/\u00a78.2"
+      "section": "§7.2/§8.2"
     },
     {
       "claim": "Stable-OPD (luo2026demystifying) +7.2% KL asymmetry",
       "paper": "pdfs/",
-      "section": "\u00a77.3"
+      "section": "§7.3"
     },
     {
       "claim": "DeepSeek-R1 AIME 28.9/55.5/69.7/72.6 for 1.5/7/14/32B",
       "paper": "2501.12948",
-      "section": "\u00a79"
+      "section": "§9"
     },
     {
       "claim": "KAT-Coder-V2 SWE-bench 79.6%",
       "paper": "li2026katcoderv2",
-      "section": "\u00a78.1"
+      "section": "§8.1"
     },
     {
       "claim": "Nemotron-Cascade-2 20x fewer params than V3.2-Speciale",
       "paper": "2603.19220",
-      "section": "\u00a78.1"
+      "section": "§8.1"
     },
     {
       "claim": "VOLD Qwen2.5-VL-3B 27.1->32.0 MMMU-Pro",
       "paper": "pdfs/2510.23497.pdf",
-      "section": "\u00a78.2"
+      "section": "§8.2"
     },
     {
       "claim": "HY-Embodied 16/22 benchmarks",
       "paper": "tencent2026hyembodied",
-      "section": "\u00a78.2"
+      "section": "§8.2"
     },
     {
       "claim": "GUI-SD SOTA on 6 benchmarks",
       "paper": "zhang2026guisd",
-      "section": "\u00a78.2"
+      "section": "§8.2"
     },
     {
       "claim": "MAD-OPD OPAD +2.4% over single-teacher",
       "paper": "wang2026madopd",
-      "section": "\u00a78.2"
+      "section": "§8.2"
     },
     {
       "claim": "Skill-SD +14% over GRPO on AppWorld",
       "paper": "wang2026skillsd",
-      "section": "\u00a78.2"
-    },
-    {
-      "claim": "MTP <5% drop clarification (actually 3-7% by model)",
-      "paper": "2602.06019",
-      "section": "\u00a75.3.2"
+      "section": "§8.2"
     }
   ]
 }
