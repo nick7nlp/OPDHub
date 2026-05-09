@@ -1,8 +1,8 @@
 {
-  "round": 29,
+  "round": 30,
   "phase": 3,
   "task_rotation": ["READ", "VERIFY", "DEEPEN", "POLISH", "COMPILE"],
-  "current_mode": "READ",
+  "current_mode": "DEEPEN",
   "sections_priority": [
     "Introduction",
     "Background",
@@ -15,11 +15,9 @@
     "FutureDirections",
     "Conclusion"
   ],
-  "current_section_idx": 9,
-  "last_completed": "R28-FutureDirections-POLISH",
-  "pending_verify": [
-    {"claim": "Skill-SD +14.0% over GRPO on AppWorld, +10.9% on Sokoban", "source": "wang2026skillsd", "section": "Applications"}
-  ],
+  "current_section_idx": 0,
+  "last_completed": "R29-Conclusion-READ+POLISH+VERIFY",
+  "pending_verify": [],
   "findings_so_far": [
     "Intro: AI-taste words fixed (striking, rich and fast-growing, arguably, however x2)",
     "Intro: DeepSeek-V4 claim verified against tech report",
@@ -53,8 +51,10 @@
     "Applications: DEEPEN - restructured Multimodal OPD (parallel list → logical progression: cross-modal transfer → temporal/self-alignment → bootstrapping prerequisite), restructured Embodied Intelligence (list → cognitive-planning-motor spectrum with escalating OPD criticality)",
     "Applications: POLISH - 7 fixes (reveals→exposes, revealing→indicating, novel→new, 3 narrative em-dashes removed, repetitive 'The first/second/third/fourth' pattern restructured)",
     "Applications: COMPILE clean (62pp, 124 bibs, 0 errors, 0 undef)",
-    "FutureDirections: READ+POLISH combined - 5 AI-taste words (revealing, surprisingly, However, Furthermore, Complementarily, operationalizes) + 2 em-dashes fixed in 7 edits. Section well-structured, no verification needed, no overclaims."
+    "FutureDirections: READ+POLISH combined - 5 AI-taste words (revealing, surprisingly, However, Furthermore, Complementarily, operationalizes) + 2 em-dashes fixed in 7 edits. Section well-structured, no verification needed, no overclaims.",
+    "Conclusion: READ+POLISH - 1 AI-taste word (However→Yet). No semicolons/em-dashes/overclaims. Section clean.",
+    "Conclusion: VERIFY (pending) - Skill-SD +14.0%/+10.9% on AppWorld/Sokoban VERIFIED from arXiv abstract."
   ],
   "started_at": "2026-05-09T05:10:00Z",
-  "notes": "FutureDirections done in one combined READ+POLISH pass (section was clean, only surface issues). Next: §10 Conclusion (final section). After that, handle pending_verify (Skill-SD)."
+  "notes": "Phase 3 READ pass complete for all 10 sections. All pending_verify resolved. Now entering DEEPEN pass starting from §1 Introduction. Next: R30 DEEPEN Introduction."
 }
