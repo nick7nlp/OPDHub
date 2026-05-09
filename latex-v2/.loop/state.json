@@ -1,8 +1,8 @@
 {
-  "round": 11,
+  "round": 12,
   "phase": 3,
   "task_rotation": ["READ", "VERIFY", "DEEPEN", "POLISH", "COMPILE"],
-  "current_mode": "POLISH",
+  "current_mode": "COMPILE",
   "sections_priority": [
     "Introduction",
     "Background",
@@ -16,7 +16,7 @@
     "Conclusion"
   ],
   "current_section_idx": 2,
-  "last_completed": "R10-Taxonomy-DEEPEN",
+  "last_completed": "R11-Taxonomy-POLISH",
   "pending_verify": [],
   "findings_so_far": [
     "Intro: AI-taste words fixed (striking, rich and fast-growing, arguably, however x2)",
@@ -33,8 +33,9 @@
     "Taxonomy: Count errors fixed (Table 1: 16→15; Table 2: 64→61)",
     "Taxonomy: AI-taste fixed ('Crucially' removed, 'reveals'→'traces')",
     "Taxonomy: CRISP 57%/+9% VERIFIED (paper reports 57-59% reduction, 9-16pt improvement)",
-    "Taxonomy: DEEPEN - deepened distributional observations with causal explanation (maturation pattern + Chinchilla→reasoning paradigm); expanded evolutionary trajectory into convergence thesis (3 waves → autonomous loops); added bridging paragraph connecting Table 3 to Decision Tree (single-axis research vs multi-axis deployment gap)"
+    "Taxonomy: DEEPEN - convergence thesis (3 waves → autonomous loops), causal distributional analysis, table-to-tree bridge paragraph",
+    "Taxonomy: POLISH - eliminated repetitive 'The three' openings, removed 2 narrative em-dashes, tightened wordy constructions (field's recognition→addressing, passive→active)"
   ],
   "started_at": "2026-05-09T05:10:00Z",
-  "notes": "Taxonomy READ+VERIFY+DEEPEN complete. Next: POLISH pass on Taxonomy prose."
+  "notes": "Taxonomy full cycle (READ+VERIFY+DEEPEN+POLISH) done. Next: COMPILE verification pass, then move to §4 Objective Functions (mapped to 'DataGeneration' in priority list but actually sec:objectives)."
 }
