@@ -3,7 +3,7 @@
   "started_at": "2026-05-08T15:50Z",
   "planned_end_at": "2026-05-09T01:50Z",
   "tick_interval_min": 10,
-  "round": 57,
+  "round": 58,
   "paper_root": "/apdcephfs_cq8/share_1324356/nickmysong/daily_research/on-policy-distillation-survey",
   "survey_dir": "latex-v2",
   "main_tex": "main.tex",
@@ -102,12 +102,12 @@
   ],
   "notes": "Each round reads one bounded slice of the survey deeply, checks facts against local PDFs (never grep-only), rewrites for insight+flow, compiles, commits.",
   "last_completed": {
-    "round": 56,
-    "mode": "VERIFY",
+    "round": 57,
+    "mode": "DEEPEN",
     "section": "2-Background",
-    "log": ".loop/round-56.md",
-    "by": "cron tick 56",
-    "summary": "DistiLLM not fully on-policy (off-policy approach confirmed in paper), TT-OPD KL drop is at single copy event not over training, DAgger/f-div/JSD claims OK"
+    "log": ".loop/round-57.md",
+    "by": "cron tick 57",
+    "summary": "4 targeted edits: DAgger bound vs independent compounding insight, JSD-WHY on translation, MiniLLM credit assignment, f-div tractability explanation"
   },
   "pending_verify": [
     {
