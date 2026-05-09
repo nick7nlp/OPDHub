@@ -3,7 +3,7 @@
   "started_at": "2026-05-08T15:50Z",
   "planned_end_at": "2026-05-09T01:50Z",
   "tick_interval_min": 10,
-  "round": 66,
+  "round": 67,
   "paper_root": "/apdcephfs_cq8/share_1324356/nickmysong/daily_research/on-policy-distillation-survey",
   "survey_dir": "latex-v2",
   "main_tex": "main.tex",
@@ -40,176 +40,167 @@
   "last_committed_section": "4-Objectives",
   "findings_so_far": [
     {
-      "section": "§1",
+      "section": "\u00a71",
       "claim": "near-human competence in reasoning/code/multilingual",
       "verdict": "overclaim, soften to SOTA on specific benchmarks",
       "priority": "high"
     },
     {
-      "section": "§1",
+      "section": "\u00a71",
       "claim": "DeepSeek-V4 replacing mixed RL with pure multi-teacher OPD",
       "verdict": "verify pure wording against DeepSeek-V4 paper",
       "priority": "high"
     },
     {
-      "section": "§1",
+      "section": "\u00a71",
       "claim": "GKD first unified on-policy framework",
       "verdict": "qualify with decoder-only LLM",
       "priority": "medium"
     },
     {
-      "section": "§1",
+      "section": "\u00a71",
       "claim": "architecturally necessary",
       "verdict": "add cite or soften",
       "priority": "medium"
     },
     {
-      "section": "§1",
+      "section": "\u00a71",
       "claim": "calibration-capability gap",
       "verdict": "check if novel term; mark we-term",
       "priority": "low"
     },
     {
-      "section": "§2.1",
+      "section": "\u00a72.1",
       "claim": "Hinton tau->inf gradient formula",
-      "verdict": "FIXED by main — was missing 1/tau^2 factor (commit dd6a495)",
+      "verdict": "FIXED by main \u2014 was missing 1/tau^2 factor (commit dd6a495)",
       "priority": "DONE"
     },
     {
-      "section": "§2.1",
+      "section": "\u00a72.1",
       "claim": "moderate temperatures tau in [1,3]",
       "verdict": "FIXED: replaced with tau=1 or low-moderate + cite 2402.11890",
       "priority": "DONE"
     },
     {
-      "section": "§4-§5 numerics",
+      "section": "\u00a74-\u00a75 numerics",
       "claim": "SPIN/CRISP/DAIL/OVD/PRISM/LUFFY/SSD/PAINT/SD-ZERO/SDPO/RLTF/SRPO/ThinkTuning/MTP",
       "verdict": "Bundle A verified 25/30 claims ACCURATE, 3 minor-defensible, 0 wrong. See .factcheck/bundle-A.md",
       "priority": "DONE"
     },
     {
-      "section": "§6 TCOD",
+      "section": "\u00a76 TCOD",
       "claim": "+18 points on multi-turn agentic tasks",
       "verdict": "Bundle B verified ACCURATE (max gain +18.67)",
       "priority": "DONE"
     },
     {
-      "section": "§2.3",
-      "claim": "GKD π_mix = λp_θ + (1-λ)p_data",
-      "verdict": "Correct (GKD uses fixed dataset including teacher-gen or ground-truth as non-student branch — matches p_data)",
+      "section": "\u00a72.3",
+      "claim": "GKD \u03c0_mix = \u03bbp_\u03b8 + (1-\u03bb)p_data",
+      "verdict": "Correct (GKD uses fixed dataset including teacher-gen or ground-truth as non-student branch \u2014 matches p_data)",
       "priority": "DONE"
     },
     {
-      "section": "§4.2",
+      "section": "\u00a74.2",
       "claim": "no fixed divergence is ever optimal (universal)",
-      "verdict": "potentially overclaiming — qualify with 'across evaluated settings'",
+      "verdict": "potentially overclaiming \u2014 qualify with 'across evaluated settings'",
       "priority": "medium"
+    },
+    {
+      "section": "\u00a74.2",
+      "claim": "no fixed divergence is ever optimal (universal)",
+      "verdict": "FIXED: qualified to no single fixed divergence dominates uniformly across evaluated settings",
+      "priority": "DONE"
     }
   ],
   "notes": "Each round reads one bounded slice of the survey deeply, checks facts against local PDFs (never grep-only), rewrites for insight+flow, compiles, commits.",
   "last_completed": {
-    "round": 65,
-    "mode": "READ",
+    "round": 66,
+    "mode": "VERIFY",
     "section": "4-Objectives",
-    "log": ".loop/round-65.md",
-    "by": "cron tick 65",
-    "summary": "Deep read of §4. Found 2 However instances, 1 potential overclaim ('no fixed divergence is ever optimal'), 3 new numeric claims to verify (REOPOLD, RLKD, Lightning OPD). Section structure is strong."
+    "log": ".loop/round-66.md",
+    "by": "cron tick 66",
+    "summary": "Verified 3 claims (REOPOLD, RLKD, Lightning OPD) all ACCURATE. Fixed overclaim at line 738: qualified universality of adaptive-divergence finding."
   },
   "pending_verify": [
     {
       "claim": "DeepSeek-V4 pure multi-teacher OPD",
       "paper": "deepseekv4.pdf or pdfs/?",
-      "section": "§1/§8.1"
+      "section": "\u00a71/\u00a78.1"
     },
     {
       "claim": "GKD first unified qualifier",
       "paper": "2306.13649",
-      "section": "§1"
+      "section": "\u00a71"
     },
     {
       "claim": "calibration-capability gap novel term",
-      "paper": "internal §7",
-      "section": "§1/§7"
+      "paper": "internal \u00a77",
+      "section": "\u00a71/\u00a77"
     },
     {
       "claim": "existing survey 2402.13116 retains compression framing",
       "paper": "2402.13116.pdf",
-      "section": "§1"
+      "section": "\u00a71"
     },
     {
       "claim": "TT-OPD 54.5%->49% collapse / KL 2.637->0.343 / 7.82->5.52 turns",
       "paper": "/tmp/opd_papers/ttopd.pdf",
-      "section": "§7.2/§8.2"
+      "section": "\u00a77.2/\u00a78.2"
     },
     {
       "claim": "Semantic Bootstrapping +10.6% MATH-500",
       "paper": "2512.05105",
-      "section": "§6.2"
+      "section": "\u00a76.2"
     },
     {
       "claim": "Stable-OPD (luo2026demystifying) +7.2% KL asymmetry",
       "paper": "pdfs/",
-      "section": "§7.3"
+      "section": "\u00a77.3"
     },
     {
       "claim": "DeepSeek-R1 AIME 28.9/55.5/69.7/72.6 for 1.5/7/14/32B",
       "paper": "2501.12948",
-      "section": "§9"
+      "section": "\u00a79"
     },
     {
       "claim": "KAT-Coder-V2 SWE-bench 79.6%",
       "paper": "li2026katcoderv2",
-      "section": "§8.1"
+      "section": "\u00a78.1"
     },
     {
       "claim": "Nemotron-Cascade-2 20x fewer params than V3.2-Speciale",
       "paper": "2603.19220",
-      "section": "§8.1"
+      "section": "\u00a78.1"
     },
     {
       "claim": "VOLD Qwen2.5-VL-3B 27.1->32.0 MMMU-Pro",
       "paper": "pdfs/2510.23497.pdf",
-      "section": "§8.2"
+      "section": "\u00a78.2"
     },
     {
       "claim": "HY-Embodied 16/22 benchmarks",
       "paper": "tencent2026hyembodied",
-      "section": "§8.2"
+      "section": "\u00a78.2"
     },
     {
       "claim": "GUI-SD SOTA on 6 benchmarks",
       "paper": "zhang2026guisd",
-      "section": "§8.2"
+      "section": "\u00a78.2"
     },
     {
       "claim": "MAD-OPD OPAD +2.4% over single-teacher",
       "paper": "wang2026madopd",
-      "section": "§8.2"
+      "section": "\u00a78.2"
     },
     {
       "claim": "Skill-SD +14% over GRPO on AppWorld",
       "paper": "wang2026skillsd",
-      "section": "§8.2"
+      "section": "\u00a78.2"
     },
     {
       "claim": "MTP <5% drop clarification (actually 3-7% by model)",
       "paper": "2602.06019",
-      "section": "§5.3.2"
-    },
-    {
-      "claim": "REOPOLD 6.7-12x sample efficiency + 7B matches 32B + 3.3x speedup",
-      "paper": "2603.11137",
-      "section": "§4.3"
-    },
-    {
-      "claim": "RLKD 0.1% data surpasses SFT-RL pipelines",
-      "paper": "2505.16142",
-      "section": "§4.3"
-    },
-    {
-      "claim": "Lightning OPD 4x speedup under teacher consistency",
-      "paper": "wu2026lightning",
-      "section": "§4.1"
+      "section": "\u00a75.3.2"
     }
   ]
 }
