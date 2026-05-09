@@ -1,5 +1,5 @@
 {
-  "round": 37,
+  "round": 38,
   "phase": 4,
   "task_rotation": ["READ", "VERIFY", "DEEPEN", "POLISH", "COMPILE"],
   "current_mode": "READ",
@@ -15,8 +15,8 @@
     "FutureDirections",
     "Conclusion"
   ],
-  "current_section_idx": 6,
-  "last_completed": "R36-READ+POLISH-ScalingAndEfficiency-2-prose-colons-fixed",
+  "current_section_idx": 8,
+  "last_completed": "R37-READ+POLISH-Applications-2-prose-colons-fixed",
   "pending_verify": [],
   "findings_so_far": [
     "Intro: AI-taste words fixed (striking, rich and fast-growing, arguably, however x2)",
@@ -60,9 +60,10 @@
     "Phase 4 R33: Intro+Background rescan clean.",
     "Phase 4 R34: Taxonomy rescan found 3 prose colons + 1 'Importantly' filler opener. Fixed all 4 (colons rewritten as full sentences, Importantly→direct statement). Compile clean (62pp).",
     "Phase 4 R35: §4 Objectives + §5 Signal Source rescan. 2 fixes: 'operationalizes'→'implements' (line 739), 'Specifically,'→removed (line 916). Compile clean (62pp).",
-    "Phase 4 R36: §6 Training Dynamics rescan. 2 prose colons fixed (bottleneck:→bottleneck., substitutive:→substitutive.). No AI-taste words, no semicolons, no em-dashes. Compile clean (62pp)."
+    "Phase 4 R36: §6 Training Dynamics + §7 Understanding OPD rescan. 3 fixes total: 2 prose colons in §6 (bottleneck:→., substitutive:→.), 1 em-dash pair in §7 (inflation---x---is → parenthetical). Compile clean (62pp).",
+    "Phase 4 R37: §8 Applications rescan. 2 prose colons fixed (pipelines: large→pipelines, namely that large; through time: a→through time. A). Compile clean (62pp)."
   ],
   "started_at": "2026-05-09T05:10:00Z",
   "phase3_completed_at": "2026-05-09T08:15:00Z",
-  "notes": "Phase 4 continuing. §6 clean after R36. Next: READ §7 Understanding OPD (section_idx=6 maps to Applications in priority list, but actual next unscanned section is §7 Understanding OPD at line 1019)."
+  "notes": "Phase 4 continuing. §8 Applications clean after R37. Next: READ §9 Future Directions (lines 1192–1233) + §10 Conclusion (lines 1234–end). If clean, Phase 4 complete."
 }

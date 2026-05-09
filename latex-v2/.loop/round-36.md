@@ -22,4 +22,24 @@ Checked for:
 - 62 pages, 124 bibs, 0 errors, 0 undefined refs/cites ✅
 
 ## Assessment
-Section is clean after these 2 minor fixes. Strong technical writing with good logical flow. No DEEPEN needed (already deepened in Phase 2). Moving to §7 Understanding OPD next.
+Section is clean after these 2 minor fixes. Strong technical writing with good logical flow. No DEEPEN needed (already deepened in Phase 2).
+
+---
+
+# Also: READ §7 Understanding OPD (lines 1019–1102)
+
+Scanned for AI-taste words, semicolons, narrative em-dashes, prose colons:
+- AI-taste words: **NONE** ✅
+- Semicolons: **NONE** ✅
+- Prose colons: **NONE** (all colons in structural positions: section titles, \textbf labels, \item labels) ✅
+- Narrative em-dashes: **1 found** (line 1071: "Length inflation---...---is") → fixed to parenthetical
+- Repetitive structures: **NONE** ✅
+
+## Fix Applied
+3. **Line 1071**: "Length inflation---OPD students' outputs...---is" → "Length inflation (OPD students' outputs...) is" (em-dash pair → parenthetical)
+
+## Compile
+- 62 pages, 124 bibs, 0 errors ✅
+
+## Summary
+R36 scanned §6 + §7 (Phase 4 rescan). 3 total fixes: 2 prose colons in §6, 1 em-dash pair in §7. Both sections now fully clean.
