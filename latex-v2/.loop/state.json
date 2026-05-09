@@ -1,8 +1,8 @@
 {
-  "round": 9,
+  "round": 10,
   "phase": 3,
   "task_rotation": ["READ", "VERIFY", "DEEPEN", "POLISH", "COMPILE"],
-  "current_mode": "READ",
+  "current_mode": "VERIFY",
   "sections_priority": [
     "Introduction",
     "Background",
@@ -16,8 +16,16 @@
     "Conclusion"
   ],
   "current_section_idx": 2,
-  "last_completed": "R8-Background-COMPILE",
-  "pending_verify": [],
+  "last_completed": "R9-Taxonomy-READ",
+  "pending_verify": [
+    {
+      "id": "pv-9-1",
+      "section": "Taxonomy",
+      "claim": "CRISP: 57% token reduction, +9% accuracy",
+      "source": "2603.05433",
+      "status": "pending"
+    }
+  ],
   "findings_so_far": [
     "Intro: AI-taste words fixed (striking, rich and fast-growing, arguably, however x2)",
     "Intro: DeepSeek-V4 claim verified against tech report",
@@ -29,8 +37,11 @@
     "Background: All 3 claims VERIFIED correct (ttopd KL 2.637->0.343, MiniLLM alpha=0.2, DistiLLM SKL formula direction)",
     "Background: DEEPEN - added comparative synthesis (GKD/MiniLLM/DistiLLM tradeoff triangle), strengthened all 3 inter-subsection transitions, connected scaling laws to divergence choice",
     "Background: POLISH - 6 fixes (revealing/reveals→exposing/shows, Crucially removed, passive→active x2, filler trimmed, demonstrating→showed)",
-    "Background: COMPILE clean (60pp, 124 bibs, 0 errors, 0 undef)"
+    "Background: COMPILE clean (60pp, 124 bibs, 0 errors, 0 undef)",
+    "Taxonomy: Count errors found (Table 1: 15 not 16; Table 2: 61 not 64)",
+    "Taxonomy: AI-taste 'Crucially' (L334), 'reveals' (L336)",
+    "Taxonomy: CRISP 57%/+9% claim queued for verification"
   ],
   "started_at": "2026-05-09T05:10:00Z",
-  "notes": "Background complete (all 5 modes). Moving to Taxonomy (§3) for READ pass."
+  "notes": "Taxonomy READ done. Round 10 = VERIFY: fix count errors, fix AI-taste, verify CRISP claim."
 }
