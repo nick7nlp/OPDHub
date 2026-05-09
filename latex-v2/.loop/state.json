@@ -1,8 +1,8 @@
 {
-  "round": 10,
+  "round": 11,
   "phase": 3,
   "task_rotation": ["READ", "VERIFY", "DEEPEN", "POLISH", "COMPILE"],
-  "current_mode": "VERIFY",
+  "current_mode": "POLISH",
   "sections_priority": [
     "Introduction",
     "Background",
@@ -16,16 +16,8 @@
     "Conclusion"
   ],
   "current_section_idx": 2,
-  "last_completed": "R9-Taxonomy-READ",
-  "pending_verify": [
-    {
-      "id": "pv-9-1",
-      "section": "Taxonomy",
-      "claim": "CRISP: 57% token reduction, +9% accuracy",
-      "source": "2603.05433",
-      "status": "pending"
-    }
-  ],
+  "last_completed": "R10-Taxonomy-DEEPEN",
+  "pending_verify": [],
   "findings_so_far": [
     "Intro: AI-taste words fixed (striking, rich and fast-growing, arguably, however x2)",
     "Intro: DeepSeek-V4 claim verified against tech report",
@@ -38,10 +30,11 @@
     "Background: DEEPEN - added comparative synthesis (GKD/MiniLLM/DistiLLM tradeoff triangle), strengthened all 3 inter-subsection transitions, connected scaling laws to divergence choice",
     "Background: POLISH - 6 fixes (revealing/reveals→exposing/shows, Crucially removed, passive→active x2, filler trimmed, demonstrating→showed)",
     "Background: COMPILE clean (60pp, 124 bibs, 0 errors, 0 undef)",
-    "Taxonomy: Count errors found (Table 1: 15 not 16; Table 2: 61 not 64)",
-    "Taxonomy: AI-taste 'Crucially' (L334), 'reveals' (L336)",
-    "Taxonomy: CRISP 57%/+9% claim queued for verification"
+    "Taxonomy: Count errors fixed (Table 1: 16→15; Table 2: 64→61)",
+    "Taxonomy: AI-taste fixed ('Crucially' removed, 'reveals'→'traces')",
+    "Taxonomy: CRISP 57%/+9% VERIFIED (paper reports 57-59% reduction, 9-16pt improvement)",
+    "Taxonomy: DEEPEN - deepened distributional observations with causal explanation (maturation pattern + Chinchilla→reasoning paradigm); expanded evolutionary trajectory into convergence thesis (3 waves → autonomous loops); added bridging paragraph connecting Table 3 to Decision Tree (single-axis research vs multi-axis deployment gap)"
   ],
   "started_at": "2026-05-09T05:10:00Z",
-  "notes": "Taxonomy READ done. Round 10 = VERIFY: fix count errors, fix AI-taste, verify CRISP claim."
+  "notes": "Taxonomy READ+VERIFY+DEEPEN complete. Next: POLISH pass on Taxonomy prose."
 }
