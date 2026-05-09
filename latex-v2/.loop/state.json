@@ -1,8 +1,8 @@
 {
-  "round": 21,
+  "round": 22,
   "phase": 3,
   "task_rotation": ["READ", "VERIFY", "DEEPEN", "POLISH", "COMPILE"],
-  "current_mode": "POLISH",
+  "current_mode": "COMPILE",
   "sections_priority": [
     "Introduction",
     "Background",
@@ -16,7 +16,7 @@
     "Conclusion"
   ],
   "current_section_idx": 5,
-  "last_completed": "R20-ScalingAndEfficiency-DEEPEN",
+  "last_completed": "R21-ScalingAndEfficiency-POLISH",
   "pending_verify": [],
   "findings_so_far": [
     "Intro: AI-taste words fixed (striking, rich and fast-growing, arguably, however x2)",
@@ -43,8 +43,9 @@
     "Objectives: COMPILE clean (61pp, 124 bibs, 0 errors, 0 undef)",
     "ScalingAndEfficiency: READ - 2 AI-taste words (reveals, However), 4 numerical claims queued",
     "ScalingAndEfficiency: VERIFY - TIP 50%/3 families VERIFIED, TCOD +18 VERIFIED, Fast OPD 2-47x VERIFIED, SCOPE +5.5% CORRECTED to +7.3% Pass@32",
-    "ScalingAndEfficiency: DEEPEN - 4 edits: (1) Uni-OPD explicitly positioned as extending PACED's single-criterion to dual-criterion, (2) TCOD transition clarified as orthogonal temporal axis, (3) §6.2→§6.3 bridge connecting sample efficiency to systems-level cost, (4) new 'Training Efficiency Stack' synthesis at section end framing three subsections as composable layers"
+    "ScalingAndEfficiency: DEEPEN - 4 edits: (1) Uni-OPD explicitly positioned as extending PACED's single-criterion to dual-criterion, (2) TCOD transition clarified as orthogonal temporal axis, (3) §6.2→§6.3 bridge connecting sample efficiency to systems-level cost, (4) new 'Training Efficiency Stack' synthesis at section end framing three subsections as composable layers",
+    "ScalingAndEfficiency: POLISH - 3 fixes (reveals→exposes, 2× However removed)"
   ],
   "started_at": "2026-05-09T05:10:00Z",
-  "notes": "§6 DEEPEN complete. Added inter-subsection synthesis and composable-stack framing. Next: POLISH §6 — clean AI-taste words (reveals, However identified in READ), check for semicolons and repetitive patterns."
+  "notes": "§6 POLISH complete. All AI-taste words cleaned. Next: COMPILE pass for §6 (verify 0 errors, page count, citation count), then advance to §7 Applications with READ."
 }
