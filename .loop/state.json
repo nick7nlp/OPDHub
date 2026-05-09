@@ -3,7 +3,7 @@
   "started_at": "2026-05-08T15:50Z",
   "planned_end_at": "2026-05-09T01:50Z",
   "tick_interval_min": 10,
-  "round": 58,
+  "round": 59,
   "paper_root": "/apdcephfs_cq8/share_1324356/nickmysong/daily_research/on-policy-distillation-survey",
   "survey_dir": "latex-v2",
   "main_tex": "main.tex",
@@ -102,12 +102,12 @@
   ],
   "notes": "Each round reads one bounded slice of the survey deeply, checks facts against local PDFs (never grep-only), rewrites for insight+flow, compiles, commits.",
   "last_completed": {
-    "round": 57,
-    "mode": "DEEPEN",
+    "round": 58,
+    "mode": "POLISH",
     "section": "2-Background",
-    "log": ".loop/round-57.md",
-    "by": "cron tick 57",
-    "summary": "4 targeted edits: DAgger bound vs independent compounding insight, JSD-WHY on translation, MiniLLM credit assignment, f-div tractability explanation"
+    "log": ".loop/round-58.md",
+    "by": "cron tick 58",
+    "summary": "2 prose colons removed, GKD paragraph split, verb repetition fixed, em-dash tightened"
   },
   "pending_verify": [
     {
