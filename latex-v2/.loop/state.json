@@ -1,8 +1,8 @@
 {
-  "round": 12,
+  "round": 13,
   "phase": 3,
   "task_rotation": ["READ", "VERIFY", "DEEPEN", "POLISH", "COMPILE"],
-  "current_mode": "COMPILE",
+  "current_mode": "READ",
   "sections_priority": [
     "Introduction",
     "Background",
@@ -15,8 +15,8 @@
     "FutureDirections",
     "Conclusion"
   ],
-  "current_section_idx": 2,
-  "last_completed": "R11-Taxonomy-POLISH",
+  "current_section_idx": 3,
+  "last_completed": "R12-Taxonomy-COMPILE",
   "pending_verify": [],
   "findings_so_far": [
     "Intro: AI-taste words fixed (striking, rich and fast-growing, arguably, however x2)",
@@ -34,8 +34,9 @@
     "Taxonomy: AI-taste fixed ('Crucially' removed, 'reveals'→'traces')",
     "Taxonomy: CRISP 57%/+9% VERIFIED (paper reports 57-59% reduction, 9-16pt improvement)",
     "Taxonomy: DEEPEN - convergence thesis (3 waves → autonomous loops), causal distributional analysis, table-to-tree bridge paragraph",
-    "Taxonomy: POLISH - eliminated repetitive 'The three' openings, removed 2 narrative em-dashes, tightened wordy constructions (field's recognition→addressing, passive→active)"
+    "Taxonomy: POLISH - eliminated repetitive 'The three' openings, removed 2 narrative em-dashes, tightened wordy constructions (field's recognition→addressing, passive→active)",
+    "Taxonomy: COMPILE clean (61pp, 124 bibs, 0 errors, 0 undef)"
   ],
   "started_at": "2026-05-09T05:10:00Z",
-  "notes": "Taxonomy full cycle (READ+VERIFY+DEEPEN+POLISH) done. Next: COMPILE verification pass, then move to §4 Objective Functions (mapped to 'DataGeneration' in priority list but actually sec:objectives)."
+  "notes": "Taxonomy full cycle complete and verified. Round 13 starts §4 (sec:objectives / Data Generation & Training Objectives) with READ pass."
 }
