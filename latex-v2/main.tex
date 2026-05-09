@@ -267,8 +267,9 @@ The practitioner faces three sequential decisions: (1) what objective to optimiz
         GKD~\citep{2306.13649}, MiniLLM~\citep{2306.08543}, DistiLLM~\citep{2402.03898},\\[1pt]%
         DistiLLM-2~\citep{2503.07067}, KETCHUP~\citep{2504.19024}%
         }, leaf=tgcolor, edge={draw=tgcolor!30}]
-      [{\textbf{4.2 Adaptive Divergence Objectives}~{\tikz[baseline=-0.5ex]\node[badge=tgcolor]{3};}\\[2pt]%
-        ToDi~\citep{2505.16297}, AKL~\citep{2404.02657}, Entropy-Aware OPD~\citep{2603.07079}%
+      [{\textbf{4.2 Adaptive Divergence Objectives}~{\tikz[baseline=-0.5ex]\node[badge=tgcolor]{4};}\\[2pt]%
+        ToDi~\citep{2505.16297}, AKL~\citep{2404.02657}, Entropy-Aware OPD~\citep{2603.07079},\\[1pt]%
+        AOPD~\citep{jia2026aopd}%
         }, leaf=tgcolor, edge={draw=tgcolor!30}]
       [{\textbf{4.3 RL-Augmented Objectives}~{\tikz[baseline=-0.5ex]\node[badge=tgcolor]{11};}\\[2pt]%
         G-OPD~\citep{2602.12125}, RLKD~\citep{2505.16142}, KDRL~\citep{2506.02208},\\[1pt]%
@@ -291,12 +292,13 @@ The practitioner faces three sequential decisions: (1) what objective to optimiz
         ThinkTuning~\citep{rrv2025thinktuning}, DASD~\citep{2601.09088}, DDT~\citep{2602.12222},\\[1pt]%
         PRISM~\citep{wang2026prism}%
         }, leaf=sdcolor, edge={draw=sdcolor!30}]
-      [{{\S 5.3 Self-Distillation}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{26};}}, catSig, edge={draw=sdcolor!30}
-        [{\textbf{5.3.1 Privileged Information}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{12};}\\[2pt]%
+      [{{\S 5.3 Self-Distillation}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{28};}}, catSig, edge={draw=sdcolor!30}
+        [{\textbf{5.3.1 Privileged Information}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{13};}\\[2pt]%
           OPSD~\citep{2601.18734}, GATES~\citep{2602.20574}, Priv.~Info.~Distill~\citep{2602.04942},\\[1pt]%
           OPCD~\citep{2602.12275}, OEL~\citep{2603.16856}, HDPO~\citep{2603.23871},\\[1pt]%
           CRISP~\citep{2603.05433}, OPSDL~\citep{2604.17535}, GUI-SD~\citep{zhang2026guisd},\\[1pt]%
-          MSD~\citep{qin2026msd}, PBSD~\citep{pbsd2026}, TT-OPD~\citep{ttopd2026}%
+          MSD~\citep{qin2026msd}, PBSD~\citep{pbsd2026}, TT-OPD~\citep{ttopd2026},\\[1pt]%
+          VISD~\citep{lin2026visd}%
           }, leaf=sdcolor, edge={draw=sdcolor!30}]
         [{\textbf{5.3.2 Self-Play}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{8};}\\[2pt]%
           SPIN~\citep{2401.01335}, MTP Self-Distill~\citep{2602.06019}, SDFT~\citep{2601.19897},\\[1pt]%
@@ -318,8 +320,9 @@ The practitioner faces three sequential decisions: (1) what objective to optimiz
         PACED~\citep{2603.11178}, Stable-OPD~\citep{luo2026demystifying}, SSB~\citep{mitra2025semantic},\\[1pt]%
         CaOPD~\citep{2604.16830}, TCOD~\citep{chen2026tcod}, Uni-OPD~\citep{hou2026uniopd}%
         }, leaf=dycolor, edge={draw=dycolor!30}]
-      [{\textbf{6.3 Compute Optimization}~{\tikz[baseline=-0.5ex]\node[badge=dycolor]{3};}\\[2pt]%
-        Fast OPD~\citep{2602.15260}, Lightning OPD~\citep{wu2026lightning}, Speculative KD~\citep{2410.11325}%
+      [{\textbf{6.3 Compute Optimization}~{\tikz[baseline=-0.5ex]\node[badge=dycolor]{4};}\\[2pt]%
+        Fast OPD~\citep{2602.15260}, Lightning OPD~\citep{wu2026lightning}, Speculative KD~\citep{2410.11325},\\[1pt]%
+        NPD~\citep{rang2026npd}%
         }, leaf=dycolor, edge={draw=dycolor!30}]
     ]
   ]
@@ -405,6 +408,7 @@ PACED \citep{2603.11178} & & Beta-kernel curriculum pacing & White-Box Logits & 
         AKL \citep{2404.02657} & 2025 & Objective & Adaptive FKL+RKL & White-box & Token & Head/tail gap-weighted blending \\
         ToDi \citep{2505.16297} & 2025 & Objective & Log-ratio-weighted FKL/RKL & White-box & Token & Sigmoid per-token blending \\
         Entropy-Aware \citep{2603.07079} & 2026 & Objective & Continuous FKL+RKL blend & White-box & Token & Smooth entropy interpolation \\
+        AOPD \citep{jia2026aopd} & 2026 & Objective & Asymmetric PG/F-KL switch & White-box & Token & Advantage-sign token-level switching \\
         \midrule
         \multicolumn{7}{l}{\textit{Objective: RL-Augmented}} \\
         \midrule
@@ -436,6 +440,7 @@ PACED \citep{2603.11178} & & Beta-kernel curriculum pacing & White-Box Logits & 
         Fast OPD \citep{2602.15260} & 2026 & Dynamics & Prefix truncation & White-box & Hybrid & Early-token focus \\
         Lightning OPD \citep{wu2026lightning} & 2026 & Dynamics & Offline caching & White-box & Token & $4\times$ cost reduction \\
         Speculative KD \citep{2410.11325} & 2025 & Dynamics & Draft-verify & White-box & Block & Amortized teacher cost \\
+        NPD \citep{rang2026npd} & 2026 & Dynamics & Async gen-train decoupling & White-box & Token & 8.1$\times$ speedup via $\Delta$-IFD filtering \\
         Revisiting OPD \citep{2603.25562} & 2026 & Dynamics & Top-$p$ rollout + masking & White-box & Token & Empirical failure mode fixes \\
         Stable-OPD \citep{luo2026demystifying} & 2026 & Dynamics & R-KL + reference div. & White-box & Token & Rollout mixing for stability \\
         Veto \citep{2601.07155} & 2026 & Dynamics & Geometric bridge KL & White-box & Token & Adaptive gradient veto \\
@@ -462,6 +467,7 @@ PACED \citep{2603.11178} & & Beta-kernel curriculum pacing & White-Box Logits & 
         GUI-SD \citep{zhang2026guisd} & 2026 & Self (PI) & Visual spatial PI for GUI & Self (Gaussian mask) & Token & Multimodal GUI grounding \\
         PBSD \citep{pbsd2026} & 2026 & Self (PI) & Pref.-based reward-reg.\ KL & Self (ctx-augmented) & Sequence & DPO-style loss, preference margin \\
         TT-OPD \citep{ttopd2026} & 2026 & Self (PI) & Turn-level truncated KL & Self (EMA + outcome hints) & Turn & Multi-turn agentic OPD \\
+        VISD \citep{lin2026visd} & 2026 & Self (PI) & Direction-magnitude decouple & Self (structured judge) & Token & Structured PI for video reasoning \\
         \midrule
         \multicolumn{7}{l}{\textit{Black-Box}} \\
         \midrule
@@ -493,6 +499,7 @@ PACED \citep{2603.11178} & & Beta-kernel curriculum pacing & White-Box Logits & 
         PACED \citep{2603.11178} & Qwen3-14B & Qwen3-8B & Beta-kernel curriculum & MATH-500, AIME \\
         KDRL \citep{2506.02208} & Skywork-OR1-Math-7B & R1-Distill-Qwen-1.5B & Joint KD + RL & AIME, MATH \\
         LUFFY \citep{2504.14945} & DeepSeek-R1 (off-policy traces) & Qwen2.5-Math-7B/1.5B & Mixed-policy GRPO & AIME, AMC, MATH-500 \\
+        AOPD \citep{jia2026aopd} & Qwen2.5-Math-7B (teacher) & Qwen2.5-Math-1.5B/7B & Asymmetric PG + F-KL & AIME'24/'25, MATH-500 \\
         SCoRe \citep{2509.14257} & Qwen2.5-72B-Inst & Qwen2.5-7B/3B, Llama-3.1-8B & Earliest-error correction & 12 Agent benchmarks \\
         \midrule
         \multicolumn{5}{l}{\textit{Instruction Following \& General}} \\
@@ -523,6 +530,8 @@ PACED \citep{2603.11178} & & Beta-kernel curriculum pacing & White-Box Logits & 
         GUI-SD \citep{zhang2026guisd} & Self (visual PI) & Qwen3-VL-Inst-8B & Entropy-guided KL & ScreenSpot-v2/Pro, OSWorld \\
         MAD-OPD \citep{wang2026madopd} & Multi-teacher debate & Qwen3/3.5 (1.7B--14B) & Confidence-weighted JSD/R-KL & Agentic, Code \\
         MSD \citep{qin2026msd} & Self (English CoT PI) & Qwen2.5-7B, Llama-3-8B & DPSW cross-lingual distill & Multilingual Safety \\
+        NPD \citep{rang2026npd} & Teacher (parallel prefill) & openPangu-Embedded-1B & Async CE+KD + $\Delta$-IFD & GSM8K, MATH (8.1$\times$ speedup) \\
+        VISD \citep{lin2026visd} & Self (video-aware judge) & VideoLLM & Dir.-mag.\ decoupled KL + RL & Open-o3-Video benchmarks \\
         Uni-OPD \citep{hou2026uniopd} & Multi-teacher (LLM+MLLM) & Qwen3 (1.7B--4B), Qwen3-VL-4B & Dual-perspective OPD & Math, Code, MLLM (16 benchmarks) \\
         \midrule
         \multicolumn{5}{l}{\textit{Self-Distillation}} \\
@@ -536,6 +545,7 @@ PACED \citep{2603.11178} & & Beta-kernel curriculum pacing & White-Box Logits & 
         SRPO \citep{li2026unifying} & Self (SDPO+GRPO) & Qwen3-8B & Sample-routed dual-objective & Chem, Phys, Bio, Mat, ToolUse \\
         PBSD \citep{pbsd2026} & Self (ctx-augmented ref.) & Qwen3-1.7B/4B/8B-Inst & Pref.-based reward-reg.\ KL & AIME'24/'25, HMMT'25, Tool Use \\
         TT-OPD \citep{ttopd2026} & Self (EMA + outcome hints) & Qwen3.5-9B & Turn-level truncated KL & Healthcare AI Gym (18 benchmarks) \\
+        OPSD-Comp.\ \citep{kim2026opsdcompresses} & Self (GT-conditioned) & Qwen3-8B, R1-Distill-7B, AceReason-7B & Correct-only OPSD & MATH-500, AIME'24/'25 \\
         \midrule
         \multicolumn{5}{l}{\textit{Black-Box}} \\
         \midrule
@@ -748,7 +758,9 @@ Both methods consistently outperform any fixed divergence on math reasoning (MAT
 
 AKL~\citep{2404.02657} synthesizes elements of both approaches, dynamically interpolating between Forward KL and Reverse KL based on a per-token confidence metric derived from the teacher-student probability ratio. Unlike entropy-based routing, which depends only on the teacher's distributional shape, AKL considers the \emph{relative} geometry of teacher and student, adapting more aggressively at positions where the gap is largest. All three adaptive methods admit a natural interpretation through information geometry. The Fisher information metric on the statistical manifold of autoregressive distributions varies across token positions. At reasoning-critical positions, the manifold is highly curved (the teacher concentrates probability on few tokens), making Reverse KL's mode-seeking behavior locally appropriate because it follows the manifold's natural gradient. At generation-flexible positions, the manifold is nearly flat (many synonyms are equally valid), and Forward KL's mode-covering behavior preserves useful entropy. Adaptive divergences implicitly navigate this varying curvature by selecting the locally optimal metric, which explains their consistent empirical superiority over any fixed choice.
 
-The field has thus moved decisively from ``which divergence?'' to ``which divergence \emph{where}?'' The evidence from ToDi, AKL, and Entropy-Aware OPD converges on a consistent finding across evaluated settings, that no single fixed divergence dominates uniformly, and even the simplest adaptive routing (a hard entropy threshold) outperforms the best-tuned fixed alternative. Yet adaptive divergences, however sophisticated their per-token routing, share a fundamental limitation with their fixed counterparts. They optimize a distance to the teacher distribution. Perfect optimization under any $f$-divergence yields a student that matches the teacher but never exceeds it. When the teacher itself makes errors or lacks reasoning paths that a well-guided student could discover, divergence minimization becomes a ceiling rather than a floor.
+AOPD~\citep{jia2026aopd} takes the per-token adaptive principle to its logical conclusion by diagnosing \emph{why} standard OPD gradients fail at specific token positions. In non-positive advantage regions ($A_t \le 0$), standard advantage-weighted policy gradients exhibit three pathologies that intensify under weak initialization. Heavy-tailed variance from unbounded negative advantages destabilizes updates, vanishing gradients at zero-advantage positions waste teacher signal, and ``exploration black holes'' trap learning because suppressing a wrong token only redistributes mass proportional to the student's own prior, unable to boost low-probability correct alternatives. AOPD resolves this by switching the objective at the token level. For positive-advantage tokens ($A_t > 0$), standard policy gradient exploitation is preserved. For non-positive tokens, the framework substitutes localized forward-KL guidance on the teacher's top-$K$ support, creating an asymmetric exploitation-imitation mechanism. A threshold parameter $\tau$ (set to zero by default, corresponding to the probability difference between teacher and student) determines the switching point, with $\tau = -1$ recovering standard OPD and $\tau = 1$ recovering GKD. On competition-level mathematics (AIME 2024/2025, MATH-500), AOPD achieves average gains of +4.09 with strong initialization and +8.34 with weak initialization over standard on-policy baselines, with the weak-initialization gap confirming that the exploration black hole is the dominant failure mode when the student starts far from the teacher. The relationship between AOPD and the earlier adaptive methods is one of complementary scope. ToDi, AKL, and Entropy-Aware OPD adapt the divergence \emph{type} based on distributional geometry (teacher entropy, teacher-student gap), while AOPD adapts the \emph{objective class itself} (policy gradient vs.\ divergence minimization) based on the gradient's structural health at each position.
+
+The field has thus moved decisively from ``which divergence?'' to ``which divergence \emph{where}?'' The evidence from ToDi, AKL, Entropy-Aware OPD, and AOPD converges on a consistent finding across evaluated settings, that no single fixed divergence dominates uniformly, and even the simplest adaptive routing (a hard entropy threshold) outperforms the best-tuned fixed alternative. Yet adaptive divergences, however sophisticated their per-token routing, share a fundamental limitation with their fixed counterparts. They optimize a distance to the teacher distribution. Perfect optimization under any $f$-divergence yields a student that matches the teacher but never exceeds it. When the teacher itself makes errors or lacks reasoning paths that a well-guided student could discover, divergence minimization becomes a ceiling rather than a floor.
 
 \subsection{RL-Augmented Objectives}
 \label{subsec:rl_objectives}
@@ -888,6 +900,8 @@ A complementary limitation arises when all rollouts for a given prompt fail (the
 
 Viewed together with TCOD, Skill-SD, and MAD-OPD, TT-OPD completes a granularity spectrum for agentic distillation in which the choice of temporal unit (trajectory, turn, step, skill) is matched to the level at which errors compound in the target task.
 
+\textbf{Structured PI for video reasoning.} VISD~\citep{lin2026visd} extends the privileged information paradigm from generic binary signals (OPSD's correctness conditioning) to \emph{structured multi-dimensional} feedback for VideoLLM reasoning. A video-aware judge model evaluates rollouts along answer correctness, logical consistency, and spatio-temporal grounding quality, producing structured feedback that decomposes reasoning errors into diagnostically meaningful subtypes. The central mechanism is direction-magnitude decoupling. Rollout-level advantages from environmental rewards determine the \emph{update direction} (which trajectories to reinforce or penalize), while the structured teacher-student discrepancy conditioned on judge feedback modulates \emph{token-level update magnitudes}. This ensures RL stability while enabling fine-grained credit assignment aligned with specific reasoning error types rather than undifferentiated token-level matching. Combined with curriculum scheduling (distillation$\to$RL transition) and EMA teacher stabilization for long video sequences, VISD achieves approximately $2\times$ faster convergence than RLVR baselines with consistent accuracy improvement on video reasoning benchmarks. The direction-magnitude decoupling parallels Self-Distilled RLVR's decomposition (Section~\ref{subsec:self_play}), where self-distillation sets magnitudes and RL sets directions, but VISD's structured judge provides richer magnitude signals by distinguishing \emph{why} a token matters (grounding error vs.\ logical inconsistency vs.\ factual mistake). This structured PI represents the natural evolution from binary (OPSD), through spatial (GUI-SD), to multi-dimensional (VISD) privileged information, suggesting a general template for domains where reasoning errors have identifiable subtypes.
+
 \subsubsection{Self-Play}
 \label{subsec:self_play}
 
@@ -1014,6 +1028,8 @@ The result is a virtuous cycle. Better distillation produces better draft models
 
 \textbf{Concrete cost example.} To ground these formulas, consider distilling a 70B teacher into a 7B student on $8\times$H100 GPUs (representative estimates based on scaling from reported benchmarks). Off-policy over 1B tokens involves three stages. The teacher generates the dataset offline ($\sim$200 GPU-hours), the student trains for $\sim$100 GPU-hours, totaling $\sim$300 GPU-hours. On-policy over 1B tokens, each step requires (1) student generation ($\sim$3$\times$ forward-pass cost due to autoregressive decoding), (2) teacher scoring (one 70B forward pass), and (3) student backward pass, yielding $\sim$1,200--1,500 GPU-hours, a 4--5$\times$ overhead consistent with empirical measurements at smaller scales~\citep{wu2026lightning}. For reasoning tasks, on-policy methods consistently outperform off-policy SFT, and the off-policy performance ceiling is lower because static datasets cannot cover the combinatorial space of valid reasoning paths. This ``ceiling gap'' widens with task complexity, providing the strongest cost-benefit justification for on-policy methods. Section~\ref{subsec:on_vs_off} formalizes this cost-quality tradeoff into a decision framework that helps practitioners determine when the overhead is warranted.
 
+\textbf{Asynchronous generation-training decoupling.} NPD~\citep{rang2026npd} attacks the most fundamental compute bottleneck of OPD, the synchronous coupling between student generation and gradient updates that forces the GPU to alternate between memory-bound decoding and compute-bound backpropagation. NPD reformulates on-policy distillation as a three-stage asynchronous pipeline. Student rollouts are batch-generated via vLLM, teacher top-$k$ logits are computed through parallel prefill with sequence packing, and the student trains with a composite CE+KD loss on packed sequences. The key challenge in async OPD is policy lag, where the generation policy drifts from the training policy across async iterations, potentially degrading into off-policy learning. NPD addresses this with $\Delta$-IFD filtering, which estimates teacher-student discrepancy via an Instruction-Following Difficulty metric and rejects extreme out-of-distribution samples that would push updates outside a ``safe proximal learning zone.'' The resulting framework achieves 8.1$\times$ throughput speedup over synchronous on-policy baselines while outperforming SFT by +8.09\% on math benchmarks, with the 1B student (openPangu-Embedded-1B, 68.73\%) surpassing the larger Qwen3-1.7B (63.69\%). NPD also demonstrates that on-policy distillation produces superior initializations for subsequent RL, narrowing the exploration space for GRPO and delivering the best NPD$\to$RL synergy among tested pipelines. The relationship between NPD and the other compute methods is one of orthogonal scope. Fast OPD reduces the \emph{length} of each rollout, Lightning OPD eliminates the \emph{freshness} requirement for teacher signals, and NPD eliminates the \emph{synchronization} requirement between generation and training. All three can be composed within a single system.
+
 \textbf{The training efficiency stack.} The three subsections above form a layered efficiency stack that practitioners can compose. Token weighting (Section~\ref{subsec:weighting}) eliminates noise at the gradient level, ensuring each rollout contributes maximally to learning. Curriculum design (Section~\ref{subsec:curriculum}) eliminates waste at the sampling level, ensuring each rollout targets the student's competence frontier. Compute optimization (this section) eliminates overhead at the systems level, reducing the cost of producing and scoring each rollout. These layers are complementary rather than substitutive. PACED's frontier sampling generates maximally informative prompts, TIP's token weighting extracts maximal signal from the resulting rollouts, and Fast OPD's prefix truncation minimizes the generation cost of those rollouts. Deploying all three layers simultaneously can compound their individual 2--4$\times$ efficiency gains, potentially reducing the effective cost gap between on-policy and off-policy training from 4--5$\times$ to near parity while retaining the quality ceiling advantage.
 
 \section{Understanding OPD: Theory, Failure Modes, and Cost}
@@ -1039,6 +1055,8 @@ These findings point toward a general principle. OPD's benefit scales with the \
     \item \textit{Teacher calibration}: Verify that the teacher's confidence correlates with correctness on student-generated prefixes~\citep{2604.16830}. Poorly calibrated teachers inject noise.
     \item \textit{Length stability}: Monitor output length during early training. Monotonic growth indicates the KL gradient asymmetry identified by~\citet{luo2026demystifying}. Apply Stable-OPD corrections preemptively.
 \end{enumerate}
+
+\textbf{OPSD as compression, not correction.} \citet{kim2026opsdcompresses} provide a sharper characterization of \emph{what} on-policy self-distillation actually achieves in thinking-enabled mathematical reasoning. By applying OPSD separately to correct-only versus incorrect-only rollout groups, they isolate two potential mechanisms. Correct-only OPSD preserves accuracy while substantially shortening reasoning traces (compression), whereas incorrect-only OPSD damages accuracy (correction fails). Three alternative explanations (richer teacher context, mid-trace feedback reinjection, and extended training) are tested and rejected, establishing that the hindsight-conditioned self-teacher can identify redundancy in long thinking traces but cannot reliably supply better alternative reasoning steps. This finding refines the success conditions above. OPSD's productive regime is not ``making the model solve harder problems'' but ``making the model express known solutions more efficiently.'' The practical implication is a refined pipeline ordering. SFT establishes format compliance, RLVR expands the set of reachable correct trajectories, and OPSD compacts them for cheaper inference. Reversing the last two stages (compressing before exploration) removes the raw material that exploration would produce, explaining why post-RL placement is essential. Across Qwen3-8B, DeepSeek-R1-Distill-7B, and AceReason-7B, the post-RLVR + correct-only OPSD configuration occupies the best position in the accuracy-length plane, confirming that the pipeline ordering follows from OPSD's mechanistic role rather than from implementation details.
 
 \subsection{Failure Modes}
 \label{subsec:failure}
@@ -1145,7 +1163,7 @@ This cross-modal principle extends naturally along two axes: temporal depth and 
 \end{equation}
 where the audio mode generates on-policy rollouts and the text mode provides token-level targets, combined with GRPO for outcome reward maximization. CORD achieves state-of-the-art speech reasoning, confirming that cross-modal self-distillation is a general mechanism for aligning weaker modality modes to stronger ones within a single model.
 
-KEPO~\citep{2602.00400} identifies a prerequisite for all these multimodal OPD methods: when initial solve rates approach zero (common in visual mathematics), sparse RLVR fails due to exploration collapse before any meaningful on-policy data can be generated. By conditioning preference optimization on teacher knowledge, KEPO provides the dense bootstrapping signal that enables subsequent on-policy training to converge. The progression from VOLD through CORD to KEPO thus maps a complete pipeline: dense bootstrapping (KEPO) $\to$ cross-modal transfer (VOLD) $\to$ intra-model self-alignment (X-OPD, CORD).
+KEPO~\citep{2602.00400} identifies a prerequisite for all these multimodal OPD methods: when initial solve rates approach zero (common in visual mathematics), sparse RLVR fails due to exploration collapse before any meaningful on-policy data can be generated. By conditioning preference optimization on teacher knowledge, KEPO provides the dense bootstrapping signal that enables subsequent on-policy training to converge. VISD~\citep{lin2026visd} extends the paradigm to video reasoning through structured self-distillation, where a video-aware judge decomposes reasoning quality into multiple diagnostic dimensions and a direction-magnitude decoupling mechanism combines RL stability with fine-grained OPD credit assignment, achieving $2\times$ faster convergence than RLVR baselines (see Section~\ref{subsec:self_pi} for details). The progression from VOLD through CORD to KEPO and VISD thus maps a complete pipeline: dense bootstrapping (KEPO) $\to$ cross-modal transfer (VOLD) $\to$ intra-model self-alignment (X-OPD, CORD) $\to$ structured self-distillation for temporal reasoning (VISD).
 
 \textbf{Embodied intelligence and physical reasoning.} Moving beyond language-only domains, OPD is increasingly applied to settings where the output space is continuous and errors are physically irreversible. These applications form a spectrum from high-level spatial reasoning through planning to low-level motor control, each demanding progressively tighter distributional alignment.
 
