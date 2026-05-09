@@ -1,5 +1,5 @@
 {
-  "round": 34,
+  "round": 36,
   "phase": 4,
   "task_rotation": ["READ", "VERIFY", "DEEPEN", "POLISH", "COMPILE"],
   "current_mode": "READ",
@@ -15,8 +15,8 @@
     "FutureDirections",
     "Conclusion"
   ],
-  "current_section_idx": 2,
-  "last_completed": "R33-READ-Introduction-Background-clean",
+  "current_section_idx": 5,
+  "last_completed": "R35-READ+POLISH-Objectives+SignalSource-2-fixes",
   "pending_verify": [],
   "findings_so_far": [
     "Intro: AI-taste words fixed (striking, rich and fast-growing, arguably, however x2)",
@@ -56,9 +56,12 @@
     "Conclusion: VERIFY (pending) - Skill-SD +14.0%/+10.9% on AppWorld/Sokoban VERIFIED from arXiv abstract.",
     "DEEPEN scan (R30): Introduction already has strong argumentative flow (no parallel listing). Signal Source (§5) has clear method progressions within each subsection + cross-subsection bridges. Understanding OPD (§7) has root-cause organization + explicit cross-method connections. No DEEPEN edits needed for remaining sections.",
     "POLISH full-document sweep (R31): 12 edits across 5 sections. Removed 5× reveals/revealing, 2× novel, 1× highlights, 1× However opener, 1× passive voice, 1× narrative em-dash. All sections now clean.",
-    "COMPILE (R32): Final verification - 62pp, 124 bibs, 0 errors, 0 undefined refs/cites. All quality checks pass. Phase 3 complete."
+    "COMPILE (R32): Final verification - 62pp, 124 bibs, 0 errors, 0 undefined refs/cites. All quality checks pass. Phase 3 complete.",
+    "Phase 4 R33: Intro+Background rescan clean.",
+    "Phase 4 R34: Taxonomy rescan found 3 prose colons + 1 'Importantly' filler opener. Fixed all 4 (colons rewritten as full sentences, Importantly→direct statement). Compile clean (62pp).",
+    "Phase 4 R35: §4 Objectives + §5 Signal Source rescan. 2 fixes: 'operationalizes'→'implements' (line 739), 'Specifically,'→removed (line 916). Compile clean (62pp)."
   ],
   "started_at": "2026-05-09T05:10:00Z",
   "phase3_completed_at": "2026-05-09T08:15:00Z",
-  "notes": "Phase 3 complete. Document fully polished through 3 phases (32 rounds). Starting Phase 4: fresh full-document READ scan to catch any remaining issues. If nothing found in next few rounds, will write final report."
+  "notes": "Phase 4 continuing. Objectives + Signal Source clean after R35 fixes. Next: READ §6 Training Dynamics (ScalingAndEfficiency in priority list)."
 }
