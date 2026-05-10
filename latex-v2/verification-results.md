@@ -21,3 +21,21 @@
 2. Line 939: "68.3% on AIME 2024" → "68.3% avg@8 on AIME 2024"
 
 ---
+
+### Batch 2 (2026-05-10)
+
+| # | Claim in main.tex | Source Paper | Verified? | Notes |
+|---|---|---|---|---|
+| 10 | SRPO: "3.4% over GRPO and 6.3% over SDPO" on Qwen3-8B, five benchmarks | arXiv:2604.02288 abstract | ✅ EXACT | Abstract: "raising the five-benchmark average on Qwen3-8B by 3.4% over GRPO and 6.3% over SDPO" |
+| 11 | SRPO: "across science and tool-use tasks" | arXiv:2604.02288 HTML | ✅ CONSISTENT | Paper evaluates on Chemistry, Physics, Biology, Materials, ToolUse |
+| 12 | PRISM: "+4.4 and +6.0 points over direct SFT-to-RLVR pipelines" on Qwen3-VL 4B/8B | arXiv:2604.28123 abstract | ✅ EXACT | Abstract: "improving average accuracy by +4.4 and +6.0 points over the SFT-to-RLVR baseline on 4B and 8B" |
+| 13 | PRISM: "black-box teacher (Gemini 3 Flash)" | arXiv:2604.28123 abstract | ✅ EXACT | Abstract: "113K additional demonstrations from Gemini 3 Flash" |
+| 14 | LUFFY: "+6.4 average points over standard RLVR" | arXiv:2504.14945 abstract | ✅ EXACT | Abstract: "over +6.4 average gain across six math benchmarks" |
+| 15 | REOPOLD: "6.7–12× greater sample efficiency" | arXiv:2603.11137 abstract | ✅ EXACT | Abstract: "6.7~12x greater sample efficiency" |
+| 16 | REOPOLD: "7B student to match 32B teacher in visual reasoning with ~3.3× inference speedup" | arXiv:2603.11137 abstract | ✅ EXACT | Abstract: "enables a 7B student to match a 32B teacher in visual reasoning with a ~3.32x inference speedup" (3.32→3.3, acceptable rounding) |
+| 17 | DAIL: "fewer than 1,000 expert solutions, DAIL records 10–25% pass@k gains" | arXiv:2602.02405 abstract | ✅ EXACT | Abstract: "fewer than 1000 high-quality expert solutions to achieve 10-25% pass@k gains" |
+
+### Fixes Applied (Batch 2)
+None needed — all claims verified exact.
+
+---

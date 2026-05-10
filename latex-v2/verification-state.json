@@ -1,17 +1,19 @@
 {
   "status": "IN_PROGRESS",
   "created": "2026-05-10T10:46:00Z",
-  "lastUpdated": "2026-05-10T10:46:00Z",
+  "lastUpdated": "2026-05-10T10:59:00Z",
   "currentPhase": 1,
-  "currentTask": "numerical_claims_batch_1",
+  "currentTask": "numerical_claims_batch_3",
   "phases": {
     "1": {
       "name": "Numerical Claims Deep Verification",
       "status": "in_progress",
-      "totalClaims": 0,
-      "verified": 0,
-      "errors": [],
-      "batches_completed": 0
+      "totalClaims": 17,
+      "verified": 17,
+      "errors_found": 2,
+      "errors_fixed": 2,
+      "batches_completed": 2,
+      "details": "Batch 1: CRISP ✓, OVD ✓, NPD ✓(3), SSD ✓, SCOPE fixed(relative), SD-ZERO fixed(avg@8), Stable-OPD ✓ | Batch 2: SRPO ✓(2), PRISM ✓(2), LUFFY ✓, REOPOLD ✓(2), DAIL ✓"
     },
     "2": {
       "name": "Table 2 Row-by-Row Verification",
