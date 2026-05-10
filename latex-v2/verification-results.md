@@ -81,3 +81,24 @@ None critical — MTP claim is approximately consistent with source (>3× ✓, a
 1. KETCHUP year: 2026 → 2025 (paper submitted Apr 2025, no venue)
 
 ---
+
+### Batch 2 (2026-05-10) — Year + Category + Key Innovation Verification (12 rows)
+
+| # | Method | Year Check | Category Check | Innovation Check |
+|---|---|---|---|---|
+| 1 | ToDi (2505.16297) | 2025 ✅ (EMNLP 2025 Oral) | Objective ✅ | Sigmoid per-token blending ✅ |
+| 2 | Entropy-Aware (2603.07079) | 2026 ✅ (arXiv Mar 2026) | Objective ✅ | Smooth entropy interpolation ✅ |
+| 3 | G-OPD (2602.12125) | 2026 ✅ (arXiv Feb 2026) | Objective ✅ | OPD≡dense KL-RL ✅ |
+| 4 | RLAD (2602.22495) | 2026 ✅ (arXiv Feb 2026) | Objective ✅ | PPO-style selective teacher ✅ |
+| 5 | OPSD (2601.18734) | 2026 ✅ (arXiv Jan 2026) | Self (PI) ✅ | Ground-truth as PI ✅ |
+| 6 | GATES (2602.20574) | 2026 ✅ (arXiv Feb 2026) | Self (PI) ✅ | Document as PI, gated ✅ |
+| 7 | IRIS (2604.20933) | 2026 ✅ (arXiv Apr 2026) | Self-Play ✅ | Unifies SPIN/SPACE/SPIF ✅ |
+| 8 | ORPO-Distill (2509.25100) | 2025 ✅ (NeurIPS 2025 WS) | Signal ✅ | Teacher-ranked pairs ✅ |
+| 9 | AlignDistil (2503.02832) | 2025 ✅ (ACL 2025) | Objective ✅ | Synthetic preference ✅ |
+| 10 | MiniPLM (2410.17215) | 2025 ✅ (ICLR 2025) | Signal ✅ | OPD during pre-training ✅ |
+| 11 | Speculative KD (2410.11325) | 2025 ✅ (ICLR 2025) | Dynamics ✅ | Amortized teacher cost ✅ |
+| 12 | Revisiting OPD (2603.25562) | 2026 ✅ (arXiv Mar 2026) | Dynamics ✅ | Empirical failure fixes ✅ |
+
+All 12 rows correct — no fixes needed.
+
+---
