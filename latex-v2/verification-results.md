@@ -120,3 +120,38 @@ All 12 rows correct — no fixes needed.
 **Summary**: 7 method descriptions verified, 0 errors found. All technical claims in the Fixed Divergence, Adaptive Divergence, and RL-Augmented sections match their source papers.
 
 ---
+
+### Batch 2 (2026-05-10) — White-Box / Self-Distillation (3 methods)
+
+| # | Method | Paper Source | Description Accuracy | Details |
+|---|---|---|---|---|
+| 8 | DSKD (2504.11426) | HTML full paper | ✅ ACCURATE | "Dual-space" projectors mapping between teacher/student representation spaces confirmed. ETA (Exact Token Alignment) algorithm confirmed. Loss operates in both spaces: $\mathcal{L}_{dskd} = \mathcal{L}^{stu}_{kd} + \mathcal{L}^{t \to s}_{ce} + \mathcal{L}^{tea}_{kd}$. Cross-tokenizer capability ("any two LLMs regardless of vocabularies") confirmed. Survey's simplified two-term KL formula is a pedagogical abstraction of the actual three-term loss — acceptable for survey-level description. |
+| 9 | SPIN (2401.01335) | HTML full paper (ICML 2024) | ✅ ACCURATE | Self-play mechanism where updated model distinguishes previous iteration's generations from human-written responses confirmed. Convergence guarantee ($p_{\theta^*} = p_{data}$) confirmed verbatim: "the global optimum to the training objective function...achieved only when the LLM policy aligns with the target data distribution". MT-Bench improvement 5.94→6.78 confirmed. Starting model is "zephyr-7b-sft-full" (survey says "Zephyr-7B-SFT") — minor naming simplification, acceptable. |
+| 10 | OPSD (2601.18734) | HTML full paper + GitHub repo | ✅ ACCURATE | Single model as teacher (conditioned on $x, y^*$) and student (conditioned on $x$ only) confirmed. Per-token divergence along student rollouts confirmed. Loss formula matches exactly. "Matches performance of GRPO" with single rollout vs GRPO's group sampling confirmed from abstract. GitHub results show 4B non-thinking: AIME24 26.4%→49.7% (large gain), 1.7B non-thinking: AIME24 11.9%→15.0% (marginal) — supports survey's claim "At 1.7B scale, gains over GRPO are minimal, indicating sufficient model capacity is necessary." ICML 2026. |
+
+**Summary (Batch 2)**: 3 method descriptions verified (DSKD, SPIN, OPSD), 0 errors found. All technical formulations, mechanisms, and experimental claims in the White-Box and Self-Distillation (PI) sections match their source papers.
+
+**Note on DSKD loss formula**: The survey presents a simplified dual-KL form ($\KL(P_{T \to S} \| P_S) + \KL(P_{S \to T} \| P_T)$) while the actual paper uses a three-term loss including a cross-entropy alignment term. This is an acceptable pedagogical simplification for a survey and accurately captures the bilateral nature of the distillation.
+
+---
+
+### Batch 3 (2026-05-10) — Training Dynamics / Curriculum (2 methods)
+
+| # | Method | Paper Source | Description Accuracy | Details |
+|---|---|---|---|---|
+| 11 | PACED (2603.11178) | Abstract (v3) | ✅ ACCURATE | Beta-kernel weighting $w(p) = p^\alpha(1-p)^\beta$ confirmed. SNR bell-curve over pass rate confirmed. Gradient collapse at extremes confirmed. "Concentrating training on the zone of proximal development" matches survey's "frontier sampling" language. Survey's theoretical discussion of SNR-optimal weights aligns with paper's stated proofs (minimax robustness, $O(\delta^2)$ worst-case). |
+| 12 | SelecTKD (2510.24021) | Abstract (v2) | ✅ ACCURATE | Propose-and-verify mechanism confirmed verbatim. Two variants (greedy Top-k, non-greedy Spec-k) confirmed. Accepted tokens = full loss, rejected = masked/down-weighted confirmed. Implicit curriculum via Token Acceptance Rate (TAR) confirmed. "objective-agnostic design works with on- and off-policy data" matches survey's integration context. |
+
+**Summary (Batch 3)**: 2 method descriptions verified (PACED, SelecTKD), 0 errors found.
+
+---
+
+### Phase 3 Final Summary
+
+**Total methods verified**: 12/12
+**Errors found**: 0
+**Errors fixed**: 0
+
+All method descriptions in the survey accurately represent their source papers. Technical formulations, mechanisms, experimental claims, and conceptual framings are consistent with original publications. One minor note: the DSKD loss formula is a pedagogical simplification (acceptable for survey scope).
+
+---
