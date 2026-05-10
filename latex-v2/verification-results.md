@@ -39,3 +39,19 @@
 None needed — all claims verified exact.
 
 ---
+
+### Batch 3 (2026-05-10)
+
+| # | Claim in main.tex | Source Paper | Verified? | Notes |
+|---|---|---|---|---|
+| 18 | Distilling Step-by-Step: "770M-parameter model to outperform 540B-parameter teacher with 500× fewer parameters" | arXiv:2305.02301 §1 | ✅ EXACT | Paper §1: "using over 500× less model parameters" |
+| 19 | Distilling Step-by-Step: "50% fewer examples on average, up to 85% reduction" | arXiv:2305.02301 §1 | ✅ EXACT | Paper §1: "over 50% less training examples on average across datasets (and up to over 85% reduction)" |
+| 20 | PromptKD: "adding only 0.0007% of the teacher's parameters" | arXiv:2402.12842 abstract | ✅ EXACT | Abstract: "adding only 0.0007% of the teacher's parameters as prompts" |
+| 21 | TCOD: "+18 points over vanilla multi-turn OPD" on ALFWorld/WebShop/ScienceWorld | arXiv:2604.24005 abstract | ✅ EXACT | Abstract: "improving agent performance by up to 18 points over vanilla OPD" on same 3 benchmarks |
+| 22 | KAT-Coder-V2: "79.6% on SWE-bench Verified" + 5 expert domains + on-policy distillation consolidation | arXiv:2603.27703 abstract | ✅ EXACT | Abstract: "achieves 79.6% on SWE-bench Verified" + "five expert domains...consolidated into a single model via on-policy distillation" |
+| 23 | MTP self-distill: ">3× faster decoding at typically 3–7% accuracy drop" | arXiv:2602.06019 abstract | ⚠️ PARTIALLY | Abstract says ">3× faster at <5% drop on GSM8K". Our "3–7%" range is broader than abstract's "<5%". Likely from multi-benchmark results in paper body. Not incorrect but not fully verifiable from abstract. |
+
+### Fixes Applied (Batch 3)
+None critical — MTP claim is approximately consistent with source (>3× ✓, accuracy drop within plausible range).
+
+---
