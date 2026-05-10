@@ -102,3 +102,21 @@ None critical — MTP claim is approximately consistent with source (>3× ✓, a
 All 12 rows correct — no fixes needed.
 
 ---
+
+## Phase 3: Method Description Accuracy
+
+### Batch 1 (2026-05-10) — Fixed/Adaptive Divergence + RL-Augmented (6 methods)
+
+| # | Method | Paper Source | Description Accuracy | Details |
+|---|---|---|---|---|
+| 1 | GKD (2306.13649) | HTML + abstract | ✅ ACCURATE | DAgger framing (Ross et al. 2011) correct. Mixture policy λ=0 off-policy, λ=1 on-policy confirmed. Forward KL/Reverse KL/JSD divergences confirmed. ICLR 2024. |
+| 2 | DistiLLM (2402.03898) | HTML Section 3.1 | ✅ ACCURATE | SKL defined as D_KL(p, αp+(1-α)q_θ) matches survey's formulation exactly. Bounded gradient property from mixture denominator confirmed. ICML 2024. |
+| 3 | DistiLLM-2 (2503.07067) | Abstract | ✅ ACCURATE | "Contrastive approach" = different losses for teacher-generated vs student-generated data. Survey's "source-aware asymmetry" framing matches paper's "synergy between loss formulations and data types". ICML 2025 Spotlight. |
+| 4 | ToDi (2505.16297) | Abstract | ✅ ACCURATE | Sigmoid-based weighting from teacher-student probability log-ratio confirmed. Adaptively combines FKL and RKL per token. EMNLP 2025 Oral. |
+| 5 | AOPD (2605.06387) | Abstract | ✅ ACCURATE | +4.09/+8.34 gains (strong/weak init) confirmed verbatim. Three pathologies (high variance, vanishing gradients, exploration bottlenecks) confirmed. Replaces negative reinforcement with localized divergence minimization. |
+| 6 | G-OPD (2602.12125) | Abstract | ✅ ACCURATE | OPD ≡ dense KL-constrained RL confirmed. α=1 → standard Reverse KL, α>1 → reward extrapolation (ExOPD). Multi-teacher surpassing confirmed. |
+| 7 | RLKD (2505.16142) | Abstract | ✅ ACCURATE | GSRM parses into meta-reasoning + solving steps, scores structural alignment. Surpasses SFT-RL with 0.1% data under RL-only regime confirmed. |
+
+**Summary**: 7 method descriptions verified, 0 errors found. All technical claims in the Fixed Divergence, Adaptive Divergence, and RL-Augmented sections match their source papers.
+
+---
