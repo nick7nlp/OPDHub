@@ -412,7 +412,7 @@ PACED \citep{2603.11178} & & Beta-kernel curriculum pacing & White-Box Logits & 
         RLKD \citep{2505.16142} & 2025 & Objective & KD + Reward Model & Reward Model & Sequence & Generative Structure Reward Model (GSRM) \\
         KDRL \citep{2506.02208} & 2025 & Objective & Joint KD + RL & White-box & Token/Seq & On-policy KL regularizer during RL \\
         RLAD \citep{2602.22495} & 2026 & Objective & Trust Region Ratio & White-box & Token/Seq & PPO-style selective teacher following \\
-        AlignDistil \citep{2503.02832} & 2025 & Objective & DPO + Reverse DPO & White-box & Sequence & Synthetic preference from rollouts \\
+        AlignDistil \citep{2503.02832} & 2025 & Objective & DPO + Reverse DPO & White-box & Token & Token-level RLHF via contrastive DPO reward \\
         SuperCorrect \citep{2410.09008} & 2025 & Objective & Template + Cross-DPO & White-box & Sequence & Hierarchical thought scaffolding \\
         SCoRe \citep{2509.14257} & 2025 & Objective & Earliest-error correction & White-box & Sequence & Root-cause error targeting \\
         \midrule
