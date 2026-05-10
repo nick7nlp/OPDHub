@@ -1,0 +1,42 @@
+{
+  "status": "IN_PROGRESS",
+  "created": "2026-05-10T10:46:00Z",
+  "lastUpdated": "2026-05-10T10:46:00Z",
+  "currentPhase": 1,
+  "currentTask": "numerical_claims_batch_1",
+  "phases": {
+    "1": {
+      "name": "Numerical Claims Deep Verification",
+      "status": "in_progress",
+      "totalClaims": 0,
+      "verified": 0,
+      "errors": [],
+      "batches_completed": 0
+    },
+    "2": {
+      "name": "Table 2 Row-by-Row Verification",
+      "status": "pending",
+      "totalRows": 0,
+      "verified": 0,
+      "errors": []
+    },
+    "3": {
+      "name": "Method Description Accuracy",
+      "status": "pending",
+      "totalMethods": 0,
+      "verified": 0,
+      "errors": []
+    },
+    "4": {
+      "name": "Narrative and Logic Check",
+      "status": "pending",
+      "totalSections": 0,
+      "verified": 0,
+      "errors": []
+    },
+    "5": {
+      "name": "Final Compilation and Format",
+      "status": "pending"
+    }
+  }
+}
