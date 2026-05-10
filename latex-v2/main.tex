@@ -790,7 +790,7 @@ The temporal scope of white-box distillation is not limited to post-training. Mi
 
 A critical challenge arises when teacher and student use different tokenizers or vocabulary sizes. Direct KL divergence over mismatched vocabularies is undefined. DSKD~\citep{2504.11426} addresses this through \emph{dual-space} knowledge distillation, employing projectors that map between teacher and student representation spaces:
 \begin{equation}
-    \mathcal{L}_{\text{DSKD}} = \KL(P_{T \to S} \parallel P_S) + \KL(P_{S \to T} \parallel P_T)
+    \mathcal{L}_{\text{DSKD}} = \KL(P_{T \to S} \parallel P_S) + \KL(P_T \parallel P_{S \to T})
 \end{equation}
 where $P_{T \to S}$ denotes the teacher's hidden states projected into the student's space and decoded through the student's prediction head. An exact token alignment algorithm handles vocabulary mismatches by identifying identical tokens across tokenizers. Vocabulary tokens with similar semantic embeddings should receive similar probability mass even when the tokenization schemes differ, allowing distillation across different architectures (e.g., Llama teacher to Qwen student) that share no vocabulary overlap.
 
