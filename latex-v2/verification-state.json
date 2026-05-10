@@ -1,9 +1,9 @@
 {
   "status": "IN_PROGRESS",
   "created": "2026-05-10T10:46:00Z",
-  "lastUpdated": "2026-05-10T11:09:00Z",
+  "lastUpdated": "2026-05-10T11:19:00Z",
   "currentPhase": 2,
-  "currentTask": "table2_rows_batch_1",
+  "currentTask": "table2_rows_batch_2",
   "phases": {
     "1": {
       "name": "Numerical Claims Deep Verification",
@@ -13,15 +13,17 @@
       "errors_found": 2,
       "errors_fixed": 2,
       "partially_verifiable": 1,
-      "batches_completed": 3,
-      "details": "Batch 1: 9 claims (2 fixed) | Batch 2: 8 claims (all exact) | Batch 3: 6 claims (1 partially verifiable)"
+      "batches_completed": 3
     },
     "2": {
       "name": "Table 2 Row-by-Row Verification",
-      "status": "pending",
-      "totalRows": 0,
-      "verified": 0,
-      "errors": []
+      "status": "in_progress",
+      "totalRows": 14,
+      "verified": 14,
+      "errors_found": 1,
+      "errors_fixed": 1,
+      "batches_completed": 1,
+      "details": "Batch 1: 14 year checks, KETCHUP fixed 2026→2025"
     },
     "3": {
       "name": "Method Description Accuracy",

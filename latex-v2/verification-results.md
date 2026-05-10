@@ -55,3 +55,29 @@ None needed — all claims verified exact.
 None critical — MTP claim is approximately consistent with source (>3× ✓, accuracy drop within plausible range).
 
 ---
+
+## Phase 2: Table 2 Row-by-Row Verification
+
+### Batch 1 (2026-05-10) — Year Verification (14 rows)
+
+| # | Method | Our Year | Venue/Source | Correct? |
+|---|---|---|---|---|
+| 1 | GKD (2306.13649) | 2024 | ICLR 2024 | ✅ |
+| 2 | MiniLLM (2306.08543) | 2024 | ICLR 2024 | ✅ |
+| 3 | DistiLLM (2402.03898) | 2024 | ICML 2024 | ✅ |
+| 4 | DistiLLM-2 (2503.07067) | 2025 | ICML 2025 Spotlight | ✅ |
+| 5 | AKL (2404.02657) | 2025 | COLING 2025 | ✅ |
+| 6 | SPIN (2401.01335) | 2024 | ICML 2024 | ✅ |
+| 7 | TAID (2501.16937) | 2025 | ICLR 2025 Spotlight | ✅ |
+| 8 | SuperCorrect (2410.09008) | 2025 | ICLR 2025 | ✅ |
+| 9 | SCoRe (2509.14257) | 2025 | arXiv Sep 2025 | ✅ |
+| 10 | GAD (2511.10643) | 2025 | arXiv Nov 2025 | ✅ |
+| 11 | Lion (2305.12870) | 2023 | EMNLP 2023 | ✅ |
+| 12 | DSKD (2504.11426) | 2025 | arXiv Apr 2025, under review | ✅ |
+| 13 | Constrained (2509.22921) | 2025 | arXiv Sep 2025 | ✅ |
+| 14 | KETCHUP (2504.19024) | 2026 → **2025** | arXiv Apr 2025 | ❌ FIXED |
+
+### Fixes Applied (Phase 2 Batch 1)
+1. KETCHUP year: 2026 → 2025 (paper submitted Apr 2025, no venue)
+
+---
