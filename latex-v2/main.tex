@@ -40,7 +40,8 @@
 
 \author{Mingyang Song \& Mao Zheng \\
 Large Language Model Department \\Tencent, China\\
-\texttt{nickmysong@tencent.com}}
+\texttt{nickmysong@tencent.com}\\[2pt]
+\faGithub\ \href{https://github.com/nick7nlp/Awesome-LLM-On-Policy-Distillation}{nick7nlp/Awesome-LLM-On-Policy-Distillation}}
 
 \newcommand{\fix}{\marginpar{FIX}}
 \newcommand{\new}{\marginpar{NEW}}
@@ -61,23 +62,6 @@ Large Language Model Department \\Tencent, China\\
 \begin{abstract}
 As Large Language Models (LLMs) continue to grow in both capability and cost, transferring frontier capabilities into smaller, deployable students has become a central engineering problem, and knowledge distillation remains the dominant technique for this transfer. The prevailing recipe in industrial pipelines, static imitation of teacher-generated text, carries a structural weakness that grows more severe as tasks become longer and more reasoning-intensive. Because the student is trained on flawless teacher prefixes but must generate its own at inference, small errors tend to accumulate into trajectories it has rarely been trained to recover from, and the resulting exposure bias has been shown to scale roughly with the square of sequence length. On-Policy Distillation (OPD) reorganizes the training loop around this observation by having the teacher provide feedback on what the student \emph{actually produces}, with the goal of reducing the compounding term toward linear and reframing distillation as an iterative correction process rather than single-pass imitation. The resulting literature has expanded along divergence design, reward-guided optimization, and self-play, yet contributions remain scattered across the knowledge distillation, RLHF, and imitation learning communities without a unified treatment. This survey provides such a treatment. We formalize OPD as $f$-divergence minimization over student-sampled trajectories, organize the field along three design axes (what to optimize, where the signal comes from, and how to stabilize training in practice), and consolidate success conditions, recurring failure modes, and the connection between OPD and KL-constrained reinforcement learning. We close with open problems that emerge from this synthesis, including distillation scaling laws, uncertainty-aware feedback, agent-level distillation, and the growing overlap between knowledge distillation and RL.
 \end{abstract}
-
-% === GitHub Banner ===
-\vspace{-0.3em}
-\begin{center}
-\begin{tikzpicture}
-  \node[draw=midblue!60, fill=lightblue2!40, rounded corners=6pt, inner sep=8pt, line width=0.8pt] (box) {
-    \begin{minipage}{0.82\textwidth}
-      \centering
-      {\sffamily\small%
-        \textcolor{deepblue}{\textbf{\faGithub\;\; Awesome List \& Paper Collection}}\\[3pt]
-        \textcolor{midblue}{\url{https://github.com/nick7nlp/Awesome-LLM-On-Policy-Distillation}}
-      }
-    \end{minipage}
-  };
-\end{tikzpicture}
-\end{center}
-\vspace{-0.3em}
 
 \section{Introduction}
 \label{sec:intro}
@@ -314,8 +298,9 @@ Existing OPD methods can be organized along three axes that correspond to sequen
     ]
     %% ===== Stage 3: Training Dynamics and Efficiency (§6) =====
     [{\S 6 Training Dynamics\\and Efficiency}, catDyn, edge={draw=dycolor!60, line width=1.2pt}
-      [{\textbf{6.1 Token and Sample Weighting}~{\tikz[baseline=-0.5ex]\node[badge=dycolor]{4};}\\[2pt]%
-        TIP~\citep{xu2026tip}, SCOPE~\citep{zheng2026scope}, SelecTKD~\citep{2510.24021}, AdaSwitch~\citep{2510.07842}%
+      [{\textbf{6.1 Token and Sample Weighting}~{\tikz[baseline=-0.5ex]\node[badge=dycolor]{5};}\\[2pt]%
+        TIP~\citep{xu2026tip}, SCOPE~\citep{zheng2026scope}, SelecTKD~\citep{2510.24021}, AdaSwitch~\citep{2510.07842},\\[1pt]%
+        R-OPD~\citep{2603.25562}%
         }, leaf=dycolor, edge={draw=dycolor!30}]
       [{\textbf{6.2 Curriculum and Difficulty Adaptation}~{\tikz[baseline=-0.5ex]\node[badge=dycolor]{6};}\\[2pt]%
         PACED~\citep{2603.11178}, Stable-OPD~\citep{luo2026demystifying}, SSB~\citep{mitra2025semantic},\\[1pt]%
@@ -343,7 +328,7 @@ Chronologically, the distribution of methods reflects shifting research emphasis
 
 \textbf{Classification methodology.} Each method is assigned to exactly one primary category based on its \emph{core contribution dimension}. A paper whose novelty lies in the loss function (e.g., G-OPD's KL-constrained RL reformulation) belongs to ``Objective.'' A new signal architecture (e.g., DSKD's dual-space projection) places a method under ``Signal.'' A training stability or efficiency contribution (e.g., TIP's token weighting) maps to ``Dynamics.'' Methods that contribute to multiple dimensions are classified by their \emph{most distinctive} contribution, reducing the categorization ambiguity that arises when a single method spans multiple dimensions~\citep{2402.13116}.
 
-\textbf{Table organization.} Table~\ref{tab:method_comparison} provides a compact reference mapping 15 representative methods to their primary category, signal source, and loss granularity. Table~\ref{tab:white_box_comparison} extends this to the full inventory of 66 methods with year, divergence type, and key innovation. Table~\ref{tab:experimental_configs} complements both by listing concrete teacher-student pairings and benchmark results across six application domains.
+\textbf{Table organization.} Table~\ref{tab:method_comparison} provides a compact reference mapping 15 representative methods to their primary category, signal source, and loss granularity. Table~\ref{tab:white_box_comparison} extends this to 66 methods organized by primary contribution dimension, with year, divergence type, and key innovation. Table~\ref{tab:experimental_configs} complements both by listing concrete teacher-student pairings and benchmark results across six application domains.
 
 \textbf{Distributional observations.} Self-distillation is the largest single category with 20 methods (30\% of all entries), nearly all published in 2026. Training Dynamics follows with 13 methods (20\%), reflecting concentrated recent work on stabilizing and accelerating on-policy rollouts. In contrast, fixed-divergence objectives (the earliest OPD formulations from 2024) account for only 6 entries, consistent with a gradual shift from the foundational ``which KL direction'' question toward adaptive or RL-augmented alternatives. These proportions also match a broader trend in LLM research in which the model's own rollouts increasingly serve as the primary data source, whether or not an external teacher is present.
 
@@ -1000,7 +985,7 @@ Each component admits independent optimization, and the methods below attack dif
 
 These two methods expose a deeper structural point. The ``on-policy'' requirement is not binary but admits degrees of approximation. FOPD shows that partial rollouts preserve most of the distributional alignment benefit. Lightning OPD shows that fixed (stale) teacher signals remain effective when teacher consistency holds and the implicit regularization bounds policy drift. Together, they define a \emph{fidelity--efficiency frontier} along which the degree of on-policy approximation trades off against compute cost, with full on-policy training at one extreme (maximum alignment, maximum cost) and fully offline SFT at the other (minimum cost, exposure bias ceiling).
 
-\textbf{Speculative knowledge distillation.} SKD~\citep{2410.11325} adapts speculative decoding to the distillation setting, where the student generates candidate tokens that the teacher verifies and selectively replaces based on its distribution, creating a data generation strategy that dynamically interpolates between supervised and on-policy KD. When student samples are consistently rejected, SKD degenerates to supervised KD; when they are consistently accepted, it degenerates to on-policy KD. DistillSpec~\citep{2310.08461} inverts this approach. Instead of using speculation to speed up training, it uses on-policy KD to improve the draft model for speculative decoding at \emph{inference} time. The expected wall-clock speedup of speculative decoding is
+\textbf{Speculative knowledge distillation.} SKD~\citep{2410.11325} adapts speculative decoding to the distillation setting, where the student generates candidate tokens that the teacher verifies and selectively replaces based on its distribution, creating a data generation strategy that dynamically interpolates between supervised and on-policy KD. When student samples are consistently rejected, SKD degenerates to supervised KD. When they are consistently accepted, it degenerates to on-policy KD. DistillSpec~\citep{2310.08461} inverts this approach. Instead of using speculation to speed up training, it uses on-policy KD to improve the draft model for speculative decoding at \emph{inference} time. The expected wall-clock speedup of speculative decoding is
 \begin{equation}
     E[S] = \frac{\tau(x)}{c\gamma + 1} \quad \text{where } c = \frac{\text{cost}(\text{draft forward})}{\text{cost}(\text{target forward})}
 \end{equation}
