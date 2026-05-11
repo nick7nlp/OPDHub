@@ -263,9 +263,9 @@ Existing OPD methods can be organized along three axes that correspond to sequen
   [\textbf{On-Policy}\\\textbf{Distillation}, rbox, text width=2.0cm
     %% ===== Stage 1: Objective Functions and Optimization (§4) =====
     [{\S 4 Objective Functions\\and Optimization}, catObj, edge={draw=tgcolor!60, line width=1.2pt}
-      [{\textbf{4.1 Fixed Divergence Objectives}~{\tikz[baseline=-0.5ex]\node[badge=tgcolor]{5};}\\[2pt]%
+      [{\textbf{4.1 Fixed Divergence Objectives}~{\tikz[baseline=-0.5ex]\node[badge=tgcolor]{6};}\\[2pt]%
         GKD~\citep{2306.13649}, MiniLLM~\citep{2306.08543}, DistiLLM~\citep{2402.03898},\\[1pt]%
-        DistiLLM-2~\citep{2503.07067}, KETCHUP~\citep{2504.19024}%
+        DistiLLM-2~\citep{2503.07067}, KETCHUP~\citep{2504.19024}, vOPD~\citep{oh2026vopd}%
         }, leaf=tgcolor, edge={draw=tgcolor!30}]
       [{\textbf{4.2 Adaptive Divergence Objectives}~{\tikz[baseline=-0.5ex]\node[badge=tgcolor]{4};}\\[2pt]%
         ToDi~\citep{2505.16297}, AKL~\citep{2404.02657}, Entropy-Aware OPD~\citep{2603.07079},\\[1pt]%
@@ -292,7 +292,7 @@ Existing OPD methods can be organized along three axes that correspond to sequen
         ThinkTuning~\citep{rrv2025thinktuning}, DASD~\citep{2601.09088}, DDT~\citep{2602.12222},\\[1pt]%
         PRISM~\citep{wang2026prism}%
         }, leaf=sdcolor, edge={draw=sdcolor!30}]
-      [{{\S 5.3 Self-Distillation}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{27};}}, catSig, edge={draw=sdcolor!30}
+      [{{\S 5.3 Self-Distillation}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{28};}}, catSig, edge={draw=sdcolor!30}
         [{\textbf{5.3.1 Privileged Information}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{13};}\\[2pt]%
           OPSD~\citep{2601.18734}, GATES~\citep{2602.20574}, Priv.~Info.~Distill~\citep{2602.04942},\\[1pt]%
           OPCD~\citep{2602.12275}, OEL~\citep{2603.16856}, HDPO~\citep{2603.23871},\\[1pt]%
@@ -300,10 +300,11 @@ Existing OPD methods can be organized along three axes that correspond to sequen
           MSD~\citep{qin2026msd}, PBSD~\citep{pbsd2026}, TT-OPD~\citep{ttopd2026},\\[1pt]%
           VISD~\citep{lin2026visd}%
           }, leaf=sdcolor, edge={draw=sdcolor!30}]
-        [{\textbf{5.3.2 Self-Play}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{8};}\\[2pt]%
+        [{\textbf{5.3.2 Self-Play}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{9};}\\[2pt]%
           SPIN~\citep{2401.01335}, MTP Self-Distill~\citep{2602.06019}, SDFT~\citep{2601.19897},\\[1pt]%
           On-Policy SFT~\citep{zhao2026onpolicy}, SSD~\citep{zhang2026embarrassingly},\\[1pt]%
-          $\pi$-Play~\citep{zhang2026piplay}, IRIS~\citep{2604.20933}, PAINT~\citep{wang2026paint}%
+          $\pi$-Play~\citep{zhang2026piplay}, IRIS~\citep{2604.20933}, PAINT~\citep{wang2026paint},\\[1pt]%
+          UniSD~\citep{jin2026unisd}%
           }, leaf=sdcolor, edge={draw=sdcolor!30}]
         [{\textbf{5.3.3 External Feedback}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{6};}\\[2pt]%
           SDPO~\citep{2601.20802}, SD-ZERO~\citep{he2026selfdistillation}, RLSD~\citep{yang2026selfdistilled},\\[1pt]%
@@ -398,6 +399,7 @@ PACED \citep{2603.11178} & & Beta-kernel curriculum pacing & White-Box Logits & 
         DistiLLM-2 \citep{2503.07067} & 2025 & Objective & Contrastive SKL/SRKL & White-box & Token & Asymmetric loss per data source \\
         KETCHUP \citep{2504.19024} & 2025 & Objective & Reverse KL & White-box & Sequence & $K$-step Bellman return estimation \\
         Constrained \citep{2509.22921} & 2025 & Objective & Constrained KL & White-box & Sequence & Unaugmented CMDP with hard KL budget \\
+        vOPD \citep{oh2026vopd} & 2026 & Objective & Reverse KL + CV baseline & White-box & Token & Control variate variance reduction \\
         \midrule
         \multicolumn{7}{l}{\textit{Objective: Adaptive Divergences}} \\
         \midrule
@@ -454,6 +456,7 @@ PACED \citep{2603.11178} & & Beta-kernel curriculum pacing & White-Box Logits & 
         SD-ZERO \citep{he2026selfdistillation} & 2026 & Self (EF) & Self-revision preference & Self + Verifier & Sequence & Binary reward $\to$ dense self-supervision \\
         $\pi$-Play \citep{zhang2026piplay} & 2026 & Self (PI+SP) & Multi-agent co-evolution & Self & Token & Internally generated PI from self-play \\
         SSD \citep{zhang2026embarrassingly} & 2026 & Self (SP) & Temperature-sampled SFT & Self & Sequence & Minimalist self-play \\
+        UniSD \citep{jin2026unisd} & 2026 & Self (SP) & Multi-axis unified SD & Self (EMA + agreement) & Token & Systematic component analysis \\
         SDPO \citep{2601.20802} & 2026 & Self (EF) & Textual feedback + DPO & Self + Verifier & Sequence & Credit assignment from outcomes \\
         RLTF \citep{song2026expanding} & 2026 & Self (EF) & Critique-conditioned & Self + Verifier & Sequence & Text feedback for self-play \\
         SRPO \citep{li2026unifying} & 2026 & Self (EF) & GRPO + SDPO routing & Self + Verifier & Sequence & Sample-routed multi-objective \\
@@ -496,6 +499,7 @@ PACED \citep{2603.11178} & & Beta-kernel curriculum pacing & White-Box Logits & 
         KDRL \citep{2506.02208} & Skywork-OR1-Math-7B & R1-Distill-Qwen-1.5B & Joint KD + RL & AIME, MATH \\
         LUFFY \citep{2504.14945} & DeepSeek-R1 (off-policy traces) & Qwen2.5-Math-7B/1.5B & Mixed-policy GRPO & AIME, AMC, MATH-500 \\
         AOPD \citep{jia2026aopd} & Qwen2.5-Math-7B (teacher) & Qwen2.5-Math-1.5B/7B & Asymmetric PG + F-KL & AIME'24/'25, MATH-500 \\
+        vOPD \citep{oh2026vopd} & Qwen3-1.7B-Inst (self-distill) & Qwen3-1.7B/4B-Base, OLMo-3-7B & CV baseline + single-sample R-KL & MATH-500, AIME'24/'25, Minerva \\
         SCoRe \citep{2509.14257} & Qwen2.5-72B-Inst & Qwen2.5-7B/3B, Llama-3.1-8B & Earliest-error correction & 12 Agent benchmarks \\
         \midrule
         \multicolumn{5}{l}{\textit{Instruction Following \& General}} \\
@@ -537,6 +541,7 @@ PACED \citep{2603.11178} & & Beta-kernel curriculum pacing & White-Box Logits & 
         SD-ZERO \citep{he2026selfdistillation} & Self (revision-conditioned) & Qwen3-4B-Inst, OLMo-3-7B & On-policy self-distill & AIME, MATH, Codeforces \\
         $\pi$-Play \citep{zhang2026piplay} & Self (QCP-conditioned) & Qwen3-4B/8B & Multi-agent self-distill & NQ, TriviaQA, HotpotQA \\
         SSD \citep{zhang2026embarrassingly} & Self (temperature-sampled) & Qwen3-30B-Inst & On-policy SFT & LiveCodeBench v6 \\
+        UniSD \citep{jin2026unisd} & Self (EMA + multi-teacher agree.) & Qwen2.5-7B/0.5B--3B, Llama-3.1-8B, Gemma-3-4B & Agreement + EMA + contrastive + feat.~match & ScienceQA, MBPP, CoS-E, ToolAlpaca \\
         SDPO \citep{2601.20802} & Self (textual feedback) & Qwen3-8B & Credit-assignment self-distill & Code, Math \\
         SRPO \citep{li2026unifying} & Self (SDPO+GRPO) & Qwen3-8B & Sample-routed dual-objective & Chem, Phys, Bio, Mat, ToolUse \\
         PBSD \citep{pbsd2026} & Self (ctx-augmented ref.) & Qwen3-1.7B/4B/8B-Inst & Pref.-based reward-reg.\ KL & AIME'24/'25, HMMT'25, Tool Use \\
@@ -711,6 +716,8 @@ where the $-1$ arises from the $-\log \ptheta(y|x)$ entropy term of the reverse-
 \textbf{The token-level vs.\ sequence-level tradeoff.} The choice between token-level and sequence-level objectives represents a core bias-variance tradeoff whose resolution foreshadows the RL-augmented methods of \S\ref{subsec:rl_objectives}. Token-level methods (GKD, DistiLLM) yield $|V|$-dimensional gradient signals at every position, yielding low variance but potentially biased gradients when the teacher's token-level distribution is poorly calibrated (the flawed prefix trap of Section~\ref{subsec:weighting}). Sequence-level methods (MiniLLM, KETCHUP) yield unbiased gradients through the policy gradient theorem but suffer from high variance due to single-sample REINFORCE estimation over exponentially large sequence spaces. The practical resolution is task-dependent. For instruction following where token-level teacher quality is high, GKD-style methods tend to dominate. For reasoning tasks where sequence-level coherence matters more, MiniLLM-style methods are often preferred despite their variance, and KETCHUP's $K$-step Bellman returns offer an intermediate bias-variance point on this spectrum. Recognizing that MiniLLM is already performing policy gradient RL (with the teacher's log-probability as reward) suggests that sequence-level distillation and RL-augmented distillation are not distinct paradigms but endpoints of a continuum parameterized by the reward source: pure teacher signal at one end, pure task reward at the other, and hybrid objectives (G-OPD, RLKD) interpolating between them.
 
 \textbf{Full-vocabulary vs.\ sampled-token KL.} Orthogonal to the token-level vs.\ sequence-level choice, a practical implementation decision determines how much of the teacher's distribution is used at each position. Many RL-based OPD implementations approximate the per-position KL by computing $\log \ptheta(y_t|y_{<t}) - \log \pteacher(y_t|y_{<t})$ only at the \emph{sampled} token $y_t$, treating this scalar as a per-token advantage within a policy gradient framework~\citep{lu2025onpolicy}. While computationally lightweight (requiring only one teacher log-probability per position), this single-sample estimate incurs high gradient variance and discards the distributional information across non-sampled tokens. DeepSeek-V4~\citep{deepseekv4} reports that \emph{full-vocabulary} logit distillation, computing the exact $\KL(\ptheta(\cdot|y_{<t}) \parallel \pteacher(\cdot|y_{<t}))$ over all $|V|$ tokens at each position, yields more stable gradients and more faithful knowledge transfer at the cost of transmitting or reconstructing the full teacher logit vector. Their engineering solution (caching teacher hidden states and reconstructing logits on-the-fly through the prediction head) makes this feasible even with 10+ trillion-parameter teachers over vocabularies exceeding 100K tokens, which positions full-vocabulary KL as an attractive choice for industrial-scale OPD when infrastructure permits. Lightning OPD~\citep{wu2026lightning} further reports that the full teacher forward pass can be largely avoided by precomputing teacher log-probabilities over SFT rollouts, recording 4$\times$ speedup over standard OPD under a \emph{teacher consistency} condition (using the same teacher for both SFT data generation and distillation).
+
+vOPD~\citep{oh2026vopd} offers a third resolution to this variance-cost tradeoff by importing the \emph{control variate baseline} from policy-gradient RL into the OPD estimator. Casting the single-sample OPD gradient (Eq.~3 of~\citealp{oh2026vopd}) as a REINFORCE update with per-token reward $r_t = \log \pteacher(y_t|c_t) - \log \ptheta(y_t|c_t)$, vOPD subtracts a baseline $b_t(c_t)$ from $r_t$ before multiplying by $\nabla_\theta \log \ptheta$. The key insight is that the natural value function for this reward admits a closed form as the per-token negative reverse KL between student and teacher, $V^{\pi_\theta}(c_t) = -\KL(\ptheta(\cdot|c_t) \parallel \pteacher(\cdot|c_t))$, computable directly from the forward pass that already produces the OPD objective without requiring an auxiliary critic or additional rollouts. Because the baseline depends only on the context $c_t$ and not on the sampled token $y_t$, subtracting it preserves the unbiasedness of the gradient while reducing variance. A top-$k$ approximation of this baseline (restricting the KL summation to the student's $k$ most probable tokens) further lowers compute, and because the approximation remains independent of the sampled action, unbiasedness still holds regardless of $k$. Across six reasoning benchmarks on Qwen3-1.7B and 4B, vOPD yields an average +3\% absolute gain over vanilla single-sample OPD (up to +6.2\% on MATH500), matches the accuracy of full-vocabulary OPD while reducing wall-clock time by up to 57.7\%, and substantially outperforms top-$k$ OPD, which adds compute but introduces bias. The result positions vOPD at a favorable point on the bias-variance-compute Pareto frontier for on-policy distillation of reasoning models.
 
 \subsection{Adaptive Divergence Objectives}
 \label{subsec:adaptive_div}
@@ -895,6 +902,8 @@ The trajectory from SPIN through IRIS to $\pi$-Play traces an escalating respons
 On-Policy SFT~\citep{zhao2026onpolicy} offers an instructive simplification. By filtering self-generated responses for correctness (via outcome verification) and conciseness (via a fixed length threshold), standard SFT on this filtered on-policy data matches or exceeds full RL training. The combination of on-policy generation (which naturally produces diverse solution strategies) with outcome filtering (which selects the best strategies) implicitly performs a form of evolutionary optimization that requires no gradient through the reward function. This ``generate-filter-train'' recipe substantially reduces implementation complexity compared to full RL-based distillation while retaining the core benefit of on-policy data, namely distributional alignment. Self-Distilled RLVR~\citep{yang2026selfdistilled} further decomposes the gradient update into two components. Self-distillation determines the \emph{magnitude} of per-token policy updates (how much to change each token's probability), while environmental RLVR feedback anchors the \emph{direction} (which tokens should increase vs.\ decrease). At just 200 training steps, RLSD surpasses GRPO trained for 400 steps on Qwen3-VL-8B-Instruct, exhibiting 2$\times$ sample efficiency from the dual signal structure.
 
 \textbf{Minimalist self-distillation.} SSD~\citep{zhang2026embarrassingly} requires no RL, no verifier, no external teacher, and no code execution. It samples solutions at training-time temperature, fine-tunes via standard SFT, and reshapes token distributions in a context-dependent manner. On LiveCodeBench v6, SSD improves Qwen3-30B-Instruct from 42.4\% to 55.3\%, showing that when the base model is sufficiently capable, even the simplest self-play yields substantial gains. The requirement is not a sophisticated algorithm but sufficient \emph{diversity} in the model's sampling distribution to produce high-quality variants that can serve as training targets.
+
+\textbf{Systematic unification of self-distillation components.} While the methods above each investigate individual mechanisms (temperature sampling, privileged information, preference optimization), the interaction effects across these design choices remain unclear. UniSD~\citep{jin2026unisd} addresses this gap by proposing a unified framework that systematically decomposes LLM self-distillation along three complementary axes: \emph{supervision reliability} (multi-teacher agreement to identify trustworthy self-derived signals, token-level contrastive learning to separate correct from plausible-but-wrong alternatives), \emph{representation alignment} (feature matching to transfer internal structure beyond output distributions), and \emph{training stability} (EMA teacher for temporal smoothing, divergence clipping to prevent rare high-divergence tokens from dominating updates). Evaluated across six benchmarks and six models spanning three families (Qwen2.5, Llama-3.1, Gemma-3), UniSD finds that on-policy trajectories combined with multi-teacher agreement and EMA stabilization form the core ingredients of effective self-distillation. The integrated variant UniSD$^*$ improves over the base model by +5.4 points and over the strongest baseline (GKD) by +2.8 on Qwen2.5-7B, without relying on any external teacher. UniSD's modular analysis complements the minimalist philosophy of SSD by showing \emph{which} design choices matter most when pure temperature diversity is insufficient, and its three-axis decomposition provides a design vocabulary for future self-distillation methods.
 
 Yet this also exposes the intrinsic boundary of pure self-play. When diversity is achieved through temperature sampling alone, the model's improvement is ultimately bounded by the information already present in its pre-training distribution. Bridging this boundary requires either connecting the model to external reality (Section~\ref{subsec:external_feedback}) or internally generating privileged information through the self-play process itself ($\pi$-Play below).
 
