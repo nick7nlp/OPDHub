@@ -1,0 +1,395 @@
+{
+  "_meta": {
+    "description": "OPD Paper Abbreviation Registry — authoritative mapping of arXiv IDs to official method names",
+    "generated": "2026-05-11",
+    "total_papers": 125,
+    "verified": true
+  },
+  "methods": {
+    "2306.13649": {
+      "abbreviation": "GKD",
+      "full_name": "Generalized Knowledge Distillation",
+      "verified": true
+    },
+    "2306.08543": {
+      "abbreviation": "MiniLLM",
+      "full_name": "MiniLLM: Knowledge Distillation of Large Language Models",
+      "verified": true,
+      "note": "No formal abbreviation pattern; 'MiniLLM' is the system name"
+    },
+    "2305.12870": {
+      "abbreviation": "Lion",
+      "full_name": "Lion: Adversarial Distillation of Proprietary Large Language Models",
+      "verified": true
+    },
+    "2401.01335": {
+      "abbreviation": "SPIN",
+      "full_name": "Self-Play fIne-tuNing",
+      "verified": true
+    },
+    "2402.03898": {
+      "abbreviation": "DistiLLM",
+      "full_name": "DistiLLM: Towards Streamlined Distillation for Large Language Models",
+      "verified": true
+    },
+    "2402.12030": {
+      "abbreviation": "ULD",
+      "full_name": "Universal Logit Distillation",
+      "verified": true
+    },
+    "2402.11890": {
+      "abbreviation": null,
+      "full_name": "Distillation Contrastive Decoding",
+      "verified": true,
+      "note": "No abbreviation in paper"
+    },
+    "2404.02657": {
+      "abbreviation": "AKL",
+      "full_name": "Adaptive Kullback-Leibler",
+      "verified": true
+    },
+    "2410.09008": {
+      "abbreviation": "SuperCorrect",
+      "full_name": "SuperCorrect: Supervising and Correcting Language Models with Error-Driven Insights",
+      "verified": true
+    },
+    "2410.11325": {
+      "abbreviation": "SKD",
+      "full_name": "Speculative Knowledge Distillation",
+      "verified": true
+    },
+    "2410.17215": {
+      "abbreviation": "MiniPLM",
+      "full_name": "MiniPLM: Knowledge Distillation for Pre-Training Language Models",
+      "verified": true
+    },
+    "2501.12948": {
+      "abbreviation": "DeepSeek-R1",
+      "full_name": "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning",
+      "verified": true
+    },
+    "2501.16937": {
+      "abbreviation": "TAID",
+      "full_name": "Temporally Adaptive Interpolated Distillation",
+      "verified": true
+    },
+    "2503.02832": {
+      "abbreviation": "AlignDistil",
+      "full_name": "AlignDistil: Token-Level Language Model Alignment as Adaptive Policy Distillation",
+      "verified": true
+    },
+    "2503.07067": {
+      "abbreviation": "DistiLLM-2",
+      "full_name": "DistiLLM-2: A Contrastive Approach Boosts the Distillation of LLMs",
+      "verified": true
+    },
+    "2504.11426": {
+      "abbreviation": "DSKD",
+      "full_name": "Dual-Space Knowledge Distillation",
+      "verified": true
+    },
+    "2504.14945": {
+      "abbreviation": "LUFFY",
+      "full_name": "LUFFY: Learning Underlying Features From Yields",
+      "verified": true
+    },
+    "2504.19024": {
+      "abbreviation": "KETCHUP",
+      "full_name": "KETCHUP: K-Step Return Estimation for Sequential Knowledge",
+      "verified": true
+    },
+    "2505.09388": {
+      "abbreviation": "Qwen3",
+      "full_name": "Qwen3 Technical Report",
+      "verified": true,
+      "note": "System name, not method"
+    },
+    "2505.16142": {
+      "abbreviation": "RLKD",
+      "full_name": "RLKD: Distilling LLMs' Reasoning via Reinforcement Learning",
+      "verified": true,
+      "note": "GSRM is a sub-component"
+    },
+    "2505.16297": {
+      "abbreviation": "ToDi",
+      "full_name": "Token-wise Distillation",
+      "verified": true
+    },
+    "2506.02208": {
+      "abbreviation": "KDRL",
+      "full_name": "KDRL: Post-Training Reasoning LLMs via Unified KD+RL",
+      "verified": true
+    },
+    "2509.14526": {
+      "abbreviation": "Delta-KD",
+      "full_name": "Delta Knowledge Distillation",
+      "verified": true
+    },
+    "2509.22921": {
+      "abbreviation": null,
+      "full_name": "Constrained MDP for LLM Distillation",
+      "verified": true,
+      "note": "No abbreviation; survey uses 'Constrained' as badge"
+    },
+    "2509.25837": {
+      "abbreviation": "CSD",
+      "full_name": "Concrete Score Distillation",
+      "verified": true
+    },
+    "2510.07842": {
+      "abbreviation": "AdaSwitch",
+      "full_name": "AdaSwitch: Balancing Exploration and Guidance in KD via Adaptive Switching",
+      "verified": true
+    },
+    "2510.11615": {
+      "abbreviation": "AdaKD",
+      "full_name": "LLM-Oriented Token-Adaptive Knowledge Distillation",
+      "verified": true,
+      "note": "LATF is a sub-module of AdaKD"
+    },
+    "2510.23497": {
+      "abbreviation": "VOLD",
+      "full_name": "VOLD: Reasoning Transfer from LLMs to Vision-Language Models via On-Policy Distillation",
+      "verified": true
+    },
+    "2510.24021": {
+      "abbreviation": "SelecTKD",
+      "full_name": "SelecTKD: Selective Token-Level Knowledge Distillation",
+      "verified": true
+    },
+    "2511.10643": {
+      "abbreviation": "GAD",
+      "full_name": "Generative Adversarial Distillation",
+      "verified": true
+    },
+    "2512.05105": {
+      "abbreviation": "SSB",
+      "full_name": "Semantic Soft Bootstrapping",
+      "verified": true
+    },
+    "2601.02780": {
+      "abbreviation": "MOPD",
+      "full_name": "Multi-Teacher On-Policy Distillation",
+      "verified": true,
+      "note": "System is MiMo-V2; MOPD is the distillation method within it"
+    },
+    "2601.07155": {
+      "abbreviation": "Veto",
+      "full_name": "Veto: Enabling Preference Learning from Negative Examples",
+      "verified": true
+    },
+    "2601.09088": {
+      "abbreviation": "DASD",
+      "full_name": "Distribution-Aligned Sequence Distillation",
+      "verified": true,
+      "note": "Model is DASD-4B-Thinking"
+    },
+    "2601.16547": {
+      "abbreviation": "CORD",
+      "full_name": "CORD",
+      "verified": true
+    },
+    "2601.18734": {
+      "abbreviation": "OPSD",
+      "full_name": "On-Policy Self-Distillation",
+      "verified": true
+    },
+    "2601.19897": {
+      "abbreviation": "SDFT",
+      "full_name": "Self-Distillation Fine-Tuning",
+      "verified": true
+    },
+    "2601.20802": {
+      "abbreviation": "SDPO",
+      "full_name": "Self-Distillation Policy Optimization",
+      "verified": true
+    },
+    "2601.21968": {
+      "abbreviation": "OVD",
+      "full_name": "On-policy Verbal Distillation",
+      "verified": true
+    },
+    "2602.00400": {
+      "abbreviation": "KEPO",
+      "full_name": "Knowledge-Enhanced Preference Optimization",
+      "verified": true
+    },
+    "2602.02405": {
+      "abbreviation": "DAIL",
+      "full_name": "Distribution Aligned Imitation Learning",
+      "verified": true
+    },
+    "2602.02994": {
+      "abbreviation": "Video-OPD",
+      "full_name": "Video-OPD: Efficient Post-Training for TVG via On-Policy Distillation",
+      "verified": true,
+      "note": "TVG and TVDF are sub-components"
+    },
+    "2602.04942": {
+      "abbreviation": null,
+      "full_name": "Privileged Information Distillation",
+      "verified": true,
+      "note": "Paper introduces π-Distill and OPSD; no single abbreviation. Survey uses 'Priv. Info. Distill' as badge"
+    },
+    "2602.06019": {
+      "abbreviation": "Self-Distill",
+      "full_name": "Multi-Token Prediction via Self-Distillation",
+      "verified": true,
+      "note": "No formal abbreviation; 'Self-Distill' is survey shorthand"
+    },
+    "2602.12125": {
+      "abbreviation": "G-OPD",
+      "full_name": "G-OPD: Generalized On-Policy Distillation",
+      "verified": true
+    },
+    "2602.12222": {
+      "abbreviation": "DDT",
+      "full_name": "DDT: Distillation = Decoding Theory",
+      "verified": true
+    },
+    "2602.12275": {
+      "abbreviation": "OPCD",
+      "full_name": "On-Policy Context Distillation",
+      "verified": true
+    },
+    "2602.15260": {
+      "abbreviation": null,
+      "full_name": "Fast and Effective On-policy Distillation from Reasoning Prefixes",
+      "verified": true,
+      "note": "Paper uses 'on-policy prefix distillation'; no abbreviation. Survey uses 'Fast OPD' or cites by author"
+    },
+    "2602.20574": {
+      "abbreviation": "GATES",
+      "full_name": "GATES",
+      "verified": true
+    },
+    "2602.22495": {
+      "abbreviation": "RLAD",
+      "full_name": "RL-aware distillation",
+      "verified": true
+    },
+    "2603.05433": {
+      "abbreviation": "CRISP",
+      "full_name": "Compressed Reasoning via Iterative Self-Policy Distillation",
+      "verified": true
+    },
+    "2603.07079": {
+      "abbreviation": "EOPD",
+      "full_name": "Entropy-Aware On-Policy Distillation",
+      "verified": true
+    },
+    "2603.11137": {
+      "abbreviation": "REOPOLD",
+      "full_name": "REOPOLD",
+      "verified": true
+    },
+    "2603.11178": {
+      "abbreviation": "PACED",
+      "full_name": "Proficiency-Adaptive Competence Enhanced Distillation",
+      "verified": true
+    },
+    "2603.13260": {
+      "abbreviation": "TSD-KD",
+      "full_name": "Token-Selective Dual Knowledge Distillation",
+      "verified": true
+    },
+    "2603.16856": {
+      "abbreviation": "OEL",
+      "full_name": "Online Experiential Learning",
+      "verified": true
+    },
+    "2603.23871": {
+      "abbreviation": "HDPO",
+      "full_name": "Hybrid Distillation Policy Optimization",
+      "verified": true
+    },
+    "2603.24596": {
+      "abbreviation": "X-OPD",
+      "full_name": "X-OPD: Cross-modal On-Policy Distillation for Spoken Dialogue",
+      "verified": true
+    },
+    "2604.01193": {
+      "abbreviation": "SSD",
+      "full_name": "Simple Self-Distillation",
+      "verified": true
+    },
+    "2604.08527": {
+      "abbreviation": "Stable-OPD",
+      "full_name": "Stable-OPD: Stabilization Strategies for OPD",
+      "verified": true
+    },
+    "2604.10688": {
+      "abbreviation": "SCOPE",
+      "full_name": "Signal-Calibrated On-Policy Distillation Enhancement",
+      "verified": true
+    },
+    "2604.16830": {
+      "abbreviation": "CaOPD",
+      "full_name": "Calibration-Aware On-Policy Distillation",
+      "verified": true
+    },
+    "2604.17535": {
+      "abbreviation": "OPSDL",
+      "full_name": "On-Policy Self-Distillation Scaling Laws",
+      "verified": true
+    },
+    "2604.20933": {
+      "abbreviation": "IRIS",
+      "full_name": "Interpolative Rényi Iterative Self-play",
+      "verified": true
+    },
+    "2605.05040": {
+      "abbreviation": "PBSD",
+      "full_name": "Preference-Based Self-Distillation",
+      "verified": true
+    },
+    "2605.05940": {
+      "abbreviation": "NPD",
+      "full_name": "Near-Policy Distillation",
+      "verified": true
+    },
+    "2605.02943": {
+      "abbreviation": "TT-OPD",
+      "full_name": "Turn-level Truncated On-Policy Distillation",
+      "verified": true
+    },
+    "2605.02971": {
+      "abbreviation": "MSD",
+      "full_name": "Multilingual Self-Distillation",
+      "verified": true
+    },
+    "2605.06094": {
+      "abbreviation": "VISD",
+      "full_name": "VISD",
+      "verified": true
+    },
+    "2605.06597": {
+      "abbreviation": "UniSD",
+      "full_name": "UniSD: Systematic Self-Distillation",
+      "verified": true,
+      "note": "Paper uses 'SD' and 'Self-Distillation' interchangeably; survey uses UniSD"
+    },
+    "2605.07865": {
+      "abbreviation": "vOPD",
+      "full_name": "vOPD: On-Policy Distillation with Control Variate Baseline",
+      "verified": true
+    },
+    "2605.06387": {
+      "abbreviation": "AOPD",
+      "full_name": "Asymmetric On-Policy Distillation",
+      "verified": true
+    },
+    "2605.06188": {
+      "abbreviation": "OPSD-Compresses",
+      "full_name": "OPSD Compresses LLMs Better Than You Think",
+      "verified": true,
+      "note": "Extension of OPSD; survey uses cite key kim2026opsdcompresses"
+    },
+    "2605.01347": {
+      "abbreviation": "MAD-OPD",
+      "full_name": "Multi-Agent Debate-driven On-Policy Distillation",
+      "verified": true,
+      "note": "Paper also introduces OPAD (On-Policy Agentic Distillation) as a sub-component/baseline"
+    }
+  }
+}
