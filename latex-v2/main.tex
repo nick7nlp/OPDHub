@@ -391,7 +391,7 @@ PACED \citep{2603.11178} & & Beta-kernel curriculum pacing & White-Box Logits & 
         MiniLLM \citep{2306.08543} & 2024 & Objective & Reverse KL & White-box & Sequence & REINFORCE with teacher as reward \\
         DistiLLM \citep{2402.03898} & 2024 & Objective & Skew KL (SKL+SRKL) & White-box & Token & $\alpha$-smoothing for KL stability \\
         DistiLLM-2 \citep{2503.07067} & 2025 & Objective & Contrastive SKL/SRKL & White-box & Token & Asymmetric loss per data source \\
-        KETCHUP \citep{2504.19024} & 2025 & Objective & Reverse KL & White-box & Sequence & $K$-step Bellman return estimation \\
+        KETCHUP \citep{2504.19024} & 2026 & Objective & Reverse KL & White-box & Sequence & $K$-step Bellman return estimation \\
         vOPD \citep{oh2026vopd} & 2026 & Objective & Reverse KL + CV baseline & White-box & Token & Control variate variance reduction \\
         \midrule
         \multicolumn{7}{l}{\textit{Objective: Adaptive Divergences}} \\
@@ -412,7 +412,7 @@ PACED \citep{2603.11178} & & Beta-kernel curriculum pacing & White-Box Logits & 
         SCoRe \citep{2509.14257} & 2025 & Objective & Earliest-error correction & White-box & Sequence & Root-cause error targeting \\
         CMDP-KD \citep{2509.22921} & 2025 & Objective & Constrained KL & White-box & Sequence & Unaugmented CMDP with hard KL budget \\
         $\mathcal{X}$-KD \citep{2602.12674} & 2026 & Objective & Inverse RL + KL & White-box & Token/Seq & AVRIL-based reward recovery distillation \\
-        TSD-KD \citep{2603.13260} & 2025 & Objective & Indirect + Direct KD & White-box & Sequence & Indirect re-ranking + selective direct KL \\
+        TSD-KD \citep{2603.13260} & 2026 & Objective & Indirect + Direct KD & White-box & Sequence & Indirect re-ranking + selective direct KL \\
         REOPOLD \citep{2603.11137} & 2026 & Objective & Log-ratio token reward & White-box & Token & Mixture reward clipping + entropy-dynamic sampling \\
         \midrule
         \multicolumn{7}{l}{\textit{Signal: White-Box Innovations}} \\
@@ -426,8 +426,8 @@ PACED \citep{2603.11178} & & Beta-kernel curriculum pacing & White-Box Logits & 
         MAD-OPD \citep{wang2026madopd} & 2026 & Signal & Multi-agent debate ensemble & White-box & Token & Confidence-weighted multi-teacher \\
         Veto \citep{2601.07155} & 2026 & Signal & Geometric bridge KL & White-box & Token & Adaptive target reformulation \\
         SimCT \citep{sun2026simct} & 2026 & Signal & Multi-token continuation KL & White-box & Token & Cross-tokenizer supervision recovery \\
-        CSD \citep{2509.25837} & 2025 & Signal & Continuous score matching & White-box & Token & Bypasses discrete vocabulary mismatch \\
-        AdaKD \citep{2510.11615} & 2025 & Signal & Gradient-weighted KL & White-box & Token & Per-token importance from loss gradient \\
+        CSD \citep{2509.25837} & 2026 & Signal & Continuous score matching & White-box & Token & Bypasses discrete vocabulary mismatch \\
+        AdaKD \citep{2510.11615} & 2026 & Signal & Gradient-weighted KL & White-box & Token & Per-token importance from loss gradient \\
         \midrule
         \multicolumn{7}{l}{\textit{Training Dynamics}} \\
         \midrule
