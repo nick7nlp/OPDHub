@@ -264,12 +264,17 @@ Existing OPD methods can be organized along three axes that correspond to sequen
     ]
     %% ===== Stage 2: Signal Source and Teacher Architecture (§5) =====
     [{\S 5 Signal Source and\\Teacher Architecture}, catSig, edge={draw=sdcolor!60, line width=1.2pt}
-      [{\textbf{5.1 White-Box Logit Supervision}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{11};}\\[2pt]%
-        DSKD~\citep{2504.11426}, ULD~\citep{2402.12030}, TAID~\citep{2501.16937},\\[1pt]%
-        Delta-KD~\citep{2509.14526}, Veto~\citep{2601.07155}, PromptKD~\citep{2402.12842},\\[1pt]%
-        CSD~\citep{2509.25837}, AdaKD~\citep{2510.11615}, MiniPLM~\citep{2410.17215},\\[1pt]%
-        MAD-OPD~\citep{wang2026madopd}, SimCT~\citep{sun2026simct}%
-        }, leaf=sdcolor, edge={draw=sdcolor!30}]
+      [{{\S 5.1 White-Box Logit Supervision}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{11};}}, catSig, edge={draw=sdcolor!30}
+        [{\textbf{5.1.1 Same-Family Distillation}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{7};}\\[2pt]%
+          TAID~\citep{2501.16937}, Delta-KD~\citep{2509.14526}, Veto~\citep{2601.07155},\\[1pt]%
+          PromptKD~\citep{2402.12842}, AdaKD~\citep{2510.11615}, MiniPLM~\citep{2410.17215},\\[1pt]%
+          MAD-OPD~\citep{wang2026madopd}%
+          }, leaf=sdcolor, edge={draw=sdcolor!30}]
+        [{\textbf{5.1.2 Cross-Family Distillation}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{4};}\\[2pt]%
+          DSKD~\citep{2504.11426}, ULD~\citep{2402.12030}, CSD~\citep{2509.25837},\\[1pt]%
+          SimCT~\citep{sun2026simct}%
+          }, leaf=sdcolor, edge={draw=sdcolor!30}]
+      ]
       [{\textbf{5.2 Black-Box and API-Constrained}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{11};}\\[2pt]%
         Lion~\citep{2305.12870}, GAD~\citep{2511.10643}, OVD~\citep{2601.21968},\\[1pt]%
         DAIL~\citep{2602.02405}, ORPO-Distill~\citep{2509.25100}, LUFFY~\citep{2504.14945},\\[1pt]%
