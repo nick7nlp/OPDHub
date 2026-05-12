@@ -328,9 +328,9 @@ Chronologically, the distribution of methods reflects shifting research emphasis
 
 \textbf{Classification methodology.} Each method is assigned to exactly one primary category based on its \emph{core contribution dimension}. A paper whose novelty lies in the loss function (e.g., G-OPD's KL-constrained RL reformulation) belongs to ``Objective.'' A new signal architecture (e.g., DSKD's dual-space projection) places a method under ``Signal.'' A training stability or efficiency contribution (e.g., TIP's token weighting) maps to ``Dynamics.'' Methods that contribute to multiple dimensions are classified by their \emph{most distinctive} contribution, reducing the categorization ambiguity that arises when a single method spans multiple dimensions~\citep{2402.13116}.
 
-\textbf{Table organization.} Table~\ref{tab:method_comparison} provides a compact reference mapping 15 representative methods to their primary category, signal source, and loss granularity. Table~\ref{tab:white_box_comparison} extends this to 70 methods organized by primary contribution dimension, with year, divergence type, and key innovation. Table~\ref{tab:experimental_configs} complements both by listing concrete teacher-student pairings and benchmark results across six application domains.
+\textbf{Table organization.} Table~\ref{tab:method_comparison} provides a compact reference mapping 15 representative methods to their primary category, signal source, and loss granularity. Table~\ref{tab:white_box_comparison} extends this to 88 methods organized by primary contribution dimension, with year, divergence type, and key innovation. Table~\ref{tab:experimental_configs} complements both by listing concrete teacher-student pairings and benchmark results across six application domains.
 
-\textbf{Distributional observations.} Self-distillation is the largest single category with 20 methods (29\% of all entries), nearly all published in 2026. Training Dynamics follows with 15 methods (21\%), reflecting concentrated recent work on stabilizing and accelerating on-policy rollouts. In contrast, fixed-divergence objectives (the earliest OPD formulations from 2024) account for only 6 entries, consistent with a gradual shift from the foundational ``which KL direction'' question toward adaptive or RL-augmented alternatives. These proportions also match a broader trend in LLM research in which the model's own rollouts increasingly serve as the primary data source, whether or not an external teacher is present.
+\textbf{Distributional observations.} Self-distillation is the largest single category with 28 methods (32\% of all entries), nearly all published in 2026. Training Dynamics follows with 17 methods (19\%), reflecting concentrated recent work on stabilizing and accelerating on-policy rollouts. RL-augmented objectives, white-box signal innovations, and black-box methods each account for 11 entries (13\%), while adaptive divergences contribute 4 (5\%) and fixed-divergence objectives (the earliest OPD formulations from 2024) account for only 6 entries (7\%). This distribution is consistent with a gradual shift from the foundational ``which KL direction'' question toward self-improvement and adaptive alternatives. These proportions also match a broader trend in LLM research in which the model's own rollouts increasingly serve as the primary data source, whether or not an external teacher is present.
 
 \begin{table}[ht]
 \centering
@@ -402,6 +402,9 @@ PACED \citep{2603.11178} & & Beta-kernel curriculum pacing & White-Box Logits & 
         SuperCorrect \citep{2410.09008} & 2025 & Objective & Template + Cross-DPO & White-box & Sequence & Hierarchical thought scaffolding \\
         SCoRe \citep{2509.14257} & 2025 & Objective & Earliest-error correction & White-box & Sequence & Root-cause error targeting \\
         CMDP-KD \citep{2509.22921} & 2025 & Objective & Constrained KL & White-box & Sequence & Unaugmented CMDP with hard KL budget \\
+        $\mathcal{X}$-KD \citep{2602.12674} & 2026 & Objective & Inverse RL + KL & White-box & Token/Seq & AVRIL-based reward recovery distillation \\
+        TSD-KD \citep{2603.13260} & 2025 & Objective & Indirect + Direct KD & White-box & Sequence & Indirect re-ranking + selective direct KL \\
+        REOPOLD \citep{2603.11137} & 2026 & Objective & Log-ratio token reward & White-box & Token & Mixture reward clipping + entropy-dynamic sampling \\
         \midrule
         \multicolumn{7}{l}{\textit{Signal: White-Box Innovations}} \\
         \midrule
@@ -414,6 +417,8 @@ PACED \citep{2603.11178} & & Beta-kernel curriculum pacing & White-Box Logits & 
         MAD-OPD \citep{wang2026madopd} & 2026 & Signal & Multi-agent debate ensemble & White-box & Token & Confidence-weighted multi-teacher \\
         Veto \citep{2601.07155} & 2026 & Signal & Geometric bridge KL & White-box & Token & Adaptive target reformulation \\
         SimCT \citep{sun2026simct} & 2026 & Signal & Multi-token continuation KL & White-box & Token & Cross-tokenizer supervision recovery \\
+        CSD \citep{2509.25837} & 2025 & Signal & Continuous score matching & White-box & Token & Bypasses discrete vocabulary mismatch \\
+        AdaKD \citep{2510.11615} & 2025 & Signal & Gradient-weighted KL & White-box & Token & Per-token importance from loss gradient \\
         \midrule
         \multicolumn{7}{l}{\textit{Training Dynamics}} \\
         \midrule
@@ -432,6 +437,8 @@ PACED \citep{2603.11178} & & Beta-kernel curriculum pacing & White-Box Logits & 
         Stable-OPD \citep{luo2026demystifying} & 2026 & Dynamics & R-KL + reference div. & White-box & Token & Rollout mixing for stability \\
         TCOD \citep{chen2026tcod} & 2026 & Dynamics & Temporal curriculum & White-box & Trajectory & Multi-turn KL stability \\
         Uni-OPD \citep{hou2026uniopd} & 2026 & Dynamics & Dual-perspective data balancing & White-box (multi-teacher) & Token & Unified LLM+MLLM OPD \\
+        SSB \citep{mitra2025semantic} & 2025 & Dynamics & In-context self-teacher KL & Self (ICL bootstrapped) & Token & Semantic bootstrapping via exemplar supervision \\
+        CaOPD \citep{2604.16830} & 2026 & Dynamics & Calibration-aware OPD & White-box & Token & Diagnoses scaling law of miscalibration \\
         \midrule
         \multicolumn{7}{l}{\textit{Self-Distillation}} \\
         \midrule
@@ -455,6 +462,14 @@ PACED \citep{2603.11178} & & Beta-kernel curriculum pacing & White-Box Logits & 
         PBSD \citep{pbsd2026} & 2026 & Self (PI) & Pref.-based reward-reg.\ KL & Self (ctx-augmented) & Sequence & DPO-style loss, preference margin \\
         TT-OPD \citep{ttopd2026} & 2026 & Self (PI) & Turn-level truncated KL & Self (EMA + outcome hints) & Turn & Multi-turn agentic OPD \\
         VISD \citep{lin2026visd} & 2026 & Self (PI) & Direction-magnitude decouple & Self (structured judge) & Token & Structured PI for video reasoning \\
+        $\pi$-Distill \citep{2602.04942} & 2026 & Self (PI) & Unified PI framework & Self & Token & Theoretical foundations for PI self-distill \\
+        OPCD \citep{2602.12275} & 2026 & Self (PI) & Context-conditioned R-KL & Self (experience PI) & Token & Experiential knowledge internalization \\
+        OEL \citep{2603.16856} & 2026 & Self (PI) & Online experiential learning & Self (trajectory PI) & Token & Continuous post-deployment distillation loop \\
+        HDPO \citep{2603.23871} & 2026 & Self (PI) & GRPO + JSD self-distill & Self (GT-conditioned) & Sequence & Cliff-prompt non-zero gradient patch \\
+        MTP-SD \citep{2602.06019} & 2026 & Self (SP) & Multi-token span scoring & Self (frozen copy) & Span & Architectural self-distillation for $>3\times$ decoding \\
+        SDFT \citep{2601.19897} & 2026 & Self (SP) & In-context demo teacher R-KL & Self (ICL-conditioned) & Token & Forgetting resistance via trust-region implicit KL \\
+        OPSFT \citep{zhao2026onpolicy} & 2026 & Self (SP) & Generate-filter-SFT & Self + Verifier & Sequence & Correctness+conciseness filtering, no RL gradient \\
+        RLSD \citep{yang2026selfdistilled} & 2026 & Self (EF) & RLVR + self-distill decomp. & Self + Verifier & Token & Magnitude (self-distill) + direction (RLVR), $2\times$ efficiency \\
         \midrule
         \multicolumn{7}{l}{\textit{Black-Box}} \\
         \midrule
@@ -466,6 +481,9 @@ PACED \citep{2603.11178} & & Beta-kernel curriculum pacing & White-Box Logits & 
         ORPO-Distill \citep{2509.25100} & 2025 & Signal & Preference optimization & Black-box & Sequence & Teacher-ranked pairs \\
         PRISM \citep{wang2026prism} & 2026 & Signal & Black-box pre-alignment & Black-box (API) & Sequence & Multimodal OPD before RLVR \\
         ROPD \citep{fang2026ropd} & 2026 & Signal & Rubric-based scoring & Black-box (API) & Sequence & Structured semantic rubrics, 10$\times$ sample efficiency \\
+        ThinkTuning \citep{rrv2025thinktuning} & 2025 & Signal & Corrective hints + GRPO & Black-box (same-size) & Sequence & Interleaved corrective episodes during RL \\
+        DASD \citep{2601.09088} & 2026 & Signal & Sequence-level distribution match & Black-box & Sequence & Multi-trace distribution alignment \\
+        DDT \citep{2602.12222} & 2026 & Signal & Theoretical RL+KD framework & Black-box & Sequence & On-policy generalization theory \\
         \bottomrule
     \end{tabular}
     }
