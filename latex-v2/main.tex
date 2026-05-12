@@ -206,6 +206,7 @@ Existing OPD methods can be organized along three axes that correspond to sequen
 \definecolor{rootblue}{HTML}{2C3E6B}
 \definecolor{tgcolor}{HTML}{0D7377}
 \definecolor{sdcolor}{HTML}{6C4FA0}
+\definecolor{sdcolormid}{HTML}{9B7FBF}
 \definecolor{dycolor}{HTML}{C0392B}
 \resizebox{\textwidth}{!}{
 \tikzset{
@@ -216,6 +217,9 @@ Existing OPD methods can be organized along three axes that correspond to sequen
     font=\small\bfseries, minimum height=0.75cm,
     align=center, inner xsep=8pt},
   catSig/.style={fill=sdcolor, text=white, rounded corners=8pt,
+    font=\small\bfseries, minimum height=0.75cm,
+    align=center, inner xsep=8pt},
+  catSigMid/.style={fill=sdcolormid, text=white, rounded corners=8pt,
     font=\small\bfseries, minimum height=0.75cm,
     align=center, inner xsep=8pt},
   catDyn/.style={fill=dycolor, text=white, rounded corners=8pt,
@@ -264,7 +268,7 @@ Existing OPD methods can be organized along three axes that correspond to sequen
     ]
     %% ===== Stage 2: Signal Source and Teacher Architecture (§5) =====
     [{\S 5 Signal Source and\\Teacher Architecture}, catSig, edge={draw=sdcolor!60, line width=1.2pt}
-      [{{\S 5.1 White-Box Logit Supervision}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{11};}}, catSig, edge={draw=sdcolor!30}
+      [{{\S 5.1 White-Box Logit Supervision}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{11};}}, catSigMid, edge={draw=sdcolor!30}
         [{\textbf{5.1.1 Same-Family Distillation}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{7};}\\[2pt]%
           TAID~\citep{2501.16937}, Delta-KD~\citep{2509.14526}, Veto~\citep{2601.07155},\\[1pt]%
           PromptKD~\citep{2402.12842}, AdaKD~\citep{2510.11615}, MiniPLM~\citep{2410.17215},\\[1pt]%
@@ -281,7 +285,7 @@ Existing OPD methods can be organized along three axes that correspond to sequen
         ThinkTuning~\citep{rrv2025thinktuning}, DASD~\citep{2601.09088}, DDT~\citep{2602.12222},\\[1pt]%
         PRISM~\citep{wang2026prism}, ROPD~\citep{fang2026ropd}%
         }, leaf=sdcolor, edge={draw=sdcolor!30}]
-      [{{\S 5.3 Self-Distillation}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{28};}}, catSig, edge={draw=sdcolor!30}
+      [{{\S 5.3 Self-Distillation}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{28};}}, catSigMid, edge={draw=sdcolor!30}
         [{\textbf{5.3.1 Privileged Information}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{13};}\\[2pt]%
           OPSD~\citep{2601.18734}, GATES~\citep{2602.20574}, $\pi$-Distill~\citep{2602.04942},\\[1pt]%
           OPCD~\citep{2602.12275}, OEL~\citep{2603.16856}, HDPO~\citep{2603.23871},\\[1pt]%
