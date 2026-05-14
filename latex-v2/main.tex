@@ -304,8 +304,8 @@ Existing OPD methods can be organized along three axes that correspond to sequen
           }, leaf=sdcolor, edge={draw=sdcolor!30}]
       ]
     ]
-    %% ===== Stage 3: Training Dynamics and Efficiency (§6) =====
-    [{\S 6 Training Dynamics\\and Efficiency}, catDyn, edge={draw=dycolor!60, line width=1.2pt}
+    %% ===== Stage 3: Training Efficiency and Stabilization (§6) =====
+    [{\S 6 Training Efficiency\\and Stabilization}, catDyn, edge={draw=dycolor!60, line width=1.2pt}
       [{\textbf{6.1 Token and Sample Weighting}~{\tikz[baseline=-0.5ex]\node[badge=dycolor]{6};}\\[2pt]%
         TIP~\citep{xu2026tip}, SCOPE~\citep{zheng2026scope}, SelecTKD~\citep{2510.24021}, AdaSwitch~\citep{2510.07842},\\[1pt]%
         R-OPD~\citep{2603.25562}, SOD~\citep{zhong2026sod}%
@@ -426,7 +426,7 @@ PACED \citep{2603.11178} & & Beta-kernel curriculum pacing & White-Box Logits & 
         CSD \citep{2509.25837} & 2026 & Signal & Continuous score matching & White-box & Token & Bypasses discrete vocabulary mismatch \\
         AdaKD \citep{2510.11615} & 2026 & Signal & Gradient-weighted KL & White-box & Token & Per-token importance from loss gradient \\
         \midrule
-        \multicolumn{7}{l}{\textit{Training Dynamics}} \\
+        \multicolumn{7}{l}{\textit{Training Efficiency}} \\
         \midrule
         TIP \citep{xu2026tip} & 2026 & Dynamics & Soft-OR token weighting & White-box & Token & Entropy$\times$divergence quadrant scoring \\
         SCOPE \citep{zheng2026scope} & 2026 & Dynamics & Rollout routing & White-box & Token & Redirect on flawed prefix \\
@@ -957,7 +957,7 @@ PAINT~\citep{wang2026paint} occupies a distinctive position between pure self-di
 
 Across signal sources, from white-box logits through black-box APIs to self-distillation, a fundamental trade-off between signal density and autonomy governs the design space. White-box methods supply the densest supervision ($|V|$-dimensional distributions at every token) but require same-organization deployment and co-location of teacher and student. Black-box methods sacrifice distributional information but operate across organizational boundaries, with recent methods (GAD, OVD) recovering unexpectedly effective proxy signals. Self-distillation removes external dependencies but is bounded by the model's pre-existing capabilities unless augmented by external verification or internally generated PI. This continuum also reflects the field's maturity gradient. The white-box extreme is well-explored (GKD, DistiLLM, DSKD are mature), while the self-distillation extreme still lacks principled convergence guarantees for complex reasoning. Recent activity concentrates at the boundaries between categories, with methods like ThinkTuning blurring the line between black-box feedback and RL, and $\pi$-Play bridging self-distillation with externally grounded co-evolution.
 
-\section{Training Dynamics and Efficiency}
+\section{Training Efficiency and Stabilization}
 \label{sec:dynamics}
 
 Given an objective function (Section~\ref{sec:objectives}) and a signal source (Section~\ref{sec:signal}), the final engineering decision is \emph{how to stabilize and accelerate the on-policy training loop}. On-policy generation brings unique optimization challenges absent from standard supervised fine-tuning, including non-stationary data distributions (the student's policy shifts during training, making older rollouts stale), gradient signal-to-noise ratio (SNR) collapse on hard prompts (where all rollouts fail and no useful gradient emerges), and the computational overhead of autoregressive student rollouts followed by teacher scoring (several times more expensive than off-policy training).
