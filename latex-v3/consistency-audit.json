@@ -1,0 +1,165 @@
+{
+  "audit_date": "2026-05-10",
+  "dimensions": {
+    "narrative_consistency": {
+      "issues": [
+        {
+          "location": "§5.1 line 792 vs §8.1 line 1105",
+          "severity": "high",
+          "description": "Gemma 2 distillation topology contradiction. Line 792 describes it as '27B→9B→2B model cascade' (sequential). Line 1105 explicitly says 'parallel distillation instead of cascading' and explains the architectural insight that parallel pairs avoid compounding approximation errors. These directly contradict each other within the same paper. The Gemma 2 paper describes parallel distillation (both 9B and 2B distilled independently from 27B), so line 1105 is correct.",
+          "current_text_line_792": "Gemma~2~\\citep{2408.00118} validates this approach at industrial scale, embedding KD directly into the pre-training loop for its 27B$\\to$9B$\\to$2B model cascade.",
+          "current_text_line_1105": "distilling the 27B teacher into both the 9B and 2B students independently (parallel distillation instead of cascading)",
+          "suggested_fix": "Change line 792 from '27B→9B→2B model cascade' to '27B→9B and 27B→2B parallel distillation' or '27B model family (9B, 2B)'. Remove the word 'cascade' and the sequential arrow notation."
+        },
+        {
+          "location": "Table 1 line 378, PACED classification",
+          "severity": "medium",
+          "description": "PACED is grouped under 'Dynamics (Weight)' in Table 1 via \\multirow with TIP. But PACED's core contribution is curriculum/difficulty-based prompt sampling (§6.2 Curriculum), not token/sample weighting (§6.1). Figure 1 places PACED under §6.2 Curriculum. Table 1's category misleadingly groups a curriculum method with a weighting method.",
+          "current_text": "TIP \\citep{xu2026tip} & \\multirow{2}{*}{Dynamics (Weight)} & ... \\\\ PACED \\citep{2603.11178} & & Beta-kernel curriculum pacing",
+          "suggested_fix": "Either: (a) Change the \\multirow category to 'Dynamics' without the '(Weight)' qualifier and show both TIP and PACED under it, or (b) Split into two rows: TIP under 'Dynamics (Weight)' and PACED under 'Dynamics (Curriculum)'."
+        }
+      ]
+    },
+    "terminology": {
+      "issues": [
+        {
+          "location": "§2 lines 120, 171, 175, 186, 190, 194",
+          "severity": "medium",
+          "description": "f-divergence notation inconsistency. The notation block (line 120) declares '$D_f$' for general f-divergence. The formal definition (line 175) and inline use (line 186) also use '$D_f$'. But the main OPD loss equation (line 171) and the GKD/MiniLLM applied descriptions (lines 190, 194) use '$\\mathcal{D}_f$' (calligraphic D). The paper alternates between D_f and \\mathcal{D}_f for the same concept.",
+          "current_text_line_120": "$D_f$ & General $f$-divergence",
+          "current_text_line_171": "\\mathcal{D}_f \\left( \\pteacher(\\cdot | x, y_{<t}),\\; \\ptheta(\\cdot | x, y_{<t}) \\right)",
+          "suggested_fix": "Pick one notation and use it throughout. Since the notation block declares $D_f$, change lines 171, 173, 190, 194 from $\\mathcal{D}_f$ to $D_f$. Alternatively, update the notation block to declare $\\mathcal{D}_f$."
+        },
+        {
+          "location": "Table 2 lines 395, 404, 405, 406, 407, 441",
+          "severity": "low",
+          "description": "Inconsistent KL divergence abbreviation style within Table 2. Line 395: 'F-KL / R-KL' (hyphenated). Lines 404-406: 'FKL+RKL', 'FKL/RKL' (no hyphen). Line 407: 'F-KL' (hyphenated). Line 441: 'R-KL' (hyphenated). Should be uniform within the same table.",
+          "suggested_fix": "Standardize to one style throughout Table 2. 'FKL/RKL' (no hyphen) is more compact for tables."
+        }
+      ]
+    },
+    "cross_references": {
+      "issues": [
+        {
+          "location": "§5.3.1 line 859",
+          "severity": "medium",
+          "description": "Wrong section reference for PACED. The text says 'PACED's finding (Section~\\ref{subsec:weighting})' but PACED is discussed in §6.2 Curriculum (subsec:curriculum, line 952+), not §6.1 Weighting (subsec:weighting, line 931). PACED's SNR analysis is its core contribution and appears in the Curriculum section.",
+          "current_text": "This failure mode directly parallels PACED's finding (Section~\\ref{subsec:weighting}) that gradient SNR vanishes when student pass rate approaches zero",
+          "suggested_fix": "Change 'Section~\\ref{subsec:weighting}' to 'Section~\\ref{subsec:curriculum}'."
+        }
+      ]
+    },
+    "numerical_claims": {
+      "verified": [
+        "4-5× overhead: consistent across lines 1003, 1007, 1247",
+        "REOPOLD 6.7-12× sample efficiency and ~3.3× inference speedup: line 752, appears once, no contradictions",
+        "SD-ZERO 68.3% avg@8 on AIME 2024 vs GRPO 62.5%: line 913, appears once, no contradictions",
+        "SCOPE 7.3% relative Pass@32 gain: line 937, appears once, no contradictions",
+        "Qwen3 one-tenth GPU hours: line 1105, appears once, no contradictions",
+        "O(εT²) → O(εT) compounding reduction: consistent across abstract, §2, §7, conclusion",
+        "DeepSeek-R1 scaling 28.9%→55.5%→69.7%→72.6% for 1.5B→7B→14B→32B: line 1190, appears once",
+        "TT-OPD KL collapse 2.637→0.343: consistent at lines 164 and 1052",
+        "PAINT +2.1 over OPSD and +2.9 over GRPO: line 904, appears once",
+        "OPAD +2.4% over single-teacher OPD: line 1119, appears once",
+        "500× fewer parameters (Distilling Step-by-Step): line 817, appears once",
+        "TIP 50% token retention: line 935, appears once",
+        "KAT-Coder-V2 79.6% SWE-bench Verified: line 1109, appears once",
+        "TT-OPD +3.9pp average improvement: consistent at lines 873 and 1152",
+        "PRISM +4.4 and +6.0 points: line 839, appears once"
+      ],
+      "inconsistencies": [
+        {
+          "location": "Table 2 line 399 vs references.bib",
+          "severity": "medium",
+          "description": "KETCHUP year mismatch. Table 2 lists KETCHUP as '2025' but references.bib says year=2026 (EACL). The arXiv preprint date is April 2025 (2504.19024), but the publication venue is EACL 2026. Other entries in the same table use publication year (GKD=2024 for ICLR 2024, though arXiv was 2023; MiniLLM=2024 for ICLR 2024, though arXiv was 2023). To be consistent with the GKD/MiniLLM convention, KETCHUP should be 2026.",
+          "suggested_fix": "Change KETCHUP's year from '2025' to '2026' in Table 2 (line 399) to match the publication year convention used by other entries."
+        }
+      ]
+    },
+    "taxonomy_alignment": {
+      "issues": [
+        {
+          "location": "Figure 1 line 278 vs Table 2 line 400",
+          "severity": "medium",
+          "description": "Constrained (\\citep{2509.22921}) taxonomy mismatch. Figure 1 places it under §4.3 RL-Augmented Objectives (with G-OPD, RLKD, REOPOLD etc.). Table 2 places it under 'Objective: Fixed Divergences' (before the Adaptive Divergences midrule). The body text discusses it in §4.1 Fixed Divergences (line 712, alongside KETCHUP/MiniLLM). The CMDP formulation has RL connections, but the body text treatment aligns with Table 2's Fixed placement. Figure 1's RL-Augmented placement is the outlier.",
+          "suggested_fix": "Move Constrained from §4.3 RL-Augmented to §4.1 Fixed Divergences in Figure 1 to match Table 2 and body text. Alternatively, if the CMDP formulation truly belongs under RL-Augmented, move its body text discussion to §4.3 and update Table 2."
+        },
+        {
+          "location": "Figure 1 line 285 vs Table 2 line 442",
+          "severity": "medium",
+          "description": "Veto (\\citep{2601.07155}) taxonomy mismatch. Figure 1 places it under §5.1 White-Box Logit Supervision (Signal axis). Table 2 places it under 'Dynamics' (alongside Stable-OPD, TCOD). The body text discusses it in §5.1 White-Box (line 808) as a teacher adaptation technique. Figure 1 and body text agree; Table 2 is the outlier.",
+          "suggested_fix": "Change Veto's Category in Table 2 from 'Dynamics' to 'Signal' to match Figure 1 and body text. Or add a secondary category annotation."
+        },
+        {
+          "location": "Table 1 line 461 vs Figure 1 line 304",
+          "severity": "low",
+          "description": "PAINT taxonomy classification. Table 1 lists PAINT under 'Self (PI)' category. Figure 1 places PAINT under §5.3.2 Self-Play. Body text (line 904) discusses it in the Self-Play subsection, describing it as 'between pure self-play and full PI'. The Figure 1 caption acknowledges this by saying methods are placed under primary contribution. The mismatch is partially justified but may confuse readers cross-referencing Table 1 and Figure 1.",
+          "suggested_fix": "Consider changing PAINT's Table 1 category from 'Self (PI)' to 'Self (PI+SP)' (matching π-Play's dual classification) to signal its cross-category nature, or add a footnote."
+        },
+        {
+          "location": "Table 2 line 440 vs Figure 1",
+          "severity": "low",
+          "description": "Revisiting OPD (\\citep{2603.25562}) appears in Table 2 under 'Dynamics' but is absent from Figure 1's taxonomy tree entirely. It is discussed in §6.1 body text (line 949) as an empirical failure mode analysis. Missing from the taxonomy tree despite being in the comparison table.",
+          "suggested_fix": "Either add Revisiting OPD to Figure 1 under §6.1 Weighting (updating the badge from 4→5), or add a footnote to Table 2 explaining that some methods in the table are analytical/empirical studies not classified in the taxonomy tree."
+        }
+      ]
+    },
+    "fact_check_integrity": {
+      "previous_fixes_status": [
+        {
+          "item": "SCOPE precision",
+          "still_correct": true,
+          "current_text": "SCOPE~\\citep{zheng2026scope} elevates this analysis from tokens to \\emph{rollouts}... yielding a 7.3\\% relative Pass@32 gain (line 937)"
+        },
+        {
+          "item": "SD-ZERO avg@8",
+          "still_correct": true,
+          "current_text": "SD-ZERO records 68.3\\% avg@8 on AIME 2024, outperforming GRPO (62.5\\%) (line 913)"
+        },
+        {
+          "item": "KETCHUP year 2025 in bib",
+          "still_correct": false,
+          "current_text": "references.bib says year=2026 (EACL), but Table 2 line 399 still says '2025'. The bib entry was corrected to 2026 but the table year was not updated to match."
+        },
+        {
+          "item": "Gemma 2 cascade vs parallel",
+          "still_correct": false,
+          "current_text": "Line 792 still says '27B→9B→2B model cascade'. Line 1105 correctly says 'parallel distillation instead of cascading'. The §5.1 occurrence was NOT corrected — contradicts the §8.1 fix."
+        },
+        {
+          "item": "Hinton τ→∞ formula 1/τ² factor",
+          "still_correct": true,
+          "current_text": "The gradient becomes $\\frac{1}{|V|\\tau^2}(z_i^{\\mathcal{S}} - z_i^{\\mathcal{T}})$ — correctly shows 1/τ² weighting factor"
+        },
+        {
+          "item": "§9 formulas deleted",
+          "still_correct": true,
+          "current_text": "§9 contains exactly one equation (scaling law conjecture), down from what was presumably more in earlier versions. The remaining equation is contextually appropriate."
+        },
+        {
+          "item": "DeepSeek-R1 on/off-policy discussion",
+          "still_correct": true,
+          "current_text": "DeepSeek-R1 discussed consistently as off-policy distillation (static teacher-generated data) throughout the paper."
+        }
+      ]
+    }
+  },
+  "summary": {
+    "total_issues": 11,
+    "high_severity": 1,
+    "medium_severity": 7,
+    "low_severity": 3,
+    "recommended_next_actions": [
+      "FIX (high): Resolve Gemma 2 cascade vs parallel contradiction at line 792 — change to 'parallel distillation' to match line 1105 and the Gemma 2 paper",
+      "FIX (medium): Change PACED cross-reference at line 859 from subsec:weighting to subsec:curriculum",
+      "FIX (medium): Harmonize D_f vs \\mathcal{D}_f notation — pick one and use throughout §2",
+      "FIX (medium): Resolve Constrained taxonomy placement — align Figure 1 with Table 2 and body text (move to §4.1 Fixed)",
+      "FIX (medium): Resolve Veto taxonomy placement — change Table 2 category from 'Dynamics' to 'Signal' to match Figure 1 and body text",
+      "FIX (medium): Update KETCHUP year in Table 2 from 2025 to 2026 to match bib and GKD/MiniLLM publication-year convention",
+      "FIX (medium): Fix PACED classification in Table 1 — should not be under 'Dynamics (Weight)' if it's a curriculum method",
+      "CONSIDER (low): Standardize FKL/F-KL abbreviation style in Table 2",
+      "CONSIDER (low): Add Revisiting OPD to Figure 1 taxonomy tree or add footnote to Table 2",
+      "CONSIDER (low): Update PAINT's Table 1 category to reflect its dual PI+SP nature"
+    ]
+  }
+}
