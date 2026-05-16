@@ -17,19 +17,29 @@ on-policy-distillation-survey/
 │   ├── opd-new-papers.md              ← live tracking of newly discovered OPD papers
 │   └── new_opd_2605_bibtex.bib        ← curated BibTeX for May-2026 batch
 │
-├── pdfs/                              ← classified PDF library (145 total)
+├── pdfs/                              ← classified PDF library (166 total)
 │   ├── by-aid/                        ← flat compatibility view: <aid>.pdf → ../<bucket>/<aid>.pdf
-│   ├── background/                    ← classics & reference material (4)
-│   │   ├── hinton2015distilling.pdf
-│   │   ├── kim2016sequence.pdf
-│   │   ├── ross2011reduction.pdf
+│   ├── background/                    ← OPD references_background.bib papers (13 PDFs + 1 blog)
+│   │   ├── 1011.0686.pdf              ← DAgger (Ross 2011)
+│   │   ├── 1503.02531.pdf             ← Hinton KD (2015)
+│   │   ├── 1606.07947.pdf             ← Sequence-Level KD (Kim 2016)
+│   │   ├── 1612.00796.pdf             ← EWC (Kirkpatrick 2017)
+│   │   ├── 2001.08361.pdf             ← Kaplan Scaling Laws (2020)
+│   │   ├── 2203.15556.pdf             ← Chinchilla (Hoffmann 2022)
+│   │   ├── 2211.09110.pdf             ← HELM (Liang 2023)
+│   │   ├── 2305.15717.pdf             ← False Promise (Gudibande 2023)
+│   │   ├── 2305.20050.pdf             ← Verify Step by Step (Lightman 2023)
+│   │   ├── 2309.06180.pdf             ← vLLM (Kwon 2023)
+│   │   ├── 2402.13116.pdf             ← KD Survey for LLMs (Xu 2024)
+│   │   ├── 2405.11143.pdf             ← OpenRLHF (Hu 2024)
+│   │   ├── 2409.19256.pdf             ← HybridFlow (Sheng 2024)
 │   │   └── blog-tml-onpolicy-distillation.md
-│   ├── pre-2026/                      ← arXiv 2022-2025 (49)
-│   ├── 2026-01/  (9)
-│   ├── 2026-02/  (15)
-│   ├── 2026-03/  (20)
-│   ├── 2026-04/  (21)
-│   └── 2026-05/  (27)
+│   ├── pre-2026/                      ← OPD method papers, arXiv 2022-2025 (43)
+│   ├── 2026-01/  (9)                  ← OPD method papers, by month
+│   ├── 2026-02/  (14)
+│   ├── 2026-03/  (14)
+│   ├── 2026-04/  (23)
+│   └── 2026-05/  (50)
 │
 ├── notes/                             ← deep-read notes & audit logs
 │   ├── 2306.13649.md                  ← per-paper close reading

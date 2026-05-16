@@ -1,0 +1,143 @@
+% references_background.bib — Background, baseline, theory, framework papers
+% Cited from V3 main.tex but NOT OPD method papers
+% Contents:
+%   - Classical KD (Hinton 2015, Sequence-Level KD 2016)
+%   - Imitation learning theory (DAgger 2011)
+%   - Continual learning (EWC 2017)
+%   - Scaling laws (Kaplan 2020, Chinchilla 2022)
+%   - Benchmarks (HELM 2023)
+%   - KD critique (False Promise 2023)
+%   - Process reward models (Verify Step 2023)
+%   - Inference systems (vLLM 2023)
+%   - KD surveys (Xu 2024)
+%   - RLHF frameworks (OpenRLHF 2024, HybridFlow 2024)
+%   - Tech reports / blogs (TML blog, DeepSeek-V4, TensorRT-LLM)
+
+@inproceedings{1011.0686,
+  author    = {St{\'e}phane Ross and Geoffrey J. Gordon and J. Andrew Bagnell},
+  title     = {A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning},
+  booktitle = {Proceedings of the 14th International Conference on Artificial Intelligence and Statistics},
+  pages     = {627--635},
+  year      = {2011},
+  arxiv = {1011.0686},
+}
+
+@article{1503.02531,
+  author    = {Geoffrey Hinton and Oriol Vinyals and Jeff Dean},
+  title     = {Distilling the Knowledge in a Neural Network},
+  journal   = {arXiv preprint arXiv:1503.02531},
+  year      = {2015},
+}
+
+@inproceedings{1606.07947,
+  author    = {Yoon Kim and Alexander M. Rush},
+  title     = {Sequence-Level Knowledge Distillation},
+  booktitle = {Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing},
+  pages     = {1317--1327},
+  year      = {2016},
+  arxiv = {1606.07947},
+}
+
+@article{1612.00796,
+  title={Overcoming catastrophic forgetting in neural networks},
+  author={Kirkpatrick, James and Pascanu, Razvan and Rabinowitz, Neil and Veness, Joel and Desjardins, Guillaume and Rusu, Andrei A and Milan, Kieran and Quan, John and Ramalho, Tiago and Grabska-Barwinska, Agnieszka and others},
+  journal={Proceedings of the National Academy of Sciences},
+  volume={114},
+  number={13},
+  pages={3521--3526},
+  year={2017},
+  arxiv = {1612.00796},
+}
+
+@article{2001.08361,
+  title={Scaling Laws for Neural Language Models},
+  author={Kaplan, Jared and McCandlish, Sam and Henighan, Tom and Brown, Tom B and Chess, Benjamin and Child, Rewon and Gray, Scott and Radford, Alec and Wu, Jeffrey and Amodei, Dario},
+  journal={arXiv preprint arXiv:2001.08361},
+  year={2020}
+}
+
+@inproceedings{2203.15556,
+  author    = {Jordan Hoffmann and Sebastian Borgeaud and Arthur Mensch and Elena Buchatskaya and Trevor Cai and Eliza Rutherford and Diego de Las Casas and Lisa Anne Hendricks and Johannes Welbl and Aidan Clark and Tom Hennigan and Eric Noland and Katie Millican and George van den Driessche and Bogdan Damoc and Aurelia Guy and Simon Osindero and Karen Simonyan and Erich Elsen and Jack W. Rae and Oriol Vinyals and Laurent Sifre},
+  title     = {{Training Compute-Optimal Large Language Models}},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2022},
+  url       = {https://arxiv.org/abs/2203.15556},
+}
+
+@article{2211.09110,
+  author    = {Percy Liang and Rishi Bommasani and Tony Lee and Dimitris Tsipras and Dilara Soylu and Michihiro Yasunaga and Yian Zhang and Deepak Narayanan and Yuhuai Wu and Ananya Kumar and Benjamin Newman and Binhang Yuan and Bobby Yan and Ce Zhang and Christian Cosgrove and Christopher D. Manning and Christopher R{\'e} and Diana Acosta-Navas and Drew A. Hudson and Eric Zelikman and Esin Durmus and Faisal Ladhak and Frieda Rong and Hongyu Ren and Huaxiu Yao and Jue Wang and Keshav Santhanam and Laurel Orr and Lucia Zheng and Mert Yuksekgonul and Mirac Suzgun and Nathan Kim and Neel Guha and Niladri Chatterji and Omar Khattab and Peter Henderson and Qian Huang and Ryan Chi and Sang Michael Xie and Shibani Santurkar and Surya Ganguli and Tatsunori Hashimoto and Thomas Icard and Tianyi Zhang and Vishrav Chaudhary and William Wang and Xuechen Li and Yifan Mai and Yuhui Zhang and Yuta Koreeda},
+  title     = {Holistic Evaluation of Language Models},
+  journal   = {Transactions on Machine Learning Research},
+  year      = {2023},
+  arxiv     = {2211.09110},
+}
+
+@article{2305.15717,
+  author    = {Arnav Gudibande and Eric Wallace and Charlie Snell and Xinyang Geng and Hao Liu and Pieter Abbeel and Sergey Levine and Dawn Song},
+  title     = {{The False Promise of Imitating Proprietary LLMs}},
+  journal   = {arXiv preprint arXiv:2305.15717},
+  year      = {2023},
+  url       = {https://arxiv.org/abs/2305.15717},
+}
+
+@article{2305.20050,
+  author    = {Hunter Lightman and Vineet Kosaraju and Yura Burda and Harri Edwards and Bowen Baker and Teddy Lee and Jan Leike and John Schulman and Ilya Sutskever and Karl Cobbe},
+  title     = {{Let's Verify Step by Step}},
+  journal   = {Proceedings of ICLR},
+  year      = {2024},
+  url       = {https://arxiv.org/abs/2305.20050},
+}
+
+@inproceedings{2309.06180,
+  title={Efficient Memory Management for Large Language Model Serving with {PagedAttention}},
+  author={Kwon, Woosuk and Li, Zhuohan and Zhuang, Siyuan and Sheng, Ying and Zheng, Lianmin and Yu, Cody Hao and Gonzalez, Joseph and Zhang, Hao and Stoica, Ion},
+  booktitle={Proceedings of the ACM SIGOPS 29th Symposium on Operating Systems Principles (SOSP)},
+  year={2023},
+  arxiv = {2309.06180},
+}
+
+@article{2402.13116,
+  author    = {Xiaohan Xu and Ming Li and Chongyang Tao and Tao Shen and Reynold Cheng and Jinyang Li and Can Xu and Dacheng Tao and Tianyi Zhou},
+  title     = {{A Survey on Knowledge Distillation of Large Language Models}},
+  journal   = {arXiv preprint arXiv:2402.13116},
+  year      = {2024},
+  url       = {https://arxiv.org/abs/2402.13116},
+}
+
+@article{2405.11143,
+  title={{OpenRLHF}: An Easy-to-use, Scalable and High-performance {RLHF} Framework},
+  author={Hu, Jian and Tao, Xibin and Hou, Weixun and Liu, Quanzhi and Feng, Zhengyu and Xu, Yang and Ye, Qing and Li, Qi and Li, Zenan and Zhang, Shuai},
+  journal={arXiv preprint arXiv:2405.11143},
+  year={2024}
+}
+
+@article{2409.19256,
+  title={{HybridFlow}: A Flexible and Efficient {RLHF} Framework},
+  author={Sheng, Guangming and Cao, Chi and Gao, Zilingfeng and others},
+  journal={arXiv preprint arXiv:2409.19256},
+  year={2024}
+}
+
+@techreport{deepseekv4,
+  title={{DeepSeek-V4}: Towards Highly Efficient Million-Token Context Intelligence},
+  author={{DeepSeek-AI}},
+  year={2026},
+  institution={DeepSeek},
+  url={https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro/blob/main/DeepSeek_V4.pdf}
+}
+
+@misc{lu2025onpolicy,
+  author={Kevin Lu and {Thinking Machines Lab}},
+  title={On-Policy Distillation},
+  year={2025},
+  howpublished={Thinking Machines Lab: Connectionism},
+  url={https://www.thinkingmachines.ai/blog/on-policy-distillation},
+  note={doi: 10.64434/tml.20251026}
+}
+
+@misc{nvidia2024tensorrtllm,
+  title={{TensorRT-LLM}: High-Performance Inference Framework for Large Language Models},
+  author={{NVIDIA}},
+  year={2024},
+  howpublished={\url{https://github.com/NVIDIA/TensorRT-LLM}}
+}
