@@ -37,15 +37,19 @@ def parse_v3_bib():
         
         # Find arxiv id
         arxiv_id = None
-        for pat in [r'arxiv\s*=\s*\{?([0-9]{4}\.[0-9]{4,5})',
-                    r'arxiv\.org/abs/([0-9]{4}\.[0-9]{4,5})',
-                    r'arXiv:([0-9]{4}\.[0-9]{4,5})',
-                    r'eprint\s*=\s*\{?([0-9]{4}\.[0-9]{4,5})',
-                    r'journal\s*=.*?([0-9]{4}\.[0-9]{4,5})']:
-            m = re.search(pat, body, re.IGNORECASE)
-            if m:
-                arxiv_id = m.group(1)
-                break
+        # Check if cite key itself is an arxiv id (e.g. @article{2211.09110, ...})
+        if re.match(r'^\d{4}\.\d{4,5}$', key.strip()):
+            arxiv_id = key.strip()
+        else:
+            for pat in [r'arxiv\s*=\s*\{?([0-9]{4}\.[0-9]{4,5})',
+                        r'arxiv\.org/abs/([0-9]{4}\.[0-9]{4,5})',
+                        r'arXiv:([0-9]{4}\.[0-9]{4,5})',
+                        r'eprint\s*=\s*\{?([0-9]{4}\.[0-9]{4,5})',
+                        r'journal\s*=.*?([0-9]{4}\.[0-9]{4,5})']:
+                m = re.search(pat, body, re.IGNORECASE)
+                if m:
+                    arxiv_id = m.group(1)
+                    break
         
         if arxiv_id:
             entries[arxiv_id] = {"key": key, "title": title, "year": year}
