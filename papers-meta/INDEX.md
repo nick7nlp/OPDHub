@@ -11,7 +11,7 @@ This index is built **only from OPD project resources**:
 ## Stats
 - V3 cited papers: **160**
 - Awesome List entries: **153**
-- Local PDFs: **141**
+- Local PDFs: **171**
 - Pending integration: **0**
 - Total unique arxiv IDs: **171**
 
@@ -27,8 +27,8 @@ This index is built **only from OPD project resources**:
 
 | # | arXiv ID | Title | Year | PDF | V3 | AwL | Pend |
 |---|----------|-------|------|-----|----|----|------|
-| 1 | [`1503.02531`](https://arxiv.org/abs/1503.02531) | Distilling the Knowledge in a Neural Network | 2015 | ❌ | ✅ | — |  |
-| 2 | [`2001.08361`](https://arxiv.org/abs/2001.08361) | Scaling Laws for Neural Language Models | 2020 | ❌ | ✅ | — |  |
+| 1 | [`1503.02531`](https://arxiv.org/abs/1503.02531) | Distilling the Knowledge in a Neural Network | 2015 | [✅](pdfs/pre-2026/1503.02531.pdf) | ✅ | — |  |
+| 2 | [`2001.08361`](https://arxiv.org/abs/2001.08361) | Scaling Laws for Neural Language Models | 2020 | [✅](pdfs/pre-2026/2001.08361.pdf) | ✅ | — |  |
 | 3 | [`2203.15556`](https://arxiv.org/abs/2203.15556) | Training Compute-Optimal Large Language Models | 2022 | [✅](pdfs/pre-2026/2203.15556.pdf) | ✅ | — |  |
 | 4 | [`2211.09110`](https://arxiv.org/abs/2211.09110) | ? | 2022 | [✅](pdfs/pre-2026/2211.09110.pdf) | — | — |  |
 | 5 | [`2305.02301`](https://arxiv.org/abs/2305.02301) | Distilling Step-by-Step! Outperforming Larger Language Models with Less Training | 2023 | [✅](pdfs/pre-2026/2305.02301.pdf) | ✅ | ✅ |  |
@@ -46,10 +46,10 @@ This index is built **only from OPD project resources**:
 | 17 | [`2402.12842`](https://arxiv.org/abs/2402.12842) | PromptKD: Distilling Student-Friendly Knowledge for Generative Language Models v | 2024 | [✅](pdfs/pre-2026/2402.12842.pdf) | ✅ | ✅ |  |
 | 18 | [`2402.13116`](https://arxiv.org/abs/2402.13116) | A Survey on Knowledge Distillation of Large Language Models | 2024 | [✅](pdfs/pre-2026/2402.13116.pdf) | ✅ | — |  |
 | 19 | [`2404.02657`](https://arxiv.org/abs/2404.02657) | Rethinking Kullback-Leibler Divergence in Knowledge Distillation for Large Langu | 2025 | [✅](pdfs/pre-2026/2404.02657.pdf) | ✅ | ✅ |  |
-| 20 | [`2405.11143`](https://arxiv.org/abs/2405.11143) | OpenRLHF: An Easy-to-use, Scalable and High-performance RLHF Framework | 2024 | ❌ | ✅ | — |  |
+| 20 | [`2405.11143`](https://arxiv.org/abs/2405.11143) | OpenRLHF: An Easy-to-use, Scalable and High-performance RLHF Framework | 2024 | [✅](pdfs/pre-2026/2405.11143.pdf) | ✅ | — |  |
 | 21 | [`2407.14679`](https://arxiv.org/abs/2407.14679) | ? | 2024 | [✅](pdfs/pre-2026/2407.14679.pdf) | — | — |  |
 | 22 | [`2408.00118`](https://arxiv.org/abs/2408.00118) | Gemma 2: Improving Open Language Models at a Practical Size | 2024 | [✅](pdfs/pre-2026/2408.00118.pdf) | ✅ | ✅ |  |
-| 23 | [`2409.19256`](https://arxiv.org/abs/2409.19256) | HybridFlow: A Flexible and Efficient RLHF Framework | 2024 | ❌ | ✅ | — |  |
+| 23 | [`2409.19256`](https://arxiv.org/abs/2409.19256) | HybridFlow: A Flexible and Efficient RLHF Framework | 2024 | [✅](pdfs/pre-2026/2409.19256.pdf) | ✅ | — |  |
 | 24 | [`2410.09008`](https://arxiv.org/abs/2410.09008) | SuperCorrect: Advancing Small LLM Reasoning with Thought Template Distillation a | 2025 | [✅](pdfs/pre-2026/2410.09008.pdf) | ✅ | ✅ |  |
 | 25 | [`2410.11325`](https://arxiv.org/abs/2410.11325) | Speculative Knowledge Distillation: Bridging the Teacher-Student Gap Through Int | 2025 | [✅](pdfs/pre-2026/2410.11325.pdf) | ✅ | ✅ |  |
 | 26 | [`2410.17215`](https://arxiv.org/abs/2410.17215) | MiniPLM: Knowledge Distillation for Pre-Training Language Models | 2025 | [✅](pdfs/pre-2026/2410.17215.pdf) | ✅ | ✅ |  |
@@ -144,7 +144,7 @@ This index is built **only from OPD project resources**:
 
 | # | arXiv ID | Title | Year | PDF | V3 | AwL | Pend |
 |---|----------|-------|------|-----|----|----|------|
-| 1 | [`2604.00626`](https://arxiv.org/abs/2604.00626) | OPD Survey V3 (COLM 2026) | 2026 | ❌ | — | ✅ |  |
+| 1 | [`2604.00626`](https://arxiv.org/abs/2604.00626) | OPD Survey V3 (COLM 2026) | 2026 | [✅](pdfs/2026-04/2604.00626.pdf) | — | ✅ |  |
 | 2 | [`2604.01193`](https://arxiv.org/abs/2604.01193) | Embarrassingly Simple Self-Distillation Improves Code Generation | 2026 | [✅](pdfs/2026-04/2604.01193.pdf) | ✅ | ✅ |  |
 | 3 | [`2604.02288`](https://arxiv.org/abs/2604.02288) | Unifying Group-Relative and Self-Distillation Policy Optimization via Sample Rou | 2026 | [✅](pdfs/2026-04/2604.02288.pdf) | ✅ | ✅ |  |
 | 4 | [`2604.03128`](https://arxiv.org/abs/2604.03128) | Self-Distilled RLVR | 2026 | [✅](pdfs/2026-04/2604.03128.pdf) | ✅ | ✅ |  |
@@ -163,7 +163,7 @@ This index is built **only from OPD project resources**:
 | 17 | [`2604.17535`](https://arxiv.org/abs/2604.17535) | OPSDL: On-Policy Self-Distillation for Long-Context Language Models | 2026 | [✅](pdfs/2026-04/2604.17535.pdf) | ✅ | ✅ |  |
 | 18 | [`2604.20933`](https://arxiv.org/abs/2604.20933) | IRIS: Interpolative R\'enyi Iterative Self-play for Large Language Model Fine-Tu | 2026 | [✅](pdfs/2026-04/2604.20933.pdf) | ✅ | ✅ |  |
 | 19 | [`2604.24005`](https://arxiv.org/abs/2604.24005) | TCOD: Exploring Temporal Curriculum in On-Policy Distillation for Multi-turn Aut | 2026 | [✅](pdfs/2026-04/2604.24005.pdf) | ✅ | ✅ |  |
-| 20 | [`2604.25110`](https://arxiv.org/abs/2604.25110) | Knowledge Distillation Must Account for What It Loses | 2026 | ❌ | ✅ | ✅ |  |
+| 20 | [`2604.25110`](https://arxiv.org/abs/2604.25110) | Knowledge Distillation Must Account for What It Loses | 2026 | [✅](pdfs/2026-04/2604.25110.pdf) | ✅ | ✅ |  |
 | 21 | [`2604.26573`](https://arxiv.org/abs/2604.26573) | PAINT: Partial-Solution Adaptive Interpolated Training for Self-Distilled Reason | 2026 | [✅](pdfs/2026-04/2604.26573.pdf) | ✅ | ✅ |  |
 | 22 | [`2604.27083`](https://arxiv.org/abs/2604.27083) | Co-Evolving Policy Distillation | 2026 | [✅](pdfs/2026-04/2604.27083.pdf) | ✅ | ✅ |  |
 | 23 | [`2604.28123`](https://arxiv.org/abs/2604.28123) | Beyond SFT-to-RL: Pre-alignment via Black-Box On-Policy Distillation for Multimo | 2026 | [✅](pdfs/2026-04/2604.28123.pdf) | ✅ | ✅ |  |
@@ -174,10 +174,10 @@ This index is built **only from OPD project resources**:
 |---|----------|-------|------|-----|----|----|------|
 | 1 | [`2605.00642`](https://arxiv.org/abs/2605.00642) | Learn where to Click from Yourself: On-Policy Self-Distillation for GUI Groundin | 2026 | [✅](pdfs/2026-05/2605.00642.pdf) | ✅ | ✅ |  |
 | 2 | [`2605.01347`](https://arxiv.org/abs/2605.01347) | MAD-OPD: Breaking the Ceiling in On-Policy Distillation via Multi-Agent Debate | 2026 | [✅](pdfs/2026-05/2605.01347.pdf) | ✅ | ✅ |  |
-| 3 | [`2605.02943`](https://arxiv.org/abs/2605.02943) | Healthcare AI GYM for Medical Agents | 2026 | ❌ | ✅ | ✅ |  |
+| 3 | [`2605.02943`](https://arxiv.org/abs/2605.02943) | Healthcare AI GYM for Medical Agents | 2026 | [✅](pdfs/2026-05/2605.02943.pdf) | ✅ | ✅ |  |
 | 4 | [`2605.02971`](https://arxiv.org/abs/2605.02971) | Multilingual Safety Alignment via Self-Distillation | 2026 | [✅](pdfs/2026-05/2605.02971.pdf) | ✅ | ✅ |  |
-| 5 | [`2605.03677`](https://arxiv.org/abs/2605.03677) | Uni-OPD: Unifying On-Policy Distillation with a Dual-Perspective Recipe | 2026 | ❌ | ✅ | ✅ |  |
-| 6 | [`2605.05040`](https://arxiv.org/abs/2605.05040) | Preference-Based Self-Distillation: Beyond KL Matching via Reward Regularization | 2026 | ❌ | ✅ | ✅ |  |
+| 5 | [`2605.03677`](https://arxiv.org/abs/2605.03677) | Uni-OPD: Unifying On-Policy Distillation with a Dual-Perspective Recipe | 2026 | [✅](pdfs/2026-05/2605.03677.pdf) | ✅ | ✅ |  |
+| 6 | [`2605.05040`](https://arxiv.org/abs/2605.05040) | Preference-Based Self-Distillation: Beyond KL Matching via Reward Regularization | 2026 | [✅](pdfs/2026-05/2605.05040.pdf) | ✅ | ✅ |  |
 | 7 | [`2605.05940`](https://arxiv.org/abs/2605.05940) | Near-Policy: Accelerating On-Policy Distillation via Asynchronous Generation and | 2026 | [✅](pdfs/2026-05/2605.05940.pdf) | ✅ | ✅ |  |
 | 8 | [`2605.06094`](https://arxiv.org/abs/2605.06094) | VISD: Enhancing Video Reasoning via Structured Self-Distillation | 2026 | [✅](pdfs/2026-05/2605.06094.pdf) | ✅ | ✅ |  |
 | 9 | [`2605.06188`](https://arxiv.org/abs/2605.06188) | OPSD Compresses What RLVR Teaches: A Post-RL Compaction Stage for Reasoning Mode | 2026 | [✅](pdfs/2026-05/2605.06188.pdf) | ✅ | ✅ |  |
@@ -185,36 +185,36 @@ This index is built **only from OPD project resources**:
 | 11 | [`2605.06387`](https://arxiv.org/abs/2605.06387) | Asymmetric On-Policy Distillation: Bridging Exploitation and Imitation at the To | 2026 | [✅](pdfs/2026-05/2605.06387.pdf) | ✅ | ✅ |  |
 | 12 | [`2605.06597`](https://arxiv.org/abs/2605.06597) | UniSD: Towards a Unified Self-Distillation Framework for Large Language Models | 2026 | [✅](pdfs/2026-05/2605.06597.pdf) | ✅ | ✅ |  |
 | 13 | [`2605.07177`](https://arxiv.org/abs/2605.07177) | Dual-Grained Efficiency-Aware Reinforcement Learning for Parallel Multimodal Sea | 2026 | [✅](pdfs/2026-05/2605.07177.pdf) | ✅ | ✅ |  |
-| 14 | [`2605.07396`](https://arxiv.org/abs/2605.07396) | Rubric-based On-policy Distillation | 2026 | ❌ | ✅ | ✅ |  |
-| 15 | [`2605.07505`](https://arxiv.org/abs/2605.07505) | LiteGUI: Distilling Compact GUI Agents with Reinforcement Learning | 2026 | ❌ | ✅ | ✅ |  |
-| 16 | [`2605.07711`](https://arxiv.org/abs/2605.07711) | SimCT: Recovering Lost Supervision for Cross-Tokenizer On-Policy Distillation | 2026 | ❌ | ✅ | ✅ |  |
-| 17 | [`2605.07725`](https://arxiv.org/abs/2605.07725) | SOD: Step-wise On-policy Distillation for Small Language Model Agents | 2026 | ❌ | ✅ | ✅ |  |
-| 18 | [`2605.07804`](https://arxiv.org/abs/2605.07804) | Prune-OPD: Efficient and Reliable On-Policy Distillation for Long-Horizon Reason | 2026 | ❌ | ✅ | ✅ |  |
-| 19 | [`2605.07865`](https://arxiv.org/abs/2605.07865) | KL for a KL: On-Policy Distillation with Control Variate Baseline | 2026 | ❌ | ✅ | ✅ |  |
+| 14 | [`2605.07396`](https://arxiv.org/abs/2605.07396) | Rubric-based On-policy Distillation | 2026 | [✅](pdfs/2026-05/2605.07396.pdf) | ✅ | ✅ |  |
+| 15 | [`2605.07505`](https://arxiv.org/abs/2605.07505) | LiteGUI: Distilling Compact GUI Agents with Reinforcement Learning | 2026 | [✅](pdfs/2026-05/2605.07505.pdf) | ✅ | ✅ |  |
+| 16 | [`2605.07711`](https://arxiv.org/abs/2605.07711) | SimCT: Recovering Lost Supervision for Cross-Tokenizer On-Policy Distillation | 2026 | [✅](pdfs/2026-05/2605.07711.pdf) | ✅ | ✅ |  |
+| 17 | [`2605.07725`](https://arxiv.org/abs/2605.07725) | SOD: Step-wise On-policy Distillation for Small Language Model Agents | 2026 | [✅](pdfs/2026-05/2605.07725.pdf) | ✅ | ✅ |  |
+| 18 | [`2605.07804`](https://arxiv.org/abs/2605.07804) | Prune-OPD: Efficient and Reliable On-Policy Distillation for Long-Horizon Reason | 2026 | [✅](pdfs/2026-05/2605.07804.pdf) | ✅ | ✅ |  |
+| 19 | [`2605.07865`](https://arxiv.org/abs/2605.07865) | KL for a KL: On-Policy Distillation with Control Variate Baseline | 2026 | [✅](pdfs/2026-05/2605.07865.pdf) | ✅ | ✅ |  |
 | 20 | [`2605.08737`](https://arxiv.org/abs/2605.08737) | The Extrapolation Cliff in On-Policy Distillation of Near-Deterministic Structur | 2026 | [✅](pdfs/2026-05/2605.08737.pdf) | ✅ | ✅ |  |
 | 21 | [`2605.08741`](https://arxiv.org/abs/2605.08741) | Training with Harnesses: On-Policy Harness Self-Distillation for Complex Reasoni | 2026 | [✅](pdfs/2026-05/2605.08741.pdf) | ✅ | ✅ |  |
-| 22 | [`2605.08776`](https://arxiv.org/abs/2605.08776) | Reasoning Compression with Mixed-Policy Distillation | 2026 | ❌ | ✅ | ✅ |  |
-| 23 | [`2605.08873`](https://arxiv.org/abs/2605.08873) | CoDistill-GRPO: A Co-Distillation Recipe for Efficient Group Relative Policy Opt | 2026 | ❌ | ✅ | ✅ |  |
-| 24 | [`2605.09253`](https://arxiv.org/abs/2605.09253) | Cornerstones or Stumbling Blocks? Deciphering the Rock Tokens in On-Policy Disti | 2026 | ❌ | ✅ | ✅ |  |
+| 22 | [`2605.08776`](https://arxiv.org/abs/2605.08776) | Reasoning Compression with Mixed-Policy Distillation | 2026 | [✅](pdfs/2026-05/2605.08776.pdf) | ✅ | ✅ |  |
+| 23 | [`2605.08873`](https://arxiv.org/abs/2605.08873) | CoDistill-GRPO: A Co-Distillation Recipe for Efficient Group Relative Policy Opt | 2026 | [✅](pdfs/2026-05/2605.08873.pdf) | ✅ | ✅ |  |
+| 24 | [`2605.09253`](https://arxiv.org/abs/2605.09253) | Cornerstones or Stumbling Blocks? Deciphering the Rock Tokens in On-Policy Disti | 2026 | [✅](pdfs/2026-05/2605.09253.pdf) | ✅ | ✅ |  |
 | 25 | [`2605.09329`](https://arxiv.org/abs/2605.09329) | Test-Time Speculation | 2026 | [✅](pdfs/2026-05/2605.09329.pdf) | ✅ | ✅ |  |
-| 26 | [`2605.09548`](https://arxiv.org/abs/2605.09548) | Crosslingual On-Policy Self-Distillation for Multilingual Reasoning | 2026 | ❌ | ✅ | ✅ |  |
-| 27 | [`2605.09725`](https://arxiv.org/abs/2605.09725) | On-Policy Distillation with Best-of-N Teacher Rollout Selection | 2026 | ❌ | ✅ | ✅ |  |
+| 26 | [`2605.09548`](https://arxiv.org/abs/2605.09548) | Crosslingual On-Policy Self-Distillation for Multilingual Reasoning | 2026 | [✅](pdfs/2026-05/2605.09548.pdf) | ✅ | ✅ |  |
+| 27 | [`2605.09725`](https://arxiv.org/abs/2605.09725) | On-Policy Distillation with Best-of-N Teacher Rollout Selection | 2026 | [✅](pdfs/2026-05/2605.09725.pdf) | ✅ | ✅ |  |
 | 28 | [`2605.10189`](https://arxiv.org/abs/2605.10189) | Towards Effective and Efficient Preference Alignment for Protein Design | 2026 | [✅](pdfs/2026-05/2605.10189.pdf) | ✅ | ✅ |  |
 | 29 | [`2605.10194`](https://arxiv.org/abs/2605.10194) | TRACE: Distilling Where It Matters via Token-Routed Self On-Policy Alignment | 2026 | [✅](pdfs/2026-05/2605.10194.pdf) | ✅ | ✅ |  |
-| 30 | [`2605.10781`](https://arxiv.org/abs/2605.10781) | Rebellious Student: Reversing Teacher Signals for Reasoning Exploration with Sel | 2026 | ❌ | ✅ | ✅ |  |
-| 31 | [`2605.10889`](https://arxiv.org/abs/2605.10889) | Unmasking On-Policy Distillation: Where It Helps, Where It Hurts, and Why | 2026 | ❌ | ✅ | ✅ |  |
-| 32 | [`2605.11182`](https://arxiv.org/abs/2605.11182) | The Many Faces of On-Policy Distillation: Pitfalls, Mechanisms, and Fixes | 2026 | ❌ | ✅ | ✅ |  |
-| 33 | [`2605.11458`](https://arxiv.org/abs/2605.11458) | Adaptive Teacher Exposure for Self-Distillation in LLM Reasoning | 2026 | ❌ | ✅ | ✅ |  |
-| 34 | [`2605.11609`](https://arxiv.org/abs/2605.11609) | Anti-Self-Distillation for Reasoning RL via Pointwise Mutual Information | 2026 | ❌ | ✅ | ✅ |  |
-| 35 | [`2605.11613`](https://arxiv.org/abs/2605.11613) | From Generic Correlation to Input-Specific Credit in On-Policy Self Distillation | 2026 | ❌ | ✅ | ✅ |  |
+| 30 | [`2605.10781`](https://arxiv.org/abs/2605.10781) | Rebellious Student: Reversing Teacher Signals for Reasoning Exploration with Sel | 2026 | [✅](pdfs/2026-05/2605.10781.pdf) | ✅ | ✅ |  |
+| 31 | [`2605.10889`](https://arxiv.org/abs/2605.10889) | Unmasking On-Policy Distillation: Where It Helps, Where It Hurts, and Why | 2026 | [✅](pdfs/2026-05/2605.10889.pdf) | ✅ | ✅ |  |
+| 32 | [`2605.11182`](https://arxiv.org/abs/2605.11182) | The Many Faces of On-Policy Distillation: Pitfalls, Mechanisms, and Fixes | 2026 | [✅](pdfs/2026-05/2605.11182.pdf) | ✅ | ✅ |  |
+| 33 | [`2605.11458`](https://arxiv.org/abs/2605.11458) | Adaptive Teacher Exposure for Self-Distillation in LLM Reasoning | 2026 | [✅](pdfs/2026-05/2605.11458.pdf) | ✅ | ✅ |  |
+| 34 | [`2605.11609`](https://arxiv.org/abs/2605.11609) | Anti-Self-Distillation for Reasoning RL via Pointwise Mutual Information | 2026 | [✅](pdfs/2026-05/2605.11609.pdf) | ✅ | ✅ |  |
+| 35 | [`2605.11613`](https://arxiv.org/abs/2605.11613) | From Generic Correlation to Input-Specific Credit in On-Policy Self Distillation | 2026 | [✅](pdfs/2026-05/2605.11613.pdf) | ✅ | ✅ |  |
 | 36 | [`2605.11739`](https://arxiv.org/abs/2605.11739) | Learning to Foresee: Unveiling the Unlocking Efficiency of On-Policy Distillatio | 2026 | [✅](pdfs/2026-05/2605.11739.pdf) | ✅ | ✅ |  |
 | 37 | [`2605.11853`](https://arxiv.org/abs/2605.11853) | GEAR: Granularity-Adaptive Advantage Reweighting for LLM Agents via Self-Distill | 2026 | [✅](pdfs/2026-05/2605.11853.pdf) | ✅ | ✅ |  |
-| 38 | [`2605.11854`](https://arxiv.org/abs/2605.11854) | Self-Distilled Trajectory-Aware Boltzmann Modeling: Bridging the Training-Infere | 2026 | ❌ | ✅ | ✅ |  |
-| 39 | [`2605.12227`](https://arxiv.org/abs/2605.12227) | Combining On-Policy Optimization and Distillation for Long-Context Reasoning in  | 2026 | ❌ | ✅ | ✅ |  |
-| 40 | [`2605.12400`](https://arxiv.org/abs/2605.12400) | OGLS-SD: On-Policy Self-Distillation with Outcome-Guided Logit Steering for LLM  | 2026 | ❌ | ✅ | ✅ |  |
+| 38 | [`2605.11854`](https://arxiv.org/abs/2605.11854) | Self-Distilled Trajectory-Aware Boltzmann Modeling: Bridging the Training-Infere | 2026 | [✅](pdfs/2026-05/2605.11854.pdf) | ✅ | ✅ |  |
+| 39 | [`2605.12227`](https://arxiv.org/abs/2605.12227) | Combining On-Policy Optimization and Distillation for Long-Context Reasoning in  | 2026 | [✅](pdfs/2026-05/2605.12227.pdf) | ✅ | ✅ |  |
+| 40 | [`2605.12400`](https://arxiv.org/abs/2605.12400) | OGLS-SD: On-Policy Self-Distillation with Outcome-Guided Logit Steering for LLM  | 2026 | [✅](pdfs/2026-05/2605.12400.pdf) | ✅ | ✅ |  |
 | 41 | [`2605.12483`](https://arxiv.org/abs/2605.12483) | Beyond GRPO and On-Policy Distillation: An Empirical Sparse-to-Dense Reward Prin | 2026 | [✅](pdfs/2026-05/2605.12483.pdf) | ✅ | ✅ |  |
 | 42 | [`2605.12652`](https://arxiv.org/abs/2605.12652) | Multi-Rollout On-Policy Distillation via Peer Successes and Failures | 2026 | [✅](pdfs/2026-05/2605.12652.pdf) | ✅ | ✅ |  |
-| 43 | [`2605.12741`](https://arxiv.org/abs/2605.12741) | Learning with Rare Success but Rich Feedback via Reflection-Enhanced Self-Distil | 2026 | ❌ | ✅ | ✅ |  |
+| 43 | [`2605.12741`](https://arxiv.org/abs/2605.12741) | Learning with Rare Success but Rich Feedback via Reflection-Enhanced Self-Distil | 2026 | [✅](pdfs/2026-05/2605.12741.pdf) | ✅ | ✅ |  |
 | 44 | [`2605.12913`](https://arxiv.org/abs/2605.12913) | Revisiting DAgger in the Era of LLM-Agents | 2026 | [✅](pdfs/2026-05/2605.12913.pdf) | ✅ | ✅ |  |
 | 45 | [`2605.13230`](https://arxiv.org/abs/2605.13230) | Teacher-Guided Policy Optimization for LLM Distillation | 2026 | [✅](pdfs/2026-05/2605.13230.pdf) | ✅ | ✅ |  |
 | 46 | [`2605.13255`](https://arxiv.org/abs/2605.13255) | Respecting Self-Uncertainty in On-Policy Self-Distillation for Efficient LLM Rea | 2026 | [✅](pdfs/2026-05/2605.13255.pdf) | ✅ | ✅ |  |
@@ -229,63 +229,8 @@ This index is built **only from OPD project resources**:
 ## Backlog
 
 ### Cited in V3 but missing PDF
-- [`1503.02531`](https://arxiv.org/abs/1503.02531) — Distilling the Knowledge in a Neural Network
-- [`2001.08361`](https://arxiv.org/abs/2001.08361) — Scaling Laws for Neural Language Models
-- [`2405.11143`](https://arxiv.org/abs/2405.11143) — OpenRLHF: An Easy-to-use, Scalable and High-performance RLHF Framework
-- [`2409.19256`](https://arxiv.org/abs/2409.19256) — HybridFlow: A Flexible and Efficient RLHF Framework
-- [`2604.25110`](https://arxiv.org/abs/2604.25110) — Knowledge Distillation Must Account for What It Loses
-- [`2605.02943`](https://arxiv.org/abs/2605.02943) — Healthcare AI GYM for Medical Agents
-- [`2605.03677`](https://arxiv.org/abs/2605.03677) — Uni-OPD: Unifying On-Policy Distillation with a Dual-Perspective Recipe
-- [`2605.05040`](https://arxiv.org/abs/2605.05040) — Preference-Based Self-Distillation: Beyond KL Matching via Reward Regularization
-- [`2605.07396`](https://arxiv.org/abs/2605.07396) — Rubric-based On-policy Distillation
-- [`2605.07505`](https://arxiv.org/abs/2605.07505) — LiteGUI: Distilling Compact GUI Agents with Reinforcement Learning
-- [`2605.07711`](https://arxiv.org/abs/2605.07711) — SimCT: Recovering Lost Supervision for Cross-Tokenizer On-Policy Distillation
-- [`2605.07725`](https://arxiv.org/abs/2605.07725) — SOD: Step-wise On-policy Distillation for Small Language Model Agents
-- [`2605.07804`](https://arxiv.org/abs/2605.07804) — Prune-OPD: Efficient and Reliable On-Policy Distillation for Long-Horizon Reason
-- [`2605.07865`](https://arxiv.org/abs/2605.07865) — KL for a KL: On-Policy Distillation with Control Variate Baseline
-- [`2605.08776`](https://arxiv.org/abs/2605.08776) — Reasoning Compression with Mixed-Policy Distillation
-- [`2605.08873`](https://arxiv.org/abs/2605.08873) — CoDistill-GRPO: A Co-Distillation Recipe for Efficient Group Relative Policy Opt
-- [`2605.09253`](https://arxiv.org/abs/2605.09253) — Cornerstones or Stumbling Blocks? Deciphering the Rock Tokens in On-Policy Disti
-- [`2605.09548`](https://arxiv.org/abs/2605.09548) — Crosslingual On-Policy Self-Distillation for Multilingual Reasoning
-- [`2605.09725`](https://arxiv.org/abs/2605.09725) — On-Policy Distillation with Best-of-N Teacher Rollout Selection
-- [`2605.10781`](https://arxiv.org/abs/2605.10781) — Rebellious Student: Reversing Teacher Signals for Reasoning Exploration with Sel
-- [`2605.10889`](https://arxiv.org/abs/2605.10889) — Unmasking On-Policy Distillation: Where It Helps, Where It Hurts, and Why
-- [`2605.11182`](https://arxiv.org/abs/2605.11182) — The Many Faces of On-Policy Distillation: Pitfalls, Mechanisms, and Fixes
-- [`2605.11458`](https://arxiv.org/abs/2605.11458) — Adaptive Teacher Exposure for Self-Distillation in LLM Reasoning
-- [`2605.11609`](https://arxiv.org/abs/2605.11609) — Anti-Self-Distillation for Reasoning RL via Pointwise Mutual Information
-- [`2605.11613`](https://arxiv.org/abs/2605.11613) — From Generic Correlation to Input-Specific Credit in On-Policy Self Distillation
-- [`2605.11854`](https://arxiv.org/abs/2605.11854) — Self-Distilled Trajectory-Aware Boltzmann Modeling: Bridging the Training-Infere
-- [`2605.12227`](https://arxiv.org/abs/2605.12227) — Combining On-Policy Optimization and Distillation for Long-Context Reasoning in 
-- [`2605.12400`](https://arxiv.org/abs/2605.12400) — OGLS-SD: On-Policy Self-Distillation with Outcome-Guided Logit Steering for LLM 
-- [`2605.12741`](https://arxiv.org/abs/2605.12741) — Learning with Rare Success but Rich Feedback via Reflection-Enhanced Self-Distil
 
 ### In Awesome List but missing PDF
-- [`2604.00626`](https://arxiv.org/abs/2604.00626) — OPD Survey V3 (COLM 2026)
-- [`2604.25110`](https://arxiv.org/abs/2604.25110) — Knowledge Distillation Must Account for What It Loses
-- [`2605.02943`](https://arxiv.org/abs/2605.02943) — Healthcare AI GYM for Medical Agents
-- [`2605.03677`](https://arxiv.org/abs/2605.03677) — Uni-OPD: Unifying On-Policy Distillation with a Dual-Perspective Recipe
-- [`2605.05040`](https://arxiv.org/abs/2605.05040) — Preference-Based Self-Distillation: Beyond KL Matching via Reward Regularization
-- [`2605.07396`](https://arxiv.org/abs/2605.07396) — Rubric-based On-policy Distillation
-- [`2605.07505`](https://arxiv.org/abs/2605.07505) — LiteGUI: Distilling Compact GUI Agents with Reinforcement Learning
-- [`2605.07711`](https://arxiv.org/abs/2605.07711) — SimCT: Recovering Lost Supervision for Cross-Tokenizer On-Policy Distillation
-- [`2605.07725`](https://arxiv.org/abs/2605.07725) — SOD: Step-wise On-policy Distillation for Small Language Model Agents
-- [`2605.07804`](https://arxiv.org/abs/2605.07804) — Prune-OPD: Efficient and Reliable On-Policy Distillation for Long-Horizon Reason
-- [`2605.07865`](https://arxiv.org/abs/2605.07865) — KL for a KL: On-Policy Distillation with Control Variate Baseline
-- [`2605.08776`](https://arxiv.org/abs/2605.08776) — Reasoning Compression with Mixed-Policy Distillation
-- [`2605.08873`](https://arxiv.org/abs/2605.08873) — CoDistill-GRPO: A Co-Distillation Recipe for Efficient Group Relative Policy Opt
-- [`2605.09253`](https://arxiv.org/abs/2605.09253) — Cornerstones or Stumbling Blocks? Deciphering the Rock Tokens in On-Policy Disti
-- [`2605.09548`](https://arxiv.org/abs/2605.09548) — Crosslingual On-Policy Self-Distillation for Multilingual Reasoning
-- [`2605.09725`](https://arxiv.org/abs/2605.09725) — On-Policy Distillation with Best-of-N Teacher Rollout Selection
-- [`2605.10781`](https://arxiv.org/abs/2605.10781) — Rebellious Student: Reversing Teacher Signals for Reasoning Exploration with Sel
-- [`2605.10889`](https://arxiv.org/abs/2605.10889) — Unmasking On-Policy Distillation: Where It Helps, Where It Hurts, and Why
-- [`2605.11182`](https://arxiv.org/abs/2605.11182) — The Many Faces of On-Policy Distillation: Pitfalls, Mechanisms, and Fixes
-- [`2605.11458`](https://arxiv.org/abs/2605.11458) — Adaptive Teacher Exposure for Self-Distillation in LLM Reasoning
-- [`2605.11609`](https://arxiv.org/abs/2605.11609) — Anti-Self-Distillation for Reasoning RL via Pointwise Mutual Information
-- [`2605.11613`](https://arxiv.org/abs/2605.11613) — From Generic Correlation to Input-Specific Credit in On-Policy Self Distillation
-- [`2605.11854`](https://arxiv.org/abs/2605.11854) — Self-Distilled Trajectory-Aware Boltzmann Modeling: Bridging the Training-Infere
-- [`2605.12227`](https://arxiv.org/abs/2605.12227) — Combining On-Policy Optimization and Distillation for Long-Context Reasoning in 
-- [`2605.12400`](https://arxiv.org/abs/2605.12400) — OGLS-SD: On-Policy Self-Distillation with Outcome-Guided Logit Steering for LLM 
-- [`2605.12741`](https://arxiv.org/abs/2605.12741) — RESD: Learning with Rare Success but Rich Feedback via Reflection-Enhanced Self-
 
 ### V3 cited but not in Awesome List (potential add)
 - `1503.02531` — Distilling the Knowledge in a Neural Network
