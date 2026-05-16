@@ -1,6 +1,6 @@
 # OPD New Papers Tracking
 
-**Last Updated**: 2026-05-15 18:40 UTC
+**Last Updated**: 2026-05-16 14:05 UTC
 **Purpose**: 追踪未进综述的新 OPD 论文,scout 每天自动追加
 
 ## 收录范围规则 (2026-05-15 确认)
@@ -21,11 +21,24 @@
 
 **判定原则**: 看模型最终输出的模态, 不看内部组件。
 
-## 当前待集成 (0 篇)
+## 当前待集成 (3 篇)
 
-> 所有已确认论文均已进入 V3。Scout 每日自动追加新发现。
+| # | arXiv ID | Published | Title | Type | §Section | 发现日期 |
+|---|----------|-----------|-------|------|----------|----------|
+| 1 | 2605.11019 | 5/10 | Efficient LLM Reasoning via Variational Posterior Guidance with Efficiency Awareness | 🚧 第一类(Self-Distill) | §5.3.1+§6 | 5/16 |
+| 2 | 2604.20244 | 4/22 | Hybrid Policy Distillation for LLMs | 🚧 第一类(Hybrid) | §4.1+Hybrid | 5/16 |
+| 3 | 2604.18963 | 4/21 | Distillation Traps and Guards: A Calibration Knob for LLM Distillability | 📎 第二类(分析) | §7.2 | 5/16 |
 
-_无待集成论文。_
+**Notes:**
+- 2605.11019: VPG-EA framework — parameter-shared posterior (conditioned on reference answer) distills to prior via variational KL. Self-distillation + efficiency optimization.
+- 2604.20244: HPD (ICML 2026) — unified view of KD + hybrid forward/reverse KL + approximate on-policy sampling. Code: github.com/zwhong714/Hybrid-Policy-Distillation
+- 2604.18963: Distillation traps (tail noise, off-policy instability, teacher-student gap) + calibration knob. Analysis paper directly relevant to OPD failure modes.
+
+## 待确认 (1 篇)
+
+| arXiv ID | Title | 问题 | 日期 |
+|----------|-------|------|------|
+| 2604.23336 | Efficient Rationale-based Retrieval: On-policy Distillation from Generative Rerankers based on JEPA | LLM backbone 做 on-policy distillation 但最终输出是 embedding/retrieval score, 不是文本生成。边界模糊。 | 5/16 |
 
 ## 已集成到 V3 (归档 - 5/12 至 5/16 batch, 共 10 篇)
 
@@ -53,6 +66,12 @@ _无待集成论文。_
 | 2605.13724 | AnyFlow: Any-Step Video Diffusion Model | 视频扩散模型, 输出是视频 | 2026-05-15 |
 | 2605.08063 | Flow-OPD: On-Policy Distillation for Flow Matching Models | T2I Flow Matching (SD 3.5), 输出是图片 | 2026-05-15 |
 | 2605.05204 | D-OPSD: On-Policy Self-Distillation for Step-Distilled Diffusion Models | T2I Diffusion, 输出是图片 | 2026-05-15 |
+| 2605.15190 | RAVEN: Real-time Autoregressive Video Extrapolation with Consistency-model GRPO | Video diffusion, 输出是视频 | 2026-05-16 |
+| 2605.15108 | Logging Policy Design for Off-Policy Evaluation | OPE for recommender, 非语言模型蒸馏 | 2026-05-16 |
+| 2605.15012 | Boosting Reinforcement Learning with Verifiable Rewards via Randomly Selected Few-Shot Guidance | 纯 RL (RLVR+SFT), 无 distillation | 2026-05-16 |
+| 2605.14450 | Stop Overthinking: Unlocking Efficient Listwise Reranking with Minimal Reasoning | IR reranking, 无蒸馏 | 2026-05-16 |
+| 2605.12034 | Boosting Omni-Modal Language Models: Staged Post-Training with Visually Debiased Evaluation | Evaluation methodology, 无 OPD | 2026-05-16 |
+| 2605.11706 | GRAFT: Graph-Tokenized LLMs for Tool Planning | Tool planning, 无蒸馏 | 2026-05-16 |
 
 ## 已集成到 V3 (归档 - 5/9 至 5/12 batch, 共 17 篇)
 
