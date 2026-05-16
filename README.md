@@ -19,7 +19,7 @@ on-policy-distillation-survey/
 │
 ├── pdfs/                              ← classified PDF library (165 total)
 │   ├── by-aid/                        ← flat compatibility view: <aid>.pdf → ../<bucket>/<aid>.pdf
-│   ├── background/                    ← references_background.bib papers (17 PDFs + 1 blog)
+│   ├── background/                    ← references_background.bib papers (17 PDFs)
 │   │   ├── 1011.0686.pdf              ← DAgger (Ross 2011)
 │   │   ├── 1503.02531.pdf             ← Hinton KD (2015)
 │   │   ├── 1606.07947.pdf             ← Sequence-Level KD (Kim 2016)
@@ -36,9 +36,8 @@ on-policy-distillation-survey/
 │   │   ├── 2408.00118.pdf             ← Gemma 2 (off-policy KD pre-training)
 │   │   ├── 2409.19256.pdf             ← HybridFlow (Sheng 2024)
 │   │   ├── 2501.12948.pdf             ← DeepSeek-R1 (off-policy distillation)
-│   │   ├── 2502.08606.pdf             ← Distillation Scaling Laws (off-policy)
-│   │   └── blog-tml-onpolicy-distillation.md
-│   ├── pre-2026/                      ← OPD method papers, arXiv 2022-2025 (39)
+│   │   └── 2502.08606.pdf             ← Distillation Scaling Laws (off-policy)
+│   ├── pre-2026/                      ← OPD method papers, arXiv 2022-2025 (39 + TML blog md)
 │   ├── 2026-01/  (9)                  ← OPD method papers, by month
 │   ├── 2026-02/  (14)
 │   ├── 2026-03/  (14)
