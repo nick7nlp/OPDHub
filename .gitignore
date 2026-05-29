@@ -39,3 +39,23 @@ narrative-patches/
 factcheck-phase1-log.md
 integration-verification-log.md
 round3-changelog.md
+
+# Claude Code session state (machine-local)
+.claude/
+
+# Python caches
+**/__pycache__/
+*.pyc
+
+# Notes / data backups (timestamp-suffixed)
+*.bak
+*.bak-*
+*.bak.*
+*.bak_*
+
+# Deprecated scripts staging
+scripts/.deprecated/
+
+# Trash dirs (created by mv-before-delete discipline)
+.trash-*
+**/.trash-*
