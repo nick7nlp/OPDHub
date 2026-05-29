@@ -1,0 +1,91 @@
+# latex-v4 CHANGELOG
+
+**目标**: 在 v3 (COLM 2026 提交版) 基础上增量集成新 OPD 论文，输出下一版 arXiv 综述。
+
+**Base**: latex-v3 (snapshot 2026-05-23 22:54 CST)
+- v3 pdf 78p / 148 OPD cites (per `references.bib`)
+- v3 状态：consistency-audit.json + verification-state.json 全 0 errors
+
+**作者**: Mingyang Song & Mao Zheng
+**原始 arXiv**: 2604.00626 (v1.5 submission, 2026-04-01)
+
+## 2026-05-29 14:46 CST — 处理 5/10 consistency-audit 全部 11 issues
+
+详细记录见 `.audit-fix-2026-05-29.md`。
+
+实际改动 5 处：
+- M1 `subsec:weighting` → `subsec:curriculum` (line 996, PACED 跨引)
+- M2 `\mathcal{D}_f` → `D_f` (4 处统一为 §2 notation block 声明的符号)
+- M3 CMDP-KD body text 从 §4.1 移到 §4.3 (KDRL→CMDP-KD→RLAD 自然过渡)
+- M6 Table 1 拆 multirow，PACED 独立标 'Dynamics (Curriculum)'
+- L1 全文 F-KL/R-KL → FKL/RKL (无连字符)
+
+5 项审计已被之前 commit 自动修复（H1 / M4 / M5 / L2 / L3），本次仅核验。
+
+PDF: 78p / 612 KB / 0 undefined refs / 0 LaTeX warnings.
+
+---
+
+## v4 待集成 backlog (9 篇, 来源 `~/.hermes/memories/daily/opd-new-papers.md`)
+
+**5/23 23:10 CST 复核**: 原 14 篇按 academic-rigor skill §OPD 专用判定标准的 3-condition 复核 (teacher / distill_loss / rollouts→KL→update), 移除 5 篇。下表为最终 v4 backlog。
+
+| # | arXiv ID | Type | §Section | Notes |
+|---|----------|------|----------|-------|
+| 1 | 2605.11019 | Self-Distill | §5.3.2 | VPG-EA, advantage-gated forward KL, per-step rollout |
+| 2 | 2605.15239 | Self-Distill (OPSA) | §8.1 | Safety Tax 减弱, per-step rollout |
+| 3 | 2605.15532 | Pipeline | §6.2 | DeltaPrompts (NVIDIA, NeurIPS 2025), per-step + external teacher |
+| 4 | 2605.17497 | RL+Distill | §5.3.2 | SSOPD, per-step rollout |
+| 5 | 2605.18299 | Self-Distill (Agent) | §5.3.2 | SD-Search hindsight, per-step rollout |
+| 6 | 2605.17873 | Self-Distill (Agent) | §5.3.2 | HINT-SD long-horizon, per-outer-iter rollout |
+| 7 | 2605.18740 | VLM Self-Distill | §5.3.2 | Vision-OPD regional→global, per-step rollout |
+| 8 | 2605.17862 | OPD Infra | §6.1 | f-OPD freshness-aware control, per-outer-iter + external teacher |
+| 9 | 2605.19433 | Curriculum | §6.2 | MOTAB backtracking, per-step + external teacher |
+
+### 已 cite 我们综述 (arXiv 2604.00626) 的 backlog 论文
+
+- **2605.17862 f-OPD**: ref [15] "Mingyang Song and Mao Zheng. A survey of on-policy distillation for large language models. arXiv preprint arXiv:2604.00626, 2026"
+- **2605.19433 MOTAB**: ref [35] "M. Song and M. Zheng. A survey of on-policy distillation for large language models. CoRR, abs/2604.00626, 2026"
+
+2/9 = 22%, 综述发表 ~1.5 个月即时引用, 正常水平。
+
+---
+
+## 5/23 复核被移除 (5 篇)
+
+| arXiv | name | reject 理由 | 后续 |
+|---|---|---|---|
+| **2605.22675** | SPD | `rollout_frequency: once-before-training` + `signal_source: pure self`, 老大原话 "self play 的方法" | 不进 backlog, 不进 awesome list |
+| **2605.16865** | MixSD | V3 精读 `is_opd: no`, 论文自标 OPSD 对照 baseline | 不进 backlog |
+| **2605.16941** | WINO+ | `rollout once-before-training` + "first run WINO **offline**", 预生成 trajectory SFT | 不进 backlog |
+| **2605.16826** | Decoupling KL | V3 `is_opd: analysis`, analysis-only paper | 不进 backlog; §4.1 Theory 章可作 background cite |
+| **2605.19776** | PSDISTILL | GRPO + self-reward, 缺 distill loss | 不进 backlog |
+
+详细记录见 `papers-meta/opd-new-papers.md` "2026-05-23 清理" 段。
+
+---
+
+## 集成原则 (继承 v3)
+
+1. **数据集成只验不加**: 集成 backlog 时只增已精读 9 篇, 不再扫整库
+2. **一致性 4 件套**: 数字/分类/cross-ref/cite key 集成后 0 errors
+3. **overclaim 自查**: `~/.openclaw/workspace/scripts/pre-submission-check.sh main.tex` 必跑
+4. **学术中性描述**: 反 AI 腔、反硬断言; hedge 词表见 `WRITING.md`
+5. **不引入未原始来源确认的元数据**: cite key 来自 DBLP / arXiv abs page
+6. **OPD 判定铁律 (5/23 加)**: 任何 "is_opd=yes" 都要过 academic-rigor 3-condition. `rollout_frequency: once-before-training` 一律 reject
+
+---
+
+## 变更日志
+
+### 2026-05-23 22:54 CST — v4 初始化
+- 从 latex-v3 拷贝整目录 (不含 v3 的备份/历史 .git)
+- v4 与 v3 PDF 完全相同 (尚未集成新内容)
+- 建立此 CHANGELOG
+- 引用追溯任务: 检查 14 篇 backlog 中哪些引用了我们的综述 (arXiv 2604.00626) → 3/14 命中
+
+### 2026-05-23 23:10 CST — backlog 复核 14→9
+- 老大反问 "你确定这 14 篇都是 OPD 方法吗?" 触发
+- 按 academic-rigor 3-condition 复核, 5 篇 reject (SPD/MixSD/WINO+/Decoupling-KL/PSDISTILL)
+- 真实 backlog 9 篇, 已 cite 我们综述 2/9 = 22%
+- 同步更新 `papers-meta/opd-new-papers.md`
