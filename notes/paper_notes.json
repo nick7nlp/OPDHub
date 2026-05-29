@@ -28111,226 +28111,6 @@
       "_attempts": 1,
       "_success": true
     },
-    "2508.07616": {
-      "_schema_version": "v3",
-      "paper_id": "2508.07616",
-      "title": "ThinkTuning: Instilling Cognitive Reflections without Distillation",
-      "venue": "arXiv 2025",
-      "year": 2025,
-      "authors_first": "Aswin RRV",
-      "affiliation_primary": "Arizona State University",
-      "summary": "ThinkTuning 是基于 GRPO 的训练框架，在每步训练时将同尺寸教师模型（few-shot 提示）的结构化反馈（意见+理由+引导短语）追加到 γ 比例的学生 rollout 末尾，再通过 Advantage-Aware Shaping（AAS）权重处理 off-policy 教师 token，使模型在无大模型蒸馏前提下习得 Self-Conflict/Self-Critique 等认知自反射行为。",
-      "method": {
-        "training_loop": "1) 从 GSM8K 采样 mini-batch；2) 旧策略生成 n=16 rollout；3) γ 比例 rollout 传给同尺寸教师追加结构化反馈（<opinion>/<reason>/<phrase>）；4) 对增强+未增强 rollout 共同计算组归一化优势；5) 教师 off-policy token 用 AAS 权重替代 IS 比率，学生 token 用标准 clip 比率；6) J_ThinkTuning 更新 θ；7) γ 在前 1/5 步内线性衰减至 0，之后纯 GRPO。",
-        "loss_formulation": "J_{\\text{ThinkTuning}}(\\theta) = \\mathbb{E}_{q,\\{o_i\\}\\sim\\text{Guide}} \\left[ \\frac{1}{n}\\sum_{i\\in T_{\\text{unaug}}}\\frac{1}{|o_i|}\\sum_t \\min\\left[w_{i,t}\\hat{A}_{i,t},\\, \\text{clip}(w_{i,t},1-\\varepsilon,1+\\varepsilon)\\hat{A}_{i,t}\\right] + \\frac{1}{n}\\sum_{i\\in T_{\\text{aug}}}\\frac{1}{|o_i|}\\sum_t \\left[ m_{i,t}\\cdot w_{\\text{aas}}(o_{i,t},\\hat{A}_{i,t})\\cdot\\hat{A}_{i,t} + (1-m_{i,t})\\cdot\\min(w_{i,t}\\hat{A}_{i,t},\\text{clip}(w_{i,t},1-\\varepsilon,1+\\varepsilon)\\hat{A}_{i,t}) \\right] - \\beta D_{\\text{KL}}[M_\\theta \\| M_{\\text{ref}}] \\right]",
-        "data_source": "GSM8K 训练集（7473 条算术文字题）",
-        "key_components": [
-          "Guide 函数：γ 比例 rollout 送给同尺寸教师追加结构化反馈",
-          "Advantage-Aware Shaping (AAS)：c(Â) = c1+(c2-c1)*(Amax-Â)/(Amax-Amin) 动态权重替代 IS 比率",
-          "off-policy token 掩码 m_t：区分教师 token vs 学生 token",
-          "线性 guidance 衰减：γ 从 75% 在前 1/5 步衰减至 0",
-          "4 种认知行为 few-shot 示例（Self-Conflict/Self-Critique/Self-Agreement/Self-Consultancy）"
-        ]
-      },
-      "novelty": "首次将同尺寸教师的 few-shot 结构化反馈注入 GRPO rollout（off-policy augmentation），并提出 AAS 解决 IS 假设违背问题；相比 Yan et al. 2025，使用动态优势调制权重而非静态 IS 比率，且教师与学生同尺寸而非依赖大模型。",
-      "on_policy_mechanism": {
-        "student_rollout_in_training": "yes",
-        "rollout_frequency": "per-step",
-        "teacher_signal": "logits",
-        "signal_source": "external-teacher",
-        "evidence_quote": "Because the teacher model's guidance is entirely off-policy, it violates the assumptions required for importance sampling in GRPO. To address this, we introduce Advantage-Aware Shaping (AAS). We find that this type of implicit supervision through feedback from a teacher model of the same size improves the reasoning capabilities of the student model."
-      },
-      "opd_classification": {
-        "is_opd": "yes",
-        "primary_section": "§5.2",
-        "secondary_sections": [
-          "§5.3.1"
-        ],
-        "reasoning": "学生每步实时 rollout，同尺寸外部教师模型提供 off-policy token 级反馈追加到轨迹末尾，属于 external-teacher 指导的 on-policy 蒸馏（§5.1），同时结合二进制答案正确性奖励（PI-GT）作为 reward signal（§5.3.1）。"
-      },
-      "teacher_student_pairs": [
-        {
-          "teacher": {
-            "name": "Llama-3.2-3B-Instruct",
-            "family": "Llama",
-            "size_B": 3,
-            "type": "dense",
-            "moe_active_B": null,
-            "is_self": false,
-            "is_api_only": false
-          },
-          "student": {
-            "name": "Llama-3.2-3B-Instruct",
-            "family": "Llama",
-            "size_B": 3,
-            "type": "dense",
-            "init_from": "SFT",
-            "is_self": false
-          },
-          "vocab_match": "shared",
-          "scenario": "main"
-        }
-      ],
-      "training_setup": {
-        "compute_budget": "4×H100 GPU",
-        "tokens_seen_B": null,
-        "context_length": 4096,
-        "rollout_batch_size": 8,
-        "rollouts_per_iter": 16,
-        "kl_coeff": 0.001,
-        "rl_algorithm": "GRPO",
-        "stabilization_tricks": [
-          "AAS 动态权重替代 IS 比率处理 off-policy token",
-          "负优势+低置信度 token 掩码（避免不必要概率下降）",
-          "guidance 比例 γ 线性衰减至 0"
-        ],
-        "warmup_off_policy": "no",
-        "warmup_method": "n/a"
-      },
-      "datasets": {
-        "train": [
-          "GSM8K"
-        ],
-        "eval": [
-          "GSM8K",
-          "MATH-500",
-          "AIME 1983-2024",
-          "CommonsenseQA (CSQA)",
-          "StrategyQA",
-          "ARC-Challenge",
-          "GPQA Diamond",
-          "MMLU-Pro"
-        ],
-        "domain": "math"
-      },
-      "benchmarks": [
-        {
-          "name": "GSM8K",
-          "metric": "accuracy",
-          "student_baseline": 71.08,
-          "student_after_OPD": 74.22,
-          "delta": 3.14,
-          "teacher_score": null,
-          "gap_closed_pct": null,
-          "is_main_result": true
-        },
-        {
-          "name": "MATH-500",
-          "metric": "accuracy",
-          "student_baseline": 38.14,
-          "student_after_OPD": 47.54,
-          "delta": 9.4,
-          "teacher_score": null,
-          "gap_closed_pct": null,
-          "is_main_result": true
-        },
-        {
-          "name": "AIME 1983-2024",
-          "metric": "accuracy",
-          "student_baseline": 9.32,
-          "student_after_OPD": 14.26,
-          "delta": 4.94,
-          "teacher_score": null,
-          "gap_closed_pct": null,
-          "is_main_result": true
-        },
-        {
-          "name": "CSQA",
-          "metric": "accuracy",
-          "student_baseline": 67.39,
-          "student_after_OPD": 70.43,
-          "delta": 3.04,
-          "teacher_score": null,
-          "gap_closed_pct": null,
-          "is_main_result": true
-        },
-        {
-          "name": "ARC-Challenge",
-          "metric": "accuracy",
-          "student_baseline": 75.49,
-          "student_after_OPD": 79.8,
-          "delta": 4.31,
-          "teacher_score": null,
-          "gap_closed_pct": null,
-          "is_main_result": true
-        },
-        {
-          "name": "GPQA Diamond",
-          "metric": "accuracy",
-          "student_baseline": 25.1,
-          "student_after_OPD": 28.18,
-          "delta": 3.08,
-          "teacher_score": null,
-          "gap_closed_pct": null,
-          "is_main_result": true
-        },
-        {
-          "name": "StrategyQA",
-          "metric": "accuracy",
-          "student_baseline": 66.4,
-          "student_after_OPD": 66.52,
-          "delta": 0.12,
-          "teacher_score": null,
-          "gap_closed_pct": null,
-          "is_main_result": true
-        },
-        {
-          "name": "MMLU-Pro",
-          "metric": "accuracy",
-          "student_baseline": 34.41,
-          "student_after_OPD": 37.21,
-          "delta": 2.8,
-          "teacher_score": null,
-          "gap_closed_pct": null,
-          "is_main_result": true
-        }
-      ],
-      "key_findings": [
-        "ThinkTuning 在 8 个基准中平均比 Zero-Shot-CoT 提升 +3.85%，MATH-500 最大提升 +9.40 个百分点，仅在 GSM8K 训练集上训练即获得跨域泛化。",
-        "在 GPQA-D 上相比 GRPO 基线提升 +3.99pp（28.18% vs 24.19%），总计在 8 个任务中 6 个优于 GRPO，说明认知反射行为带来超出纯 RL 的增益。",
-        "ThinkTuning 比 GRPO 训练约慢 40%（70 min vs 50 min），但在 MATH-500 上 GRPO 生成更多 token 时 ThinkTuning 仍分数更高，反映质量而非数量的提升。"
-      ],
-      "ablations_summary": "无正式 ablation 表格；Appendix A.2-A.3 分析 AAS 系数选取（c1=+0.0001, c2=−0.0001）及梯度行为；行为实验（KL=0, batch=128）定性验证教师引导能激发 GRPO 无法自发产生的 novel 行为；错误分析显示 GSM8K 下降主因为过度反射导致误解（85%）和逻辑错误（70%）。",
-      "limitations": [
-        "仅在 3B 模型上验证，未探索更大模型规模",
-        "仅使用二进制最终答案奖励，无中间推理步骤部分分",
-        "仅覆盖 4 种认知行为，行为多样性有限",
-        "教师无法生成高质量引导时方法效果受限",
-        "Self-Conflict/Self-Critique 策略在 GSM8K 和 StrategyQA 等简单任务上导致过度反思、性能下降"
-      ],
-      "failure_modes": [
-        "GSM8K 误差：误解题意 (85%)、逻辑错误 (70%)、计算错误 (45%)、冗余步骤 (40%)——过度激活 Self-Conflict 策略导致正确初始步骤被质疑",
-        "StrategyQA 误差：知识检索失败 (65%)、逻辑推理错误 (20%)——认知反射在常识推理上迁移不佳"
-      ],
-      "compute_efficiency": {
-        "teacher_inference_cost": "amortized",
-        "speedup_vs_baseline": "not-reported",
-        "memory_footprint": "2×"
-      },
-      "openness": {
-        "code_released": "yes",
-        "code_url": "https://github.com/3rdAT/ThinkTuning",
-        "model_released": "no",
-        "data_released": "no"
-      },
-      "theory": {
-        "has_theoretical_analysis": "yes",
-        "theoretical_claim": "AAS 梯度分析：证明在正优势+高置信度时 w_aas<1 保守更新，负优势+低置信度 token 掩码避免不必要下降，当 w_aas=1 时退化为标准监督学习梯度",
-        "proof_sketch": "Appendix A.3 对 ∇_θ w_aas = (M_θ/D_t)·∇_θ log M_θ 分四种 (advantage×confidence) 象限逐一分析梯度行为，证明 AAS 的稳定性属性。"
-      },
-      "relevance_to_opd": "ThinkTuning 是典型的 on-policy 外部教师蒸馏（§5.1）：学生每步实时 rollout，同尺寸教师追加 off-policy 反馈 token，AAS 解决 off-policy IS 问题；同时依赖 PI-GT 奖励验证答案，属于 §5.3.1 范畴。与 KDRL、TGPO、MPD 等论文共享 GRPO+KD 联合训练思路，但独特在于同尺寸教师+认知行为注入+AAS 权重机制。",
-      "comparable_papers": [
-        "2506.02208",
-        "2605.13230",
-        "2605.08776",
-        "2604.08527",
-        "2605.12913"
-      ],
-      "score": 6,
-      "_read_date": "2026-05-17T10:54:17.219706",
-      "_attempts": 1,
-      "_success": true
-    },
     "2604.01193": {
       "_schema_version": "v3",
       "paper_id": "2604.01193",
@@ -36881,33 +36661,19 @@
       "affiliation_primary": "Guangdong University of Foreign Studies",
       "summary": "Variational posterior guidance with efficiency awareness for efficient LLM reasoning",
       "method": {
-        "training_loop": "Dual-stream sampling: posterior (answer-guided) and prior (standard) generate rollouts; cross-view validation filters pseudo-efficient paths; variational distillation transfers posterior patterns to prior via advantage-gated forward KL",
-        "loss_formulation": "L = -(1/G) sum[A_i * log q_theta(z_i|x,y*)] + beta * (1/G) sum[I(A_i>0) * (sg[log q_theta(z_i|x,y*)] - log pi_theta(z_i|x))]",
-        "data_source": "DeepScaleR dataset (~40K math question-answer pairs with difficulty grading)",
-        "key_components": [
-          "parameter-shared dual-stream architecture",
-          "cross-view evaluation filter",
-          "efficiency-aware utility score",
-          "advantage-gated variational distillation",
-          "Z-score normalization"
-        ]
+        "teacher": "Reference-answer-guided posterior distribution (parameter-shared dual-stream architecture)",
+        "student": "DeepSeek-R1-Distill-Qwen-1.5B / 7B (prior policy)",
+        "loss_formulation": "Variational distillation (efficiency-aware ELBO objective, KL between posterior and prior policy)"
       },
       "novelty": "First application of variational inference theory to LLM reasoning efficiency optimization, with efficiency-aware ELBO, cross-view validation to filter pseudo-efficient paths, and unidirectional variational distillation from posterior to prior within a single shared-parameter model",
       "on_policy_mechanism": {
-        "student_rollout_in_training": "yes",
-        "rollout_frequency": "per-step",
-        "teacher_signal": "logits",
-        "signal_source": "self",
-        "evidence_quote": "VPG-EA instantiates two parallel conditional distribution sampling streams on the same parameters θ using different System Prompts... The input of the teacher stream is x⊕y∗⊕Prompt_teacher. Since the reference answer y∗ is visible, this stream constructs an auxiliary distribution q_θ(z) conditioned on the answer."
+        "rollout_frequency": "per-outer-iter",
+        "signal_source": "Reference-answer-guided posterior + cross-view evaluation"
       },
       "opd_classification": {
         "is_opd": "yes",
-        "primary_section": "§5.3.2",
-        "secondary_sections": [
-          "§4.3",
-          "§6.1"
-        ],
-        "reasoning": "Self-distillation where the same model serves as both posterior (teacher) and prior (student) via different prompts, with variational distillation as the core contribution transferring efficient reasoning patterns on-policy."
+        "section": "variational inference OPD for efficient reasoning",
+        "output_modality": "text"
       },
       "teacher_student_pairs": [
         {
@@ -37107,7 +36873,12 @@
       ],
       "score": 7,
       "_worker": "v2-direct-llm-api",
-      "_model": "claude"
+      "_model": "claude",
+      "arxiv_id": "2605.11019",
+      "is_opd": "yes",
+      "verdict_reason": "VPG-EA uses a parameter-shared posterior distribution (conditioned on reference answers) as teacher and performs variational distillation to transfer efficient reasoning patterns to the prior policy. Dual-stream on-policy sampling with cross-view evaluation feeds student rollouts into the distillation loop per iteration.",
+      "deep_read_date": "2026-05-28",
+      "deep_read_method": "pdf_pages_1-6_pdftotext + sub-agent + independent_spot_check"
     },
     "2605.15239": {
       "_schema_version": "v3",
@@ -37119,34 +36890,19 @@
       "affiliation_primary": "UC Riverside",
       "summary": "On-policy self-distillation for safety alignment using per-token KL from privileged-context teacher",
       "method": {
-        "training_loop": "Student generates rollouts from its own policy; frozen teacher (same base model + privileged safety context) provides per-token KL supervision; student updated via symmetric KL divergence on student-sampled trajectories",
-        "loss_formulation": "L_OPSA(θ) = Σ_{q_h} E_{y~p_θ(·|q_h)} Σ_t D_KL(p_{θ̄}(·|c*_h,q_h,y_{<t}) || p_θ(·|q_h,y_{<t})) + Σ_{q_b} E_{y~p_θ(·|q_b)} Σ_t D_KL(p_{θ̄}(·|c*_b,q_b,y_{<t}) || p_θ(·|q_b,y_{<t}))",
-        "data_source": "SafeChain prompts (harmful + benign) with on-policy student rollouts",
-        "key_components": [
-          "on-policy student rollouts",
-          "frozen privileged-context teacher (self-distillation)",
-          "per-token KL supervision",
-          "teacher flip rate for context selection",
-          "type-conditional privileged contexts"
-        ]
+        "teacher": "Frozen copy of base model (pθ₀) conditioned on privileged safety context (Ih/Ib)",
+        "student": "Trainable student model (pθ) — R1-Distill-1.5B, Qwen3-0.6B, etc.",
+        "loss_formulation": "DKL(pT ∥ pS) per token along student rollout"
       },
       "novelty": "Adapts on-policy self-distillation to safety alignment via type-conditional privileged contexts and teacher flip rate criterion for context selection, showing off-policy SFT mismatch is a distinct source of safety tax beyond data distribution mismatch",
       "on_policy_mechanism": {
-        "student_rollout_in_training": "yes",
         "rollout_frequency": "per-step",
-        "teacher_signal": "logits",
-        "signal_source": "self",
-        "evidence_quote": "OPSA requires no pre-generated responses; it uses only the SafeChain prompts and their type labels t(x)∈{h,b}, with the student generating on-policy rollouts during training and the teacher providing per-token guidance conditioned on the type-specific privileged context"
+        "signal_source": "Type-conditional privileged context (safety instructions)"
       },
       "opd_classification": {
         "is_opd": "yes",
-        "primary_section": "§8.1",
-        "secondary_sections": [
-          "§5.3.2",
-          "§4.1",
-          "§6.1"
-        ],
-        "reasoning": "Core contribution applies on-policy self-distillation to a new domain (safety alignment) with novel privileged context construction via teacher flip rate, making it primarily an application/systems contribution"
+        "section": "on-policy self-distillation for safety alignment",
+        "output_modality": "text"
       },
       "teacher_student_pairs": [
         {
@@ -37384,7 +37140,12 @@
       ],
       "score": 8,
       "_worker": "v2-direct-llm-api",
-      "_model": "claude"
+      "_model": "claude",
+      "arxiv_id": "2605.15239",
+      "is_opd": "yes",
+      "verdict_reason": "OPSA uses a frozen teacher (copy of base model) conditioned on privileged type-conditional safety context, minimizes per-token DKL(pT ∥ pS) along student on-policy rollouts. Student generates rollouts each training step, teacher provides dense KL supervision — textbook on-policy self-distillation.",
+      "deep_read_date": "2026-05-28",
+      "deep_read_method": "pdf_pages_1-6_pdftotext + sub-agent + independent_spot_check"
     },
     "2605.15532": {
       "_schema_version": "v3",
@@ -37396,32 +37157,19 @@
       "affiliation_primary": "NVIDIA Research",
       "summary": "Identifies zero-delta prompts in VLM distillation and synthesizes high-divergence prompts for effective on-policy distillation",
       "method": {
-        "training_loop": "Synthesize prompts via seed-guided & skill-guided generation → reject zero-delta prompts → on-policy distillation with reverse KL using student rollouts and teacher log-probs",
-        "loss_formulation": "L_OPD(θ) = E_{x~D} E_{y~π_θ(·|x)} [log(π_θ(y|x) / π_T(y|x))]",
-        "data_source": "Synthesized DeltaPrompts (200k) from existing chart/document/perception datasets as seeds",
-        "key_components": [
-          "answer divergence metric",
-          "seed-guided generation",
-          "skill-guided generation",
-          "zero-delta rejection sampling",
-          "consistency-based filtering"
-        ]
+        "teacher": "Stronger VLM teacher (e.g., larger reasoning model providing answer distributions PT)",
+        "student": "Compact VLM (e.g., Qwen3-VL-8B-Thinking)",
+        "loss_formulation": "KL(Pθ(·|x) ∥ PT(·|x)) — distributional divergence minimization"
       },
       "novelty": "Identifies that up to 69% of standard dataset prompts are zero-delta (teacher and student agree), proposes answer divergence as a principled prompt selection criterion, and introduces a staged synthesis pipeline that actively targets student failure modes to produce divergence-inducing prompts",
       "on_policy_mechanism": {
-        "student_rollout_in_training": "yes",
-        "rollout_frequency": "per-step",
-        "teacher_signal": "logits",
-        "signal_source": "external-teacher",
-        "evidence_quote": "on-policy distillation (OPD) [2] samples from the student's own distribution and minimizes the reverse KL: L_OPD(θ)=E_{x∼D} E_{ŷ∼π_θ(·|x)} [log π_θ(ŷ|x) / π_T(ŷ|x)]"
+        "rollout_frequency": "per-outer-iter",
+        "signal_source": "Teacher model answer distributions + student trajectory contrast for prompt selection"
       },
       "opd_classification": {
         "is_opd": "yes",
-        "primary_section": "§6.2",
-        "secondary_sections": [
-          "§5.1.1"
-        ],
-        "reasoning": "Core contribution is a data-centric curriculum/selection method (answer divergence) that determines which prompts are valuable for on-policy distillation, improving scaling efficiency."
+        "section": "data-centric OPD / prompt selection for multimodal distillation",
+        "output_modality": "image"
       },
       "teacher_student_pairs": [
         {
@@ -37665,7 +37413,12 @@
       ],
       "score": 8,
       "_worker": "v2-direct-llm-api",
-      "_model": "claude"
+      "_model": "claude",
+      "arxiv_id": "2605.15532",
+      "is_opd": "yes",
+      "verdict_reason": "DeltaPrompts evaluates on-policy distillation with an external teacher VLM. The framework uses KL(Pθ(·|x) ∥ PT(·|x)) as the distillation signal, measures answer divergence Δ between student and teacher, and uses student rollouts to identify high-divergence prompts for iterative on-policy distillation training.",
+      "deep_read_date": "2026-05-28",
+      "deep_read_method": "pdf_pages_1-6_pdftotext + sub-agent + independent_spot_check"
     },
     "2605.18141": {
       "_schema_version": "v3",
@@ -37810,7 +37563,9 @@
       ],
       "score": 4,
       "_worker": "v2-direct-llm-api",
-      "_model": "claude"
+      "_model": "claude",
+      "_read_date": "2026-05-27",
+      "_success": true
     },
     "2605.17862": {
       "_schema_version": "v3",
@@ -37822,34 +37577,19 @@
       "affiliation_primary": "The Hong Kong Polytechnic University",
       "summary": "Freshness-aware control framework stabilizing asynchronous on-policy distillation for LLMs",
       "method": {
-        "training_loop": "Async OPD with replay buffer; compute per-sample freshness score from rollout drift + supervision drift KL diagnostics; apply freshness weighting, rollout-anchored regularization, and adaptive buffer refresh",
-        "loss_formulation": "L = E_{i~B_t}[ σ(f_i - ξ) (ℓ_i^t + λ D_i^{roll}) ]",
-        "data_source": "DAPO-Math-17K for reasoning/tool-use, mini-SWE-agent for coding",
-        "key_components": [
-          "sample-level freshness score",
-          "freshness weighting",
-          "rollout-anchored regularization",
-          "adaptive buffer refresh",
-          "rollout drift diagnostic",
-          "supervision drift diagnostic"
-        ]
+        "teacher": "External teacher model providing token-level supervision",
+        "student": "Student LLM policy",
+        "loss_formulation": "OPD distillation loss with freshness-aware sample reweighting and policy drift constraint"
       },
       "novelty": "Decomposes asynchronous OPD objective discrepancy into rollout drift and supervision drift, introduces sample-level freshness score quantifying staleness, and proposes three complementary mechanisms to stabilize async OPD without sacrificing throughput",
       "on_policy_mechanism": {
-        "student_rollout_in_training": "yes",
-        "rollout_frequency": "per-outer-iter",
-        "teacher_signal": "logits",
-        "signal_source": "external-teacher",
-        "evidence_quote": "A standard OPD pipeline consists of three tightly coupled processes: student policy rollout, teacher supervision for grading generated tokens, and student policy optimization."
+        "rollout_frequency": "per-step",
+        "signal_source": "External teacher model (grading generated tokens)"
       },
       "opd_classification": {
         "is_opd": "yes",
-        "primary_section": "§6.1",
-        "secondary_sections": [
-          "§4.2",
-          "§7.1"
-        ],
-        "reasoning": "Core contribution is freshness-aware token/sample weighting and adaptive control mechanisms to stabilize on-policy distillation under asynchronous execution, fitting the efficiency/stability technique category."
+        "section": "systems/infrastructure for scalable OPD (async training)",
+        "output_modality": "text"
       },
       "teacher_student_pairs": [
         {
@@ -37989,7 +37729,12 @@
       ],
       "score": 8,
       "_worker": "v2-direct-llm-api",
-      "_model": "claude"
+      "_model": "claude",
+      "arxiv_id": "2605.17862",
+      "is_opd": "yes",
+      "verdict_reason": "f-OPD is explicitly an on-policy distillation framework with external teacher supervision, student rollouts per training step, and distillation loss. It addresses staleness in asynchronous OPD via freshness scoring. Standard OPD pipeline: student rollout → teacher supervision → distillation optimization.",
+      "deep_read_date": "2026-05-28",
+      "deep_read_method": "pdf_pages_1-6_pdftotext + sub-agent + independent_spot_check"
     },
     "2605.18740": {
       "_schema_version": "v3",
@@ -38001,34 +37746,19 @@
       "affiliation_primary": "Chinese Information Processing Laboratory, Institute of Software, Chinese Academy of Sciences",
       "summary": "Regional-to-global on-policy self-distillation for fine-grained visual understanding in MLLMs",
       "method": {
-        "training_loop": "Student generates on-policy rollouts from full image; compute token-level JSD between crop-conditioned teacher and full-image student distributions on student prefixes; update student via gradient on divergence loss",
-        "loss_formulation": "L = E_{(x,x',q)~D, y~p_S(·|x,q)} [1/|y| sum_n D(p_T(·|x',q,y_{<n}) || p_S(·|x,q,y_{<n}))]",
-        "data_source": "6.2K synthetic triplets generated via object recognition/segmentation + MLLM question generation on unlabeled images",
-        "key_components": [
-          "crop-conditioned self-teacher as privileged supervision",
-          "on-policy student rollouts from full image",
-          "token-level JSD divergence minimization",
-          "top-K logits distillation",
-          "EMA teacher regularization"
-        ]
+        "teacher": "Same MLLM conditioned on evidence-centered crops (privileged regional perception)",
+        "student": "Same MLLM conditioned on full images",
+        "loss_formulation": "Token-level KL divergence between crop-conditioned teacher and full-image student next-token distributions"
       },
       "novelty": "First to use the same MLLM's crop-conditioned behavior as privileged teacher for its full-image policy via on-policy distillation, without external teachers, ground-truth labels, or reward verifiers, specifically targeting the regional-to-global perception gap in fine-grained visual understanding.",
       "on_policy_mechanism": {
-        "student_rollout_in_training": "yes",
         "rollout_frequency": "per-step",
-        "teacher_signal": "logits",
-        "signal_source": "self",
-        "evidence_quote": "the student generates on-policy rollouts y ∼ p_S(· | x,q). Both policies then evaluate this student-generated trajectory. At each position n, they induce next-token distributions over y_n ∈ V conditioned on the same student prefix"
+        "signal_source": "teacher_distribution"
       },
       "opd_classification": {
         "is_opd": "yes",
-        "primary_section": "§5.3.2",
-        "secondary_sections": [
-          "§5.1.1",
-          "§4.1",
-          "§8.2"
-        ],
-        "reasoning": "Core contribution is pure self-distillation where the same model serves as both teacher (crop-conditioned) and student (full-image-conditioned) with on-policy rollouts and no external supervision."
+        "section": "on-policy self-distillation / vision-language",
+        "output_modality": "text"
       },
       "teacher_student_pairs": [
         {
@@ -38224,7 +37954,12 @@
       ],
       "score": 9,
       "_worker": "v2-direct-llm-api",
-      "_model": "claude"
+      "_model": "claude",
+      "arxiv_id": "2605.18740",
+      "is_opd": "yes",
+      "verdict_reason": "Crop-conditioned teacher and full-image-conditioned student from same MLLM; student generates on-policy rollouts and training minimizes token-level divergence between teacher and student next-token distributions along those rollouts.",
+      "deep_read_date": "2026-05-28",
+      "deep_read_method": "pdf_pages_1-6_pdftotext + sub-agent + independent_spot_check"
     },
     "2605.16826": {
       "_schema_version": "v3",
@@ -38426,7 +38161,9 @@
       ],
       "score": 8,
       "_worker": "v2-direct-llm-api",
-      "_model": "claude"
+      "_model": "claude",
+      "_read_date": "2026-05-27",
+      "_success": true
     },
     "2605.17497": {
       "_schema_version": "v3",
@@ -38438,33 +38175,19 @@
       "affiliation_primary": "Tsinghua University",
       "summary": "Self-supervised on-policy distillation from intra-group correct-wrong contrast in GRPO",
       "method": {
-        "training_loop": "For each prompt, sample GRPO group, select shortest-correct as witness and longest-wrong for prefix editing, distill stop-gradient teacher (conditioned on witness) into student at failed prefixes, combine GRPO loss + frontier-weighted SSOPD loss",
-        "loss_formulation": "L(x) = L_GRPO(x) + λ_x * L_SSOPD(x), where λ_x = λ_0 · 4 p̂_x (1 - p̂_x) and L_SSOPD = (1/K_-) Σ ℓ_OPSD(s^-_t, y^+)",
-        "data_source": "OpenThoughts math subset (up to 30K problems with verified answers)",
-        "key_components": [
-          "shortest-correct/longest-wrong pairing rule",
-          "frontier weight coefficient",
-          "pointwise-clipped forward KL distillation",
-          "stop-gradient self-teacher conditioned on successful witness",
-          "stopping-time motivation"
-        ]
+        "teacher": "Stop-gradient copy of model conditioned on successful completion (self-generated witness)",
+        "student": "Same model (Qwen3-8B, etc.) trained with GRPO + auxiliary distillation loss",
+        "loss_formulation": "Token-level KL distillation from teacher (conditioned on correct witness) to student at failed prefixes, weighted by prompt-level frontier weight"
       },
       "novelty": "Converts intra-group correct-wrong contrast from GRPO rollouts into dense process supervision via self-distillation without external solution traces, using a stopping-time-motivated shortest-correct/longest-wrong selection rule and frontier weighting",
       "on_policy_mechanism": {
-        "student_rollout_in_training": "yes",
         "rollout_frequency": "per-step",
-        "teacher_signal": "logits",
-        "signal_source": "self",
-        "evidence_quote": "SSOPD keeps the same non-privileged setting, but adds our auxiliary distillation term: the model's own shortest correct completion serves as the successful witness, prefixes of the longest wrong completion are edited"
+        "signal_source": "Self-generated correct completions as privileged hindsight (no external teacher)"
       },
       "opd_classification": {
         "is_opd": "yes",
-        "primary_section": "§5.3.2",
-        "secondary_sections": [
-          "§4.3",
-          "§6.1"
-        ],
-        "reasoning": "Core contribution is self-distillation from the model's own on-policy rollouts (no external teacher), making it pure on-policy self-distillation with RL-augmented auxiliary loss and frontier weighting."
+        "section": "self-supervised on-policy distillation for math reasoning",
+        "output_modality": "text"
       },
       "teacher_student_pairs": [
         {
@@ -38661,7 +38384,12 @@
       ],
       "score": 8,
       "_worker": "v2-direct-llm-api",
-      "_model": "claude"
+      "_model": "claude",
+      "arxiv_id": "2605.17497",
+      "is_opd": "yes",
+      "verdict_reason": "SSOPD distills a stop-gradient teacher (conditioned on the shortest correct self-generated completion) into the student at prefixes of the longest wrong completion. Uses on-policy GRPO group rollouts per training step; the teacher distribution is constructed from the same policy's successful samples as privileged hindsight.",
+      "deep_read_date": "2026-05-28",
+      "deep_read_method": "pdf_pages_1-6_pdftotext + sub-agent + independent_spot_check"
     },
     "2605.17873": {
       "_schema_version": "v3",
@@ -38673,32 +38401,19 @@
       "affiliation_primary": "KAIST",
       "summary": "Targeted self-distillation selecting failure-relevant turns for long-horizon agent training",
       "method": {
-        "training_loop": "Rollout failed trajectories → hindsight analyzer selects failure-relevant turns with feedback → self-distillation (reverse KL) only on selected action spans with feedback-conditioned teacher",
-        "loss_formulation": "L = ∑_{i∈I} ∑_{t=1}^{|a_i|} D_KL(π_θ(·|h_i, a_{i,<t}) ∥ sg(π_θ(·|h_i, f_i, a_{i,<t})))",
-        "data_source": "On-policy rollouts from current policy on BFCL v3 and AppWorld environments",
-        "key_components": [
-          "full-trajectory hindsight analysis for target-turn selection",
-          "feedback-conditioned self-distillation on selected action spans",
-          "EMA teacher update",
-          "reverse KL distillation loss"
-        ]
+        "teacher": "Same model conditioned on full-trajectory hindsight feedback (textual critiques/hints)",
+        "student": "Same LLM agent (feedback-free, inference-time version)",
+        "loss_formulation": "Token-level distillation loss on targeted action spans (teacher conditioned on hindsight → student)"
       },
       "novelty": "Unlike prior methods that apply feedback uniformly across trajectories or at every turn, HINT-SD uses full-trajectory hindsight to select failure-relevant turns and applies feedback-conditioned self-distillation only at those targeted action spans, improving both effectiveness and efficiency.",
       "on_policy_mechanism": {
-        "student_rollout_in_training": "yes",
-        "rollout_frequency": "per-outer-iter",
-        "teacher_signal": "logits",
-        "signal_source": "self",
-        "evidence_quote": "we use four rollouts per task and train for 15 epochs. Moreover, we restrict hindsight feedback generation to at most three failure-relevant steps per failed trajectory."
+        "rollout_frequency": "per-step",
+        "signal_source": "Full-trajectory hindsight feedback (textual critiques from failed trajectories)"
       },
       "opd_classification": {
         "is_opd": "yes",
-        "primary_section": "§5.3.2",
-        "secondary_sections": [
-          "§6.1",
-          "§4.2"
-        ],
-        "reasoning": "The core contribution is a self-distillation framework where the same policy serves as both teacher (with hindsight feedback) and student (without feedback), with targeted turn selection—this is pure on-policy self-distillation with adaptive supervision placement."
+        "section": "targeted on-policy self-distillation for long-horizon agents",
+        "output_modality": "text"
       },
       "teacher_student_pairs": [
         {
@@ -38852,7 +38567,12 @@
       ],
       "score": 8,
       "_worker": "v2-direct-llm-api",
-      "_model": "claude"
+      "_model": "claude",
+      "arxiv_id": "2605.17873",
+      "is_opd": "yes",
+      "verdict_reason": "HINT-SD uses feedback-conditioned self-distillation where a teacher (same model conditioned on full-trajectory hindsight feedback) provides token-level supervision on targeted failure-relevant action spans. Student generates on-policy rollouts, hindsight identifies failure spans, teacher distills corrective behavior.",
+      "deep_read_date": "2026-05-28",
+      "deep_read_method": "pdf_pages_1-6_pdftotext + sub-agent + independent_spot_check"
     },
     "2605.18299": {
       "_schema_version": "v3",
@@ -38864,33 +38584,19 @@
       "affiliation_primary": "Kuaishou Technology",
       "summary": "On-policy hindsight self-distillation for step-level search query supervision in RL",
       "method": {
-        "training_loop": "GRPO rollouts sampled; teacher forward pass with hindsight block (sibling rollout search spans + outcome labels); student aligned to teacher via token-level JSD at search-query positions; combined loss = GRPO + αSD*LSD",
-        "loss_formulation": "L_total = L_GRPO + α_SD * (1/|Q_τ|) Σ_{p∈Q_τ} JSD(P^tch_p ∥ P^stu_p)",
-        "data_source": "NQ + HotpotQA training sets with Wikipedia (Dec 2018) retrieval corpus",
-        "key_components": [
-          "hindsight information block with future masking",
-          "on-policy self-distillation (same policy as teacher and student)",
-          "token-level JSD at search-query positions",
-          "outcome conditioning (CORRECT/INCORRECT labels)",
-          "multi-rollout group contrast"
-        ]
+        "teacher": "Same model conditioned on compact hindsight block (search queries + outcomes of group rollouts)",
+        "student": "Same model without hindsight (inference-time conditioning only)",
+        "loss_formulation": "Token-level Jensen-Shannon divergence DJS(teacher ∥ student) at search-query positions"
       },
       "novelty": "Derives step-level supervision for search queries from the policy itself via hindsight conditioning on sibling rollout outcomes, replacing external teacher models or auxiliary annotations required by prior process-supervision methods",
       "on_policy_mechanism": {
-        "student_rollout_in_training": "yes",
         "rollout_frequency": "per-step",
-        "teacher_signal": "logits",
-        "signal_source": "self",
-        "evidence_quote": "SD-Search uses the same policy under two conditioning contexts: a student view that contains only the inference-time context, and a teacher view that additionally conditions on a hindsight information block"
+        "signal_source": "Self-generated hindsight from group rollout outcomes (no external model)"
       },
       "opd_classification": {
         "is_opd": "yes",
-        "primary_section": "§5.3.2",
-        "secondary_sections": [
-          "§4.1",
-          "§6.1"
-        ],
-        "reasoning": "Core contribution is on-policy self-distillation where the same policy serves as both teacher (with hindsight conditioning) and student, deriving step-level supervision without any external teacher—pure self-distillation."
+        "section": "on-policy self-distillation for search/retrieval-augmented reasoning",
+        "output_modality": "text"
       },
       "teacher_student_pairs": [
         {
@@ -39142,283 +38848,12 @@
       ],
       "score": 8,
       "_worker": "v2-direct-llm-api",
-      "_model": "claude"
-    },
-    "2605.16941": {
-      "_schema_version": "v3",
-      "paper_id": "2605.16941",
-      "title": "Roll Out and Roll Back: Diffusion LLMs are Their Own Efficiency Teachers",
-      "venue": "arXiv 2026",
-      "year": 2025,
-      "authors_first": "Fanqin Zeng",
-      "affiliation_primary": "Shanghai Jiao Tong University",
-      "summary": "Self-distillation for DLLMs via revokable decoding (WINO) and trajectory injection (WINO+)",
-      "method": {
-        "training_loop": "Run WINO offline to collect verified denoising trajectories; extract token finalization steps; construct order-aware training states; LoRA post-train DLLM with trajectory-consistency losses (Ltok + Ldefer + λLsharp)",
-        "loss_formulation": "L = L_tok + L_defer + λ L_sharp, where L_tok = -1/|A_t| Σ log p(y†_l), L_defer = -1/|R_t| Σ H(p), L_sharp = 1/|C_t| Σ H(p)",
-        "data_source": "WINO-generated trajectories from GSM8K, Countdown-Tasks-3to4, IconQA training sets filtered by correctness",
-        "key_components": [
-          "WINO revokable draft-and-verify decoding",
-          "Token finalization step extraction",
-          "Trajectory-guided training states",
-          "Trajectory consistency objective (Ltok + Ldefer + Lsharp)",
-          "LoRA post-training"
-        ]
-      },
-      "novelty": "Introduces revokable parallel decoding for DLLMs that discovers reliable token generation orders, then distills those verified trajectories back into model parameters via trajectory-ordered denoising training, eliminating online verification at inference",
-      "on_policy_mechanism": {
-        "student_rollout_in_training": "yes",
-        "rollout_frequency": "once-before-training",
-        "teacher_signal": "self",
-        "signal_source": "self",
-        "evidence_quote": "We therefore propose WINO+, a trajectory guided training method that internalizes the verified denoising order produced by WINO. For each training instance, we first run WINO offline and record when each generated token becomes stable."
-      },
-      "opd_classification": {
-        "is_opd": "yes",
-        "primary_section": "§5.3.2",
-        "secondary_sections": [
-          "§6.2"
-        ],
-        "reasoning": "The core contribution is self-distillation where the DLLM's own verified rollouts (via WINO) serve as the teacher signal for trajectory-injection training—pure self-distillation with no external teacher."
-      },
-      "teacher_student_pairs": [
-        {
-          "teacher": {
-            "name": "LLaDA-8B-Instruct (WINO)",
-            "family": "Llama",
-            "size_B": 8,
-            "type": "dense",
-            "moe_active_B": null,
-            "is_self": true,
-            "is_api_only": false
-          },
-          "student": {
-            "name": "LLaDA-8B-Instruct",
-            "family": "Llama",
-            "size_B": 8,
-            "type": "dense",
-            "init_from": "SFT",
-            "is_self": true
-          },
-          "vocab_match": "shared",
-          "scenario": "main"
-        },
-        {
-          "teacher": {
-            "name": "MMaDA-8B-MixCoT (WINO)",
-            "family": "Llama",
-            "size_B": 8,
-            "type": "dense",
-            "moe_active_B": null,
-            "is_self": true,
-            "is_api_only": false
-          },
-          "student": {
-            "name": "MMaDA-8B-MixCoT",
-            "family": "Llama",
-            "size_B": 8,
-            "type": "dense",
-            "init_from": "SFT",
-            "is_self": true
-          },
-          "vocab_match": "shared",
-          "scenario": "main"
-        }
-      ],
-      "training_setup": {
-        "compute_budget": "8×RTX3090",
-        "tokens_seen_B": null,
-        "context_length": 256,
-        "rollout_batch_size": null,
-        "rollouts_per_iter": null,
-        "kl_coeff": null,
-        "rl_algorithm": "pure-KD",
-        "stabilization_tricks": [
-          "LoRA fine-tuning",
-          "trajectory filtering by correctness"
-        ],
-        "warmup_off_policy": "n/a",
-        "warmup_method": "n/a"
-      },
-      "datasets": {
-        "train": [
-          "GSM8K",
-          "Countdown-Tasks-3to4",
-          "IconQA"
-        ],
-        "eval": [
-          "GSM8K",
-          "MATH-500",
-          "HumanEval",
-          "MBPP",
-          "Countdown",
-          "Sudoku",
-          "ARC-E",
-          "ARC-C",
-          "Flickr30k",
-          "AI2D",
-          "MATH-Vision",
-          "MathVista-mini",
-          "MMMU-val",
-          "ScienceQA"
-        ],
-        "domain": "multi-modal"
-      },
-      "benchmarks": [
-        {
-          "name": "GSM8K",
-          "metric": "accuracy",
-          "student_baseline": 73.24,
-          "student_after_OPD": 76.58,
-          "delta": 3.34,
-          "teacher_score": null,
-          "gap_closed_pct": null,
-          "is_main_result": true
-        },
-        {
-          "name": "MATH-500",
-          "metric": "accuracy",
-          "student_baseline": 32.0,
-          "student_after_OPD": 34.4,
-          "delta": 2.4,
-          "teacher_score": null,
-          "gap_closed_pct": null,
-          "is_main_result": true
-        },
-        {
-          "name": "HumanEval",
-          "metric": "accuracy",
-          "student_baseline": 37.8,
-          "student_after_OPD": 42.68,
-          "delta": 4.88,
-          "teacher_score": null,
-          "gap_closed_pct": null,
-          "is_main_result": true
-        },
-        {
-          "name": "MBPP",
-          "metric": "accuracy",
-          "student_baseline": 36.4,
-          "student_after_OPD": 37.2,
-          "delta": 0.8,
-          "teacher_score": null,
-          "gap_closed_pct": null,
-          "is_main_result": true
-        },
-        {
-          "name": "Countdown",
-          "metric": "accuracy",
-          "student_baseline": 24.21,
-          "student_after_OPD": 48.05,
-          "delta": 23.84,
-          "teacher_score": null,
-          "gap_closed_pct": null,
-          "is_main_result": true
-        },
-        {
-          "name": "Sudoku",
-          "metric": "accuracy",
-          "student_baseline": 14.23,
-          "student_after_OPD": 18.37,
-          "delta": 4.14,
-          "teacher_score": null,
-          "gap_closed_pct": null,
-          "is_main_result": true
-        },
-        {
-          "name": "ARC-E",
-          "metric": "accuracy",
-          "student_baseline": 59.13,
-          "student_after_OPD": 84.97,
-          "delta": 25.84,
-          "teacher_score": null,
-          "gap_closed_pct": null,
-          "is_main_result": true
-        },
-        {
-          "name": "ARC-C",
-          "metric": "accuracy",
-          "student_baseline": 51.87,
-          "student_after_OPD": 80.6,
-          "delta": 28.73,
-          "teacher_score": null,
-          "gap_closed_pct": null,
-          "is_main_result": true
-        },
-        {
-          "name": "Flickr30k",
-          "metric": "CIDEr",
-          "student_baseline": 53.67,
-          "student_after_OPD": 63.38,
-          "delta": 9.71,
-          "teacher_score": null,
-          "gap_closed_pct": null,
-          "is_main_result": true
-        },
-        {
-          "name": "MMMU-val",
-          "metric": "accuracy",
-          "student_baseline": 18.56,
-          "student_after_OPD": 28.11,
-          "delta": 9.55,
-          "teacher_score": null,
-          "gap_closed_pct": null,
-          "is_main_result": true
-        },
-        {
-          "name": "ScienceQA",
-          "metric": "accuracy",
-          "student_baseline": 30.89,
-          "student_after_OPD": 53.84,
-          "delta": 22.95,
-          "teacher_score": null,
-          "gap_closed_pct": null,
-          "is_main_result": true
-        }
-      ],
-      "key_findings": [
-        "WINO improves GSM8K accuracy from 73.24% to 75.82% with 6.10× step reduction; WINO+ further achieves 76.58% with 6.83× reduction",
-        "On Flickr30K, WINO+ reaches 16.22× step reduction with CIDEr improvement from 53.67 to 63.38",
-        "WINO+ improves ARC-C from 51.87% to 80.60% with 8.90× step reduction",
-        "WINO-trajectory injection outperforms random-trajectory injection (76.58% vs 72.63% on GSM8K)",
-        "Under standard 256-step decoding, WINO+ model alone improves GSM8K from 73.24% to 79.23%"
-      ],
-      "ablations_summary": "Verification module is critical (removing it degrades quality); WINO trajectories outperform random trajectories; Ltok provides basic acceleration, Ldefer suppresses premature errors (+2.43% on GSM8K), Lsharp further refines confidence; λ=0.1 achieves best quality-efficiency trade-off",
-      "limitations": [
-        "Requires offline WINO trajectory generation step before training",
-        "Limited to open-source DLLMs (LLaDA, MMaDA) for evaluation",
-        "Trajectory filtering requires ground truth answers for correctness checking"
-      ],
-      "failure_modes": [
-        "On MBPP, WINO matches but does not improve baseline accuracy",
-        "Higher λ values for sharpening loss hurt accuracy despite improving speed"
-      ],
-      "compute_efficiency": {
-        "teacher_inference_cost": "amortized",
-        "speedup_vs_baseline": "6.83×",
-        "memory_footprint": "shared"
-      },
-      "openness": {
-        "code_released": "yes",
-        "code_url": "https://github.com/Feng-Hong/WINO-DLLM/tree/WINO-plus",
-        "model_released": "no",
-        "data_released": "no"
-      },
-      "theory": {
-        "has_theoretical_analysis": "no",
-        "theoretical_claim": null,
-        "proof_sketch": null
-      },
-      "relevance_to_opd": "Self-distillation where the model's own verified rollouts (via revokable decoding) serve as on-policy training trajectories, aligning training with efficient inference order without an external teacher",
-      "comparable_papers": [
-        "2502.09992",
-        "2505.15809",
-        "2505.22618",
-        "2505.24857"
-      ],
-      "score": 6,
-      "_worker": "v2-direct-llm-api",
-      "_model": "claude"
+      "_model": "claude",
+      "arxiv_id": "2605.18299",
+      "is_opd": "yes",
+      "verdict_reason": "SD-Search uses a self-teacher conditioned on a hindsight block (summarizing rollout outcomes) and minimizes token-level Jensen-Shannon divergence to the student at search-query positions. Fully on-policy: signal produced by the policy itself within the standard GRPO training loop per step.",
+      "deep_read_date": "2026-05-28",
+      "deep_read_method": "pdf_pages_1-6_pdftotext + sub-agent + independent_spot_check"
     },
     "2605.16865": {
       "_schema_version": "v3",
@@ -39679,179 +39114,9 @@
       ],
       "score": 4,
       "_worker": "v2-direct-llm-api",
-      "_model": "claude"
-    },
-    "2605.19776": {
-      "_schema_version": "v3",
-      "paper_id": "2605.19776",
-      "title": "Preferences Order, Ratings Anchor: From Fused Expert Aesthetic Ground Truth to Self-Distillation",
-      "venue": "arXiv 2026",
-      "year": 2026,
-      "authors_first": "Yuanpei Zhao",
-      "affiliation_primary": "Sichuan University",
-      "summary": "Fuses expert preferences and ratings into calibrated aesthetic ground truth; self-distills VLM via Elo pseudo-scores and confidence-weighted GRPO",
-      "method": {
-        "training_loop": "Offline: VLM pairwise judgments → Elo reference pool → calibrated pseudo-scores. Online: GRPO with confidence-weighted ranking-fidelity reward trains same VLM into single-pass scorer.",
-        "loss_formulation": "L(θ) = (1/BG) Σ min(ρ_k · a_k, clip(ρ_k, 1-ε, 1+ε) · a_k) - β D_KL(π_θ ∥ π_ref)",
-        "data_source": "~3000 unlabeled Chinese paintings (flower-and-bird category from PPAINT)",
-        "key_components": [
-          "Elo reference pool for pseudo-score calibration",
-          "Bayesian posterior inference for sparse comparisons",
-          "Sigmoid calibration to 1-5 scale",
-          "Confidence-weighted ranking-fidelity reward",
-          "GRPO training"
-        ]
-      },
-      "novelty": "Converts VLM pairwise self-judgments into calibrated continuous pseudo-scores via Elo reference pool, then distills with confidence-weighted GRPO; prior work (EvoQuality) uses majority-vote preferences causing score collapse",
-      "on_policy_mechanism": {
-        "student_rollout_in_training": "yes",
-        "rollout_frequency": "per-step",
-        "teacher_signal": "self",
-        "signal_source": "self",
-        "evidence_quote": "PSDISTILL converts VLM pairwise judgments into calibrated pseudo-scores via an Elo reference pool, and trains the same VLM with confidence-weighted ranking optimization to produce a single-pass aesthetic scorer."
-      },
-      "opd_classification": {
-        "is_opd": "yes",
-        "primary_section": "§5.3.2",
-        "secondary_sections": [
-          "§4.3",
-          "§6.1"
-        ],
-        "reasoning": "Core contribution is pure self-distillation: the same VLM generates pairwise pseudo-labels offline, which are converted to scores and used to train itself via GRPO; no external teacher or human labels in training loop."
-      },
-      "teacher_student_pairs": [
-        {
-          "teacher": {
-            "name": "Qwen3-VL-8B-Instruct",
-            "family": "Qwen3",
-            "size_B": 8,
-            "type": "dense",
-            "moe_active_B": null,
-            "is_self": true,
-            "is_api_only": false
-          },
-          "student": {
-            "name": "Qwen3-VL-8B-Instruct",
-            "family": "Qwen3",
-            "size_B": 8,
-            "type": "dense",
-            "init_from": "SFT",
-            "is_self": true
-          },
-          "vocab_match": "shared",
-          "scenario": "main"
-        }
-      ],
-      "training_setup": {
-        "compute_budget": "8×A100 80GB",
-        "tokens_seen_B": null,
-        "context_length": 512,
-        "rollout_batch_size": 64,
-        "rollouts_per_iter": null,
-        "kl_coeff": null,
-        "rl_algorithm": "GRPO",
-        "stabilization_tricks": [
-          "confidence weighting for noisy pseudo-labels",
-          "gradient clipping at 1.0"
-        ],
-        "warmup_off_policy": "no",
-        "warmup_method": "n/a"
-      },
-      "datasets": {
-        "train": [
-          "PPAINT unlabeled flower-and-bird (~3000 images)"
-        ],
-        "eval": [
-          "PPAINT (150 images, 3 categories, 5 dimensions)",
-          "APDDv2 oil-painting",
-          "APDDv2 sketching"
-        ],
-        "domain": "multi-modal"
-      },
-      "benchmarks": [
-        {
-          "name": "PPAINT (mean across 3 categories)",
-          "metric": "SRCC",
-          "student_baseline": 0.504,
-          "student_after_OPD": 0.709,
-          "delta": 0.205,
-          "teacher_score": null,
-          "gap_closed_pct": null,
-          "is_main_result": true
-        },
-        {
-          "name": "PPAINT (mean across 3 categories)",
-          "metric": "PLCC",
-          "student_baseline": 0.512,
-          "student_after_OPD": 0.709,
-          "delta": 0.197,
-          "teacher_score": null,
-          "gap_closed_pct": null,
-          "is_main_result": true
-        },
-        {
-          "name": "APDDv2 Oil painting",
-          "metric": "SRCC",
-          "student_baseline": 0.54,
-          "student_after_OPD": 0.752,
-          "delta": 0.212,
-          "teacher_score": null,
-          "gap_closed_pct": null,
-          "is_main_result": false
-        },
-        {
-          "name": "APDDv2 Sketching",
-          "metric": "SRCC",
-          "student_baseline": 0.477,
-          "student_after_OPD": 0.587,
-          "delta": 0.11,
-          "teacher_score": null,
-          "gap_closed_pct": null,
-          "is_main_result": false
-        }
-      ],
-      "key_findings": [
-        "PSDISTILL improves mean SRCC from 0.504 to 0.709 (40.7% relative) across three Chinese painting categories at single-pass inference cost.",
-        "PSDISTILL outperforms dedicated aesthetic model ArtiMuse (0.686) and larger Qwen3-VL-32B (0.663) in mean SRCC.",
-        "PSDISTILL comes within 0.04 SRCC of closed-source Gemini-3.1-Pro (0.746 vs 0.709).",
-        "Confidence weighting raises mean SRCC from 0.660 to 0.709 (7.4% relative improvement).",
-        "Calibrated Elo pseudo-labels (0.709) substantially outperform majority-vote (0.628) and pointwise distillation (0.557)."
-      ],
-      "ablations_summary": "Confidence weighting adds +7.4% relative SRCC; Calibrated Elo >> majority-vote >> PW-Distill for pseudo-label quality; 10 score anchors sufficient; cross-category training spread only 0.019 SRCC for PSDISTILL vs 0.050 for EvoQuality; gains preserved under pure human pointwise evaluation targets.",
-      "limitations": [
-        "Validated only on Chinese painting aesthetics with a 150-image diagnostic benchmark rather than large-scale leaderboard",
-        "Extension to non-art domains such as photographic quality left to future work",
-        "Validation across additional model families not performed"
-      ],
-      "failure_modes": [
-        "Landscape category (absent from training) shows the largest remaining gap to closed-source leader",
-        "5-anchor configuration degrades PLCC from 0.695 to 0.565 while preserving SRCC, indicating calibration sensitivity"
-      ],
-      "compute_efficiency": {
-        "teacher_inference_cost": "amortized",
-        "speedup_vs_baseline": "not-reported",
-        "memory_footprint": "unspecified"
-      },
-      "openness": {
-        "code_released": "promised",
-        "code_url": null,
-        "model_released": "no",
-        "data_released": "promised"
-      },
-      "theory": {
-        "has_theoretical_analysis": "no",
-        "theoretical_claim": null,
-        "proof_sketch": null
-      },
-      "relevance_to_opd": "Self-distillation where the same VLM generates pairwise preference pseudo-labels offline, converts them to calibrated scores via Elo, and trains itself on-policy via GRPO with a ranking-fidelity reward. Demonstrates that preference-to-score bridging improves over naive self-generated supervision.",
-      "comparable_papers": [
-        "2405.19298",
-        "2505.14460",
-        "2509.25787"
-      ],
-      "score": 5,
-      "_worker": "v2-direct-llm-api",
-      "_model": "claude"
+      "_model": "claude",
+      "_read_date": "2026-05-27",
+      "_success": true
     },
     "2605.19433": {
       "_schema_version": "v3",
@@ -39863,32 +39128,19 @@
       "affiliation_primary": "Jilin University",
       "summary": "MOTAB monitors student on-policy trajectories and backtracks to safe states for teacher correction to resolve dual exposure biases in reasoning distillation",
       "method": {
-        "training_loop": "Student generates on-policy reasoning steps; teacher monitors via adaptive entropy boundary; on boundary breach, credit assignment backtracks to safe state; teacher generates correction suffix; stitched trajectory used for SFT",
-        "loss_formulation": "J_MOTAB = E_{s~dπS} [ I[VT≥γ] * (-log πS(yS|s)) + I[VT<γ] * E_{YT~πT(·|s*)} (-log πS([REV]⊕YT | s⊕yt)) ]",
-        "data_source": "LIMO-v2 (800 problems) and AceReason (10k problems) with MOTAB-synthesized trajectories",
-        "key_components": [
-          "adaptive entropy-based safety boundary",
-          "credit assignment state backtracking via temporal difference error",
-          "off-policy trajectory stitching with [REV] token",
-          "teacher-guided step-level value function"
-        ]
+        "teacher": "Larger teacher model (e.g., DeepSeek-level) providing token probabilities as dense feedback",
+        "student": "Compact student model (trained on LIMO-v2 and AceReason datasets)",
+        "loss_formulation": "Token-level KL guided by teacher token probabilities along student on-policy trajectories with backtracking to teacher intervention at safety boundary violations"
       },
       "novelty": "Identifies reversed exposure bias in on-policy distillation (teacher fails on student sub-optimal contexts) and resolves dual biases via adaptive monitoring with backtracking to safe states for teacher intervention, unlike SKD which immediately corrects deviations",
       "on_policy_mechanism": {
-        "student_rollout_in_training": "yes",
         "rollout_frequency": "per-step",
-        "teacher_signal": "logits",
-        "signal_source": "external-teacher",
-        "evidence_quote": "MOTAB dynamically monitors the student's on-policy generation against an adaptive safety boundary. When the generation strays and exceeds this threshold, MOTAB backtracks to the last safe state and leverages teacher intervention to correct the course."
+        "signal_source": "teacher_distribution"
       },
       "opd_classification": {
         "is_opd": "yes",
-        "primary_section": "§6.2",
-        "secondary_sections": [
-          "§4.2",
-          "§5.1"
-        ],
-        "reasoning": "Core contribution is an adaptive curriculum-like boundary mechanism that controls when/where teacher intervenes on student on-policy trajectories, combining adaptive thresholding with trajectory stitching for distillation data synthesis."
+        "section": "on-policy distillation with exposure-bias mitigation",
+        "output_modality": "text"
       },
       "teacher_student_pairs": [
         {
@@ -40120,7 +39372,12 @@
       ],
       "score": 8,
       "_worker": "v2-direct-llm-api",
-      "_model": "claude"
+      "_model": "claude",
+      "arxiv_id": "2605.19433",
+      "is_opd": "yes",
+      "verdict_reason": "MOTAB is explicitly an on-policy distillation method where student generates own reasoning trajectories guided by teacher's dense token-level feedback (token probabilities), with a dynamic monitoring/backtracking mechanism to handle dual exposure bias.",
+      "deep_read_date": "2026-05-28",
+      "deep_read_method": "pdf_pages_1-6_pdftotext + sub-agent + independent_spot_check"
     },
     "2605.13724": {
       "_schema_version": "v3",
@@ -40153,13 +39410,14 @@
         "evidence_quote": "In Stage 2, for each training iteration, we sample noise z_T, then run FMBS: z_T → z_t via shortcut (no grad), z_t → z_r via the target step (with grad), z_r → ẑ₀ via shortcut (with grad). We then re-noise ẑ₀ to compute the DMD gradient using frozen teacher score s_real and student discriminator s_fake, backpropagating through the full FMBS chain. By varying N during training, the model learns all step counts with the same computational cost."
       },
       "opd_classification": {
-        "is_opd": "yes",
+        "is_opd": "no",
         "primary_section": "§8.2",
         "secondary_sections": [
           "§4.1",
           "§6.3"
         ],
-        "reasoning": "核心贡献是视频扩散这一新兴领域的在线策略蒸馏系统（AnyFlow），使用 FMBS 实现每步 student rollout + DMD 目标，属于新领域 OPD 应用。"
+        "reasoning": "核心贡献是视频扩散这一新兴领域的在线策略蒸馏系统（AnyFlow），使用 FMBS 实现每步 student rollout + DMD 目标，属于新领域 OPD 应用。",
+        "rejected_reason": "Video generation (Wan2.1-14B + VBench). Per 5/15 scope: video output not collected."
       },
       "teacher_student_pairs": [
         {
@@ -40357,7 +39615,11 @@
       "score": 7,
       "_read_date": "2026-05-21T16:00:34.762205",
       "_attempts": 1,
-      "_success": true
+      "_success": true,
+      "is_opd": "no",
+      "rejected_date": "2026-05-29",
+      "rejected_by": "boss decision",
+      "rejected_reason": "Video generation (Wan2.1-14B + VBench). Per 5/15 scope: video output not collected."
     },
     "2605.20643": {
       "_schema_version": "v3",
@@ -40369,33 +39631,19 @@
       "affiliation_primary": "UNC Chapel Hill",
       "summary": "Multi-view on-policy self-distillation separating consensus from view-specific residual signals",
       "method": {
-        "training_loop": "Sample on-policy rollout from student; evaluate M privileged-view teachers at same prefix; compute geometric consensus + gated residual target; minimize reverse-KL to reconstructed target",
-        "loss_formulation": "L_AVSD(θ) = E_{(x,r)~D} E_{y~P_θ^S(·|x)} Σ_t D_KL(p_θ(·|h_t) || sg[q_t^*(·)])",
-        "data_source": "OpenThoughts math subset; Codeforces Python subset (5K examples)",
-        "key_components": [
-          "geometric consensus target",
-          "arithmetic marginal target",
-          "cross-view residual",
-          "two-component gate (alignment + magnitude)",
-          "on-policy reverse-KL self-distillation"
-        ]
+        "teacher": "Same model in teacher mode conditioned on privileged information (3 views: full solution, partial CoT rationale, gold answer)",
+        "student": "Same model in student mode (no privileged information)",
+        "loss_formulation": "Token-level KL with geometric target combining consensus across views plus gated view-specific residuals"
       },
       "novelty": "Decomposes multi-view privileged teacher signals into geometric consensus and gated residual, preventing any single privileged view from dominating the token-level update while preserving complementary information",
       "on_policy_mechanism": {
-        "student_rollout_in_training": "yes",
         "rollout_frequency": "per-step",
-        "teacher_signal": "logits",
-        "signal_source": "self",
-        "evidence_quote": "During training, we sample an on-policy rollout y = (y_1,...,y_T) ~ P^S_θ(·|x). We denote the prefix at position t as h_t = (x, y_{<t})."
+        "signal_source": "teacher_distribution"
       },
       "opd_classification": {
         "is_opd": "yes",
-        "primary_section": "§5.3.1",
-        "secondary_sections": [
-          "§4.2",
-          "§6.1"
-        ],
-        "reasoning": "Core contribution is a novel multi-view aggregation mechanism for on-policy self-distillation using privileged information (PI), with adaptive gating of token-level signals"
+        "section": "on-policy self-distillation with multi-view privileged information",
+        "output_modality": "text"
       },
       "teacher_student_pairs": [
         {
@@ -40586,7 +39834,12 @@
       ],
       "score": 8,
       "_worker": "v2-direct-llm-api",
-      "_model": "claude"
+      "_model": "claude",
+      "arxiv_id": "2605.20643",
+      "is_opd": "yes",
+      "verdict_reason": "Self-distillation with multiple privileged-information views (full solution, partial CoT, answer-only) as teachers; student generates on-policy rollouts, teacher modes provide token-level KL targets via geometric consensus with gated residual signals.",
+      "deep_read_date": "2026-05-28",
+      "deep_read_method": "pdf_pages_1-6_pdftotext + sub-agent + independent_spot_check"
     },
     "2605.22240": {
       "_schema_version": "v3",
@@ -40598,32 +39851,19 @@
       "affiliation_primary": "Keeta AI, Meituan",
       "summary": "Asymmetric on-policy self-distillation from privileged user concerns for proactive TOD",
       "method": {
-        "training_loop": "Sample personas from CUS; rollout deployable policy; compute privileged-view KL distillation (AOPD) + state-transition policy gradient (STPR); joint gradient update over inner epochs",
-        "loss_formulation": "L = L_AOPD(P^int) + λ_st * L_STPR(d, {Δw_k})",
-        "data_source": "Simulated dialogues from Cognitive User Simulator calibrated on 100K+ real outbound-call logs",
-        "key_components": [
-          "Cognitive User Simulator (CUS) with stratified persona",
-          "Asymmetric On-Policy Self-Distillation (AOPD)",
-          "State-Transition Policy Refinement (STPR)",
-          "Information asymmetry between privileged and deployable views"
-        ]
+        "teacher": "Same policy conditioned on privileged view (user's latent concerns visible)",
+        "student": "Same policy in deployable mode (conversation-only view, no access to latent concerns)",
+        "loss_formulation": "KL-based self-distillation from privileged-view teacher to conversation-only student (asymmetric on-policy self-distillation)"
       },
       "novelty": "Introduces asymmetric self-distillation where the same policy under a privileged view (conditioned on latent user concerns) serves as teacher for its deployable view, combined with simulator state-transition credit assignment, eliminating the need for separate teacher models or external reward models",
       "on_policy_mechanism": {
-        "student_rollout_in_training": "yes",
-        "rollout_frequency": "per-outer-iter",
-        "teacher_signal": "logits",
-        "signal_source": "self",
-        "evidence_quote": "We define two information views of the same policy π_θ: a privileged teacher view whose context is augmented with the user's internal persona P^int, and a deployable student view that observes only the task instruction and dialogue history. For each student-generated token in an on-policy rollout, we compute the probability distributions under both views and minimize their divergence"
+        "rollout_frequency": "per-step",
+        "signal_source": "teacher_distribution"
       },
       "opd_classification": {
         "is_opd": "yes",
-        "primary_section": "§5.3.2",
-        "secondary_sections": [
-          "§4.3",
-          "§6.1"
-        ],
-        "reasoning": "Core contribution is on-policy self-distillation from a privileged view of the same policy (no external teacher), making it pure self-distillation with asymmetric information as the key mechanism"
+        "section": "on-policy self-distillation / task-oriented dialogue with privileged information",
+        "output_modality": "text"
       },
       "teacher_student_pairs": [
         {
@@ -40822,7 +40062,12 @@
       ],
       "score": 7,
       "_worker": "v2-direct-llm-api",
-      "_model": "claude"
+      "_model": "claude",
+      "arxiv_id": "2605.22240",
+      "is_opd": "yes",
+      "verdict_reason": "Uses Asymmetric On-Policy Self-Distillation that transfers concern-aware behavior from a privileged view (same policy conditioned on user's latent concerns) into the deployable conversation-only view, with on-policy rollouts generated through simulator interactions.",
+      "deep_read_date": "2026-05-28",
+      "deep_read_method": "pdf_pages_1-6_pdftotext + sub-agent + independent_spot_check"
     },
     "2605.21924": {
       "_schema_version": "v3",
@@ -40834,30 +40079,19 @@
       "affiliation_primary": "Institute of Automation, CAS",
       "summary": "Token-level visual advantage reweighting for on-policy VLM distillation",
       "method": {
-        "training_loop": "Student generates K rollouts per prompt; teacher scores each token with/without fine-grained visual detail to compute VA; rollout-level reweighting by trajectory-averaged VA; token-level grouped KL (high-VA vs low-VA) averaged separately; reverse KL loss",
-        "loss_formulation": "L = sum_k w^(k) [ lambda * (1/|V^(k)|) sum_{t in V^(k)} KL_t + (1-lambda) * (1/|L^(k)|) sum_{t in L^(k)} KL_t ]",
-        "data_source": "Geometry3K and ViRL39K math datasets",
-        "key_components": [
-          "visual advantage (VA) counterfactual probe",
-          "rollout-level reweighting by trajectory-averaged VA",
-          "token-level grouped KL (high-VA and low-VA groups)"
-        ]
+        "teacher": "Larger Qwen3-VL models (4B, 8B, 32B) scoring student rollouts",
+        "student": "Smaller Qwen3-VL model",
+        "loss_formulation": "Token-level KL with VA-based reweighting: rollout-level by trajectory-averaged VA, token-level KL averaged separately within high-VA and low-VA groups"
       },
       "novelty": "Introduces visual advantage (teacher log-prob difference with/without fine-grained visual detail) as token-level signal and uses it at two granularities (rollout-level reweighting and token-level grouped KL) to prevent dilution of visual supervision in VLM on-policy distillation",
       "on_policy_mechanism": {
-        "student_rollout_in_training": "yes",
         "rollout_frequency": "per-step",
-        "teacher_signal": "logits",
-        "signal_source": "external-teacher",
-        "evidence_quote": "a student learns by matching a teacher's output distribution on its own rollouts. The student generates K rollouts {y^(k)}_{k=1}^K ~ p_S(·|v,q), and the teacher provides token-level targets via the reverse KL"
+        "signal_source": "teacher_distribution"
       },
       "opd_classification": {
         "is_opd": "yes",
-        "primary_section": "§6.1",
-        "secondary_sections": [
-          "§5.1"
-        ],
-        "reasoning": "Core contribution is token-level visual advantage weighting for on-policy distillation in VLMs, which is a token weighting/efficiency technique applied to white-box teacher distillation."
+        "section": "on-policy distillation / vision-language with visual-advantage weighting",
+        "output_modality": "text"
       },
       "teacher_student_pairs": [
         {
@@ -41077,7 +40311,12 @@
       ],
       "score": 8,
       "_worker": "v2-direct-llm-api",
-      "_model": "claude"
+      "_model": "claude",
+      "arxiv_id": "2605.21924",
+      "is_opd": "yes",
+      "verdict_reason": "VA-OPD is explicitly on-policy distillation for VLMs: student generates rollouts, teacher (larger Qwen3-VL model) scores them with token-level KL, reweighted by visual advantage (log-prob difference with/without fine-grained visual detail) at both rollout and token level.",
+      "deep_read_date": "2026-05-28",
+      "deep_read_method": "pdf_pages_1-6_pdftotext + sub-agent + independent_spot_check"
     },
     "2605.21851": {
       "_schema_version": "v3",
@@ -41089,37 +40328,19 @@
       "affiliation_primary": "George Washington University",
       "summary": "Bayesian value recursion for token-level credit in RLVR via oracle-conditioned likelihood ratios",
       "method": {
-        "training_loop": "Sample G rollouts per query; score each token with/without oracle y* context; accumulate log-Bayes-factors into running belief V_t; compute token-level advantage A_t=σ(ℓ_t+logλ_t)-σ(ℓ_t); direction-anchor sign to trajectory outcome; clipped PPO update",
-        "loss_formulation": "Clipped surrogate with Bayesian token-level advantages. Proves OPD log-likelihood ratio is Bayesian evidence. V_t(1-V_t) state weight concentrates credit on pivotal tokens.",
-        "data_source": "DeepScaleR (~40K problem-answer pairs from AMC, AIME, MATH, OlympiadBench)",
-        "key_components": [
-          "Bayesian value recursion via log-odds accumulation",
-          "State weight V_t(1-V_t) modulation",
-          "Direction anchoring to trajectory-level outcome",
-          "Evidence clipping",
-          "Self-oracle or teacher-oracle estimator"
-        ],
-        "teacher_type": "Teacher-oracle (Qwen3-32B) or self-oracle (same model with ground truth)",
-        "rollout_frequency": "Every iteration (GRPO loop, G=8)",
-        "on_policy_mechanism": "Standard OPD with Bayesian value recursion for credit assignment",
-        "key_innovation": "Reinterprets OPD log-likelihood ratio as Bayesian evidence. Derives V_t(1-V_t) weighting that concentrates credit on pivotal tokens. Proves OPD is a special case of OPPO."
+        "teacher": "Self-oracle (student conditioned on ground-truth answer) or teacher-oracle (stronger frozen model conditioned on answer)",
+        "student": "Base LLM (policy being optimized)",
+        "loss_formulation": "Policy gradient with token-level advantage from Bayesian value recursion: advantage = log λ_t * state_weight (not standalone KL, but oracle-derived advantage modulation)"
       },
       "novelty": "Identifies that the OPD per-token log-ratio is a Bayesian sufficient statistic for success probability, accumulates it into a closed-form running value estimate V_t, and modulates credit by V_t(1-V_t) state weight to concentrate gradients on pivotal tokens without a learned critic",
       "on_policy_mechanism": {
-        "student_rollout_in_training": "yes",
-        "rollout_frequency": "per-outer-iter",
-        "teacher_signal": "logits",
-        "signal_source": "PI(GT)",
-        "evidence_quote": "Drawing y_{1:T} ∼ π_θ(· | x), OPD minimizes the on-policy summed reverse KL"
+        "rollout_frequency": "per-step",
+        "signal_source": "oracle_likelihood_ratio"
       },
       "opd_classification": {
         "is_opd": "yes",
-        "primary_section": "§4.3",
-        "secondary_sections": [
-          "§4.1",
-          "§6.1"
-        ],
-        "reasoning": "Core contribution is a novel token-level advantage derived from Bayesian accumulation of the OPD oracle signal, integrated into a clipped policy gradient (RL-augmented distillation objective), with the distillation mechanism being central to the method."
+        "section": "§4.2",
+        "output_modality": "text"
       },
       "teacher_student_pairs": [
         {
@@ -41385,11 +40606,15 @@
       "score": 8,
       "_worker": "v2-direct-llm-api",
       "_model": "claude",
-      "is_opd": true,
+      "is_opd": "yes",
       "pdf_verified": true,
       "survey_section": "§4.2 (token-level credit assignment)",
       "_source": "pdf_verified_20260527",
-      "needs_pdf_confirm": false
+      "needs_pdf_confirm": false,
+      "arxiv_id": "2605.21851",
+      "verdict_reason": "OPPO explicitly derives OPD as strict special case (Eq 5-6). Core signal is teacher log-ratio log λ = log π_T - log π_θ (= KL gradient). Extends with Bayesian V_t(1-V_t) credit assignment. Teacher-oracle + standalone KL connection = Path A.",
+      "deep_read_date": "2026-05-28",
+      "deep_read_method": "pdf_pages_1-6_pdftotext + sub-agent + independent_spot_check"
     },
     "2605.22478": {
       "_schema_version": "v3",
@@ -41517,46 +40742,33 @@
       "comparable_papers": [],
       "score": 2,
       "_worker": "v2-direct-llm-api",
-      "_model": "claude"
+      "_model": "claude",
+      "_read_date": "2026-05-27",
+      "_success": true
     },
     "2605.22511": {
       "_schema_version": "v3",
       "paper_id": "2605.22511",
-      "title": "Search-E1: Self-Distillation Drives Self-Evolution in Search-Augmented Reasoning",
+      "title": "Search-E1: Self-Distillation Drives Self Evolution in Search-Augmented Reasoning",
       "venue": "arXiv 2026",
       "year": 2026,
       "authors_first": "Zihan Liang",
       "affiliation_primary": "unclear",
       "summary": "Self-evolution pipeline alternating GRPO with offline self-distillation for search-augmented reasoning",
       "method": {
-        "training_loop": "Alternate GRPO (outcome reward RL) with offline self-distillation (OFSD): after GRPO converges, sample rollouts, mine (ref, stu) pairs, train LoRA with token-level forward KL aligning student to teacher under privileged context, merge adapter, repeat.",
-        "loss_formulation": "L_OFSD = (1/|R_tau|) sum_{p in R_tau} sum_v min(P^tch(v) * log(P^tch(v)/P^stu(v)), tau_clip)",
-        "data_source": "NaturalQuestions + HotpotQA train splits (~170k QA pairs)",
-        "key_components": [
-          "GRPO with exact-match outcome reward",
-          "Offline Self-Distillation (OFSD)",
-          "Pair mining of sibling trajectories",
-          "Asymmetric conditioning (privileged vs standard prompt)",
-          "Token-level forward KL with pointwise clipping",
-          "LoRA adapter for OFSD stage"
-        ]
+        "teacher": "Same policy under privileged context (efficient sibling trajectory exposed)",
+        "student": "Same policy at inference-time (unprivileged)",
+        "loss_formulation": "Token-level forward KL: D_KL(π_unprivileged ∥ π_privileged)"
       },
       "novelty": "Introduces offline self-distillation (OFSD) between GRPO rounds where the same policy serves as both teacher (conditioned on efficient sibling trajectory) and student, providing dense per-step supervision without any external teacher, auxiliary module, or reward shaping.",
       "on_policy_mechanism": {
-        "student_rollout_in_training": "yes",
         "rollout_frequency": "per-outer-iter",
-        "teacher_signal": "logits",
-        "signal_source": "self",
-        "evidence_quote": "After a GRPO round converges, we sample the policy on its training questions to obtain a fresh rollout pool: for each question q, we draw K trajectories {τ(1),...,τ(K)} from the converged policy"
+        "signal_source": "Self-distillation from privileged sibling trajectory context"
       },
       "opd_classification": {
         "is_opd": "yes",
-        "primary_section": "§5.3.2",
-        "secondary_sections": [
-          "§4.1",
-          "§6.2"
-        ],
-        "reasoning": "Core contribution is self-distillation where the same policy acts as teacher and student under different conditioning; no external teacher is used, making it pure on-policy self-distillation."
+        "section": "Self-distillation / RL+distillation interleaved",
+        "output_modality": "text"
       },
       "teacher_student_pairs": [
         {
@@ -41747,7 +40959,12 @@
       ],
       "score": 7,
       "_worker": "v2-direct-llm-api",
-      "_model": "claude"
+      "_model": "claude",
+      "arxiv_id": "2605.22511",
+      "is_opd": "yes",
+      "verdict_reason": "After each GRPO round, the policy rolls out on training questions and a token-level forward KL objective aligns inference-time distribution to its own distribution under privileged context (exposing efficient sibling trajectory). Rollouts are regenerated per-outer-iter, making this on-policy self-distillation interleaved with RL.",
+      "deep_read_date": "2026-05-28",
+      "deep_read_method": "pdf_pages_1-6_pdftotext + sub-agent + independent_spot_check"
     },
     "2605.22263": {
       "_schema_version": "v3",
@@ -41759,36 +40976,19 @@
       "affiliation_primary": "Harbin Institute of Technology, Shenzhen",
       "summary": "Entropy-routed direction-adaptive self-distillation that reverses teacher pressure at high-entropy tokens",
       "method": {
-        "training_loop": "For each batch: sample rollouts from student without privileged context; compute group-relative verifier advantage; for each token compute student entropy and privileged teacher log-gap; route sign via tanh entropy router with gap gate; update PPO with direction-adaptive advantage",
-        "loss_formulation": "GRPO clipped surrogate + β·signed-KL: ℓ_DASD = -E[PPO_clip(A_G)] + β·E[D̃_t(θ)]. Signed KL is STANDALONE additive loss term, not advantage modulation.",
-        "data_source": "DAPO-Math-17k",
-        "key_components": [
-          "entropy-routed direction switching",
-          "gap-reliability gate",
-          "privileged self-teacher with stop-gradient",
-          "verifier-anchored PPO objective"
-        ],
-        "teacher_type": "Self-distillation: same model with verified solution (privileged context)",
-        "rollout_frequency": "Every step (standard GRPO loop, G=8)",
-        "on_policy_mechanism": "GRPO rollout + signed KL self-distillation regularization",
-        "key_innovation": "Entropy-routed signed KL: ω_t > 0 (low entropy) = attractive toward teacher, ω_t < 0 (high entropy) = repulsive from teacher. Preserves exploration at forks while maintaining scaffolding."
+        "teacher": "Same model with privileged conditioning (reference trace/solution hint)",
+        "student": "Same model without privileged information",
+        "loss_formulation": "Direction-adaptive token-level KL: pull toward teacher at low-entropy tokens, push away at high-entropy tokens"
       },
       "novelty": "First method to use student entropy as a direction router for privileged self-teacher pressure, making it repulsive at high-entropy forking tokens and attractive at low-entropy scaffolding tokens, rather than adjusting magnitude alone",
       "on_policy_mechanism": {
-        "student_rollout_in_training": "yes",
         "rollout_frequency": "per-step",
-        "teacher_signal": "logits",
-        "signal_source": "self",
-        "evidence_quote": "Sample rollouts {o(i)}G i=1 ∼ π_θold(·|x) without privileged context... q_t(i) ← sg[π_θ(·|x,r,o(i)<t)] ▷ privileged self-teacher, stop-gradient"
+        "signal_source": "Privileged self-teacher (solution-conditioned same policy)"
       },
       "opd_classification": {
         "is_opd": "yes",
-        "primary_section": "§4.2",
-        "secondary_sections": [
-          "§5.3.2",
-          "§6.1"
-        ],
-        "reasoning": "Core contribution is an adaptive direction-routing objective for on-policy self-distillation that switches KL sign based on student entropy, making it an adaptive divergence formulation."
+        "section": "Self-distillation / Entropy-aware OPD",
+        "output_modality": "text"
       },
       "teacher_student_pairs": [
         {
@@ -42021,287 +41221,15 @@
       "score": 9,
       "_worker": "v2-direct-llm-api",
       "_model": "claude",
-      "is_opd": true,
+      "is_opd": "yes",
       "pdf_verified": true,
       "survey_section": "§4.2 (token-level weighting, also touches §4.3 RL+distill hybrid)",
       "_source": "pdf_verified_20260527",
-      "needs_pdf_confirm": false
-    },
-    "2605.22675": {
-      "_schema_version": "v3",
-      "paper_id": "2605.22675",
-      "title": "Self-Policy Distillation via Capability-Selective Subspace Projection",
-      "venue": "arXiv 2025",
-      "year": 2025,
-      "authors_first": "Guangya Hao",
-      "affiliation_primary": "University of Cambridge",
-      "summary": "Self-distillation via KV subspace projection steering without external signals",
-      "method": {
-        "training_loop": "Extract low-rank capability subspace from correctness-aligned gradients on KV activations; project KV during self-generation via hooks; fine-tune original model on resulting outputs with NTP loss",
-        "loss_formulation": "L = -sum_{(q,yhat) in D_corpus} sum_t log p_{theta}(z_t | z_{<t})",
-        "data_source": "Self-generated outputs from hooked model on training prompts (MBPP, GSM8K, MMLU)",
-        "key_components": [
-          "correctness-aligned loss on target token positions",
-          "SVD on KV activation gradients for capability subspace",
-          "projection hooks on KV activations during self-generation",
-          "LoRA fine-tuning on projected self-generated data"
-        ]
-      },
-      "novelty": "Replaces external curation signals in self-distillation with internal capability-selective KV subspace projection derived from correctness-aligned gradients, enabling domain-generalizable self-improvement without any external feedback",
-      "on_policy_mechanism": {
-        "student_rollout_in_training": "yes",
-        "rollout_frequency": "once-before-training",
-        "teacher_signal": "none",
-        "signal_source": "pure self",
-        "evidence_quote": "we use this capability subspace to steer self-generation. Specifically, we register projection hooks on the corresponding KV activations during decoding. These hooks do not modify the model parameters. Instead, they filter intermediate representations so that the model's self-generated outputs are biased toward the target capability."
-      },
-      "opd_classification": {
-        "is_opd": "yes",
-        "primary_section": "§5.3.2",
-        "secondary_sections": [
-          "§6.1"
-        ],
-        "reasoning": "Core contribution is a pure self-distillation method where the model generates its own training data steered by an internally-derived capability subspace, with no external teacher or reward signal."
-      },
-      "teacher_student_pairs": [
-        {
-          "teacher": {
-            "name": "Qwen2.5-0.5B-Instruct (hooked)",
-            "family": "Qwen3",
-            "size_B": 0.5,
-            "type": "dense",
-            "moe_active_B": null,
-            "is_self": true,
-            "is_api_only": false
-          },
-          "student": {
-            "name": "Qwen2.5-0.5B-Instruct",
-            "family": "Qwen3",
-            "size_B": 0.5,
-            "type": "dense",
-            "init_from": "SFT",
-            "is_self": true
-          },
-          "vocab_match": "shared",
-          "scenario": "main"
-        },
-        {
-          "teacher": {
-            "name": "Qwen2.5-7B-Instruct (hooked)",
-            "family": "Qwen3",
-            "size_B": 7,
-            "type": "dense",
-            "moe_active_B": null,
-            "is_self": true,
-            "is_api_only": false
-          },
-          "student": {
-            "name": "Qwen2.5-7B-Instruct",
-            "family": "Qwen3",
-            "size_B": 7,
-            "type": "dense",
-            "init_from": "SFT",
-            "is_self": true
-          },
-          "vocab_match": "shared",
-          "scenario": "main"
-        },
-        {
-          "teacher": {
-            "name": "Qwen2.5-14B-Instruct (hooked)",
-            "family": "Qwen3",
-            "size_B": 14,
-            "type": "dense",
-            "moe_active_B": null,
-            "is_self": true,
-            "is_api_only": false
-          },
-          "student": {
-            "name": "Qwen2.5-14B-Instruct",
-            "family": "Qwen3",
-            "size_B": 14,
-            "type": "dense",
-            "init_from": "SFT",
-            "is_self": true
-          },
-          "vocab_match": "shared",
-          "scenario": "main"
-        },
-        {
-          "teacher": {
-            "name": "Qwen3-4B-Instruct (hooked)",
-            "family": "Qwen3",
-            "size_B": 4,
-            "type": "dense",
-            "moe_active_B": null,
-            "is_self": true,
-            "is_api_only": false
-          },
-          "student": {
-            "name": "Qwen3-4B-Instruct",
-            "family": "Qwen3",
-            "size_B": 4,
-            "type": "dense",
-            "init_from": "SFT",
-            "is_self": true
-          },
-          "vocab_match": "shared",
-          "scenario": "main"
-        },
-        {
-          "teacher": {
-            "name": "Llama-3.1-8B-Instruct (hooked)",
-            "family": "Llama",
-            "size_B": 8,
-            "type": "dense",
-            "moe_active_B": null,
-            "is_self": true,
-            "is_api_only": false
-          },
-          "student": {
-            "name": "Llama-3.1-8B-Instruct",
-            "family": "Llama",
-            "size_B": 8,
-            "type": "dense",
-            "init_from": "SFT",
-            "is_self": true
-          },
-          "vocab_match": "shared",
-          "scenario": "main"
-        }
-      ],
-      "training_setup": {
-        "compute_budget": "4×A100-80G, 5 epochs",
-        "tokens_seen_B": null,
-        "context_length": null,
-        "rollout_batch_size": null,
-        "rollouts_per_iter": null,
-        "kl_coeff": null,
-        "rl_algorithm": "pure-KD",
-        "stabilization_tricks": [
-          "LoRA rank 8",
-          "gradient checkpointing",
-          "cosine scheduling"
-        ],
-        "warmup_off_policy": "no",
-        "warmup_method": "n/a"
-      },
-      "datasets": {
-        "train": [
-          "MBPP",
-          "GSM8K",
-          "MMLU"
-        ],
-        "eval": [
-          "MBPP",
-          "CodeAlpaca-20k",
-          "GSM8K",
-          "SVAMP",
-          "MMLU",
-          "BBH"
-        ],
-        "domain": "general"
-      },
-      "benchmarks": [
-        {
-          "name": "MBPP",
-          "metric": "PASS@1",
-          "student_baseline": 17.0,
-          "student_after_OPD": 25.5,
-          "delta": 8.5,
-          "teacher_score": null,
-          "gap_closed_pct": null,
-          "is_main_result": true
-        },
-        {
-          "name": "GSM8K",
-          "metric": "exact-match accuracy",
-          "student_baseline": 11.0,
-          "student_after_OPD": 22.0,
-          "delta": 11.0,
-          "teacher_score": null,
-          "gap_closed_pct": null,
-          "is_main_result": true
-        },
-        {
-          "name": "MMLU",
-          "metric": "answer-letter accuracy",
-          "student_baseline": 46.0,
-          "student_after_OPD": 49.0,
-          "delta": 3.0,
-          "teacher_score": null,
-          "gap_closed_pct": null,
-          "is_main_result": true
-        },
-        {
-          "name": "SVAMP",
-          "metric": "exact-match accuracy",
-          "student_baseline": 16.0,
-          "student_after_OPD": 32.0,
-          "delta": 16.0,
-          "teacher_score": null,
-          "gap_closed_pct": null,
-          "is_main_result": true
-        },
-        {
-          "name": "BBH",
-          "metric": "normalized exact-match",
-          "student_baseline": 32.7,
-          "student_after_OPD": 38.7,
-          "delta": 6.0,
-          "teacher_score": null,
-          "gap_closed_pct": null,
-          "is_main_result": true
-        },
-        {
-          "name": "CodeAlpaca",
-          "metric": "NLL (lower is better)",
-          "student_baseline": 0.683,
-          "student_after_OPD": 0.679,
-          "delta": -0.004,
-          "teacher_score": null,
-          "gap_closed_pct": null,
-          "is_main_result": true
-        }
-      ],
-      "key_findings": [
-        "SPD achieves up to 13% improvement over state-of-the-art self-distillation methods without external signals",
-        "SPD achieves up to 16% improvement over pre-trained baselines under in-domain setting",
-        "SPD demonstrates 15% better performance under out-of-domain generalization settings",
-        "Correctness-aligned loss improves MBPP from 11.9% to 25.5% vs full-sequence loss for subspace extraction",
-        "SPD improves over base model on 13 out of 15 in-domain transfer evaluations vs 7/15 for PSR and 8/15 for SSD",
-        "Calibration set as small as 50 examples is sufficient for stable capability subspace extraction"
-      ],
-      "ablations_summary": "Correctness-aligned loss is critical vs full-sequence loss (MBPP 25.5% vs 11.9%); calibration set size stable from 20-500 examples; projection hooks improve self-generated data quality before training; SPD balances domain-specific performance and generalization better than PSR and SSD",
-      "limitations": [
-        "Broader validation on more diverse and high-stakes tasks would further strengthen empirical robustness"
-      ],
-      "failure_modes": [],
-      "compute_efficiency": {
-        "teacher_inference_cost": "1×",
-        "speedup_vs_baseline": "not-reported",
-        "memory_footprint": "unspecified"
-      },
-      "openness": {
-        "code_released": "no",
-        "code_url": null,
-        "model_released": "no",
-        "data_released": "no"
-      },
-      "theory": {
-        "has_theoretical_analysis": "no",
-        "theoretical_claim": null,
-        "proof_sketch": null
-      },
-      "relevance_to_opd": "Proposes a self-distillation variant where the model generates its own training data (on-policy rollouts) steered by capability-selective KV projections, eliminating the need for external teachers while maintaining on-policy data generation characteristics",
-      "comparable_papers": [
-        "2604.01193",
-        "2604.13016",
-        "2312.06585"
-      ],
-      "score": 6,
-      "_worker": "v2-direct-llm-api",
-      "_model": "claude"
+      "needs_pdf_confirm": false,
+      "arxiv_id": "2605.22263",
+      "verdict_reason": "DASD uses on-policy self-distillation (OPSD) where the same model with privileged conditioning (reference trace/hint) acts as teacher providing token-level KL supervision on student's own rollouts, with entropy-routed directional control (push away at high-entropy, pull toward at low-entropy).",
+      "deep_read_date": "2026-05-28",
+      "deep_read_method": "pdf_pages_1-6_pdftotext + sub-agent + independent_spot_check"
     },
     "2605.22731": {
       "_schema_version": "v3",
@@ -42495,7 +41423,9 @@
       ],
       "score": 6,
       "_worker": "v2-direct-llm-api",
-      "_model": "claude"
+      "_model": "claude",
+      "_read_date": "2026-05-27",
+      "_success": true
     },
     "2605.20258": {
       "_schema_version": "v3",
@@ -42507,33 +41437,19 @@
       "affiliation_primary": "KAIST",
       "summary": "Complementary self-distillation framework for contextual integrity privacy alignment in LLMs",
       "method": {
-        "training_loop": "Sample on-policy rollout y~π_θ(·|A_T,D_T,T); generate feedback rationales; construct two feedback-conditioned self-teachers π_allow, π_disallow; optimize λ·D_KL(π_θ||π_allow) + (1-λ)·D_KL(π_θ||π_disallow) with EMA teacher updates",
-        "loss_formulation": "L = λ D_KL(π_θ ∥ stopgrad(π_allow)) + (1-λ) D_KL(π_θ ∥ stopgrad(π_disallow))",
-        "data_source": "CI-RL synthetic assistant-task instances with explicit disclosure annotations",
-        "key_components": [
-          "complementary self-teachers (π_allow and π_disallow)",
-          "self-generated feedback rationales as privileged context",
-          "Product-of-Experts (PoE) induced target",
-          "reverse KL divergence optimization",
-          "EMA teacher updates"
-        ]
+        "teacher": "Two self-derived teacher distributions from same model conditioned on different feedback signals (task utility vs. privacy compliance)",
+        "student": "Same LLM policy being aligned",
+        "loss_formulation": "Two independent reverse KL divergences: D_KL(π_θ ∥ π_utility) and D_KL(π_θ ∥ π_privacy), inducing PoE target"
       },
       "novelty": "Decouples CI alignment into two complementary feedback-conditioned self-teachers (utility and privacy), whose joint reverse-KL optimization induces a PoE target concentrating on the intersection of task-completeness and minimal disclosure, unlike monolithic reward or single-teacher distillation",
       "on_policy_mechanism": {
-        "student_rollout_in_training": "yes",
         "rollout_frequency": "per-step",
-        "teacher_signal": "logits",
-        "signal_source": "self",
-        "evidence_quote": "SELFCI uses on-policy generations and constructs the teacher from the same model under different conditioning, reducing distributional mismatch and improving test-time CI alignment"
+        "signal_source": "teacher_distribution"
       },
       "opd_classification": {
         "is_opd": "yes",
-        "primary_section": "§5.3.2",
-        "secondary_sections": [
-          "§4.1",
-          "§5.1"
-        ],
-        "reasoning": "Core contribution is pure self-distillation from feedback-conditioned self-teachers with on-policy rollouts; no external teacher or reward model; the distillation IS the method."
+        "section": "on-policy self-distillation / safety-alignment",
+        "output_modality": "text"
       },
       "teacher_student_pairs": [
         {
@@ -42805,10 +41721,15 @@
       ],
       "score": 7,
       "_worker": "v2-direct-llm-api",
-      "_model": "claude"
+      "_model": "claude",
+      "arxiv_id": "2605.20258",
+      "is_opd": "yes",
+      "verdict_reason": "SelfCI jointly optimizes two independent reverse KL divergences over distinct teacher distributions (utility-preserving and privacy-enforcing) derived from feedback, computed over the model's own on-policy generations, forming a Product-of-Experts target.",
+      "deep_read_date": "2026-05-28",
+      "deep_read_method": "pdf_pages_1-6_pdftotext + sub-agent + independent_spot_check"
     },
     "2605.27186": {
-      "_schema_version": "V3",
+      "_schema_version": "v3",
       "paper_id": "2605.27186",
       "title": "MAIGO: Mitigating Lost-in-Conversation with History-Cleaned On-Policy Self-Distillation",
       "venue": "arXiv preprint",
@@ -42817,24 +41738,18 @@
       "affiliation_primary": "TBD",
       "summary": "Proposes MAIGO, an on-policy self-distillation method to mitigate lost-in-conversation (LiC) gap in multi-turn settings. Traces degradation to self-contamination from intermediate assistant replies. Uses history-cleaned privileged teacher (conditioned on clean single-turn reformulation) to supervise student rollouts on multi-turn conversations. Achieves up to 21.7% LiC gap reduction.",
       "method": {
-        "loss_formulation": "GJD (Generalized Jensen-Shannon Divergence) for middle turns + Reverse KL for answer turns",
-        "training_loop": "Student generates multi-turn rollouts -> teacher (same model conditioned on cleaned single-turn prompt) provides token-level supervision -> student update",
-        "teacher_type": "EMA of student (self-distillation)",
-        "rollout_frequency": "Every training step",
-        "on_policy_mechanism": "Standard OPD: student rollout -> teacher score -> KL update",
-        "key_innovation": "History-cleaned reference contexts for multi-turn dialogue. Addresses Lost-in-Conversation gap where teacher conditions on clean history while student sees its own noisy context. 21.7% gap reduction."
+        "teacher": "Same model with history-cleaned/full-view privileged context",
+        "student": "Same model in multi-turn (sharded) setting",
+        "loss_formulation": "Token-level distillation from clean/full-view self-references with reliability weighting"
       },
       "on_policy_mechanism": {
-        "student_rollout_in_training": "yes",
-        "rollout_frequency": "per-outer-iter",
-        "teacher_signal": "logits",
-        "signal_source": "self (privileged, history-cleaned context)",
-        "evidence_quote": "on-policy self-distillation framework... training on student's own rollouts with privileged teacher"
+        "rollout_frequency": "per-step",
+        "signal_source": "Self-teacher with history-cleaned privileged context"
       },
       "opd_classification": {
         "is_opd": "yes",
-        "primary_section": "§5.3.2",
-        "reasoning": "Self-distillation with privileged context (cleaned history) on student rollouts, multi-turn specific"
+        "section": "Self-distillation / Multi-turn robustness",
+        "output_modality": "text"
       },
       "teacher_student_pairs": [
         {
@@ -42852,14 +41767,18 @@
         "History-cleaning creates effective privileged teacher"
       ],
       "score": 7,
-      "is_opd": true,
+      "is_opd": "yes",
       "pdf_verified": true,
       "survey_section": "§5.3.2 (multi-turn OPD)",
       "_source": "pdf_verified_20260527",
-      "needs_pdf_confirm": false
+      "needs_pdf_confirm": false,
+      "arxiv_id": "2605.27186",
+      "verdict_reason": "MAIGO is explicitly described as 'on-policy self-distillation' where the model generates multi-turn rollouts and distills from history-cleaned/full-view privileged references from its own policy. Middle turns use clean references (removed prior assistant replies), answer turns distill from paired full-view references. A reliability weight downweights disagreeing samples.",
+      "deep_read_date": "2026-05-28",
+      "deep_read_method": "pdf_pages_1-6_pdftotext + sub-agent + independent_spot_check"
     },
     "2605.27140": {
-      "_schema_version": "V3",
+      "_schema_version": "v3",
       "paper_id": "2605.27140",
       "title": "StepOPSD: Step-Aware Online Preference Distillation for Agent Reinforcement Learning",
       "venue": "arXiv preprint",
@@ -42868,24 +41787,18 @@
       "affiliation_primary": "TBD",
       "summary": "Proposes StepOPSD, step-aware online preference distillation for multi-turn agent RL. Segments agent trajectories into causal interaction steps, applies step-level teacher scoring and preference construction. Uses dual-granularity alignment (step-level preference + token-level distillation) to resolve credit-assignment mismatch in sparse-reward agent settings.",
       "method": {
-        "loss_formulation": "GRPO clipped surrogate with teacher-informed advantage shaping: Ã = (1-λ_mix)·A + λ_mix·(w·A), w = 2σ(sign(A)·Δ). Δ = log π_T - log π_S (token-level KL decomposition). Teacher-student KL integrated into advantage, not standalone loss.",
-        "teacher_type": "Stale reference policy (10-step-old student) as hindsight-privileged self-teacher. Peer-trajectory hindsight: successful peer from same GRPO group.",
-        "rollout_frequency": "Every GRPO step (on-policy RL, student generates rollouts)",
-        "on_policy_mechanism": "Student rollout -> step extraction -> teacher rescoring (Δ = KL) -> advantage shaping -> policy update. On-policy throughout.",
-        "key_innovation": "Step-aware credit assignment: decomposes trajectory into causal action spans, applies distillation signal per-step not per-trajectory. Equal-step-mean-abs normalization prevents verbose steps from dominating. Two-knob law: α_clip (local trust region) vs λ_mix (global mixing).",
-        "distillation_integration": "Advantage-integrated (multiplicative), not additive standalone loss. Paper self-describes as \"preference distillation\" distinguishing from \"policy distillation/imitation\"."
+        "teacher": "Self-teacher with hindsight-enriched context (same model rescoring under privileged info)",
+        "student": "Same model (Qwen3-1.7B / Qwen2.5-3B-Instruct)",
+        "loss_formulation": "No standalone KL loss; teacher-student log-probability gaps converted to sign-preserving advantage shaping for GRPO"
       },
       "on_policy_mechanism": {
-        "student_rollout_in_training": "yes",
-        "rollout_frequency": "per-outer-iter",
-        "teacher_signal": "logits + step preferences",
-        "signal_source": "teacher model",
-        "evidence_quote": "online policy distillation provides denser token-level supervision... student rollouts scored by teacher"
+        "rollout_frequency": "per-step",
+        "signal_source": "Hindsight-enriched self-teacher rescoring → RL advantage modulation"
       },
       "opd_classification": {
-        "is_opd": "yes",
-        "primary_section": "§5.3.1",
-        "reasoning": "OPD + step-aware preference distillation for agent tasks, teacher provides dual-granularity supervision"
+        "is_opd": "edge",
+        "section": "§4.3",
+        "output_modality": "text"
       },
       "teacher_student_pairs": [
         {
@@ -42905,17 +41818,21 @@
         "Addresses heterogeneous agent trajectories"
       ],
       "score": 7,
-      "is_opd": true,
+      "is_opd": "edge",
       "pdf_verified": true,
       "rejection_reason": null,
       "survey_section": "§4.3 or §5.3.1 (RL-distillation hybrid for agents, advantage-integrated OPD variant)",
       "opd_relevance_score": 7,
       "_source": "pdf_verified_20260527",
       "needs_pdf_confirm": false,
-      "notes": "Self-identifies as OPD lineage (§4.2 \"StepOPSD belongs to this line\"). Distillation signal (KL) integrated into advantage modulation rather than standalone loss. Tencent co-author (Xu Lin)."
+      "notes": "Self-identifies as OPD lineage (§4.2 \"StepOPSD belongs to this line\"). Distillation signal (KL) integrated into advantage modulation rather than standalone loss. Tencent co-author (Xu Lin).",
+      "arxiv_id": "2605.27140",
+      "verdict_reason": "StepOPSD: Eq4 Ã=(1-λ)A+λ(w·A), teacher log-prob gap Δ only modulates GRPO advantage. Paper states \"does not ask student to imitate teacher distribution\". Path B advantage-modulation. Per 5/27: keep in awesome.",
+      "deep_read_date": "2026-05-28",
+      "deep_read_method": "pdf_pages_1-6_pdftotext + sub-agent + independent_spot_check"
     },
     "2605.27115": {
-      "_schema_version": "V3",
+      "_schema_version": "v3",
       "paper_id": "2605.27115",
       "title": "Counteraction-Aware Multi-Teacher On-Policy Distillation for General Capability Recovery with Domain Preservation",
       "venue": "arXiv preprint",
@@ -42924,24 +41841,18 @@
       "affiliation_primary": "TBD",
       "summary": "Addresses general capability loss during domain specialization via counteraction-aware multi-teacher OPD (MOPD). Identifies that standard MOPD fails when prompt coverage mismatches teacher expertise. Proposes counteraction-aware routing that detects teacher conflicts and allocates supervision to avoid destructive interference, recovering general capabilities while preserving domain performance.",
       "method": {
-        "loss_formulation": "MOPD formulation with teacher-student log-ratio as token-level advantage",
-        "training_loop": "Student generates rollouts -> multiple teachers provide supervision -> counteraction detection routes supervision -> student update",
-        "teacher_type": "Two teachers: general-purpose + domain-specific",
-        "rollout_frequency": "Every training step",
-        "on_policy_mechanism": "Multi-teacher OPD with conflict-aware routing",
-        "key_innovation": "Counteraction-aware routing between general and domain teachers. Decoupled alternating training: 3 general steps + 1 domain step. Gap-based sample selection."
+        "teacher": "Multiple teachers: general teacher (open-source model) + domain teacher (specialized model)",
+        "student": "Domain-specialized model being recovered",
+        "loss_formulation": "Token-level teacher-student log-probability gap based distillation loss"
       },
       "on_policy_mechanism": {
-        "student_rollout_in_training": "yes",
-        "rollout_frequency": "per-outer-iter",
-        "teacher_signal": "logits",
-        "signal_source": "multiple teachers (domain-specific + general)",
-        "evidence_quote": "Multi-Teacher On-Policy Distillation pipelines recover model capabilities by supervising student-generated trajectories with teacher feedback"
+        "rollout_frequency": "per-step",
+        "signal_source": "Multiple teacher models (general + domain)"
       },
       "opd_classification": {
         "is_opd": "yes",
-        "primary_section": "§4.4",
-        "reasoning": "Multi-teacher OPD with conflict-aware routing, addresses teacher expertise mismatch"
+        "section": "Multi-teacher OPD / Capability recovery",
+        "output_modality": "text"
       },
       "teacher_student_pairs": [
         {
@@ -42958,14 +41869,18 @@
         "Recovers general capability without domain loss"
       ],
       "score": 7,
-      "is_opd": true,
+      "is_opd": "yes",
       "pdf_verified": true,
       "survey_section": "§4.4 (multi-teacher OPD)",
       "_source": "pdf_verified_20260527",
-      "needs_pdf_confirm": false
+      "needs_pdf_confirm": false,
+      "arxiv_id": "2605.27115",
+      "verdict_reason": "CaMOPD is explicitly multi-teacher on-policy distillation (MOPD) supervising student-generated trajectories with token-level teacher feedback. Uses gap-based sample selection (averaged token-level teacher-student log-probability gaps) and decoupled alternating training between general teacher and domain teacher.",
+      "deep_read_date": "2026-05-28",
+      "deep_read_method": "pdf_pages_1-6_pdftotext + sub-agent + independent_spot_check"
     },
     "2605.27095": {
-      "_schema_version": "V3",
+      "_schema_version": "v3",
       "paper_id": "2605.27095",
       "title": "Adversarial Dual On-Policy Distillation from Expressive Flow-based Teacher",
       "venue": "arXiv preprint",
@@ -42985,9 +41900,10 @@
         "evidence_quote": "On-policy distillation offers a natural fix: let the student visit its own states and receive corrective teacher signal"
       },
       "opd_classification": {
-        "is_opd": "yes",
+        "is_opd": "no",
         "primary_section": "§6.1",
-        "reasoning": "OPD for embodied control; output is continuous actions not text. BUT need to verify output modality - may be non-text (robot control)"
+        "reasoning": "OPD for embodied control; output is continuous actions not text. BUT need to verify output modality - may be non-text (robot control)",
+        "rejected_reason": "Embodied control: output is continuous actions, teacher is flow-matching policy (not LLM-based). Not VLA/Robot+LLM (no LLM backbone). Out of scope."
       },
       "teacher_student_pairs": [
         {
@@ -43005,10 +41921,16 @@
         "On-policy correction beats offline behavioral cloning"
       ],
       "score": 6,
-      "_note": "⚠️ 可能是 embodied control (非文本输出), 需确认收录边界"
+      "_note": "⚠️ 可能是 embodied control (非文本输出), 需确认收录边界",
+      "_read_date": "2026-05-27",
+      "_success": true,
+      "is_opd": "no",
+      "rejected_date": "2026-05-29",
+      "rejected_by": "boss decision",
+      "rejected_reason": "Embodied control: output is continuous actions, teacher is flow-matching policy (not LLM-based). Not VLA/Robot+LLM (no LLM backbone). Out of scope."
     },
     "2605.27028": {
-      "_schema_version": "V3",
+      "_schema_version": "v3",
       "paper_id": "2605.27028",
       "title": "Less is More: Early Stopping Rollout for On-Policy Distillation",
       "venue": "arXiv preprint",
@@ -43017,24 +41939,18 @@
       "affiliation_primary": "TBD",
       "summary": "Identifies 'Off-policy Teacher Decay' in OPD: later tokens in student rollouts become increasingly off-policy for the teacher, degrading teacher supervision quality. Proposes early stopping rollout strategy that truncates student generations at optimal point where teacher reliability drops, improving OPD efficiency and performance.",
       "method": {
-        "loss_formulation": "Standard Reverse KL: D_KL(π_student || π_teacher) with early-stopped rollout prefix",
-        "training_loop": "Student generates rollouts -> monitor teacher reliability per position -> truncate at optimal stopping point -> teacher scores truncated rollouts -> student update",
-        "teacher_type": "External teacher (separate model)",
-        "rollout_frequency": "Every training step, but rollouts truncated to first N=100 tokens",
-        "on_policy_mechanism": "Student generates rollout -> truncate at N tokens -> teacher scores truncated prefix -> RKL update",
-        "key_innovation": "Off-policy Teacher Decay: teacher signal quality degrades as student-generated prefix grows. Early stopping at N=100 tokens gives 24x speedup with minimal quality loss. Cascading alignment effect + sub-mode commitment."
+        "teacher": "Larger LLM (1.7B-72B, Qwen2.5/Qwen3/Gemma2/Gemma3)",
+        "student": "Smaller LLM (1.5B-32B)",
+        "loss_formulation": "Token-level distillation loss (teacher probability as soft target) on first N tokens of student rollout"
       },
       "on_policy_mechanism": {
-        "student_rollout_in_training": "yes",
-        "rollout_frequency": "per-outer-iter",
-        "teacher_signal": "logits",
-        "signal_source": "teacher model",
-        "evidence_quote": "training a student by scoring its own rollouts with a teacher model... Off-policy Teacher Decay problem"
+        "rollout_frequency": "per-step",
+        "signal_source": "Teacher model token-level probabilities on student rollouts"
       },
       "opd_classification": {
         "is_opd": "yes",
-        "primary_section": "§4.1",
-        "reasoning": "Directly addresses OPD rollout length optimization, improves OPD efficiency"
+        "section": "Efficient OPD / Rollout truncation",
+        "output_modality": "text"
       },
       "teacher_student_pairs": [
         {
@@ -43051,14 +41967,18 @@
         "Optimal truncation point is learnable"
       ],
       "score": 8,
-      "is_opd": true,
+      "is_opd": "yes",
       "pdf_verified": true,
       "survey_section": "§4.1 (rollout strategy / efficiency)",
       "_source": "pdf_verified_20260527",
-      "needs_pdf_confirm": false
+      "needs_pdf_confirm": false,
+      "arxiv_id": "2605.27028",
+      "verdict_reason": "Directly improves OPD by restricting student rollout to first N tokens. Teacher scores student rollouts (π_teacher(τ_student | x_prompt) as soft target). Addresses 'Off-policy Teacher Decay' where teacher quality degrades on later student-generated tokens. Tests across students 1.5B-32B, teachers 1.7B-72B.",
+      "deep_read_date": "2026-05-28",
+      "deep_read_method": "pdf_pages_1-6_pdftotext + sub-agent + independent_spot_check"
     },
     "2605.26844": {
-      "_schema_version": "V3",
+      "_schema_version": "v3",
       "paper_id": "2605.26844",
       "title": "Not All Disagreement Is Learnable: Token Teachability in On-Policy Distillation",
       "venue": "arXiv preprint",
@@ -43067,24 +41987,18 @@
       "affiliation_primary": "TBD",
       "summary": "Revisits selective OPD token weighting. Shows that high teacher-student disagreement tokens are not always learnable. Proposes 'token teachability' metric using fixed-context diagnostic to measure which tokens the student can actually learn from. Selective OPD based on teachability outperforms entropy-based and disagreement-based selection.",
       "method": {
-        "loss_formulation": "Budgeted reverse-KL with binary mask: L_m(θ) = (1/Σm_t) Σ m_t · D_KL(p_θ || p_T). Only 5-10% tokens selected.",
-        "training_loop": "Student generates rollouts -> compute token-level teachability (fixed-context diagnostic) -> weight OPD loss by teachability -> student update",
-        "teacher_type": "Separate teacher (Qwen3-4B→1.7B, Qwen3-8B→4B, Qwen3-14B→4B, DeepSeek-R1-14B→Qwen2.5-3B)",
-        "rollout_frequency": "Every training step (standard OPD pipeline)",
-        "on_policy_mechanism": "Standard OPD with token-level teachability filtering",
-        "key_innovation": "Teachability score = support-aligned divergence × coverage. Not all disagreement is learnable: redefines teacher reliability at token level. Binary mask selects only teachable tokens."
+        "teacher": "Larger LLM (Qwen2.5/Qwen3 teacher models)",
+        "student": "Smaller LLM (Qwen2.5/Qwen3 student models)",
+        "loss_formulation": "Token-level KL (OPD loss) applied selectively to high-teachability positions: s_t^teach = D̃_t * C̃_t"
       },
       "on_policy_mechanism": {
-        "student_rollout_in_training": "yes",
-        "rollout_frequency": "per-outer-iter",
-        "teacher_signal": "logits",
-        "signal_source": "teacher model",
-        "evidence_quote": "On-policy distillation trains a student on its own rollouts with token-level teacher supervision"
+        "rollout_frequency": "per-step",
+        "signal_source": "Teacher model token-level probabilities"
       },
       "opd_classification": {
         "is_opd": "yes",
-        "primary_section": "§4.2",
-        "reasoning": "Selective OPD method; proposes new token selection criterion (teachability) for OPD"
+        "section": "Selective/efficient OPD / Token selection",
+        "output_modality": "text"
       },
       "teacher_student_pairs": [
         {
@@ -43102,14 +42016,18 @@
         "Fixed-context diagnostic is effective for measuring learnability"
       ],
       "score": 8,
-      "is_opd": true,
+      "is_opd": "yes",
       "pdf_verified": true,
       "survey_section": "§4.2 (token-level weighting / teacher reliability)",
       "_source": "pdf_verified_20260527",
-      "needs_pdf_confirm": false
+      "needs_pdf_confirm": false,
+      "arxiv_id": "2605.26844",
+      "verdict_reason": "Explicitly an OPD method (TA-OPD) that trains student on its own rollouts with token-level teacher supervision (KL). Proposes teachability-aware token selection: ranks positions by s_t^teach = D̃_t * C̃_t and keeps only high-teachability OPD supervision positions. Uses Qwen2.5/Qwen3 teacher-student pairs.",
+      "deep_read_date": "2026-05-28",
+      "deep_read_method": "pdf_pages_1-6_pdftotext + sub-agent + independent_spot_check"
     },
     "2605.21606": {
-      "_schema_version": "V3",
+      "_schema_version": "v3",
       "paper_id": "2605.21606",
       "title": "When Are Teacher Tokens Reliable? Position-Weighted On-Policy Self-Distillation for Reasoning",
       "venue": "arXiv preprint",
@@ -43118,24 +42036,18 @@
       "affiliation_primary": "TBD",
       "summary": "Identifies that standard OPSD weights all tokens equally, ignoring position-dependent teacher reliability. Proposes position-weighted OPSD that modulates token-level supervision based on teacher reliability at each position in student-generated sequences. Shows teacher entropy alone is insufficient; position-aware weighting captures positional reliability degradation.",
       "method": {
-        "loss_formulation": "Position-weighted clipped forward-KL: w_{i,t} · Σ min(p_tch(j)·log(p_tch/p_θ), τ_clip) with per-sequence averaging",
-        "training_loop": "Student generates rollouts -> compute position-dependent teacher reliability -> weight KL loss per-token-per-position -> student update",
-        "teacher_type": "Self-distillation: same Qwen3-4B, teacher gets privileged prompt with ground-truth answer",
-        "rollout_frequency": "Every training step (OPSD pipeline)",
-        "on_policy_mechanism": "Standard OPSD with position-dependent reliability weighting",
-        "key_innovation": "Position-dependent sigmoid weighting: early tokens downweighted (unreliable teacher), later tokens upweighted. Position as reliability predictor achieves AUROC 0.83."
+        "teacher": "Same model conditioned on privileged-answer prompt (reference information)",
+        "student": "Same model with ordinary problem prompt (Qwen3-4B, DeepSeek-R1-Distill-Llama-8B, Olmo-3-7B-Think)",
+        "loss_formulation": "Clipped forward-KL: D_KL(π_teacher ∥ π_student) with position weight w(r) increasing along normalized position"
       },
       "on_policy_mechanism": {
-        "student_rollout_in_training": "yes",
-        "rollout_frequency": "per-outer-iter",
-        "teacher_signal": "logits",
-        "signal_source": "self (privileged teacher)",
-        "evidence_quote": "On-policy self-distillation trains a student on its own rollouts using a privileged teacher"
+        "rollout_frequency": "per-step",
+        "signal_source": "teacher_distribution"
       },
       "opd_classification": {
         "is_opd": "yes",
-        "primary_section": "§4.2",
-        "reasoning": "Position-aware selective OPSD method, modulates per-token supervision by positional teacher reliability"
+        "section": "on-policy self-distillation with adaptive token weighting",
+        "output_modality": "text"
       },
       "teacher_student_pairs": [
         {
@@ -43152,14 +42064,18 @@
         "Complementary to existing selective OPD methods"
       ],
       "score": 8,
-      "is_opd": true,
+      "is_opd": "yes",
       "pdf_verified": true,
       "survey_section": "§4.2 (token-level weighting / teacher reliability)",
       "_source": "pdf_verified_20260527",
-      "needs_pdf_confirm": false
+      "needs_pdf_confirm": false,
+      "arxiv_id": "2605.21606",
+      "verdict_reason": "PW-OPSD is explicitly an On-Policy Self-Distillation method: student samples rollouts from ordinary prompt, privileged copy of model (conditioned on reference answer) provides token-level targets via clipped forward-KL, with position-weighted loss schedule.",
+      "deep_read_date": "2026-05-28",
+      "deep_read_method": "pdf_pages_1-6_pdftotext + sub-agent + independent_spot_check"
     },
     "2605.18529": {
-      "_schema_version": "V3",
+      "_schema_version": "v3",
       "paper_id": "2605.18529",
       "title": "AMR-SD: Asymmetric Meta-Reflective Self-Distillation for Token-Level Credit Assignment",
       "venue": "arXiv preprint",
@@ -43168,24 +42084,18 @@
       "affiliation_primary": "TBD",
       "summary": "Proposes AMR-SD, asymmetric meta-reflective self-distillation for token-level credit assignment in RLVR. Addresses limitation of direct self-distillation (diverges without regularization). Uses asymmetric meta-reflection: student generates rollouts, self-teacher provides per-token signal, meta-learning objective stabilizes the distillation loop.",
       "method": {
-        "loss_formulation": "PPO clipped surrogate with CIG-enhanced advantage: Â = A·(1+Δ). CIG = log(π_teacher/π_student) = token-level KL decomposition. Asymmetric ReLU-gated Δ: positive for reward amplification (student underperformed teacher), positive for penalty amplification (student over-confident).",
-        "teacher_type": "Self-distillation: stop-gradient copy of student, conditioned on Socratic meta-reflections (hints for correct, critiques for incorrect rollouts). Lower-bandwidth than raw oracle conditioning.",
-        "rollout_frequency": "Every iteration (GRPO loop, G=8)",
-        "on_policy_mechanism": "Student rollout -> meta-reflection generation -> teacher rescoring via CIG -> advantage modulation -> PPO update. On-policy throughout.",
-        "key_innovation": "Meta-reflection bottleneck: teacher sees Socratic hints/critiques, not raw oracle answers. Prevents over-conditioning + answer leakage. Asymmetric CIG: decouple gradient flows for positive vs negative rollouts. Temporal annealing: linear decay to pure RL as teacher signal exhausts.",
-        "distillation_integration": "Advantage-integrated (multiplicative), same pattern as StepOPSD. CIG is exactly pointwise KL divergence."
+        "teacher": "Same model conditioned on self-generated Socratic hints/critiques (reflection bottleneck)",
+        "student": "Same LLM (student response without privileged info)",
+        "loss_formulation": "CIG (Causal Information Gain) with ReLU-gated threshold → advantage modulation, not standalone KL"
       },
       "on_policy_mechanism": {
-        "student_rollout_in_training": "yes",
-        "rollout_frequency": "per-outer-iter",
-        "teacher_signal": "logits + credit signals",
-        "signal_source": "self (privileged)",
-        "evidence_quote": "on-policy self-distillation attempts to resolve this by conditioning a self-teacher on privileged contexts"
+        "rollout_frequency": "per-step",
+        "signal_source": "Meta-reflective summaries from verifier outcomes, peer rollouts, reference feedback"
       },
       "opd_classification": {
-        "is_opd": "yes",
-        "primary_section": "§4.3",
-        "reasoning": "Self-distillation with meta-learning stabilization for credit assignment"
+        "is_opd": "edge",
+        "section": "§4.3",
+        "output_modality": "text"
       },
       "teacher_student_pairs": [
         {
@@ -43204,17 +42114,21 @@
         "Token-level credit assignment improves over sequence-level"
       ],
       "score": 7,
-      "is_opd": true,
+      "is_opd": "edge",
       "pdf_verified": true,
       "rejection_reason": null,
       "survey_section": "§4.3 (RL-distillation hybrid, advantage-integrated OPD variant)",
       "opd_relevance_score": 7,
       "_source": "pdf_verified_20260527",
       "needs_pdf_confirm": false,
-      "notes": "Self-identifies as OPSD lineage. §2 \"On-Policy (Self-)Distillation\" section explicitly cites our survey. CIG = pointwise KL. Related to StepOPSD in integration pattern."
+      "notes": "Self-identifies as OPSD lineage. §2 \"On-Policy (Self-)Distillation\" section explicitly cites our survey. CIG = pointwise KL. Related to StepOPSD in integration pattern.",
+      "arxiv_id": "2605.18529",
+      "verdict_reason": "AMR-SD: CIG translates teacher Socratic hints into token-level advantage modulations. Teacher signal only reshapes RL advantage (Path B), no standalone KL loss. Per 5/27 decision: keep in awesome as advantage-integrated.",
+      "deep_read_date": "2026-05-28",
+      "deep_read_method": "pdf_pages_1-6_pdftotext + sub-agent + independent_spot_check"
     },
     "2603.01683": {
-      "_schema_version": "V3",
+      "_schema_version": "v3",
       "paper_id": "2603.01683",
       "title": "Surgical Post-Training: Proximal On-Policy Distillation for Reasoning with Knowledge Retention",
       "venue": "arXiv preprint",
@@ -43223,23 +42137,18 @@
       "affiliation_primary": "TBD",
       "summary": "Proposes Surgical Post-Training via proximal on-policy distillation to inject reasoning knowledge while retaining existing knowledge. Shows analytically and empirically that KL-constrained reward formulation is critical for knowledge retention during OPD. Proximal constraint prevents catastrophic forgetting while allowing effective knowledge injection.",
       "method": {
-        "loss_formulation": "Reward-based binary cross-entropy objective for reasoning enhancement + KL-constrained reward for knowledge retention",
-        "teacher_type": "Oracle (corrects erroneous reasoning steps via minimal edits)",
-        "rollout_frequency": "NEEDS PDF CONFIRM: abstract says \"proximal on-policy data\" from 4k pairs, may be batch on-policy (one-time rollout + correction)",
-        "on_policy_mechanism": "Oracle surgically corrects student rollout errors -> proximal on-policy data -> BCE training",
-        "key_innovation": "Shows KL-constrained reward formulation is critical for knowledge retention during post-training. Proximal data = minimally edited student errors. 6.2% improvement on Qwen3-8B with only 4k pairs, 16-min training."
+        "teacher": "Oracle model (corrects erroneous reasoning steps via minimal edits)",
+        "student": "Qwen3-8B",
+        "loss_formulation": "BCE: L+ = log σ(r_θ(x,y+)), L- = log σ(-r_θ(x,y-)) with implicit reward r_θ = β log(π_θ/π_ref) — DPO-style, not KL to teacher"
       },
       "on_policy_mechanism": {
-        "student_rollout_in_training": "yes",
         "rollout_frequency": "per-outer-iter",
-        "teacher_signal": "logits",
-        "signal_source": "teacher model (larger)",
-        "evidence_quote": "on-policy data... KL-constrained reward formulation plays critical role in retaining knowledge during on-policy distillation"
+        "signal_source": "Oracle (external model providing corrected reasoning traces)"
       },
       "opd_classification": {
-        "is_opd": "yes",
-        "primary_section": "§4.1",
-        "reasoning": "OPD with proximal KL constraint for knowledge retention; addresses forgetting in OPD"
+        "is_opd": "edge",
+        "section": "§4.1",
+        "output_modality": "text"
       },
       "teacher_student_pairs": [
         {
@@ -43258,11 +42167,15 @@
         "Analytical + empirical evidence for KL's role"
       ],
       "score": 8,
-      "is_opd": true,
+      "is_opd": "edge",
       "pdf_verified": false,
       "_source": "abstract_verified_20260527",
       "needs_pdf_confirm": true,
-      "survey_section": "§4.1 (rollout strategy / data efficiency)"
+      "survey_section": "§4.1 (rollout strategy / data efficiency)",
+      "arxiv_id": "2603.01683",
+      "verdict_reason": "Oracle corrects student rollouts (teacher ✓, rollouts ✓), but loss is reward-based BCE not token-level KL/divergence (distill_loss ✗). Paper self-identifies as OPD. In spectrum but not standard KL distill.",
+      "deep_read_date": "2026-05-28",
+      "deep_read_method": "pdf_pages_1-6_pdftotext + sub-agent + independent_spot_check"
     },
     "2605.27255": {
       "_schema_version": "v3",
@@ -43274,33 +42187,19 @@
       "affiliation_primary": "Renmin University of China",
       "summary": "Unifies latent input compression with MTP output prediction, using OPD teacher as confidence head supervisor",
       "method": {
-        "training_loop": "SFT with next-pair prediction + random PAD injection for 2 epochs, then 1 epoch OPD: rollout student policy, run teacher on clean text, compute reverse-KL + confidence BCE loss",
-        "loss_formulation": "L_OPD = KL(p_s || p_t) + λ_conf * BCE(c, min(p_t(x)/p_s(x), 1))",
-        "data_source": "DAPO-Math (17.4k math questions) and Codeforces (16.1k coding questions), teacher rollouts from Qwen3.5-9B",
-        "key_components": [
-          "pair-in compressor (MLP folding 2 tokens into 1 latent)",
-          "pair-out MTP head (unfolds 1 hidden state into 1 additional token)",
-          "lightweight confidence head replacing verifier",
-          "on-policy distillation with reverse-KL",
-          "random PAD injection during SFT"
-        ]
+        "teacher": "Full LLM backbone (Qwen3.5-4B/9B without compression)",
+        "student": "Same backbone with latent compressor + MTP head",
+        "loss_formulation": "OPD token-level distillation loss (teacher probability on student rollouts)"
       },
       "novelty": "Observation that OPD teacher distributions provide free supervision for speculative-decoding confidence head, unifying input-side latent compression with output-side MTP in a symmetric pair-in/pair-out architecture that eliminates the verifier forward pass",
       "on_policy_mechanism": {
-        "student_rollout_in_training": "yes",
-        "rollout_frequency": "per-outer-iter",
-        "teacher_signal": "logits",
-        "signal_source": "external-teacher",
-        "evidence_quote": "Given a prompt, PIPO rolls out a response under its current policy, recording the accepted draft tokens, the padding tokens at rejected draft positions, and the student distributions p_s and confidence scores c at every step. We then remove the padding tokens, feed the resulting clean text to an uncompressed teacher, and obtain token-level teacher distributions p_t."
+        "rollout_frequency": "per-step",
+        "signal_source": "Teacher (full backbone) scoring compressed student rollouts"
       },
       "opd_classification": {
         "is_opd": "yes",
-        "primary_section": "§5.1",
-        "secondary_sections": [
-          "§6.3",
-          "§4.3"
-        ],
-        "reasoning": "The core contribution is a white-box on-policy distillation method that reuses teacher logits as free supervision for a confidence head, with distillation being the central training mechanism (removing it removes the confidence head training and the avg@4 recovery)."
+        "section": "OPD for efficient inference / Architecture-OPD co-design",
+        "output_modality": "text"
       },
       "teacher_student_pairs": [
         {
@@ -43491,61 +42390,163 @@
       ],
       "score": 7,
       "_worker": "v2-direct-llm-api",
-      "_model": "claude"
+      "_model": "claude",
+      "arxiv_id": "2605.27255",
+      "is_opd": "yes",
+      "verdict_reason": "PIPO uses On-Policy Distillation (OPD) as the training method where teacher (full backbone) scores student (compressor+MTP head) rollouts. The paper observes OPD naturally matches rejection-sampling criterion of speculative decoding, training a confidence head alongside OPD. However, OPD is the training mechanism, not the primary contribution (which is architecture for efficient inference).",
+      "deep_read_date": "2026-05-28",
+      "deep_read_method": "pdf_pages_1-6_pdftotext + sub-agent + independent_spot_check"
     },
     "2605.21834": {
       "_schema_version": "v3",
       "paper_id": "2605.21834",
-      "title": "On-Policy Consistency Training Improves LLM Safety with Minimal Performance Degradation",
+      "title": "On-Policy Consistency Training Improves LLM Safety with Minimal Capability Degradation",
       "venue": "arXiv 2026",
       "year": 2026,
-      "is_opd": true,
+      "is_opd": "yes",
       "pdf_verified": true,
       "_source": "pdf_verified_20260527",
       "needs_pdf_confirm": false,
       "opd_relevance_score": 7,
       "summary": "On-policy consistency training for safety alignment. Student rollout every step (y ~ π_θ(·|x̃)), teacher (frozen copy) provides per-token reverse KL on contrastive prompt pairs. Addresses sycophancy, jailbreak defense, safety awareness without capability degradation.",
       "method": {
-        "loss_formulation": "Per-token reverse KL: δ_t = log π_θ(y_t|y_{<t},x̃) - log π_T(y_t|y_{<t},x). Loss = Σ_t max(0, δ_t). Contrastive input pairs: clean teacher prompt x vs perturbed student prompt x̃.",
-        "teacher_type": "Frozen copy of same model (initialized π_θ0 := π_T). Teacher sees clean prompt, student sees perturbed prompt.",
-        "rollout_frequency": "Every training step: y ~ π_θ(·|x̃)",
-        "on_policy_mechanism": "Student generates rollout from perturbed prompt → teacher scores same rollout conditioned on clean prompt → per-token reverse KL update",
-        "key_innovation": "Consistency training via contrastive prompts: student must behave consistently regardless of adversarial perturbation (user bias, jailbreak, missing safety context). No demonstrations needed."
+        "teacher": "Same model conditioned on clean/contrastive prompt (privileged unperturbed context)",
+        "student": "Same model responding to perturbed/adversarial prompts",
+        "loss_formulation": "KL divergence between student response distribution (on perturbed prompt) and teacher distribution (on clean prompt)"
       },
       "training_setup": {
         "scenario": "Safety alignment (sycophancy, jailbreak defense, safety awareness)",
         "approach": "Self-distillation via contrastive prompts"
       },
       "survey_section": "§5.3.3 or §5.2 (OPD for safety alignment)",
-      "notes": "Self-identifies as OPD lineage (§Related Work cites our survey). Previously wrongly triaged as \"pure RL/consistency training\"."
+      "notes": "Self-identifies as OPD lineage (§Related Work cites our survey). Previously wrongly triaged as \"pure RL/consistency training\".",
+      "arxiv_id": "2605.21834",
+      "verdict_reason": "OPCT computes its objective over the model's own on-policy responses to perturbed prompts, supervised by itself conditioned on corresponding contrastive (clean) prompts — an explicit on-policy self-distillation for consistency training.",
+      "on_policy_mechanism": {
+        "rollout_frequency": "per-step",
+        "signal_source": "teacher_distribution"
+      },
+      "opd_classification": {
+        "is_opd": "yes",
+        "section": "on-policy self-distillation / safety-alignment",
+        "output_modality": "text"
+      },
+      "deep_read_date": "2026-05-28",
+      "deep_read_method": "pdf_pages_1-6_pdftotext + sub-agent + independent_spot_check"
+    },
+    "2605.28014": {
+      "title": "ROSD: Reflective On-Policy Self-Distillation for Language Model Reasoning across Domains",
+      "arxiv_id": "2605.28014",
+      "authors": "Ziqi Zhao, Xinyu Ma, Liu Yang, Yujie Feng, Daiting Shi, Jingzhou He, Xin Xin, Zhaochun Ren, Xiao-Ming Wu",
+      "affiliations": "Hong Kong Polytechnic University, Baidu Inc., Shandong University, Leiden University",
+      "venue": "arXiv preprint",
+      "year": 2026,
+      "submitted_date": "2026-05-27",
+      "method": {
+        "summary": "ROSD improves on-policy self-distillation (OPSD) by introducing error-focused self-reflection and quote-localized distillation. Instead of conditioning the self-teacher on a full correct solution (as in standard OPSD/SDPO), ROSD uses a self-reflector to (1) extract a corrective idea explaining why a wrong rollout fails, and (2) locate the first erroneous span via an error quote. The corrective idea guides the self-teacher toward error-specific supervision, and the error quote restricts distillation to the suffix starting from the error, preserving valid reasoning prefixes.",
+        "loss_formulation": "L_ROSD = Σ_t m_t · KL(π_θ(·|x,y<t) ∥ stopgrad[π_θ(·|x,e,y<t)]) where m_t is a binary mask (0 before error quote, 1 from error onward). JSD used in practice.",
+        "signal_source": "self-teacher (same model conditioned on reflection e)",
+        "training_paradigm": "RL + on-policy self-distillation (RLVR + OPSD)"
+      },
+      "on_policy_mechanism": {
+        "rollout_source": "student (current policy π_θ)",
+        "rollout_frequency": "per-step",
+        "teacher_type": "self-teacher (same model, conditioned on corrective reflection e from self-reflector)",
+        "distillation_target": "token-level KL/JSD divergence, applied only to error-affected suffix (quote-localized)"
+      },
+      "opd_classification": {
+        "is_opd": "yes",
+        "reasoning": "ROSD satisfies all 3 OPD conditions: (C1) Self-teacher provides distribution-level supervision via π_θ(·|x,e,y<t). (C2) Standalone KL/JSD distillation loss (Eq. 9) directly optimizes θ. (C3) Rollouts are sampled from current student policy π_θ at every training step. This is strict OPD with a novel contribution: error-localized masking that restricts distillation to erroneous segments.",
+        "opd_type": "strict OPD (standalone JSD/KL loss, per-step student rollouts)",
+        "r2_standalone": true
+      },
+      "benchmarks": {
+        "models": [
+          "Qwen3-4B",
+          "Qwen3-8B"
+        ],
+        "datasets": [
+          "SciKnowEval (Chemistry, Physics, Biology, Materials)",
+          "ToolAlpaca",
+          "AIME2024"
+        ],
+        "key_results": {
+          "Qwen3-4B_avg_in_domain": "72.83% (GRPO: 69.86%, SDPO: 67.02%)",
+          "Qwen3-8B_avg_in_domain": "73.45% (GRPO: 71.99%, SDPO: 72.50%)",
+          "OOD_preservation": "ROSD maintains much stronger OOD performance than SDPO (e.g., ToolUse train → OOD avg: ROSD 41.31% vs SDPO 2.88% on 4B)"
+        }
+      },
+      "relevance_to_opd": "Direct improvement over standard OPSD/SDPO. Introduces error-focused reflection + localized distillation. Belongs in §Self-Distillation (same-model teacher) or dedicated §Error-Localized OPD subsection. Cites and extends OPSD (Zhao 2026a), SDPO (Hübotter 2026), SDFT (Shenfeld 2026).",
+      "section_assignment": "§5.3.2 Self-Distillation / §5.3.x Error-Localized OPD",
+      "key_insights": [
+        "Full-response distillation in OPSD overwrites valid reasoning prefixes, causing in-domain instability and OOD degradation",
+        "Reflection-guided teaching (corrective idea instead of full solution) produces more targeted teacher distribution",
+        "Quote-localized masking restricts gradient updates to error-affected suffix, preserving valid reasoning",
+        "Standard SDPO achieves similar average to GRPO despite denser supervision — noise in teacher signal negates benefits"
+      ],
+      "_read_date": "2026-05-28",
+      "_success": true,
+      "_worker": "hermes-cron-manual",
+      "_model": "claude-opus-4",
+      "code_url": "https://github.com/ZiqiZhao1/ROSD",
+      "_schema_version": "v3",
+      "paper_id": "2605.28014",
+      "authors_first": "Zhao, Ziqi",
+      "affiliation_primary": "Hong Kong Polytechnic University",
+      "summary": "ROSD improves on-policy self-distillation (OPSD) by introducing error-focused self-reflection and quote-localized distillation. Instead of conditioning the self-teacher on a full correct solution (as in standard OPSD/SDPO), ROSD uses a self-reflector to (1) extract a corrective idea explaining why a wrong rollout fails, and (2) locate the first erroneous span via an error quote. The corrective idea guides the self-teacher toward error-specific supervision, and the error quote restricts distillation to the suffix starting from the error, preserving valid reasoning prefixes.",
+      "novelty": "Introduces error-focused self-reflection + quote-localized distillation for OPSD. Self-reflector extracts corrective idea and locates first erroneous span; distillation restricted to error suffix only.",
+      "teacher_student_pairs": [
+        {
+          "teacher": "Qwen3-4B/8B (self-teacher, same model conditioned on reflection e)",
+          "student": "Qwen3-4B/8B",
+          "task": "Scientific QA / Tool Use / Mathematical Reasoning",
+          "key_hyperparams": "G=8 rollouts per prompt, JSD divergence, EMA teacher option"
+        }
+      ],
+      "training_setup": {
+        "base_model": "Qwen3-4B, Qwen3-8B",
+        "framework": "RLVR + OPSD (no golden solutions needed)",
+        "data_size": "SciKnowEval L3 subsets + ToolAlpaca",
+        "compute": "Not specified"
+      },
+      "datasets": [
+        "SciKnowEval Chemistry",
+        "SciKnowEval Physics",
+        "SciKnowEval Biology",
+        "SciKnowEval Materials",
+        "ToolAlpaca",
+        "AIME2024"
+      ],
+      "key_findings": [
+        "Full-response distillation in OPSD overwrites valid reasoning prefixes, causing in-domain instability and OOD degradation",
+        "Reflection-guided teaching (corrective idea instead of full solution) produces more targeted teacher distribution",
+        "Quote-localized masking restricts gradient updates to error-affected suffix, preserving valid reasoning",
+        "Standard SDPO achieves similar average to GRPO despite denser supervision — noise in teacher signal negates benefits"
+      ],
+      "ablations_summary": "Ablations show: (1) Error-focused reflection > correct-solution conditioning (+1.0-3.0 avg); (2) Quote-localized masking > full-response distillation (+0.5-2.0 avg); (3) Combined ROSD achieves best in-domain + OOD balance",
+      "limitations": "Relies on self-reflector quality for error localization; OOD still drops vs base model in some settings; tested only on Qwen3 family",
+      "failure_modes": "Quote matching failure triggers fallback to full-response distillation; OOD degradation less severe than SDPO but still present vs GRPO on some datasets"
     },
     "2605.19447": {
       "_schema_version": "v3",
       "paper_id": "2605.19447",
-      "title": "What and When to Distill: Selective Hindsight Distillation for Multi-Turn Agent RL",
-      "venue": "arXiv 2026",
+      "arxiv_id": "2605.19447",
+      "title": "SERL: Selective Hindsight Distillation for Multi-Turn Agents",
       "year": 2026,
-      "is_opd": true,
-      "pdf_verified": true,
-      "_source": "pdf_verified_20260527",
-      "needs_pdf_confirm": false,
-      "opd_relevance_score": 8,
-      "summary": "Selective hindsight distillation for agentic RL. L_SERL = L_rw (hindsight-reweighted GRPO) + λ·L_act (standalone KL on action tokens only). Teacher (self-synchronized every 10 steps) uses privileged hindsight to both modulate advantages AND provide direct KL supervision.",
-      "method": {
-        "loss_formulation": "L_SERL = L_rw + λ·L_act. L_rw = hindsight-reweighted GRPO (teacher-student gap modulates advantage). L_act = action-only KL distillation (standalone loss on action tokens).",
-        "teacher_type": "Self-synchronized every 10 steps (stale policy with hindsight/environment feedback)",
-        "rollout_frequency": "Every GRPO step (student runs in ALFWorld/WebShop environments)",
-        "on_policy_mechanism": "Student rollout in environment → teacher rescores with hindsight → advantage reweighting + standalone KL on action tokens → policy update",
-        "key_innovation": "Dual signal: advantage-integrated (L_rw) + standalone KL (L_act). Selective: distillation restricted to action tokens only (not observations/reasoning). Cites OPSD/RLSD/SDPO and extends to multi-turn agent setting.",
-        "distillation_integration": "Both advantage-integrated AND standalone additive loss (rare combination)."
+      "venue": "arXiv 2026",
+      "is_opd": "no",
+      "opd_classification": {
+        "is_opd": "no",
+        "primary_section": null,
+        "rejected_reason": "5/28 三条件过滤 R3+R1: RL agent framework (GRPO + env feedback reweighting). 无 teacher model. action-token KL 是 π vs π_ref 正则化（reference-policy regularization），不是 teacher distillation."
       },
-      "training_setup": {
-        "scenario": "Multi-turn agent RL (ALFWorld, WebShop)",
-        "approach": "GRPO + selective hindsight self-distillation"
-      },
-      "survey_section": "§5.3.1 (OPD for agents) or §4.3 (RL-distillation hybrid)",
-      "notes": "Self-identifies as OPSD lineage. Cites our survey. Has both advantage-integrated AND standalone KL (dual integration). Previously wrongly triaged as \"pure RL\"."
+      "summary": "Selective Hindsight Distillation 用 GRPO + 环境反馈对多轮 agent 进行 RL 优化。原 commit ad8775d (5/27 21:08) 把 SERL 算作 OPD 但未保存 paper_notes 条目；5/28 三条件过滤复核后改判为 RL-only，不属 OPD 主线。",
+      "rejected_date": "2026-05-28",
+      "rejected_by": "三条件过滤复核",
+      "rejected_reason": "R3+R1: RL agent framework (GRPO + env feedback reweighting). 无 teacher model. action-token KL 是 π vs π_ref 正则化不是 teacher distillation. 详见 papers-meta/excluded-papers.md '2026-05-28 三条件过滤 REJECT' section.",
+      "_note": "5/29 补录 stub: ad8775d commit message 提到的 SERL 在 paper_notes.json 里从未存在条目（只在 excluded-papers.md 有 reject 记录），本 stub 让 paper_notes 成为 single source of truth。",
+      "_stub_added_date": "2026-05-29"
     }
   },
-  "last_updated": "2026-05-27T11:58:04.137528Z"
+  "last_updated": "2026-05-29T15:30:00+08:00"
 }
