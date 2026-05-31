@@ -89,3 +89,16 @@ PDF: 78p / 612 KB / 0 undefined refs / 0 LaTeX warnings.
 - 按 academic-rigor 3-condition 复核, 5 篇 reject (SPD/MixSD/WINO+/Decoupling-KL/PSDISTILL)
 - 真实 backlog 9 篇, 已 cite 我们综述 2/9 = 22%
 - 同步更新 `papers-meta/opd-new-papers.md`
+
+### 2026-05-31 — MSD/COPSD chronology fix (per Qin et al. email)
+
+Author of MSD (2605.02971) emailed correcting the chronology relationship between MSD and COPSD (2605.09548) in §5.3.1. Verified facts:
+- MSD: arXiv submitted 2026-05-03
+- COPSD: arXiv submitted 2026-05-10
+- MSD precedes COPSD by 7 days; "MSD extends COPSD" framing was incorrect.
+
+Fixed two paragraphs in §5.3.1:
+- Line 1008 ("Cross-lingual reasoning via PI" closing sentence): "MSD applies the same cross-lingual PI mechanism..." → "MSD is a contemporaneous work that independently applies cross-lingual privileged-information-based self-distillation..."
+- Line 1014 ("Cross-lingual safety via PI" opening): "MSD extends the cross-lingual PI mechanism introduced by COPSD..." → "MSD and COPSD independently explore cross-lingual privileged-information-based self-distillation in different domains, with MSD focusing on multilingual safety alignment and COPSD on cross-lingual mathematical reasoning..."
+
+Other MSD/COPSD references (mindmap line 297-298, Tables line 433/947, §future line 1467) describe method properties only, no chronology implied — left as-is. PDF: 78 pages (unchanged), 0 undefined refs/cites.
