@@ -121,3 +121,26 @@ For each fix:
 - L998: Removed "and GATES" from π-Distill's generalization scope; π-Distill now described as formalizing the OPSD-style PI paradigm only
 
 PDF: 78 pages (unchanged), 0 undefined refs/cites. WRITING.md sweep clean (no em-dash, no prose colon, no semicolon, no AI-taste, no overclaim apart from pre-existing acceptable cases like "provably improves" citing original paper).
+
+### 2026-06-01 — Full-text sanity sweep (P0 + P1)
+
+Survey-wide audit per academic-rigor rebuttal-sanity-sweep 6 dimensions:
+- Cross-ref: 46 \label / 37 \ref, 0 missing ✓
+- Cite keys: 167 \cite = 167 .bib entries (1:1, 0 missing / 0 unused) ✓
+- Method-description vs paper_notes deep-read: 11/11 sampled papers match ✓
+- Numerical consistency (multi-mention): 3 papers cross-checked, all consistent ✓
+- Implicit chronology trigger words (subsequently / pioneered / earlier / ancestor / revisits): 5 hits all verified time-correct ✓
+
+P0 — overclaim/AI-taste fixes (3 places):
+- L759 `novel` → `previously unseen` (long-range reasoning patterns)
+- L769 `highlights` → `illustrates` (RLKD's structural approach contrast)
+- L1039 `fundamentally different` → `qualitatively different` (TABOM/DLM)
+  (the L1039 fix also cleared a prose colon as a side effect)
+
+P1 — body-text prose colon sweep (28 places, all rewritten case-by-case):
+L134 (×2 colons in same line), L148 (Remark heading), L191 (×2), L653, L747, L759, L761, L769, L829, L1010, L1018, L1039 (×2), L1052, L1056, L1141, L1160, L1166, L1205, L1225, L1246, L1248, L1258, L1281, L1292, L1339, L1343, L1350, L1380, L1410, L1444.
+Each colon replaced with one of: `, namely X` / `. X` (period + capital) / `, where X` / `, with X`-ing depending on whether the post-colon clause is enumeration, explanation, or causal.
+
+Side-effect fix: L1052 RLSD paragraph had a stray "complementary rather than competing" duplication from prior edit attempt — paragraph restored to its original semantic structure with the colon now period-separated.
+
+PDF: 78 pages (unchanged), 0 undefined refs/cites. Second-pass mechanical sweep clean: 0 prose colons, 0 em-dash/en-dash, 0 semicolon-in-prose, 0 sentence-start However/Moreover, 0 strong overclaim. Remaining "reveal" / "novel" hits are method-term references (TAID's "reveal ratio" controller, ATESD's "reveal ratio", "novel solutions" in RL exploration) — all preserved.
