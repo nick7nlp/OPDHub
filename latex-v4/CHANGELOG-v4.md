@@ -102,3 +102,22 @@ Fixed two paragraphs in §5.3.1:
 - Line 1014 ("Cross-lingual safety via PI" opening): "MSD extends the cross-lingual PI mechanism introduced by COPSD..." → "MSD and COPSD independently explore cross-lingual privileged-information-based self-distillation in different domains, with MSD focusing on multilingual safety alignment and COPSD on cross-lingual mathematical reasoning..."
 
 Other MSD/COPSD references (mindmap line 297-298, Tables line 433/947, §future line 1467) describe method properties only, no chronology implied — left as-is. PDF: 78 pages (unchanged), 0 undefined refs/cites.
+
+### 2026-06-01 — Survey-wide chronology audit (4 fixes)
+
+Following the MSD/COPSD email correction, ran a systematic chronology sweep across main.tex. Grepped 37 lines with chronology trigger words (extends, builds on, introduced by, inspired by, follows, generalizes, improves over, adapted from, predecessor, pushes further, inverts), filtered to paper-vs-paper claims (~13 lines), cross-checked all involved arXiv v1 submission dates. Found 4 reverse-chronology errors and fixed all four:
+
+| # | line | error | v1 dates | gap |
+|---|---|---|---|---|
+| 1 | 1191 | "DistillSpec inverts SKD's approach" | DistillSpec 2023-10-12 vs SKD 2024-10-15 | DistillSpec 1 year earlier |
+| 2 | 1048 | "SDPO extends SD-ZERO; RLTF pushes further" | SDPO 2026-01-28, RLTF 2026-02-02, SD-ZERO 2026-04-13 | SDPO/RLTF 70-75 days earlier |
+| 3 | 1354 | "CORD pushes further" past Video-OPD/X-OPD | CORD 2026-01-23, Video-OPD 2026-02-03, X-OPD 2026-03-06 | CORD 11-42 days earlier |
+| 4 | 998  | "π-Distill generalizes the OPSD and GATES paradigms" | π-Distill 2026-02-04, GATES 2026-02-24 | π-Distill 20 days earlier |
+
+For each fix:
+- L1191: Reordered as "DistillSpec first applied on-policy KD to inference-time draft, SKD subsequently adapts speculative decoding to training side"
+- L1048: Reframed as parallel line of work in chronological order (SDPO early instance with structured textual feedback, RLTF concurrent with free-form NL critiques, SD-ZERO more recent with dual-role generator-reviser)
+- L1354: Restructured "two axes" framing as intra-model self-alignment (CORD first, with equation) + external-teacher cross-modal transfer (Video-OPD then X-OPD)
+- L998: Removed "and GATES" from π-Distill's generalization scope; π-Distill now described as formalizing the OPSD-style PI paradigm only
+
+PDF: 78 pages (unchanged), 0 undefined refs/cites. WRITING.md sweep clean (no em-dash, no prose colon, no semicolon, no AI-taste, no overclaim apart from pre-existing acceptable cases like "provably improves" citing original paper).
