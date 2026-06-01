@@ -144,3 +144,21 @@ Each colon replaced with one of: `, namely X` / `. X` (period + capital) / `, wh
 Side-effect fix: L1052 RLSD paragraph had a stray "complementary rather than competing" duplication from prior edit attempt — paragraph restored to its original semantic structure with the colon now period-separated.
 
 PDF: 78 pages (unchanged), 0 undefined refs/cites. Second-pass mechanical sweep clean: 0 prose colons, 0 em-dash/en-dash, 0 semicolon-in-prose, 0 sentence-start However/Moreover, 0 strong overclaim. Remaining "reveal" / "novel" hits are method-term references (TAID's "reveal ratio" controller, ATESD's "reveal ratio", "novel solutions" in RL exploration) — all preserved.
+
+### 2026-06-01 — WRITING.md compliance final pass (intensifier + enumeration + filler)
+
+Triggered after admitting only ~30% of WRITING.md (116KB) had been applied in prior sweeps. Full grep coverage of all WRITING.md word-lists ran on main.tex:
+
+Word-level fixes (12 places):
+- 8 × `particularly` removed: L341 (→ `namely`), L759 (→ `especially`), L767 (→ `well-suited to`), L829 (drop), L852 (drop), L913 (→ `matches the structure of`), L1368 (drop), L1378 (drop).
+- 1 × `facilitate` softened: L915 ROPD `can facilitate student-exceeds-teacher performance` → `can support`.
+- 3 × `robust` filler replaced: L148 `robust OPD` → `stable OPD`, L1168 `robust teacher response` → `verified teacher response`, L1335 `more robust supervision` → `more reliable supervision`, L1370 `robust teacher model` → `strong teacher model`. (Technical robustness statements at L1133, L1154, L1166, L1370 second mention preserved as formal robustness terms.)
+
+Enumeration restructure (3 paragraphs converted from First/Second/Third 套式):
+- L901 Lion three-stage adversarial loop → `(i) imitation ... (ii) discrimination ... (iii) generation`.
+- L905 DASD three SFT limitations → `, namely (i) inadequate representation ... (ii) misalignment ... (iii) exposure bias`.
+- L1393 OPD-systems three infrastructure demands → introductory list `namely teacher co-hosting, logit-tensor transfer, and staleness tolerance.` followed by per-item paragraphs labeled with \emph{...} headings (no colon, no semicolon).
+
+Side-effect fix: L1201 NPD prose colon `narrowing the exploration space for GRPO: the NPD$\to$GRPO pipeline` → period-split (caught during the same sweep, missed in 6/01 P1 batch).
+
+PDF: 78 pages (unchanged), 612217 bytes, 0 undefined refs/cites, 0 over/underfull boxes. Final mechanical sweep clean: 0 `particularly`, 0 `facilitate`, 0 First/Second/Third 套式, 0 prose colons, 0 em-dash, 0 sentence-start However/Moreover.
