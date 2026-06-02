@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-06-02",
-  "total": 173,
+  "total": 169,
   "papers": [
     {
       "arxiv_id": "2605.13230",
@@ -155,20 +155,6 @@
       "freq": "per-step",
       "size": "3-10B",
       "description": "Token-routed FKL on key spans + RKL on error spans"
-    },
-    {
-      "arxiv_id": "2605.06230",
-      "title": "Safactory",
-      "authors": "Xinquan Chen",
-      "year": 2026,
-      "year_month": "2026-05",
-      "section": "§8.1",
-      "loss_class": "Other",
-      "domain": "Agent",
-      "signal": "External-Teacher",
-      "freq": "per-step",
-      "size": "<3B",
-      "description": "Scalable agentic pipeline for trustworthy training"
     },
     {
       "arxiv_id": "2605.06387",
@@ -869,20 +855,6 @@
       "freq": "once-before-training",
       "size": "<3B",
       "description": "Various students → Various teachers (cross-tokenizer ULD)"
-    },
-    {
-      "arxiv_id": "2402.11890",
-      "title": "Revisiting Knowledge Distillation for Autoregressive Language Models",
-      "authors": "Qihuang Zhong",
-      "year": 2024,
-      "year_month": "2024-02",
-      "section": "§5.1",
-      "loss_class": "Other",
-      "domain": "General",
-      "signal": "External-Teacher",
-      "freq": "n/a",
-      "size": "<3B",
-      "description": "OPT-125M / Pythia-410M / LLaMA-68M → OPT-6.7B / Pythia-2.8B / LLaMA-7B (ATKD, adaptive token teaching)"
     },
     {
       "arxiv_id": "2402.12842",
@@ -2019,20 +1991,6 @@
       "description": "Qwen3-1.7B/8B → Self; training-free per-token diagnostic; ideal per-node gradient + gradient alignment score (Apple)"
     },
     {
-      "arxiv_id": "2505.13111",
-      "title": "Why Knowledge Distillation Works in Generative Models: A Minimal Working Explanation",
-      "authors": "Sungmin Cha",
-      "year": 2025,
-      "year_month": "2025-05",
-      "section": "§7.1",
-      "loss_class": "Other",
-      "domain": "General",
-      "signal": "External-Teacher",
-      "freq": "n/a",
-      "size": "<3B",
-      "description": "SmolLM2-135M → SmolLM2-360M (theory + empirical)"
-    },
-    {
       "arxiv_id": "2603.24472",
       "title": "Why Does Self-Distillation (Sometimes) Degrade the Reasoning Capability of LLMs?",
       "authors": "Jeonghye Kim",
@@ -2073,20 +2031,6 @@
       "freq": "per-step",
       "size": "3-10B",
       "description": "Qwen3-0.6B–32B → Self (CaOPD: miscalibration scaling law + calibration-aware OPD)"
-    },
-    {
-      "arxiv_id": "2604.25110",
-      "title": "Knowledge Distillation Must Account for What It Loses",
-      "authors": "Wenshuo Wang",
-      "year": 2026,
-      "year_month": "2026-04",
-      "section": "§7.2",
-      "loss_class": "Other",
-      "domain": "Reasoning",
-      "signal": "Other-Signal",
-      "freq": "n/a",
-      "size": "Unknown",
-      "description": "Position paper; taxonomy of off-metric distillation losses (calibration, reasoning trace erosion, distributional narrowing); Distillation Loss Statement evaluation framework"
     },
     {
       "arxiv_id": "2605.11182",
