@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-06-02",
-  "total": 181,
+  "total": 180,
   "papers": [
     {
       "arxiv_id": "2605.13230",
@@ -1471,20 +1471,6 @@
       "freq": "once-before-training",
       "size": ">30B",
       "description": "Llama-3.1-8B / Qwen3-4B–30B-Instruct → Self (SSD, code generation)"
-    },
-    {
-      "arxiv_id": "2604.20933",
-      "title": "Interpolative Rényi Iterative Self-play",
-      "authors": "Wenjie Liao",
-      "year": 2026,
-      "year_month": "2026-04",
-      "section": "§5.3",
-      "loss_class": "f-Divergence",
-      "domain": "General",
-      "signal": "Self",
-      "freq": "per-outer-iter",
-      "size": "3-10B",
-      "description": "Mistral-7B → Self; IRIS: Rényi divergence unified framework for SPIN/SPACE/SPIF"
     },
     {
       "arxiv_id": "2605.10781",
