@@ -6,7 +6,7 @@
    ============================================================ */
 
 :root {
-  --font-serif: 'EB Garamond', Palatino, 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
+  --font-serif: 'TeXGyrePagella', 'TeX Gyre Pagella', 'URW Palladio L', Palatino, 'Palatino Linotype', 'Book Antiqua', 'P052', Georgia, serif;
   --font-mono:  'Inconsolata', 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
 
   --c-ink:        #1a1a1a;
@@ -95,12 +95,12 @@ code, pre, .mono {
 }
 
 .hero-wordmark {
-  font-family: var(--font-mono);
-  font-weight: 600;
-  font-size: 2.6rem;
-  letter-spacing: 0.04em;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 2.8rem;
+  letter-spacing: -0.005em;
   line-height: 1;
-  margin-bottom: 0.55rem;
+  margin-bottom: 0.6rem;
   color: var(--c-rouge);
 }
 
@@ -111,6 +111,7 @@ code, pre, .mono {
 .hero-wordmark .wordmark-tail {
   color: var(--c-ink);
   font-weight: 500;
+  font-style: italic;
 }
 
 .publication-title {
