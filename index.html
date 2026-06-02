@@ -25,10 +25,9 @@
   <link href="https://fonts.cdnfonts.com/css/tex-gyre-pagella" rel="stylesheet">
 
   <link rel="stylesheet" href="static/css/bulma.min.css">
-  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="static/css/style.css?v=66b3b040">
+  <link rel="stylesheet" href="static/css/style.css?v=ff0ae580">
 </head>
 <body>
 
@@ -66,32 +65,7 @@
   </div>
 </section>
 
-<!-- Abstract -->
-<section class="section section-abstract">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-three-quarters">
-        <h2 class="section-title">Abstract</h2>
-        <div class="abstract-body">
-          <p>As Large Language Models (LLMs) continue to grow in both capability and cost, transferring frontier capabilities into smaller, deployable students has become an important engineering problem, and knowledge distillation remains a common technique for this transfer. The prevailing recipe in industrial pipelines, static imitation of teacher-generated text, carries a structural weakness that grows more severe as tasks become longer and more reasoning-intensive. Because the student is trained on flawless teacher prefixes but generates its own at inference, small errors tend to accumulate into trajectories it has rarely been trained to recover from, and the resulting exposure bias has been shown to scale roughly with the square of sequence length. On-Policy Distillation (OPD) reorganizes the training loop around this observation by having the teacher provide feedback on what the student <em>actually produces</em>, with the goal of reducing the compounding term toward linear and reframing distillation as an iterative correction process rather than single-pass imitation. The resulting literature has expanded along divergence design, reward-guided optimization, and self-play, yet contributions remain scattered across the knowledge distillation, RLHF, and imitation learning communities without a unified treatment. This survey provides such a treatment. We formalize OPD as <i>f</i>-divergence minimization over student-sampled trajectories, organize the field along three design axes (what to optimize, where the signal comes from, and how to stabilize training in practice), and consolidate success conditions, recurring failure modes, and the connection between OPD and KL-constrained reinforcement learning. We close with open problems that emerge from this synthesis, including distillation scaling laws, uncertainty-aware feedback, agent-level distillation, and the growing overlap between knowledge distillation and RL.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Carousel -->
-<section class="section section-carousel">
-  <div class="container">
-    <div id="results-carousel" class="carousel results-carousel">
-      <div class="item"><div class="image-container"><img src="static/images/opd-overview.png" alt="OPD overview — student-rollout feedback loop"/></div><h2 class="subtitle has-text-centered carousel-caption">OPD overview — student-rollout feedback loop</h2></div>
-        <div class="item"><div class="image-container"><img src="static/images/model-atlas-heatmap.png" alt="Teacher–student model atlas (148 OPD papers)"/></div><h2 class="subtitle has-text-centered carousel-caption">Teacher–student model atlas (148 OPD papers)</h2></div>
-        <div class="item"><div class="image-container"><img src="static/images/loss-distribution.png" alt="Loss-objective distribution across 158 papers"/></div><h2 class="subtitle has-text-centered carousel-caption">Loss-objective distribution across 158 papers</h2></div>
-        <div class="item"><div class="image-container"><img src="static/images/loss-evolution.png" alt="Monthly evolution of OPD loss objectives"/></div><h2 class="subtitle has-text-centered carousel-caption">Monthly evolution of OPD loss objectives</h2></div>
-        <div class="item"><div class="image-container"><img src="static/images/evolution-timeline.png" alt="OPD methods timeline (2023–2026)"/></div><h2 class="subtitle has-text-centered carousel-caption">OPD methods timeline (2023–2026)</h2></div>
-    </div>
-  </div>
-</section>
+<!-- Abstract & Carousel removed: hero + paper atlas is the whole story -->
 
 <!-- Paper Atlas -->
 <section class="section section-atlas">
@@ -444,10 +418,8 @@
   </div>
 </footer>
 
-<script src="static/js/bulma-carousel.min.js"></script>
 <script src="static/js/fuse.min.js"></script>
-<script src="static/js/carousel.js?v=66b3b040"></script>
-<script src="static/js/search.js?v=66b3b040"></script>
-<script src="static/js/bibtex.js?v=66b3b040"></script>
+<script src="static/js/search.js?v=ff0ae580"></script>
+<script src="static/js/bibtex.js?v=ff0ae580"></script>
 </body>
 </html>
