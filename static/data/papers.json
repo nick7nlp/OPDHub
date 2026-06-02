@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-06-02",
-  "total": 172,
+  "total": 173,
   "papers": [
     {
       "arxiv_id": "2605.13230",
@@ -901,6 +901,16 @@
       "section": "§5.3",
       "loss_class": "Other",
       "description": "Qwen3-1.7B/4B/8B → Self (skill-conditioned); Skill-conditioned multi-teacher pool with outcome-validated teacher polarity; bounded gated distillation objective."
+    },
+    {
+      "arxiv_id": "2606.00424",
+      "title": "Weak Critics Make Strong Learners: On-Policy Critique Distillation for Scalable Oversight",
+      "authors": "Can Jin",
+      "year": 2026,
+      "year_month": "2026-06",
+      "section": "§5.3",
+      "loss_class": "RKL",
+      "description": "Qwen3-4B-base → Self; On-policy critique distillation using weak model critiques to improve strong models"
     },
     {
       "arxiv_id": "2601.19897",
