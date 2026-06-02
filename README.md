@@ -17,6 +17,12 @@
 
 ---
 
+## 🔥 News
+
+* **2026.06**: 🎉🎉🎉 OPDHub launched! Searchable paper atlas with one-click filters across section, loss class, and year. COLM-style typography (EB Garamond + Inconsolata). Visit at [nick7nlp.github.io/OPDHub](https://nick7nlp.github.io/OPDHub/).
+* **2026.05**: 🚀 Survey **V3** released, expanded with the new §3 *Method Landscape & Selection* chapter and §7.4 *On-Policy vs Off-Policy Decision Framework*. Read on [arXiv](https://arxiv.org/abs/2604.00626).
+* **2026.04**: 📝 Initial release of the survey on [arXiv](https://arxiv.org/abs/2604.00626) with the first systematic taxonomy of OPD methods covering objective design, signal source, and training stabilization.
+
 ## Live site
 
 **https://nick7nlp.github.io/OPDHub/**
