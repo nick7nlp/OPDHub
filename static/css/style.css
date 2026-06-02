@@ -87,22 +87,41 @@ code, pre, .mono {
 
 .hero-eyebrow {
   font-family: var(--font-mono);
-  font-size: 0.95rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
+  font-size: 0.92rem;
+  letter-spacing: 0.18em;
+  text-transform: lowercase;
   color: var(--c-muted);
-  margin-bottom: 1.8rem;
+  margin-bottom: 1.6rem;
+}
+
+.hero-wordmark {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 2.6rem;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  margin-bottom: 0.55rem;
+  color: var(--c-rouge);
+}
+
+.hero-wordmark .wordmark-glyph {
+  color: var(--c-rouge);
+}
+
+.hero-wordmark .wordmark-tail {
+  color: var(--c-ink);
+  font-weight: 500;
 }
 
 .publication-title {
   font-family: var(--font-serif);
   font-weight: 600;
-  font-size: 3.2rem;
-  line-height: 1.16;
-  letter-spacing: -0.01em;
+  font-size: 2.4rem;
+  line-height: 1.2;
+  letter-spacing: -0.005em;
   color: var(--c-ink);
   max-width: 26em;
-  margin: 0 auto 1.4rem;
+  margin: 0 auto 1.2rem;
 }
 
 .hero-tagline {
@@ -665,7 +684,8 @@ li.paper-card .paper-desc {
 @media (max-width: 760px) {
   body { font-size: 18px; }
 
-  .publication-title { font-size: 2.2rem; }
+  .publication-title { font-size: 1.7rem; }
+  .hero-wordmark { font-size: 2rem; }
   .hero-tagline { font-size: 1.05rem; }
   .hero { padding: 3.5rem 1rem 2.5rem; }
   .section { padding: 3rem 1rem; }
