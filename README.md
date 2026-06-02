@@ -9,8 +9,6 @@
 [![Awesome List](https://img.shields.io/badge/📋_Awesome_List-Awesome--LLM--On--Policy--Distillation-75B975?style=flat-square)](https://github.com/nick7nlp/Awesome-LLM-On-Policy-Distillation)
 [![License](https://img.shields.io/badge/License-CC_BY--SA_4.0-867892?style=flat-square)](LICENSE)
 
-> 🔍 _Also discoverable as_ **AwesomeOPD** · **OPDHub** · **OPD-Survey** · **awesome-llm-opd** · **awesome-opd**
-
 <img src="static/images/model-atlas-heatmap.png" alt="Teacher–student model atlas" width="640"/>
 
 </div>
