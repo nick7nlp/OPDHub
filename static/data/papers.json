@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-30",
-  "total": 161,
+  "generated_at": "2026-06-02",
+  "total": 172,
   "papers": [
     {
       "arxiv_id": "2605.13230",
@@ -213,6 +213,36 @@
       "description": "Qwen3-8B → Self (oracle-rectified); Oracle-rectified proximal on-policy data + reward-based BCE; 4k math pairs, 16-min training on 8xH800"
     },
     {
+      "arxiv_id": "2606.00305",
+      "title": "Bridging Reasoning Trajectories in On-Policy Distillation via Near-Future Guidance",
+      "authors": "Yuxuan Jiang",
+      "year": 2026,
+      "year_month": "2026-06",
+      "section": "§4.1",
+      "loss_class": "RKL",
+      "description": "Qwen3-30B-A3B-Instruct-2507 → Qwen3-4B-Instruct-2507; Trajectory-aware OPD using OT-based near-future guidance to fix token-level reasoning correction failures"
+    },
+    {
+      "arxiv_id": "2606.00564",
+      "title": "Decomposed On-Policy Distillation for Vision-Language Reasoning: Steering Gradients for Visual Grounding",
+      "authors": "HeeSuk Yoon",
+      "year": 2026,
+      "year_month": "2026-06",
+      "section": "§4.1",
+      "loss_class": "RKL",
+      "description": "Qwen3-VL-8B-Instruct → Qwen3-VL-2B-Instruct; Decomposes VLM on-policy distillation into language prior and visual grounding, steering gradients toward visual subspace"
+    },
+    {
+      "arxiv_id": "2606.01039",
+      "title": "OPD+: Rethinking the Advantage Design for On-Policy Distillation",
+      "authors": "Hanyang Zhao",
+      "year": 2026,
+      "year_month": "2026-06",
+      "section": "§4.1",
+      "loss_class": "f-Divergence",
+      "description": "Qwen3-8B → Qwen3-8B-Base; Corrects advantage estimation in on-policy distillation via f-divergence gradient analysis"
+    },
+    {
       "arxiv_id": "2601.07155",
       "title": "Stable On-Policy Distillation through Adaptive Target Reformulation",
       "authors": "Ijun Jang",
@@ -301,6 +331,36 @@
       "section": "§4.2",
       "loss_class": "FKL",
       "description": "Qwen3-4B → Self; Position-weighted clipped FKL: later reasoning tokens get higher weight due to accumulated teacher error"
+    },
+    {
+      "arxiv_id": "2605.30833",
+      "title": "Your Teacher Can't Help You Here: Combating Supervision Fidelity Decay in On-Policy Distillation",
+      "authors": "Yanjiang Liu",
+      "year": 2026,
+      "year_month": "2026-05",
+      "section": "§4.2",
+      "loss_class": "KL+RL",
+      "description": "SkyWork-OR1-Math-7B → DeepSeek-R1-Distill-Qwen-1.5B; Identifies Supervision Fidelity Decay in OPD and proposes Lookahead Group Reward to combat it"
+    },
+    {
+      "arxiv_id": "2606.00147",
+      "title": "RAFT: Data Refinement and Adaptive Distillation for Domain Fine-Tuning with Alleviated Forgetting",
+      "authors": "Yuduo Li",
+      "year": 2026,
+      "year_month": "2026-06",
+      "section": "§4.2",
+      "loss_class": "FKL",
+      "description": "SmolLM3-3B → Self; Two-stage framework coupling data refinement with on-policy distillation to mitigate forgetting in domain SFT"
+    },
+    {
+      "arxiv_id": "2606.01249",
+      "title": "Trust Region On-Policy Distillation",
+      "authors": "Xingrun Xing",
+      "year": 2026,
+      "year_month": "2026-06",
+      "section": "§4.2",
+      "loss_class": "Symmetric",
+      "description": "Skywork-OR1-Math-7B → DeepSeek-R1-Distill-Qwen-1.5B; Trust-region OPD with outlier estimation and off-policy guidance for stable reasoning distillation"
     },
     {
       "arxiv_id": "2602.00400",
@@ -663,6 +723,16 @@
       "description": "Llama-3.1-8B / Qwen2.5-3B–14B → GPT-5-Chat (black-box)"
     },
     {
+      "arxiv_id": "2606.01476",
+      "title": "OmniOPD: Logit-Free On-Policy Distillation via Speculative Verification",
+      "authors": "Yuhang Zhou",
+      "year": 2026,
+      "year_month": "2026-06",
+      "section": "§5.2",
+      "loss_class": "Other",
+      "description": "Qwen3-32B → Qwen3-1.7B; Logit-free on-policy distillation using chunk-level Monte Carlo semantic verification from black-box teachers"
+    },
+    {
       "arxiv_id": "2602.04942",
       "title": "Privileged Information Distillation for Language Models",
       "authors": "Emiliano Penaloza",
@@ -1013,6 +1083,26 @@
       "description": "Qwen3-4B/8B (self-teacher) → Qwen3-4B/8B; Error-focused reflection + quote-localized self-distillation; reflector extracts corrective idea and error span, distillation loss applied only from error onward"
     },
     {
+      "arxiv_id": "2605.30251",
+      "title": "Same Evidence, Different Answers: Canonical-Context On-Policy Distillation for Multi-Turn Language Models",
+      "authors": "Zizhuo Lin",
+      "year": 2026,
+      "year_month": "2026-05",
+      "section": "§5.3",
+      "loss_class": "RKL",
+      "description": "Qwen3-8B → Self; On-policy self-distillation aligning RAW-SHARDED multi-turn answers with FULL-context teacher behavior"
+    },
+    {
+      "arxiv_id": "2606.02372",
+      "title": "COMAP: Co-Evolving World Models and Agent Policies for LLM Agents",
+      "authors": "Youwei Liu",
+      "year": 2026,
+      "year_month": "2026-06",
+      "section": "§5.3",
+      "loss_class": "Other",
+      "description": "Qwen3-4B → Self; Co-evolving textual world models and agent policies via on-policy self-distillation and future-aware reflection"
+    },
+    {
       "arxiv_id": "2601.20802",
       "title": "Reinforcement Learning via Self-Distillation",
       "authors": "Jonas Hübotter",
@@ -1311,6 +1401,26 @@
       "section": "§6",
       "loss_class": "FKL",
       "description": "Qwen3-8B → Qwen3-4B; Dual teacher conflict-aware distillation with 3+1 alternating schedule for domain preservation"
+    },
+    {
+      "arxiv_id": "2605.31490",
+      "title": "Are Full Rollouts Necessary for On-Policy Distillation?",
+      "authors": "Yaocheng Zhang",
+      "year": 2026,
+      "year_month": "2026-05",
+      "section": "§6",
+      "loss_class": "RKL",
+      "description": "JustRL-R1-1.5B → R1-Distill-1.5B; Horizon-control strategies (POPD, TOPD) improve OPD efficiency by truncating rollouts"
+    },
+    {
+      "arxiv_id": "2606.02530",
+      "title": "SafeSteer: Localized On-Policy Distillation for Efficient Safety Alignment",
+      "authors": "Hao Li",
+      "year": 2026,
+      "year_month": "2026-06",
+      "section": "§6",
+      "loss_class": "RKL",
+      "description": "Qwen3-4B-Instruct → Self; Localized on-policy distillation confined to safety tokens via activation steering teacher"
     },
     {
       "arxiv_id": "2605.10889",
