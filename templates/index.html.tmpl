@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="A Survey of On-Policy Distillation for Large Language Models — companion website with searchable paper atlas.">
+  <meta property="og:title" content="On-Policy Distillation Survey"/>
+  <meta property="og:description" content="Companion website for arXiv:2604.00626 — paper atlas with live taxonomy filter."/>
+  <meta property="og:url" content="https://nick7nlp.github.io/OPDHub/"/>
+  <meta property="og:image" content="static/images/opd-overview.png"/>
+  <meta name="twitter:title" content="On-Policy Distillation Survey">
+  <meta name="twitter:description" content="OPD papers organized by objective, signal source, and training dynamics.">
+  <meta name="twitter:image" content="static/images/opd-overview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="keywords" content="on-policy distillation, knowledge distillation, LLM, RLHF, survey">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>On-Policy Distillation Survey</title>
+  <link rel="icon" type="image/png" href="static/images/opd-overview.png">
+
+  <!-- COLM-style typography: Pagella-adjacent serif + Inconsolata mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inconsolata:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/style.css?v={{ASSET_VERSION}}">
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop has-text-centered">
+      <p class="hero-eyebrow">A Companion Website to arXiv&thinsp;:&thinsp;2604.00626</p>
+      <h1 class="publication-title">A Survey of On-Policy Distillation for Large Language Models</h1>
+      <p class="hero-tagline">A formal taxonomy and live paper atlas for OPD across objective, signal source, and training dynamics.</p>
+      <div class="publication-authors">
+        <span class="author-block"><a href="https://github.com/nick7nlp" target="_blank">Mingyang Song</a></span>
+        <span class="author-sep">&middot;</span>
+        <span class="author-block">Mao Zheng</span>
+      </div>
+      <div class="affiliation">Tencent</div>
+      <div class="publication-links">
+        <a href="https://arxiv.org/abs/2604.00626" target="_blank" class="link-pill">
+          <span class="icon"><i class="ai ai-arxiv"></i></span><span>arXiv</span>
+        </a>
+        <a href="https://arxiv.org/pdf/2604.00626" target="_blank" class="link-pill">
+          <span class="icon"><i class="fas fa-file-pdf"></i></span><span>PDF</span>
+        </a>
+        <a href="https://github.com/nick7nlp/Awesome-LLM-On-Policy-Distillation" target="_blank" class="link-pill">
+          <span class="icon"><i class="fab fa-github"></i></span><span>Awesome List</span>
+        </a>
+        <a href="#bibtex" class="link-pill">
+          <span class="icon"><i class="fas fa-quote-right"></i></span><span>BibTeX</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Abstract -->
+<section class="section section-abstract">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-three-quarters">
+        <h2 class="section-title">Abstract</h2>
+        <div class="abstract-body">
+          <p>{{ABSTRACT}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Carousel -->
+<section class="section section-carousel">
+  <div class="container">
+    <div id="results-carousel" class="carousel results-carousel">
+      {{CAROUSEL_ITEMS}}
+    </div>
+  </div>
+</section>
+
+<!-- Paper Atlas -->
+<section class="section section-atlas">
+  <div class="container">
+    <div class="atlas-header">
+      <h2 class="section-title">Paper Atlas</h2>
+      <p class="section-subtitle">Browse the literature by objective, signal source, year, or any keyword.</p>
+    </div>
+
+    <!-- Search box -->
+    <div class="search-wrap">
+      <span class="search-icon"><i class="fas fa-search"></i></span>
+      <input id="search-input" type="text" placeholder="Search title, author, method...">
+      <span id="visible-count" class="search-count"></span>
+    </div>
+
+    <!-- Filter chips -->
+    <div class="filter-grid">
+      <div class="filter-row">
+        <span class="filter-label">Section</span>
+        <div class="filter-chips" data-filter-group="section">
+          {{FILTER_SECTIONS}}
+        </div>
+      </div>
+      <div class="filter-row">
+        <span class="filter-label">Loss</span>
+        <div class="filter-chips" data-filter-group="loss">
+          {{FILTER_LOSSES}}
+        </div>
+      </div>
+      <div class="filter-row">
+        <span class="filter-label">Year</span>
+        <div class="filter-chips" data-filter-group="year">
+          {{FILTER_YEARS}}
+        </div>
+      </div>
+      <div class="filter-row filter-actions">
+        <span class="filter-label">&nbsp;</span>
+        <button id="clear-filters" class="clear-btn">
+          <i class="fas fa-times"></i> &nbsp;clear filters
+        </button>
+      </div>
+    </div>
+
+    <!-- Paper list -->
+    <div id="paper-list">
+      {{PAPER_LIST}}
+    </div>
+
+    <div id="empty-state" class="empty-state is-hidden">
+      <i class="fas fa-search-minus"></i>
+      <p>No papers match the current filter.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BibTeX -->
+<section class="section section-bibtex" id="bibtex">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-three-quarters">
+        <h2 class="section-title">Citation</h2>
+        <div class="bibtex-wrap">
+          <button id="bibtex-copy" class="copy-btn" title="Copy to clipboard">
+            <i class="far fa-copy"></i><span class="copy-label">copy</span>
+          </button>
+          <pre><code id="bibtex-block">{{BIBTEX}}</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container has-text-centered">
+    <p>
+      Adapted from the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>
+      &middot; <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC&nbsp;BY-SA&nbsp;4.0</a>
+    </p>
+  </div>
+</footer>
+
+<script src="static/js/bulma-carousel.min.js"></script>
+<script src="static/js/fuse.min.js"></script>
+<script src="static/js/carousel.js?v={{ASSET_VERSION}}"></script>
+<script src="static/js/search.js?v={{ASSET_VERSION}}"></script>
+<script src="static/js/bibtex.js?v={{ASSET_VERSION}}"></script>
+</body>
+</html>

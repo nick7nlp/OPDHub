@@ -1,0 +1,12 @@
+# Local-only artifacts
+.DS_Store
+*.swp
+__pycache__/
+.venv/
+
+# Backup directories (must never be committed)
+*.bak
+*.bak.bak
+.git.bak*
+.git.old*
+data.bak/
