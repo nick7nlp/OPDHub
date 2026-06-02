@@ -150,6 +150,38 @@ code, pre, .mono {
   margin: 1rem auto 0;
 }
 
+/* ---------- Monthly stat band ---------- */
+
+.section-stat {
+  background: var(--c-bg);
+  padding: 0.5rem 1.5rem 2rem;   /* tight: hero already left padding above */
+}
+
+.section-stat .container {
+  text-align: center;
+}
+
+.monthly-chart {
+  display: block;
+  width: 100%;
+  max-width: 880px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.monthly-chart-caption {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--c-ink-soft);
+  letter-spacing: 0.04em;
+  margin-top: 0.4rem;
+  text-align: center;
+}
+
+.monthly-chart-caption .muted {
+  color: var(--c-muted);
+}
+
 /* ---------- Paper Atlas ---------- */
 
 .section-atlas {
