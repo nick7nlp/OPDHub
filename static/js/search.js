@@ -16,7 +16,11 @@
   const active = {
     section: new Set(),
     loss:    new Set(),
-    year:    new Set()
+    year:    new Set(),
+    domain:  new Set(),
+    signal:  new Set(),
+    freq:    new Set(),
+    size:    new Set()
   };
   let searchQuery = '';
 
@@ -61,6 +65,10 @@
       }
       if (active.loss.size > 0 && !active.loss.has(p.loss_class)) continue;
       if (active.year.size > 0 && !active.year.has(String(p.year))) continue;
+      if (active.domain.size > 0 && !active.domain.has(p.domain || '')) continue;
+      if (active.signal.size > 0 && !active.signal.has(p.signal || '')) continue;
+      if (active.freq.size > 0 && !active.freq.has(p.freq || '')) continue;
+      if (active.size.size > 0 && !active.size.has(p.size || '')) continue;
       filtered.push(p);
     }
 
@@ -114,6 +122,10 @@
         active.section.clear();
         active.loss.clear();
         active.year.clear();
+        active.domain.clear();
+        active.signal.clear();
+        active.freq.clear();
+        active.size.clear();
         searchQuery = '';
         document.querySelectorAll('.chip.is-active').forEach(c => c.classList.remove('is-active'));
         const input = document.getElementById('search-input');
@@ -133,6 +145,19 @@
     input.addEventListener('input', handler);
   }
 
+  function bindExpand() {
+    // Toggle .is-expanded on paper-card when clicking title/toggle/non-link area
+    document.querySelectorAll('li.paper-card.has-detail').forEach(card => {
+      card.addEventListener('click', (e) => {
+        // Ignore clicks on links / badge anchors so they navigate normally
+        if (e.target.closest('a')) return;
+        // Ignore clicks inside .paper-detail (let inner links work, no toggle)
+        if (e.target.closest('.paper-detail')) return;
+        card.classList.toggle('is-expanded');
+      });
+    });
+  }
+
   function init(papers) {
     allPapers = papers;
     fuse = new Fuse(papers, {
@@ -150,6 +175,7 @@
     indexCards();
     bindChips();
     bindSearch();
+    bindExpand();
     applyFilter();
   }
 
@@ -172,7 +198,11 @@
             description: '',
             section: card.getAttribute('data-section') || '',
             loss_class: card.getAttribute('data-loss') || '',
-            year: card.getAttribute('data-year') || ''
+            year: card.getAttribute('data-year') || '',
+            domain: card.getAttribute('data-domain') || '',
+            signal: card.getAttribute('data-signal') || '',
+            freq: card.getAttribute('data-freq') || '',
+            size: card.getAttribute('data-size') || ''
           });
         });
         init(fallback);
