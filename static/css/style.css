@@ -230,83 +230,11 @@ code, pre, .mono {
   margin: 1rem auto 0;
 }
 
-.section-subtitle {
-  text-align: center;
-  font-style: italic;
-  font-size: 1.2rem;
-  color: var(--c-muted);
-  margin-top: 0.8rem;
-  margin-bottom: 3.2rem;
-}
-
-/* ---------- Abstract ---------- */
-
-.section-abstract {
-  background: var(--c-bg-soft);
-  border-top: 1px solid var(--c-rule);
-  border-bottom: 1px solid var(--c-rule);
-}
-
-.abstract-body {
-  font-size: 1.28rem;
-  line-height: 1.85;
-  text-align: justify;
-  hyphens: auto;
-  color: var(--c-ink-soft);
-}
-
-.abstract-body p {
-  text-indent: 0;
-}
-
-/* ---------- Carousel ---------- */
-
-.section-carousel {
-  background: var(--c-bg);
-  padding: 3rem 1rem;
-}
-
-.results-carousel .item {
-  padding: 0 0.5rem;
-}
-
-.results-carousel .image-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 480px;
-  background: #ffffff;
-  border: 1px solid var(--c-rule);
-  border-radius: var(--rad-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-md);
-}
-
-.results-carousel .image-container img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  padding: 1.5rem;
-}
-
-.carousel-caption {
-  text-align: center;
-  margin-top: 1.2rem;
-  font-style: italic;
-  font-size: 1.02rem;
-  color: var(--c-muted);
-}
-
 /* ---------- Paper Atlas ---------- */
 
 .section-atlas {
   background: var(--c-bg);
   border-top: 1px solid var(--c-rule);
-}
-
-.atlas-header {
-  text-align: center;
-  margin-bottom: 1.8rem;
 }
 
 /* Search box */
@@ -700,10 +628,6 @@ li.paper-card .paper-desc {
     text-align: left;
     flex: none;
     padding-top: 0;
-  }
-
-  .results-carousel .image-container {
-    height: 320px;
   }
 
   li.paper-card {
