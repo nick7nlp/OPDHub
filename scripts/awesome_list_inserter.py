@@ -152,10 +152,16 @@ def find_pending_table(readme_text: str) -> tuple[int, int]:
     if pending_h is None:
         return -1, -1  # absent — caller decides if optional
 
-    # data rows after `| Paper | Section | Why Pending |`
+    # data rows after `| Paper | Section | Why Pending |`. Stop at the
+    # next top-level heading (`## `) or horizontal rule (`---`) so we
+    # do NOT spill into the Additional Resources / Blog Posts tables
+    # that also contain arxiv URLs.
     last_row = None
-    for j in range(pending_h, min(pending_h + 100, len(lines))):
-        if lines[j].startswith("|") and "https://arxiv.org/abs/" in lines[j]:
+    for j in range(pending_h + 1, len(lines)):
+        line = lines[j]
+        if line.startswith("## ") or line.strip() == "---":
+            break
+        if line.startswith("|") and "https://arxiv.org/abs/" in line:
             last_row = j
     return pending_h, last_row if last_row else pending_h
 
