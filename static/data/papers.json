@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-06-03",
-  "total": 168,
+  "total": 165,
   "papers": [
     {
       "arxiv_id": "2605.13230",
@@ -1011,20 +1011,6 @@
       "description": "GPT-5.2 / Qwen3-30B-A3B → Qwen3-4B / Gemma3-4B; structured semantic rubrics replace teacher logits; 10× sample efficiency"
     },
     {
-      "arxiv_id": "2509.25100",
-      "title": "ORPO-Distill: Mixed-Policy Preference Optimization for Cross-Architecture LLM Distillation",
-      "authors": "Aasheesh Singh",
-      "year": 2025,
-      "year_month": "2025-09",
-      "section": "§5.2",
-      "loss_class": "Preference",
-      "domain": "Preference",
-      "signal": "Privileged-Info",
-      "freq": "per-outer-iter",
-      "size": "<3B",
-      "description": "Various students → InternLM-2.5-7B-Chat"
-    },
-    {
       "arxiv_id": "2511.10643",
       "title": "Black-Box On-Policy Distillation of Large Language Models",
       "authors": "Tianzhu Ye",
@@ -1331,20 +1317,6 @@
       "freq": "per-step",
       "size": "3-10B",
       "description": "Llama-3.1-8B → Self (online distillation for 3× faster decoding)"
-    },
-    {
-      "arxiv_id": "2602.13407",
-      "title": "On-Policy Supervised Fine-Tuning for Efficient Reasoning",
-      "authors": "Anhao Zhao",
-      "year": 2026,
-      "year_month": "2026-02",
-      "section": "§5.3",
-      "loss_class": "Other",
-      "domain": "Reasoning",
-      "signal": "Privileged-Info",
-      "freq": "per-step",
-      "size": "<3B",
-      "description": "DeepSeek-R1-Distill-Qwen-1.5B/7B → Self (on-policy SFT)"
     },
     {
       "arxiv_id": "2605.10781",
@@ -2297,20 +2269,6 @@
       "freq": "per-outer-iter",
       "size": "3-10B",
       "description": "Qwen3-4B-Instruct → Self (Skill-SDL)"
-    },
-    {
-      "arxiv_id": "2510.18874",
-      "title": "Retaining by Doing: The Role of On-Policy Data in Mitigating Forgetting",
-      "authors": "Howard Chen",
-      "year": 2025,
-      "year_month": "2025-10",
-      "section": "§8.2",
-      "loss_class": "Other",
-      "domain": "General",
-      "signal": "Verifier",
-      "freq": "per-step",
-      "size": "<3B",
-      "description": "Llama-3.1-8B / Llama-3.2-1B → Llama-3.3-70B"
     },
     {
       "arxiv_id": "2510.23497",
