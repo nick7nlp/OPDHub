@@ -10,3 +10,4 @@ __pycache__/
 .git.bak*
 .git.old*
 data.bak/
+*.bak.*
