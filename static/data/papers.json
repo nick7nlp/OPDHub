@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-06-03",
-  "total": 165,
+  "total": 168,
   "papers": [
     {
       "arxiv_id": "2605.13230",
@@ -969,6 +969,20 @@
       "description": "Qwen3.5-9B → compressed Qwen3.5 (latent MTP); On-policy distillation stage with reverse-KL on student rollouts + auxiliary confidence-head BCE loss, used to recover accuracy of latent multi-token-prediction compressor trained on DAPO-Math + Codeforces"
     },
     {
+      "arxiv_id": "2410.09008",
+      "title": "SuperCorrect: Advancing Small LLM Reasoning with Thought Template Distillation and Self-Correction",
+      "authors": "Ling Yang",
+      "year": 2024,
+      "year_month": "2024-10",
+      "section": "§5.1",
+      "loss_class": "Preference",
+      "domain": "Math",
+      "signal": "External-Teacher",
+      "freq": "once-before-training",
+      "size": "3-10B",
+      "description": "Qwen2.5-Math-7B / Llama-3.1-8B / DeepSeekMath-7B → o1-mini; SuperCorrect: thought template distillation + cross-model DPO on student-generated erroneous reasoning"
+    },
+    {
       "arxiv_id": "2601.21968",
       "title": "OVD: On-policy Verbal Distillation",
       "authors": "Jing Xiong",
@@ -1933,6 +1947,34 @@
       "freq": "per-step",
       "size": "<3B",
       "description": "Qwen3-1.7B-Base / Qwen3-0.6B-Base → Qwen3-8B / Qwen3-4B; Trust-region warmup curriculum: behavior policy under student-centered KL constraint stabilizes early-stage OPD; standard reverse-KL distill loss unchanged"
+    },
+    {
+      "arxiv_id": "2305.12870",
+      "title": "Lion: Adversarial Distillation of Proprietary Large Language Models",
+      "authors": "Yuxin Jiang",
+      "year": 2023,
+      "year_month": "2023-05",
+      "section": "§6",
+      "loss_class": "Other",
+      "domain": "General",
+      "signal": "External-Teacher",
+      "freq": "per-outer-iter",
+      "size": "3-10B",
+      "description": "Lion-7B / Lion-13B (LLaMA) → ChatGPT (gpt-3.5-turbo, black-box API); Adversarial black-box distillation: imitation-discrimination-generation loop iteratively identifies hard instructions via student-teacher gap; 黑盒 OPD 早期代表 (HoF-tier)"
+    },
+    {
+      "arxiv_id": "2604.13010",
+      "title": "Lightning OPD: Efficient Post-Training for Large Reasoning Models with Offline On-Policy Distillation",
+      "authors": "Yecheng Wu",
+      "year": 2026,
+      "year_month": "2026-04",
+      "section": "§6",
+      "loss_class": "RKL",
+      "domain": "Reasoning",
+      "signal": "External-Teacher",
+      "freq": "once-before-training",
+      "size": "3-10B",
+      "description": "Qwen3-4B-Base / Qwen3-8B-Base → Qwen3-8B / Qwen3-32B / QwQ-32B; Lightning-OPD: offline precomputed teacher logprobs eliminate live teacher server; theoretical equivalence to online OPD under teacher consistency"
     },
     {
       "arxiv_id": "2605.10889",
