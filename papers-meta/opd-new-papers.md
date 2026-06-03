@@ -1103,3 +1103,173 @@ git push: f7ca6a3..3f64b57 (success)
 ### Next scout
 
 Friday 2026-05-29
+
+---
+
+## 2026-05-30 (Sat) — daily pipeline cron
+
+### Summary
+
+- Phase 0 PRE-CHECK: ✅ refreshed 284 IDs, no weekend skip
+- Phase 1 SCOUT: 30 new in-window candidates (RSS-primary, S2 rate-limited 429), all downloaded to `pdfs/_staging/`
+- Phase 2 DEEP-READ: 30/30 ok, 438.6s total (workers=3); **1 is_opd=yes**, 29 not-OPD
+- Phase 3 TRIAGE: 3 keep (1 new + 2 carryover from prior days), 29 excluded → trash + excluded-papers.md + known_arxiv_ids.txt
+- Phase 3.5 3-CONDITION: ✅ all 3 KEEP (28791 R-OK self, 27255 R-OK external teacher, 28014 R-OK self-teacher)
+- Phase 4 awesome list: ✅ 1 new commit pushed (`9047e7c`, §5.3.1), badge 175→176
+- Phase 5 refresh ids: 284 → 285
+
+### Candidates → Verdict (only OPD-relevant rows shown; 29 excluded omitted)
+
+| arXiv ID | Title | Source | is_opd (V3) | 3-cond | Verdict |
+|---|---|---|---|---|---|
+| 2605.28791 | Skill-Conditioned Gated Self-Distillation for LLM Reasoning | rss/ok | yes (§5.3.1) | KEEP (R-OK) | ✅ awesome §5.3.1 (NEW) |
+| 2605.27255 | Pair-In, Pair-Out: Latent Multi-Token Prediction for Efficient LLMs | carryover (5/27) | yes | KEEP (R-OK) | ✅ already in awesome §6.3 (5/29 backlog) |
+| 2605.28014 | ROSD: Reflective On-Policy Self-Distillation for Language Model Reasoning | carryover (5/28) | yes (§5.3.2) | KEEP (R-OK) | ✅ already in awesome §5.3.2 (5/28 commit) |
+
+### Detail: 2605.28791 (Skill-Conditioned Gated Self-Distillation)
+
+- **Model pair**: Qwen3-1.7B/4B/8B (skill-conditioned self-teacher) → Qwen3-1.7B/4B/8B (plain student)
+- **OPD mechanism**:
+  - Plain-prompt student rollout `y ∼ π_θ(· | x)`; verifier returns scalar outcome `r ∈ {−1, 1}`
+  - Skill-conditioned multi-teacher pool retrieved per token via skill bank (online updated)
+  - `L_SGSD(x) = Σ_k α_k(x) · ρ_k · ℓ̄^(k)`, with bounded gate `ℓ_gate(Δ) = log2 − log(1 + exp(−Δ²/(2τ_g)))`
+  - `rollout_frequency = per-step`, `signal_source = self` (skill-conditioned), `teacher_signal = logits`
+- **Data**: English subset of DAPO-Math-17K
+- **Why §5.3.1 (Privileged Information)**: Self-distillation variant where the *skill bank* (retrieved skill-mistake pairs + outcome polarity) acts as privileged information conditioning the teacher-side context — fits the OPSD/GATES axis rather than pure self-distillation (§5.3.2) or external-feedback (§5.3.3)
+
+### arXiv API / RSS note
+
+- arXiv API still rate-limited via S2 (429 on all 4 cross-check queries). RSS feed worked: 558 cs.AI items, 62 OPD-keyword matches, 133 unique candidates, 30 selected for deep-read after dedup.
+- 2 PDFs in `_staging/` were carried over from prior days (27255, 28014) and skipped by `--from-staging` since already in paper_notes.
+
+### Awesome list commits today
+
+```
+[master 9047e7c] Add 2605.28791 to §5.3.1 (Skill-Conditioned Gated Self-Distillation for LLM Reasoning)
+1 file changed, 3 insertions(+), 1 deletion(-)
+git push: 9ab34ac..9047e7c (success)
+```
+
+### Next scout
+
+Sunday 2026-05-31 (cron may skip per `scout_precheck` weekend rule, manual trigger acceptable for spot check)
+
+## 2026-06-02 (Tue) — daily pipeline cron
+
+### Summary
+
+- Phase 0 PRE-CHECK: ✅ exit 0 (non-weekend), known_arxiv_ids.txt = 285 IDs
+- Phase 1 SCOUT: **0 new in-window candidates** (RSS 78 + S2 13 = 91 unique; 91/91 rejected by `2606` date window — all are `2605.xxxxx` residuals)
+- Phase 2 DEEP-READ: skip (no candidates)
+- Phase 3 TRIAGE / 3.5 3-CONDITION: skip
+- Phase 4 awesome list / 6 loss-taxonomy / 7 site refresh: skip (no downstream change)
+- Phase 5 refresh ids: ✅ kept at 285 (no new entries today)
+
+### 铁律 #4 investigation (0-candidate sanity)
+
+Per pipeline 铁律 #4, investigated the 0-result. Direct arxiv API query (`cat:cs.CL AND abs:"on-policy distillation"`, sorted by submittedDate desc) returns:
+
+```
+2605.31490  2026-05-29  Are Full Rollouts Necessary for On-Policy Distillation?
+2605.30833  2026-05-29  Your Teacher Can't Help You Here: Combating Supervision Fidelity Decay in OPD
+2605.30251  2026-05-28  Same Evidence, Different Answers: Canonical-Context On-Policy Distillation
+2605.29584  2026-05-28  GAPD: Gold-Action Policy Distillation for Agentic RL
+...
+```
+
+Latest OPD paper is `2605.31490` (May 29). No `2606.xxxxx` papers exist on arxiv yet for OPD-keyword search. Conclusion: legitimately empty day; scout pipeline correct.
+
+### Awesome list commits today
+
+(none)
+
+### Next scout
+
+Wednesday 2026-06-03 (regular weekday cron).
+
+
+## 2026-06-03 (Wed) — daily pipeline cron
+
+### Summary
+
+- Phase 0 PRE-CHECK: ✅ exit 0 (non-weekend), known_arxiv_ids.txt = 400 IDs
+- Phase 1 SCOUT: 30 in-window candidates (RSS 184 + S2 12 = 196 unique; 13 rejected by `2606` date window; 111 skipped already-known; 30 final)
+- Phase 2 DEEP-READ: ✅ 39 PDFs deep-read (39 today + 7 leftover 2605.* already in notes); **all 39 today's papers is_opd=no** (pure keyword bycatch: Plankton, Bayesian Opt, Diffusion Policy, Wireless, Bandit Sim, etc.)
+- Phase 3 TRIAGE: 17 keep / 140 exclude (140 PDFs moved to trash + logged to excluded-papers.md)
+- Phase 3.5 3-CONDITION on 17 keeps:
+  - 15 KEEP (all already in awesome from prior catch-up runs)
+  - 1 REJECT (R3) — `2605.29584` GAPD: RL-only公式, signal=self, no teacher-distill term (consistent with prior R3 verdict)
+  - 1 UNKNOWN — `2606.01080` ThinkSwitch: `student_rollout_in_training=no`, `rollout_frequency=n/a`; v3 reasoning admits "thinking checkpoint generates traces ... decode deterministically with temperature 0" = pre-computed offline traces. Same-class as 6/03 cleanup batch (14 内部矛盾论文 is_opd=yes 但 rollout=no). **Per scope 铁律 #6+#8 reject; not added to awesome.**
+- Phase 4 awesome list: **0 new insertions** (all today's qualifying OPD papers were already in awesome via prior daily runs; only failures fell through both filters)
+- Phase 5 refresh ids: 400 IDs (after triage cleanup)
+
+### Reject details
+
+| aid | rule | reason |
+|---|---|---|
+| 2605.29584 | R3 | GAPD: GRPO-style RL公式 + 无 teacher-distill 项, signal=self → 伪 OPD |
+| 2606.01080 | scope (rollout=no) | ThinkSwitch: 离线 trace 预生成 + LoRA + SLERP 权重插值, 训练循环内无 student rollout, 是 context distillation (offline KD between thinking↔instruct checkpoints) 不是 OPD |
+
+### Awesome list commits today
+
+(none — 0 net additions)
+
+### Next scout
+
+Thursday 2026-06-04 (regular weekday cron).
+
+### 6/03 增补 (PR-driven 发现)
+
+社区 PR `nick7nlp/Awesome-LLM-On-Policy-Distillation#2` (作者 @Myashka, 2026-06-03) 提出加 Trust-Region Behavior Blending — 这是 5-28~6-02 catch-up 时 RSS 漏掉的真 OPD 论文 (`2605.31159`, 2026-05-29 提交)。同时在 web 验证过程中发现另一篇相关工作也漏了 (`2512.17636` TRAPO)。
+
+两篇 deep-read + 3-cond 都通过, 已 inserter 加入:
+
+| arxiv | 标题 | § | pair (student → teacher) | loss class |
+|---|---|---|---|---|
+| `2605.31159` | Trust-Region Behavior Blending for OPD | §6.2 | Qwen3-1.7B-Base / Qwen3-0.6B-Base → Qwen3-8B / Qwen3-4B | RKL (high) |
+| `2512.17636` | Trust-Region Adaptive Policy Optimization | §4.1 | Qwen2.5-Math-7B / Qwen2.5-7B-Instruct → DeepSeek-R1 | KL+RL (medium) |
+
+PR 提交 metadata 与论文原文 2 处差异 (PDF 原文 `Qwen3-1.7B-Base ← Qwen3-8B` / `Qwen3-0.6B-Base ← Qwen3-4B`):
+- pair 方向反 (PR teacher→student vs README 惯例 student→teacher)
+- 漏 -Base 后缀 (PR 用 Qwen3-1.7B, 原文是 Qwen3-1.7B-Base)
+
+为避免错误信息进 README, 走标准 inserter 流程而非直接 merge PR。PR 待 close + 评论 (作者不上 contributor 榜)。
+
+CHANGELOG.md 增 [2026-06-03] entry, Pending Papers section 增两行, 主表 §6.2 / §4.1 各增一行。Phase 6 loss-taxonomy 重跑: 174 papers classified (KL+RL=39, RKL=44, FKL=34, Symmetric=21, Other=29, f-Div=2, Preference=5)。两个 PNG 已重生成。
+
+### 6/03 进一步清理 (self-play 体系)
+
+由 `2602.13407` (On-Policy SFT for Efficient Reasoning) 触发的范围二审, 扫描 awesome 中所有 `is_opd=yes` 论文寻找同性质 (signal=self/PI(GT)/verifier + loss 无 teacher-distribution KL term):
+
+| arxiv | 标题 | 之前归 | loss class | 删除理由 |
+|---|---|---|---|---|
+| `2602.13407` | On-Policy SFT for Efficient Reasoning | §5.3.2 | Other (NLL) | 论文自称 "reward-free SFT", 标准 STaR/RFT, 无 distillation |
+| `2510.18874` | Retaining by Doing | §8.2 | Other (RL+SFT) | GRPO + KL-to-ref-policy, 非 teacher; 同 GAPD R3 性质 |
+| `2509.25100` | ORPO-Distill | §5.2 | Preference (ORPO) | DPO-style preference (chosen vs rejected), 同 SPIN/IRIS 体系 |
+
+3 篇均移出 awesome+site, paper_notes 保留 (供未来 audit / 综述 background 引用)。
+
+8 篇扫到的误报保留 (它们用 self-snapshot / EMA / privileged-self 提供 teacher distribution, 是合法 self-distillation): 2605.12741 / 2605.11613 / 2605.17497 / 2605.18299 / 2605.22511 / 2605.22263 / 2605.27186 / 2512.17636.
+
+副作用: paper count 168 → **165**; loss-taxonomy 重新生成器 (`generate_loss_taxonomy.py`) 加 `restrict-to-awesome` filter, 现在只统计 README 内的 OPD-method 论文 (152 篇, 排除 13 篇 analysis-of-OPD 和 6 篇 reference-only)。
+
+---
+
+## 2026-06-04 daily pipeline
+
+Phase 1 scout: 30 in-window candidates from RSS. Phase 2 deep-read on 80 staged PDFs (combined with 06-02/06-03 backlog), 3 is_opd=yes. Phase 3 triage: 22 keep (most already in README), **5 truly new candidates** to evaluate via 3-condition + manual review.
+
+### REJECT (3 篇, 不进 awesome / site)
+
+| arxiv | 标题 | rule | 理由 |
+|---|---|---|---|
+| `2605.29584` | GAPD: Gold-Action Policy Distillation for Agentic RL in KBQA | R3 (auto) | GRPO advantage shaping with `lambda_gapd * A_gapd_ik`; signal=self, no `D_KL(π‖π_T)` teacher distill term. 同 PSDISTILL 体系。 |
+| `2606.01080` | ThinkSwitch: Context Distillation with LoRA + Weight Interpolation | R1 (manual) | Iterative weight-merging via SLERP + offline QLoRA SFT on answer-only pairs. No student rollout in loss-loop. v3 LLM 偏宽松判 yes, 实为 model-merging recipe。 |
+| `2606.01215` | Distilling Neuro-Symbolic Programs into 3D Multi-modal LLMs | R3 (manual) | Three-stage curriculum: perception SFT → CoT-SFT on offline symbolic traces → GRPO with format/grounding rewards. "Distillation" 指离线 program-to-CoT 翻译, 非 on-policy teacher distribution distill. |
+
+### KEEP (2 篇, 进 awesome list)
+
+| arxiv | 标题 | § | pair (student → teacher) | loss class |
+|---|---|---|---|---|
+| `2606.02684` | Filter, Then Reweight: Rethinking Optimization Granularity in OPD | §6.1 | (TBD via inserter) | KL+RL |
+| `2606.03603` | World Models Meet Language Models: On the Complementarity of Concrete and Abstract Reasoning | §5.3.1 | (TBD via inserter) | RKL |
