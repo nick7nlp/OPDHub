@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-03",
-  "total": 168,
+  "generated_at": "2026-06-04",
+  "total": 170,
   "papers": [
     {
       "arxiv_id": "2605.13230",
@@ -1305,6 +1305,20 @@
       "description": "Qwen3-4B-base → Self; On-policy critique distillation using weak model critiques to improve strong models"
     },
     {
+      "arxiv_id": "2606.03603",
+      "title": "World Models Meet Language Models: On the Complementarity of Concrete and Abstract Reasoning",
+      "authors": "Yucheng Zhou",
+      "year": 2026,
+      "year_month": "2026-06",
+      "section": "§5.3",
+      "loss_class": "FKL",
+      "domain": "Reasoning",
+      "signal": "Privileged-Info",
+      "freq": "per-step",
+      "size": "3-10B",
+      "description": "Qwen3.5-9B → Qwen3.6-27B (privileged-info teacher) / Gemini-3.1-Pro; Privileged-info self-distillation: future videos + ground-truth answers as privileged context teach MLLM when to invoke / verify / rely on world-model rollouts; D_KL teacher term"
+    },
+    {
       "arxiv_id": "2601.19897",
       "title": "Self-Distillation Enables Continual Learning",
       "authors": "Idan Shenfeld",
@@ -1975,6 +1989,20 @@
       "freq": "once-before-training",
       "size": "3-10B",
       "description": "Qwen3-4B-Base / Qwen3-8B-Base → Qwen3-8B / Qwen3-32B / QwQ-32B; Lightning-OPD: offline precomputed teacher logprobs eliminate live teacher server; theoretical equivalence to online OPD under teacher consistency"
+    },
+    {
+      "arxiv_id": "2606.02684",
+      "title": "Filter, Then Reweight: Rethinking Optimization Granularity in On-Policy Distillation",
+      "authors": "Yuying Li",
+      "year": 2026,
+      "year_month": "2026-06",
+      "section": "§6",
+      "loss_class": "Other",
+      "domain": "Reasoning",
+      "signal": "External-Teacher",
+      "freq": "per-outer-iter",
+      "size": "3-10B",
+      "description": "Qwen3-4B-Non-Thinking → Qwen3-30B-A3B-Instruct; FiRe-OPD: trajectory filtering by teacher log-prob + soft token reweighting; PPO-clipped weighted loss for OPD"
     },
     {
       "arxiv_id": "2605.10889",
