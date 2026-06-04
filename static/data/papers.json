@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-06-04",
-  "total": 168,
+  "total": 170,
   "papers": [
     {
       "arxiv_id": "2605.13230",
@@ -1039,6 +1039,20 @@
       "description": "Qwen3-32B → Qwen3-1.7B; Logit-free on-policy distillation using chunk-level Monte Carlo semantic verification from black-box teachers"
     },
     {
+      "arxiv_id": "2509.25100",
+      "title": "ORPO-Distill: Mixed-Policy Preference Optimization for Cross-Architecture LLM Distillation",
+      "authors": "Aasheesh Singh",
+      "year": 2025,
+      "year_month": "2025-09",
+      "section": "§5.2",
+      "loss_class": "Preference",
+      "domain": "Reasoning",
+      "signal": "Privileged-Info",
+      "freq": "per-outer-iter",
+      "size": "<3B",
+      "description": "TinyLlama-1.1B-Instruct / InternLM2.5-1.8B-Chat → InternLM2.5-7B-Chat; ORPO-Distill: black-box cross-architecture distillation via ORPO (SFT + log-odds margin); teacher CoT y_P sampled K=8 times offline, on-policy student y_N per outer-iter (mixed policy fraction phi)"
+    },
+    {
       "arxiv_id": "2602.04942",
       "title": "Privileged Information Distillation for Language Models",
       "authors": "Emiliano Penaloza",
@@ -1289,6 +1303,20 @@
       "freq": "per-step",
       "size": "3-10B",
       "description": "Qwen3.5-9B → Qwen3.6-27B (privileged-info teacher) / Gemini-3.1-Pro; Privileged-info self-distillation: future videos + ground-truth answers as privileged context teach MLLM when to invoke / verify / rely on world-model rollouts; D_KL teacher term"
+    },
+    {
+      "arxiv_id": "2605.05040",
+      "title": "Preference-Based Self-Distillation: Beyond KL Matching via Reward Regularization",
+      "authors": "Xin Yu",
+      "year": 2026,
+      "year_month": "2026-05",
+      "section": "§5.3",
+      "loss_class": "Preference",
+      "domain": "Preference",
+      "signal": "Self",
+      "freq": "per-step",
+      "size": "3-10B",
+      "description": "Qwen3-1.7B/4B/8B → Self (context-augmented); PBSD: black-box OPD via DPO with privileged-context self-teacher y+ vs on-policy student y-; per-step rollouts; reward-regularized preference gap (no logits available, hence DPO not KL)"
     },
     {
       "arxiv_id": "2601.19897",
