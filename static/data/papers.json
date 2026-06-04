@@ -5,35 +5,34 @@
     {
       "arxiv_id": "2605.13230",
       "title": "Teacher-Guided Policy Optimization for On-Policy Reasoning Distillation under Large Policy Divergence",
-      "authors": "Xinyu Liu",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§4.3",
       "loss_class": "KL+RL",
-      "domain": "Reasoning",
+      "domain": "Math",
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Dense directional teacher guidance on student rollouts"
+      "description": "Qwen2.5-Math-1.5B / Qwen2.5-Math-7B → Qwen3-30B-A3B / R1-Distill-Qwen-32B; dense directional teacher guidance on student rollouts; fixes uninformative RKL negatives (NLP2CT/NEU)",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.13255",
-      "title": "Respecting Self-Uncertainty",
-      "authors": "Junlong Ke",
+      "title": "Respecting Self-Uncertainty in On-Policy Self-Distillation for Efficient LLM Reasoning",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§6",
       "loss_class": "KL+RL",
-      "domain": "General",
+      "domain": "Reasoning",
       "signal": "Self",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Entropy-guided confidence gate for efficient self-distillation"
+      "description": "Qwen3-4B/8B → Self; entropy-guided confidence gate + causal-lookahead variant; advances accuracy-length frontier",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.11853",
-      "title": "GEAR: Granularity-Adaptive Advantage Reweighting",
-      "authors": "Sijia Li",
+      "title": "GEAR: Granularity-Adaptive Advantage Reweighting for LLM Agents via Self-Distillation",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§6",
@@ -42,68 +41,68 @@
       "signal": "Privileged-Info",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Adaptive segment-level advantage for agentic self-distillation"
+      "description": "Qwen3-4B/8B → Self; on-policy student vs GT-conditioned teacher divergence for adaptive segment boundaries; up to +20% over GRPO",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.13501",
-      "title": "Reward-Weighted OPD for NL-to-SVA",
-      "authors": "Qingyun Zou",
+      "title": "Reward-Weighted On-Policy Distillation with an Open Property-Equivalence Verifier for NL-to-SVA Generation",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§8.2",
       "loss_class": "FKL",
-      "domain": "General",
+      "domain": "Code",
       "signal": "Verifier",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Verifier-reward-weighted FKL on student rollouts"
+      "description": "Qwen2.5-Coder-7B → CodeV-SVA-14B; verifier-reward-weighted FKL on student rollouts; new SOTA on NL2SVA",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.12913",
-      "title": "Revisiting DAgger for LLM-Agents",
-      "authors": "Changhao Li",
+      "title": "Revisiting DAgger in the Era of LLM-Agents",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§8.2",
       "loss_class": "Other",
-      "domain": "Agent",
+      "domain": "Code",
       "signal": "External-Teacher",
       "freq": "per-outer-iter",
       "size": "3-10B",
-      "description": "Turn-level student-teacher interpolation for SWE agents"
+      "description": "Qwen3-4B-Instruct-2507 / Qwen3-8B → Qwen3-Coder-30B-A3B-Instruct (DAgger); turn-level student-teacher interpolation for SWE agents; +3.9pp on SWE-bench Verified",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.13643",
-      "title": "Prefix Teach, Suffix Fade",
-      "authors": "Kaiyuan Liu",
+      "title": "Prefix Teach, Suffix Fade: Local Teachability Collapse in Strong-to-Weak On-Policy Distillation",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§7.2",
       "loss_class": "Other",
-      "domain": "General",
+      "domain": "Multimodal",
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": "Local teachability collapse in strong-to-weak OPD"
+      "description": "Qwen3-1.7B/4B/8B → Qwen3-14B; BIC change-point release rule; dense OPD supervision degrades in suffix when teacher margin vanishes",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.12652",
-      "title": "Multi-Rollout OPD via Peer Successes",
-      "authors": "Weichen Yu",
+      "title": "Multi-Rollout On-Policy Distillation via Peer Successes and Failures",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§5.1",
       "loss_class": "Symmetric",
-      "domain": "General",
+      "domain": "Multimodal",
       "signal": "Verifier",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Peer-conditioned teacher signals from success/failure rollouts"
+      "description": "Qwen3-8B → Qwen3-32B; peer-conditioned teacher signals from success/failure rollout groups; more faithful supervision (CMU)",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.07177",
-      "title": "HyperEyes",
-      "authors": "Guankai Li",
+      "title": "HyperEyes: Dual-Grained Efficiency-Aware Reinforcement Learning for Parallel Multimodal Search Agents",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§8.2",
@@ -112,12 +111,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": ">30B",
-      "description": "Micro-level OPD for parallel multimodal search agents"
+      "description": "External teacher → HyperEyes-30B (Qwen3-VL-30B); micro-level OPD provides dense token-level supervision on failed rollouts",
+      "code_url": "https://github.com/DeepExperience/HyperEyes"
     },
     {
       "arxiv_id": "2605.08741",
-      "title": "Training with Harnesses",
-      "authors": "Zhengyang Zhao",
+      "title": "Training with Harnesses: On-Policy Harness Self-Distillation for Complex Reasoning",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§5.3.2",
@@ -126,26 +125,26 @@
       "signal": "Self",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Harness-augmented model as teacher for complex reasoning"
+      "description": "Qwen3-8B → Self; harness-augmented model (draft-verify / plan-solve) as teacher; +10.83% over OPSD on HMMT25 (PKU)",
+      "code_url": "https://github.com/zzy1127/OPHSD-On-Policy-Harness-Self-Distillation"
     },
     {
       "arxiv_id": "2605.10189",
-      "title": "ProteinOPD",
-      "authors": "Yulin Zhang",
+      "title": "ProteinOPD: Towards Effective and Efficient Preference Alignment for Protein Design",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§8.2",
       "loss_class": "Symmetric",
-      "domain": "General",
+      "domain": "Alignment",
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": "Geometric multi-teacher OPD for protein design"
+      "description": "Protein PLM → Multi-teacher; geometric consensus of weighted preference-specific teachers; 8× faster than RL (THU/IDEA)",
+      "code_url": "https://github.com/THU-AI4S/ProteinOPD"
     },
     {
       "arxiv_id": "2605.10194",
-      "title": "TRACE: Token-Routed Self-OPD Alignment",
-      "authors": "Jiaxuan Wang",
+      "title": "TRACE: Distilling Where It Matters via Token-Routed Self On-Policy Alignment",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§6",
@@ -154,12 +153,12 @@
       "signal": "Self",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Token-routed FKL on key spans + RKL on error spans"
+      "description": "Qwen3-8B → Self; token-routed self-OPD: FKL on key spans + optional RKL on error spans + GRPO elsewhere; +2.76pp (NJU/Alibaba)",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.06387",
-      "title": "AOPD: Asymmetric On-Policy Distillation",
-      "authors": "Nan Jia",
+      "title": "Asymmetric On-Policy Distillation: Bridging Exploitation and Imitation at the Token Level",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§4.2",
@@ -168,12 +167,12 @@
       "signal": "External-Teacher",
       "freq": "per-outer-iter",
       "size": "3-10B",
-      "description": "Localized divergence minimization replacing negative RL"
+      "description": "Qwen3-8B-Base / Qwen3-4B-Base → Qwen3-32B / Qwen3-8B; replaces negative RL with localized divergence minimization (AOPD)",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.05940",
-      "title": "Near-Policy Distillation",
-      "authors": "Miao Rang",
+      "title": "Near-Policy: Accelerating On-Policy Distillation via Asynchronous Generation and Selective Packing",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§6",
@@ -182,12 +181,12 @@
       "signal": "External-Teacher",
       "freq": "per-outer-iter",
       "size": "<3B",
-      "description": "Async generation + Δ-IFD filtering for 8.1× speedup"
+      "description": "NPD: async generation + Δ-IFD filtering for 8.1× speedup; openPangu-Embedded-1B → 68.73% SOTA",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.06188",
-      "title": "OPSD Compresses What RLVR Teaches",
-      "authors": "Jaehoon Kim",
+      "title": "OPSD Compresses What RLVR Teaches: A Post-RL Compaction Stage for Reasoning Models",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§7.1",
@@ -196,12 +195,12 @@
       "signal": "Privileged-Info",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "OPSD as post-RL compression stage for reasoning models"
+      "description": "Qwen3-8B / R1-Distill-7B / AceReason-7B → Self (OPSD as compression-not-correction in thinking-enabled reasoning)",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.06094",
-      "title": "VISD: Video Reasoning via Structured Self-Distillation",
-      "authors": "Hao Lin",
+      "title": "VISD: Enhancing Video Reasoning via Structured Self-Distillation",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§5.3.1",
@@ -210,12 +209,12 @@
       "signal": "Self",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Video-aware quality decomposition as privileged info"
+      "description": "VISD: video-aware judge decomposes quality (correctness/grounding/consistency) as structured privileged info; direction–magnitude decoupling for stable RL+SD integration; VideoLLM → Self",
+      "code_url": ""
     },
     {
       "arxiv_id": "2306.13649",
-      "title": "GKD: On-Policy Distillation of Language Models",
-      "authors": "Rishabh Agarwal",
+      "title": "On-Policy Distillation of Language Models: Learning from Self-Generated Mistakes",
       "year": 2023,
       "year_month": "2023-06",
       "section": "§4.1",
@@ -224,12 +223,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": ""
+      "description": "T5-Small/Base/Large → T5-XL 3B",
+      "code_url": ""
     },
     {
       "arxiv_id": "2306.08543",
-      "title": "MiniLLM",
-      "authors": "Yuxian Gu",
+      "title": "MiniLLM: On-Policy Distillation of Large Language Models",
       "year": 2023,
       "year_month": "2023-06",
       "section": "§5.1",
@@ -238,12 +237,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": ""
+      "description": "GPT-2 120M–760M → GPT-2 1.5B / GPT-J 6B / OPT-13B",
+      "code_url": "https://github.com/microsoft/LMOps/tree/main/minillm"
     },
     {
       "arxiv_id": "2402.03898",
-      "title": "DistiLLM",
-      "authors": "Jongwoo Ko",
+      "title": "DistiLLM: Towards Streamlined Distillation for Large Language Models",
       "year": 2024,
       "year_month": "2024-02",
       "section": "§4.1",
@@ -252,12 +251,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": ""
+      "description": "GPT-2 (student) → GPT-2 XL (teacher)",
+      "code_url": "https://github.com/jongwooko/distillm"
     },
     {
       "arxiv_id": "2410.11325",
-      "title": "Speculative KD",
-      "authors": "Wenda Xu",
+      "title": "Speculative Knowledge Distillation: Bridging the Teacher-Student Gap Through Interleaved Sampling",
       "year": 2024,
       "year_month": "2024-10",
       "section": "§8.3",
@@ -266,40 +265,40 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": ""
+      "description": "Gemma-2B-IT / Qwen2-0.5B-IT → Gemma-7B-IT / Qwen2-7B-IT",
+      "code_url": ""
     },
     {
       "arxiv_id": "2601.18734",
-      "title": "OPSD: Self-Distilled Reasoner",
-      "authors": "Siyan Zhao",
+      "title": "Self-Distilled Reasoner: On-Policy Self-Distillation for Large Language Models",
       "year": 2026,
       "year_month": "2026-01",
-      "section": "§5.3.1",
+      "section": "§5.3",
       "loss_class": "Symmetric",
       "domain": "Reasoning",
       "signal": "Privileged-Info",
       "freq": "per-step",
       "size": "<3B",
-      "description": ""
+      "description": "Qwen3-4B / Qwen3-8B → Self (reasoning distillation)",
+      "code_url": "https://github.com/siyan-zhao/OPSD"
     },
     {
       "arxiv_id": "2503.02832",
-      "title": "AlignDistil",
-      "authors": "Songming Zhang",
+      "title": "AlignDistil: Token-Level Language Model Alignment as Adaptive Policy Distillation",
       "year": 2025,
       "year_month": "2025-03",
       "section": "§4.3",
       "loss_class": "RKL",
-      "domain": "General",
+      "domain": "Alignment",
       "signal": "Privileged-Info",
       "freq": "per-step",
       "size": "<3B",
-      "description": ""
+      "description": "Qwen2-1.5B / Qwen2.5-1.5B-Instruct → Self (AlignDistil)",
+      "code_url": "https://github.com/songmzhang/AlignDistil"
     },
     {
       "arxiv_id": "2604.13016",
-      "title": "Rethinking OPD",
-      "authors": "Yaxuan Li",
+      "title": "Rethinking On-Policy Distillation of Large Language Models: Phenomenology, Mechanism, and Recipe",
       "year": 2026,
       "year_month": "2026-04",
       "section": "§7.1",
@@ -308,54 +307,54 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": ""
+      "description": "Qwen3-1.7B → DeepSeek-R1-Distill-7B / Qwen3-4B etc.",
+      "code_url": "https://github.com/thunlp/OPD"
     },
     {
       "arxiv_id": "2604.10688",
-      "title": "SCOPE",
-      "authors": "Binbin Zheng",
+      "title": "SCOPE: Signal-Calibrated On-Policy Distillation Enhancement with Dual-Path Adaptive Weighting",
       "year": 2026,
       "year_month": "2026-04",
-      "section": "§6.1",
+      "section": "§6",
       "loss_class": "FKL",
-      "domain": "General",
+      "domain": "Math",
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": ""
+      "description": "DeepSeek-R1-Distill-Qwen-1.5B / Qwen3-1.7B → SkyWork-OR1-Math-7B / Qwen3-8B",
+      "code_url": "https://github.com/machine981/SCOPE"
     },
     {
       "arxiv_id": "2604.12002",
-      "title": "SDZero",
-      "authors": "Yinghui He",
+      "title": "Self-Distillation Zero: Self-Revision Turns Binary Rewards into Dense Supervision",
       "year": 2026,
       "year_month": "2026-04",
-      "section": "§5.3.3",
+      "section": "§5.3",
       "loss_class": "RKL",
-      "domain": "General",
+      "domain": "Multimodal",
       "signal": "Self",
       "freq": "per-step",
       "size": "3-10B",
-      "description": ""
+      "description": "Qwen3-4B-Instruct / Olmo-3-7B-Instruct → Self",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.07725",
-      "title": "SOD",
-      "authors": "Qiyong Zhong",
+      "title": "SOD: Step-wise On-policy Distillation for Small Language Model Agents",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§8.2",
       "loss_class": "KL+RL",
-      "domain": "General",
+      "domain": "Agent",
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": ""
+      "description": "Qwen3-0.6B/1.7B → Qwen3-4B; step-wise OPD for agentic tasks; progressive trajectory distillation",
+      "code_url": "https://github.com/YoungZ365/SOD"
     },
     {
       "arxiv_id": "2605.07865",
       "title": "KL for a KL: On-Policy Distillation with Control Variate Baseline",
-      "authors": "",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§4.1",
@@ -364,12 +363,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": "Qwen3-1.7B/4B-Base → Qwen3-1.7B/4B-Inst (self-distill), OLMo-3-7B"
+      "description": "Qwen3-1.7B/4B-Base → Qwen3-1.7B/4B-Inst (self-distill), OLMo-3-7B",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.11609",
       "title": "Anti-Self-Distillation for Reasoning RL via Pointwise Mutual Information",
-      "authors": "Guobin Shen",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§4.1",
@@ -378,12 +377,12 @@
       "signal": "Self",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen3-4B/8B/14B/30B → Self; reverses divergence direction to boost deliberation tokens via pMI sign flip; entropy-triggered gate"
+      "description": "Qwen3-4B/8B/14B/30B → Self; reverses divergence direction to boost deliberation tokens via pMI sign flip; entropy-triggered gate",
+      "code_url": ""
     },
     {
       "arxiv_id": "2503.07067",
       "title": "DistiLLM-2: A Contrastive Approach Boosts the Distillation of LLMs",
-      "authors": "Jongwoo Ko",
       "year": 2025,
       "year_month": "2025-03",
       "section": "§4.1",
@@ -392,12 +391,12 @@
       "signal": "External-Teacher",
       "freq": "per-outer-iter",
       "size": "<3B",
-      "description": "Qwen2-1.5B / Gemma-2-2B → Qwen2-7B / Gemma-2-9B"
+      "description": "Qwen2-1.5B / Gemma-2-2B → Qwen2-7B / Gemma-2-9B",
+      "code_url": "https://github.com/jongwooko/distillm-2"
     },
     {
       "arxiv_id": "2509.25837",
       "title": "Distillation of Large Language Models via Concrete Score Matching",
-      "authors": "Yeongmin Kim",
       "year": 2025,
       "year_month": "2025-09",
       "section": "§4.1",
@@ -406,12 +405,12 @@
       "signal": "External-Teacher",
       "freq": "per-outer-iter",
       "size": "<3B",
-      "description": "GPT-2 0.1B–0.3B → GPT-2 1.5B / OpenLLaMA-7B"
+      "description": "GPT-2 0.1B–0.3B → GPT-2 1.5B / OpenLLaMA-7B",
+      "code_url": "https://github.com/aailab-kaist/CSD"
     },
     {
       "arxiv_id": "2603.01683",
       "title": "Surgical Post-Training: Proximal On-Policy Distillation for Reasoning with Knowledge Retention",
-      "authors": "Lin, Wenye",
       "year": 2026,
       "year_month": "2026-03",
       "section": "§4.1",
@@ -420,12 +419,12 @@
       "signal": "External-Teacher",
       "freq": "per-outer-iter",
       "size": "Unknown",
-      "description": "Qwen3-8B → Self (oracle-rectified); Oracle-rectified proximal on-policy data + reward-based BCE; 4k math pairs, 16-min training on 8xH800"
+      "description": "Qwen3-8B → Self (oracle-rectified); Oracle-rectified proximal on-policy data + reward-based BCE; 4k math pairs, 16-min training on 8xH800",
+      "code_url": ""
     },
     {
       "arxiv_id": "2606.00305",
       "title": "Bridging Reasoning Trajectories in On-Policy Distillation via Near-Future Guidance",
-      "authors": "Yuxuan Jiang",
       "year": 2026,
       "year_month": "2026-06",
       "section": "§4.1",
@@ -434,12 +433,12 @@
       "signal": "External-Teacher",
       "freq": "per-outer-iter",
       "size": "3-10B",
-      "description": "Qwen3-30B-A3B-Instruct-2507 → Qwen3-4B-Instruct-2507; Trajectory-aware OPD using OT-based near-future guidance to fix token-level reasoning correction failures"
+      "description": "Qwen3-30B-A3B-Instruct-2507 → Qwen3-4B-Instruct-2507; Trajectory-aware OPD using OT-based near-future guidance to fix token-level reasoning correction failures",
+      "code_url": ""
     },
     {
       "arxiv_id": "2606.00564",
       "title": "Decomposed On-Policy Distillation for Vision-Language Reasoning: Steering Gradients for Visual Grounding",
-      "authors": "HeeSuk Yoon",
       "year": 2026,
       "year_month": "2026-06",
       "section": "§4.1",
@@ -448,12 +447,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": "Qwen3-VL-8B-Instruct → Qwen3-VL-2B-Instruct; Decomposes VLM on-policy distillation into language prior and visual grounding, steering gradients toward visual subspace"
+      "description": "Qwen3-VL-8B-Instruct → Qwen3-VL-2B-Instruct; Decomposes VLM on-policy distillation into language prior and visual grounding, steering gradients toward visual subspace",
+      "code_url": ""
     },
     {
       "arxiv_id": "2606.01039",
       "title": "OPD+: Rethinking the Advantage Design for On-Policy Distillation",
-      "authors": "Hanyang Zhao",
       "year": 2026,
       "year_month": "2026-06",
       "section": "§4.1",
@@ -462,12 +461,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen3-8B → Qwen3-8B-Base; Corrects advantage estimation in on-policy distillation via f-divergence gradient analysis"
+      "description": "Qwen3-8B → Qwen3-8B-Base; Corrects advantage estimation in on-policy distillation via f-divergence gradient analysis",
+      "code_url": ""
     },
     {
       "arxiv_id": "2512.17636",
       "title": "Trust-Region Adaptive Policy Optimization",
-      "authors": "Mingyu Su",
       "year": 2025,
       "year_month": "2025-12",
       "section": "§4.1",
@@ -476,12 +475,12 @@
       "signal": "Privileged-Info",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen2.5-Math-7B / Qwen2.5-7B-Instruct → DeepSeek-R1; TRAPO: Trust-Region SFT (TrSFT) modifies forward-KL with dynamic trust region; interleaves prefix-conditioned SFT with RL on completions; adaptive prefix selection by utility"
+      "description": "Qwen2.5-Math-7B / Qwen2.5-7B-Instruct → DeepSeek-R1; TRAPO: Trust-Region SFT (TrSFT) modifies forward-KL with dynamic trust region; interleaves prefix-conditioned SFT with RL on completions; adaptive prefix selection by utility",
+      "code_url": ""
     },
     {
       "arxiv_id": "2601.07155",
       "title": "Stable On-Policy Distillation through Adaptive Target Reformulation",
-      "authors": "Ijun Jang",
       "year": 2026,
       "year_month": "2026-01",
       "section": "§4.2",
@@ -490,12 +489,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": "Qwen2-0.5B-Instruct → Qwen2-7B-Instruct"
+      "description": "Qwen2-0.5B-Instruct → Qwen2-7B-Instruct",
+      "code_url": ""
     },
     {
       "arxiv_id": "2601.09088",
       "title": "Distribution-Aligned Sequence Distillation for Superior Long-CoT Reasoning",
-      "authors": "Shaotian Yan",
       "year": 2026,
       "year_month": "2026-01",
       "section": "§4.2",
@@ -504,12 +503,12 @@
       "signal": "Privileged-Info",
       "freq": "per-outer-iter",
       "size": "3-10B",
-      "description": "Qwen3-4B → gpt-oss-120b / Qwen3-Next-80B-A3B-Thinking (DASD)"
+      "description": "Qwen3-4B → gpt-oss-120b / Qwen3-Next-80B-A3B-Thinking (DASD)",
+      "code_url": "https://github.com/D2I-ai/dasd-thinking"
     },
     {
       "arxiv_id": "2602.12222",
       "title": "Towards On-Policy SFT: Distribution Discriminant Theory and its Applications in LLM Training",
-      "authors": "Miaosen Zhang",
       "year": 2026,
       "year_month": "2026-02",
       "section": "§4.2",
@@ -518,12 +517,12 @@
       "signal": "Privileged-Info",
       "freq": "once-before-training",
       "size": "3-10B",
-      "description": "Qwen2.5-7B / DeepSeek-R1-Distill-7B → Self (on-policy SFT)"
+      "description": "Qwen2.5-7B / DeepSeek-R1-Distill-7B → Self (on-policy SFT)",
+      "code_url": "https://github.com/zhangmiaosen2000/Towards-On-Policy-SFT"
     },
     {
       "arxiv_id": "2603.07079",
       "title": "Entropy-Aware On-Policy Distillation of Language Models",
-      "authors": "Woogyeol Jin",
       "year": 2026,
       "year_month": "2026-03",
       "section": "§4.2",
@@ -532,12 +531,12 @@
       "signal": "External-Teacher",
       "freq": "per-outer-iter",
       "size": "<3B",
-      "description": "Qwen3-0.6B/1.7B/4B → Qwen3-8B"
+      "description": "Qwen3-0.6B/1.7B/4B → Qwen3-8B",
+      "code_url": ""
     },
     {
       "arxiv_id": "2603.11137",
       "title": "Scaling Reasoning Efficiently via Relaxed On-Policy Distillation",
-      "authors": "Jongwoo Ko",
       "year": 2026,
       "year_month": "2026-03",
       "section": "§4.2",
@@ -546,12 +545,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": "DeepSeek-R1-Distill-Qwen-1.5B → SkyWork-OR1-7B/32B"
+      "description": "DeepSeek-R1-Distill-Qwen-1.5B → SkyWork-OR1-7B/32B",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.22263",
       "title": "Tailoring Teaching to Aptitude: Direction-Adaptive Self-Distillation for LLM Reasoning",
-      "authors": "Hongbin Zhang",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§4.2",
@@ -560,12 +559,12 @@
       "signal": "Privileged-Info",
       "freq": "per-step",
       "size": "<3B",
-      "description": "Qwen3-4B → Self (privileged); Entropy-routed direction-adaptive self-distillation reversing teacher pressure at high-entropy tokens."
+      "description": "Qwen3-4B → Self (privileged); Entropy-routed direction-adaptive self-distillation reversing teacher pressure at high-entropy tokens.",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.26844",
       "title": "Not All Disagreement Is Learnable: Token Teachability in On-Policy Distillation",
-      "authors": "Wang, Yuanyi",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§4.2",
@@ -574,12 +573,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "Unknown",
-      "description": "Qwen3-8B → 4B; Binary teachability mask selects 5-10% tokens for budgeted RKL, filtering unreliable teacher signals"
+      "description": "Qwen3-8B → 4B; Binary teachability mask selects 5-10% tokens for budgeted RKL, filtering unreliable teacher signals",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.21606",
       "title": "When Are Teacher Tokens Reliable? Position-Weighted On-Policy Self-Distillation for Reasoning",
-      "authors": "Liu, Xiaogeng",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§4.2",
@@ -588,12 +587,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "Unknown",
-      "description": "Qwen3-4B → Self; Position-weighted clipped FKL: later reasoning tokens get higher weight due to accumulated teacher error"
+      "description": "Qwen3-4B → Self; Position-weighted clipped FKL: later reasoning tokens get higher weight due to accumulated teacher error",
+      "code_url": "https://github.com/SaFo-Lab/PW-OPSD"
     },
     {
       "arxiv_id": "2605.30833",
       "title": "Your Teacher Can't Help You Here: Combating Supervision Fidelity Decay in On-Policy Distillation",
-      "authors": "Yanjiang Liu",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§4.2",
@@ -602,12 +601,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": "SkyWork-OR1-Math-7B → DeepSeek-R1-Distill-Qwen-1.5B; Identifies Supervision Fidelity Decay in OPD and proposes Lookahead Group Reward to combat it"
+      "description": "SkyWork-OR1-Math-7B → DeepSeek-R1-Distill-Qwen-1.5B; Identifies Supervision Fidelity Decay in OPD and proposes Lookahead Group Reward to combat it",
+      "code_url": ""
     },
     {
       "arxiv_id": "2606.00147",
       "title": "RAFT: Data Refinement and Adaptive Distillation for Domain Fine-Tuning with Alleviated Forgetting",
-      "authors": "Yuduo Li",
       "year": 2026,
       "year_month": "2026-06",
       "section": "§4.2",
@@ -616,12 +615,12 @@
       "signal": "Self",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "SmolLM3-3B → Self; Two-stage framework coupling data refinement with on-policy distillation to mitigate forgetting in domain SFT"
+      "description": "SmolLM3-3B → Self; Two-stage framework coupling data refinement with on-policy distillation to mitigate forgetting in domain SFT",
+      "code_url": ""
     },
     {
       "arxiv_id": "2606.01249",
       "title": "Trust Region On-Policy Distillation",
-      "authors": "Xingrun Xing",
       "year": 2026,
       "year_month": "2026-06",
       "section": "§4.2",
@@ -630,12 +629,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": "Skywork-OR1-Math-7B → DeepSeek-R1-Distill-Qwen-1.5B; Trust-region OPD with outlier estimation and off-policy guidance for stable reasoning distillation"
+      "description": "Skywork-OR1-Math-7B → DeepSeek-R1-Distill-Qwen-1.5B; Trust-region OPD with outlier estimation and off-policy guidance for stable reasoning distillation",
+      "code_url": ""
     },
     {
       "arxiv_id": "2602.00400",
       "title": "KEPO: Knowledge-Enhanced Preference Optimization for Multimodal Reasoning with Applications to Medical VQA",
-      "authors": "Fan Yang",
       "year": 2026,
       "year_month": "2026-02",
       "section": "§4.3",
@@ -644,12 +643,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": "Qwen3-VL-2B / Qwen3-VL-8B → Qwen3-VL-32B (KEPO)"
+      "description": "Qwen3-VL-2B / Qwen3-VL-8B → Qwen3-VL-32B (KEPO)",
+      "code_url": ""
     },
     {
       "arxiv_id": "2602.12125",
       "title": "Learning beyond Teacher: Generalized On-Policy Distillation with Reward Extrapolation",
-      "authors": "Wenkai Yang",
       "year": 2026,
       "year_month": "2026-02",
       "section": "§4.3",
@@ -658,12 +657,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen3-4B-Non-Thinking → Self-RL teachers / Qwen3-30B-A3B (G-OPD)"
+      "description": "Qwen3-4B-Non-Thinking → Self-RL teachers / Qwen3-30B-A3B (G-OPD)",
+      "code_url": "https://github.com/RUCBM/G-OPD"
     },
     {
       "arxiv_id": "2602.12674",
       "title": "X-KD: General Experiential Knowledge Distillation for Large Language Models",
-      "authors": "Yuang Cai",
       "year": 2026,
       "year_month": "2026-02",
       "section": "§4.3",
@@ -672,12 +671,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": "T5-Small/Base → T5-Large 780M"
+      "description": "T5-Small/Base → T5-Large 780M",
+      "code_url": ""
     },
     {
       "arxiv_id": "2602.22495",
       "title": "Reinforcement-aware Knowledge Distillation for LLM Reasoning",
-      "authors": "Zhaoyang Zhang",
       "year": 2026,
       "year_month": "2026-02",
       "section": "§4.3",
@@ -686,12 +685,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": "Qwen3-0.6B–8B → Qwen3-8B / Qwen3-32B (RLAD)"
+      "description": "Qwen3-0.6B–8B → Qwen3-8B / Qwen3-32B (RLAD)",
+      "code_url": ""
     },
     {
       "arxiv_id": "2603.13260",
       "title": "Explain in Your Own Words: Improving Reasoning via Token-Selective Dual Knowledge Distillation",
-      "authors": "Minsang Kim",
       "year": 2026,
       "year_month": "2026-03",
       "section": "§4.3",
@@ -700,12 +699,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": "Qwen2.5-1.5B / Gemma-2-2B / Qwen3-1.7B → Qwen2.5-14B / Gemma-2-9B / Qwen3-8B"
+      "description": "Qwen2.5-1.5B / Gemma-2-2B / Qwen3-1.7B → Qwen2.5-14B / Gemma-2-9B / Qwen3-8B",
+      "code_url": "https://github.com/kmswin1/TSD-KD"
     },
     {
       "arxiv_id": "2605.01347",
       "title": "MAD-OPD: Breaking the Ceiling in On-Policy Distillation via Multi-Agent Debate",
-      "authors": "Jianze Wang",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§4.3",
@@ -714,12 +713,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": "Qwen3-1.7B/4B/8B/14B → Multi-teacher debate; confidence-weighted token supervision (OPAD)"
+      "description": "Qwen3-1.7B/4B/8B/14B → Multi-teacher debate; confidence-weighted token supervision (OPAD)",
+      "code_url": "https://github.com/chiefovoavicii/MAD-OPD"
     },
     {
       "arxiv_id": "2605.12483",
       "title": "Beyond GRPO and On-Policy Distillation: An Empirical Sparse-to-Dense Reward Principle for Language-Model Post-Training",
-      "authors": "Hejian Sang",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§4.3",
@@ -728,12 +727,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": "Sparse RL on teacher (GRPO) → dense OPD bridge to student; Qwen3/Llama reward-density allocation rule"
+      "description": "Sparse RL on teacher (GRPO) → dense OPD bridge to student; Qwen3/Llama reward-density allocation rule",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.12227",
       "title": "Combining On-Policy Optimization and Distillation for Long-Context Reasoning in Large Language Models",
-      "authors": "Miguel Moura Ramos",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§4.3",
@@ -742,12 +741,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": "Qwen3-1.7B → Qwen3-32B; augments GRPO with dense OPD teacher guidance for long-context; introduces LongBlocks benchmark"
+      "description": "Qwen3-1.7B → Qwen3-32B; augments GRPO with dense OPD teacher guidance for long-context; introduces LongBlocks benchmark",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.08873",
       "title": "CoDistill-GRPO: A Co-Distillation Recipe for Efficient Group Relative Policy Optimization",
-      "authors": "Soo Min Kwon",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§4.3",
@@ -756,12 +755,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": "Qwen2.5-Math-1.5B / Qwen2.5-Math-7B → Qwen2.5-Math-7B / Qwen2.5-Math-1.5B; bidirectional co-distillation (Google)"
+      "description": "Qwen2.5-Math-1.5B / Qwen2.5-Math-7B → Qwen2.5-Math-7B / Qwen2.5-Math-1.5B; bidirectional co-distillation (Google)",
+      "code_url": ""
     },
     {
       "arxiv_id": "2504.14945",
       "title": "Learning to Reason under Off-Policy Guidance",
-      "authors": "Jianhao Yan",
       "year": 2025,
       "year_month": "2025-04",
       "section": "§4.3",
@@ -770,12 +769,12 @@
       "signal": "Privileged-Info",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen2.5-Math-7B → Self; RM: off-policy DeepSeek-R1"
+      "description": "Qwen2.5-Math-7B → Self; RM: off-policy DeepSeek-R1",
+      "code_url": "https://github.com/ElliottYan/LUFFY"
     },
     {
       "arxiv_id": "2504.19024",
       "title": "KETCHUP: K-Step Return Estimation for Sequential Knowledge Distillation",
-      "authors": "Jiabin Fan",
       "year": 2025,
       "year_month": "2025-04",
       "section": "§4.3",
@@ -784,12 +783,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": "T5-Base 250M → FLAN-T5-XL 3B"
+      "description": "T5-Base 250M → FLAN-T5-XL 3B",
+      "code_url": ""
     },
     {
       "arxiv_id": "2505.16142",
       "title": "RLKD: Distilling LLMs' Reasoning via Reinforcement Learning",
-      "authors": "Shicheng Xu",
       "year": 2025,
       "year_month": "2025-05",
       "section": "§4.3",
@@ -798,12 +797,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen2.5-Math-7B / R1-Distill-Qwen-7B → DeepSeek-R1 traces (RLKD)"
+      "description": "Qwen2.5-Math-7B / R1-Distill-Qwen-7B → DeepSeek-R1 traces (RLKD)",
+      "code_url": "https://github.com/xsc1234/RLKD"
     },
     {
       "arxiv_id": "2506.02208",
       "title": "KDRL: Post-Training Reasoning LLMs via Unified Knowledge Distillation and Reinforcement Learning",
-      "authors": "Hongling Xu",
       "year": 2025,
       "year_month": "2025-06",
       "section": "§4.3",
@@ -812,12 +811,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": "R1-Distill-Qwen-1.5B → Skywork-OR1-Math-7B (KDRL)"
+      "description": "R1-Distill-Qwen-1.5B → Skywork-OR1-Math-7B (KDRL)",
+      "code_url": ""
     },
     {
       "arxiv_id": "2509.14257",
       "title": "From Correction to Mastery: Reinforced Distillation of Large Language Model Agents",
-      "authors": "Yuanjie Lyu",
       "year": 2025,
       "year_month": "2025-09",
       "section": "§4.3",
@@ -826,12 +825,12 @@
       "signal": "Privileged-Info",
       "freq": "per-outer-iter",
       "size": "3-10B",
-      "description": "Qwen2.5-7B / Qwen3-8B → Self (SCoRe, agent)"
+      "description": "Qwen2.5-7B / Qwen3-8B → Self (SCoRe, agent)",
+      "code_url": "https://github.com/modelscope/easydistill"
     },
     {
       "arxiv_id": "2509.22921",
       "title": "Rethinking Large Language Model Distillation: A Constrained Markov Decision Process Perspective",
-      "authors": "Matthieu Zimmer",
       "year": 2025,
       "year_month": "2025-09",
       "section": "§4.3",
@@ -840,12 +839,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": "Qwen2.5-1.5B-Math / Llama-3.2-3B → Qwen2.5-7B-Math / Llama-3.2-11B"
+      "description": "Qwen2.5-1.5B-Math / Llama-3.2-3B → Qwen2.5-7B-Math / Llama-3.2-11B",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.21851",
       "title": "OPPO: Bayesian Value Recursion for Token-Level Credit Assignment in LLM Reasoning",
-      "authors": "Yu Li",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§4.3",
@@ -854,12 +853,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen3-32B → Qwen3-4B; Bayesian token-level credit via oracle-conditioned likelihood ratios in PPO-style update."
+      "description": "Qwen3-32B → Qwen3-4B; Bayesian token-level credit via oracle-conditioned likelihood ratios in PPO-style update.",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.27140",
       "title": "StepOPSD: Step-Aware Online Preference Distillation for Agent Reinforcement Learning",
-      "authors": "Zhang, Yanfei",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§4.3",
@@ -868,12 +867,12 @@
       "signal": "Privileged-Info",
       "freq": "per-step",
       "size": "Unknown",
-      "description": "Qwen2.5-3B / Qwen3-1.7B → Self; Advantage-integrated OPD: teacher-student log-ratio fused into GRPO advantage for agentic tasks"
+      "description": "Qwen2.5-3B / Qwen3-1.7B → Self; Advantage-integrated OPD: teacher-student log-ratio fused into GRPO advantage for agentic tasks",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.18529",
       "title": "AMR-SD: Asymmetric Meta-Reflective Self-Distillation for Token-Level Credit Assignment",
-      "authors": "Wei, Zhenlin",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§4.3",
@@ -882,12 +881,12 @@
       "signal": "Verifier",
       "freq": "per-step",
       "size": "Unknown",
-      "description": "Qwen2.5-7B / Qwen3-8B → Self; CIG (pointwise KL) modulates PPO advantage; meta-reflective teacher conditions on privileged info"
+      "description": "Qwen2.5-7B / Qwen3-8B → Self; CIG (pointwise KL) modulates PPO advantage; meta-reflective teacher conditions on privileged info",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.07711",
       "title": "SimCT: Recovering Lost Supervision for Cross-Tokenizer On-Policy Distillation",
-      "authors": "Jie Sun",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§5.1",
@@ -896,12 +895,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": "Qwen2.5-7B-Inst / Phi-4-mini → Phi-4-mini / Gemma-2-2B-IT; multi-token continuation units for cross-tokenizer OPD"
+      "description": "Qwen2.5-7B-Inst / Phi-4-mini → Phi-4-mini / Gemma-2-2B-IT; multi-token continuation units for cross-tokenizer OPD",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.09725",
       "title": "On-Policy Distillation with Best-of-N Teacher Rollout Selection",
-      "authors": "Ke Zhang",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§5.1",
@@ -910,12 +909,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": "DeepSeek-R1-Distill-Qwen-1.5B → JustRL-DeepSeek-1.5B / DeepSeek-R1-Distill-Qwen-7B; samples teacher trajectory pool, selects via correctness-first / alignment-second priority"
+      "description": "DeepSeek-R1-Distill-Qwen-1.5B → JustRL-DeepSeek-1.5B / DeepSeek-R1-Distill-Qwen-7B; samples teacher trajectory pool, selects via correctness-first / alignment-second priority",
+      "code_url": "https://github.com/BWGZK-keke/BRTS"
     },
     {
       "arxiv_id": "2605.08776",
       "title": "Reasoning Compression with Mixed-Policy Distillation",
-      "authors": "Han Yang",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§5.1",
@@ -924,12 +923,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": "Qwen3-1.7B → Qwen3-8B; teacher rewrites student's verbose trajectories concisely; distills compressed reasoning"
+      "description": "Qwen3-1.7B → Qwen3-8B; teacher rewrites student's verbose trajectories concisely; distills compressed reasoning",
+      "code_url": ""
     },
     {
       "arxiv_id": "2504.11426",
       "title": "A Dual-Space Framework for General Knowledge Distillation of Large Language Models",
-      "authors": "Xue Zhang",
       "year": 2025,
       "year_month": "2025-04",
       "section": "§5.1",
@@ -938,12 +937,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": "GPT-2 120M / TinyLLaMA-1.1B → GPT-2 1.5B / Qwen2-1.5B"
+      "description": "GPT-2 120M / TinyLLaMA-1.1B → GPT-2 1.5B / Qwen2-1.5B",
+      "code_url": "https://github.com/songmzhang/DSKDv2"
     },
     {
       "arxiv_id": "2402.12842",
       "title": "PromptKD: Distilling Student-Friendly Knowledge for Generative Language Models via Prompt Tuning",
-      "authors": "Gyeongman Kim",
       "year": 2024,
       "year_month": "2024-02",
       "section": "§5.1",
@@ -952,12 +951,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": "GPT-2 120M–760M / OPT/Llama-7B → GPT-2 XL / OPT-13B / Llama-13B"
+      "description": "GPT-2 120M–760M / OPT/Llama-7B → GPT-2 XL / OPT-13B / Llama-13B",
+      "code_url": "https://github.com/gmkim-ai/PromptKD"
     },
     {
       "arxiv_id": "2605.27255",
       "title": "Pair-In, Pair-Out: Latent Multi-Token Prediction for Efficient LLMs",
-      "authors": "Wenhui Tan",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§5.1",
@@ -966,12 +965,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen3.5-9B → compressed Qwen3.5 (latent MTP); On-policy distillation stage with reverse-KL on student rollouts + auxiliary confidence-head BCE loss, used to recover accuracy of latent multi-token-prediction compressor trained on DAPO-Math + Codeforces"
+      "description": "Qwen3.5-9B → compressed Qwen3.5 (latent MTP); On-policy distillation stage with reverse-KL on student rollouts + auxiliary confidence-head BCE loss, used to recover accuracy of latent multi-token-prediction compressor trained on DAPO-Math + Codeforces",
+      "code_url": ""
     },
     {
       "arxiv_id": "2601.21968",
       "title": "OVD: On-policy Verbal Distillation",
-      "authors": "Jing Xiong",
       "year": 2026,
       "year_month": "2026-01",
       "section": "§5.2",
@@ -980,12 +979,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": "Qwen2.5-3B / LLaMA-3.2-3B → QwQ-32B (verbal feedback)"
+      "description": "Qwen2.5-3B / LLaMA-3.2-3B → QwQ-32B (verbal feedback)",
+      "code_url": ""
     },
     {
       "arxiv_id": "2604.28123",
       "title": "Pre-alignment via Black-box On-policy Distillation for Multimodal RL",
-      "authors": "Sudong Wang",
       "year": 2026,
       "year_month": "2026-04",
       "section": "§5.2",
@@ -994,12 +993,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen3-VL-8B → Self; PRISM adversarial MoE discriminator, logit-free OPD as pre-alignment before RLVR"
+      "description": "Qwen3-VL-8B → Self; PRISM adversarial MoE discriminator, logit-free OPD as pre-alignment before RLVR",
+      "code_url": "https://github.com/XIAO4579/PRISM"
     },
     {
       "arxiv_id": "2605.07396",
       "title": "Rubric-based On-policy Distillation",
-      "authors": "Junfeng Fang",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§5.2",
@@ -1008,12 +1007,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "GPT-5.2 / Qwen3-30B-A3B → Qwen3-4B / Gemma3-4B; structured semantic rubrics replace teacher logits; 10× sample efficiency"
+      "description": "GPT-5.2 / Qwen3-30B-A3B → Qwen3-4B / Gemma3-4B; structured semantic rubrics replace teacher logits; 10× sample efficiency",
+      "code_url": "https://github.com/Peregrine123/ROPD_official"
     },
     {
       "arxiv_id": "2511.10643",
       "title": "Black-Box On-Policy Distillation of Large Language Models",
-      "authors": "Tianzhu Ye",
       "year": 2025,
       "year_month": "2025-11",
       "section": "§5.2",
@@ -1022,12 +1021,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Llama-3.1-8B / Qwen2.5-3B–14B → GPT-5-Chat (black-box)"
+      "description": "Llama-3.1-8B / Qwen2.5-3B–14B → GPT-5-Chat (black-box)",
+      "code_url": ""
     },
     {
       "arxiv_id": "2606.01476",
       "title": "OmniOPD: Logit-Free On-Policy Distillation via Speculative Verification",
-      "authors": "Yuhang Zhou",
       "year": 2026,
       "year_month": "2026-06",
       "section": "§5.2",
@@ -1036,12 +1035,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": "Qwen3-32B → Qwen3-1.7B; Logit-free on-policy distillation using chunk-level Monte Carlo semantic verification from black-box teachers"
+      "description": "Qwen3-32B → Qwen3-1.7B; Logit-free on-policy distillation using chunk-level Monte Carlo semantic verification from black-box teachers",
+      "code_url": ""
     },
     {
       "arxiv_id": "2509.25100",
       "title": "ORPO-Distill: Mixed-Policy Preference Optimization for Cross-Architecture LLM Distillation",
-      "authors": "Aasheesh Singh",
       "year": 2025,
       "year_month": "2025-09",
       "section": "§5.2",
@@ -1050,12 +1049,12 @@
       "signal": "Privileged-Info",
       "freq": "per-outer-iter",
       "size": "<3B",
-      "description": "TinyLlama-1.1B-Instruct / InternLM2.5-1.8B-Chat → InternLM2.5-7B-Chat; ORPO-Distill: black-box cross-architecture distillation via ORPO (SFT + log-odds margin); teacher CoT y_P sampled K=8 times offline, on-policy student y_N per outer-iter (mixed policy fraction phi)"
+      "description": "TinyLlama-1.1B-Instruct / InternLM2.5-1.8B-Chat → InternLM2.5-7B-Chat; ORPO-Distill: black-box cross-architecture distillation via ORPO (SFT + log-odds margin); teacher CoT y_P sampled K=8 times offline, on-policy student y_N per outer-iter (mixed policy fraction phi)",
+      "code_url": ""
     },
     {
       "arxiv_id": "2602.04942",
       "title": "Privileged Information Distillation for Language Models",
-      "authors": "Emiliano Penaloza",
       "year": 2026,
       "year_month": "2026-02",
       "section": "§5.3",
@@ -1064,12 +1063,12 @@
       "signal": "Privileged-Info",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen3-4B / Qwen3-8B → Self (privileged info, π-Distill)"
+      "description": "Qwen3-4B / Qwen3-8B → Self (privileged info, π-Distill)",
+      "code_url": ""
     },
     {
       "arxiv_id": "2602.12275",
       "title": "On-Policy Context Distillation for Language Models",
-      "authors": "Tianzhu Ye",
       "year": 2026,
       "year_month": "2026-02",
       "section": "§5.3",
@@ -1078,12 +1077,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen3-1.7B/4B/8B → Qwen3-8B (thinking, OPCD)"
+      "description": "Qwen3-1.7B/4B/8B → Qwen3-8B (thinking, OPCD)",
+      "code_url": "https://github.com/ZijunSong/On-Policy-Context-Distillation"
     },
     {
       "arxiv_id": "2602.20574",
       "title": "GATES: Self-Distillation under Privileged Context with Consensus Gating",
-      "authors": "Alex Stein",
       "year": 2026,
       "year_month": "2026-02",
       "section": "§5.3",
@@ -1092,12 +1091,12 @@
       "signal": "Self",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen3-4B → Self; oracle: Qwen2.5-32B (privileged gating)"
+      "description": "Qwen3-4B → Self; oracle: Qwen2.5-32B (privileged gating)",
+      "code_url": ""
     },
     {
       "arxiv_id": "2603.05433",
       "title": "CRISP: Compressed Reasoning via Iterative Self-Policy Distillation",
-      "authors": "Hejian Sang",
       "year": 2026,
       "year_month": "2026-03",
       "section": "§5.3",
@@ -1106,12 +1105,12 @@
       "signal": "Self",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen3-VL-8B → Self; GUI-SD: visual privileged context (bounding box + Gaussian soft mask) + entropy-guided token weighting"
+      "description": "Qwen3-VL-8B → Self; GUI-SD: visual privileged context (bounding box + Gaussian soft mask) + entropy-guided token weighting",
+      "code_url": "https://github.com/HJSang/OPSD_Reasoning_Compression"
     },
     {
       "arxiv_id": "2603.16856",
       "title": "Online Experiential Learning for Language Models",
-      "authors": "Tianzhu Ye",
       "year": 2026,
       "year_month": "2026-03",
       "section": "§5.3",
@@ -1120,12 +1119,12 @@
       "signal": "Self",
       "freq": "per-step",
       "size": "<3B",
-      "description": "Qwen3-1.7B / Qwen3-4B / Qwen3-8B → Self (OEL)"
+      "description": "Qwen3-1.7B / Qwen3-4B / Qwen3-8B → Self (OEL)",
+      "code_url": ""
     },
     {
       "arxiv_id": "2603.23871",
       "title": "HDPO: Hybrid Distillation Policy Optimization via Privileged Self-Distillation",
-      "authors": "Ken Ding",
       "year": 2026,
       "year_month": "2026-03",
       "section": "§5.3",
@@ -1134,12 +1133,12 @@
       "signal": "Privileged-Info",
       "freq": "per-step",
       "size": "<3B",
-      "description": "Qwen2.5-Math-1.5B-Instruct → Self (HDPO)"
+      "description": "Qwen2.5-Math-1.5B-Instruct → Self (HDPO)",
+      "code_url": ""
     },
     {
       "arxiv_id": "2604.14054",
       "title": "π-Play: Multi-Agent Self-Play via Privileged Self-Distillation without External Data",
-      "authors": "Yaocheng Zhang",
       "year": 2026,
       "year_month": "2026-04",
       "section": "§5.3",
@@ -1148,12 +1147,12 @@
       "signal": "Self",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen3-4B / Qwen3-4B-Instruct / Qwen3-8B → Self (QCP as privileged context for dense supervision)"
+      "description": "Qwen3-4B / Qwen3-4B-Instruct / Qwen3-8B → Self (QCP as privileged context for dense supervision)",
+      "code_url": "https://github.com/zhyaoch/pi-play"
     },
     {
       "arxiv_id": "2604.17535",
       "title": "OPSDL: On-Policy Self-Distillation for Long-Context Language Models",
-      "authors": "Xinsen Zhang",
       "year": 2026,
       "year_month": "2026-04",
       "section": "§5.3",
@@ -1162,12 +1161,12 @@
       "signal": "Self",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen2.5-Instruct-7B–32B → Self (short-context as privileged teacher for long-context, per-token reverse-KL)"
+      "description": "Qwen2.5-Instruct-7B–32B → Self (short-context as privileged teacher for long-context, per-token reverse-KL)",
+      "code_url": ""
     },
     {
       "arxiv_id": "2604.26573",
       "title": "Partial-Solution Adaptive Interpolated Training for Self-Distilled Reasoners",
-      "authors": "Zhiquan Tan",
       "year": 2026,
       "year_month": "2026-04",
       "section": "§5.3",
@@ -1176,12 +1175,12 @@
       "signal": "Self",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen3-4B/8B → Self; PAINT: rollout-reference overlap + energy interpolation on OPSD"
+      "description": "Qwen3-4B/8B → Self; PAINT: rollout-reference overlap + energy interpolation on OPSD",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.00642",
       "title": "Learn where to Click from Yourself: On-Policy Self-Distillation for GUI Grounding",
-      "authors": "Yan Zhang",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§5.3",
@@ -1190,12 +1189,12 @@
       "signal": "Self",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen3-VL-8B → Self; GUI-SD: visual privileged context (bounding box + Gaussian soft mask) + entropy-guided token weighting"
+      "description": "Qwen3-VL-8B → Self; GUI-SD: visual privileged context (bounding box + Gaussian soft mask) + entropy-guided token weighting",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.02943",
       "title": "Healthcare AI GYM for Medical Agents",
-      "authors": "Minbyul Jeong",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§5.3",
@@ -1204,12 +1203,12 @@
       "signal": "Self",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen3-8B → Self; TT-OPD: EMA teacher + outcome-privileged hints + turn-level KL for multi-turn agentic distillation"
+      "description": "Qwen3-8B → Self; TT-OPD: EMA teacher + outcome-privileged hints + turn-level KL for multi-turn agentic distillation",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.02971",
       "title": "Multilingual Safety Alignment via Self-Distillation",
-      "authors": "Ruiyang Qin",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§5.3",
@@ -1218,12 +1217,12 @@
       "signal": "Self",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen2.5-7B / Llama-3-8B → Self; MSD: English CoT as privileged context + Dual-Perspective Safety Weighting"
+      "description": "Qwen2.5-7B / Llama-3-8B → Self; MSD: English CoT as privileged context + Dual-Perspective Safety Weighting",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.11458",
       "title": "Adaptive Teacher Exposure for Self-Distillation in LLM Reasoning",
-      "authors": "Zihao Han",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§5.3",
@@ -1232,12 +1231,12 @@
       "signal": "Self",
       "freq": "per-step",
       "size": "<3B",
-      "description": "Qwen3-1.7B/4B/8B → Self; learnable Beta-policy controller for teacher exposure ratio (ByteDance)"
+      "description": "Qwen3-1.7B/4B/8B → Self; learnable Beta-policy controller for teacher exposure ratio (ByteDance)",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.09548",
       "title": "Crosslingual On-Policy Self-Distillation for Multilingual Reasoning",
-      "authors": "First author from LMU Munich (Center for Information and Language Processing)",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§5.3",
@@ -1246,12 +1245,12 @@
       "signal": "Self",
       "freq": "per-step",
       "size": "<3B",
-      "description": "Qwen3-8B → Self; English translation + reference solution as privileged context for 17 low-resource languages"
+      "description": "Qwen3-8B → Self; English translation + reference solution as privileged context for 17 low-resource languages",
+      "code_url": "https://github.com/cisnlp/COPSD"
     },
     {
       "arxiv_id": "2605.20643",
       "title": "AVSD: Adaptive-View Self-Distillation by Balancing Consensus and Teacher-Specific Privileged Signals",
-      "authors": "Duy Nguyen",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§5.3",
@@ -1260,12 +1259,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Self → Self (multi-view PI); Multi-view on-policy self-distillation decomposing privileged teacher signals into geometric consensus + gated residuals"
+      "description": "Self → Self (multi-view PI); Multi-view on-policy self-distillation decomposing privileged teacher signals into geometric consensus + gated residuals",
+      "code_url": "https://github.com/duykhuongnguyen/AVSD"
     },
     {
       "arxiv_id": "2605.28791",
       "title": "Skill-Conditioned Gated Self-Distillation for LLM Reasoning",
-      "authors": "Jiazhen Huang",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§5.3",
@@ -1274,12 +1273,12 @@
       "signal": "Self",
       "freq": "per-step",
       "size": "<3B",
-      "description": "Qwen3-1.7B/4B/8B → Self (skill-conditioned); Skill-conditioned multi-teacher pool with outcome-validated teacher polarity; bounded gated distillation objective."
+      "description": "Qwen3-1.7B/4B/8B → Self (skill-conditioned); Skill-conditioned multi-teacher pool with outcome-validated teacher polarity; bounded gated distillation objective.",
+      "code_url": ""
     },
     {
       "arxiv_id": "2606.00424",
       "title": "Weak Critics Make Strong Learners: On-Policy Critique Distillation for Scalable Oversight",
-      "authors": "Can Jin",
       "year": 2026,
       "year_month": "2026-06",
       "section": "§5.3",
@@ -1288,12 +1287,12 @@
       "signal": "Self",
       "freq": "per-outer-iter",
       "size": "3-10B",
-      "description": "Qwen3-4B-base → Self; On-policy critique distillation using weak model critiques to improve strong models"
+      "description": "Qwen3-4B-base → Self; On-policy critique distillation using weak model critiques to improve strong models",
+      "code_url": ""
     },
     {
       "arxiv_id": "2606.03603",
       "title": "World Models Meet Language Models: On the Complementarity of Concrete and Abstract Reasoning",
-      "authors": "Yucheng Zhou",
       "year": 2026,
       "year_month": "2026-06",
       "section": "§5.3",
@@ -1302,12 +1301,12 @@
       "signal": "Privileged-Info",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen3.5-9B → Qwen3.6-27B (privileged-info teacher) / Gemini-3.1-Pro; Privileged-info self-distillation: future videos + ground-truth answers as privileged context teach MLLM when to invoke / verify / rely on world-model rollouts; D_KL teacher term"
+      "description": "Qwen3.5-9B → Qwen3.6-27B (privileged-info teacher) / Gemini-3.1-Pro; Privileged-info self-distillation: future videos + ground-truth answers as privileged context teach MLLM when to invoke / verify / rely on world-model rollouts; D_KL teacher term",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.05040",
       "title": "Preference-Based Self-Distillation: Beyond KL Matching via Reward Regularization",
-      "authors": "Xin Yu",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§5.3",
@@ -1316,12 +1315,12 @@
       "signal": "Self",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen3-1.7B/4B/8B → Self (context-augmented); PBSD: black-box OPD via DPO with privileged-context self-teacher y+ vs on-policy student y-; per-step rollouts; reward-regularized preference gap (no logits available, hence DPO not KL)"
+      "description": "Qwen3-1.7B/4B/8B → Self (context-augmented); PBSD: black-box OPD via DPO with privileged-context self-teacher y+ vs on-policy student y-; per-step rollouts; reward-regularized preference gap (no logits available, hence DPO not KL)",
+      "code_url": ""
     },
     {
       "arxiv_id": "2601.19897",
       "title": "Self-Distillation Enables Continual Learning",
-      "authors": "Idan Shenfeld",
       "year": 2026,
       "year_month": "2026-01",
       "section": "§5.3",
@@ -1330,12 +1329,12 @@
       "signal": "Privileged-Info",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen2.5-7B-Instruct → Self (demonstration-conditioned teacher, SDFT)"
+      "description": "Qwen2.5-7B-Instruct → Self (demonstration-conditioned teacher, SDFT)",
+      "code_url": ""
     },
     {
       "arxiv_id": "2602.06019",
       "title": "Multi-Token Prediction via Self-Distillation",
-      "authors": "John Kirchenbauer",
       "year": 2026,
       "year_month": "2026-02",
       "section": "§5.3",
@@ -1344,12 +1343,12 @@
       "signal": "Self",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Llama-3.1-8B → Self (online distillation for 3× faster decoding)"
+      "description": "Llama-3.1-8B → Self (online distillation for 3× faster decoding)",
+      "code_url": "https://github.com/jwkirchenbauer/mtp-lm"
     },
     {
       "arxiv_id": "2605.10781",
       "title": "Rebellious Student: Reversing Teacher Signals for Reasoning Exploration with Self-Distilled RLVR",
-      "authors": "Jeonghye Kim",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§5.3",
@@ -1358,12 +1357,12 @@
       "signal": "Self",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen3-8B → Self; RLRT: inverted self-distillation signal; reinforces student's reasoning tokens via GRPO"
+      "description": "Qwen3-8B → Self; RLRT: inverted self-distillation signal; reinforces student's reasoning tokens via GRPO",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.06597",
       "title": "UniSD: Towards a Unified Self-Distillation Framework for Large Language Models",
-      "authors": "Yiqiao Jin",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§5.3",
@@ -1372,12 +1371,12 @@
       "signal": "Self",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Llama-3.1/Qwen2.5/Phi-3 families → Self (EMA teacher + multi-teacher agreement + divergence clipping)"
+      "description": "Llama-3.1/Qwen2.5/Phi-3 families → Self (EMA teacher + multi-teacher agreement + divergence clipping)",
+      "code_url": "https://github.com/Ahren09/UniSD"
     },
     {
       "arxiv_id": "2605.11019",
       "title": "Efficient LLM Reasoning via Variational Posterior Guidance with Efficiency Awareness",
-      "authors": "Zizhao Chen",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§5.3",
@@ -1386,12 +1385,12 @@
       "signal": "Other-Signal",
       "freq": "per-outer-iter",
       "size": "<3B",
-      "description": "DeepSeek-R1-Distill-Qwen-1.5B/7B / DeepSeek-R1-Distill-Llama-8B → Self (dual-stream); VPG-EA: posterior (answer-conditioned) and prior streams share params; advantage-gated forward KL distillation; cross-view validation filters pseudo-efficient paths"
+      "description": "DeepSeek-R1-Distill-Qwen-1.5B/7B / DeepSeek-R1-Distill-Llama-8B → Self (dual-stream); VPG-EA: posterior (answer-conditioned) and prior streams share params; advantage-gated forward KL distillation; cross-view validation filters pseudo-efficient paths",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.18740",
       "title": "Vision-OPD: Learning to See Fine Details for Multimodal LLMs via On-Policy Self-Distillation",
-      "authors": "Qianhao Yuan",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§5.3",
@@ -1400,12 +1399,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen3.5-4B/9B → Self (crop→full-image); regional-to-global self-distillation with on-policy rollouts + token-level JSD; VLM self-distillation: crop-conditioned teacher distills fine-grained visual details to full-image student via on-policy JSD"
+      "description": "Qwen3.5-4B/9B → Self (crop→full-image); regional-to-global self-distillation with on-policy rollouts + token-level JSD; VLM self-distillation: crop-conditioned teacher distills fine-grained visual details to full-image student via on-policy JSD",
+      "code_url": "https://github.com/VisionOPD/Vision-OPD"
     },
     {
       "arxiv_id": "2605.17497",
       "title": "Self-Supervised On-Policy Distillation for Reasoning Language Models",
-      "authors": "Zhiquan Tan",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§5.3",
@@ -1414,12 +1413,12 @@
       "signal": "Privileged-Info",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen3-8B (stop-gradient self) → Qwen3-8B; Self-supervised on-policy distillation using intra-group correct-wrong contrast as dense process supervision"
+      "description": "Qwen3-8B (stop-gradient self) → Qwen3-8B; Self-supervised on-policy distillation using intra-group correct-wrong contrast as dense process supervision",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.18299",
       "title": "SD-Search: On-Policy Hindsight Self-Distillation for Search-Augmented Reasoning",
-      "authors": "Yufei Ma",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§5.3",
@@ -1428,12 +1427,12 @@
       "signal": "Privileged-Info",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen2.5-3B (hindsight-conditioned) → Qwen2.5-3B; On-policy hindsight self-distillation for step-level search query supervision in RL agents"
+      "description": "Qwen2.5-3B (hindsight-conditioned) → Qwen2.5-3B; On-policy hindsight self-distillation for step-level search query supervision in RL agents",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.17873",
       "title": "HINT-SD: Targeted Hindsight Self-Distillation for Long-Horizon Agents",
-      "authors": "Woongyeng Yeo",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§5.3",
@@ -1442,12 +1441,12 @@
       "signal": "Privileged-Info",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen3-4B-Instruct-2507 (EMA + feedback-conditioned) → Qwen3-4B-Instruct-2507; Targeted self-distillation applying feedback-conditioned teacher only at failure-relevant turns in long-horizon agent tr"
+      "description": "Qwen3-4B-Instruct-2507 (EMA + feedback-conditioned) → Qwen3-4B-Instruct-2507; Targeted self-distillation applying feedback-conditioned teacher only at failure-relevant turns in long-horizon agent tr",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.22240",
       "title": "Unlocking Proactivity in Task-Oriented Dialogue",
-      "authors": "Hongbin Zhang",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§5.3",
@@ -1456,12 +1455,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen3-4B → Self (privileged view); Asymmetric self-distillation from privileged user-concern view plus state-transition policy gradient for proactive TOD."
+      "description": "Qwen3-4B → Self (privileged view); Asymmetric self-distillation from privileged user-concern view plus state-transition policy gradient for proactive TOD.",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.22511",
       "title": "Search-E1: Self-Distillation Drives Self-Evolution in Search-Augmented Reasoning",
-      "authors": "Zihan Liang",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§5.3",
@@ -1470,12 +1469,12 @@
       "signal": "Privileged-Info",
       "freq": "per-outer-iter",
       "size": "3-10B",
-      "description": "Qwen2.5-7B → Self (privileged context); Alternating GRPO with offline self-distillation between rounds for search-augmented reasoning self-evolution."
+      "description": "Qwen2.5-7B → Self (privileged context); Alternating GRPO with offline self-distillation between rounds for search-augmented reasoning self-evolution.",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.20258",
       "title": "It Takes Two: Complementary Self-Distillation for Contextual Integrity in LLMs",
-      "authors": "Sangwoo Park",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§5.3",
@@ -1484,12 +1483,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen2.5-7B → Self; Complementary self-distillation: two feedback-conditioned self-teachers (utility / privacy) provide joint reverse-KL token-level supervision over on-policy rollouts for contextual integrity alignment"
+      "description": "Qwen2.5-7B → Self; Complementary self-distillation: two feedback-conditioned self-teachers (utility / privacy) provide joint reverse-KL token-level supervision over on-policy rollouts for contextual integrity alignment",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.27186",
       "title": "MAIGO: Mitigating Lost-in-Conversation with History-Cleaned On-Policy Self-Distillation",
-      "authors": "Zheng, Haoyu",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§5.3",
@@ -1498,12 +1497,12 @@
       "signal": "Privileged-Info",
       "freq": "per-step",
       "size": "Unknown",
-      "description": "Qwen2.5-3B / Qwen2.5-7B / Llama-3.1-8B → Self; EMA self-teacher + GJD/RKL for multi-turn dialogue; history-cleaned prompts prevent conversation drift"
+      "description": "Qwen2.5-3B / Qwen2.5-7B / Llama-3.1-8B → Self; EMA self-teacher + GJD/RKL for multi-turn dialogue; history-cleaned prompts prevent conversation drift",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.28014",
       "title": "ROSD: Reflective On-Policy Self-Distillation for Language Model Reasoning across Domains",
-      "authors": "Zhao, Ziqi",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§5.3",
@@ -1512,12 +1511,12 @@
       "signal": "Other-Signal",
       "freq": "per-step",
       "size": "Unknown",
-      "description": "Qwen3-4B/8B (self-teacher) → Qwen3-4B/8B; Error-focused reflection + quote-localized self-distillation; reflector extracts corrective idea and error span, distillation loss applied only from error onward"
+      "description": "Qwen3-4B/8B (self-teacher) → Qwen3-4B/8B; Error-focused reflection + quote-localized self-distillation; reflector extracts corrective idea and error span, distillation loss applied only from error onward",
+      "code_url": "https://github.com/ZiqiZhao1/ROSD"
     },
     {
       "arxiv_id": "2605.30251",
       "title": "Same Evidence, Different Answers: Canonical-Context On-Policy Distillation for Multi-Turn Language Models",
-      "authors": "Zizhuo Lin",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§5.3",
@@ -1526,12 +1525,12 @@
       "signal": "Self",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen3-8B → Self; On-policy self-distillation aligning RAW-SHARDED multi-turn answers with FULL-context teacher behavior"
+      "description": "Qwen3-8B → Self; On-policy self-distillation aligning RAW-SHARDED multi-turn answers with FULL-context teacher behavior",
+      "code_url": ""
     },
     {
       "arxiv_id": "2606.02372",
       "title": "COMAP: Co-Evolving World Models and Agent Policies for LLM Agents",
-      "authors": "Youwei Liu",
       "year": 2026,
       "year_month": "2026-06",
       "section": "§5.3",
@@ -1540,12 +1539,12 @@
       "signal": "Self",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen3-4B → Self; Co-evolving textual world models and agent policies via on-policy self-distillation and future-aware reflection"
+      "description": "Qwen3-4B → Self; Co-evolving textual world models and agent policies via on-policy self-distillation and future-aware reflection",
+      "code_url": ""
     },
     {
       "arxiv_id": "2601.20802",
       "title": "Reinforcement Learning via Self-Distillation",
-      "authors": "Jonas Hübotter",
       "year": 2026,
       "year_month": "2026-01",
       "section": "§5.3",
@@ -1554,12 +1553,12 @@
       "signal": "Self",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen3-8B → Self (SDPO, iterative)"
+      "description": "Qwen3-8B → Self (SDPO, iterative)",
+      "code_url": "https://github.com/lasgroup/SDPO"
     },
     {
       "arxiv_id": "2602.02482",
       "title": "Expanding the Capabilities of Reinforcement Learning via Text Feedback",
-      "authors": "Yuda Song",
       "year": 2026,
       "year_month": "2026-02",
       "section": "§5.3",
@@ -1568,12 +1567,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Llama-3.1-8B-Instruct → Qwen3-235B (text feedback RL)"
+      "description": "Llama-3.1-8B-Instruct → Qwen3-235B (text feedback RL)",
+      "code_url": ""
     },
     {
       "arxiv_id": "2604.02288",
       "title": "Unifying Group-Relative and Self-Distillation Policy Optimization via Sample Routing",
-      "authors": "Gengsheng Li",
       "year": 2026,
       "year_month": "2026-04",
       "section": "§5.3",
@@ -1582,12 +1581,12 @@
       "signal": "Self",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen3-4B / Qwen3-8B → Self (SRPO)"
+      "description": "Qwen3-4B / Qwen3-8B → Self (SRPO)",
+      "code_url": ""
     },
     {
       "arxiv_id": "2604.03128",
       "title": "Self-Distilled RLVR",
-      "authors": "Chenxu Yang",
       "year": 2026,
       "year_month": "2026-04",
       "section": "§5.3",
@@ -1596,12 +1595,12 @@
       "signal": "Self",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen3-VL-4B / Qwen3-VL-8B → Self (RLSD)"
+      "description": "Qwen3-VL-4B / Qwen3-VL-8B → Self (RLSD)",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.11613",
       "title": "From Generic Correlation to Input-Specific Credit in On-Policy Self Distillation",
-      "authors": "Guobin Shen",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§5.3",
@@ -1610,12 +1609,12 @@
       "signal": "Self",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen3-8B → Self; pMI decomposition of self-distillation reward; batch-contrastive baseline isolates input-specific credit"
+      "description": "Qwen3-8B → Self; pMI decomposition of self-distillation reward; batch-contrastive baseline isolates input-specific credit",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.12400",
       "title": "OGLS-SD: On-Policy Self-Distillation with Outcome-Guided Logit Steering for LLM Reasoning",
-      "authors": "Yuxiao Yang",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§5.3",
@@ -1624,12 +1623,12 @@
       "signal": "Self",
       "freq": "per-step",
       "size": "<3B",
-      "description": "Qwen3-8B → Self; outcome rewards contrast correct vs. failed on-policy trajectories to calibrate teacher logits"
+      "description": "Qwen3-8B → Self; outcome rewards contrast correct vs. failed on-policy trajectories to calibrate teacher logits",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.12741",
       "title": "RESD: Learning with Rare Success but Rich Feedback via Reflection-Enhanced Self-Distillation",
-      "authors": "Yuwei Zhang",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§5.3",
@@ -1638,12 +1637,12 @@
       "signal": "Verifier",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "LLM agents → Self; retrospective reflection on failures generates corrective self-supervision + persistent playbook; outperforms GRPO 8× (Amazon/UCSD)"
+      "description": "LLM agents → Self; retrospective reflection on failures generates corrective self-supervision + persistent playbook; outperforms GRPO 8× (Amazon/UCSD)",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.15155",
       "title": "Self-Distilled Agentic Reinforcement Learning",
-      "authors": "Zhengxi Lu",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§5.3",
@@ -1652,12 +1651,12 @@
       "signal": "Self",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen2.5/Qwen3 → Self; sigmoid-gated OPSD auxiliary with RL; asymmetric positive/negative teacher signal; +9.4%/+10.2%/+7.0% over GRPO on ALFWorld/WebShop/SearchQA"
+      "description": "Qwen2.5/Qwen3 → Self; sigmoid-gated OPSD auxiliary with RL; asymmetric positive/negative teacher signal; +9.4%/+10.2%/+7.0% over GRPO on ALFWorld/WebShop/SearchQA",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.15113",
       "title": "Learning from Language Feedback via Variational Policy Distillation",
-      "authors": "Yang Li",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§5.3",
@@ -1666,12 +1665,12 @@
       "signal": "Self",
       "freq": "per-outer-iter",
       "size": "3-10B",
-      "description": "LLM → Self (co-evolved); Variational EM co-optimizes teacher+student; adaptive trust-region teacher update from language feedback; outperforms RLVR+SDPO on code/science reasoning (Salesforce)"
+      "description": "LLM → Self (co-evolved); Variational EM co-optimizes teacher+student; adaptive trust-region teacher update from language feedback; outperforms RLVR+SDPO on code/science reasoning (Salesforce)",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.21834",
       "title": "On-Policy Consistency Training Improves LLM Safety with Minimal Capability Degradation",
-      "authors": "",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§5.3",
@@ -1680,12 +1679,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "Unknown",
-      "description": "Llama-3.1-8B / Qwen2.5-7B / Qwen3-8B → Self; Per-token reverse KL on contrastive prompt pairs for safety alignment (anti-sycophancy, jailbreak defense)"
+      "description": "Llama-3.1-8B / Qwen2.5-7B / Qwen3-8B → Self; Per-token reverse KL on contrastive prompt pairs for safety alignment (anti-sycophancy, jailbreak defense)",
+      "code_url": ""
     },
     {
       "arxiv_id": "2602.15260",
       "title": "Fast and Effective On-policy Distillation from Reasoning Prefixes",
-      "authors": "Dongxu Zhang",
       "year": 2026,
       "year_month": "2026-02",
       "section": "§6",
@@ -1694,12 +1693,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": "Qwen3-1.7B / Qwen3-8B → Qwen3-8B (teacher)"
+      "description": "Qwen3-1.7B / Qwen3-8B → Qwen3-8B (teacher)",
+      "code_url": ""
     },
     {
       "arxiv_id": "2603.11178",
       "title": "PACED: Distillation and On-Policy Self-Distillation at the Frontier of Student Competence",
-      "authors": "Yuanda Xu",
       "year": 2026,
       "year_month": "2026-03",
       "section": "§6",
@@ -1708,12 +1707,12 @@
       "signal": "Privileged-Info",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen3-8B → Qwen3-14B; Qwen2.5-Math-7B-Instruct → Self"
+      "description": "Qwen3-8B → Qwen3-14B; Qwen2.5-Math-7B-Instruct → Self",
+      "code_url": ""
     },
     {
       "arxiv_id": "2604.08527",
       "title": "Demystifying OPD: Length Inflation and Stabilization Strategies for Large Language Models",
-      "authors": "Feng Luo",
       "year": 2026,
       "year_month": "2026-04",
       "section": "§6",
@@ -1722,12 +1721,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": "Qwen2.5-Math-1.5B/7B → DeepSeek-R1-Distill-7B / OpenThinker3-7B"
+      "description": "Qwen2.5-Math-1.5B/7B → DeepSeek-R1-Distill-7B / OpenThinker3-7B",
+      "code_url": ""
     },
     {
       "arxiv_id": "2604.14084",
       "title": "TIP: Token Importance in On-Policy Distillation",
-      "authors": "Yuanda Xu",
       "year": 2026,
       "year_month": "2026-04",
       "section": "§6",
@@ -1736,12 +1735,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen3-4B / Llama-3.1-8B / Qwen2.5-1.5B → Qwen3-8B / Llama-70B / Qwen2.5-14B"
+      "description": "Qwen3-4B / Llama-3.1-8B / Qwen2.5-1.5B → Qwen3-8B / Llama-70B / Qwen2.5-14B",
+      "code_url": "https://github.com/HJSang/OPSD_OnPolicyDistillation"
     },
     {
       "arxiv_id": "2604.24005",
       "title": "TCOD: Exploring Temporal Curriculum in On-Policy Distillation for Multi-turn Autonomous Agents",
-      "authors": "Jiaqi Wang",
       "year": 2026,
       "year_month": "2026-04",
       "section": "§6",
@@ -1750,12 +1749,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen2.5-0.5B/1.5B/3B/7B / Qwen3-0.6B/1.7B/4B → Qwen2.5-7B-GRPO / Qwen3-30B-A3B-Instruct; TCOD: temporal curriculum for autonomous agent OPD"
+      "description": "Qwen2.5-0.5B/1.5B/3B/7B / Qwen3-0.6B/1.7B/4B → Qwen2.5-7B-GRPO / Qwen3-30B-A3B-Instruct; TCOD: temporal curriculum for autonomous agent OPD",
+      "code_url": "https://github.com/kokolerk/TCOD"
     },
     {
       "arxiv_id": "2604.27083",
       "title": "Co-Evolving Policy Distillation",
-      "authors": "Naibin Gu",
       "year": 2026,
       "year_month": "2026-04",
       "section": "§6",
@@ -1764,12 +1763,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen3-VL-4B (image / text / video branches) → Qwen3-VL-4B (mutual peer); CoPD: bidirectional parallel RLVR branches + interleaved mutual OPD co-evolution"
+      "description": "Qwen3-VL-4B (image / text / video branches) → Qwen3-VL-4B (mutual peer); CoPD: bidirectional parallel RLVR branches + interleaved mutual OPD co-evolution",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.03677",
       "title": "Uni-OPD: Unifying On-Policy Distillation with a Dual-Perspective Recipe",
-      "authors": "Wenjin Hou",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§6",
@@ -1778,12 +1777,12 @@
       "signal": "Privileged-Info",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen3-1.7B/4B → Multi-teacher; Uni-OPD: student exploration (difficulty+correctness-aware) + teacher reliability"
+      "description": "Qwen3-1.7B/4B → Multi-teacher; Uni-OPD: student exploration (difficulty+correctness-aware) + teacher reliability",
+      "code_url": "https://github.com/WenjinHou/Uni-OPD"
     },
     {
       "arxiv_id": "2605.11739",
       "title": "Learning to Foresee: Unveiling the Unlocking Efficiency of On-Policy Distillation",
-      "authors": "Yuchen Cai",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§6",
@@ -1792,12 +1791,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": "Qwen3-8B → Self; module-allocation + update-direction perspectives: OPD identifies critical reasoning modules early"
+      "description": "Qwen3-8B → Self; module-allocation + update-direction perspectives: OPD identifies critical reasoning modules early",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.07804",
       "title": "Prune-OPD: Efficient and Reliable On-Policy Distillation for Long-Horizon Reasoning",
-      "authors": "Zhicheng Yang",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§6",
@@ -1806,12 +1805,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": "R1-Distill-Qwen-1.5B / Qwen3-1.7B → R1-Distill-Qwen-7B / Qwen3-4B; top-k overlap drift detection for adaptive rollout truncation; 37-68% speedup"
+      "description": "R1-Distill-Qwen-1.5B / Qwen3-1.7B → R1-Distill-Qwen-7B / Qwen3-4B; top-k overlap drift detection for adaptive rollout truncation; 37-68% speedup",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.15532",
       "title": "DeltaPrompts: Escaping the Zero-Delta Trap in Multimodal Distillation",
-      "authors": "Jaehun Jung",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§6",
@@ -1820,12 +1819,12 @@
       "signal": "External-Teacher",
       "freq": "per-outer-iter",
       "size": "3-10B",
-      "description": "Qwen3-VL-8B-Thinking → Qwen3-VL-235B-Thinking; answer-divergence-guided prompt synthesis for OPD; 15% relative gain; 200k high-divergence prompts (NVIDIA)"
+      "description": "Qwen3-VL-8B-Thinking → Qwen3-VL-235B-Thinking; answer-divergence-guided prompt synthesis for OPD; 15% relative gain; 200k high-divergence prompts (NVIDIA)",
+      "code_url": ""
     },
     {
       "arxiv_id": "2510.07842",
       "title": "AdaSwitch: Balancing Exploration and Guidance in Knowledge Distillation via Adaptive Switching",
-      "authors": "Jingyu Peng",
       "year": 2025,
       "year_month": "2025-10",
       "section": "§6",
@@ -1834,12 +1833,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": "Qwen2.5-0.5B / Llama-3.1-1B / Gemma-2B → Qwen2.5-3B / Llama-3.1-3B / Gemma-7B"
+      "description": "Qwen2.5-0.5B / Llama-3.1-1B / Gemma-2B → Qwen2.5-3B / Llama-3.1-3B / Gemma-7B",
+      "code_url": ""
     },
     {
       "arxiv_id": "2510.24021",
       "title": "SelecTKD: Selective Token-Weighted Knowledge Distillation for LLMs",
-      "authors": "Haiduo Huang",
       "year": 2025,
       "year_month": "2025-10",
       "section": "§6",
@@ -1848,12 +1847,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": "Qwen2-1.5B / Gemma-2-2B / Danube2-1.8B → Qwen2-7B / Gemma-2-9B / Mistral-7B"
+      "description": "Qwen2-1.5B / Gemma-2-2B / Danube2-1.8B → Qwen2-7B / Gemma-2-9B / Mistral-7B",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.17862",
       "title": "f-OPD: Stabilizing Long-Horizon On-Policy Distillation with Freshness-Aware Control",
-      "authors": "Xianwei Chen",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§6",
@@ -1862,12 +1861,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen2.5-Math-72B → Qwen2.5-Math-7B / Qwen3-Coder-30B-A3B → Qwen3-8B; freshness-aware async OPD; Freshness-aware control for async OPD: sample-level staleness scoring + adaptive buffer refresh + rollout-anchored KL"
+      "description": "Qwen2.5-Math-72B → Qwen2.5-Math-7B / Qwen3-Coder-30B-A3B → Qwen3-8B; freshness-aware async OPD; Freshness-aware control for async OPD: sample-level staleness scoring + adaptive buffer refresh + rollout-anchored KL",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.19433",
       "title": "Backtracking When It Strays: Mitigating Dual Exposure Biases in LLM Reasoning Distillation",
-      "authors": "Bing Wang",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§6",
@@ -1876,12 +1875,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen3-32B → Qwen3-4B; MOTAB: monitors student on-policy trajectories via adaptive entropy boundary; backtracks to safe state for teacher correction to mitigate dual exposure biases in reasoning distillation"
+      "description": "Qwen3-32B → Qwen3-4B; MOTAB: monitors student on-policy trajectories via adaptive entropy boundary; backtracks to safe state for teacher correction to mitigate dual exposure biases in reasoning distillation",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.21924",
       "title": "Visual-Advantage On-Policy Distillation for Vision-Language Models",
-      "authors": "Ruiqi Liu",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§6",
@@ -1890,12 +1889,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": "Qwen3-VL-8B → Qwen3-VL-2B; Visual-advantage reweighting for token-level on-policy VLM distillation with reverse KL."
+      "description": "Qwen3-VL-8B → Qwen3-VL-2B; Visual-advantage reweighting for token-level on-policy VLM distillation with reverse KL.",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.27028",
       "title": "Less is More: Early Stopping Rollout for On-Policy Distillation",
-      "authors": "Ziheng, Zhou",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§6",
@@ -1904,12 +1903,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "Unknown",
-      "description": "Qwen3-32B → 8B; Early-stopped rollouts at 40-60% length for 2x efficiency with maintained RKL distillation quality"
+      "description": "Qwen3-32B → 8B; Early-stopped rollouts at 40-60% length for 2x efficiency with maintained RKL distillation quality",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.27115",
       "title": "Counteraction-Aware Multi-Teacher On-Policy Distillation for General Capability Recovery with Domain Preservation",
-      "authors": "Chen, Tianlei",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§6",
@@ -1918,12 +1917,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "Unknown",
-      "description": "Qwen3-8B → Qwen3-4B; Dual teacher conflict-aware distillation with 3+1 alternating schedule for domain preservation"
+      "description": "Qwen3-8B → Qwen3-4B; Dual teacher conflict-aware distillation with 3+1 alternating schedule for domain preservation",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.31490",
       "title": "Are Full Rollouts Necessary for On-Policy Distillation?",
-      "authors": "Yaocheng Zhang",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§6",
@@ -1932,12 +1931,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": "JustRL-R1-1.5B → R1-Distill-1.5B; Horizon-control strategies (POPD, TOPD) improve OPD efficiency by truncating rollouts"
+      "description": "JustRL-R1-1.5B → R1-Distill-1.5B; Horizon-control strategies (POPD, TOPD) improve OPD efficiency by truncating rollouts",
+      "code_url": ""
     },
     {
       "arxiv_id": "2606.02530",
       "title": "SafeSteer: Localized On-Policy Distillation for Efficient Safety Alignment",
-      "authors": "Hao Li",
       "year": 2026,
       "year_month": "2026-06",
       "section": "§6",
@@ -1946,12 +1945,12 @@
       "signal": "Self",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen3-4B-Instruct → Self; Localized on-policy distillation confined to safety tokens via activation steering teacher"
+      "description": "Qwen3-4B-Instruct → Self; Localized on-policy distillation confined to safety tokens via activation steering teacher",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.31159",
       "title": "Trust-Region Behavior Blending for On-Policy Distillation",
-      "authors": "Daniil Plyusov",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§6",
@@ -1960,12 +1959,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": "Qwen3-1.7B-Base / Qwen3-0.6B-Base → Qwen3-8B / Qwen3-4B; Trust-region warmup curriculum: behavior policy under student-centered KL constraint stabilizes early-stage OPD; standard reverse-KL distill loss unchanged"
+      "description": "Qwen3-1.7B-Base / Qwen3-0.6B-Base → Qwen3-8B / Qwen3-4B; Trust-region warmup curriculum: behavior policy under student-centered KL constraint stabilizes early-stage OPD; standard reverse-KL distill loss unchanged",
+      "code_url": ""
     },
     {
       "arxiv_id": "2305.12870",
       "title": "Lion: Adversarial Distillation of Proprietary Large Language Models",
-      "authors": "Yuxin Jiang",
       "year": 2023,
       "year_month": "2023-05",
       "section": "§6",
@@ -1974,12 +1973,12 @@
       "signal": "External-Teacher",
       "freq": "per-outer-iter",
       "size": "3-10B",
-      "description": "Lion-7B / Lion-13B (LLaMA) → ChatGPT (gpt-3.5-turbo, black-box API); Adversarial black-box distillation: imitation-discrimination-generation loop iteratively identifies hard instructions via student-teacher gap; early-era black-box OPD canonical reference (HoF-tier)"
+      "description": "Lion-7B / Lion-13B (LLaMA) → ChatGPT (gpt-3.5-turbo, black-box API); Adversarial black-box distillation: imitation-discrimination-generation loop iteratively identifies hard instructions via student-teacher gap; early-era black-box OPD canonical reference (HoF-tier)",
+      "code_url": ""
     },
     {
       "arxiv_id": "2604.13010",
       "title": "Lightning OPD: Efficient Post-Training for Large Reasoning Models with Offline On-Policy Distillation",
-      "authors": "Yecheng Wu",
       "year": 2026,
       "year_month": "2026-04",
       "section": "§6",
@@ -1988,12 +1987,12 @@
       "signal": "External-Teacher",
       "freq": "once-before-training",
       "size": "3-10B",
-      "description": "Qwen3-4B-Base / Qwen3-8B-Base → Qwen3-8B / Qwen3-32B / QwQ-32B; Lightning-OPD: offline precomputed teacher logprobs eliminate live teacher server; theoretical equivalence to online OPD under teacher consistency"
+      "description": "Qwen3-4B-Base / Qwen3-8B-Base → Qwen3-8B / Qwen3-32B / QwQ-32B; Lightning-OPD: offline precomputed teacher logprobs eliminate live teacher server; theoretical equivalence to online OPD under teacher consistency",
+      "code_url": ""
     },
     {
       "arxiv_id": "2606.02684",
       "title": "Filter, Then Reweight: Rethinking Optimization Granularity in On-Policy Distillation",
-      "authors": "Yuying Li",
       "year": 2026,
       "year_month": "2026-06",
       "section": "§6",
@@ -2002,12 +2001,12 @@
       "signal": "External-Teacher",
       "freq": "per-outer-iter",
       "size": "3-10B",
-      "description": "Qwen3-4B-Non-Thinking → Qwen3-30B-A3B-Instruct; FiRe-OPD: trajectory filtering by teacher log-prob + soft token reweighting; PPO-clipped weighted loss for OPD"
+      "description": "Qwen3-4B-Non-Thinking → Qwen3-30B-A3B-Instruct; FiRe-OPD: trajectory filtering by teacher log-prob + soft token reweighting; PPO-clipped weighted loss for OPD",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.10889",
       "title": "Unmasking On-Policy Distillation: Where It Helps, Where It Hurts, and Why",
-      "authors": "Mohammadreza Armandpour",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§7.1",
@@ -2016,12 +2015,12 @@
       "signal": "Self",
       "freq": "once-before-training",
       "size": "<3B",
-      "description": "Qwen3-1.7B/8B → Self; training-free per-token diagnostic; ideal per-node gradient + gradient alignment score (Apple)"
+      "description": "Qwen3-1.7B/8B → Self; training-free per-token diagnostic; ideal per-node gradient + gradient alignment score (Apple)",
+      "code_url": ""
     },
     {
       "arxiv_id": "2603.24472",
       "title": "Why Does Self-Distillation (Sometimes) Degrade the Reasoning Capability of LLMs?",
-      "authors": "Jeonghye Kim",
       "year": 2026,
       "year_month": "2026-03",
       "section": "§7.2",
@@ -2030,12 +2029,12 @@
       "signal": "Self",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen3-8B / DeepSeek-Distill-7B / Olmo3-7B → Self"
+      "description": "Qwen3-8B / DeepSeek-Distill-7B / Olmo3-7B → Self",
+      "code_url": "https://github.com/beanie00/self-distillation-analysis"
     },
     {
       "arxiv_id": "2603.25562",
       "title": "Revisiting On-Policy Distillation: Empirical Failure Modes and Simple Fixes",
-      "authors": "Yuqian Fu",
       "year": 2026,
       "year_month": "2026-03",
       "section": "§7.2",
@@ -2044,12 +2043,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen2.5-7B-Instruct → OpenThinker3-7B / GiGPO-Qwen2.5-7B"
+      "description": "Qwen2.5-7B-Instruct → OpenThinker3-7B / GiGPO-Qwen2.5-7B",
+      "code_url": ""
     },
     {
       "arxiv_id": "2604.16830",
       "title": "The Illusion of Certainty: Decoupling Capability and Calibration in On-Policy Distillation",
-      "authors": "Jiaxin Zhang",
       "year": 2026,
       "year_month": "2026-04",
       "section": "§7.2",
@@ -2058,12 +2057,12 @@
       "signal": "Self",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen3-0.6B–32B → Self (CaOPD: miscalibration scaling law + calibration-aware OPD)"
+      "description": "Qwen3-0.6B–32B → Self (CaOPD: miscalibration scaling law + calibration-aware OPD)",
+      "code_url": "https://github.com/SalesforceAIResearch/CaOPD"
     },
     {
       "arxiv_id": "2605.11182",
       "title": "The Many Faces of On-Policy Distillation: Pitfalls, Mechanisms, and Fixes",
-      "authors": "Siqi Zhu",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§7.2",
@@ -2072,12 +2071,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": "Qwen3-8B → Self; distribution mismatch, biased TopK RKL gradients, PI aggregation collapse (UIUC)"
+      "description": "Qwen3-8B → Self; distribution mismatch, biased TopK RKL gradients, PI aggregation collapse (UIUC)",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.09253",
       "title": "Cornerstones or Stumbling Blocks? Deciphering the Rock Tokens in On-Policy Distillation",
-      "authors": "Yuxuan Jiang",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§7.2",
@@ -2086,12 +2085,12 @@
       "signal": "External-Teacher",
       "freq": "per-outer-iter",
       "size": "3-10B",
-      "description": "Qwen3-8B → Self; persistent high-loss tokens (~18%) that resist teacher correction; structural residuals"
+      "description": "Qwen3-8B → Self; persistent high-loss tokens (~18%) that resist teacher correction; structural residuals",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.08737",
       "title": "The Extrapolation Cliff in On-Policy Distillation of Near-Deterministic Structured Outputs",
-      "authors": "Xin Li",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§7.2",
@@ -2100,12 +2099,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": "Qwen3-1.7B/8B → Qwen3-8B; closed-form clip-safety threshold for reward extrapolation in structured JSON (NTU)"
+      "description": "Qwen3-1.7B/8B → Qwen3-8B; closed-form clip-safety threshold for reward extrapolation in structured JSON (NTU)",
+      "code_url": ""
     },
     {
       "arxiv_id": "2512.23097",
       "title": "A Note on Hybrid Online Reinforcement and Imitation Learning for LLMs: Formulations and Algorithms",
-      "authors": "Yingru Li",
       "year": 2025,
       "year_month": "2025-12",
       "section": "§7.3",
@@ -2114,12 +2113,12 @@
       "signal": "External-Teacher",
       "freq": "per-outer-iter",
       "size": "Unknown",
-      "description": "Theoretical (no specific models)"
+      "description": "Theoretical (no specific models)",
+      "code_url": ""
     },
     {
       "arxiv_id": "2601.02780",
       "title": "MiMo-V2-Flash Technical Report",
-      "authors": "LLM-Core Xiaomi (no individual first author listed)",
       "year": 2026,
       "year_month": "2026-01",
       "section": "§8.1",
@@ -2128,12 +2127,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": ">30B",
-      "description": "MiMo-V2-Flash 309B MoE → Self (multi-teacher MOPD)"
+      "description": "MiMo-V2-Flash 309B MoE → Self (multi-teacher MOPD)",
+      "code_url": "https://github.com/XiaomiMiMo/MiMo-V2-Flash"
     },
     {
       "arxiv_id": "2601.08310",
       "title": "ORBIT: On-policy Exploration-Exploitation for Controllable Multi-Budget Reasoning",
-      "authors": "Kun Liang",
       "year": 2026,
       "year_month": "2026-01",
       "section": "§8.1",
@@ -2142,12 +2141,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": "DeepSeek-Distill-Qwen-1.5B / Qwen3-4B-Thinking / Nemotron-7B → Self (multi-teacher OPD fusion)"
+      "description": "DeepSeek-Distill-Qwen-1.5B / Qwen3-4B-Thinking / Nemotron-7B → Self (multi-teacher OPD fusion)",
+      "code_url": ""
     },
     {
       "arxiv_id": "2603.19220",
       "title": "Nemotron-Cascade 2: Post-Training LLMs with Cascade RL and Multi-Domain On-Policy Distillation",
-      "authors": "Zhuolin Yang",
       "year": 2026,
       "year_month": "2026-03",
       "section": "§8.1",
@@ -2156,12 +2155,12 @@
       "signal": "Self",
       "freq": "per-step",
       "size": ">30B",
-      "description": "Nemotron-Cascade-2-30B-A3B → Self (multi-ckpt MOPD)"
+      "description": "Nemotron-Cascade-2-30B-A3B → Self (multi-ckpt MOPD)",
+      "code_url": ""
     },
     {
       "arxiv_id": "2603.27703",
       "title": "KAT-Coder-V2 Technical Report",
-      "authors": "Fengxiang Li",
       "year": 2026,
       "year_month": "2026-03",
       "section": "§8.1",
@@ -2170,12 +2169,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "Unknown",
-      "description": "KAT-Coder-V2 → 5 domain specialists; proprietary multi-expert agentic pipeline"
+      "description": "KAT-Coder-V2 → 5 domain specialists; proprietary multi-expert agentic pipeline",
+      "code_url": ""
     },
     {
       "arxiv_id": "2505.09388",
       "title": "Qwen3 Technical Report",
-      "authors": "Qwen Team",
       "year": 2025,
       "year_month": "2025-05",
       "section": "§8.1",
@@ -2184,12 +2183,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen3 series → Qwen3 (larger, on-policy logit KD)"
+      "description": "Qwen3 series → Qwen3 (larger, on-policy logit KD)",
+      "code_url": "https://github.com/QwenLM/Qwen3"
     },
     {
       "arxiv_id": "2605.15239",
       "title": "Reducing the Safety Tax in LLM Safety Alignment with On-Policy Self-Distillation",
-      "authors": "Yu Fu",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§8.1",
@@ -2198,12 +2197,12 @@
       "signal": "Privileged-Info",
       "freq": "per-step",
       "size": "<3B",
-      "description": "R1-Distill-1.5B / Qwen3-0.6B–8B → Self (OPSA); frozen teacher = same model + safety privileged context; per-token KL on student rollouts; teacher flip rate for context search"
+      "description": "R1-Distill-1.5B / Qwen3-0.6B–8B → Self (OPSA); frozen teacher = same model + safety privileged context; per-token KL on student rollouts; teacher flip rate for context search",
+      "code_url": "https://github.com/FYYFU/OPSA"
     },
     {
       "arxiv_id": "2601.16547",
       "title": "CORD: Bridging the Audio-Text Reasoning Gap via Weighted On-policy Cross-modal Distillation",
-      "authors": "Jing Hu",
       "year": 2026,
       "year_month": "2026-01",
       "section": "§8.2",
@@ -2212,12 +2211,12 @@
       "signal": "Self",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen2-Audio-7B / Step-Audio2-mini → Self (cross-modal)"
+      "description": "Qwen2-Audio-7B / Step-Audio2-mini → Self (cross-modal)",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.07505",
       "title": "LiteGUI: Distilling Compact GUI Agents with Reinforcement Learning",
-      "authors": "Yubin Wu",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§8.2",
@@ -2226,12 +2225,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": "Qwen3-VL-32B → 2B–3B GUI agents; guided OPD + dual-level GRPO; ScreenSpot-Pro, OS-World, Lite-Bench"
+      "description": "Qwen3-VL-32B → 2B–3B GUI agents; guided OPD + dual-level GRPO; ScreenSpot-Pro, OS-World, Lite-Bench",
+      "code_url": ""
     },
     {
       "arxiv_id": "2602.02994",
       "title": "Video-OPD: Efficient Post-Training of Multimodal Large Language Models for Temporal Video Grounding via On-Policy Distillation",
-      "authors": "Jiaze Li",
       "year": 2026,
       "year_month": "2026-02",
       "section": "§8.2",
@@ -2240,12 +2239,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Qwen3-VL-8B → Qwen3-VL-32B (Video-OPD)"
+      "description": "Qwen3-VL-8B → Qwen3-VL-32B (Video-OPD)",
+      "code_url": ""
     },
     {
       "arxiv_id": "2603.10165",
       "title": "OpenClaw-RL: Train Any Agent Simply by Talking",
-      "authors": "Yinjie Wang",
       "year": 2026,
       "year_month": "2026-03",
       "section": "§8.2",
@@ -2254,12 +2253,12 @@
       "signal": "Self",
       "freq": "per-step",
       "size": "3-10B",
-      "description": "Hindsight-guided OPD for agentic scenarios; task completion reward → policy distillation"
+      "description": "Hindsight-guided OPD for agentic scenarios; task completion reward → policy distillation",
+      "code_url": "https://github.com/Gen-Verse/OpenClaw-RL"
     },
     {
       "arxiv_id": "2603.24596",
       "title": "X-OPD: Cross-Modal On-Policy Distillation for Capability Alignment in Speech LLMs",
-      "authors": "Di Cao",
       "year": 2026,
       "year_month": "2026-03",
       "section": "§8.2",
@@ -2268,12 +2267,12 @@
       "signal": "External-Teacher",
       "freq": "per-outer-iter",
       "size": "3-10B",
-      "description": "Qwen3-Omni-A3B → Qwen3-A3B-Instruct (text teacher)"
+      "description": "Qwen3-Omni-A3B → Qwen3-A3B-Instruct (text teacher)",
+      "code_url": ""
     },
     {
       "arxiv_id": "2603.26666",
       "title": "VLA-OPD: Bridging Offline SFT and Online RL for Vision-Language-Action Models via On-Policy Distillation",
-      "authors": "Zhide Zhong",
       "year": 2026,
       "year_month": "2026-03",
       "section": "§8.2",
@@ -2282,12 +2281,12 @@
       "signal": "External-Teacher",
       "freq": "per-outer-iter",
       "size": "Unknown",
-      "description": "OpenVLA-OFT → SimpleVLA-RL (frozen expert teacher); dense token-level RKL on student-generated trajectories for robot manipulation (LIBERO / RoboTwin2.0)"
+      "description": "OpenVLA-OFT → SimpleVLA-RL (frozen expert teacher); dense token-level RKL on student-generated trajectories for robot manipulation (LIBERO / RoboTwin2.0)",
+      "code_url": ""
     },
     {
       "arxiv_id": "2604.04461",
       "title": "DP-OPD: Differentially Private On-Policy Distillation for Language Models",
-      "authors": "Fatemeh Khadem",
       "year": 2026,
       "year_month": "2026-04",
       "section": "§8.2",
@@ -2296,12 +2295,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": "DistilGPT-2 82M → GPT-2 Large 774M (+ DP-SGD)"
+      "description": "DistilGPT-2 82M → GPT-2 Large 774M (+ DP-SGD)",
+      "code_url": ""
     },
     {
       "arxiv_id": "2604.07430",
       "title": "HY-Embodied-0.5: Embodied Foundation Models for Real-World Agents",
-      "authors": "Xumin Yu",
       "year": 2026,
       "year_month": "2026-04",
       "section": "§8.2",
@@ -2310,12 +2309,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": "HY-Embodied-0.5 (small) → HY-Embodied (large, internal)"
+      "description": "HY-Embodied-0.5 (small) → HY-Embodied (large, internal)",
+      "code_url": "https://github.com/Tencent-Hunyuan/HY-Embodied"
     },
     {
       "arxiv_id": "2604.07944",
       "title": "On-Policy Distillation of Language Models for Autonomous Vehicle Motion Planning",
-      "authors": "Amirhossein Afsharrad",
       "year": 2026,
       "year_month": "2026-04",
       "section": "§8.2",
@@ -2324,12 +2323,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": "Qwen3-1.7B → Qwen3-8B"
+      "description": "Qwen3-1.7B → Qwen3-8B",
+      "code_url": ""
     },
     {
       "arxiv_id": "2604.10674",
       "title": "Skill-SD: Skill-Conditioned Self-Distillation for Multi-turn LLM Agents",
-      "authors": "Hao Wang",
       "year": 2026,
       "year_month": "2026-04",
       "section": "§8.2",
@@ -2338,12 +2337,12 @@
       "signal": "Self",
       "freq": "per-outer-iter",
       "size": "3-10B",
-      "description": "Qwen3-4B-Instruct → Self (Skill-SDL)"
+      "description": "Qwen3-4B-Instruct → Self (Skill-SDL)",
+      "code_url": ""
     },
     {
       "arxiv_id": "2510.23497",
       "title": "VOLD: Reasoning Transfer from LLMs to Vision-Language Models via On-Policy Distillation",
-      "authors": "Walid Bousselham",
       "year": 2025,
       "year_month": "2025-10",
       "section": "§8.2",
@@ -2352,12 +2351,12 @@
       "signal": "External-Teacher",
       "freq": "per-outer-iter",
       "size": "3-10B",
-      "description": "Qwen2.5-VL-3B → Qwen3-8B (text reasoning teacher)"
+      "description": "Qwen2.5-VL-3B → Qwen3-8B (text reasoning teacher)",
+      "code_url": ""
     },
     {
       "arxiv_id": "2605.09329",
       "title": "Test-Time Speculation",
-      "authors": "Avinash Kumar",
       "year": 2026,
       "year_month": "2026-05",
       "section": "§8.3",
@@ -2366,12 +2365,12 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "Unknown",
-      "description": "Qwen3-8B / Llama-3.1-8B → Qwen3-32B / Llama-3.1-70B; online OPD at inference-time; up to 72% acceptance-length gain"
+      "description": "Qwen3-8B / Llama-3.1-8B → Qwen3-32B / Llama-3.1-70B; online OPD at inference-time; up to 72% acceptance-length gain",
+      "code_url": ""
     },
     {
       "arxiv_id": "2310.08461",
       "title": "DistillSpec: Improving Speculative Decoding via Knowledge Distillation",
-      "authors": "Yongchao Zhou",
       "year": 2023,
       "year_month": "2023-10",
       "section": "§8.3",
@@ -2380,7 +2379,8 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": "T5-Small → T5-XL (on-policy KD for speculative decoding)"
+      "description": "T5-Small → T5-XL (on-policy KD for speculative decoding)",
+      "code_url": ""
     }
   ]
 }

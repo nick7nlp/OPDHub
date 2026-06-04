@@ -440,6 +440,15 @@ li.paper-card .paper-expand-toggle {
   user-select: none;
 }
 
+li.paper-card.is-expanded {
+  background: linear-gradient(180deg, rgba(255,255,255,0.85) 0%, rgba(244,241,234,0.55) 100%);
+  border-radius: var(--rad-md);
+  margin: 0.4rem -1rem;
+  padding: 1rem 1rem 0.4rem;
+  box-shadow: var(--shadow-sm);
+  border-bottom: none;
+}
+
 li.paper-card.is-expanded .paper-expand-toggle {
   transform: rotate(180deg);
   color: var(--c-rouge);
@@ -449,11 +458,11 @@ li.paper-card .paper-detail {
   grid-column: 1 / -1;
   display: none;
   margin-top: 0.9rem;
-  padding-top: 0.9rem;
+  padding-top: 0.7rem;
   border-top: 1px dashed var(--c-rule);
   font-family: var(--font-serif);
-  font-size: 1.02rem;
-  line-height: 1.6;
+  font-size: 1rem;
+  line-height: 1.55;
   color: var(--c-ink-soft);
 }
 
@@ -467,41 +476,168 @@ li.paper-card.is-expanded .paper-detail {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-li.paper-card .paper-detail-summary {
-  margin: 0 0 0.7rem;
-  font-style: italic;
+/* === 5-block multi-color detail panel === */
+
+.paper-detail-block {
+  position: relative;
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: 0.4rem 1rem;
+  align-items: start;
+  margin: 0.5rem 0;
+  padding: 0.4rem 0.6rem 0.4rem 0.9rem;
+  border-left: 3px solid transparent;
+  border-radius: 0 var(--rad-sm) var(--rad-sm) 0;
+  transition: background .12s;
+}
+
+.paper-detail-block .paper-detail-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 0.18rem 0 0;
+  color: var(--c-muted);
+  align-self: start;
+}
+
+.paper-detail-block .paper-detail-body,
+.paper-detail-block .paper-detail-list,
+.paper-detail-block .paper-detail-eq {
+  margin: 0;
+  font-style: normal;
   color: var(--c-ink-soft);
 }
 
-li.paper-card .paper-detail-row {
-  margin: 0.35rem 0;
-  font-style: normal;
-}
-
-li.paper-card .paper-detail-block {
-  margin: 0.7rem 0 0.2rem;
-}
-
-li.paper-card .paper-detail-label {
-  display: inline-block;
-  font-family: var(--font-mono);
-  font-size: 0.76rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--c-rouge);
-  margin-right: 0.5rem;
-}
-
-li.paper-card .paper-detail-list {
-  margin: 0.25rem 0 0;
-  padding-left: 1.4rem;
+.paper-detail-block .paper-detail-list {
+  padding-left: 1.05rem;
   list-style: disc;
 }
 
-li.paper-card .paper-detail-list li {
-  margin: 0.2rem 0;
+.paper-detail-block .paper-detail-list li {
+  margin: 0.18rem 0;
+  font-size: 1rem;
 }
+
+/* Block 1: Pair — azure */
+.paper-detail-block.detail-pair {
+  border-left-color: var(--c-azure);
+  background: rgba(86, 152, 195, 0.045);
+}
+.detail-pair .paper-detail-label { color: var(--c-azure); }
+.detail-pair .pair-line {
+  font-family: var(--font-mono);
+  font-size: 1.02rem;
+  letter-spacing: 0.01em;
+  color: var(--c-ink);
+}
+.detail-pair .pair-arrow {
+  color: var(--c-azure);
+  font-weight: 600;
+  margin: 0 0.45rem;
+}
+.detail-pair em {
+  font-style: italic;
+  color: var(--c-muted);
+  margin-left: 0.2rem;
+}
+.detail-pair .size-badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  padding: 0.05rem 0.42rem;
+  margin-left: 0.32rem;
+  background: rgba(86, 152, 195, 0.16);
+  color: var(--c-azure);
+  border-radius: 999px;
+  font-weight: 600;
+  vertical-align: 1px;
+}
+
+/* Block 2: Method — pine */
+.paper-detail-block.detail-method {
+  border-left-color: var(--c-pine);
+  background: rgba(117, 185, 117, 0.05);
+}
+.detail-method .paper-detail-label { color: var(--c-pine); }
+.detail-method .paper-detail-list li::marker { color: var(--c-pine); }
+
+/* Block 3: Result — amber */
+.paper-detail-block.detail-result {
+  border-left-color: var(--c-amber);
+  background: rgba(232, 159, 113, 0.06);
+}
+.detail-result .paper-detail-label { color: #c87a3e; }
+.detail-result .paper-detail-list {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+}
+.detail-result .paper-detail-list li::marker { color: var(--c-amber); }
+.detail-result .delta-up {
+  color: var(--c-pine);
+  font-weight: 600;
+  margin-left: 0.2rem;
+}
+
+/* Block 4: Loss — sandal (deep purple) */
+.paper-detail-block.detail-equation {
+  border-left-color: var(--c-sandal);
+  background: rgba(110, 44, 66, 0.045);
+}
+.detail-equation .paper-detail-label { color: var(--c-sandal); }
+.paper-detail-eq {
+  background: #fdf9f2;
+  border: 1px solid var(--c-rule);
+  border-radius: var(--rad-sm);
+  padding: 0.55rem 0.8rem;
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: var(--c-ink-soft);
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-x: auto;
+}
+.paper-detail-eq code { font-family: inherit; font-size: inherit; }
+
+/* Block 5: Who — slate (muted) */
+.paper-detail-block.detail-who {
+  border-left-color: var(--c-slate);
+  background: rgba(82, 92, 104, 0.04);
+}
+.detail-who .paper-detail-label { color: var(--c-slate); }
+.detail-who .paper-detail-body {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.96rem;
+  color: var(--c-muted);
+}
+
+/* Loss-class accent on expanded card */
+li.paper-card.is-expanded.loss-FKL          { box-shadow: -3px 0 0 var(--c-azure),  var(--shadow-sm); }
+li.paper-card.is-expanded.loss-RKL          { box-shadow: -3px 0 0 var(--c-rouge),  var(--shadow-sm); }
+li.paper-card.is-expanded.loss-Symmetric    { box-shadow: -3px 0 0 var(--c-pine),   var(--shadow-sm); }
+li.paper-card.is-expanded[class*="loss-f-Divergence"] { box-shadow: -3px 0 0 var(--c-sandal), var(--shadow-sm); }
+li.paper-card.is-expanded[class*="loss-KL"] { box-shadow: -3px 0 0 var(--c-amber),  var(--shadow-sm); }
+li.paper-card.is-expanded.loss-Preference   { box-shadow: -3px 0 0 var(--c-lilac),  var(--shadow-sm); }
+li.paper-card.is-expanded.loss-Other        { box-shadow: -3px 0 0 var(--c-slate),  var(--shadow-sm); }
+
+/* Code badge on title row */
+.badge-code {
+  background: #1a1a1a;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+}
+.badge-code:hover {
+  background: var(--c-pine);
+  color: #fff;
+  text-decoration: none;
+}
+.badge-code i { margin-right: 0.2rem; }
 
 /* Badges */
 
@@ -671,6 +807,12 @@ li.paper-card .paper-detail-list li {
   }
   li.paper-card .paper-meta {
     margin-top: 0.25rem;
+  }
+
+  /* Detail blocks stack label above body on narrow screens */
+  .paper-detail-block {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
   }
 
   .search-count { display: none; }
