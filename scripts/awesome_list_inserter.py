@@ -182,7 +182,10 @@ def insert_into_pending(readme_text: str, aid: str, title: str, section: str, wh
         return readme_text  # no pending table
     lines = readme_text.split("\n")
     arxiv_url = f"https://arxiv.org/abs/{aid}"
-    pending_row = f"| 🟡 [{title}]({arxiv_url}) | {section} | {why} |"
+    # Match the existing Pending Papers table style: plain `[Title](url)`,
+    # no 🟡 prefix (each row in the table is implicitly pending — the 🟡
+    # is in the section heading, not the row).
+    pending_row = f"| [{title}]({arxiv_url}) | {section} | {why} |"
     lines.insert(last + 1, pending_row)
     return "\n".join(lines)
 
@@ -220,7 +223,19 @@ def insert_one(args, readme_text: str) -> tuple[str, dict]:
     )
 
     new_text = insert_into_section(readme_text, section, entry)
-    why = (cls.get("reasoning") or "Newly added; pending §section confirmation in next survey revision.")[:100]
+    raw_why = cls.get("reasoning") or one_line or "Pending review for next survey revision."
+    # Truncate to ~140 chars without cutting a multi-byte character mid-rune.
+    # Prefer to clip at the last sentence-ending punctuation or whitespace.
+    if len(raw_why) > 140:
+        clipped = raw_why[:140]
+        for sep in (". ", "; ", "，", "。", " "):
+            cut = clipped.rfind(sep)
+            if cut > 80:
+                clipped = clipped[:cut].rstrip(",;，。 ")
+                break
+        why = clipped + "…"
+    else:
+        why = raw_why
     new_text = insert_into_pending(new_text, args.aid, title, section, why)
     new_text, old_badge, new_badge = update_badge(new_text, delta=1)
 
