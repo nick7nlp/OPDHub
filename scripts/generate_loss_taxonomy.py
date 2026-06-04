@@ -40,13 +40,13 @@ PNG_EVO = ASSETS / "loss-evolution.png"
 
 # 宋瓷雅色系 (per global CLAUDE.md)
 SONGCI_COLORS = {
-    "FKL":          "#5698C3",  # 天青 — base / classical
-    "RKL":          "#C04851",  # 胭脂 — mode-seeking
-    "Symmetric":    "#75B975",  # 松花 — balanced
-    "f-Divergence": "#6E2C42",  # 紫檀 — generalized
-    "KL+RL":        "#E89F71",  # 缃叶 — hybrid (warm)
-    "Preference":   "#867892",  # 紫绛灰
-    "Other":        "#525C68",  # 黛灰 — fallback
+    "FKL":          "#5B9BD5",  # clear sky blue   — base / classical
+    "RKL":          "#E37070",  # coral pink       — mode-seeking
+    "Symmetric":    "#6FCBA5",  # jade green       — balanced
+    "f-Divergence": "#A57FBE",  # soft lavender    — generalized
+    "KL+RL":        "#F5B36C",  # apricot          — hybrid
+    "Preference":   "#A8AABF",  # dove grey-purple — pairwise (chart-omitted)
+    "Other":        "#7B8590",  # slate            — bespoke    (chart-omitted)
 }
 ORDER = ["FKL", "RKL", "Symmetric", "f-Divergence", "KL+RL", "Preference", "Other"]
 
@@ -315,33 +315,61 @@ def plot_evolution(results) -> None:
     labels = [f"{y%100:02d}-{m:02d}" for y, m in months]
     counts_per_class = {c: [bucket[ym].get(c, 0) for ym in months] for c in WHITE_BOX_CLASSES}
 
-    fig, ax = plt.subplots(figsize=(13, 6))
-    bottoms = np.zeros(len(months))
-    x = np.arange(len(months))
-    for c in WHITE_BOX_CLASSES:
-        ys = np.array(counts_per_class[c])
-        if ys.sum() == 0:
-            continue
-        ax.bar(x, ys, bottom=bottoms, color=SONGCI_COLORS[c], edgecolor="#2b2b2b",
-               linewidth=0.4, label=c)
-        bottoms += ys
+    with plt.rc_context({
+        "font.family": "serif",
+        "font.serif": ["TeX Gyre Pagella", "Palatino", "serif"],
+        "font.size": 11,
+    }):
+        fig, ax = plt.subplots(figsize=(12, 5.0))
+        bottoms = np.zeros(len(months))
+        x = np.arange(len(months))
+        for c in WHITE_BOX_CLASSES:
+            ys = np.array(counts_per_class[c])
+            if ys.sum() == 0:
+                continue
+            ax.bar(x, ys, bottom=bottoms, color=SONGCI_COLORS[c],
+                   edgecolor="white", linewidth=0.6, label=c, width=0.78)
+            bottoms += ys
 
-    ax.set_xticks(x)
-    ax.set_xticklabels(labels, rotation=45, ha="right", fontsize=10)
-    ax.set_ylabel("Papers", fontsize=12, fontweight="bold")
-    ax.set_xlabel("arXiv submission month", fontsize=12, fontweight="bold")
-    ax.set_title(f"Evolution of OPD loss objectives over time ({len(wb_results)} white-box papers)",
-                 fontsize=13, fontweight="bold", color="#212121", pad=14)
-    ax.grid(axis="y", linestyle="--", linewidth=0.5, color="#b0b0b0", alpha=0.6)
-    ax.set_axisbelow(True)
-    for spine in ("top", "right"):
-        ax.spines[spine].set_visible(False)
-    ax.legend(loc="upper left", fontsize=10, framealpha=0.85, ncol=2,
-              edgecolor="#999", title="Loss class", title_fontsize=10)
+        # Title block — left-aligned bold + italic grey subtitle (mirrors distribution chart).
+        ax.set_title("Evolution of OPD Loss Objectives",
+                     fontsize=14.5, fontweight="bold", color="#1c1c1c",
+                     loc="left", pad=18)
+        subtitle = (
+            f"{len(wb_results)} white-box (KL-family) papers"
+            f"  ·  monthly stack by arXiv submission"
+        )
+        ax.text(0.0, 1.02, subtitle,
+                transform=ax.transAxes, fontsize=10.5,
+                color="#525C68", style="italic", va="bottom")
 
-    fig.tight_layout()
-    fig.savefig(PNG_EVO, dpi=160, facecolor="white", bbox_inches="tight")
-    plt.close(fig)
+        # X-axis: rotated month labels, no axis label (subtitle already says it).
+        ax.set_xticks(x)
+        ax.set_xticklabels(labels, rotation=45, ha="right", fontsize=9.5,
+                           color="#525C68")
+        ax.set_xlabel("")
+        ax.set_ylabel("")  # no bold "Papers" label; clean
+
+        # Subtle dashed y-grid only; remove top/right/left spines.
+        ax.tick_params(axis="y", labelsize=9.5, colors="#525C68", length=0)
+        ax.tick_params(axis="x", length=0)
+        ax.grid(axis="y", linestyle="--", linewidth=0.5,
+                color="#b0b0b0", alpha=0.55)
+        ax.set_axisbelow(True)
+        for spine in ("top", "right", "left"):
+            ax.spines[spine].set_visible(False)
+        ax.spines["bottom"].set_color("#cccccc")
+        ax.spines["bottom"].set_linewidth(0.8)
+
+        # Legend: minimal, top-left, no frame, single row.
+        ax.legend(loc="upper left", fontsize=10, frameon=False,
+                  ncol=5, columnspacing=1.4, handlelength=1.2,
+                  handletextpad=0.55,
+                  bbox_to_anchor=(0.0, -0.18))
+
+        fig.tight_layout()
+        fig.savefig(PNG_EVO, dpi=200, facecolor="white", bbox_inches="tight")
+        plt.close(fig)
     print(f"[png] wrote {PNG_EVO.relative_to(ROOT)}")
 
 
