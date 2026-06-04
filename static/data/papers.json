@@ -1974,7 +1974,7 @@
       "signal": "External-Teacher",
       "freq": "per-outer-iter",
       "size": "3-10B",
-      "description": "Lion-7B / Lion-13B (LLaMA) → ChatGPT (gpt-3.5-turbo, black-box API); Adversarial black-box distillation: imitation-discrimination-generation loop iteratively identifies hard instructions via student-teacher gap; 黑盒 OPD 早期代表 (HoF-tier)"
+      "description": "Lion-7B / Lion-13B (LLaMA) → ChatGPT (gpt-3.5-turbo, black-box API); Adversarial black-box distillation: imitation-discrimination-generation loop iteratively identifies hard instructions via student-teacher gap; early-era black-box OPD canonical reference (HoF-tier)"
     },
     {
       "arxiv_id": "2604.13010",
