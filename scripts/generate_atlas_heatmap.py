@@ -170,9 +170,17 @@ filtered = [m for m in all_models if model_freq[m] >= 3]
 filtered = [m for m in filtered if not re.match(r'^\d+B(-Base)?$', m)]
 
 FAMILY_COLORS = {
-    'GPT': '#d32f2f', 'T5': '#c2185b', 'OPT': '#7b1fa2', 'Pythia': '#512da8',
-    'LLaMA': '#1565c0', 'Llama-3': '#0277bd', 'Mistral': '#00838f',
-    'Gemma': '#00695c', 'Qwen': '#2e7d32', 'DeepSeek': '#e65100', 'Other': '#616161',
+    'GPT':      '#D77878',  # soft coral
+    'T5':       '#C77AAA',  # soft magenta
+    'OPT':      '#9B7AB8',  # lavender
+    'Pythia':   '#7E78B5',  # periwinkle
+    'LLaMA':    '#6B97C7',  # sky blue
+    'Llama-3':  '#6FA9D2',  # ocean blue
+    'Mistral':  '#5DA9AE',  # teal
+    'Gemma':    '#5DA590',  # sage
+    'Qwen':     '#6FAB6F',  # leaf green
+    'DeepSeek': '#E08D52',  # apricot
+    'Other':    '#8A8E97',  # neutral grey
 }
 
 def get_family(model):
@@ -208,9 +216,10 @@ for i, t in enumerate(filtered):
 sorted_by_freq = sorted(filtered, key=lambda m: -model_freq[m])
 model_rank = {m: i+1 for i, m in enumerate(sorted_by_freq)}
 
-# Discrete color scale
+# Discrete color scale — jade green ramp (5 levels) for non-self pairs.
+# Designed to match the loss-chart fresh palette (Symmetric=#6FCBA5).
 boundaries = [0.5, 1.5, 2.5, 4.5, 7.5, 15]
-colors_discrete = ['#e8f5e9', '#a5d6a7', '#4caf50', '#2e7d32', '#1b5e20']
+colors_discrete = ['#E5F4EC', '#B6DFC9', '#6FCBA5', '#4FA886', '#2E7D62']
 cmap_discrete = ListedColormap(colors_discrete)
 norm_d = BoundaryNorm(boundaries, cmap_discrete.N)
 
@@ -224,20 +233,23 @@ ax.set_facecolor('#fafafa')
 im = ax.imshow(np.where(matrix > 0, matrix, np.nan), cmap=cmap_discrete, norm=norm_d,
                aspect='equal', interpolation='nearest')
 
-# Diagonal band with 6-tier orange gradient
+# Diagonal band — coral ramp (6 levels) for self-distillation pairs.
+# Coral contrasts with jade so the "self-distill" diagonal pops without
+# screaming; matches loss-chart RKL=#E37070.
+diag_bg = '#FBEDED'
 for i in range(n):
     ax.add_patch(plt.Rectangle((i-0.5, i-0.5), 1, 1,
-                 facecolor='#fff8e1', edgecolor='none', zorder=0))
+                 facecolor=diag_bg, edgecolor='none', zorder=0))
     if matrix[i, i] > 0:
         _v = int(matrix[i, i])
-        if _v <= 1: _fc = '#fff3e0'
-        elif _v <= 2: _fc = '#ffcc80'
-        elif _v <= 4: _fc = '#ff9800'
-        elif _v <= 7: _fc = '#e65100'
-        elif _v <= 12: _fc = '#bf360c'
-        else: _fc = '#6d1b00'
+        if _v <= 1:    _fc = '#F8D8D8'
+        elif _v <= 2:  _fc = '#F0A8A8'
+        elif _v <= 4:  _fc = '#E37070'
+        elif _v <= 7:  _fc = '#C95252'
+        elif _v <= 12: _fc = '#A33838'
+        else:          _fc = '#6E2424'
         ax.add_patch(plt.Rectangle((i-0.5, i-0.5), 1, 1,
-                     facecolor=_fc, edgecolor='#e65100', linewidth=3, zorder=1))
+                     facecolor=_fc, edgecolor='#C95252', linewidth=3, zorder=1))
 
 # Cell numbers — white text on dark cells for readability
 for i in range(n):
@@ -267,14 +279,14 @@ prev_fam = None
 for i, m in enumerate(filtered):
     fam = get_family(m)
     if prev_fam is not None and fam != prev_fam:
-        ax.axhline(y=i - 0.5, color='#455a64', linewidth=2.8, alpha=0.9, zorder=3)
-        ax.axvline(x=i - 0.5, color='#455a64', linewidth=2.8, alpha=0.9, zorder=3)
+        ax.axhline(y=i - 0.5, color='#525C68', linewidth=2.4, alpha=0.85, zorder=3)
+        ax.axvline(x=i - 0.5, color='#525C68', linewidth=2.4, alpha=0.85, zorder=3)
     prev_fam = fam
 
 # Grid
 ax.set_xticks(np.arange(-0.5, n, 1), minor=True)
 ax.set_yticks(np.arange(-0.5, n, 1), minor=True)
-ax.grid(which='minor', color='#e0e0e0', linewidth=0.5, zorder=2)
+ax.grid(which='minor', color='#EEEAE5', linewidth=0.5, zorder=2)
 ax.tick_params(which='minor', size=0)
 
 # Marginal sums
@@ -282,11 +294,11 @@ for i in range(n):
     row_sum = int(matrix[i].sum())
     if row_sum > 0:
         ax.text(n + 0.3, i, str(row_sum), ha='left', va='center',
-               fontsize=34, color='#455a64', fontweight='bold')
+               fontsize=34, color='#525C68', fontweight='bold')
     col_sum = int(matrix[:, i].sum())
     if col_sum > 0:
         ax.text(i, n + 0.3, str(col_sum), ha='center', va='top',
-               fontsize=34, color='#455a64', fontweight='bold')
+               fontsize=34, color='#525C68', fontweight='bold')
 
 # Title
 ax.set_title("On-Policy Distillation — Teacher × Student Model Pair Heatmap\n"
@@ -302,7 +314,7 @@ legend_elements = [
     mpatches.Patch(facecolor=colors_discrete[2], edgecolor='#999', label='3–4'),
     mpatches.Patch(facecolor=colors_discrete[3], edgecolor='#999', label='5–7'),
     mpatches.Patch(facecolor=colors_discrete[4], edgecolor='#999', label='8+'),
-    mpatches.Patch(facecolor='#ffe0b2', edgecolor='#e65100', linewidth=2, label='Self-Distill'),
+    mpatches.Patch(facecolor='#F0A8A8', edgecolor='#C95252', linewidth=2, label='Self-Distill'),
 ]
 
 families_seen = []
