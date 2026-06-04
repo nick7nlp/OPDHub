@@ -50,6 +50,13 @@ SONGCI_COLORS = {
 }
 ORDER = ["FKL", "RKL", "Symmetric", "f-Divergence", "KL+RL", "Preference", "Other"]
 
+# White-box = loss directly involves the teacher distribution (KL-family).
+# Black-box methods (preference / reward / discriminator / bespoke NLL) are
+# excluded from the distribution / evolution charts because their loss form
+# is dictated by teacher-access constraints rather than by a divergence
+# design choice — mixing them would dilute the meaningful comparison.
+WHITE_BOX_CLASSES = ["FKL", "RKL", "Symmetric", "f-Divergence", "KL+RL"]
+
 
 # ---------------------------------------------------------------------------
 # Data loading
@@ -110,6 +117,8 @@ def write_markdown(notes, schema, results, last_updated) -> None:
     dist = Counter(r["loss_class"] for r in results.values())
     confdist = Counter(r["confidence"] for r in results.values())
 
+    wb_total = sum(dist.get(c, 0) for c in WHITE_BOX_CLASSES)
+    bb_total = total - wb_total
     lines = []
     lines.append("# Loss Taxonomy of On-Policy Distillation Papers")
     lines.append("")
@@ -122,6 +131,13 @@ def write_markdown(notes, schema, results, last_updated) -> None:
                  "picks the dominant objective per the rules in `data/loss_taxonomy_schema.json`.")
     lines.append("")
     lines.append("![Loss Distribution](../assets/loss-distribution.png)")
+    lines.append("")
+    lines.append(f"> **Chart scope.** The distribution chart shows only the **{wb_total} white-box "
+                 f"(KL-family) papers** (FKL / RKL / Symmetric / f-Divergence / KL+RL); the {bb_total} "
+                 "black-box / bespoke methods (Preference, Other) are omitted because their loss form is "
+                 "constrained by teacher access (preference / reward / discriminator / NLL-on-samples) "
+                 "rather than chosen as a divergence design. Per-paper assignments below cover all "
+                 f"{total} classified papers regardless of class.")
     lines.append("")
     lines.append("## Class definitions (compact)")
     lines.append("")
@@ -199,14 +215,18 @@ def write_markdown(notes, schema, results, last_updated) -> None:
 # ---------------------------------------------------------------------------
 
 def plot_distribution(results) -> None:
-    dist = Counter(r["loss_class"] for r in results.values())
+    # Restrict to white-box / KL-family losses (see WHITE_BOX_CLASSES).
+    full_total = len(results)
+    wb_results = {k: v for k, v in results.items() if v["loss_class"] in WHITE_BOX_CLASSES}
+    dist = Counter(r["loss_class"] for r in wb_results.values())
     total = sum(dist.values())
+    excluded = full_total - total
 
     # Sort by count desc; preserves a stable order across rebuilds when ties tie
     # by the canonical taxonomy ORDER.
     canon_idx = {c: i for i, c in enumerate(ORDER)}
     items = sorted(
-        [(c, dist.get(c, 0)) for c in ORDER if dist.get(c, 0) > 0],
+        [(c, dist.get(c, 0)) for c in WHITE_BOX_CLASSES if dist.get(c, 0) > 0],
         key=lambda kv: (-kv[1], canon_idx[kv[0]]),
     )
     labels = [c for c, _ in items]
@@ -244,7 +264,11 @@ def plot_distribution(results) -> None:
         ax.set_title("Loss-Objective Distribution",
                      fontsize=14.5, fontweight="bold", color="#1c1c1c",
                      loc="left", pad=18)
-        ax.text(0.0, 1.02, f"{total} on-policy distillation papers",
+        subtitle = (
+            f"{total} white-box (KL-family) papers"
+            f"  ·  {excluded} black-box / bespoke methods omitted"
+        )
+        ax.text(0.0, 1.02, subtitle,
                 transform=ax.transAxes, fontsize=10.5,
                 color="#525C68", style="italic", va="bottom")
 
@@ -273,8 +297,10 @@ def plot_distribution(results) -> None:
 # ---------------------------------------------------------------------------
 
 def plot_evolution(results) -> None:
+    # Restrict to white-box / KL-family papers, mirroring plot_distribution.
+    wb_results = {k: v for k, v in results.items() if v["loss_class"] in WHITE_BOX_CLASSES}
     bucket = defaultdict(Counter)  # (year, month) -> Counter
-    for arxiv_id, rec in results.items():
+    for arxiv_id, rec in wb_results.items():
         ym = parse_yymm(arxiv_id)
         if not ym:
             continue
@@ -287,12 +313,12 @@ def plot_evolution(results) -> None:
 
     # x labels: e.g., '24-06', '24-09', ...
     labels = [f"{y%100:02d}-{m:02d}" for y, m in months]
-    counts_per_class = {c: [bucket[ym].get(c, 0) for ym in months] for c in ORDER}
+    counts_per_class = {c: [bucket[ym].get(c, 0) for ym in months] for c in WHITE_BOX_CLASSES}
 
     fig, ax = plt.subplots(figsize=(13, 6))
     bottoms = np.zeros(len(months))
     x = np.arange(len(months))
-    for c in ORDER:
+    for c in WHITE_BOX_CLASSES:
         ys = np.array(counts_per_class[c])
         if ys.sum() == 0:
             continue
@@ -304,7 +330,7 @@ def plot_evolution(results) -> None:
     ax.set_xticklabels(labels, rotation=45, ha="right", fontsize=10)
     ax.set_ylabel("Papers", fontsize=12, fontweight="bold")
     ax.set_xlabel("arXiv submission month", fontsize=12, fontweight="bold")
-    ax.set_title(f"Evolution of OPD loss objectives over time ({len(results)} papers)",
+    ax.set_title(f"Evolution of OPD loss objectives over time ({len(wb_results)} white-box papers)",
                  fontsize=13, fontweight="bold", color="#212121", pad=14)
     ax.grid(axis="y", linestyle="--", linewidth=0.5, color="#b0b0b0", alpha=0.6)
     ax.set_axisbelow(True)
