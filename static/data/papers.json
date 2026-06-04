@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-06-04",
-  "total": 170,
+  "total": 168,
   "papers": [
     {
       "arxiv_id": "2605.13230",
@@ -969,20 +969,6 @@
       "description": "Qwen3.5-9B → compressed Qwen3.5 (latent MTP); On-policy distillation stage with reverse-KL on student rollouts + auxiliary confidence-head BCE loss, used to recover accuracy of latent multi-token-prediction compressor trained on DAPO-Math + Codeforces"
     },
     {
-      "arxiv_id": "2410.09008",
-      "title": "SuperCorrect: Advancing Small LLM Reasoning with Thought Template Distillation and Self-Correction",
-      "authors": "Ling Yang",
-      "year": 2024,
-      "year_month": "2024-10",
-      "section": "§5.1",
-      "loss_class": "Preference",
-      "domain": "Math",
-      "signal": "External-Teacher",
-      "freq": "once-before-training",
-      "size": "3-10B",
-      "description": "Qwen2.5-Math-7B / Llama-3.1-8B / DeepSeekMath-7B → o1-mini; SuperCorrect: thought template distillation + cross-model DPO on student-generated erroneous reasoning"
-    },
-    {
       "arxiv_id": "2601.21968",
       "title": "OVD: On-policy Verbal Distillation",
       "authors": "Jing Xiong",
@@ -1003,7 +989,7 @@
       "year": 2026,
       "year_month": "2026-04",
       "section": "§5.2",
-      "loss_class": "Preference",
+      "loss_class": "Other",
       "domain": "Multimodal",
       "signal": "External-Teacher",
       "freq": "per-step",
@@ -1219,20 +1205,6 @@
       "freq": "per-step",
       "size": "3-10B",
       "description": "Qwen2.5-7B / Llama-3-8B → Self; MSD: English CoT as privileged context + Dual-Perspective Safety Weighting"
-    },
-    {
-      "arxiv_id": "2605.05040",
-      "title": "Preference-Based Self-Distillation: Beyond KL Matching via Reward Regularization",
-      "authors": "Xin Yu",
-      "year": 2026,
-      "year_month": "2026-05",
-      "section": "§5.3",
-      "loss_class": "Preference",
-      "domain": "Preference",
-      "signal": "Self",
-      "freq": "per-step",
-      "size": "3-10B",
-      "description": "Qwen3-1.7B/4B/8B → Self; PBSD: reward-reweighted teacher target + preference gap optimization"
     },
     {
       "arxiv_id": "2605.11458",
