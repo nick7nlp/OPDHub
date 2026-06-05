@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-06-05",
-  "total": 178,
+  "total": 177,
   "papers": [
     {
       "arxiv_id": "2605.13230",
@@ -462,20 +462,6 @@
       "freq": "per-step",
       "size": "3-10B",
       "description": "Qwen3-8B → Qwen3-8B-Base; Corrects advantage estimation in on-policy distillation via f-divergence gradient analysis",
-      "code_url": ""
-    },
-    {
-      "arxiv_id": "2512.17636",
-      "title": "Trust-Region Adaptive Policy Optimization",
-      "year": 2025,
-      "year_month": "2025-12",
-      "section": "§4.1",
-      "loss_class": "KL+RL",
-      "domain": "Math",
-      "signal": "Privileged-Info",
-      "freq": "per-step",
-      "size": "3-10B",
-      "description": "Qwen2.5-Math-7B / Qwen2.5-7B-Instruct → DeepSeek-R1; TRAPO: Trust-Region SFT (TrSFT) modifies forward-KL with dynamic trust region; interleaves prefix-conditioned SFT with RL on completions; adaptive prefix selection by utility",
       "code_url": ""
     },
     {
