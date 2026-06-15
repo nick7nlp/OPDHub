@@ -1,0 +1,78 @@
+✅ Refreshed known_arxiv_ids.txt: 316 IDs
+[scout] DATE WINDOW (CST): 2026-06-09 → 2026-06-10  (days_back=1)
+[scout] accepting YYMM prefixes: ['2606']
+[scout] architecture: RSS-primary + API-verify + S2-crosscheck
+[scout] known IDs to skip: 316
+
+[scout] === Phase 1: RSS feeds (3 categories) ===
+[scout/rss] cs.CL: 368 total items, 51 OPD-keyword matches
+[scout/rss] cs.LG: 744 total items, 86 OPD-keyword matches
+[scout/rss] cs.AI: 768 total items, 91 OPD-keyword matches
+[scout/rss] total unique candidates: 162
+
+[scout] === Phase 2: S2 cross-check (4 queries) ===
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] added 0 papers not found in RSS
+
+[scout] combined unique: 162 (RSS: 162, S2-extra: 0)
+
+[scout] === Phase 3: no S2-sourced papers to verify ===
+
+[scout] ✅ 50 new candidates for deep-read
+[scout] wrote /tmp/scout_arxiv_results.json
+
+## Scout Summary: 50 new in-window candidates
+
+  - 2606.07520 [rss/ok] TinyJudge: Unverifiable Constraint Alignment via Lightweight Specialist Ensemble
+  - 2606.07521 [rss/ok] Evaluating Hallucinations in Domain-Adapted Large Language Models
+  - 2606.07529 [rss/ok] CAPruner: Conceptual-Adjacent Scene Graph Pruner for Enhancing 3D Spatial Reason
+  - 2606.07537 [rss/ok] From Architecture to Output: Structural Origins of Hallucination in Large Langua
+  - 2606.07778 [rss/ok] Unlocking Latent Value: Taxonomy-Guided Recovery of High-Performing Data from Lo
+  - 2606.07995 [rss/ok] Customer-Agent: Overcoming Context Limitations in Ultra-Long Shopping Trajectori
+  - 2606.07996 [rss/ok] MC-PDD: Masked Corpus-Level Pretraining Data Detection for Black-Box Large Langu
+  - 2606.08245 [rss/ok] ZAS-SQL: Distilling Rules from Failures for Zero-Shot Text-to-SQL
+  - 2606.08295 [rss/ok] TLRD: Teaching LLMs to Reason over Tabular Data with Tri-Level Rationale Distill
+  - 2606.08346 [rss/ok] CATPO: Critique-Augmented Tree Policy Optimization
+  - 2606.08347 [rss/ok] Tensorizing Engram: Sharing Latents Across N-Gram Embeddings is Beneficial in LL
+  - 2606.08357 [rss/ok] Forward-Free Diffusion Language Models
+  - 2606.08445 [rss/ok] Segment-level Tree Search for Long Meeting Document Summarization
+  - 2606.08501 [rss/ok] Back on Track: Aligning Rewards and States for Reasoning in Diffusion Large Lang
+  - 2606.08656 [rss/ok] From Player to Master: Enhancing Test-Time Learning of LLM Agents via Reinforcem
+  - 2606.08673 [rss/ok] ClinicalAligner26AM: A Cross-Lingual Aligner for Dataset Translation; Evidences 
+  - 2606.08705 [rss/ok] Analyzing the Correlation Between Hallucinations and Knowledge Conflicts in Larg
+  - 2606.08755 [rss/ok] Co-Evolving Skill Generation and Policy Optimization
+  - 2606.08857 [rss/ok] PaperMentor: A Human-Centered Multi-Agent Writing Tutor for AI Research Papers o
+  - 2606.08878 [rss/ok] PerspectiveGap: A Benchmark for Multi-Agent Orchestration Prompting
+  - 2606.08940 [rss/ok] Multilingual Sentiment Aware Text Summarization A Reinforcement Learning Approac
+  - 2606.09027 [rss/ok] SafeRun: Enabling Determinism in LLM Planning for Running
+  - 2606.09304 [rss/ok] SG-OPD: Sign-Gated On-Policy Distillation via Sign-Consistency Gating and Phased
+  - 2606.09396 [rss/ok] PriFT: Prior-Support Guided Supervised Fine-Tuning
+  - 2606.09424 [rss/ok] Toward Signing Activity Projection in Sign Language Interaction
+  - 2606.09461 [rss/ok] H2HMem: A Multimodal Memory Benchmark for Agents in Human-Human Interactions
+  - 2606.09603 [rss/ok] Automated IEP Generation from Traditional Chinese Parent-Teacher Interviews via 
+  - 2606.09635 [rss/ok] Gradient-Guided Reward Optimization for Inference-time Alignment
+  - 2606.09709 [rss/ok] IS-CoT: Breaking the Long-form Generation Collapse via Interleaved Structural Th
+  - 2606.07629 [rss/ok] Large Language Models Should Learn Personalized Rather Than Aggregated Human Pre
+  - 2606.07647 [rss/ok] Steer Where It Matters: Token-Level Visual-Sensitivity Steering for LVLMs Halluc
+  - 2606.07703 [rss/ok] How Much Dense Attention is Necessary? Oracle-Guided Sparse Prefill for Full/GQA
+  - 2606.07720 [rss/ok] Why Limit the Residual Stream to Layers and Not Tokens? Persistent Memory for Co
+  - 2606.07727 [rss/ok] Benchmarking Quantum Algorithmic Resilience for CVaR Portfolio Optimization: The
+  - 2606.07909 [rss/ok] MemToolAgent overview with a simple restaurant booking scenario where the agent 
+  - 2606.07924 [rss/ok] Decoupling Semantics and Logic: A Training-Free Coarse-to-Fine Pipeline for Vide
+  - 2606.08016 [rss/ok] IEA: Amateur-Friendly Conversational Image Editing Agent via Three Stages of Mul
+  - 2606.08169 [rss/ok] CLASP: Language-Driven Robot Skill Selection and Composition using Task-Paramete
+  - 2606.08239 [rss/ok] When No Answer Is Correct: Diagnosing Absent Answer Detection for MLLMs in Video
+  - 2606.08400 [rss/ok] Impacts of Histories and Models on LLM Grading: A Study in Advanced Software Eng
+  - 2606.08454 [rss/ok] Beyond Linear Activation Steering: Invertible Latent Transformations for Control
+  - 2606.08497 [rss/ok] Explaining Black-Box Language Models: Learning to Optimize Linguistically-Struct
+  - 2606.08815 [rss/ok] Momentum for Reasoning: Dense Intrinsic Signals in Policy Optimization
+  - 2606.08850 [rss/ok] Intrinsic Selection and Particle Resampling for Inference-Time Scaling Beyond Do
+  - 2606.08854 [rss/ok] sGPO: Trading Inference FLOPs for Training Efficiency in RLVR
+  - 2606.09033 [rss/ok] CRANE: Knowledge Editing for Reasoning MLLMs
+  - 2606.09052 [rss/ok] INFUSER: Influence-Guided Self-Evolution Improves Reasoning
+  - 2606.09138 [rss/ok] Claw-R1: A Step-Level Data Middleware System for Agentic Reinforcement Learning
+  - 2606.09348 [rss/ok] PBSD: Privileged Bayesian Self-Distillation for Long-Horizon Credit Assignment
+  - 2606.09365 [rss/ok] Experience Makes Skillful: Enabling Generalizable Medical Agent Reasoning via Se

@@ -1,0 +1,78 @@
+✅ Refreshed known_arxiv_ids.txt: 328 IDs
+[scout] DATE WINDOW (CST): 2026-06-11 → 2026-06-12  (days_back=1)
+[scout] accepting YYMM prefixes: ['2606']
+[scout] architecture: RSS-primary + API-verify + S2-crosscheck
+[scout] known IDs to skip: 328
+
+[scout] === Phase 1: RSS feeds (3 categories) ===
+[scout/rss] cs.CL: 186 total items, 25 OPD-keyword matches
+[scout/rss] cs.LG: 339 total items, 45 OPD-keyword matches
+[scout/rss] cs.AI: 332 total items, 41 OPD-keyword matches
+[scout/rss] total unique candidates: 82
+
+[scout] === Phase 2: S2 cross-check (4 queries) ===
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] added 0 papers not found in RSS
+
+[scout] combined unique: 82 (RSS: 82, S2-extra: 0)
+
+[scout] === Phase 3: no S2-sourced papers to verify ===
+
+[scout] ✅ 50 new candidates for deep-read
+[scout] wrote /tmp/scout_arxiv_results.json
+
+## Scout Summary: 50 new in-window candidates
+
+  - 2606.11196 [rss/ok] PoQ-Judge: A Multi-Architecture Evaluation Framework for Cost-Aware Proof-of-Qua
+  - 2606.11204 [rss/ok] Benchmarking Large Language Models for Safety Data Extraction
+  - 2606.11206 [rss/ok] Compatibility-Aware Dynamic Fine-Tuning for Large Language Models
+  - 2606.11209 [rss/ok] ProcessThinker: Enhancing Multi-modal Large Language Models Reasoning via Rollou
+  - 2606.11212 [rss/ok] EverydayGPT: Confidence-Gated Routing for Efficient and Safe Hybrid GPT-RAG Conv
+  - 2606.11213 [rss/ok] Beyond Compaction: Structured Context Eviction for Long-Horizon Agents
+  - 2606.11316 [rss/ok] Sch\"utzen: Evaluating LLM Safety in Bulgarian and German Contexts
+  - 2606.11435 [rss/ok] Agent Skill Evaluation and Evolution: Frameworks and Benchmarks
+  - 2606.11470 [rss/ok] The Periodic Table of LLM Reasoning: A Structured Survey of Reasoning Paradigms,
+  - 2606.11512 [rss/ok] SAGE: Answer-Conditioned Uncertainty Targets for Verbal Uncertainty Alignment
+  - 2606.11599 [rss/ok] When is Your LLM Steerable?
+  - 2606.11744 [rss/ok] Hey Chat, Can You Teach Me? Structuring Socratic Dialogue for Human Learning in 
+  - 2606.11786 [rss/ok] Lius: Translation Model Based Instructional Lingustic Using Continual Instructio
+  - 2606.11926 [rss/ok] Toward Generalist Autonomous Research via Hypothesis-Tree Refinement
+  - 2606.11931 [rss/ok] Semantic Grading of Written Answers in Low-Resource Language Bangla Using a Fine
+  - 2606.12210 [rss/ok] Can News Predict the Market? Limits of Zero-Shot Financial NLP and the Role of E
+  - 2606.12250 [rss/ok] Reassessing High-Performing LLMs on Polish Medical Exams: True Competence or Bia
+  - 2606.12373 [rss/ok] Verifiable Environments Are LEGO Bricks: Recursive Composition for Reasoning Gen
+  - 2606.12392 [rss/ok] System Report for CCL25-Eval Task 5: New Dataset and LoRA-Fine-Tuned Qwen2.5
+  - 2606.12400 [rss/ok] Doc-to-Atom: Learning to Compile and Compose Memory Atoms
+  - 2606.11270 [rss/ok] Quantifying Subliminal Behavioral Transfer Ratios in Language Model Distillation
+  - 2606.11361 [rss/ok] A PubMed-Scale Dataset of Structured Biomedical Abstracts
+  - 2606.11702 [rss/ok] MedCTA: A Benchmark for Clinical Tool Agents
+  - 2606.11709 [rss/ok] RLCSD: Reinforcement Learning with Contrastive On-Policy Self-Distillation
+  - 2606.12370 [rss/ok] Breaking Entropy Bounds: Accelerating RL Training via MTP with Rejection Samplin
+  - 2606.11251 [rss/ok] Mechanical Field Networks: Structured Neural Dynamics for Multivariate Systems
+  - 2606.11272 [rss/ok] Federated continual learning: A comprehensive survey on lifelong and privacy-pre
+  - 2606.11348 [rss/ok] SwiftCTS: Fast Cross-Design Prediction and Pareto Optimization of Clock Tree Met
+  - 2606.11463 [rss/ok] LSTM-Based Detection of Structural Breaks in Property Insurance Loss Reserving: 
+  - 2606.11518 [rss/ok] SirenFNO: Efficient and Full Frequency Learning of Fourier Neural Operators
+  - 2606.11521 [rss/ok] Counterexample Guided Learning in the Large using Reasoning Agents
+  - 2606.11583 [rss/ok] Beyond the Golden Teacher: Enhancing Graph Learning through LLM-GNN Co-teaching
+  - 2606.11605 [rss/ok] Physics-Distilled Neural Network enabled by Large Language Models for Manufactur
+  - 2606.11627 [rss/ok] When Context Returns: Toward Robust Internalization in On-Policy Distillation
+  - 2606.11652 [rss/ok] IAPO: Input Attribution-Aware Policy Optimization for Tool Use in Small Multimod
+  - 2606.11657 [rss/ok] Sparse probes and murky physics: a case study of interpretability challenges in 
+  - 2606.11793 [rss/ok] AI4Land: Scalable Deep Learning for Global High-Resolution Land Use Reconstructi
+  - 2606.11797 [rss/ok] Space-sampled Value Decay: Forgetting Mechanisms for Non-stationary Deep Reinfor
+  - 2606.11844 [rss/ok] TaskFusion: Continual Anomaly Detection for Heterogeneous Tabular Data
+  - 2606.11961 [rss/ok] Categorical Prior Lock-in: Why In-Context Learning Fails for Structured Data
+  - 2606.11963 [rss/ok] HAMNO: A Hierarchical Adaptive Multi-scale Neural Operator with Physics-Informed
+  - 2606.11968 [rss/ok] Efficient Multinomial Logistic Bandit via Frequent Directions
+  - 2606.12120 [rss/ok] A Riemannian Approach to Low-Rank Optimal Transport
+  - 2606.12146 [rss/ok] nD-RoPE: A Generalized RoPE for n-Dimensional Position Embedding
+  - 2606.12232 [rss/ok] Re-evaluating Confidence Remasking in Masked Diffusion Language Models
+  - 2606.12240 [rss/ok] Multi-Rate Mixture of Experts for Accelerating Liquid Neural Network Training
+  - 2606.12289 [rss/ok] The Standard Interpretable Model: A general theory of interpretable machine lear
+  - 2606.12334 [rss/ok] Fourier Features Let Agents Learn High Precision Policies with Imitation Learnin
+  - 2606.12364 [rss/ok] On Subquadratic Architectures: From Applications to Principles
+  - 2606.12384 [rss/ok] APPO: Agentic Procedural Policy Optimization

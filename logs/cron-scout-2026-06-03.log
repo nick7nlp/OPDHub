@@ -1,0 +1,80 @@
+✅ Refreshed known_arxiv_ids.txt: 299 IDs
+[scout] DATE WINDOW (CST): 2026-06-02 → 2026-06-03  (days_back=1)
+[scout] accepting YYMM prefixes: ['2606']
+[scout] architecture: RSS-primary + API-verify + S2-crosscheck
+[scout] known IDs to skip: 299
+
+[scout] === Phase 1: RSS feeds (3 categories) ===
+[scout/rss] cs.CL: 450 total items, 48 OPD-keyword matches
+[scout/rss] cs.LG: 936 total items, 103 OPD-keyword matches
+[scout/rss] cs.AI: 946 total items, 121 OPD-keyword matches
+[scout/rss] total unique candidates: 184
+
+[scout] === Phase 2: S2 cross-check (4 queries) ===
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] added 0 papers not found in RSS
+
+[scout] combined unique: 184 (RSS: 184, S2-extra: 0)
+[scout] ⚠️ 1 rejected by DATE WINDOW: ['2604.04937']
+[scout] 10 skipped (already known)
+
+[scout] === Phase 3: no S2-sourced papers to verify ===
+
+[scout] ✅ 50 new candidates for deep-read
+[scout] wrote /tmp/scout_arxiv_results.json
+
+## Scout Summary: 50 new in-window candidates
+
+  - 2606.00250 [rss/ok] Effects of Varying LLM Access on Essay Writing Behavior
+  - 2606.00462 [rss/ok] Short-form Text Rewriting with Phi Silica
+  - 2606.00467 [rss/ok] On the Limits of LLM Adaptability: Impact of Model-Internalized Priors on Annota
+  - 2606.00510 [rss/ok] Skill or Skip? Learning Selective Skill Invocation in Agentic Tasks via Dual-Gra
+  - 2606.00523 [rss/ok] ProactiveLLM: Learning Active Interaction for Streaming Large Language Models
+  - 2606.00570 [rss/ok] Revisiting Parameter-Based Knowledge Editing in Large Language Models: Theoretic
+  - 2606.00579 [rss/ok] Sandboxed Coding Agents are Competitive Omni-modal Task Solvers
+  - 2606.00619 [rss/ok] MemPro: Agentic Memory Systems as Evolvable Programs
+  - 2606.00628 [rss/ok] Robust Reasoning via Dynamic Token Selection for Distribution-Aligned Self-Disti
+  - 2606.00722 [rss/ok] EPIC: Efficient and Parallel Inference under CFG Constraints for Diffusion Langu
+  - 2606.00755 [rss/ok] Internalize the Temperature: On-Policy Self-Distillation as Policy Reheater for 
+  - 2606.00875 [rss/ok] IDEAFix: Evaluation Framework for Creative Defixation Prompting in LLMs
+  - 2606.00881 [rss/ok] Chunking Methods on Retrieval-Augmented Generation - Effectiveness Evaluation Ag
+  - 2606.01041 [rss/ok] ExpWeaver: LLM Agents Learn from Experience via Latent RAG
+  - 2606.01091 [rss/ok] Deep Research as Rubric for Reinforcement Learning
+  - 2606.01223 [rss/ok] Connecting the Dots: Benchmarking Reflective Memory in Long-Horizon Dialogue
+  - 2606.01301 [rss/ok] Med-HEAL: Analyzing and Mitigating Hallucinations in Medical LLMs with Hallucina
+  - 2606.01322 [rss/ok] TukaBench: A Culturally Grounded Jailbreak Benchmark for African Languages
+  - 2606.01338 [rss/ok] Benchmarking Local LLMs for Natural-Language-to-SQL Querying in Biopharmaceutica
+  - 2606.01584 [rss/ok] Identifying High-Confidence Social Biases in LLMs for Trustworthy Conversational
+  - 2606.01697 [rss/ok] RCEM: Embedder Equipped with Query Rewriting Skill for Robust Conversational Sea
+  - 2606.01779 [rss/ok] HarnessForge: Joint Harness and Policy Evolution for Adaptive Agent Systems
+  - 2606.01923 [rss/ok] Resonant Context Anchoring: Decoupling Attention Routing and Signal Gain at Infe
+  - 2606.01993 [rss/ok] MMG2Skill: Can Agents Distill In-the-Wild Guides into Self-Evolving Skills?
+  - 2606.02147 [rss/ok] Multilingual Idioms in Sentences and Conversations Across High-, Medium-, and Lo
+  - 2606.02158 [rss/ok] On the Salience of Low-Probability Tokens for AI-Generated Text Detection: A Mul
+  - 2606.02170 [rss/ok] CRAFTQA: A Code-Driven Adaptive Framework for Complex Structured Data Reasoning
+  - 2606.02215 [rss/ok] Better with Experience: Self-Evolving LLM Agents for Evidence-Grounded Health Co
+  - 2606.02509 [rss/ok] When Rating Scales Fall Short: LLM-Assisted Discovery of ADHD Signals in Turkish
+  - 2606.00017 [rss/ok] MindGames Arena Generalization Track: In2AI Solution with Delayed Per-Step Rewar
+  - 2606.00095 [rss/ok] Bridging the 2D-3D Gap: A Hierarchical Semantic-Geometric Map for Vision Languag
+  - 2606.00198 [rss/ok] BAGEN: Are LLM Agents Budget-Aware?
+  - 2606.00804 [rss/ok] Dynamic Coordination Strategy Selection for Enterprise Multi-Agent Systems
+  - 2606.00914 [rss/ok] Adversarial Feeds Steer LLM Agent Decisions Against Their Defaults
+  - 2606.01000 [rss/ok] Trust Functions: Near-Lossless Weak-to-Strong Generalization by Learning When to
+  - 2606.01166 [rss/ok] BraveGuard: From Open-World Threats to Safer Computer-Use Agents
+  - 2606.01215 [rss/ok] Distilling Neuro-Symbolic Programs into 3D Multi-modal LLMs
+  - 2606.01462 [rss/ok] An Enigma of Artificial Reason: Investigating the Production-Evaluation Gap in L
+  - 2606.01934 [rss/ok] HMPO: Hybrid Median-length Policy Optimization for Chain-of-Thought Compression
+  - 2606.02162 [rss/ok] Multimodal Approaches for Visually-Rich Document Type Classification: A Comparat
+  - 2606.02433 [rss/ok] ODTQA-FoRe: An Open-Domain Tabular Question Answering Dataset for Future Data Fo
+  - 2606.00129 [rss/ok] A Shared Valence Axis Across Modern LLMs and Human EEG: The Saturation Regularit
+  - 2606.00135 [rss/ok] On Effectiveness and Efficiency of Agentic Tool-calling and RL Training
+  - 2606.00140 [rss/ok] Geometric Erasure by Contrastive Velocity Matching in Rectified Flows
+  - 2606.00257 [rss/ok] ARCA: Adapter-Residual Credit Assignment When Token Signals Degenerate
+  - 2606.00304 [rss/ok] Modeling Spectral Energy Shifts in Spatio-Temporal Graph Anomaly Detection
+  - 2606.00306 [rss/ok] Rethinking the Role of Temperature in Large Language Model Distillation
+  - 2606.00350 [rss/ok] Drift Q-Learning
+  - 2606.00382 [rss/ok] CRMA: A Spectrally-Bounded Backbone for Modular Continual Fine-Tuning of LLMs
+  - 2606.00392 [rss/ok] Detector-Evasive LLM Paraphrasing via Constrained Policy Optimization

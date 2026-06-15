@@ -1,0 +1,1082 @@
+{
+  "2305.12870": {
+    "title": "Lion: Adversarial Distillation of Proprietary Large Language Models",
+    "published": "2023-05-22T09:49:16Z",
+    "updated": "2023-10-14T02:21:24Z",
+    "authors_first": "Yuxin Jiang"
+  },
+  "2306.08543": {
+    "title": "MiniLLM: On-Policy Distillation of Large Language Models",
+    "published": "2023-06-14T14:44:03Z",
+    "updated": "2026-01-31T09:16:35Z",
+    "authors_first": "Yuxian Gu"
+  },
+  "2306.13649": {
+    "title": "On-Policy Distillation of Language Models: Learning from Self-Generated Mistakes",
+    "published": "2023-06-23T17:56:26Z",
+    "updated": "2024-01-17T03:23:23Z",
+    "authors_first": "Rishabh Agarwal"
+  },
+  "2310.08461": {
+    "title": "DistillSpec: Improving Speculative Decoding via Knowledge Distillation",
+    "published": "2023-10-12T16:21:04Z",
+    "updated": "2024-03-31T03:06:51Z",
+    "authors_first": "Yongchao Zhou"
+  },
+  "2402.03898": {
+    "title": "DistiLLM: Towards Streamlined Distillation for Large Language Models",
+    "published": "2024-02-06T11:10:35Z",
+    "updated": "2024-07-03T04:57:41Z",
+    "authors_first": "Jongwoo Ko"
+  },
+  "2402.12030": {
+    "title": "Towards Cross-Tokenizer Distillation: the Universal Logit Distillation Loss for LLMs",
+    "published": "2024-02-19T10:37:29Z",
+    "updated": "2025-01-27T10:02:44Z",
+    "authors_first": "Nicolas Boizard"
+  },
+  "2402.12842": {
+    "title": "PromptKD: Distilling Student-Friendly Knowledge for Generative Language Models via Prompt Tuning",
+    "published": "2024-02-20T09:10:08Z",
+    "updated": "2024-09-27T06:25:33Z",
+    "authors_first": "Gyeongman Kim"
+  },
+  "2404.02657": {
+    "title": "Rethinking Kullback-Leibler Divergence in Knowledge Distillation for Large Language Models",
+    "published": "2024-04-03T11:40:17Z",
+    "updated": "2024-12-08T13:03:38Z",
+    "authors_first": "Taiqiang Wu"
+  },
+  "2410.09008": {
+    "title": "SuperCorrect: Advancing Small LLM Reasoning with Thought Template Distillation and Self-Correction",
+    "published": "2024-10-11T17:25:52Z",
+    "updated": "2025-02-26T06:32:31Z",
+    "authors_first": "Ling Yang"
+  },
+  "2410.11325": {
+    "title": "Speculative Knowledge Distillation: Bridging the Teacher-Student Gap Through Interleaved Sampling",
+    "published": "2024-10-15T06:51:25Z",
+    "updated": "2025-04-27T23:18:29Z",
+    "authors_first": "Wenda Xu"
+  },
+  "2410.17215": {
+    "title": "MiniPLM: Knowledge Distillation for Pre-Training Language Models",
+    "published": "2024-10-22T17:40:32Z",
+    "updated": "2025-03-19T00:03:30Z",
+    "authors_first": "Yuxian Gu"
+  },
+  "2501.16937": {
+    "title": "TAID: Temporally Adaptive Interpolated Distillation for Efficient Knowledge Transfer in Language Models",
+    "published": "2025-01-28T13:31:18Z",
+    "updated": "2025-02-27T23:41:37Z",
+    "authors_first": "Makoto Shing"
+  },
+  "2503.02832": {
+    "title": "AlignDistil: Token-Level Language Model Alignment as Adaptive Policy Distillation",
+    "published": "2025-03-04T17:57:09Z",
+    "updated": "2025-07-23T04:59:45Z",
+    "authors_first": "Songming Zhang"
+  },
+  "2503.07067": {
+    "title": "DistiLLM-2: A Contrastive Approach Boosts the Distillation of LLMs",
+    "published": "2025-03-10T08:51:32Z",
+    "updated": "2025-05-30T04:41:12Z",
+    "authors_first": "Jongwoo Ko"
+  },
+  "2504.11426": {
+    "title": "A Dual-Space Framework for General Knowledge Distillation of Large Language Models",
+    "published": "2025-04-15T17:38:47Z",
+    "updated": "2025-04-15T17:38:47Z",
+    "authors_first": "Xue Zhang"
+  },
+  "2504.14945": {
+    "title": "Learning to Reason under Off-Policy Guidance",
+    "published": "2025-04-21T08:09:13Z",
+    "updated": "2025-06-22T00:18:09Z",
+    "authors_first": "Jianhao Yan"
+  },
+  "2504.19024": {
+    "title": "KETCHUP: K-Step Return Estimation for Sequential Knowledge Distillation",
+    "published": "2025-04-26T21:21:04Z",
+    "updated": "2025-04-26T21:21:04Z",
+    "authors_first": "Jiabin Fan"
+  },
+  "2505.09388": {
+    "title": "Qwen3 Technical Report",
+    "published": "2025-05-14T13:41:34Z",
+    "updated": "2025-05-14T13:41:34Z",
+    "authors_first": "An Yang"
+  },
+  "2505.16142": {
+    "title": "RLKD: Distilling LLMs' Reasoning via Reinforcement Learning",
+    "published": "2025-05-22T02:36:36Z",
+    "updated": "2026-01-31T08:31:10Z",
+    "authors_first": "Shicheng Xu"
+  },
+  "2505.16297": {
+    "title": "ToDi: Token-wise Distillation via Fine-Grained Divergence Control",
+    "published": "2025-05-22T06:51:16Z",
+    "updated": "2025-09-28T02:55:16Z",
+    "authors_first": "Seongryong Jung"
+  },
+  "2506.02208": {
+    "title": "KDRL: Post-Training Reasoning LLMs via Unified Knowledge Distillation and Reinforcement Learning",
+    "published": "2025-06-02T19:46:41Z",
+    "updated": "2025-06-02T19:46:41Z",
+    "authors_first": "Hongling Xu"
+  },
+  "2509.14257": {
+    "title": "From Correction to Mastery: Reinforced Distillation of Large Language Model Agents",
+    "published": "2025-09-12T15:34:07Z",
+    "updated": "2025-10-09T04:22:47Z",
+    "authors_first": "Yuanjie Lyu"
+  },
+  "2509.14526": {
+    "title": "Delta Knowledge Distillation for Large Language Models",
+    "published": "2025-09-18T01:42:24Z",
+    "updated": "2025-09-18T01:42:24Z",
+    "authors_first": "Yihan Cao"
+  },
+  "2509.22921": {
+    "title": "Rethinking Large Language Model Distillation: A Constrained Markov Decision Process Perspective",
+    "published": "2025-09-26T20:47:49Z",
+    "updated": "2025-09-26T20:47:49Z",
+    "authors_first": "Matthieu Zimmer"
+  },
+  "2509.25100": {
+    "title": "ORPO-Distill: Mixed-Policy Preference Optimization for Cross-Architecture LLM Distillation",
+    "published": "2025-09-29T17:34:02Z",
+    "updated": "2025-09-29T17:34:02Z",
+    "authors_first": "Aasheesh Singh"
+  },
+  "2509.25837": {
+    "title": "Distillation of Large Language Models via Concrete Score Matching",
+    "published": "2025-09-30T06:21:28Z",
+    "updated": "2026-05-30T04:49:34Z",
+    "authors_first": "Yeongmin Kim"
+  },
+  "2510.07842": {
+    "title": "AdaSwitch: Balancing Exploration and Guidance in Knowledge Distillation via Adaptive Switching",
+    "published": "2025-10-09T06:38:37Z",
+    "updated": "2026-03-19T06:54:35Z",
+    "authors_first": "Jingyu Peng"
+  },
+  "2510.11615": {
+    "title": "LLM-Oriented Token-Adaptive Knowledge Distillation",
+    "published": "2025-10-13T16:55:07Z",
+    "updated": "2025-10-13T16:55:07Z",
+    "authors_first": "Xurong Xie"
+  },
+  "2510.18874": {
+    "title": "Retaining by Doing: The Role of On-Policy Data in Mitigating Forgetting",
+    "published": "2025-10-21T17:59:41Z",
+    "updated": "2025-12-03T15:06:06Z",
+    "authors_first": "Howard Chen"
+  },
+  "2510.23497": {
+    "title": "VOLD: Reasoning Transfer from LLMs to Vision-Language Models via On-Policy Distillation",
+    "published": "2025-10-27T16:32:12Z",
+    "updated": "2025-10-28T11:09:37Z",
+    "authors_first": "Walid Bousselham"
+  },
+  "2510.24021": {
+    "title": "SelecTKD: Selective Token-Weighted Knowledge Distillation for LLMs",
+    "published": "2025-10-28T03:02:22Z",
+    "updated": "2025-11-16T03:44:52Z",
+    "authors_first": "Haiduo Huang"
+  },
+  "2511.10643": {
+    "title": "Black-Box On-Policy Distillation of Large Language Models",
+    "published": "2025-11-13T18:58:37Z",
+    "updated": "2026-01-08T12:15:40Z",
+    "authors_first": "Tianzhu Ye"
+  },
+  "2512.05105": {
+    "title": "Semantic Soft Bootstrapping: Long Context Reasoning in LLMs without Reinforcement Learning",
+    "published": "2025-12-04T18:59:18Z",
+    "updated": "2025-12-04T18:59:18Z",
+    "authors_first": "Purbesh Mitra"
+  },
+  "2512.23097": {
+    "title": "A Note on Hybrid Online Reinforcement and Imitation Learning for LLMs: Formulations and Algorithms",
+    "published": "2025-12-28T22:25:27Z",
+    "updated": "2025-12-28T22:25:27Z",
+    "authors_first": "Yingru Li"
+  },
+  "2601.02780": {
+    "title": "MiMo-V2-Flash Technical Report",
+    "published": "2026-01-06T07:31:47Z",
+    "updated": "2026-01-08T05:52:17Z",
+    "authors_first": "Xiaomi LLM-Core Team"
+  },
+  "2601.07155": {
+    "title": "Stable On-Policy Distillation through Adaptive Target Reformulation",
+    "published": "2026-01-12T02:57:39Z",
+    "updated": "2026-04-20T12:54:52Z",
+    "authors_first": "Ijun Jang"
+  },
+  "2601.08310": {
+    "title": "ORBIT: On-policy Exploration-Exploitation for Controllable Multi-Budget Reasoning",
+    "published": "2026-01-13T07:57:48Z",
+    "updated": "2026-04-16T14:12:28Z",
+    "authors_first": "Kun Liang"
+  },
+  "2601.09088": {
+    "title": "Distribution-Aligned Sequence Distillation for Superior Long-CoT Reasoning",
+    "published": "2026-01-14T02:43:17Z",
+    "updated": "2026-01-14T02:43:17Z",
+    "authors_first": "Shaotian Yan"
+  },
+  "2601.16547": {
+    "title": "CORD: Bridging the Audio-Text Reasoning Gap via Weighted On-policy Cross-modal Distillation",
+    "published": "2026-01-23T08:31:24Z",
+    "updated": "2026-01-23T08:31:24Z",
+    "authors_first": "Jing Hu"
+  },
+  "2601.18734": {
+    "title": "Self-Distilled Reasoner: On-Policy Self-Distillation for Large Language Models",
+    "published": "2026-01-26T17:56:50Z",
+    "updated": "2026-03-20T15:40:19Z",
+    "authors_first": "Siyan Zhao"
+  },
+  "2601.19897": {
+    "title": "Self-Distillation Enables Continual Learning",
+    "published": "2026-01-27T18:59:08Z",
+    "updated": "2026-01-27T18:59:08Z",
+    "authors_first": "Idan Shenfeld"
+  },
+  "2601.20802": {
+    "title": "Reinforcement Learning via Self-Distillation",
+    "published": "2026-01-28T17:45:12Z",
+    "updated": "2026-02-16T14:49:34Z",
+    "authors_first": "Jonas Hübotter"
+  },
+  "2601.21968": {
+    "title": "OVD: On-policy Verbal Distillation",
+    "published": "2026-01-29T16:48:14Z",
+    "updated": "2026-01-29T16:48:14Z",
+    "authors_first": "Jing Xiong"
+  },
+  "2602.00400": {
+    "title": "KEPO: Knowledge-Enhanced Preference Optimization for Multimodal Reasoning with Applications to Medical VQA",
+    "published": "2026-01-30T23:28:37Z",
+    "updated": "2026-05-11T21:10:07Z",
+    "authors_first": "Fan Yang"
+  },
+  "2602.02405": {
+    "title": "Didactic to Constructive: Turning Expert Solutions into Learnable Reasoning",
+    "published": "2026-02-02T18:03:43Z",
+    "updated": "2026-02-02T18:03:43Z",
+    "authors_first": "Ethan Mendes"
+  },
+  "2602.02482": {
+    "title": "Expanding the Capabilities of Reinforcement Learning via Text Feedback",
+    "published": "2026-02-02T18:56:56Z",
+    "updated": "2026-02-11T18:43:26Z",
+    "authors_first": "Yuda Song"
+  },
+  "2602.02994": {
+    "title": "Video-OPD: Efficient Post-Training of Multimodal Large Language Models for Temporal Video Grounding via On-Policy Distillation",
+    "published": "2026-02-03T02:05:48Z",
+    "updated": "2026-05-14T08:57:51Z",
+    "authors_first": "Jiaze Li"
+  },
+  "2602.04942": {
+    "title": "Privileged Information Distillation for Language Models",
+    "published": "2026-02-04T18:46:17Z",
+    "updated": "2026-02-16T18:57:38Z",
+    "authors_first": "Emiliano Penaloza"
+  },
+  "2602.06019": {
+    "title": "Multi-Token Prediction via Self-Distillation",
+    "published": "2026-02-05T18:54:48Z",
+    "updated": "2026-04-23T20:53:41Z",
+    "authors_first": "John Kirchenbauer"
+  },
+  "2602.12125": {
+    "title": "Learning beyond Teacher: Generalized On-Policy Distillation with Reward Extrapolation",
+    "published": "2026-02-12T16:14:29Z",
+    "updated": "2026-02-26T13:26:22Z",
+    "authors_first": "Wenkai Yang"
+  },
+  "2602.12222": {
+    "title": "Towards On-Policy SFT: Distribution Discriminant Theory and its Applications in LLM Training",
+    "published": "2026-02-12T17:59:58Z",
+    "updated": "2026-03-14T09:14:02Z",
+    "authors_first": "Miaosen Zhang"
+  },
+  "2602.12275": {
+    "title": "On-Policy Context Distillation for Language Models",
+    "published": "2026-02-12T18:58:28Z",
+    "updated": "2026-03-23T13:11:10Z",
+    "authors_first": "Tianzhu Ye"
+  },
+  "2602.12674": {
+    "title": "$\\mathcal{X}$-KD: General Experiential Knowledge Distillation for Large Language Models",
+    "published": "2026-02-13T07:15:10Z",
+    "updated": "2026-02-13T07:15:10Z",
+    "authors_first": "Yuang Cai"
+  },
+  "2602.13407": {
+    "title": "On-Policy Supervised Fine-Tuning for Efficient Reasoning",
+    "published": "2026-02-13T19:16:39Z",
+    "updated": "2026-02-13T19:16:39Z",
+    "authors_first": "Anhao Zhao"
+  },
+  "2602.15260": {
+    "title": "Fast and Effective On-policy Distillation from Reasoning Prefixes",
+    "published": "2026-02-16T23:28:54Z",
+    "updated": "2026-02-16T23:28:54Z",
+    "authors_first": "Dongxu Zhang"
+  },
+  "2602.20574": {
+    "title": "GATES: Self-Distillation under Privileged Context with Consensus Gating",
+    "published": "2026-02-24T05:56:20Z",
+    "updated": "2026-02-24T05:56:20Z",
+    "authors_first": "Alex Stein"
+  },
+  "2602.22495": {
+    "title": "Reinforcement-aware Knowledge Distillation for LLM Reasoning",
+    "published": "2026-02-26T00:20:39Z",
+    "updated": "2026-04-09T21:16:09Z",
+    "authors_first": "Zhaoyang Zhang"
+  },
+  "2603.01683": {
+    "title": "Surgical Post-Training: Proximal On-Policy Distillation for Reasoning with Knowledge Retention",
+    "published": "2026-03-02T10:12:56Z",
+    "updated": "2026-05-15T18:11:42Z",
+    "authors_first": "Wenye Lin"
+  },
+  "2603.05433": {
+    "title": "CRISP: Compressed Reasoning via Iterative Self-Policy Distillation",
+    "published": "2026-03-05T17:54:40Z",
+    "updated": "2026-04-11T19:46:52Z",
+    "authors_first": "Hejian Sang"
+  },
+  "2603.07079": {
+    "title": "Entropy-Aware On-Policy Distillation of Language Models",
+    "published": "2026-03-07T07:26:18Z",
+    "updated": "2026-05-22T17:34:18Z",
+    "authors_first": "Woogyeol Jin"
+  },
+  "2603.10165": {
+    "title": "OpenClaw-RL: Train Any Agent Simply by Talking",
+    "published": "2026-03-10T18:59:01Z",
+    "updated": "2026-05-11T10:03:41Z",
+    "authors_first": "Yinjie Wang"
+  },
+  "2603.11137": {
+    "title": "Scaling Reasoning Efficiently via Relaxed On-Policy Distillation",
+    "published": "2026-03-11T16:26:52Z",
+    "updated": "2026-03-11T16:26:52Z",
+    "authors_first": "Jongwoo Ko"
+  },
+  "2603.11178": {
+    "title": "PACED: Distillation and On-Policy Self-Distillation at the Frontier of Student Competence",
+    "published": "2026-03-11T18:00:05Z",
+    "updated": "2026-04-09T18:32:18Z",
+    "authors_first": "Yuanda Xu"
+  },
+  "2603.13260": {
+    "title": "Explain in Your Own Words: Improving Reasoning via Token-Selective Dual Knowledge Distillation",
+    "published": "2026-02-25T09:58:49Z",
+    "updated": "2026-02-25T09:58:49Z",
+    "authors_first": "Minsang Kim"
+  },
+  "2603.16856": {
+    "title": "Online Experiential Learning for Language Models",
+    "published": "2026-03-17T17:57:49Z",
+    "updated": "2026-03-17T17:57:49Z",
+    "authors_first": "Tianzhu Ye"
+  },
+  "2603.19220": {
+    "title": "Nemotron-Cascade 2: Post-Training LLMs with Cascade RL and Multi-Domain On-Policy Distillation",
+    "published": "2026-03-19T17:58:52Z",
+    "updated": "2026-03-22T00:47:52Z",
+    "authors_first": "Zhuolin Yang"
+  },
+  "2603.23871": {
+    "title": "HDPO: Hybrid Distillation Policy Optimization via Privileged Self-Distillation",
+    "published": "2026-03-25T02:59:36Z",
+    "updated": "2026-03-25T02:59:36Z",
+    "authors_first": "Ken Ding"
+  },
+  "2603.24472": {
+    "title": "Why Does Self-Distillation (Sometimes) Degrade the Reasoning Capability of LLMs?",
+    "published": "2026-03-25T16:14:52Z",
+    "updated": "2026-05-20T15:19:39Z",
+    "authors_first": "Jeonghye Kim"
+  },
+  "2603.24596": {
+    "title": "X-OPD: Cross-Modal On-Policy Distillation for Capability Alignment in Speech LLMs",
+    "published": "2026-03-06T06:04:22Z",
+    "updated": "2026-03-30T04:04:32Z",
+    "authors_first": "Di Cao"
+  },
+  "2603.25562": {
+    "title": "Revisiting On-Policy Distillation: Empirical Failure Modes and Simple Fixes",
+    "published": "2026-03-26T15:35:59Z",
+    "updated": "2026-04-27T06:21:52Z",
+    "authors_first": "Yuqian Fu"
+  },
+  "2603.26666": {
+    "title": "VLA-OPD: Bridging Offline SFT and Online RL for Vision-Language-Action Models via On-Policy Distillation",
+    "published": "2026-03-27T17:59:33Z",
+    "updated": "2026-03-27T17:59:33Z",
+    "authors_first": "Zhide Zhong"
+  },
+  "2603.27703": {
+    "title": "KAT-Coder-V2 Technical Report",
+    "published": "2026-03-29T14:01:35Z",
+    "updated": "2026-03-29T14:01:35Z",
+    "authors_first": "Fengxiang Li"
+  },
+  "2604.01193": {
+    "title": "Embarrassingly Simple Self-Distillation Improves Code Generation",
+    "published": "2026-04-01T17:39:50Z",
+    "updated": "2026-04-01T17:39:50Z",
+    "authors_first": "Ruixiang Zhang"
+  },
+  "2604.02288": {
+    "title": "Unifying Group-Relative and Self-Distillation Policy Optimization via Sample Routing",
+    "published": "2026-04-02T17:29:18Z",
+    "updated": "2026-04-02T17:29:18Z",
+    "authors_first": "Gengsheng Li"
+  },
+  "2604.03128": {
+    "title": "Self-Distilled RLVR",
+    "published": "2026-04-03T15:50:07Z",
+    "updated": "2026-04-08T08:22:36Z",
+    "authors_first": "Chenxu Yang"
+  },
+  "2604.04461": {
+    "title": "DP-OPD: Differentially Private On-Policy Distillation for Language Models",
+    "published": "2026-04-06T06:18:03Z",
+    "updated": "2026-04-06T06:18:03Z",
+    "authors_first": "Fatemeh Khadem"
+  },
+  "2604.07430": {
+    "title": "HY-Embodied-0.5: Embodied Foundation Models for Real-World Agents",
+    "published": "2026-04-08T17:59:48Z",
+    "updated": "2026-04-08T17:59:48Z",
+    "authors_first": "Tencent Robotics X"
+  },
+  "2604.07944": {
+    "title": "On-Policy Distillation of Language Models for Autonomous Vehicle Motion Planning",
+    "published": "2026-04-09T08:06:19Z",
+    "updated": "2026-04-09T08:06:19Z",
+    "authors_first": "Amirhossein Afsharrad"
+  },
+  "2604.08527": {
+    "title": "Demystifying OPD: Length Inflation and Stabilization Strategies for Large Language Models",
+    "published": "2026-04-09T17:58:02Z",
+    "updated": "2026-04-09T17:58:02Z",
+    "authors_first": "Feng Luo"
+  },
+  "2604.10674": {
+    "title": "Skill-SD: Skill-Conditioned Self-Distillation for Multi-turn LLM Agents",
+    "published": "2026-04-12T14:57:52Z",
+    "updated": "2026-04-12T14:57:52Z",
+    "authors_first": "Hao Wang"
+  },
+  "2604.24005": {
+    "title": "TCOD: Exploring Temporal Curriculum in On-Policy Distillation for Multi-turn Autonomous Agents",
+    "published": "2026-04-27T03:38:27Z",
+    "updated": "2026-04-29T03:05:32Z",
+    "authors_first": "Jiaqi Wang"
+  },
+  "2604.17535": {
+    "title": "OPSDL: On-Policy Self-Distillation for Long-Context Language Models",
+    "published": "2026-04-19T16:53:56Z",
+    "updated": "2026-04-19T16:53:56Z",
+    "authors_first": "Xinsen Zhang"
+  },
+  "2605.00642": {
+    "title": "Learn where to Click from Yourself: On-Policy Self-Distillation for GUI Grounding",
+    "published": "2026-05-01T13:23:26Z",
+    "updated": "2026-05-10T03:40:15Z",
+    "authors_first": "Yan Zhang"
+  },
+  "2604.12002": {
+    "title": "Self-Distillation Zero: Self-Revision Turns Binary Rewards into Dense Supervision",
+    "published": "2026-04-13T19:46:55Z",
+    "updated": "2026-04-13T19:46:55Z",
+    "authors_first": "Yinghui He"
+  },
+  "2604.27083": {
+    "title": "Co-Evolving Policy Distillation",
+    "published": "2026-04-29T18:24:11Z",
+    "updated": "2026-04-29T18:24:11Z",
+    "authors_first": "Naibin Gu"
+  },
+  "2605.02943": {
+    "title": "Healthcare AI GYM for Medical Agents",
+    "published": "2026-05-01T10:11:22Z",
+    "updated": "2026-05-01T10:11:22Z",
+    "authors_first": "Minbyul Jeong"
+  },
+  "2604.16830": {
+    "title": "The Illusion of Certainty: Decoupling Capability and Calibration in On-Policy Distillation",
+    "published": "2026-04-18T04:43:40Z",
+    "updated": "2026-04-18T04:43:40Z",
+    "authors_first": "Jiaxin Zhang"
+  },
+  "2605.02971": {
+    "title": "Multilingual Safety Alignment via Self-Distillation",
+    "published": "2026-05-03T14:22:49Z",
+    "updated": "2026-05-07T19:25:15Z",
+    "authors_first": "Ruiyang Qin"
+  },
+  "2604.26573": {
+    "title": "PAINT: Partial-Solution Adaptive Interpolated Training for Self-Distilled Reasoners",
+    "published": "2026-04-29T11:56:07Z",
+    "updated": "2026-04-29T11:56:07Z",
+    "authors_first": "Zhiquan Tan"
+  },
+  "2605.05940": {
+    "title": "Near-Policy: Accelerating On-Policy Distillation via Asynchronous Generation and Selective Packing",
+    "published": "2026-05-07T09:50:53Z",
+    "updated": "2026-05-07T09:50:53Z",
+    "authors_first": "Miao Rang"
+  },
+  "2604.28123": {
+    "title": "Beyond SFT-to-RL: Pre-alignment via Black-Box On-Policy Distillation for Multimodal RL",
+    "published": "2026-04-30T17:12:53Z",
+    "updated": "2026-05-01T18:31:46Z",
+    "authors_first": "Sudong Wang"
+  },
+  "2605.01347": {
+    "title": "MAD-OPD: Breaking the Ceiling in On-Policy Distillation via Multi-Agent Debate",
+    "published": "2026-05-02T09:41:37Z",
+    "updated": "2026-05-02T09:41:37Z",
+    "authors_first": "Jianze Wang"
+  },
+  "2605.03677": {
+    "title": "Uni-OPD: Unifying On-Policy Distillation with a Dual-Perspective Recipe",
+    "published": "2026-05-05T12:15:21Z",
+    "updated": "2026-05-05T12:15:21Z",
+    "authors_first": "Wenjin Hou"
+  },
+  "2604.10688": {
+    "title": "SCOPE: Signal-Calibrated On-Policy Distillation Enhancement with Dual-Path Adaptive Weighting",
+    "published": "2026-04-12T15:26:14Z",
+    "updated": "2026-05-30T16:08:24Z",
+    "authors_first": "Binbin Zheng"
+  },
+  "2604.13016": {
+    "title": "Rethinking On-Policy Distillation of Large Language Models: Phenomenology, Mechanism, and Recipe",
+    "published": "2026-04-14T17:54:28Z",
+    "updated": "2026-04-15T17:48:51Z",
+    "authors_first": "Yaxuan Li"
+  },
+  "2604.13010": {
+    "title": "Lightning OPD: Efficient Post-Training for Large Reasoning Models with Offline On-Policy Distillation",
+    "published": "2026-04-14T17:44:50Z",
+    "updated": "2026-05-08T06:38:25Z",
+    "authors_first": "Yecheng Wu"
+  },
+  "2605.05040": {
+    "title": "Preference-Based Self-Distillation: Beyond KL Matching via Reward Regularization",
+    "published": "2026-05-06T15:31:50Z",
+    "updated": "2026-05-06T15:31:50Z",
+    "authors_first": "Xin Yu"
+  },
+  "2604.14084": {
+    "title": "TIP: Token Importance in On-Policy Distillation",
+    "published": "2026-04-15T16:58:24Z",
+    "updated": "2026-05-21T05:36:13Z",
+    "authors_first": "Yuanda Xu"
+  },
+  "2605.06094": {
+    "title": "VISD: Enhancing Video Reasoning via Structured Self-Distillation",
+    "published": "2026-05-07T12:13:15Z",
+    "updated": "2026-05-22T03:20:58Z",
+    "authors_first": "Hao Lin"
+  },
+  "2604.14054": {
+    "title": "$π$-Play: Multi-Agent Self-Play via Privileged Self-Distillation without External Data",
+    "published": "2026-04-15T16:34:39Z",
+    "updated": "2026-05-25T13:50:41Z",
+    "authors_first": "Yaocheng Zhang"
+  },
+  "2605.08741": {
+    "title": "Training with Harnesses: On-Policy Harness Self-Distillation for Complex Reasoning",
+    "published": "2026-05-09T07:06:37Z",
+    "updated": "2026-05-09T07:06:37Z",
+    "authors_first": "Zhengyang Zhao"
+  },
+  "2605.06387": {
+    "title": "Asymmetric On-Policy Distillation: Bridging Exploitation and Imitation at the Token Level",
+    "published": "2026-05-07T15:02:49Z",
+    "updated": "2026-05-13T04:44:13Z",
+    "authors_first": "Nan Jia"
+  },
+  "2605.09548": {
+    "title": "Crosslingual On-Policy Self-Distillation for Multilingual Reasoning",
+    "published": "2026-05-10T14:06:09Z",
+    "updated": "2026-05-10T14:06:09Z",
+    "authors_first": "Yihong Liu"
+  },
+  "2605.08873": {
+    "title": "CoDistill-GRPO: A Co-Distillation Recipe for Efficient Group Relative Policy Optimization",
+    "published": "2026-05-09T10:51:58Z",
+    "updated": "2026-05-09T10:51:58Z",
+    "authors_first": "Soo Min Kwon"
+  },
+  "2605.06597": {
+    "title": "UniSD: Towards a Unified Self-Distillation Framework for Large Language Models",
+    "published": "2026-05-07T17:22:11Z",
+    "updated": "2026-05-21T16:25:55Z",
+    "authors_first": "Yiqiao Jin"
+  },
+  "2605.09253": {
+    "title": "Cornerstones or Stumbling Blocks? Deciphering the Rock Tokens in On-Policy Distillation",
+    "published": "2026-05-10T01:41:43Z",
+    "updated": "2026-05-29T19:35:38Z",
+    "authors_first": "Yuxuan Jiang"
+  },
+  "2605.09329": {
+    "title": "Test-Time Speculation",
+    "published": "2026-05-10T05:02:39Z",
+    "updated": "2026-05-19T16:34:43Z",
+    "authors_first": "Avinash Kumar"
+  },
+  "2605.10194": {
+    "title": "TRACE: Distilling Where It Matters via Token-Routed Self On-Policy Alignment",
+    "published": "2026-05-11T08:45:03Z",
+    "updated": "2026-05-11T08:45:03Z",
+    "authors_first": "Jiaxuan Wang"
+  },
+  "2605.08737": {
+    "title": "The Extrapolation Cliff in On-Policy Distillation of Near-Deterministic Structured Outputs",
+    "published": "2026-05-09T06:48:00Z",
+    "updated": "2026-05-09T06:48:00Z",
+    "authors_first": "Xin Li"
+  },
+  "2605.07177": {
+    "title": "HyperEyes: Dual-Grained Efficiency-Aware Reinforcement Learning for Parallel Multimodal Search Agents",
+    "published": "2026-05-08T03:16:08Z",
+    "updated": "2026-05-11T11:21:13Z",
+    "authors_first": "Guankai Li"
+  },
+  "2605.07396": {
+    "title": "Rubric-based On-policy Distillation",
+    "published": "2026-05-08T07:52:15Z",
+    "updated": "2026-05-08T07:52:15Z",
+    "authors_first": "Junfeng Fang"
+  },
+  "2605.07505": {
+    "title": "LiteGUI: Distilling Compact GUI Agents with Reinforcement Learning",
+    "published": "2026-05-08T09:38:29Z",
+    "updated": "2026-05-08T09:38:29Z",
+    "authors_first": "Yubin Wu"
+  },
+  "2605.07865": {
+    "title": "KL for a KL: On-Policy Distillation with Control Variate Baseline",
+    "published": "2026-05-08T15:24:51Z",
+    "updated": "2026-05-08T15:24:51Z",
+    "authors_first": "Minjae Oh"
+  },
+  "2605.06188": {
+    "title": "OPSD Compresses What RLVR Teaches: A Post-RL Compaction Stage for Reasoning Models",
+    "published": "2026-05-07T13:04:34Z",
+    "updated": "2026-05-07T13:04:34Z",
+    "authors_first": "Jaehoon Kim"
+  },
+  "2605.08776": {
+    "title": "Reasoning Compression with Mixed-Policy Distillation",
+    "published": "2026-05-09T08:04:47Z",
+    "updated": "2026-05-09T08:04:47Z",
+    "authors_first": "Han Yang"
+  },
+  "2605.10189": {
+    "title": "ProteinOPD: Towards Effective and Efficient Preference Alignment for Protein Design",
+    "published": "2026-05-11T08:38:51Z",
+    "updated": "2026-05-11T08:38:51Z",
+    "authors_first": "Yulin Zhang"
+  },
+  "2605.09725": {
+    "title": "On-Policy Distillation with Best-of-N Teacher Rollout Selection",
+    "published": "2026-05-10T19:49:00Z",
+    "updated": "2026-05-13T03:08:23Z",
+    "authors_first": "Ke Zhang"
+  },
+  "2605.07725": {
+    "title": "SOD: Step-wise On-policy Distillation for Small Language Model Agents",
+    "published": "2026-05-08T13:30:42Z",
+    "updated": "2026-05-08T13:30:42Z",
+    "authors_first": "Qiyong Zhong"
+  },
+  "2605.07711": {
+    "title": "SimCT: Recovering Lost Supervision for Cross-Tokenizer On-Policy Distillation",
+    "published": "2026-05-08T13:16:17Z",
+    "updated": "2026-05-21T08:28:27Z",
+    "authors_first": "Jie Sun"
+  },
+  "2605.07804": {
+    "title": "Prune-OPD: Efficient and Reliable On-Policy Distillation for Long-Horizon Reasoning",
+    "published": "2026-05-08T14:38:53Z",
+    "updated": "2026-06-01T07:36:57Z",
+    "authors_first": "Zhicheng Yang"
+  },
+  "2605.12913": {
+    "title": "Revisiting DAgger in the Era of LLM-Agents",
+    "published": "2026-05-13T02:40:28Z",
+    "updated": "2026-05-13T02:40:28Z",
+    "authors_first": "Changhao Li"
+  },
+  "2605.13255": {
+    "title": "Respecting Self-Uncertainty in On-Policy Self-Distillation for Efficient LLM Reasoning",
+    "published": "2026-05-13T09:38:20Z",
+    "updated": "2026-05-13T09:38:20Z",
+    "authors_first": "Junlong Ke"
+  },
+  "2605.11019": {
+    "title": "Efficient LLM Reasoning via Variational Posterior Guidance with Efficiency Awareness",
+    "published": "2026-05-10T15:18:24Z",
+    "updated": "2026-05-10T15:18:24Z",
+    "authors_first": "Zizhao Chen"
+  },
+  "2605.13501": {
+    "title": "Reward-Weighted On-Policy Distillation with an Open Property-Equivalence Verifier for NL-to-SVA Generation",
+    "published": "2026-05-13T13:23:54Z",
+    "updated": "2026-05-13T13:23:54Z",
+    "authors_first": "Qingyun Zou"
+  },
+  "2605.11853": {
+    "title": "GEAR: Granularity-Adaptive Advantage Reweighting for LLM Agents via Self-Distillation",
+    "published": "2026-05-12T09:38:38Z",
+    "updated": "2026-05-14T10:19:32Z",
+    "authors_first": "Sijia Li"
+  },
+  "2605.12227": {
+    "title": "Combining On-Policy Optimization and Distillation for Long-Context Reasoning in Large Language Models",
+    "published": "2026-05-12T15:04:18Z",
+    "updated": "2026-05-12T15:04:18Z",
+    "authors_first": "Miguel Moura Ramos"
+  },
+  "2605.12652": {
+    "title": "Multi-Rollout On-Policy Distillation via Peer Successes and Failures",
+    "published": "2026-05-12T18:57:44Z",
+    "updated": "2026-06-01T07:33:52Z",
+    "authors_first": "Weichen Yu"
+  },
+  "2605.10889": {
+    "title": "Unmasking On-Policy Distillation: Where It Helps, Where It Hurts, and Why",
+    "published": "2026-05-11T17:33:28Z",
+    "updated": "2026-05-11T17:33:28Z",
+    "authors_first": "Mohammadreza Armandpour"
+  },
+  "2605.10781": {
+    "title": "Rebellious Student: Reversing Teacher Signals for Reasoning Exploration with Self-Distilled RLVR",
+    "published": "2026-05-11T16:16:00Z",
+    "updated": "2026-05-11T16:16:00Z",
+    "authors_first": "Jeonghye Kim"
+  },
+  "2605.12483": {
+    "title": "Beyond GRPO and On-Policy Distillation: An Empirical Sparse-to-Dense Reward Principle for Language-Model Post-Training",
+    "published": "2026-05-12T17:57:48Z",
+    "updated": "2026-05-20T14:15:58Z",
+    "authors_first": "Yuanda Xu"
+  },
+  "2605.11458": {
+    "title": "Adaptive Teacher Exposure for Self-Distillation in LLM Reasoning",
+    "published": "2026-05-12T03:15:58Z",
+    "updated": "2026-05-27T07:37:23Z",
+    "authors_first": "Zihao Han"
+  },
+  "2605.13643": {
+    "title": "Prefix Teach, Suffix Fade: Local Teachability Collapse in Strong-to-Weak On-Policy Distillation",
+    "published": "2026-05-13T15:05:30Z",
+    "updated": "2026-05-25T08:05:47Z",
+    "authors_first": "Kaiyuan Liu"
+  },
+  "2605.11613": {
+    "title": "From Generic Correlation to Input-Specific Credit in On-Policy Self Distillation",
+    "published": "2026-05-12T06:43:17Z",
+    "updated": "2026-05-12T06:43:17Z",
+    "authors_first": "Guobin Shen"
+  },
+  "2605.11739": {
+    "title": "Learning to Foresee: Unveiling the Unlocking Efficiency of On-Policy Distillation",
+    "published": "2026-05-12T08:19:15Z",
+    "updated": "2026-05-21T08:50:47Z",
+    "authors_first": "Yuchen Cai"
+  },
+  "2605.12741": {
+    "title": "Learning with Rare Success but Rich Feedback via Reflection-Enhanced Self-Distillation",
+    "published": "2026-05-12T20:46:05Z",
+    "updated": "2026-05-12T20:46:05Z",
+    "authors_first": "Yuwei Zhang"
+  },
+  "2605.11609": {
+    "title": "Anti-Self-Distillation for Reasoning RL via Pointwise Mutual Information",
+    "published": "2026-05-12T06:40:43Z",
+    "updated": "2026-05-12T06:40:43Z",
+    "authors_first": "Guobin Shen"
+  },
+  "2605.11854": {
+    "title": "Self-Distilled Trajectory-Aware Boltzmann Modeling: Bridging the Training-Inference Discrepancy in Diffusion Language Models",
+    "published": "2026-05-12T09:39:06Z",
+    "updated": "2026-05-18T06:27:28Z",
+    "authors_first": "Kecheng Chen"
+  },
+  "2605.11182": {
+    "title": "The Many Faces of On-Policy Distillation: Pitfalls, Mechanisms, and Fixes",
+    "published": "2026-05-11T19:44:59Z",
+    "updated": "2026-05-24T01:43:21Z",
+    "authors_first": "Siqi Zhu"
+  },
+  "2605.13230": {
+    "title": "Teacher-Guided Policy Optimization for On-Policy Reasoning Distillation under Large Policy Divergence",
+    "published": "2026-05-13T09:20:03Z",
+    "updated": "2026-05-28T10:13:36Z",
+    "authors_first": "Xinyu Liu"
+  },
+  "2605.12400": {
+    "title": "OGLS-SD: On-Policy Self-Distillation with Outcome-Guided Logit Steering for LLM Reasoning",
+    "published": "2026-05-12T17:00:53Z",
+    "updated": "2026-05-29T21:49:52Z",
+    "authors_first": "Yuxiao Yang"
+  },
+  "2605.15239": {
+    "title": "Reducing the Safety Tax in LLM Safety Alignment with On-Policy Self-Distillation",
+    "published": "2026-05-14T03:40:07Z",
+    "updated": "2026-05-14T03:40:07Z",
+    "authors_first": "Yu Fu"
+  },
+  "2605.19433": {
+    "title": "Backtracking When It Strays: Mitigating Dual Exposure Biases in LLM Reasoning Distillation",
+    "published": "2026-05-19T06:42:52Z",
+    "updated": "2026-05-19T06:42:52Z",
+    "authors_first": "Bing Wang"
+  },
+  "2605.15532": {
+    "title": "DeltaPrompts: Escaping the Zero-Delta Trap in Multimodal Distillation",
+    "published": "2026-05-15T02:04:12Z",
+    "updated": "2026-05-19T17:39:21Z",
+    "authors_first": "Jaehun Jung"
+  },
+  "2605.22240": {
+    "title": "Unlocking Proactivity in Task-Oriented Dialogue",
+    "published": "2026-05-21T09:46:25Z",
+    "updated": "2026-05-21T09:46:25Z",
+    "authors_first": "Hongbin Zhang"
+  },
+  "2605.21834": {
+    "title": "On-Policy Consistency Training Improves LLM Safety with Minimal Capability Degradation",
+    "published": "2026-05-20T23:56:40Z",
+    "updated": "2026-05-20T23:56:40Z",
+    "authors_first": "Andy Han"
+  },
+  "2605.18740": {
+    "title": "Vision-OPD: Learning to See Fine Details for Multimodal LLMs via On-Policy Self-Distillation",
+    "published": "2026-05-18T17:57:04Z",
+    "updated": "2026-05-27T17:29:28Z",
+    "authors_first": "Qianhao Yuan"
+  },
+  "2605.21851": {
+    "title": "OPPO: Bayesian Value Recursion for Token-Level Credit Assignment in LLM Reasoning",
+    "published": "2026-05-21T00:55:13Z",
+    "updated": "2026-05-22T00:42:32Z",
+    "authors_first": "Yu Li"
+  },
+  "2605.17873": {
+    "title": "HINT-SD: Targeted Hindsight Self-Distillation for Long-Horizon Agents",
+    "published": "2026-05-18T05:34:03Z",
+    "updated": "2026-05-18T05:34:03Z",
+    "authors_first": "Woongyeng Yeo"
+  },
+  "2605.18529": {
+    "title": "AMR-SD: Asymmetric Meta-Reflective Self-Distillation for Token-Level Credit Assignment",
+    "published": "2026-05-18T15:14:34Z",
+    "updated": "2026-05-18T15:14:34Z",
+    "authors_first": "Zhenlin Wei"
+  },
+  "2605.20258": {
+    "title": "It Takes Two: Complementary Self-Distillation for Contextual Integrity in LLMs",
+    "published": "2026-05-18T13:57:44Z",
+    "updated": "2026-05-18T13:57:44Z",
+    "authors_first": "Sangwoo Park"
+  },
+  "2605.20643": {
+    "title": "AVSD: Adaptive-View Self-Distillation by Balancing Consensus and Teacher-Specific Privileged Signals",
+    "published": "2026-05-20T03:06:36Z",
+    "updated": "2026-05-20T03:06:36Z",
+    "authors_first": "Duy Nguyen"
+  },
+  "2605.17497": {
+    "title": "Self-Supervised On-Policy Distillation for Reasoning Language Models",
+    "published": "2026-05-17T15:14:24Z",
+    "updated": "2026-05-17T15:14:24Z",
+    "authors_first": "Zhiquan Tan"
+  },
+  "2605.17862": {
+    "title": "$\\boldsymbol{f}$-OPD: Stabilizing Long-Horizon On-Policy Distillation with Freshness-Aware Control",
+    "published": "2026-05-18T05:14:18Z",
+    "updated": "2026-05-18T05:14:18Z",
+    "authors_first": "Xianwei Chen"
+  },
+  "2605.22511": {
+    "title": "Search-E1: Self-Distillation Drives Self-Evolution in Search-Augmented Reasoning",
+    "published": "2026-05-21T14:00:57Z",
+    "updated": "2026-05-26T13:56:53Z",
+    "authors_first": "Zihan Liang"
+  },
+  "2605.18299": {
+    "title": "SD-Search: On-Policy Hindsight Self-Distillation for Search-Augmented Reasoning",
+    "published": "2026-05-18T12:18:47Z",
+    "updated": "2026-05-18T12:18:47Z",
+    "authors_first": "Yufei Ma"
+  },
+  "2605.15113": {
+    "title": "Learning from Language Feedback via Variational Policy Distillation",
+    "published": "2026-05-14T17:27:34Z",
+    "updated": "2026-05-18T19:19:17Z",
+    "authors_first": "Yang Li"
+  },
+  "2605.15155": {
+    "title": "Self-Distilled Agentic Reinforcement Learning",
+    "published": "2026-05-14T17:51:26Z",
+    "updated": "2026-05-14T17:51:26Z",
+    "authors_first": "Zhengxi Lu"
+  },
+  "2605.21606": {
+    "title": "When Are Teacher Tokens Reliable? Position-Weighted On-Policy Self-Distillation for Reasoning",
+    "published": "2026-05-20T18:14:03Z",
+    "updated": "2026-05-20T18:14:03Z",
+    "authors_first": "Xiaogeng Liu"
+  },
+  "2605.21924": {
+    "title": "Visual-Advantage On-Policy Distillation for Vision-Language Models",
+    "published": "2026-05-21T02:48:36Z",
+    "updated": "2026-05-21T02:48:36Z",
+    "authors_first": "Ruiqi Liu"
+  },
+  "2605.22263": {
+    "title": "Tailoring Teaching to Aptitude: Direction-Adaptive Self-Distillation for LLM Reasoning",
+    "published": "2026-05-21T10:07:46Z",
+    "updated": "2026-05-21T10:07:46Z",
+    "authors_first": "Hongbin Zhang"
+  },
+  "2606.00147": {
+    "title": "RAFT: Data Refinement and Adaptive Distillation for Domain Fine-Tuning with Alleviated Forgetting",
+    "published": "2026-05-29T03:06:14Z",
+    "updated": "2026-05-29T03:06:14Z",
+    "authors_first": "Yuduo Li"
+  },
+  "2606.01249": {
+    "title": "Trust Region On-Policy Distillation",
+    "published": "2026-05-31T14:04:51Z",
+    "updated": "2026-05-31T14:04:51Z",
+    "authors_first": "Xingrun Xing"
+  },
+  "2606.02372": {
+    "title": "COMAP: Co-Evolving World Models and Agent Policies for LLM Agents",
+    "published": "2026-06-01T15:21:17Z",
+    "updated": "2026-06-01T15:21:17Z",
+    "authors_first": "Youwei Liu"
+  },
+  "2605.28014": {
+    "title": "ROSD: Reflective On-Policy Self-Distillation for Language Model Reasoning across Domains",
+    "published": "2026-05-27T06:09:29Z",
+    "updated": "2026-05-27T06:09:29Z",
+    "authors_first": "Ziqi Zhao"
+  },
+  "2605.30833": {
+    "title": "Your Teacher Can't Help You Here: Combating Supervision Fidelity Decay in On-Policy Distillation",
+    "published": "2026-05-29T04:39:20Z",
+    "updated": "2026-05-29T04:39:20Z",
+    "authors_first": "Yanjiang Liu"
+  },
+  "2606.00564": {
+    "title": "Decomposed On-Policy Distillation for Vision-Language Reasoning: Steering Gradients for Visual Grounding",
+    "published": "2026-05-30T06:34:37Z",
+    "updated": "2026-05-30T06:34:37Z",
+    "authors_first": "Hee Suk Yoon"
+  },
+  "2606.02530": {
+    "title": "SafeSteer: Localized On-Policy Distillation for Efficient Safety Alignment",
+    "published": "2026-06-01T17:38:12Z",
+    "updated": "2026-06-01T17:38:12Z",
+    "authors_first": "Hao Li"
+  },
+  "2605.27028": {
+    "title": "Less is More: Early Stopping Rollout for On-Policy Distillation",
+    "published": "2026-05-26T13:49:37Z",
+    "updated": "2026-05-26T13:49:37Z",
+    "authors_first": "Zhou Ziheng"
+  },
+  "2605.30251": {
+    "title": "Same Evidence, Different Answers: Canonical-Context On-Policy Distillation for Multi-Turn Language Models",
+    "published": "2026-05-28T17:14:29Z",
+    "updated": "2026-05-28T17:14:29Z",
+    "authors_first": "Zizhuo Lin"
+  },
+  "2606.00305": {
+    "title": "Bridging Reasoning Trajectories in On-Policy Distillation via Near-Future Guidance",
+    "published": "2026-05-29T19:32:07Z",
+    "updated": "2026-05-29T19:32:07Z",
+    "authors_first": "Yuxuan Jiang"
+  },
+  "2605.27115": {
+    "title": "Counteraction-Aware Multi-Teacher On-Policy Distillation for General Capability Recovery with Domain Preservation",
+    "published": "2026-05-26T14:52:51Z",
+    "updated": "2026-05-26T14:52:51Z",
+    "authors_first": "Tianlei Chen"
+  },
+  "2606.00424": {
+    "title": "Weak Critics Make Strong Learners: On-Policy Critique Distillation for Scalable Oversight",
+    "published": "2026-05-29T23:21:48Z",
+    "updated": "2026-05-29T23:21:48Z",
+    "authors_first": "Can Jin"
+  },
+  "2605.27140": {
+    "title": "StepOPSD: Step-Aware Online Preference Distillation for Agent Reinforcement Learning",
+    "published": "2026-05-26T15:07:03Z",
+    "updated": "2026-05-26T15:07:03Z",
+    "authors_first": "Yanfei Zhang"
+  },
+  "2606.01476": {
+    "title": "OmniOPD: Logit-Free On-Policy Distillation via Speculative Verification",
+    "published": "2026-05-31T22:31:15Z",
+    "updated": "2026-05-31T22:31:15Z",
+    "authors_first": "Yuhang Zhou"
+  },
+  "2606.01039": {
+    "title": "OPD+: Rethinking the Advantage Design for On-Policy Distillation",
+    "published": "2026-05-31T06:10:38Z",
+    "updated": "2026-05-31T06:10:38Z",
+    "authors_first": "Hanyang Zhao"
+  },
+  "2605.27186": {
+    "title": "MAIGO: Mitigating Lost-in-Conversation with History-Cleaned On-Policy Self-Distillation",
+    "published": "2026-05-26T15:38:46Z",
+    "updated": "2026-05-26T15:38:46Z",
+    "authors_first": "Haoyu Zheng"
+  },
+  "2605.26844": {
+    "title": "Not All Disagreement Is Learnable: Token Teachability in On-Policy Distillation",
+    "published": "2026-05-26T10:56:46Z",
+    "updated": "2026-05-26T10:56:46Z",
+    "authors_first": "Yuanyi Wang"
+  },
+  "2605.28791": {
+    "title": "Skill-Conditioned Gated Self-Distillation for LLM Reasoning",
+    "published": "2026-05-27T17:49:52Z",
+    "updated": "2026-05-27T17:49:52Z",
+    "authors_first": "Jiazhen Huang"
+  },
+  "2605.27255": {
+    "title": "Pair-In, Pair-Out: Latent Multi-Token Prediction for Efficient LLMs",
+    "published": "2026-05-26T16:31:45Z",
+    "updated": "2026-05-29T05:58:41Z",
+    "authors_first": "Wenhui Tan"
+  },
+  "2605.31490": {
+    "title": "Are Full Rollouts Necessary for On-Policy Distillation?",
+    "published": "2026-05-29T16:12:54Z",
+    "updated": "2026-06-01T13:41:45Z",
+    "authors_first": "Yaocheng Zhang"
+  }
+}

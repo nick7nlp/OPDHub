@@ -1,0 +1,79 @@
+✅ Refreshed known_arxiv_ids.txt: 304 IDs
+[scout] DATE WINDOW (CST): 2026-06-03 → 2026-06-04  (days_back=1)
+[scout] accepting YYMM prefixes: ['2606']
+[scout] architecture: RSS-primary + API-verify + S2-crosscheck
+[scout] known IDs to skip: 304
+
+[scout] === Phase 1: RSS feeds (3 categories) ===
+[scout/rss] cs.CL: 215 total items, 27 OPD-keyword matches
+[scout/rss] cs.LG: 404 total items, 58 OPD-keyword matches
+[scout/rss] cs.AI: 440 total items, 63 OPD-keyword matches
+[scout/rss] total unique candidates: 101
+
+[scout] === Phase 2: S2 cross-check (4 queries) ===
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] added 10 papers not found in RSS
+
+[scout] combined unique: 111 (RSS: 101, S2-extra: 10)
+[scout] ⚠️ 10 rejected by DATE WINDOW: ['2602.04577', '2605.28014', '2601.18734', '2605.26132', '2604.17535', '2605.18141', '2605.06597', '2604.03110', '2605.11513', '2604.09624']
+[scout] 2 skipped (already known)
+
+[scout] === Phase 3: no S2-sourced papers to verify ===
+
+[scout] ✅ 50 new candidates for deep-read
+[scout] wrote /tmp/scout_arxiv_results.json
+
+## Scout Summary: 50 new in-window candidates
+
+  - 2606.02806 [rss/ok] Translating Classical Poetry into Modern Prose
+  - 2606.02983 [rss/ok] A Locally Deployed RAG-Based Academic Advising System for Course Selection
+  - 2606.03080 [rss/ok] Regret Pre-training: Bridging Prior and Posterior Views for Enhanced Knowledge G
+  - 2606.03096 [rss/ok] Can Factual Opinions Be Edited (Manipulated) in Large Language Models?
+  - 2606.03099 [rss/ok] PhotoCraft: Agentic Reasoning with Hierarchical Self-Evolving Memory for Deep Im
+  - 2606.03156 [rss/ok] A cross-domain tropical species dataset with Chinese vernacular names and CITES 
+  - 2606.03179 [rss/ok] HyperPatch: Sequential Knowledge Editing Under n-ary Structural Drift
+  - 2606.03189 [rss/ok] SenseJudge: Human-Centric Preference-Driven Judgment Framework
+  - 2606.03318 [rss/ok] Beyond Ideal Instruction: A Comprehensive Framework for Evaluating LLMs in Reali
+  - 2606.03628 [rss/ok] Building Reliable Long-Form Generation via Hallucination Rejection Sampling
+  - 2606.03650 [rss/ok] CoEval: Ranking Language Models for Custom Tasks Without Labeled Data or Trustwo
+  - 2606.03695 [rss/ok] Don't Forget Your Embeddings: Robust Knowledge Erasure via Precise Editing of Em
+  - 2606.03728 [rss/ok] Re-Ranking Through an Attribution Lens for Citation Quality in Legal QA
+  - 2606.03867 [rss/ok] A Training-Free Mixture-of-Agents Framework for Multi-Document Summarization usi
+  - 2606.03968 [rss/ok] QUBRIC: Co-Designing Queries and Rubrics for RL Beyond Verifiable Rewards
+  - 2606.00384 [rss/ok] VESTA: Visual Exploration with Statistical Tool Agents
+  - 2606.02628 [rss/ok] Hallucination Is Linearly Decodable from Mid-Layer Hidden States in Quantized LL
+  - 2606.02814 [rss/ok] Do Neural Retrievers Prefer Certain Documents? Evidence of Learned Relevance Pri
+  - 2606.02964 [rss/ok] Multi-Segment Attention: Enabling Efficient KV-Cache Management for Faster Large
+  - 2606.03128 [rss/ok] Decoupled Smart Contract Audits: Lightweight LLM Framework via Distillation and 
+  - 2606.03180 [rss/ok] GLINT: Sparsely Gated Vision-Language Alignment for Fine-Grained Radiology Repre
+  - 2606.03273 [rss/ok] VistaHop: Benchmarking Multi-hop Visual Reasoning for Visual DeepSearch
+  - 2606.03376 [rss/ok] P\textsuperscript{2}-DPO: Grounding Hallucination in Perceptual Processing via C
+  - 2606.03602 [rss/ok] CauTion: Knowing When to Trust LLMs for Ensemble Causal Discovery
+  - 2606.03692 [rss/ok] SkillPyramid: A Hierarchical Skill Consolidation Framework for Self-Evolving Age
+  - 2606.02595 [rss/ok] Human-in-the-Loop Contextual Bandits for Short-Term Rental Dynamic Pricing: Stru
+  - 2606.02606 [rss/ok] ReLoRA: Knowledge-Reusing Adaptation for Fast Rollout of Evolving LLM Services
+  - 2606.02608 [rss/ok] Pruning Deep Neural Networks via the Marchenko--Pastur Distribution
+  - 2606.02609 [rss/ok] Building Better Activation Oracles
+  - 2606.02659 [rss/ok] CL-DMDF:Dynamic Multimodal Data Fusion Model Based on Contrastive Learning
+  - 2606.02920 [rss/ok] Fast Unlearning at Scale via Margin Self-Correction
+  - 2606.02946 [rss/ok] Outsmarting the Chameleon: Counterfactual Decoupling for Tactical OOD Shifts in 
+  - 2606.03003 [rss/ok] Exact equivariance, kept through training, buys zero-shot generalisation across 
+  - 2606.03052 [rss/ok] What Do Students Learn? A Feature-Level Analysis of Dark Knowledge
+  - 2606.03068 [rss/ok] Learn When and Where to Connect: Adaptive Virtual Nodes for Dynamic Message Pass
+  - 2606.03070 [rss/ok] ASymPO: Asymmetric-Scale Policy Optimization for Asynchronous LLM Post-Training 
+  - 2606.03077 [rss/ok] Libra: Efficient Resource Management for Agentic RL Post-Training
+  - 2606.03087 [rss/ok] Learning to Solve, Forgetting to Retain: Correct-Set Turnover in RLVR
+  - 2606.03089 [rss/ok] Constitutional On-Policy Safe Distillation
+  - 2606.03234 [rss/ok] Right Makes Might: Aligning Verified Hidden States Empowers RL Reasoning
+  - 2606.03315 [rss/ok] A Graph Foundation Model with Spectral Parsing and Prototype-Guided Spatial Prop
+  - 2606.03322 [rss/ok] Multi-Modal Graph Neural Network with Transformer-Guided Adaptive Diffusion for 
+  - 2606.03361 [rss/ok] Mitigating False Credit Propagation: Probabilistic Graphical Reward Aggregation 
+  - 2606.03365 [rss/ok] Link Prediction or Perdition: the Seeds of Instability in Knowledge Graph Embedd
+  - 2606.03382 [rss/ok] Local Guidance, Global Impact: Gaussian-Reshaped Trust Region Unlocks Behavior T
+  - 2606.03495 [rss/ok] HiSE: A Lightweight Hierarchical Semantic Explainer for Heterogeneous Graph Neur
+  - 2606.03521 [rss/ok] Post-Hoc Robustness for Model-Based Reinforcement Learning
+  - 2606.03532 [rss/ok] When Should the Teacher Move? Temporal Coupling and Stability in Self On-Policy 
+  - 2606.03584 [rss/ok] Training a Predictive Coding Network on ImageNet using Equilibrium Propagation
+  - 2606.03620 [rss/ok] Physics-Guided Policy Optimization with Self-Distillation

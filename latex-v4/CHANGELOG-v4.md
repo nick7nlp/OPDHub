@@ -162,3 +162,51 @@ Enumeration restructure (3 paragraphs converted from First/Second/Third 套式):
 Side-effect fix: L1201 NPD prose colon `narrowing the exploration space for GRPO: the NPD$\to$GRPO pipeline` → period-split (caught during the same sweep, missed in 6/01 P1 batch).
 
 PDF: 78 pages (unchanged), 612217 bytes, 0 undefined refs/cites, 0 over/underfull boxes. Final mechanical sweep clean: 0 `particularly`, 0 `facilitate`, 0 First/Second/Third 套式, 0 prose colons, 0 em-dash, 0 sentence-start However/Moreover.
+
+### 2026-06-06 — 52 OPD method papers added (155 → 208)
+
+Following the discrepancy review (Awesome README 178 papers vs latex-v4 main.tex 156 cited), the 52 OPD method papers that were in the Awesome list but not yet in the survey were merged in. Section assignments were taken from the Awesome README §-tags and refined per paper_notes summary + key_components. Each insert was written as a clustered paragraph (no parallel "Method A does X. Method B does Y." enumeration) joining the existing thesis-then-development-then-bridge style of the surrounding section.
+
+| Section | Papers |
+|---|---|
+| §4.1 Fixed Divergence | 5 (OPD+ / Bridging / Decomposed-OPD / Surgical-PT / Distributional-DAgger) |
+| §4.2 Adaptive Divergence | 6 (Position-Weighted-OPSD / Token-Teachability / Direction-Adaptive / Lookahead-Group-Reward / RAFT / Trust-Region-OPD) |
+| §4.3 RL-Augmented | 4 (AMR-SD / OPPO / StepOPSD / Self-Evaluation-OPD) |
+| §5.1 White-Box | 2 (Pair-In-Pair-Out / DuDi) |
+| §5.2 Black-Box | 2 (ORPO-Distill / OmniOPD) |
+| §5.3.1 Privileged Information | 6 (AVSD / Skill-Conditioned-Gated-SD / Weak-Critics-OPD / Constitutional-Cross-SFT / World-Model-PI / Self-Distilled-Policy-Gradient) |
+| §5.3.2 Pure Self-Distillation | 12 (SSD / ROSD / VPG / HINT-SD / SD-Search / Search-E1 / MAIGO / Canonical-Context / COMAP / Vision-OPD / TOD-Proactivity / It-Takes-Two) |
+| §5.3.3 External Feedback | 1 (On-Policy Consistency Training) |
+| §6.1 Token Weighting | 3 (Visual-Advantage-OPD / Filter-Then-Reweight / Less-is-More) |
+| §6.2 Curriculum | 5 (DeltaPrompts / f-OPD / Trust-Region-Behavior-Blending / Adaptive-Teacher-Refresh / Continual-Experience-Internalization) |
+| §6.3 Compute Optimization | 2 (POPD/TOPD / SafeSteer) |
+| §7.2 Failure Modes | 3 (MOTAB / Counteraction-MOPD / Physics-Guided-SD) |
+| §8.1 Industrial Deployment | 1 (Reducing-the-Safety-Tax-OPD) |
+
+Total: 52 ✓.
+
+Engineering details:
+- BibTeX entries fetched via `bibtex_client.ArXivClient.get_bibtex_by_id` with the project's `@article{<arxiv_id>, ...}` style (title double-braced, journal=arXiv preprint arXiv:<id>). 52/52 entries verified, 0 duplicates against existing 156 keys.
+- All inserts passed the WRITING.md grep checklist locally (AI-taste vocab, overclaim, em-dash, prose colon, prose semicolon, sentence-start However/Moreover/Furthermore/Additionally). Three early hits ("the standard ...") were rephrased to "the conventional ..." to clear the overclaim filter.
+- Final compile (pdflatex × 4 with bibtex): 0 undefined ref / cite, 0 Warning, 84 pages, 640,467 bytes.
+- Cite-key count: 208 unique \cite* keys = 138+52 references.bib + 18 references_background.bib = 208 .bib entries (1:1).
+- Survey total now matches the Awesome list method coverage (208 vs 178 main + 30 background-only refs).
+
+Insertion plan recorded at: latex-v4/insertion-plan-52.md
+References backup: latex-v4/references.bib.bak.20260606-pre52
+
+### 2026-06-15 — §7.1/§7.3 加入 2 篇 OPD 几何分析 + 剔除 2 篇非 OPD
+
+**深读 triage（交互式, 3-condition）**: 复核 9 篇候选。7 篇（OPDLM/SG-OPD/PBSD*/AR-OPD/Context-Removability/RLCSD/PTD-PO）经核验已在前一批未提交集成中正确写入正文+分类表, 本次仅核验未重复写入。
+
+**新集成 2 篇（§7.3 Unified Theoretical Perspectives, parameter-space geometry 段落簇）**:
+- `2606.07082` On the Geometry of On-Policy Distillation — subspace locking, off-principal 更新, 纯分析无新方法。
+- `2606.13657` Dense Supervision, Sparse Updates — coordinate-sparse / FFN-heavy / off-principal 更新, 多 LM+VLM pair, AdamW>SGD ablation。
+两篇互补, 合写为 divergence 段之后、length-inflation 段之前的一段。bibtex 用项目 `@article{<id>}` 风格手工写入 references.bib（209 条）。
+
+**剔除 2 篇（移入 papers-meta/excluded-papers.md, 清 Awesome README 各 2 行 🟡）**:
+- `2606.07006` RASFT — 监督目标是 offline expert demonstration（SFT loss + frozen-ref clipped inverse ratio）, on-policy rollout 仅作 problem-level solvability gating, 非 OPD 闭环。原误入 §4.2。
+- `2606.09059` Stage-1 Controls the Entropy Regime — analysis-only, OPD 仅为 warm-start 对照项之一; single-model small-data, 结论自我否定（"not evidence that OPD is a better warm-start"）。原误入 §7.1。
+
+新段落过 WRITING.md 全套铁律检查（AI-taste / overclaim / em-dash / prose colon / 句首 However 全清）。编译 pdflatex×4+bibtex: **89 页, 0 undefined ref/cite, 0 Warning**。
+备份: main.tex.bak-20260615-171100 / references.bib.bak-20260615-171100。

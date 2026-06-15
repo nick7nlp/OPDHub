@@ -1,0 +1,320 @@
+2026-05-30 11:38:39,223 [INFO] targets: 158 (existing results: 0, total is_opd=yes: 158)
+2026-05-30 11:38:39,750 [INFO] targets: 158 (existing results: 0, total is_opd=yes: 158)
+2026-05-30 11:38:46,048 [INFO] targets: 5 (existing results: 0, total is_opd=yes: 158)
+2026-05-30 11:38:46,049 [ERROR] [2605.10781] worker failed: ClaudeLLM.__init__() got an unexpected keyword argument 'temperature'
+2026-05-30 11:38:46,050 [ERROR] [2605.06094] worker failed: ClaudeLLM.__init__() got an unexpected keyword argument 'temperature'
+2026-05-30 11:38:46,050 [ERROR] [2604.27083] worker failed: ClaudeLLM.__init__() got an unexpected keyword argument 'temperature'
+2026-05-30 11:38:46,050 [ERROR] [2604.14084] worker failed: ClaudeLLM.__init__() got an unexpected keyword argument 'temperature'
+2026-05-30 11:38:46,051 [ERROR] [2605.07725] worker failed: ClaudeLLM.__init__() got an unexpected keyword argument 'temperature'
+2026-05-30 11:38:46,526 [INFO] done. wrote 0 results to /apdcephfs_cq8/share_1324356/nickmysong/daily_research/on-policy-distillation-survey/data/loss_classification.json
+2026-05-30 11:38:46,526 [INFO] distribution: {}
+2026-05-30 11:39:08,049 [INFO] targets: 5 (existing results: 0, total is_opd=yes: 158)
+2026-05-30 11:39:08,128 [WARNING] Claude API 调用失败 (尝试 1/3): HTTP 404: {"detail":"Not Found"}
+2026-05-30 11:39:08,128 [INFO]   2.0秒后重试...
+2026-05-30 11:39:08,134 [WARNING] Claude API 调用失败 (尝试 1/3): HTTP 404: {"detail":"Not Found"}
+2026-05-30 11:39:08,134 [INFO]   2.0秒后重试...
+2026-05-30 11:39:08,141 [WARNING] Claude API 调用失败 (尝试 1/3): HTTP 404: {"detail":"Not Found"}
+2026-05-30 11:39:08,141 [INFO]   2.0秒后重试...
+2026-05-30 11:39:10,199 [WARNING] Claude API 调用失败 (尝试 2/3): HTTP 404: {"detail":"Not Found"}
+2026-05-30 11:39:10,199 [INFO]   4.0秒后重试...
+2026-05-30 11:39:10,208 [WARNING] Claude API 调用失败 (尝试 2/3): HTTP 404: {"detail":"Not Found"}
+2026-05-30 11:39:10,208 [INFO]   4.0秒后重试...
+2026-05-30 11:39:10,216 [WARNING] Claude API 调用失败 (尝试 2/3): HTTP 404: {"detail":"Not Found"}
+2026-05-30 11:39:10,217 [INFO]   4.0秒后重试...
+2026-05-30 11:39:14,258 [ERROR] [2604.27083] worker failed: Claude API 调用失败 (重试 3 次): HTTP 404: {"detail":"Not Found"}
+2026-05-30 11:39:14,274 [ERROR] [2605.10781] worker failed: Claude API 调用失败 (重试 3 次): HTTP 404: {"detail":"Not Found"}
+2026-05-30 11:39:14,281 [ERROR] [2605.06094] worker failed: Claude API 调用失败 (重试 3 次): HTTP 404: {"detail":"Not Found"}
+2026-05-30 11:39:14,338 [WARNING] Claude API 调用失败 (尝试 1/3): HTTP 404: {"detail":"Not Found"}
+2026-05-30 11:39:14,339 [INFO]   2.0秒后重试...
+2026-05-30 11:39:14,343 [WARNING] Claude API 调用失败 (尝试 1/3): HTTP 404: {"detail":"Not Found"}
+2026-05-30 11:39:14,343 [INFO]   2.0秒后重试...
+2026-05-30 11:39:16,410 [WARNING] Claude API 调用失败 (尝试 2/3): HTTP 404: {"detail":"Not Found"}
+2026-05-30 11:39:16,411 [INFO]   4.0秒后重试...
+2026-05-30 11:39:16,425 [WARNING] Claude API 调用失败 (尝试 2/3): HTTP 404: {"detail":"Not Found"}
+2026-05-30 11:39:16,426 [INFO]   4.0秒后重试...
+2026-05-30 11:39:20,482 [ERROR] [2605.07725] worker failed: Claude API 调用失败 (重试 3 次): HTTP 404: {"detail":"Not Found"}
+2026-05-30 11:39:20,491 [ERROR] [2604.14084] worker failed: Claude API 调用失败 (重试 3 次): HTTP 404: {"detail":"Not Found"}
+2026-05-30 11:39:20,653 [INFO] done. wrote 0 results to /apdcephfs_cq8/share_1324356/nickmysong/daily_research/on-policy-distillation-survey/data/loss_classification.json
+2026-05-30 11:39:20,653 [INFO] distribution: {}
+2026-05-30 11:39:50,602 [INFO] targets: 5 (existing results: 0, total is_opd=yes: 158)
+2026-05-30 11:39:50,691 [WARNING] Claude API 调用失败 (尝试 1/3): HTTP 404: {"detail":"Not Found"}
+2026-05-30 11:39:50,692 [WARNING] Claude API 调用失败 (尝试 1/3): HTTP 404: {"detail":"Not Found"}
+2026-05-30 11:39:50,692 [INFO]   2.0秒后重试...
+2026-05-30 11:39:50,692 [INFO]   2.0秒后重试...
+2026-05-30 11:39:50,709 [WARNING] Claude API 调用失败 (尝试 1/3): HTTP 404: {"detail":"Not Found"}
+2026-05-30 11:39:50,710 [INFO]   2.0秒后重试...
+2026-05-30 11:39:52,752 [WARNING] Claude API 调用失败 (尝试 2/3): HTTP 404: {"detail":"Not Found"}
+2026-05-30 11:39:52,752 [INFO]   4.0秒后重试...
+2026-05-30 11:39:52,758 [WARNING] Claude API 调用失败 (尝试 2/3): HTTP 404: {"detail":"Not Found"}
+2026-05-30 11:39:52,758 [INFO]   4.0秒后重试...
+2026-05-30 11:39:52,769 [WARNING] Claude API 调用失败 (尝试 2/3): HTTP 404: {"detail":"Not Found"}
+2026-05-30 11:39:52,770 [INFO]   4.0秒后重试...
+2026-05-30 11:39:56,813 [ERROR] [2604.27083] worker failed: Claude API 调用失败 (重试 3 次): HTTP 404: {"detail":"Not Found"}
+2026-05-30 11:39:56,821 [ERROR] [2605.06094] worker failed: Claude API 调用失败 (重试 3 次): HTTP 404: {"detail":"Not Found"}
+2026-05-30 11:39:56,824 [ERROR] [2605.10781] worker failed: Claude API 调用失败 (重试 3 次): HTTP 404: {"detail":"Not Found"}
+2026-05-30 11:39:56,889 [WARNING] Claude API 调用失败 (尝试 1/3): HTTP 404: {"detail":"Not Found"}
+2026-05-30 11:39:56,889 [INFO]   2.0秒后重试...
+2026-05-30 11:39:56,894 [WARNING] Claude API 调用失败 (尝试 1/3): HTTP 404: {"detail":"Not Found"}
+2026-05-30 11:39:56,894 [INFO]   2.0秒后重试...
+2026-05-30 11:39:58,957 [WARNING] Claude API 调用失败 (尝试 2/3): HTTP 404: {"detail":"Not Found"}
+2026-05-30 11:39:58,957 [INFO]   4.0秒后重试...
+2026-05-30 11:39:58,966 [WARNING] Claude API 调用失败 (尝试 2/3): HTTP 404: {"detail":"Not Found"}
+2026-05-30 11:39:58,966 [INFO]   4.0秒后重试...
+2026-05-30 11:40:03,031 [ERROR] [2604.14084] worker failed: Claude API 调用失败 (重试 3 次): HTTP 404: {"detail":"Not Found"}
+2026-05-30 11:40:03,033 [ERROR] [2605.07725] worker failed: Claude API 调用失败 (重试 3 次): HTTP 404: {"detail":"Not Found"}
+2026-05-30 11:40:03,201 [INFO] done. wrote 0 results to /apdcephfs_cq8/share_1324356/nickmysong/daily_research/on-policy-distillation-survey/data/loss_classification.json
+2026-05-30 11:40:03,201 [INFO] distribution: {}
+2026-05-30 11:40:48,351 [INFO] targets: 5 (existing results: 0, total is_opd=yes: 158)
+2026-05-30 11:40:54,880 [INFO] [2605.10781] KL+RL (medium, 6.5s) GRPO surrogate with per-token weight w^RLRT_t=(P_S/P_T)^sign(A) derived from KL(
+2026-05-30 11:40:55,191 [INFO] [2605.06094] Other (medium, 6.8s) Loss is GRPO clipped surrogate with teacher-modulated token weights; no explicit
+2026-05-30 11:40:55,331 [INFO] [2604.27083] KL+RL (high, 7.0s) Loss combines GRPO surrogate (RLVR) with cross-branch token-level KL distillatio
+2026-05-30 11:41:00,969 [INFO] [2604.14084] RKL (high, 6.1s) Loss is D_KL(P_S(·|c_t) ‖ P_T(·|c_t)), i.e., student distribution as first argum
+2026-05-30 11:41:01,678 [INFO] [2605.07725] KL+RL (high, 6.5s) L = L_GRPO + L^step_OPD combines RL reward (GRPO advantage) with teacher KL dist
+2026-05-30 11:41:01,863 [INFO] done. wrote 5 results to /apdcephfs_cq8/share_1324356/nickmysong/daily_research/on-policy-distillation-survey/data/loss_classification.json
+2026-05-30 11:41:01,903 [INFO] distribution: {'KL+RL': 3, 'Other': 1, 'RKL': 1}
+2026-05-30 11:41:29,101 [INFO] targets: 153 (existing results: 5, total is_opd=yes: 158)
+2026-05-30 11:41:35,078 [INFO] [2605.06387] KL+RL (high, 6.0s) Loss combines L^F_KL (forward KL to teacher) and L^OPD (policy gradient with tea
+2026-05-30 11:41:35,493 [INFO] [2605.05940] FKL (high, 6.4s) L_KD = sum p_T(c) log(p_T(c)/p_S(c)) is KL(teacher || student), i.e., forward KL
+2026-05-30 11:41:35,542 [INFO] [2604.26573] FKL (high, 6.4s) Loss is clipped forward KL: sum of p_T(v)[log p_T(v) - log p_S(v)] with clipping
+2026-05-30 11:41:35,719 [INFO] [2605.07804] KL+RL (medium, 6.6s) Loss combines per-position D_KL(p_t || q_t) teacher distillation with RL-style r
+2026-05-30 11:41:36,068 [INFO] [2605.07505] KL+RL (high, 7.0s) Stage1 uses reverse KL distillation (L_OPD with teacher logits), Stage2 uses GRP
+2026-05-30 11:41:41,143 [INFO] [2604.24005] FKL (high, 6.1s) Loss is D_KL(π_ϕ(a_t|h_t) || π_θ(a_t|h_t)), teacher distribution as first argume
+2026-05-30 11:41:41,717 [INFO] [2604.17535] RKL (high, 6.2s) Policy gradient with advantage A_t = log π_Teacher - log π_θ under on-policy stu
+2026-05-30 11:41:42,046 [INFO] [2604.20933] f-Divergence (high, 6.6s) Loss is Rényi divergence variational objective with adaptive order α interpolati
+2026-05-30 11:41:42,308 [INFO] [2604.14054] KL+RL (high, 6.6s) Loss combines GRPO surrogate L_{i,t} (RL reward) with λ D_{Distill}(π^S || π^T) 
+2026-05-30 11:41:42,986 [INFO] [2604.13010] RKL (high, 6.9s) A_t = log π_T - log π_θ; maximizing J_off = E[Σ A_t] minimizes E_{π_ref}[log π_θ
+2026-05-30 11:41:43,121 [INFO] checkpoint: saved 10/153
+2026-05-30 11:41:47,995 [INFO] [2604.10688] FKL (medium, 6.9s) L_OPD on wrong trajectories is KL distillation from teacher logprobs on student-
+2026-05-30 11:41:48,080 [INFO] [2604.12002] RKL (high, 6.4s) L_Self-Distillation uses D_KL(π_θ(·|x,y_{<t}) || π_{θ_SRT}(·|x,y,P_r,y_{<t})), s
+2026-05-30 11:41:48,128 [INFO] [2604.07944] Symmetric (high, 5.8s) Loss is D^(β)_JSD with β=0.5 between teacher and student distributions — Jensen-
+2026-05-30 11:41:48,793 [INFO] [2604.10674] KL+RL (high, 6.7s) L_total = L_GRPO + λ L_SDL, combining GRPO RL surrogate with skill-conditioned t
+2026-05-30 11:41:49,311 [INFO] [2604.04461] Symmetric (medium, 6.3s) GKD loss with β controlling forward/reverse-KL mixture; this is a generalized KL
+2026-05-30 11:41:54,732 [INFO] [2604.02288] KL+RL (high, 6.7s) Loss aggregates GRPO (RL surrogate with clipped advantage) and DW-SDPO (self-dis
+2026-05-30 11:41:54,841 [INFO] [2603.27703] KL+RL (medium, 6.7s) OPD stage combines expert teacher log-prob dense supervision (distillation) with
+2026-05-30 11:41:55,173 [INFO] [2603.26666] RKL (high, 6.4s) Objective is J(θ) = E_{s~π_θ}[-D_KL(π_θ(·|s) || π_tea(·|s))], explicitly reverse
+2026-05-30 11:41:55,183 [INFO] [2604.03128] KL+RL (medium, 7.2s) GRPO surrogate with token-level w_t derived from teacher-student log-prob ratio 
+2026-05-30 11:41:55,911 [INFO] [2603.24596] RKL (high, 6.6s) Advantage A_cm = log π_teacher - log π_student; policy gradient with this advant
+2026-05-30 11:41:56,048 [INFO] checkpoint: saved 20/153
+2026-05-30 11:42:01,149 [INFO] [2603.16856] RKL (high, 6.0s) Loss is D_KL(π_θ(·|x,y<t) || π_teacher(·|e,x,y<t)) — student is first argument, 
+2026-05-30 11:42:01,235 [INFO] [2603.19220] KL+RL (high, 6.4s) MOPD uses token-level reverse-KL advantage from domain teachers combined with GR
+2026-05-30 11:42:01,824 [INFO] [2603.23871] KL+RL (high, 7.1s) L_HDPO = L_GRPO + λ·L_JSD, combining GRPO RL surrogate with JSD teacher distilla
+2026-05-30 11:42:01,936 [INFO] [2603.11178] Symmetric (medium, 6.0s) Two-stage schedule: 50% steps Forward-KL then 50% steps Reverse-KL. Both directi
+2026-05-30 11:42:02,130 [INFO] [2603.13260] Other (medium, 6.9s) Loss combines Plackett-Luce ranking loss (preference-like but not pairwise DPO),
+2026-05-30 11:42:07,128 [INFO] [2603.10165] KL+RL (high, 6.0s) A_t = w_binary * r_final + w_opd*(log π_teacher - log π_old) combines RL reward 
+2026-05-30 11:42:07,930 [INFO] [2603.07079] Symmetric (high, 6.1s) Loss combines PPO-clip reverse KL (low-entropy tokens) and top-k truncated forwa
+2026-05-30 11:42:07,977 [INFO] [2602.15260] RKL (high, 5.8s) Loss is sum of log(πs/πT) over student-sampled tokens, which is the reverse KL D
+2026-05-30 11:42:08,103 [INFO] [2603.11137] RKL (high, 6.9s) Reward R_i,t = log(π_T/π_θ) under on-policy student samples with stop-gradient i
+2026-05-30 11:42:08,584 [INFO] [2602.20574] Other (medium, 6.6s) L_off is NLL on tutor rollout tokens; L_on is advantage-weighted policy gradient
+2026-05-30 11:42:08,804 [INFO] checkpoint: saved 30/153
+2026-05-30 11:42:13,700 [INFO] [2602.22495] KL+RL (high, 6.6s) TRRD ratio fuses GRPO importance ratio with π_θS/π_θT teacher ratio, multiplied 
+2026-05-30 11:42:13,726 [INFO] [2602.12275] RKL (high, 5.6s) Loss is D_KL(π_θ(·|x,y_{<t}) || π_teacher(·|c,x,y_{<t})), student in first argum
+2026-05-30 11:42:14,302 [INFO] [2602.13407] Other (high, 6.4s) NLL/CE on self-generated correct rollouts with no teacher distribution or KL ter
+2026-05-30 11:42:14,604 [INFO] [2602.12674] KL+RL (high, 6.6s) Loss combines D_β[π||B_θ] (KL distillation term) with L_ex (experiential/reward 
+2026-05-30 11:42:16,535 [INFO] [2602.06019] FKL (high, 8.0s) Loss is -P_θT(y'|x) log P_θS(y'|x), which is cross-entropy with teacher weights,
+2026-05-30 11:42:20,226 [INFO] [2602.04942] KL+RL (high, 6.5s) J_OPSD combines reward R(o,s) with β·D_KL(π_θ^S || sg(π_θ^T)) — explicit RL rewa
+2026-05-30 11:42:20,383 [INFO] [2602.02994] RKL (high, 6.1s) Token reward r_t = -(log π_θ - log π_tea) is policy-gradient minimization of rev
+2026-05-30 11:42:20,768 [INFO] [2602.12125] KL+RL (high, 7.1s) Loss combines λ·log(π*/π_ref) as reward signal with D_KL(π_θ||π_ref) regularizer
+2026-05-30 11:42:21,202 [INFO] [2602.02405] RKL (high, 6.6s) Dominant term is D_KL(M_θ(·|x,r_{<t}) || M_PS(·|r_{<t})), reverse KL with studen
+2026-05-30 11:42:23,029 [INFO] [2602.02482] Other (medium, 6.5s) RLTF-SD uses AWR-style RL with second-turn rollouts as targets; RLTF-FM adds NLL
+2026-05-30 11:42:23,259 [INFO] checkpoint: saved 40/153
+2026-05-30 11:42:26,465 [INFO] [2601.18734] Symmetric (high, 6.1s) Loss is JSD_β = β·D_KL(p_T∥m) + (1-β)·D_KL(p_S∥m), m=βp_T+(1-β)p_S, a skewed Jen
+2026-05-30 11:42:26,897 [INFO] [2602.00400] KL+RL (high, 6.7s) Loss combines GRPO advantage-weighted RL term w_i(θ)Â_i with quality-gated teach
+2026-05-30 11:42:26,922 [INFO] [2601.19897] RKL (high, 6.2s) Loss is D_KL(π_θ(·|x) || π(·|x,c)), expectation under student π_θ — reverse KL w
+2026-05-30 11:42:27,813 [INFO] [2601.16547] KL+RL (high, 6.6s) LCORD = Ltok (weighted reverse KL distillation from text modality teacher) + Lse
+2026-05-30 11:42:33,020 [INFO] [2601.07155] Symmetric (medium, 6.6s) Target Q∝P_T·P_S^β is a mixture/interpolation between teacher and student; KL to
+2026-05-30 11:42:33,506 [INFO] [2512.23097] Other (medium, 6.6s) Loss is KL(π_θ || π_ref) + λ·reward. π_ref is a reference policy, not a teacher 
+2026-05-30 11:42:33,508 [INFO] [2601.02780] KL+RL (high, 6.6s) Â_MOPD,t combines sg[log(π_teacher/π_θ)] (token-level reverse KL advantage from 
+2026-05-30 11:42:34,304 [INFO] [2511.10643] Other (high, 6.5s) GAN-style adversarial training: Bradley-Terry discriminator loss + GRPO with dis
+2026-05-30 11:42:38,991 [INFO] [2512.05105] FKL (high, 6.0s) KL(softmax(teacher_logits/T) || softmax(student_logits/T)) — teacher distributio
+2026-05-30 11:42:39,894 [INFO] [2510.18874] Other (medium, 6.4s) Paper compares RL (GRPO with KL to ref policy, no teacher) vs SFT baselines to s
+2026-05-30 11:42:39,929 [INFO] [2510.23497] KL+RL (high, 6.4s) L_VOLD = L_GRPO + β·E[(1-r(τ))·KL(π_φ||π_θ)], combining GRPO reward surrogate wi
+2026-05-30 11:42:40,059 [INFO] checkpoint: saved 50/153
+2026-05-30 11:42:41,009 [INFO] [2510.11615] RKL (high, 6.7s) Loss formulation explicitly states D_KL(q_θ || p), i.e., KL with student q_θ as 
+2026-05-30 11:42:41,548 [INFO] [2601.08310] RKL (high, 18.5s) L_fusion minimizes E_{o~πϕ}[Σ_t log(πϕ/πθk)], which is on-policy reverse KL D_KL
+2026-05-30 11:42:45,294 [INFO] [2510.07842] FKL (high, 6.3s) Loss is D(M_t ∥ M_s) = per-token KL with teacher as first argument, i.e., KL(tea
+2026-05-30 11:42:46,350 [INFO] [2509.22921] KL+RL (high, 6.4s) Loss combines binary task reward R with KL constraint (cumulative KL to teacher 
+2026-05-30 11:42:46,730 [INFO] [2509.25837] Other (high, 6.8s) Concrete Score Matching loss: weighted squared difference of log-ratio (discrete
+2026-05-30 11:42:47,104 [INFO] [2509.25100] Preference (high, 6.1s) ORPO loss uses log-sigmoid of log-odds ratio between chosen (teacher) and reject
+2026-05-30 11:42:47,966 [INFO] [2509.14526] FKL (high, 6.4s) L_delta-KD = D_KL(π_s*(·|x) || π_θ(·|x)), teacher-like synthetic distribution π_
+2026-05-30 11:42:52,144 [INFO] [2509.14257] Other (high, 6.8s) Primary objectives are NLL on teacher trajectories (L_BC) and GRPO with key-step
+2026-05-30 11:42:52,997 [INFO] [2605.15113] RKL (high, 6.3s) M-step loss: D_KL(π_θ(·|x,y_{<t}) ∥ sg[q_ϕ'(·|x,C,y_{<t})]) — student is first a
+2026-05-30 11:42:53,140 [INFO] checkpoint: saved 60/153
+2026-05-30 11:42:53,157 [INFO] [2605.15155] KL+RL (high, 6.8s) L = L_GRPO + λ_SDAR · L_SDAR where SDAR is gated (log π_T - log π_θ) distillatio
+2026-05-30 11:42:54,157 [INFO] [2605.13501] FKL (high, 7.1s) L_OPD = -sum p_T(v|x) log p_S(v|x) is cross-entropy equivalent to forward KL(tea
+2026-05-30 11:42:54,781 [INFO] [2605.13255] KL+RL (medium, 6.8s) Loss combines RL policy gradient (A_i reward advantage) with teacher-student log
+2026-05-30 11:42:58,871 [INFO] [2605.12652] Symmetric (medium, 6.7s) Loss uses D_KL(π_θ || q_ϕ) for math and D_JS for other tasks; JSD is a symmetric
+2026-05-30 11:42:59,526 [INFO] [2605.12483] RKL (medium, 6.2s) J_0(θ) = -β E_x KL(π_θ ∥ π_T): on-policy reverse KL is the dominant OPD distilla
+2026-05-30 11:43:00,310 [INFO] [2605.12741] RKL (medium, 7.3s) Loss sums π_θ(v|…)·f(τ) over vocab; with f for reverse KL this is E_student[log(
+2026-05-30 11:43:00,948 [INFO] [2605.13230] KL+RL (high, 6.8s) J_TGPO^D = J_GRPO + w·J_Guidance; GRPO is RL reward surrogate, J_Guidance is tea
+2026-05-30 11:43:01,225 [INFO] [2605.12400] RKL (high, 6.4s) Loss is KL[π_θ(·|x) || π_T(·|x)], student distribution as first argument — rever
+2026-05-30 11:43:05,372 [INFO] [2605.12227] KL+RL (high, 6.5s) Loss combines GRPO clipped policy gradient (RL reward) with β·D_KL(π_θ ∥ π_teach
+2026-05-30 11:43:05,897 [INFO] [2605.11854] Other (high, 6.4s) TABOM loss combines trajectory-aware reconstruction (NLL on masked tokens) and p
+2026-05-30 11:43:06,059 [INFO] checkpoint: saved 70/153
+2026-05-30 11:43:06,592 [INFO] [2605.11739] RKL (high, 6.3s) Loss is D_KL(π_θ(y|x) || π*(y|x)) with expectation over student samples y∼π_θ, w
+2026-05-30 11:43:07,682 [INFO] [2605.11458] FKL (high, 6.7s) Primary student loss is KL(p_T^{α_t}(·|…) || p_S(·|…)), forward KL with teacher 
+2026-05-30 11:43:08,017 [INFO] [2605.11613] KL+RL (medium, 6.8s) R_t combines log π_ref (teacher/EMA signal) with contrastive baselines and envir
+2026-05-30 11:43:11,893 [INFO] [2605.10189] Symmetric (high, 6.0s) Loss is JSD_0.5(p_S || p_PoE), a symmetric Jensen-Shannon divergence between stu
+2026-05-30 11:43:11,970 [INFO] [2605.11609] KL+RL (high, 6.6s) A_{i,t} = A^{seq}_i + λ·δ_t combines GRPO reward advantage with teacher-derived 
+2026-05-30 11:43:12,954 [INFO] [2605.09548] FKL (high, 6.4s) Loss is KL(π_teacher(·|x_en, r_en) ∥ π_student(·|x_low)), i.e., forward KL with 
+2026-05-30 11:43:14,058 [INFO] [2605.09725] Symmetric (high, 6.4s) Dual-branch loss combines RKL (student-context KL(π_S||π_T)) and FKL (teacher-co
+2026-05-30 11:43:14,531 [INFO] [2605.09329] FKL (high, 6.5s) Dominant term is KL(p || q): teacher p is first argument, student q is second, i
+2026-05-30 11:43:18,577 [INFO] [2605.10194] KL+RL (high, 6.7s) Loss combines GRPO (RL surrogate) with λ_k[μ_E·KL_F(π_T‖π_S) + μ_K·KL_R(π_S‖π_T)
+2026-05-30 11:43:18,856 [INFO] [2605.08873] KL+RL (high, 6.9s) Effective reward r̃_i combines accuracy_reward with α·log(π_θ/π_φ) KL distillati
+2026-05-30 11:43:19,055 [INFO] [2605.08741] FKL (high, 6.1s) Loss is KL(p_θ̃(·|harness context) || p_θ(·|x)), i.e., teacher distribution is f
+2026-05-30 11:43:19,708 [INFO] checkpoint: saved 80/153
+2026-05-30 11:43:20,513 [INFO] [2605.08776] RKL (medium, 6.5s) Loss formula: KL(π_s(·|x,ỹ_{<i};θ) ∥ π_t(·|x,ỹ_{<i};φ)) — student is first argum
+2026-05-30 11:43:21,262 [INFO] [2605.08737] RKL (medium, 6.7s) Advantage A=λ·log(πT/πB)−log(πS/πB) is a scaled reverse-KL-style signal driving 
+2026-05-30 11:43:25,172 [INFO] [2605.07396] Other (high, 6.6s) GRPO surrogate with rubric-based reward from teacher; KL term is only ref-policy
+2026-05-30 11:43:25,175 [INFO] [2605.07711] RKL (high, 6.3s) Loss is KL(q^SimCT_S || q^SimCT_T), i.e., student distribution as first argument
+2026-05-30 11:43:25,844 [INFO] [2605.07177] KL+RL (high, 6.2s) Loss explicitly combines L_GRPO (RL surrogate) with λ_kd * KL(π_θ || π_teacher) 
+2026-05-30 11:43:26,587 [INFO] [2605.06597] Symmetric (high, 6.1s) D_t^(α) = αD(π_T*‖M_t) + (1-α)D(π_θ‖M_t) is JSD (Jensen-Shannon divergence) as t
+2026-05-30 11:43:27,567 [INFO] [2605.05040] Preference (high, 6.3s) Loss is DPO-style Bradley-Terry log σ(β[log-ratio margin]) with teacher as refer
+2026-05-30 11:43:31,176 [INFO] [2605.02971] RKL (high, 6.0s) Loss explicitly minimizes D_KL(p_S(·|x_tgt, y_{<t}) || p_T(·|x_tgt, x*, C, y_{<t
+2026-05-30 11:43:31,263 [INFO] [2605.03677] KL+RL (high, 6.1s) G_OPD combines log πT/πθ (teacher KL distillation signal) with outcome reward R∈
+2026-05-30 11:43:31,399 [INFO] checkpoint: saved 90/153
+2026-05-30 11:43:31,928 [INFO] [2605.01347] Symmetric (medium, 6.1s) Key components state 'Task-adaptive divergence: JSD_0.5 for agentic, Reverse KL 
+2026-05-30 11:43:32,945 [INFO] [2605.02943] KL+RL (high, 6.4s) L_total = L_GRPO(θ_S; R_cos) + λ_distill · D_KL(π_θS || π_θT), both GRPO reward 
+2026-05-30 11:43:33,622 [INFO] [2604.28123] Preference (high, 6.1s) Bradley-Terry loss on discriminator comparing supervision y+ vs rollout y-, mini
+2026-05-30 11:43:37,313 [INFO] [2605.00642] RKL (high, 6.1s) Loss is D_KL(P^S(y_t) || P^T(y_t)) with expectation over student samples y ~ P^S
+2026-05-30 11:43:37,906 [INFO] [2604.16830] KL+RL (high, 6.6s) Loss combines RL reward term (log π·𝟙[R=1]) with forward KL distillation D_KL(π_
+2026-05-30 11:43:38,417 [INFO] [2604.07430] FKL (high, 6.5s) Loss is KL(π_t(·|x,y_{<t}) || π_s(·|x,y_{<t})) — forward KL with teacher as firs
+2026-05-30 11:43:39,291 [INFO] [2603.05433] RKL (high, 6.3s) Loss is DKL(π_θ(·|x,y<t) || π̄_θ(·|x,c,y<t)) — student is first argument, teache
+2026-05-30 11:43:40,195 [INFO] [2604.08527] RKL (high, 6.6s) Token-level reverse-KL advantage Aᵢ,ₜ = log πT − log πθ used in GRPO-clip object
+2026-05-30 11:43:43,654 [INFO] [2601.21968] Other (high, 6.3s) Loss is PPO-clip surrogate with reward from teacher verbal scores; no KL diverge
+2026-05-30 11:43:43,816 [INFO] [2601.09088] Other (high, 5.9s) Loss is NLL on teacher-sampled sequences: L = -log p_S(ŷ|x) where ŷ ~ p_T, no ex
+2026-05-30 11:43:43,960 [INFO] checkpoint: saved 100/153
+2026-05-30 11:43:44,179 [INFO] [2604.01193] Other (high, 5.8s) Standard CE/NLL on self-generated sequences with no KL term, no teacher distribu
+2026-05-30 11:43:45,620 [INFO] [2505.16297] Symmetric (high, 6.3s) Loss is α·FKL + (1-α)·RKL per token, a bidirectional weighted combination of for
+2026-05-30 11:43:46,472 [INFO] [2506.02208] KL+RL (high, 6.3s) J_KDRL = J_GRPO − β·D^{k2}_KL(π_θ‖π_T) explicitly combines GRPO RL surrogate wit
+2026-05-30 11:43:49,716 [INFO] [2505.16142] Other (medium, 6.1s) GRPO with reward signals (R_acc, R_gsrm, R_format, R_tag); no explicit KL diverg
+2026-05-30 11:43:50,229 [INFO] [2504.19024] Other (high, 6.1s) REINFORCE policy gradient with K-step Bellman return using teacher Q-values as r
+2026-05-30 11:43:50,256 [INFO] [2601.20802] RKL (medium, 6.4s) Loss is KL(π_θ(·|x,y_{<t}) || stopgrad(π_θ(·|x,f,y_{<t}))), student in first arg
+2026-05-30 11:43:52,031 [INFO] [2505.09388] RKL (high, 6.4s) L_{on-policy} = D_{KL}(π_θ ∥ π_T), student is first argument, teacher second — r
+2026-05-30 11:43:53,430 [INFO] [2504.11426] FKL (high, 7.0s) Both L^{stu}_{kd} and L^{tea}_{kd} use D(teacher_distribution || student_distrib
+2026-05-30 11:43:56,530 [INFO] [2504.14945] Other (medium, 6.8s) JSHAPING combines clipped on-policy GRPO with regularized importance-weighted of
+2026-05-30 11:43:56,618 [INFO] [2503.02832] RKL (high, 6.4s) Loss is D_KL(π_θ(·|ŷ<t,x) ‖ π*(·|ŷ<t,x)), student is first argument — reverse KL
+2026-05-30 11:43:56,753 [INFO] checkpoint: saved 110/153
+2026-05-30 11:43:59,232 [INFO] [2410.17215] Other (high, 7.2s) Loss is standard NLL/CE on student over curated corpus D'. No KL term between te
+2026-05-30 11:43:59,347 [INFO] [2410.11325] FKL (high, 5.9s) Loss is D(M_T || M_s) = KL with teacher as first argument, i.e., forward KL D_KL
+2026-05-30 11:44:00,649 [WARNING] [2501.16937] parse/validate failed: no JSON in response | raw[:200]=```json
+{
+  "loss_class": "f-Divergence",
+  "confidence": "high",
+  "evidence": "TAID uses KL(p_t || q_θ) where p_t = (1-t)q'_θ + t·p_teacher, which is a skewed/interpolated divergence parameterized b
+2026-05-30 11:44:00,650 [INFO] [2501.16937] Other (low, 10.4s) (LLM output unparseable)
+2026-05-30 11:44:02,692 [INFO] [2404.02657] Symmetric (high, 6.1s) AKL combines FKL and RKL with adaptive weights g_head/(g_head+g_tail) and g_tail
+2026-05-30 11:44:03,271 [INFO] [2410.09008] Preference (high, 6.7s) Stage-2 Cross-model DPO loss uses log-sigmoid margin between teacher-corrected p
+2026-05-30 11:44:05,471 [INFO] [2402.03898] Symmetric (high, 6.1s) Loss uses skewed KL: D_KL(p, αp+(1-α)q_θ) or D_KL(q_θ, (1-α)p+αq_θ), mixture dis
+2026-05-30 11:44:05,558 [INFO] [2402.12842] RKL (high, 6.3s) L_student = D_KL(q_θ(y|x) || p(y|P,x)) is reverse KL with student as first argum
+2026-05-30 11:44:06,676 [INFO] [2503.07067] Symmetric (high, 6.0s) Loss combines SKL (skewed forward KL) on teacher responses and SRKL (skewed reve
+2026-05-30 11:44:09,098 [INFO] [2401.01335] Preference (high, 6.4s) SPIN loss uses logistic loss on log-ratio margins between chosen (human) and rej
+2026-05-30 11:44:09,598 [INFO] [2402.12030] Other (high, 6.3s) Primary loss is Wasserstein-1 distance (W1) between sorted teacher and student p
+2026-05-30 11:44:09,734 [INFO] checkpoint: saved 120/153
+2026-05-30 11:44:11,650 [INFO] [2306.08543] RKL (high, 6.2s) Primary objective is KL[q_θ ∥ p] = D_KL(student ∥ teacher), the reverse KL, opti
+2026-05-30 11:44:12,328 [INFO] [2306.13649] FKL (medium, 6.8s) Loss formulation uses D(p_T || p_S^θ), which is forward KL with teacher as first
+2026-05-30 11:44:12,841 [INFO] [2305.12870] Other (high, 6.2s) Loss is NLL/CE on teacher-generated sequences: L = -sum_t log P_theta(y_t|x,y_{<
+2026-05-30 11:44:15,642 [INFO] [2310.08461] Symmetric (medium, 6.5s) Loss uses D ∈ {FKL, RKL, JSD[β], TVD}; JSD and TVD are symmetric divergences; pa
+2026-05-30 11:44:15,743 [INFO] [2605.07865] RKL (high, 6.1s) The objective minimizes D_KL(π_θ(·|c_t) ∥ π_T(·|c_t)) via policy gradient with o
+2026-05-30 11:44:17,960 [INFO] [2510.24021] FKL (medium, 6.3s) Default D(p_t‖q_t) is KL(teacher‖student), i.e., forward KL. Paper is objective-
+2026-05-30 11:44:18,634 [INFO] [deepseekv4] RKL (high, 5.8s) Loss formulation explicitly states KL(p_student || p_teacher) over full vocabula
+2026-05-30 11:44:19,366 [INFO] [2605.13643] Other (medium, 7.0s) Loss is -A'_t log p_S(y_t|x,y_{<t}): weighted NLL on student rollouts with BIC-t
+2026-05-30 11:44:21,336 [INFO] [2605.15239] FKL (high, 5.6s) DKL(pT ∥ pS) per token along student rollout is forward KL with teacher as first
+2026-05-30 11:44:22,300 [INFO] [2605.11019] KL+RL (medium, 6.7s) Variational ELBO objective combines KL between posterior and prior policy with e
+2026-05-30 11:44:22,436 [INFO] checkpoint: saved 130/153
+2026-05-30 11:44:23,557 [INFO] [2605.15532] RKL (high, 5.6s) Loss formulation explicitly states KL(Pθ(·|x) ∥ PT(·|x)), which is reverse KL wi
+2026-05-30 11:44:24,961 [INFO] [2605.17862] Other (low, 6.3s) Freshness-aware sample reweighting and policy drift constraint suggest bespoke O
+2026-05-30 11:44:25,303 [INFO] [2605.18740] FKL (medium, 5.9s) Token-level KL divergence between crop-conditioned teacher and full-image studen
+2026-05-30 11:44:26,951 [INFO] [2605.17497] FKL (medium, 5.6s) Token-level KL distillation from teacher to student at failed prefixes indicates
+2026-05-30 11:44:28,201 [INFO] [2605.17873] FKL (medium, 5.9s) Token-level distillation loss with teacher conditioned on hindsight generating s
+2026-05-30 11:44:29,196 [INFO] [2605.18299] Symmetric (high, 5.6s) Token-level Jensen-Shannon divergence DJS(teacher ∥ student) at search-query pos
+2026-05-30 11:44:30,989 [INFO] [2605.19433] FKL (medium, 6.0s) Token-level KL guided by teacher token probabilities on student trajectories imp
+2026-05-30 11:44:31,318 [INFO] [2605.20643] FKL (medium, 6.0s) Token-level KL with geometric target from consensus/teacher views implies KL(tea
+2026-05-30 11:44:32,983 [INFO] [2605.22240] FKL (medium, 6.0s) KL-based self-distillation from privileged teacher to student implies standard K
+2026-05-30 11:44:34,198 [INFO] [2605.21924] FKL (medium, 6.0s) Token-level KL distillation with Visual-Advantage reweighting; on-policy distill
+2026-05-30 11:44:34,716 [INFO] checkpoint: saved 140/153
+2026-05-30 11:44:34,965 [INFO] [2605.21851] Other (medium, 5.8s) Policy gradient with token-level advantage from Bayesian value recursion; no exp
+2026-05-30 11:44:36,657 [INFO] [2605.22511] FKL (high, 5.7s) Token-level forward KL: D_KL(π_unprivileged ∥ π_privileged), matching KL(teacher
+2026-05-30 11:44:37,735 [INFO] [2605.22263] Symmetric (medium, 6.4s) Direction-adaptive KL combines forward KL (pull at low-entropy) and reverse KL (
+2026-05-30 11:44:39,544 [INFO] [2605.20258] RKL (high, 6.3s) Loss formulation explicitly states D_KL(π_θ ∥ π_utility) and D_KL(π_θ ∥ π_privac
+2026-05-30 11:44:40,556 [INFO] [2605.27186] FKL (medium, 6.4s) Token-level distillation from clean self-references implies KL(teacher||student)
+2026-05-30 11:44:40,851 [INFO] [2605.27115] FKL (medium, 5.9s) Token-level teacher-student log-probability gap distillation loss corresponds to
+2026-05-30 11:44:42,834 [INFO] [2605.27028] RKL (medium, 6.2s) Token-level distillation on student rollout sequences implies on-policy/reverse 
+2026-05-30 11:44:43,846 [INFO] [2605.26844] FKL (medium, 6.1s) On-Policy Distillation (OPD) token-level KL loss selectively applied; standard O
+2026-05-30 11:44:45,130 [INFO] [2605.21606] FKL (high, 5.6s) Clipped forward-KL: D_KL(π_teacher ∥ π_student) with position weight w(r) increa
+2026-05-30 11:44:46,288 [INFO] [2605.27255] FKL (medium, 5.7s) Token-level distillation using teacher probability on student rollouts correspon
+2026-05-30 11:44:46,424 [INFO] checkpoint: saved 150/153
+2026-05-30 11:44:47,067 [INFO] [2605.21834] FKL (medium, 6.2s) KL divergence between student (perturbed prompt) and teacher (clean prompt) dist
+2026-05-30 11:44:48,946 [INFO] [2605.28014] Symmetric (medium, 6.1s) Loss formulation states 'JSD used in practice' despite the KL written in the equ
+2026-05-30 11:44:50,110 [INFO] [2605.28791] Other (medium, 6.3s) Gated distillation objective uses bounded log-sigmoid of token gap squared, not 
+2026-05-30 11:44:50,278 [INFO] done. wrote 158 results to /apdcephfs_cq8/share_1324356/nickmysong/daily_research/on-policy-distillation-survey/data/loss_classification.json
+2026-05-30 11:44:50,279 [INFO] distribution: {'KL+RL': 37, 'Other': 26, 'RKL': 37, 'FKL': 33, 'f-Divergence': 1, 'Symmetric': 19, 'Preference': 5}
+2026-05-30 11:46:00,555 [INFO] targets: 2 (existing results: 158, total is_opd=yes: 158)
+2026-05-30 11:46:06,564 [INFO] [2605.17862] Other (low, 6.0s) No equations or explicit loss formulation available; freshness-aware reweighting
+2026-05-30 11:46:06,723 [INFO] [2501.16937] Symmetric (high, 6.2s) Loss is KL(p_t || q_θ) where p_t = (1-t)·q'_θ + t·p_teacher, a skewed mixture di
+2026-05-30 11:46:07,036 [INFO] done. wrote 158 results to /apdcephfs_cq8/share_1324356/nickmysong/daily_research/on-policy-distillation-survey/data/loss_classification.json
+2026-05-30 11:46:07,069 [INFO] distribution: {'KL+RL': 37, 'Other': 25, 'RKL': 37, 'FKL': 33, 'f-Divergence': 1, 'Symmetric': 20, 'Preference': 5}
+2026-05-30 11:50:08,121 [INFO] targets: 0 (existing results: 158, total is_opd=yes: 158)
+2026-05-30 11:50:57,565 [INFO] targets: 0 (existing results: 158, total is_opd=yes: 158)
+2026-05-30 11:50:57,565 [INFO] nothing to do.
+2026-05-31 03:39:12,501 [INFO] targets: 0 (existing results: 158, total is_opd=yes: 158)
+2026-05-31 03:39:12,501 [INFO] nothing to do.
+2026-06-01 03:39:21,881 [INFO] targets: 0 (existing results: 158, total is_opd=yes: 158)
+2026-06-01 03:39:21,882 [INFO] nothing to do.
+2026-06-02 21:38:37,849 [INFO] targets: 13 (existing results: 158, total is_opd=yes: 171)
+2026-06-02 21:38:44,020 [INFO] [2606.01080] Other (high, 6.2s) QLoRA fine-tuning on teacher-generated answer-only sequences is NLL on hard labe
+2026-06-02 21:38:44,492 [INFO] [2606.00305] RKL (medium, 6.6s) L_OPD is reverse-KL on student rollouts (on-policy distillation). L_traj adds KL
+2026-06-02 21:38:44,573 [INFO] [2606.00147] FKL (high, 6.7s) L_KL = (T^2/N) Σ KL(q̃ ∥ p̃) where q̃ is teacher soft target, p̃ is student — fo
+2026-06-02 21:38:44,764 [INFO] [2606.00564] RKL (medium, 6.9s) Rollouts sampled from student policy (on-policy), loss computed over τ~p^θ_S(·|I
+2026-06-02 21:38:50,431 [INFO] [2606.01249] Symmetric (high, 6.4s) Loss combines RKL (K1 estimator on trust region) and FKL (outlier tokens + off-p
+2026-06-02 21:38:50,953 [INFO] [2606.02530] RKL (high, 6.2s) Loss is Σ p_s(v) log(p_s(v)/p_t(v)), which is D_KL(student || teacher), i.e., re
+2026-06-02 21:38:51,069 [INFO] [2606.01476] Other (medium, 6.6s) Loss is weighted NLL on teacher-scored chunks (semantic similarity scores as wei
+2026-06-02 21:38:51,706 [INFO] [2606.02372] Other (medium, 7.1s) Loss is NLL on environment next-state prediction plus EMA self-distillation and 
+2026-06-02 21:38:56,995 [INFO] [2605.31490] RKL (high, 6.6s) Policy gradient with y~pi_theta and reward r_t = log pi_g - log pi_theta is the 
+2026-06-02 21:38:57,524 [INFO] [2605.30251] RKL (high, 6.6s) Loss formula explicitly shows D_KL(pi_theta(.|h,y_{<t}) || pi_0(.|c,y_{<t})) — s
+2026-06-02 21:38:57,903 [INFO] [2605.29584] Other (medium, 6.8s) Loss is clipped PPO surrogate with fused advantage combining GRPO and gold-actio
+2026-06-02 21:38:58,047 [INFO] [2605.30833] KL+RL (high, 6.3s) Loss combines A_t (reverse-KL advantage: 1 + log π_θ - log π_T) with γ·r_conf (t
+2026-06-02 21:38:58,175 [INFO] checkpoint: saved 10/13
+2026-06-02 21:39:13,976 [INFO] [2606.01039] f-Divergence (high, 36.1s) Loss uses general f-divergence framework with w_f(u) = -f(u) + u*f'(u), generali
+2026-06-02 21:39:14,204 [INFO] done. wrote 171 results to /apdcephfs_cq8/share_1324356/nickmysong/daily_research/on-policy-distillation-survey/data/loss_classification.json
+2026-06-02 21:39:14,245 [INFO] distribution: {'KL+RL': 38, 'Other': 29, 'RKL': 42, 'FKL': 34, 'f-Divergence': 2, 'Symmetric': 21, 'Preference': 5}
+2026-06-02 22:18:53,001 [INFO] targets: 1 (existing results: 171, total is_opd=yes: 172)
+2026-06-02 22:18:59,407 [INFO] [2606.00424] RKL (high, 6.4s) Loss is KL(π_θ(·|x,y_{<t}) || stopgrad[π_θ(·|x,f,y_{<t})]), student in first arg
+2026-06-02 22:18:59,712 [INFO] done. wrote 172 results to /apdcephfs_cq8/share_1324356/nickmysong/daily_research/on-policy-distillation-survey/data/loss_classification.json
+2026-06-02 22:18:59,745 [INFO] distribution: {'KL+RL': 38, 'Other': 29, 'RKL': 43, 'FKL': 34, 'f-Divergence': 2, 'Symmetric': 21, 'Preference': 5}
+2026-06-02 23:15:32,133 [INFO] targets: 0 (existing results: 172, total is_opd=yes: 172)
+2026-06-02 23:15:32,133 [INFO] nothing to do.
+2026-06-02 23:38:05,884 [INFO] targets: 0 (existing results: 172, total is_opd=yes: 172)
+2026-06-02 23:38:05,885 [INFO] nothing to do.
+2026-06-03 15:24:27,570 [INFO] targets: 2 (existing results: 172, total is_opd=yes: 174)
+2026-06-03 15:24:33,456 [INFO] [2605.31159] RKL (high, 5.9s) Loss is D_KL(π_θ(·|h) || π_T(·|h)), student as first argument, which is reverse 
+2026-06-03 15:24:34,437 [INFO] [2512.17636] KL+RL (medium, 6.9s) L = L_TrSFT^alpha + L_GRPO combines teacher-supervised SFT (expert prefix imitat
+2026-06-03 15:24:34,668 [INFO] done. wrote 174 results to /apdcephfs_cq8/share_1324356/nickmysong/daily_research/on-policy-distillation-survey/data/loss_classification.json
+2026-06-03 15:24:34,709 [INFO] distribution: {'KL+RL': 39, 'Other': 29, 'RKL': 44, 'FKL': 34, 'f-Divergence': 2, 'Symmetric': 21, 'Preference': 5}
+2026-06-03 15:51:09,265 [INFO] targets: 0 (existing results: 174, total is_opd=yes: 174)
+2026-06-03 15:51:09,266 [INFO] nothing to do.
+2026-06-04 04:08:58,952 [INFO] targets: 6 (existing results: 174, total is_opd=yes: 166)
+2026-06-04 04:09:05,057 [INFO] [2606.01215] Other (high, 6.1s) CoT-SFT is NLL on teacher-generated traces; GRPO uses KL(π_θ||π_ref) as ref-poli
+2026-06-04 04:09:05,323 [INFO] [2305.12870] Other (high, 6.4s) Standard SFT/NLL on teacher-generated responses, no KL divergence term between t
+2026-06-04 04:09:05,568 [INFO] [2604.13010] RKL (high, 6.6s) A_t = log π_T - log π_θ summed over tokens equals reverse KL D_KL(π_ref || π_T) 
+2026-06-04 04:09:05,603 [INFO] [2606.02684] Other (medium, 6.6s) PPO-clipped surrogate loss with teacher-derived weighted advantages; no explicit
+2026-06-04 04:09:05,726 [INFO] [2410.09008] Preference (high, 6.8s) Cross-model collaborative DPO loss with log-sigmoid of log-ratio margins between
+2026-06-04 04:09:11,560 [INFO] [2606.03603] FKL (medium, 6.5s) L_disc = D_KL(sg[q_t^*] || π_θ) is forward KL with stopped-gradient teacher q_t*
+2026-06-04 04:09:11,835 [INFO] done. wrote 177 results to /apdcephfs_cq8/share_1324356/nickmysong/daily_research/on-policy-distillation-survey/data/loss_classification.json
+2026-06-04 04:09:11,870 [INFO] distribution: {'KL+RL': 39, 'Other': 31, 'RKL': 44, 'FKL': 35, 'f-Divergence': 2, 'Symmetric': 21, 'Preference': 5}
+2026-06-05 04:15:14,810 [INFO] targets: 11 (existing results: 176, total is_opd=yes: 174)
+2026-06-05 04:15:21,538 [INFO] [2606.03089] KL+RL (high, 6.7s) Token-level reverse-KL reward r(i,t)=log P_S - log P_T combined with clipped PPO
+2026-06-05 04:15:21,601 [INFO] [2509.25100] Preference (high, 6.8s) L_OR uses log-sigmoid of log-odds ratio between chosen (teacher) and rejected (s
+2026-06-05 04:15:24,804 [INFO] [2410.09008] Preference (high, 10.0s) Cross-model collaborative DPO loss with log-sigmoid of log-ratio margins between
+2026-06-05 04:15:27,092 [INFO] [2606.03532] KL+RL (high, 12.3s) L_t = -E[r(x)] + lambda * KL(pi_theta || pi_phi) combines RL reward with KL dist
+2026-06-05 04:15:28,352 [INFO] [2606.03620] RKL (high, 6.8s) Loss is D_KL(π_θ(·|x,y_{<t}) || stopgrad(π_θ(·|x,f,y_{<t}))), student in first a
+2026-06-05 04:15:31,844 [INFO] [2606.04694] KL+RL (medium, 7.0s) Loss combines token-level KD (teacher logits, forward KL) with SPIN sequence-lev
+2026-06-05 04:15:35,146 [INFO] [2606.05122] Other (medium, 6.8s) Masked cross-entropy on self-eval score tokens (NLL on teacher-judge labels) plu
+2026-06-05 04:15:36,343 [INFO] [2606.04036] KL+RL (high, 14.7s) L_SDPG combines L_out (REINFORCE with verifier rewards) and L+_OPD (reverse-KL s
+2026-06-05 04:15:38,749 [INFO] [2606.05152] FKL (high, 6.9s) Loss is forward cross-entropy H×(π_T, π_θ) on student-sampled states, equivalent
+2026-06-05 04:15:42,060 [INFO] [2606.04703] RKL (medium, 15.0s) L_on(θ) = E_{H~πθ} Σ_t D_KL(q_t ∥ p_t) is reverse KL with student q first, on st
+2026-06-05 04:15:42,325 [INFO] checkpoint: saved 10/11
+2026-06-05 04:16:23,669 [INFO] [2605.05040] Preference (high, 68.9s) Loss is DPO-style Bradley-Terry log σ(β[log-ratio margin]) between teacher-gener
+2026-06-05 04:16:24,015 [INFO] done. wrote 185 results to /apdcephfs_cq8/share_1324356/nickmysong/daily_research/on-policy-distillation-survey/data/loss_classification.json
+2026-06-05 04:16:24,016 [INFO] distribution: {'KL+RL': 43, 'Other': 33, 'RKL': 46, 'FKL': 36, 'f-Divergence': 2, 'Symmetric': 21, 'Preference': 4}
+2026-06-06 03:54:11,333 [INFO] targets: 0 (existing results: 185, total is_opd=yes: 170)
+2026-06-06 03:54:11,334 [INFO] nothing to do.

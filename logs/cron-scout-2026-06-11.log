@@ -1,0 +1,79 @@
+✅ Refreshed known_arxiv_ids.txt: 316 IDs
+[scout] DATE WINDOW (CST): 2026-06-10 → 2026-06-11  (days_back=1)
+[scout] accepting YYMM prefixes: ['2606']
+[scout] architecture: RSS-primary + API-verify + S2-crosscheck
+[scout] known IDs to skip: 316
+
+[scout] === Phase 1: RSS feeds (3 categories) ===
+[scout/rss] cs.CL: 181 total items, 24 OPD-keyword matches
+[scout/rss] cs.LG: 396 total items, 49 OPD-keyword matches
+[scout/rss] cs.AI: 407 total items, 64 OPD-keyword matches
+[scout/rss] total unique candidates: 95
+
+[scout] === Phase 2: S2 cross-check (4 queries) ===
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] added 0 papers not found in RSS
+
+[scout] combined unique: 95 (RSS: 95, S2-extra: 0)
+[scout] ⚠️ 1 rejected by DATE WINDOW: ['2605.27770']
+
+[scout] === Phase 3: no S2-sourced papers to verify ===
+
+[scout] ✅ 50 new candidates for deep-read
+[scout] wrote /tmp/scout_arxiv_results.json
+
+## Scout Summary: 50 new in-window candidates
+
+  - 2606.09856 [rss/ok] Using Probabilistic Programs to Train Inductive Reasoning in Large Language Mode
+  - 2606.10126 [rss/ok] Pareto-Guided Teacher Alignment for Fair Personalized Text Generation
+  - 2606.10316 [rss/ok] TabClaw: An Interactive and Self-Evolving Agent for Spreadsheet Manipulation and
+  - 2606.10369 [rss/ok] PADD: Path-Aligned Decompression Distillation for Non-Router Teacher to Guide Mo
+  - 2606.10554 [rss/ok] Benchmarking Knowledge Editing using Logical Rules
+  - 2606.10650 [rss/ok] Dynamic Linear Attention
+  - 2606.10694 [rss/ok] REAL: A Reasoning-Enhanced Graph Framework for Long-Term Memory Management of LL
+  - 2606.10716 [rss/ok] Attention Expansion: Enhancing Keyphrase Extraction from Long Documents with Att
+  - 2606.10736 [rss/ok] Detecting Knowledge Gaps from Conversational AI Interactions Using Curriculum Pr
+  - 2606.10921 [rss/ok] Trace Only What You Need: Structure-Aware On-Demand Hypergraph Memory for Long-D
+  - 2606.10932 [rss/ok] Density Field State Space Models: 1-Bit Distillation, Efficient Inference, and K
+  - 2606.11009 [rss/ok] Who Brought Easter Eggs to Eid? Auditing Cultural Translation of Math Word Probl
+  - 2606.11046 [rss/ok] Does Reasoning Preserve Alignment? On the Trustworthiness of Large Reasoning Mod
+  - 2606.11070 [rss/ok] T1-Bench: Benchmarking Multi-Scenario Agents in Real-World Domains
+  - 2606.11079 [rss/ok] VISTA: A Versatile Interactive User Simulation Toolkit for Agent Evaluation
+  - 2606.09887 [rss/ok] SocraticPO: Policy Optimization via Interactive Guidance
+  - 2606.10254 [rss/ok] RealMath-Eval: Why SOTA Judges Struggle with Real Human Reasoning
+  - 2606.10607 [rss/ok] Causal Ensemble Agent: Hierarchical Causal Discovery with LLM-guided Expert Rewe
+  - 2606.10740 [rss/ok] When the Chain of Thought Knows Better: Failure Modes in Multi-Turn Reasoning Mo
+  - 2606.10768 [rss/ok] N-GRPO: Embedding-Level Neighbor Mixing for Enhanced Policy Optimization
+  - 2606.10820 [rss/ok] K-Forcing: Joint Next-K-Token Decoding via Push-Forward Language Modeling
+  - 2606.10956 [rss/ok] Mind the Gap: Can Frontier LLMs Pass a Standardized Office Proficiency Exam?
+  - 2606.11078 [rss/ok] A History-Aware Visually Grounded Critic for Computer Use Agents
+  - 2606.11119 [rss/ok] TRACE: A Unified Rollout Budget Allocation Framework for Efficient Agentic Reinf
+  - 2606.09862 [rss/ok] Blurry Window Attention
+  - 2606.09883 [rss/ok] TD-Grokking: Learning from Zero-Reward Problems by Training-Time Decomposition
+  - 2606.09885 [rss/ok] TENP: Trapezoidal Expert Neuron Pruning For Mixture-of-Experts
+  - 2606.09919 [rss/ok] Co-GLANCE: Uncertainty-Aware Active Perception for Heterogeneous Robot Teaming
+  - 2606.09961 [rss/ok] 3SPO: State-Score-Supervised Policy Optimization for LLM Agents
+  - 2606.10064 [rss/ok] Bittensor Agent Arenas as a Trajectory Primitive: Distilling a Shopping Agent fr
+  - 2606.10129 [rss/ok] Discovering Interpretable Multi-Parameter Control Policies for Evolutionary Algo
+  - 2606.10184 [rss/ok] Dropout-GRPO: Variational Stochasticity for Continuous Latent Reasoning
+  - 2606.10321 [rss/ok] Baseline-Free Policy Optimization for Neural Combinatorial Optimization
+  - 2606.10385 [rss/ok] Beyond Absolute Imitation: Anchored Residual Guidance for Privileged On-Policy D
+  - 2606.10499 [rss/ok] MoE Enhanced Federated Learning for Spatiotemporal Prediction
+  - 2606.10587 [rss/ok] Towards Diverse Scientific Hypothesis Search with Large Language Models
+  - 2606.10611 [rss/ok] Geometry-Aware Reinforcement Learning for 2D Irregular Nesting
+  - 2606.10613 [rss/ok] Fast and Highly Expressive Policy Learning for Offline Reinforcement Learning vi
+  - 2606.10777 [rss/ok] Can we trust our models? Epistemic calibration in second-order classification
+  - 2606.10825 [rss/ok] MODIP: Efficient Model-Based Optimization for Diffusion Policies
+  - 2606.10868 [rss/ok] When Do Autoregressive Sequence Models Forecast Physical Wavefields? A Controlle
+  - 2606.10938 [rss/ok] A Systematic Approach for Selecting Trajectories for Data Augmentation
+  - 2606.10968 [rss/ok] Beyond Uniform Token-Level Trust Region in LLM Reinforcement Learning
+  - 2606.11075 [rss/ok] Exploring the Design Space of Reward Backpropagation for Flow Matching
+  - 2606.11087 [rss/ok] Test-Time Gradient Guidance of Flow Policies in Reinforcement Learning
+  - 2606.11104 [rss/ok] Limitations of Learning Tanh Neural Networks with Finite Precision
+  - 2606.11138 [rss/ok] First-Order Trajectory Matching: Fast Ensemble Predictions of Chaotic, Turbulent
+  - 2606.11162 [rss/ok] COGENT: Continuous Graph Emulators with Neural Ordinary Differential Equations f
+  - 2606.09635 [rss/already-existed] Gradient-Guided Reward Optimization for Inference-time Alignment
+  - 2606.09871 [rss/ok] SD-GRPO: Verifiable Segment Decomposition for Long-Form Vision-Language Generati

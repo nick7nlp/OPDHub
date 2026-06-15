@@ -1,0 +1,78 @@
+✅ Refreshed known_arxiv_ids.txt: 316 IDs
+[scout] DATE WINDOW (CST): 2026-06-08 → 2026-06-09  (days_back=1)
+[scout] accepting YYMM prefixes: ['2606']
+[scout] architecture: RSS-primary + API-verify + S2-crosscheck
+[scout] known IDs to skip: 316
+
+[scout] === Phase 1: RSS feeds (3 categories) ===
+[scout/rss] cs.CL: 135 total items, 15 OPD-keyword matches
+[scout/rss] cs.LG: 317 total items, 20 OPD-keyword matches
+[scout/rss] cs.AI: 288 total items, 30 OPD-keyword matches
+[scout/rss] total unique candidates: 50
+
+[scout] === Phase 2: S2 cross-check (4 queries) ===
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] added 0 papers not found in RSS
+
+[scout] combined unique: 50 (RSS: 50, S2-extra: 0)
+
+[scout] === Phase 3: no S2-sourced papers to verify ===
+
+[scout] ✅ 50 new candidates for deep-read
+[scout] wrote /tmp/scout_arxiv_results.json
+
+## Scout Summary: 50 new in-window candidates
+
+  - 2606.06614 [rss/ok] Re-Centering Humans in LLM Personalization
+  - 2606.06646 [rss/ok] CAF-Gen: A Multi-Agent System for Enriching Argumentation Structures
+  - 2606.06674 [rss/ok] What Do People Actually Want From AI? Mapping Preference Plurality
+  - 2606.06712 [rss/ok] Data-Efficient Autoregressive-to-Diffusion Language Models via On-Policy Distill
+  - 2606.06738 [rss/ok] Modular Monolingual Adaptation using Pretrained Language Models
+  - 2606.06840 [rss/ok] Characterize Then Distill: Mechanistic Reasoning in Large Output Spaces
+  - 2606.06842 [rss/ok] CRAFT: A Unified Counterfactual Reasoning Framework for Tabular Question Answeri
+  - 2606.06865 [rss/ok] Are Large Language Models Suitable for Graph Computation? Progress and Prospects
+  - 2606.06994 [rss/ok] Principles of Concept Representation in Sentence Encoders
+  - 2606.07069 [rss/ok] mmPISA-bench: Do LLMs Reason Equally Well Across 43 Languages?
+  - 2606.07190 [rss/ok] From Correctness to Utility: Gain-Based Prefix Evaluation for LLM Reasoning
+  - 2606.07422 [rss/ok] The Masked Advantage: Uncovering Local-Language Access to Cultural Knowledge in 
+  - 2606.05510 [rss/ok] Severity-Aware Curriculum Learning with Multi-Model Response Selection for Medic
+  - 2606.07006 [rss/ok] RASFT: Rollout-Adaptive Supervised Fine-Tuning for Reasoning
+  - 2606.07297 [rss/ok] SWE-Explore: Benchmarking How Coding Agents Explore Repositories
+  - 2606.06546 [rss/ok] Elmes*: Automated Construction of Fine-Grained Evaluation Rubrics for Large Lang
+  - 2606.06547 [rss/ok] FAIR-Calib: Frontier-Aware Instability-Reweighted Calibration for Post-Training 
+  - 2606.06682 [rss/ok] Spatiotemporal Imputation with Graph-Informed Flow Matching
+  - 2606.06746 [rss/ok] Performance Variation in Deep Reinforcement Learning
+  - 2606.06833 [rss/ok] Hearing the Unspoken: Language Model Priors for Acoustic Adversarial Attacks
+  - 2606.06967 [rss/ok] GenPO++: Generative Policy Optimization with Jacobian-free Likelihood Ratios
+  - 2606.07074 [rss/ok] SlimSearcher: Training Efficiency-Aware Web Agents via Adaptive Reward Gating
+  - 2606.07082 [rss/ok] On the Geometry of On-Policy Distillation
+  - 2606.07127 [rss/ok] Learning Explicit Behavioral Models with Adaptive Questions and World-Model Prob
+  - 2606.07254 [rss/ok] A Held-Out Transition-Pair Falsifier for Long-Horizon Non-Abelian State Tracking
+  - 2606.07474 [rss/ok] Unsupervised Continual Clustering via Forward-Backward Knowledge Distillation
+  - 2606.07488 [rss/ok] CoMetaPNS: Continually Meta-learning Personalized Neural Surrogates for Cardiac 
+  - 2606.06515 [rss/ok] DxPTA: An Architecture Design Space Exploration with Optical Dataflow-guided Str
+  - 2606.06518 [rss/ok] DiBS: Diffusion-Informed Branch Selection
+  - 2606.06539 [rss/ok] Synthetic Benchmarks Overstate Forward-Forward Scaling: Real-Data Limits of Laye
+  - 2606.06615 [rss/ok] FIGMA: Towards FIne-Grained Music retrievAl
+  - 2606.06864 [rss/ok] LRMIL: Efficient Low-Resolution Multiple Instance Learning via High-Resolution K
+  - 2606.07463 [rss/ok] Amortized Neural Optimization for Pre-Layout Signal Integrity Design Space Explo
+  - 2606.06641 [rss/ok] Accelerated Fourier SAT (AFSAT): Fully Realising a GPU-based Symmetric Pseudo-Bo
+  - 2606.06735 [rss/ok] A Geometric Account of Activation Steering through Angle-Norm Decomposition
+  - 2606.06972 [rss/ok] Accounting for Context: Shaping Moral Credences for Value Alignment
+  - 2606.07000 [rss/ok] Teaching the Way, Not the Answer: Privileged Tutoring Distillation for Multimoda
+  - 2606.07027 [rss/ok] StainFlow: Entity-Stain Tracking and Evidence Linking for Process Rewards in GUI
+  - 2606.07047 [rss/ok] Front-to-Attractors: Modifying the Front-to-Front Heuristic in Bidirectional Sea
+  - 2606.07253 [rss/ok] TOPSIS-RAD: Ranking According to Desires
+  - 2606.07299 [rss/ok] DuMate-DeepResearch: An Auditable Multi-Agent System with Recursive Search and R
+  - 2606.07462 [rss/ok] Act As a Real Researcher: A Suite of Benchmarks Evaluating Frontier LLMs and Age
+  - 2606.06566 [rss/ok] NTILC: Neural Tool Invocation via Learned Compression
+  - 2606.06853 [rss/ok] MotionEnhancer: Leveraging Video Diffusion for Motion-Enhanced Vision-Language M
+  - 2606.06872 [rss/ok] EgoPressDiff: Multimodal Video Diffusion for Egocentric UV-Domain Hand-Pressure 
+  - 2606.07080 [rss/ok] dots.tts Technical Report
+  - 2606.07117 [rss/ok] Native3D: End-to-End 3D Scene Generation via Unified Mesh-Texture Modeling and S
+  - 2606.07244 [rss/ok] Beyond Waypoints: A Trajectory-Centric Waypointing Paradigm for Vision-Language 
+  - 2606.07412 [rss/ok] Socratic-SWE: Self-Evolving Coding Agents via Trace-Derived Agent Skills
+  - 2606.07464 [rss/ok] Planning-aligned Token Compression for Long-Context Autonomous Driving

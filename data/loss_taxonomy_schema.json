@@ -1,0 +1,70 @@
+{
+  "version": "v1.0-2026-05-30",
+  "description": "OPD loss taxonomy - 7 mutually exclusive classes used to categorize the loss objective each OPD paper trains with. Granularity is intentionally coarse (matches survey paper §2.3 + KL-only/+RL/+Pref split).",
+  "classes": [
+    {
+      "id": "FKL",
+      "name": "Forward KL",
+      "expression": "D_KL( \\pi_T(\\cdot|x) \\| \\pi_\\theta(\\cdot|x) )",
+      "what_to_match": "Loss is dominated by forward KL where the teacher distribution is the first argument (mode-covering). Includes classical KD with KL(teacher || student), CE-on-teacher-soft-targets when explicitly equivalent.",
+      "do_not_match": "Pure NLL/CE on hard labels with no teacher distribution. RL with KL(\\pi_\\theta || \\pi_ref) as ref-policy regularizer (that is RKL but NOT teacher distill, route to Other if no teacher).",
+      "examples": ["GKD on-policy with FKL", "classical KD baseline runs"]
+    },
+    {
+      "id": "RKL",
+      "name": "Reverse KL",
+      "expression": "D_KL( \\pi_\\theta(\\cdot|x) \\| \\pi_T(\\cdot|x) )",
+      "what_to_match": "Loss is dominated by reverse KL where the student distribution is the first argument (mode-seeking). MiniLLM-style policy-gradient interpretations also fall here when the underlying objective is RKL to a teacher.",
+      "do_not_match": "RKL where teacher slot is occupied by a frozen reference policy of the same model with no teacher signal (that is RL ref-regularization).",
+      "examples": ["MiniLLM", "DeepSeek-V4 reverse-KL distill"]
+    },
+    {
+      "id": "Symmetric",
+      "name": "Symmetric / Skewed KL / JSD / GKL",
+      "expression": "D_JSD, D_skew-KL_\\alpha, D_GKL, or any symmetrized KL combination",
+      "what_to_match": "Jensen-Shannon divergence; skewed forward/reverse KL with mixture distribution \\alpha\\pi_T + (1-\\alpha)\\pi_\\theta inside; bidirectional sum a*FKL + b*RKL with both nontrivial; total variation between teacher and student.",
+      "do_not_match": "Single-direction KL with a small ref-policy regularizer (still FKL or RKL).",
+      "examples": ["DistiLLM (skewed KL)", "JSD baselines"]
+    },
+    {
+      "id": "f-Divergence",
+      "name": "Other f-divergence (alpha / Renyi / Tsallis / chi-squared)",
+      "expression": "D_\\alpha, D_Renyi, D_chi2, ... (any f-divergence beyond KL/JSD)",
+      "what_to_match": "Adaptive KL family that interpolates a parameter between FKL and RKL via alpha-divergence (AKL / TAID-style). Renyi divergence. Chi-squared. Tsallis.",
+      "do_not_match": "Adaptive switching that just toggles between FKL and RKL discretely (route to whichever direction dominates, or Symmetric if mixed).",
+      "examples": ["AKL (alpha)", "IRIS (Renyi)", "TAID (interpolating)"]
+    },
+    {
+      "id": "KL+RL",
+      "name": "Hybrid KL distill + RL reward",
+      "expression": "L = D_KL(teacher, student) + \\lambda \\cdot R(x,a) (or GRPO/PPO surrogate with teacher KL)",
+      "what_to_match": "Loss explicitly mixes a teacher-KL distillation term with a verifiable reward / advantage / GRPO / PPO surrogate signal. Both terms must be load-bearing (removing either breaks the contribution).",
+      "do_not_match": "RL-only with ref-policy KL regularizer and no teacher (NOT distillation, route to Other and consider rejection upstream). KL-only paper that uses RL only as a baseline.",
+      "examples": ["SRPO", "AOPD gated KL+RL", "DPSD reward-shaped KL"]
+    },
+    {
+      "id": "Preference",
+      "name": "Preference / Pairwise / DPO-style",
+      "expression": "DPO-style log-ratio margin between chosen and rejected responses, optionally with a KL-to-teacher hinge",
+      "what_to_match": "Preference-pair loss is the primary distillation signal: DPO, IPO, SimPO, or preference-gap KL where teacher provides the chosen response and student avoids rejected.",
+      "do_not_match": "DPO used only as an auxiliary RL term where the main loss is KL distill (route to KL+RL if both load-bearing, FKL/RKL if KL dominates).",
+      "examples": ["PBSD (preference-based self-distillation)"]
+    },
+    {
+      "id": "Other",
+      "name": "Other / Bespoke (NLL, MSE, Contrastive, special)",
+      "expression": "any objective that does not fit the six classes above",
+      "what_to_match": "MSE on hidden states, contrastive InfoNCE between teacher/student embeddings, NLL on teacher-rolled-out sequences with no KL term, bespoke metric losses.",
+      "do_not_match": "Any objective whose dominant term is one of the six classes above.",
+      "examples": ["hidden-state MSE distillation", "contrastive distillation"]
+    }
+  ],
+  "tie_breaking_rules": [
+    "Pick the SINGLE dominant class. If multiple terms are present, choose the one whose removal would most damage the paper's contribution.",
+    "If a paper has both a teacher-KL term and an RL reward and BOTH are load-bearing, pick KL+RL.",
+    "If a paper says 'reverse KL' but actually writes D_KL(teacher || student) in the equation, trust the equation.",
+    "Self-distillation (no external teacher, but the model itself acts as teacher) still counts as a teacher-distill direction — classify by KL direction.",
+    "If only ref-policy KL appears with no teacher distribution (pure RL), classify as Other and flag in notes."
+  ],
+  "confidence_levels": ["high", "medium", "low"]
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "aid": "2606.06712",
+    "section": "§5.3.2",
+    "model_pair": "AR-LM (frozen) → Diffusion-LM",
+    "one_line": "OPDLM: self-distillation converts AR LM to diffusion LM on-policy; 15x-7000x fewer training tokens",
+    "code_url": null
+  },
+  {
+    "aid": "2606.07082",
+    "section": "§7.1",
+    "model_pair": "",
+    "one_line": "Geometry of OPD: subspace locking in parameter-space trajectories; OPD avoids principal directions vs SFT/RL",
+    "code_url": null
+  },
+  {
+    "aid": "2606.09304",
+    "section": "§5.3.3",
+    "model_pair": "Teacher → Student",
+    "one_line": "SG-OPD: sign-consistency gating + phased teacher sampling for verifier-guided OPD; +1.98/+7.50 on math",
+    "code_url": null
+  },
+  {
+    "aid": "2606.09348",
+    "section": "§5.3.1",
+    "model_pair": "Self (w/ GT) → Self (w/o GT)",
+    "one_line": "PBSD: Bayesian self-distillation converts sparse trajectory rewards to turn-level credits for long-horizon RL",
+    "code_url": null
+  },
+  {
+    "aid": "2606.10385",
+    "section": "§5.3.1",
+    "model_pair": "Oracle (privileged) → Student",
+    "one_line": "AR-OPD: anchor + oracle residual prevents hindsight leakage; +2.3 vs full OPD, +7.9 vs SFT, -21.7% leakage",
+    "code_url": null
+  },
+  {
+    "aid": "2606.07000",
+    "section": "§5.3.1",
+    "model_pair": "Privileged teacher → 2B-8B VLM",
+    "one_line": "PTD-PO: Top-K JSD privileged tutoring with spatial+reasoning hints for multimodal policy optimization",
+    "code_url": null
+  },
+  {
+    "aid": "2606.07006",
+    "section": "§4.2",
+    "model_pair": "Expert → Student",
+    "one_line": "RASFT: rollout-adaptive SFT switches expert guidance vs own-solutions by competence; math+code",
+    "code_url": null
+  },
+  {
+    "aid": "2606.08432",
+    "section": "§6.2",
+    "model_pair": "Teacher → Student",
+    "one_line": "TRD: trajectory-level teacher correction of prefix-failure fragmented gradients in OPD",
+    "code_url": null
+  },
+  {
+    "aid": "2606.09091",
+    "section": "§4.2",
+    "model_pair": "Teacher → MLLM",
+    "one_line": "GNDPO: global KL normalization to batch-relative advantages stabilizes on-policy distillation for MLLMs",
+    "code_url": null
+  },
+  {
+    "aid": "2606.09456",
+    "section": "§5.1",
+    "model_pair": "Cross-family Teacher → Cross-family Student",
+    "one_line": "Token-mapping enables on-policy distillation across model families with different tokenizers",
+    "code_url": null
+  }
+]

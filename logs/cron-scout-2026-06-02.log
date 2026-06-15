@@ -1,0 +1,80 @@
+✅ Refreshed known_arxiv_ids.txt: 389 IDs
+[scout] DATE WINDOW (CST): 2026-06-01 → 2026-06-02  (days_back=1)
+[scout] accepting YYMM prefixes: ['2606']
+[scout] architecture: RSS-primary + API-verify + S2-crosscheck
+[scout] known IDs to skip: 389
+
+[scout] === Phase 1: RSS feeds (3 categories) ===
+[scout/rss] cs.CL: 450 total items, 48 OPD-keyword matches
+[scout/rss] cs.LG: 936 total items, 103 OPD-keyword matches
+[scout/rss] cs.AI: 946 total items, 121 OPD-keyword matches
+[scout/rss] total unique candidates: 184
+
+[scout] === Phase 2: S2 cross-check (4 queries) ===
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] added 0 papers not found in RSS
+
+[scout] combined unique: 184 (RSS: 184, S2-extra: 0)
+[scout] ⚠️ 1 rejected by DATE WINDOW: ['2604.04937']
+[scout] 100 skipped (already known)
+
+[scout] === Phase 3: no S2-sourced papers to verify ===
+
+[scout] ✅ 50 new candidates for deep-read
+[scout] wrote /tmp/scout_arxiv_results.json
+
+## Scout Summary: 50 new in-window candidates
+
+  - 2606.02194 [rss/ok] Coherent Off-Policy Improvement of Large Behavior Models with Learned Rewards
+  - 2606.02218 [rss/ok] Faster Synchronous On-Policy RL via Straggler-Aware Group Sizing
+  - 2606.02237 [rss/ok] Why Are DMD Students Lazy? Understanding the Copying Behavior in Few-Step Distil
+  - 2606.02267 [rss/ok] A combination of noise and bilateral filters achieve supralinear and scalable ad
+  - 2606.02351 [rss/ok] Local Preferential Bayesian Optimization
+  - 2606.02388 [rss/ok] Policy and World Modeling Co-Training for Language Agents
+  - 2606.02521 [rss/ok] Drifting Preference Optimization for One-Step Generative Models
+  - 2606.00011 [rss/ok] RuleEdit: Failure-Guided Human-AI Model Editing with Prospective Impact Preview
+  - 2606.00080 [rss/ok] Planktonzilla: Multimodal dataset and models for understanding plankton ecosyste
+  - 2606.00120 [rss/ok] SpikeWFM: Spiking-Aided Wireless Foundation Model for Robust Channel Prediction
+  - 2606.00134 [rss/ok] XAI-SOH-FL: Enhancing SOH-FL with Adaptive Aggregation and Explainable AI for In
+  - 2606.00229 [rss/ok] Continuous Reasoning for Vision-Language-Action
+  - 2606.00232 [rss/ok] TIGER: Traceable Inference with Graph-Based Evidence Routing for Mitigating Hall
+  - 2606.00252 [rss/ok] HOIST: Humanoid Optimization with Imitation and Sample-efficient Tuning for Mani
+  - 2606.00270 [rss/ok] Robust Shielding for Safe Reinforcement Learning
+  - 2606.00329 [rss/ok] Benchmarking Recursive-Collapse Warning Claims Under Matched False-Positive Cont
+  - 2606.00336 [rss/ok] From Noise to Control: Parameterized Diffusion Policies
+  - 2606.00506 [rss/ok] EnergyMamba: An Uncertainty-Aware Graph-Enhanced Selective State Space Model for
+  - 2606.00562 [rss/ok] DeepLatent: Think with Images via Parallel Latent Visual Reasoning
+  - 2606.00583 [rss/ok] Improving Visual Representation Alignment Generation with GRPO
+  - 2606.00680 [rss/ok] Regularized Offline Policy Optimization with Posterior Hybrid Bayesian Belief
+  - 2606.00732 [rss/ok] SHARP: Sleep-based Hierarchical Accelerated Replay for Long Range Non-Stationary
+  - 2606.00746 [rss/ok] Scaling Parallel Sequence Models to Foundation-Scale Vision Encoders
+  - 2606.00798 [rss/ok] DASH: Dual-Branch Score Distillation for Guidance-Calibrated Compact Diffusion M
+  - 2606.00831 [rss/ok] Subliminal Learning is a LoRA Artifact
+  - 2606.00844 [rss/ok] MoEIoU: Rethinking Bounding-Box Regression as a Mixture of Experts
+  - 2606.00913 [rss/ok] Bandit Simulation for Average Reward Inference
+  - 2606.00928 [rss/ok] Single-Channel Tissue Segmentation via Cross-Modal Distillation from Foundation 
+  - 2606.00970 [rss/ok] Prospect-Theory Behavior from Bellman Optimality in MDPs with Catastrophic State
+  - 2606.01238 [rss/ok] Training-Free Imitation Learning with Closed-Form Diffusion Policies
+  - 2606.01470 [rss/ok] Emergent Transfer of a Physics Foundation Model from Simulation to Laboratory Tu
+  - 2606.01537 [rss/ok] PaCX-MAE: Physiology-Augmented Chest X-Ray Masked Autoencoder
+  - 2606.01561 [rss/ok] S-SPPO: Semantic-Calibrated Self-Play Preference Optimization
+  - 2606.01619 [rss/ok] ReSkill: Reconciling Skill Creation with Policy Optimization in Agentic RL
+  - 2606.01645 [rss/ok] Self-Regulating Annealing in Heavy-Tailed Diffusion Models
+  - 2606.02035 [rss/ok] RL-ACRGNet: Reinforcement Learning-Based Chest Radiology Report Generation Netwo
+  - 2606.02221 [rss/ok] CORE-MTL: Rethinking Gradient Balancing via Causal Orthogonal Representations
+  - 2606.02355 [rss/ok] SIRI: Self-Internalizing Reinforcement Learning with Intrinsic Skills for LLM Ag
+  - 2606.00172 [rss/ok] CAST: Non-Privileged Clipped Asymmetric Self-Teaching with Advantage Flipping fo
+  - 2606.00251 [rss/ok] Capability Self-Assessment: Teaching LLMs to Know Their Limits
+  - 2606.00384 [rss/ok] VESTA: Visual Exploration with Statistical Tool Agents
+  - 2606.00424 [rss/ok] Weak Critics Make Strong Learners: On-Policy Critique Distillation for Scalable 
+  - 2606.00532 [rss/ok] KACE: Knowledge-Adaptive Context Engineering for Mathematical Reasoning
+  - 2606.00618 [rss/ok] Efficient Test-time Inference for Generative Planning Models
+  - 2606.00642 [rss/ok] Hidden Thoughts Are Not Secret: Reasoning Trace Exposure in LLMs
+  - 2606.00809 [rss/ok] NBQ: Next-Best-Question for Dynamic Profiling
+  - 2606.00838 [rss/ok] Decoupled Behavioral Cloning for Scalable Inductive Generalization in RL from Sp
+  - 2606.00995 [rss/ok] Subliminal Learning Is Steering Vector Distillation
+  - 2606.01013 [rss/ok] Can AI Review Improve Paper Drafting? An Empirical Study on 20 Computer Architec
+  - 2606.01046 [rss/ok] TravelEval: A Comprehensive Benchmarking Framework for Evaluating LLM-Powered Tr

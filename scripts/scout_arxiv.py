@@ -311,14 +311,17 @@ def main():
     ap.add_argument("--output", default="/tmp/scout_arxiv_results.json")
     ap.add_argument("--skip-s2", action="store_true", help="Skip Semantic Scholar cross-check")
     ap.add_argument("--skip-verify", action="store_true", help="Skip date verification via API")
+    ap.add_argument("--days-back", type=int, default=1,
+                    help="Date window: how many days before today to accept (default 1 = today + yesterday). "
+                         "Use --days-back 5 for catch-up after pipeline gaps.")
     args = ap.parse_args()
 
     yest_str, today_end_str, yest_h, today_h = build_window_dates()
-    window_yymms = get_window_yymms()
+    window_yymms = get_window_yymms(days_back=args.days_back)
     now_cst = cst_now()
     s2_year_range = f"{now_cst.year - 1}-{now_cst.year}"
 
-    print(f"[scout] DATE WINDOW (CST): {yest_h} → {today_h}", flush=True)
+    print(f"[scout] DATE WINDOW (CST): {yest_h} → {today_h}  (days_back={args.days_back})", flush=True)
     print(f"[scout] accepting YYMM prefixes: {sorted(window_yymms)}", flush=True)
     print(f"[scout] architecture: RSS-primary + API-verify + S2-crosscheck", flush=True)
 
@@ -358,7 +361,7 @@ def main():
     in_window = []
     rejected_dw = []
     for aid, r in all_results.items():
-        if is_within_date_window(aid):
+        if is_within_date_window(aid, days_back=args.days_back):
             in_window.append(r)
         else:
             rejected_dw.append(aid)

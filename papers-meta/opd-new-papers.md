@@ -1273,3 +1273,98 @@ Phase 1 scout: 30 in-window candidates from RSS. Phase 2 deep-read on 80 staged 
 |---|---|---|---|---|
 | `2606.02684` | Filter, Then Reweight: Rethinking Optimization Granularity in OPD | §6.1 | (TBD via inserter) | KL+RL |
 | `2606.03603` | World Models Meet Language Models: On the Complementarity of Concrete and Abstract Reasoning | §5.3.1 | (TBD via inserter) | RKL |
+
+---
+
+## 2026-06-05 daily pipeline
+
+Phase 1 scout: 30 in-window candidates from RSS (date window: 2026-06-04 → 2026-06-05 CST).
+
+### Candidates (pending Phase 2 deep-read + Phase 3.5 3-cond)
+
+| arxiv | title |
+|---|---|
+| `2606.04036` | Self-Distilled Policy Gradient |
+| `2606.04694` | DuDi: Dual-Signal Distillation with Cross-Lingual Verbalizer |
+| `2606.04703` | Rethinking Continual Experience Internalization for Self-Evolving LLM Agents |
+| `2606.05122` | Self-Evaluation Is Already There: Eliciting Latent Judge Calibration in Base LLMs with Minimal Data |
+| `2606.05152` | Reinforcement Learning from Rich Feedback with Distributional DAgger |
+
+### Phase 2 deep-read result (80 PDFs, 2606.04xxx + 2606.05xxx + carryover)
+
+77 ok / 3 fail (2606.03077, 2606.03096, 2606.03180 worker exit 1) / 8 is_opd=yes / 69 is_opd=no.
+
+### Phase 3.5 + manual review
+
+11 candidates not yet in README → 8 KEEP + 3 REJECT.
+
+#### REJECT (3 篇, 不进 awesome / site)
+
+| arxiv | 标题 | rule | 理由 |
+|---|---|---|---|
+| `2605.29584` | GAPD: Gold-Action Policy Distillation for Agentic RL in KBQA | R3 (auto) | GRPO advantage shaping with `lambda_gapd * A_gapd_ik`; signal=self, no `D_KL(π‖π_T)` teacher distill term. PSDISTILL pattern. (carryover from 06-04, reconfirmed) |
+| `2606.01080` | ThinkSwitch: Context Distillation with LoRA + SLERP weight interpolation | R1 (manual) | `student_rollout_in_training=no`, `rollout_frequency=n/a`. SLERP weight-merging recipe + offline QLoRA SFT, no on-policy rollout in loss-loop. (carryover from 06-04, reconfirmed) |
+| `2606.01215` | Distilling Neuro-Symbolic Programs into 3D Multi-modal LLMs | R3 (manual) | Three-stage: perception SFT → CoT-SFT on offline symbolic traces → GRPO with format/grounding rewards. "Distillation" = offline program-to-CoT translation. No teacher-distribution distill term. (carryover from 06-04, reconfirmed) |
+
+#### KEEP (8 篇, 进 awesome list)
+
+| arxiv | 标题 | § | pair | loss class (preview) |
+|---|---|---|---|---|
+| `2606.03089` | Constitutional On-Policy Safe Distillation | §5.3.1 | Qwen3-VL-4B → Self (PI safety-constitution) | RKL |
+| `2606.03532` | When Should the Teacher Move? Temporal Coupling and Stability in Self OPD | §6.2 | Qwen3-8B → Self (EMA-history teacher) | KL+RL |
+| `2606.03620` | Physics-Guided Policy Optimization with Self-Distillation | §6.1 | Qwen3-8B → Self (privileged feedback) | RKL |
+| `2606.04036` | Self-Distilled Policy Gradient | §5.3.1 | Qwen3-4B → Self (PI ground-truth) | RKL+RL |
+| `2606.04694` | DuDi: Dual-Signal Distillation with Cross-Lingual Verbalizer | §5.1 | Qwen2.5-3B-Instruct → Qwen2.5-0.5B | KL+RL |
+| `2606.04703` | Rethinking Continual Experience Internalization | §6.2 | Qwen3-4B-Instruct → Self | RKL |
+| `2606.05122` | Self-Evaluation Is Already There: Eliciting Latent Judge Calibration | §4.3 | GPT-5.4 → Qwen3-4B-Base | KL+RL |
+| `2606.05152` | RL from Rich Feedback with Distributional DAgger | §4.1 | Qwen3-8B → Self | FKL |
+
+paper count: 170 → **178**.
+
+### 2026-06-05 manual deep-read audit (post-pipeline)
+
+User challenged the auto-pipeline's keep verdicts, prompting hand-read of all 22 papers from 06-02 ~ 06-05. Result: 1 paper mis-classified, removed.
+
+#### REJECT (1 paper, demoted from KEEP after PDF read)
+
+| arxiv | 标题 | rule | 理由 |
+|---|---|---|---|
+| `2512.17636` | Trust-Region Adaptive Policy Optimization (TRAPO) | R1 (manual) | Authors explicitly frame as "hybrid SFT+RL" not OPD. TrSFT loss applies to **offline expert prefix tokens** (DeepSeek-R1 demos), not student-rollout positions. The student does rollout (suffix completion) but only gets RL/GRPO supervision there. Same hybrid-imitation+RL pattern as `2602.13407` On-Policy SFT removed on 06-03. paper count 178 → 177. |
+
+#### Section reassignment (no removal)
+
+| arxiv | 当前 | 建议 | 理由 |
+|---|---|---|---|
+| `2606.05122` | §4.3 RL-Augmented | §5.2 Black-Box | Distill term is masked NLL on judge's discrete score tokens; teacher (judge LLM) only emits scalar labels not logits. Closer to API-constrained black-box than RL+KL. |
+
+### 2026-06-05 cron-scout 09:32 follow-up
+
+cron `30 9 * * 1-5` 早晨 09:32 跑 `--max 50` 抓了 50 个 candidates(比手动 04:14 那次 `--max 30` 多 20 个)。Phase 2 deep-read 50 篇:
+- 47 OK / 3 fail (worker exit)
+- **is_opd=yes 数: 0**
+
+50 篇全部为 RSS 关键词触发的非 OPD 论文(generic distillation / GRPO RL / quantization / VLM grounding 等)。无需 Phase 4-7 操作。Marked TRAPO + ThinkSwitch + Neuro-Symbolic + GAPD 在 paper_notes 里为 `is_opd=edge`,防止下次 triage 又当 keep 重列。
+
+---
+
+## 2026-06-06 (Sat) — daily pipeline
+
+Phase 1 scout: 30 in-window candidates from RSS (DATE WINDOW: 2026-06-05 → 2026-06-06 CST).
+
+### Candidates (pending Phase 2 deep-read + Phase 3.5 3-cond)
+
+| arxiv | title |
+|---|---|
+| `2606.05315` | LoRi: Low-Rank Distillation for Implicit Reasoning |
+
+### Phase 2-3.5 result (33 PDFs incl. 3 retry from yesterday)
+
+33 ok / 0 fail / 1 is_opd=yes (auto) / 32 is_opd=no.
+
+#### Manual deep-read audit on 1 keep candidate
+
+| arxiv | 标题 | 判决 | 理由 |
+|---|---|---|---|
+| `2606.05315` | LoRi: Low-Rank Distillation for Implicit Reasoning | **REJECT (R1)** | Paper explicitly states "without token-level sampling". Student's "trajectory" z_t is deterministic hidden-state vector, not sampled tokens. Teacher hidden states are precomputed offline and fixed during training (low-rank Tucker factors). This is hidden-state KD (à la MiniLM / layer-wise KD), not on-policy distillation. v3 LLM mis-fired `rollout_frequency=per-step` — same R1-violation mis-classification pattern as TRAPO (2512.17636) hand-rejected on 06-05. |
+
+**Net: 0 papers added today.** README count stays at 177.

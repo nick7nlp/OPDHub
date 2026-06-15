@@ -31,28 +31,30 @@ from datetime import datetime, timedelta, timezone
 ARXIV_ID_RE = re.compile(r'\b(\d{4})\.(\d{4,5})\b')
 
 
-def get_window_yymms(today: datetime | None = None) -> set[str]:
+def get_window_yymms(today: datetime | None = None, days_back: int = 1) -> set[str]:
     """
-    Return the set of allowed YYMM prefixes for today's daily scout.
-    
+    Return the set of allowed YYMM prefixes for daily scout.
+
     Rules:
     - Today (today.year, today.month) → always allowed
-    - Yesterday (today - 1 day) → always allowed
-    
-    On month boundaries (e.g. today = 2026-06-01, yesterday = 2026-05-31),
-    both '2606' and '2605' are allowed.
+    - Last `days_back` days → also allowed
+
+    Default `days_back=1` matches the original "today + yesterday" rule.
+    `days_back=5` accepts last 5 days + today (used for catch-up after gaps).
+
+    On month / year boundaries the prefix set spans both months / years.
     """
     if today is None:
         # Use CST (UTC+8) since cron schedule is in CST
         cst = timezone(timedelta(hours=8))
         today = datetime.now(cst)
-    
-    yesterday = today - timedelta(days=1)
-    
-    today_yymm = f'{(today.year - 2000) % 100:02d}{today.month:02d}'
-    yest_yymm = f'{(yesterday.year - 2000) % 100:02d}{yesterday.month:02d}'
-    
-    return {today_yymm, yest_yymm}
+
+    yymms: set[str] = set()
+    for d in range(days_back + 1):   # +1 to include today
+        day = today - timedelta(days=d)
+        yy = (day.year - 2000) % 100
+        yymms.add(f"{yy:02d}{day.month:02d}")
+    return yymms
 
 
 def parse_arxiv_yymm(arxiv_id: str) -> str | None:
@@ -63,11 +65,11 @@ def parse_arxiv_yymm(arxiv_id: str) -> str | None:
     return m.group(1)
 
 
-def is_within_date_window(arxiv_id: str, today: datetime | None = None) -> bool:
+def is_within_date_window(arxiv_id: str, today: datetime | None = None, days_back: int = 1) -> bool:
     """
-    Check if arxiv_id was submitted today or yesterday.
-    
-    >>> # Frozen test: today = 2026-05-19
+    Check if arxiv_id YYMM prefix falls within `[today - days_back, today]`.
+
+    >>> # Frozen test: today = 2026-05-19, default 24h window
     >>> from datetime import datetime, timezone, timedelta
     >>> cst = timezone(timedelta(hours=8))
     >>> t = datetime(2026, 5, 19, 12, 0, tzinfo=cst)
@@ -75,13 +77,14 @@ def is_within_date_window(arxiv_id: str, today: datetime | None = None) -> bool:
     True
     >>> is_within_date_window('2604.20244', today=t)
     False
-    >>> is_within_date_window('2502.02671', today=t)
-    False
+    >>> # Catch-up: 5-day window picks up 2605.* and 2604.* prefixes
+    >>> is_within_date_window('2604.99999', today=datetime(2026, 5, 2, 12, 0, tzinfo=cst), days_back=5)
+    True
     """
     yymm = parse_arxiv_yymm(arxiv_id)
     if yymm is None:
         return False
-    return yymm in get_window_yymms(today)
+    return yymm in get_window_yymms(today, days_back=days_back)
 
 
 def self_test() -> int:

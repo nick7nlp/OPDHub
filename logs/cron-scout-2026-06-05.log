@@ -1,0 +1,80 @@
+✅ Refreshed known_arxiv_ids.txt: 315 IDs
+[scout] DATE WINDOW (CST): 2026-06-04 → 2026-06-05  (days_back=1)
+[scout] accepting YYMM prefixes: ['2606']
+[scout] architecture: RSS-primary + API-verify + S2-crosscheck
+[scout] known IDs to skip: 315
+
+[scout] === Phase 1: RSS feeds (3 categories) ===
+[scout/rss] cs.CL: 223 total items, 25 OPD-keyword matches
+[scout/rss] cs.LG: 395 total items, 41 OPD-keyword matches
+[scout/rss] cs.AI: 381 total items, 35 OPD-keyword matches
+[scout/rss] total unique candidates: 65
+
+[scout] === Phase 2: S2 cross-check (4 queries) ===
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] added 0 papers not found in RSS
+
+[scout] combined unique: 65 (RSS: 65, S2-extra: 0)
+[scout] ⚠️ 1 rejected by DATE WINDOW: ['2401.07386']
+[scout] 5 skipped (already known)
+
+[scout] === Phase 3: no S2-sourced papers to verify ===
+
+[scout] ✅ 50 new candidates for deep-read
+[scout] wrote /tmp/scout_arxiv_results.json
+
+## Scout Summary: 50 new in-window candidates
+
+  - 2606.04095 [rss/ok] POLARIS: Guiding Small Models to Write Long Stories
+  - 2606.04340 [rss/ok] Noisy memory encoding explains negative polarity illusions
+  - 2606.04360 [rss/ok] Deliberate Evolution: Agentic Reasoning for Sample-Efficient Symbolic Regression
+  - 2606.04396 [rss/ok] Read the Trace, Steer the Path: Trajectory-Aware Reinforcement Learning for Diff
+  - 2606.04454 [rss/ok] Stepwise Reasoning Enhancement for LLMs via External Subgraph Generation
+  - 2606.04466 [rss/ok] Learning What to Learn: Stage-Specific Data Sets for SFT-then-RL in Small Langua
+  - 2606.04507 [rss/ok] Self-Evolving Deep Research via Joint Generation and Evaluation
+  - 2606.04525 [rss/ok] GENEB: Why Genomic Models Are Hard to Compare
+  - 2606.04557 [rss/ok] Cartridges at Scale: Training Modular KV Caches over Large Document Collections
+  - 2606.04743 [rss/ok] TIDE: Proactive Multi-Problem Discovery via Template-Guided Iteration
+  - 2606.04846 [rss/ok] Large Language Models in K-12 Education: Alignment with State Curriculum Standar
+  - 2606.04889 [rss/ok] GRAIL: Gradient-Reweighted Advantages for Reinforcement Learning with Verifiable
+  - 2606.05054 [rss/ok] Boosting Self-Consistency with Ranking
+  - 2606.04046 [rss/ok] Dive into the Scene: Breaking the Perceptual Bottleneck in Vision-Language Decis
+  - 2606.04071 [rss/ok] Covert Influence Between Language Models
+  - 2606.04261 [rss/ok] Can Generalist Agents Automate Data Curation?
+  - 2606.04284 [rss/ok] Sparse Mixture-of-Experts Reward Models Learn Interpretable and Specialized Expe
+  - 2606.04455 [rss/ok] The Meta-Agent Challenge: Are Current Agents Capable of Autonomous Agent Develop
+  - 2606.04547 [rss/ok] Beyond Retrieval: Learning Compact User Representations for Scalable LLM Persona
+  - 2606.04632 [rss/ok] VentAgent: When LLMs Learn to Breathe -- Multi-Objective Arbitration for ARDS Ve
+  - 2606.05145 [rss/ok] Failed Reasoning Traces Tell You What Is Fixable (But Not by Reading Them)
+  - 2606.04106 [rss/ok] Building The Ph(ysical)AI Layer Of Machine Intelligence
+  - 2606.04110 [rss/ok] Variance Reduction for Heavy-Tailed Monetization Metrics in Ranking Experiments 
+  - 2606.04143 [rss/ok] Physics-Informed Machine Learning for Short-Term Flood Prediction
+  - 2606.04161 [rss/ok] When Offline Selectors Cannot Beat the Best Single Model: A Diagnostic Study on 
+  - 2606.04238 [rss/ok] Recover-LoRA for Aggressive Quantization: Reclaiming Accuracy in 2-Bit Language 
+  - 2606.04279 [rss/ok] Derivative Informed Learning of Exchange-Correlation Functionals
+  - 2606.04310 [rss/ok] Latent Anchor-Driven Test Generation for Deep Neural Networks
+  - 2606.04314 [rss/ok] Testing Neural Networks via Bayesian-Guided Exploration of Decision Landscapes
+  - 2606.04381 [rss/ok] From Symbolic to Geometric: Enabling Spatial Reasoning in Large Language Models
+  - 2606.04384 [rss/ok] Revisiting Privacy Amplification by Subsampling in Selective Release DPSGD
+  - 2606.04516 [rss/ok] GeoMin: Data-Efficient Semi-Supervised RLVR via Geometric Distribution Modeling
+  - 2606.04560 [rss/ok] Rollout-Level Advantage-Prioritized Experience Replay for GRPO
+  - 2606.04564 [rss/ok] SurvPFN: Towards Foundation Models for Survival Predictions
+  - 2606.04620 [rss/ok] QuBLAST: A Framework for Quantizing Large Language Models with Block-Level Compr
+  - 2606.04815 [rss/ok] Learning While Acting: A Skill-Enhanced Test-Time Co-Evolution Framework for Onl
+  - 2606.04930 [rss/ok] AdaKoop: Efficient Modeling of Nonlinear Dynamics from Nonstationary Data Stream
+  - 2606.04994 [rss/ok] New Benchmarking Shows Limited Generalization Power of TCR Antigenic Epitope Pre
+  - 2606.05025 [rss/ok] Invariant Gradient Alignment for Robust Reasoning Distillation
+  - 2606.05067 [rss/ok] FLAGG: Flexible Autoregressive Graph Generation
+  - 2606.05109 [rss/ok] RePercENT: Scaling Disentangled Representation Learning Beyond Two Modalities
+  - 2606.03943 [rss/ok] PointAction: 3D Points as Universal Action Representations for Robot Control
+  - 2606.04434 [rss/ok] Hyper-ICL: Attention Calibration with Hyperbolic Anchor Distillation for Multimo
+  - 2606.04484 [rss/ok] AgentJet: A Flexible Swarm Training Framework for Agentic Reinforcement Learning
+  - 2606.04562 [rss/ok] Neetyabhas: A Framework for Uncertainty-Aware Public Policy Optimization in Rati
+  - 2606.04576 [rss/ok] ReSGA: A Large Tail Risk Model for Learning Value-at-Risk and Expected Shortfall
+  - 2606.04816 [rss/ok] Beyond Objective Equivalence: Constraint Injection for LLM-Based Optimization Mo
+  - 2606.04922 [rss/ok] Geometry-Aware Distillation for Prompt Tuning Biomedical Vision-Language Models
+  - 2606.04273 [rss/ok] Characterizing initial human-AI proof formalization workflows
+  - 2606.04321 [rss/ok] The Digital Apprentice: A Framework for Human-Directed Agentic AI Development
