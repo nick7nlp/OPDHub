@@ -48799,108 +48799,6 @@
       "_read_date": "2026-06-11",
       "_attempts": 1
     },
-    "2606.07006": {
-      "_schema_version": "v3",
-      "paper_id": "2606.07006",
-      "title": "RASFT: Rollout-Adaptive Supervised Fine-Tuning for Reasoning",
-      "venue": "arXiv 2026",
-      "year": 2026,
-      "authors_first": "Yongliang Miao",
-      "affiliation_primary": "unspecified",
-      "summary": "Rollout-adaptive SFT: expert guidance when struggling; own solutions + KL when competent",
-      "method": {
-        "training_loop": "Generate on-policy rollouts to assess model competence per problem. If model struggles: strengthen SFT signal from expert demonstrations. If model shows competent reasoning: incorporate own correct solutions while constraining drift from reference model via KL penalty. Adaptive weighting interpolates between regimes.",
-        "loss_formulation": "L_RASFT = alpha(competence) * L_expert_SFT + (1 - alpha(competence)) * [L_self_rollout + beta * KL(pi_student || pi_ref)]; alpha(competence) is high when model struggles, low when competent",
-        "data_source": "mathematical and code reasoning benchmarks",
-        "key_components": [
-          "Rollout-based competence assessment",
-          "Adaptive interpolation between expert-guided SFT and self-rollout training",
-          "KL constraint to reference model",
-          "Curriculum that transitions with model competence"
-        ]
-      },
-      "novelty": "Adaptive distillation curriculum that transitions from expert-guided SFT to own-rollout training based on model competence, combining advantages of teacher guidance (when needed) and on-policy self-improvement (when capable).",
-      "on_policy_mechanism": {
-        "student_rollout_in_training": "yes",
-        "rollout_frequency": "per-outer-iter",
-        "teacher_signal": "logits",
-        "signal_source": "external-teacher",
-        "evidence_quote": "dynamically adjusts expert guidance based on how well the current model performs on each problem"
-      },
-      "opd_classification": {
-        "is_opd": "yes",
-        "primary_section": "§4.2",
-        "secondary_sections": [
-          "§6.2"
-        ],
-        "reasoning": "Adaptive distillation that weights teacher guidance vs self-rollout based on competence assessment; rollout-based curriculum is §4.2 (adaptive divergence/curriculum) with §6.2 secondary (scheduling/curriculum tricks)."
-      },
-      "teacher_student_pairs": [
-        {
-          "teacher": {
-            "name": "Expert model (demonstrations)",
-            "family": "unspecified",
-            "size_B": null,
-            "type": "dense",
-            "moe_active_B": null,
-            "is_self": false,
-            "is_api_only": false
-          },
-          "student": {
-            "name": "Reasoning student",
-            "family": "unspecified",
-            "size_B": null,
-            "type": "dense",
-            "init_from": "unspecified",
-            "is_self": false
-          },
-          "vocab_match": "shared",
-          "scenario": "main"
-        }
-      ],
-      "training_setup": {
-        "compute_budget": "unspecified",
-        "tokens_seen_B": null,
-        "context_length": null,
-        "rollout_batch_size": null,
-        "kl_coeff": null,
-        "rl_algorithm": "unspecified",
-        "stabilization_tricks": [
-          "KL constraint to reference model",
-          "rollout-based competence assessment"
-        ]
-      },
-      "datasets": [],
-      "benchmarks": [],
-      "key_findings": [
-        "Outperforms conventional SFT and RL baselines on math and code reasoning",
-        "Adaptive curriculum transitions smoothly from expert guidance to self-rollout training"
-      ],
-      "ablations_summary": "unspecified (abstract-only read)",
-      "limitations": "unspecified (abstract-only read)",
-      "failure_modes": [],
-      "compute_efficiency": "",
-      "openness": {
-        "code_url": "public (no URL in abstract)",
-        "model_url": null,
-        "data_url": null
-      },
-      "theory": {
-        "has_convergence_proof": false,
-        "has_bound": false,
-        "notes": ""
-      },
-      "relevance_to_opd": {
-        "is_opd": "yes",
-        "score": 4,
-        "rationale": "Adaptive OPD curriculum that combines expert teacher guidance with own on-policy rollouts based on competence; directly addresses the explore-exploit tradeoff in OPD."
-      },
-      "comparable_papers": [],
-      "score": 4,
-      "_success": true,
-      "_read_date": "2026-06-11",
-      "_attempts": 1
-    },
     "2606.08432": {
       "_schema_version": "v3",
       "paper_id": "2606.08432",
@@ -49426,78 +49324,6 @@
       "_read_date": "2026-06-12",
       "_attempts": 1
     },
-    "2606.09059": {
-      "_schema_version": "v3",
-      "paper_id": "2606.09059",
-      "title": "Stage-1 Controls the Entropy Regime, Not the Outcome",
-      "venue": "arXiv 2026",
-      "year": 2026,
-      "authors_first": "Jian Shen",
-      "affiliation_primary": "unspecified",
-      "summary": "Empirically shows that Stage-1 warm-start (OPD or SFT) controls the entropy regime entering Stage-2 RL but has limited impact on final outcomes; OPD and SFT warm-starts converge to similar performance after Stage-2.",
-      "method": {
-        "training_loop": "Analysis: run Stage-1 (SFT or OPD) + Stage-2 RL on VLMs; measure entropy, task performance, gradient statistics across stages.",
-        "loss_formulation": "n/a (analysis paper)",
-        "data_source": "unspecified",
-        "key_components": []
-      },
-      "novelty": "Disentangles entropy effect from performance effect in two-stage post-training; challenges the assumption that Stage-1 OPD is essential for strong Stage-2 outcomes.",
-      "on_policy_mechanism": {
-        "student_rollout_in_training": "yes",
-        "rollout_frequency": "per-step",
-        "teacher_signal": "logits",
-        "signal_source": "external-teacher",
-        "evidence_quote": ""
-      },
-      "opd_classification": {
-        "is_opd": "analysis",
-        "primary_section": "§7.1",
-        "secondary_sections": [],
-        "reasoning": "Empirical analysis paper studying how OPD (and SFT) warm-starts affect Stage-2 RL. Finds that Stage-1 sets the entropy regime but has limited effect on final outcome. No new training method; classifies as analysis."
-      },
-      "teacher_student_pairs": [],
-      "training_setup": {
-        "compute_budget": "unspecified",
-        "tokens_seen_B": null,
-        "context_length": null,
-        "rollout_batch_size": null,
-        "kl_coeff": null,
-        "rl_algorithm": "n/a",
-        "stabilization_tricks": []
-      },
-      "datasets": [],
-      "benchmarks": [],
-      "key_findings": [
-        "Stage-1 (SFT or OPD) primarily controls the entropy regime entering Stage-2 RL",
-        "The type of Stage-1 warm-start has limited effect on final Stage-2 RL outcomes",
-        "OPD warm-start shifts entropy regime compared to SFT, but both converge after RL",
-        "Implications for two-stage post-training pipeline design"
-      ],
-      "ablations_summary": "",
-      "limitations": "unspecified",
-      "failure_modes": [],
-      "compute_efficiency": "",
-      "openness": {
-        "code_url": null,
-        "model_url": null,
-        "data_url": null
-      },
-      "theory": {
-        "has_convergence_proof": false,
-        "has_bound": false,
-        "notes": ""
-      },
-      "relevance_to_opd": {
-        "is_opd": "analysis",
-        "score": 4,
-        "rationale": "Empirical analysis paper studying how OPD (and SFT) warm-starts affect Stage-2 RL. Finds that Stage-1 sets the entropy regime but has limited effect on final outcome. No new training method; classifies as analysis."
-      },
-      "comparable_papers": [],
-      "score": 4,
-      "_success": true,
-      "_read_date": "2026-06-12",
-      "_attempts": 1
-    },
     "2606.09471": {
       "_schema_version": "v3",
       "paper_id": "2606.09471",
@@ -50008,5 +49834,5 @@
       "_attempts": 1
     }
   },
-  "last_updated": "2026-06-12"
+  "last_updated": "2026-06-16 11:24:04"
 }
