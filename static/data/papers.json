@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-06-05",
-  "total": 196,
+  "total": 197,
   "papers": [
     {
       "arxiv_id": "2605.13230",
@@ -1792,6 +1792,20 @@
       "freq": "per-outer-iter",
       "size": "Unknown",
       "description": "AR-LM (frozen) → Diffusion-LM; OPDLM: self-distillation converts AR LM to diffusion LM on-policy; 15x-7000x fewer training tokens",
+      "code_url": ""
+    },
+    {
+      "arxiv_id": "2606.14368",
+      "title": "Be My Tutor: On-Policy Co-Distillation for Mutual LLM Improvement via Peer Feedback",
+      "year": 2026,
+      "year_month": "2026-06",
+      "section": "§5.3",
+      "loss_class": "Other",
+      "domain": "General",
+      "signal": "Privileged-Info",
+      "freq": "per-step",
+      "size": "3-10B",
+      "description": "Qwen3-8B ↔ Qwen3-8B (peer); OPCoD: two coupled on-policy self-distillation loops, each self-teacher conditioned on own correct rollout + peer NL feedback; cognizance gating + feedback anchoring; cross-domain mutual Pareto improvement",
       "code_url": ""
     },
     {
