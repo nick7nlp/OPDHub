@@ -100,10 +100,19 @@
           {{FILTER_YEARS}}
         </div>
       </div>
+      <div class="filter-row">
+        <span class="filter-label">Recent</span>
+        <div class="filter-chips" data-filter-group="recent">
+          {{FILTER_RECENT}}
+        </div>
+      </div>
       <div class="filter-row filter-actions">
         <span class="filter-label">&nbsp;</span>
         <button id="clear-filters" class="clear-btn">
           <i class="fas fa-times"></i> &nbsp;clear filters
+        </button>
+        <button id="export-bibtex" class="export-btn">
+          <i class="fas fa-file-export"></i> &nbsp;export&nbsp;bib
         </button>
       </div>
     </div>

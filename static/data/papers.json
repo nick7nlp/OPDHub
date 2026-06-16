@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-06-05",
-  "total": 177,
+  "total": 196,
   "papers": [
     {
       "arxiv_id": "2605.13230",
@@ -633,6 +633,20 @@
       "code_url": ""
     },
     {
+      "arxiv_id": "2606.09091",
+      "title": "Stabilizing On-Policy Distillation for MLLM Reasoning with Global Normalization",
+      "year": 2026,
+      "year_month": "2026-06",
+      "section": "§4.2",
+      "loss_class": "Other",
+      "domain": "Reasoning",
+      "signal": "External-Teacher",
+      "freq": "per-outer-iter",
+      "size": "Unknown",
+      "description": "Normalization of KL signal to batch-relative advantages is an adaptive modification of the distillation divergence (§4.2)…",
+      "code_url": ""
+    },
+    {
       "arxiv_id": "2602.00400",
       "title": "KEPO: Knowledge-Enhanced Preference Optimization for Multimodal Reasoning with Applications to Medical VQA",
       "year": 2026,
@@ -899,6 +913,20 @@
       "code_url": ""
     },
     {
+      "arxiv_id": "2606.11709",
+      "title": "RLCSD: Reinforcement Learning with Contrastive On-Policy Self-Distillation",
+      "year": 2026,
+      "year_month": "2026-06",
+      "section": "§4.3",
+      "loss_class": "Other",
+      "domain": "General",
+      "signal": "Privileged-Info",
+      "freq": "per-step",
+      "size": "Unknown",
+      "description": "Self (correct-hint) + Self (wrong-hint) → Student; Contrastive RKL inside GRPO: two-path loss pulls student toward correct-hint teacher and away from wrong-hint teacher simultaneously",
+      "code_url": ""
+    },
+    {
       "arxiv_id": "2605.07711",
       "title": "SimCT: Recovering Lost Supervision for Cross-Tokenizer On-Policy Distillation",
       "year": 2026,
@@ -995,6 +1023,34 @@
       "size": "<3B",
       "description": "Qwen2.5-3B-Instruct → Qwen2.5-0.5B; Dual-signal distillation: online sequence-level SPIN objective combined with off-policy + on-policy token-level KD via a cross-lingual verbalizer.",
       "code_url": "https://github.com/dudi-llm/DuDi"
+    },
+    {
+      "arxiv_id": "2606.09456",
+      "title": "Breaking the Tokenizer Barrier: On-Policy Distillation across Model Families",
+      "year": 2026,
+      "year_month": "2026-06",
+      "section": "§5.1",
+      "loss_class": "Other",
+      "domain": "General",
+      "signal": "External-Teacher",
+      "freq": "per-outer-iter",
+      "size": "Unknown",
+      "description": "Cross-family Teacher → Cross-family Student; Token-mapping enables on-policy distillation across model families with different tokenizers",
+      "code_url": ""
+    },
+    {
+      "arxiv_id": "2606.06021",
+      "title": "OPRD: On-Policy Representation Distillation",
+      "year": 2026,
+      "year_month": "2026-06",
+      "section": "§5.1",
+      "loss_class": "Other",
+      "domain": "Alignment",
+      "signal": "External-Teacher",
+      "freq": "per-step",
+      "size": "Unknown",
+      "description": "External Teacher → Student; Extends OPD from logit space to hidden-state representation alignment, reducing Monte Carlo KL variance over large vocabularies",
+      "code_url": ""
     },
     {
       "arxiv_id": "2601.21968",
@@ -1375,6 +1431,132 @@
       "code_url": ""
     },
     {
+      "arxiv_id": "2606.09348",
+      "title": "PBSD: Privileged Bayesian Self-Distillation for Long-Horizon Credit Assignment",
+      "year": 2026,
+      "year_month": "2026-06",
+      "section": "§5.3",
+      "loss_class": "Other",
+      "domain": "General",
+      "signal": "Privileged-Info",
+      "freq": "per-outer-iter",
+      "size": "Unknown",
+      "description": "Self (w/ GT) → Self (w/o GT); PBSD: Bayesian self-distillation converts sparse trajectory rewards to turn-level credits for long-horizon RL",
+      "code_url": ""
+    },
+    {
+      "arxiv_id": "2606.10385",
+      "title": "Beyond Absolute Imitation: Anchored Residual Guidance for Privileged On-Policy Distillation",
+      "year": 2026,
+      "year_month": "2026-06",
+      "section": "§5.3",
+      "loss_class": "Other",
+      "domain": "General",
+      "signal": "Privileged-Info",
+      "freq": "per-outer-iter",
+      "size": "Unknown",
+      "description": "Oracle (privileged) → Student; AR-OPD: anchor + oracle residual prevents hindsight leakage; +2.3 vs full OPD, +7.9 vs SFT, -21.7% leakage",
+      "code_url": ""
+    },
+    {
+      "arxiv_id": "2606.07000",
+      "title": "Teaching the Way, Not the Answer: Privileged Tutoring Distillation for Multimodal Policy Optimization",
+      "year": 2026,
+      "year_month": "2026-06",
+      "section": "§5.3",
+      "loss_class": "Other",
+      "domain": "Multimodal",
+      "signal": "Privileged-Info",
+      "freq": "per-outer-iter",
+      "size": "Unknown",
+      "description": "Privileged teacher → 2B-8B VLM; PTD-PO: Top-K JSD privileged tutoring with spatial+reasoning hints for multimodal policy optimization",
+      "code_url": ""
+    },
+    {
+      "arxiv_id": "2606.06076",
+      "title": "Learning Visual Spatial Planning from Symbolic State via Modality-Gap-Aware Self-Distillation",
+      "year": 2026,
+      "year_month": "2026-06",
+      "section": "§5.3",
+      "loss_class": "Other",
+      "domain": "Multimodal",
+      "signal": "Privileged-Info",
+      "freq": "per-step",
+      "size": "Unknown",
+      "description": "Symbolic-state-privileged Teacher → Visual VLM Student; Two-stage MGSD: symbolic game state as privileged context bridges perception-reasoning modality gap for spatial planning",
+      "code_url": ""
+    },
+    {
+      "arxiv_id": "2606.08719",
+      "title": "Thinking Without Images: Internalizing Visual Manipulation with On-Policy Self-Distillation",
+      "year": 2026,
+      "year_month": "2026-06",
+      "section": "§5.3",
+      "loss_class": "Other",
+      "domain": "Multimodal",
+      "signal": "Privileged-Info",
+      "freq": "per-step",
+      "size": "Unknown",
+      "description": "Self (w/ cropped tiles) → Self (w/o crops); Privileged cropped-image self-teacher internalizes zoom-in reasoning so no image crops are needed at inference",
+      "code_url": ""
+    },
+    {
+      "arxiv_id": "2606.10334",
+      "title": "Self-Distillation Policy Optimization via Visual Feedback: Bridging Code and Visual Artifacts",
+      "year": 2026,
+      "year_month": "2026-06",
+      "section": "§5.3",
+      "loss_class": "Other",
+      "domain": "Code",
+      "signal": "Privileged-Info",
+      "freq": "per-step",
+      "size": "Unknown",
+      "description": "Self (w/ rendered artifact) → Code-LLM; Visual-SDPO: rendered visual artifacts as privileged feedback + statement-weighted KL + GRPO for code-to-visualization",
+      "code_url": ""
+    },
+    {
+      "arxiv_id": "2606.11559",
+      "title": "HERO: Hindsight-Enhanced Reflection from Environment Observations for Agentic Self-Distillation",
+      "year": 2026,
+      "year_month": "2026-06",
+      "section": "§5.3",
+      "loss_class": "Other",
+      "domain": "Agent",
+      "signal": "Privileged-Info",
+      "freq": "per-step",
+      "size": "Unknown",
+      "description": "Self (w/ hindsight env obs) → Self (no hindsight); Turn-level KL self-distillation using future environment observations as privileged context for multi-turn agents",
+      "code_url": ""
+    },
+    {
+      "arxiv_id": "2606.11627",
+      "title": "When Context Returns: Toward Robust Internalization in On-Policy Distillation",
+      "year": 2026,
+      "year_month": "2026-06",
+      "section": "§5.3",
+      "loss_class": "Other",
+      "domain": "General",
+      "signal": "Privileged-Info",
+      "freq": "per-step",
+      "size": "Unknown",
+      "description": "Self (w/ privileged context) → Self; FKL no-context anchoring regularizer prevents context-induced degradation when privileged context is re-introduced at inference",
+      "code_url": ""
+    },
+    {
+      "arxiv_id": "2606.12507",
+      "title": "Rubric-Guided Self-Distillation: Post-Training Without Rubric Verifiers",
+      "year": 2026,
+      "year_month": "2026-06",
+      "section": "§5.3",
+      "loss_class": "Other",
+      "domain": "General",
+      "signal": "Privileged-Info",
+      "freq": "per-step",
+      "size": "Unknown",
+      "description": "Self (w/ rubric) → Self; Rubric as privileged context for same-model teacher; JSD distillation eliminates external LLM verifier from open-ended post-training",
+      "code_url": ""
+    },
+    {
       "arxiv_id": "2601.19897",
       "title": "Self-Distillation Enables Continual Learning",
       "year": 2026,
@@ -1599,6 +1781,20 @@
       "code_url": ""
     },
     {
+      "arxiv_id": "2606.06712",
+      "title": "Data-Efficient Autoregressive-to-Diffusion Language Models via On-Policy Distillation",
+      "year": 2026,
+      "year_month": "2026-06",
+      "section": "§5.3",
+      "loss_class": "Other",
+      "domain": "General",
+      "signal": "Self",
+      "freq": "per-outer-iter",
+      "size": "Unknown",
+      "description": "AR-LM (frozen) → Diffusion-LM; OPDLM: self-distillation converts AR LM to diffusion LM on-policy; 15x-7000x fewer training tokens",
+      "code_url": ""
+    },
+    {
       "arxiv_id": "2601.20802",
       "title": "Reinforcement Learning via Self-Distillation",
       "year": 2026,
@@ -1736,6 +1932,20 @@
       "freq": "per-step",
       "size": "Unknown",
       "description": "Llama-3.1-8B / Qwen2.5-7B / Qwen3-8B → Self; Per-token reverse KL on contrastive prompt pairs for safety alignment (anti-sycophancy, jailbreak defense)",
+      "code_url": ""
+    },
+    {
+      "arxiv_id": "2606.09304",
+      "title": "SG-OPD: Sign-Gated On-Policy Distillation via Sign-Consistency Gating and Phased Teacher Sampling",
+      "year": 2026,
+      "year_month": "2026-06",
+      "section": "§5.3",
+      "loss_class": "Other",
+      "domain": "Math",
+      "signal": "External-Teacher",
+      "freq": "per-outer-iter",
+      "size": "Unknown",
+      "description": "Teacher → Student; SG-OPD: sign-consistency gating + phased teacher sampling for verifier-guided OPD; +1.98/+7.50 on math",
       "code_url": ""
     },
     {
@@ -2103,6 +2313,34 @@
       "code_url": ""
     },
     {
+      "arxiv_id": "2606.08432",
+      "title": "Trajectory-Refined Distillation",
+      "year": 2026,
+      "year_month": "2026-06",
+      "section": "§6",
+      "loss_class": "Other",
+      "domain": "General",
+      "signal": "External-Teacher",
+      "freq": "per-outer-iter",
+      "size": "Unknown",
+      "description": "Teacher → Student; TRD: trajectory-level teacher correction of prefix-failure fragmented gradients in OPD",
+      "code_url": ""
+    },
+    {
+      "arxiv_id": "2606.09471",
+      "title": "Escaping the KL Agreement Trap in On-Policy Distillation",
+      "year": 2026,
+      "year_month": "2026-06",
+      "section": "§6",
+      "loss_class": "Other",
+      "domain": "Multimodal",
+      "signal": "External-Teacher",
+      "freq": "per-step",
+      "size": "Unknown",
+      "description": "Teacher → Student; KAT: online rollout truncation at KL agreement trap regions (degraded prefixes teacher locally accepts) restores useful supervision and improves training efficiency",
+      "code_url": ""
+    },
+    {
       "arxiv_id": "2605.10889",
       "title": "Unmasking On-Policy Distillation: Where It Helps, Where It Hurts, and Why",
       "year": 2026,
@@ -2114,6 +2352,34 @@
       "freq": "once-before-training",
       "size": "<3B",
       "description": "Qwen3-1.7B/8B → Self; training-free per-token diagnostic; ideal per-node gradient + gradient alignment score (Apple)",
+      "code_url": ""
+    },
+    {
+      "arxiv_id": "2606.07082",
+      "title": "On the Geometry of On-Policy Distillation",
+      "year": 2026,
+      "year_month": "2026-06",
+      "section": "§7.1",
+      "loss_class": "Other",
+      "domain": "General",
+      "signal": "External-Teacher",
+      "freq": "per-outer-iter",
+      "size": "Unknown",
+      "description": "Geometry of OPD: subspace locking in parameter-space trajectories; OPD avoids principal directions vs SFT/RL",
+      "code_url": ""
+    },
+    {
+      "arxiv_id": "2606.13657",
+      "title": "Dense Supervision, Sparse Updates: On the Sparsity and Geometry of On-Policy Distillation",
+      "year": 2026,
+      "year_month": "2026-06",
+      "section": "§7.1",
+      "loss_class": "Other",
+      "domain": "Multimodal",
+      "signal": "External-Teacher",
+      "freq": "per-step",
+      "size": "Unknown",
+      "description": "Analysis: OPD parameter updates are coordinate-sparse, FFN-heavy, and oriented off-principal directions; dense supervision produces sparse, structured weight changes",
       "code_url": ""
     },
     {
@@ -2407,7 +2673,7 @@
       "signal": "External-Teacher",
       "freq": "per-step",
       "size": "<3B",
-      "description": "HY-Embodied-0.5 (small) → HY-Embodied (large, internal)",
+      "description": "HY-Embodied-0.5 MoE-A32B (large) → HY-Embodied-0.5 MoT-2B (small)",
       "code_url": "https://github.com/Tencent-Hunyuan/HY-Embodied"
     },
     {

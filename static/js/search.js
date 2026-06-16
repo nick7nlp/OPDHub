@@ -20,7 +20,8 @@
     domain:  new Set(),
     signal:  new Set(),
     freq:    new Set(),
-    size:    new Set()
+    size:    new Set(),
+    recent:  new Set()
   };
   let searchQuery = '';
 
@@ -69,6 +70,7 @@
       if (active.signal.size > 0 && !active.signal.has(p.signal || '')) continue;
       if (active.freq.size > 0 && !active.freq.has(p.freq || '')) continue;
       if (active.size.size > 0 && !active.size.has(p.size || '')) continue;
+      if (active.recent.size > 0 && !active.recent.has(p.year_month || '')) continue;
       filtered.push(p);
     }
 
@@ -126,6 +128,7 @@
         active.signal.clear();
         active.freq.clear();
         active.size.clear();
+        active.recent.clear();
         searchQuery = '';
         document.querySelectorAll('.chip.is-active').forEach(c => c.classList.remove('is-active'));
         const input = document.getElementById('search-input');
@@ -143,6 +146,62 @@
       applyFilter();
     }, 120);
     input.addEventListener('input', handler);
+  }
+
+  function bindCite() {
+    document.querySelectorAll('.badge-cite').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.preventDefault();
+        e.stopPropagation();
+        const card = btn.closest('li.paper-card');
+        const bib = card ? card.getAttribute('data-bibtex') : '';
+        if (!bib) return;
+        const label = btn.querySelector('.cite-label');
+        const onCopied = () => {
+          if (label) label.textContent = '✓ Copied';
+          btn.classList.add('is-copied');
+          setTimeout(() => {
+            if (label) label.textContent = 'Cite';
+            btn.classList.remove('is-copied');
+          }, 1400);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(bib).then(onCopied).catch(() => {
+            const ta = document.createElement('textarea');
+            ta.value = bib; ta.style.position = 'fixed'; ta.style.opacity = '0';
+            document.body.appendChild(ta); ta.select();
+            try { document.execCommand('copy'); } catch (_) {}
+            document.body.removeChild(ta); onCopied();
+          });
+        } else {
+          const ta = document.createElement('textarea');
+          ta.value = bib; ta.style.position = 'fixed'; ta.style.opacity = '0';
+          document.body.appendChild(ta); ta.select();
+          try { document.execCommand('copy'); } catch (_) {}
+          document.body.removeChild(ta); onCopied();
+        }
+      });
+    });
+  }
+
+  function bindExport() {
+    const btn = document.getElementById('export-bibtex');
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      const bibs = [];
+      document.querySelectorAll('li.paper-card:not(.is-hidden)').forEach(card => {
+        const bib = card.getAttribute('data-bibtex');
+        if (bib) bibs.push(bib);
+      });
+      if (!bibs.length) return;
+      const blob = new Blob([bibs.join('\n\n')], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'opd-papers.bib';
+      document.body.appendChild(a); a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    });
   }
 
   function bindExpand() {
@@ -176,6 +235,8 @@
     bindChips();
     bindSearch();
     bindExpand();
+    bindCite();
+    bindExport();
     applyFilter();
   }
 
@@ -199,6 +260,7 @@
             section: card.getAttribute('data-section') || '',
             loss_class: card.getAttribute('data-loss') || '',
             year: card.getAttribute('data-year') || '',
+            year_month: card.getAttribute('data-yearmonth') || '',
             domain: card.getAttribute('data-domain') || '',
             signal: card.getAttribute('data-signal') || '',
             freq: card.getAttribute('data-freq') || '',
