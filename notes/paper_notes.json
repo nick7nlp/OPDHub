@@ -49832,7 +49832,96 @@
       "_success": true,
       "_read_date": "2026-06-12",
       "_attempts": 1
+    },
+    "2606.14368": {
+      "_schema_version": "v3",
+      "paper_id": "2606.14368",
+      "title": "Be My Tutor: On-Policy Co-Distillation for Mutual LLM Improvement via Peer Feedback",
+      "venue": "arXiv 2026",
+      "year": 2026,
+      "authors_first": "Woohyeon Byeon",
+      "affiliation_primary": "KAIST",
+      "summary": "Cross-domain mutual co-distillation: two specialist LLMs tutor each other via on-policy self-distillation conditioned on peer natural-language feedback, achieving Pareto improvement across domains",
+      "method": {
+        "training_loop": "Two domain-specialist models co-evolve. Each performs on-policy self-distillation whose self-teacher is conditioned on (a) its own verified-correct rollout and (b) a natural-language feedback message from its peer. The two self-distillation loops are coupled and updated together. Cognizance-based gating exchanges feedback only when the peer is more competent on the current domain; feedback anchoring grounds the message in the problem.",
+        "loss_formulation": "Token-level self-distillation: student matches sg(self-teacher distribution conditioned on own correct rollout c and peer feedback) over its own on-policy rollout y~pi_theta; coupled across the two models.",
+        "data_source": "Science Q&A across domain pairs (physics, chemistry, materials, biology); Qwen3-8B",
+        "key_components": [
+          "On-policy co-distillation (OPCoD): two coupled self-distillation loops",
+          "Peer natural-language feedback as privileged conditioning",
+          "Cognizance-based gating (feedback only when peer more competent)",
+          "Feedback anchoring (ground feedback in the problem)",
+          "Mutual Pareto improvement across domain pairs"
+        ]
+      },
+      "novelty": "Extends mutual/complementary self-distillation from one model's rollout splits (It Takes Two) or single-capability co-training (CoPD) to two cross-domain specialists exchanging bidirectional natural-language feedback, targeting negative transfer in multi-domain training.",
+      "on_policy_mechanism": {
+        "student_rollout_in_training": "yes",
+        "rollout_frequency": "per-step",
+        "teacher_signal": "logits",
+        "signal_source": "PI(peer-feedback)",
+        "evidence_quote": "each student's self-distillation is conditioned on its own correct rollout and feedback from its peer"
+      },
+      "opd_classification": {
+        "is_opd": "yes",
+        "primary_section": "§5.3.2",
+        "secondary_sections": [
+          "§5.3.1"
+        ],
+        "reasoning": "On-policy self-distillation (student matches token-level self-teacher distribution over its own rollouts). Peer natural-language feedback conditions the self-teacher (privileged-info-like). Co-distillation variant; §5.3.2 pure self-distillation primary, §5.3.1 (feedback as PI) secondary."
+      },
+      "teacher_student_pairs": [
+        {
+          "teacher": {
+            "name": "Qwen3-8B (peer specialist, self-teacher w/ peer feedback)",
+            "family": "Qwen",
+            "size_B": 8,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": true,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "Qwen3-8B (domain specialist)",
+            "family": "Qwen",
+            "size_B": 8,
+            "type": "dense",
+            "init_from": "domain-SFT",
+            "is_self": true
+          },
+          "vocab_match": "shared",
+          "scenario": "main"
+        }
+      ],
+      "training_setup": "Two Qwen3-8B domain specialists co-trained with coupled on-policy self-distillation + peer feedback exchange",
+      "datasets": [
+        "Science Q&A (physics/chemistry/materials/biology domain pairs)"
+      ],
+      "benchmarks": [
+        "Science Q&A domain-pair evaluation"
+      ],
+      "key_findings": [
+        "Mutual Pareto improvement across all evaluated domain pairs and students",
+        "Cognizance-based gating mitigates negative transfer",
+        "Feedback anchoring prevents corruption of correct rollouts"
+      ],
+      "ablations_summary": "Ablates cognizance-based gating and feedback anchoring; both contribute to Pareto improvement",
+      "limitations": "Evaluated on science Q&A with Qwen3-8B; two-model setting",
+      "failure_modes": "Without gating/anchoring, feedback can induce negative transfer or corrupt correct rollouts",
+      "compute_efficiency": "unspecified",
+      "openness": "unspecified",
+      "theory": "Pareto-improvement framing of mutual cross-domain tutoring",
+      "relevance_to_opd": "high",
+      "comparable_papers": [
+        "2604.27083",
+        "2605.20258",
+        "2605.08873"
+      ],
+      "score": 8,
+      "_success": true,
+      "_read_date": "2026-06-16",
+      "_attempts": 1
     }
   },
-  "last_updated": "2026-06-16 11:24:04"
+  "last_updated": "2026-06-16 18:48:25"
 }
