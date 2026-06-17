@@ -41706,7 +41706,7 @@
         "scenario": "Multi-turn dialogue"
       },
       "key_findings": [
-        "Up to 21.7% LiC gap reduction",
+        "SHARDED accuracy 52.8→66.1; SHARDED/FULL ratio 66.5%→84.1% (Qwen2.5-7B-Instruct)",
         "Self-contamination from intermediate replies is key degradation mechanism",
         "History-cleaning creates effective privileged teacher"
       ],
@@ -49923,5 +49923,5 @@
       "_attempts": 1
     }
   },
-  "last_updated": "2026-06-16 18:48:25"
+  "last_updated": "2026-06-17 22:00:51"
 }
