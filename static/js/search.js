@@ -204,19 +204,6 @@
     });
   }
 
-  function bindExpand() {
-    // Toggle .is-expanded on paper-card when clicking title/toggle/non-link area
-    document.querySelectorAll('li.paper-card.has-detail').forEach(card => {
-      card.addEventListener('click', (e) => {
-        // Ignore clicks on links / badge anchors so they navigate normally
-        if (e.target.closest('a')) return;
-        // Ignore clicks inside .paper-detail (let inner links work, no toggle)
-        if (e.target.closest('.paper-detail')) return;
-        card.classList.toggle('is-expanded');
-      });
-    });
-  }
-
   function init(papers) {
     allPapers = papers;
     fuse = new Fuse(papers, {
@@ -234,7 +221,6 @@
     indexCards();
     bindChips();
     bindSearch();
-    bindExpand();
     bindCite();
     bindExport();
     applyFilter();
