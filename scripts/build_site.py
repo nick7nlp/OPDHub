@@ -1048,72 +1048,14 @@ def render_paper_card(r: dict) -> str:
     arxiv_link = f"https://arxiv.org/abs/{aid}"
     arxiv_text = aid if re.match(r"^\d{4}\.\d{4,5}$", aid) else "link"
 
-    # === Expandable detail panel — 5 distinctly-styled blocks ===
-    detail_parts = []
-
-    # Block 1: PAIR (azure)
-    if r.get("pair_html"):
-        detail_parts.append(
-            f'<div class="paper-detail-block detail-pair">'
-            f'<div class="paper-detail-label">Pair</div>'
-            f'<div class="paper-detail-body pair-line">{r["pair_html"]}</div>'
-            f'</div>'
-        )
-
-    # Block 2: METHOD (pine)
-    method_items = r.get("method_items") or []
-    if method_items:
-        items = "".join(f"<li>{escape(item)}</li>" for item in method_items)
-        detail_parts.append(
-            f'<div class="paper-detail-block detail-method">'
-            f'<div class="paper-detail-label">Method</div>'
-            f'<ul class="paper-detail-list">{items}</ul>'
-            f'</div>'
-        )
-
-    # Block 3: RESULT (amber)
-    result_items = r.get("result_items") or []
-    if result_items:
-        # result_items already contain inline HTML <span> for delta arrow
-        items = "".join(f"<li>{item}</li>" for item in result_items)
-        detail_parts.append(
-            f'<div class="paper-detail-block detail-result">'
-            f'<div class="paper-detail-label">Result</div>'
-            f'<ul class="paper-detail-list">{items}</ul>'
-            f'</div>'
-        )
-
-    # Block 4: LOSS / EQUATION (sandal). LaTeX is stored in data-tex
-    # for client-side KaTeX rendering; the textContent shows raw source as
-    # a graceful fallback if JS is disabled or KaTeX fails to load.
-    eq = r.get("equation_text") or ""
-    if eq:
-        detail_parts.append(
-            f'<div class="paper-detail-block detail-equation">'
-            f'<div class="paper-detail-label">Loss</div>'
-            f'<div class="paper-detail-eq" data-tex="{escape(eq, quote=True)}">'
-            f'<code class="eq-fallback">{escape(eq)}</code>'
-            f'</div>'
-            f'</div>'
-        )
-
-    # Block 5: WHO (muted)
-    who = r.get("who_text") or ""
-    if who:
-        detail_parts.append(
-            f'<div class="paper-detail-block detail-who">'
-            f'<div class="paper-detail-label">Who</div>'
-            f'<div class="paper-detail-body">{escape(who)}</div>'
-            f'</div>'
-        )
-
+    # Expandable detail panels (Pair/Method/Result/Loss/Who) were removed:
+    # those fields were LLM-extracted and not reliably verified against the
+    # source papers. The site now shows only verifiable metadata (title,
+    # arXiv link, section/loss/domain badges, code link) plus the one-line
+    # catalog description carried from the Awesome README.
     detail_html = ""
-    has_detail = bool(detail_parts)
-    if has_detail:
-        detail_html = f'<div class="paper-detail">{"".join(detail_parts)}</div>'
-
-    expand_class = " has-detail" if has_detail else ""
-    toggle_html = '<span class="paper-expand-toggle" aria-label="toggle details">▾</span>' if has_detail else ""
+    expand_class = ""
+    toggle_html = ""
 
     # Top-row badges
     badges = [
