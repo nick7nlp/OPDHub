@@ -1,0 +1,79 @@
+✅ Refreshed known_arxiv_ids.txt: 337 IDs
+[scout] DATE WINDOW (CST): 2026-06-15 → 2026-06-16  (days_back=1)
+[scout] accepting YYMM prefixes: ['2606']
+[scout] architecture: RSS-primary + API-verify + S2-crosscheck
+[scout] known IDs to skip: 337
+
+[scout] === Phase 1: RSS feeds (3 categories) ===
+[scout/rss] cs.CL: 133 total items, 16 OPD-keyword matches
+[scout/rss] cs.LG: 286 total items, 22 OPD-keyword matches
+[scout/rss] cs.AI: 257 total items, 32 OPD-keyword matches
+[scout/rss] total unique candidates: 55
+
+[scout] === Phase 2: S2 cross-check (4 queries) ===
+[scout/s2] error: HTTPSConnectionPool(host='api.semanticscholar.org', port=443): Max retries exceeded with url: /graph/v1/paper/search?query=on-policy+distillation+language+model&limit=15&fields=title%2Cauthors%2Cyear%2Cabstract%2CexternalIds%2CpublicationDate&year=2025-2026 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1006)')))
+[scout/s2] error: HTTPSConnectionPool(host='api.semanticscholar.org', port=443): Max retries exceeded with url: /graph/v1/paper/search?query=online+knowledge+distillation+LLM&limit=15&fields=title%2Cauthors%2Cyear%2Cabstract%2CexternalIds%2CpublicationDate&year=2025-2026 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1006)')))
+[scout/s2] error: HTTPSConnectionPool(host='api.semanticscholar.org', port=443): Max retries exceeded with url: /graph/v1/paper/search?query=self-distillation+language+model+2026&limit=15&fields=title%2Cauthors%2Cyear%2Cabstract%2CexternalIds%2CpublicationDate&year=2025-2026 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1006)')))
+[scout/s2] error: HTTPSConnectionPool(host='api.semanticscholar.org', port=443): Max retries exceeded with url: /graph/v1/paper/search?query=reverse+KL+distillation+student+rollout&limit=15&fields=title%2Cauthors%2Cyear%2Cabstract%2CexternalIds%2CpublicationDate&year=2025-2026 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1006)')))
+[scout/s2] added 0 papers not found in RSS
+
+[scout] combined unique: 55 (RSS: 55, S2-extra: 0)
+[scout] ⚠️ 1 rejected by DATE WINDOW: ['2605.13217']
+
+[scout] === Phase 3: no S2-sourced papers to verify ===
+
+[scout] ✅ 50 new candidates for deep-read
+[scout] wrote /tmp/scout_arxiv_results.json
+
+## Scout Summary: 50 new in-window candidates
+
+  - 2606.13904 [rss/ok] SANA: What Matters for QA Agents over Massive Data Lakes?
+  - 2606.13945 [rss/ok] MedLatentDx: Latent Multi-Agent Communication for Cross-Hospital Rare-Disease Di
+  - 2606.14179 [rss/ok] CacheRL:Multi-Turn Tool-Calling Agents via Cached Rollouts and Hybrid Reward
+  - 2606.14199 [rss/ok] OdysSim: Building Foundation Models for Human Behavior Simulation
+  - 2606.14257 [rss/ok] The Linguistics Olympiads: Towards a New Corpus for Linguistics Research?
+  - 2606.14302 [rss/ok] Retrospective Progress-Aware Self-Refinement for LLM Agent Training
+  - 2606.14691 [rss/ok] CORA: Analyzing and bridging thinking-answer gap in Multimodal RLVR via Consiste
+  - 2606.14694 [rss/ok] AdaSR: Adaptive Streaming Reasoning with Hierarchical Relative Policy Optimizati
+  - 2606.13683 [rss/ok] UP-NRPA: User Portrait based Nested Rollout Policy Adaptation for Planning with 
+  - 2606.13684 [rss/ok] Cross-Dataset Bloom Question Classification: Supervised Models and Prompted LLMs
+  - 2606.13691 [rss/ok] Incentives Of EdTech: A Systematic Review Of EduNLP Research
+  - 2606.13707 [rss/ok] Orchestra-o1: Omnimodal Agent Orchestration
+  - 2606.14113 [rss/ok] Simulating Students' Java Programming Errors with Large Language Models
+  - 2606.14368 [rss/ok] Be My Tutor: On-Policy Co-Distillation for Mutual LLM Improvement via Peer Feedb
+  - 2606.14654 [rss/ok] Abstracting Cross-Domain Action Sequences into Interpretable Workflows
+  - 2606.14672 [rss/ok] Towards Direct Latent-Space Synthesis for Parallel Branches in LLM-Agent Workflo
+  - 2606.13741 [rss/ok] High-Frequency Pricing at Scale for E-Commerce
+  - 2606.13795 [rss/ok] Diffusion Policy Optimization without Drifting Apart
+  - 2606.14192 [rss/ok] DRIVE: Distributional and Retrieval-Augmented Bidding with Value Evaluation
+  - 2606.14195 [rss/ok] Structured Noise Adaptation for Sequential Bayesian Filtering with Embedded Late
+  - 2606.14215 [rss/ok] LapidaryEngine: Fully Conversational Crystal Generation
+  - 2606.14284 [rss/ok] Hierarchical ODE: Learning Continuous-Time Physical Prototypes for Early Link Fa
+  - 2606.14397 [rss/ok] Running the Gauntlet: Re-evaluating the Capabilities of Agents Beyond Familiar E
+  - 2606.13704 [rss/ok] Position: AI Must Become Planet-Centered, Not Just Human-Centered
+  - 2606.13709 [rss/ok] LoMC: Localized Multidirectional Correction for Refusal Suppression in Routed Fo
+  - 2606.13733 [rss/ok] How Task Structure Limits Multi-Agent Success: An Information-Theoretic Analysis
+  - 2606.13817 [rss/ok] FlowMo-WM: A World Model with Object Momentum and Hidden Ambient Drift
+  - 2606.13982 [rss/ok] Adaptive Nucleus Truncation for Long-Form Reasoning
+  - 2606.14010 [rss/ok] RT-VLA: Real-Time Vision-Language-Action Models via Knowledge Distillation
+  - 2606.14053 [rss/ok] Hybrid Uncertainty Sensitivity Analysis Based on the HSIC for High-Dimensional R
+  - 2606.14120 [rss/ok] FAConformer: Frequency-Aware Convolutional Transformer for Auditory Attention De
+  - 2606.14181 [rss/ok] Robin-Neumann Coupling of PINN and FEM Solvers: A Steklov-Poincar\'e View, with 
+  - 2606.14211 [rss/ok] Closing the Reflection Gap: A Free Calibration Bonus for Agentic RL
+  - 2606.14684 [rss/ok] HumP-KD: A Hybrid Uncertainty-Aware Multi-Stage Progressive Knowledge Distillati
+  - 2606.13871 [rss/ok] Hyperdimensional computing for structured querying on tabular data embeddings
+  - 2606.14000 [rss/ok] Formalizing Numerical Analysis: An Agent Pipeline and Quality Audit Beyond Kerne
+  - 2606.14249 [rss/ok] HarnessX: A Composable, Adaptive, and Evolvable Agent Harness Foundry
+  - 2606.14314 [rss/ok] Communication Policy Evolution for Proactive LLM Agents
+  - 2606.14579 [rss/ok] VISTA: View-Consistent Self-Verified Training for GUI Grounding
+  - 2606.13794 [rss/ok] An integrated interpretable control effectiveness learning and nonlinear control
+  - 2606.13839 [rss/ok] Explaining RhythmFormer: A Systematic XAI Analysis of Periodic Sparse Attention 
+  - 2606.13898 [rss/ok] HiLo-Token: Input-Adaptive High-Low Frequency Token Compression for Efficient Im
+  - 2606.14117 [rss/ok] A Two-Stage Statistical Framework for Evaluating Associative Interference in Lar
+  - 2606.14202 [rss/ok] MeEvo: Metacognitive Evolution Combined with Natural Evolution for Automatic Heu
+  - 2606.14270 [rss/ok] Robust Fall Recovery for Armless Bipedal-Wheeled Robots Via Force-Guided Learnin
+  - 2606.14297 [rss/ok] Pix2Pix-Hybrid: Structure-Guided Conditional Synthesis of Hajj Crowd Images with
+  - 2606.14306 [rss/ok] Thinking Outside the [Chat]Box: Bridging Computer Science and Industrial Design 
+  - 2606.14327 [rss/ok] I'm Sorry Driver, I'm Afraid I Can't Do That: Appraising the Safety of LLMs with
+  - 2606.14350 [rss/ok] Design Methodology and Performance Trade-offs Management for Distributed and Com
+  - 2606.14438 [rss/ok] CADET: Physics-Grounded Causal Auditing and Training-Free Deconfounding of End-t

@@ -1,0 +1,79 @@
+✅ Refreshed known_arxiv_ids.txt: 336 IDs
+[scout] DATE WINDOW (CST): 2026-06-16 → 2026-06-17  (days_back=1)
+[scout] accepting YYMM prefixes: ['2606']
+[scout] architecture: RSS-primary + API-verify + S2-crosscheck
+[scout] known IDs to skip: 336
+
+[scout] === Phase 1: RSS feeds (3 categories) ===
+[scout/rss] cs.CL: 283 total items, 35 OPD-keyword matches
+[scout/rss] cs.LG: 638 total items, 76 OPD-keyword matches
+[scout/rss] cs.AI: 664 total items, 88 OPD-keyword matches
+[scout/rss] total unique candidates: 145
+
+[scout] === Phase 2: S2 cross-check (4 queries) ===
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] added 0 papers not found in RSS
+
+[scout] combined unique: 145 (RSS: 145, S2-extra: 0)
+[scout] ⚠️ 1 rejected by DATE WINDOW: ['2512.10104']
+
+[scout] === Phase 3: no S2-sourced papers to verify ===
+
+[scout] ✅ 50 new candidates for deep-read
+[scout] wrote /tmp/scout_arxiv_results.json
+
+## Scout Summary: 50 new in-window candidates
+
+  - 2606.15007 [rss/ok] Nemotron 3 Ultra: Open, Efficient Mixture-of-Experts Hybrid Mamba-Transformer Mo
+  - 2606.15070 [rss/ok] Stop When Further Reasoning Won't Help: Attention-State Adaptive Generation in R
+  - 2606.15079 [rss/ok] Ling and Ring 2.6 Technical Report: Efficient and Instant Agentic Intelligence a
+  - 2606.15080 [rss/ok] AdaMame: A Training Recipe for Adaptive Multilingual Reasoning
+  - 2606.15144 [rss/ok] PACUTE: Phonology-, Affix-, and Character-level Understanding of Tokens for Fili
+  - 2606.15307 [rss/ok] Adapting Reinforcement Learning with Chain-of-Thought Supervision for Explainabl
+  - 2606.15333 [rss/ok] Replay What Matters: Off-Policy Replay for Efficient LLM Reinforcement Unlearnin
+  - 2606.15483 [rss/ok] Evaluative Judgement in Teaching AI-based Translation: A Class-room Case Study o
+  - 2606.15517 [rss/ok] SHARD: Safe and Helpful Alignment via Self-Reframing Distillation
+  - 2606.15641 [rss/ok] Distilling Examples into Task Instructions: Enhanced In-Context Learning for Rea
+  - 2606.15741 [rss/ok] A Self Consistency Based Reranking for Narrative Question Answering
+  - 2606.15833 [rss/ok] When Correct Edges Cannot Be Verified: A Provenance Gap in Incomplete KGQA and a
+  - 2606.15872 [rss/ok] SciOrch: Learning to Orchestrate Expert LLMs for Solving Frontier Multimodal Sci
+  - 2606.15893 [rss/ok] BALTO: Balanced Token-Level Policy Optimization for Hallucination Mitigation
+  - 2606.15914 [rss/ok] Contaminated Collaboration: Measuring Gender Bias Transfer in LLM-Assisted Stude
+  - 2606.15932 [rss/ok] Beyond NL2Code: A Structured Survey of Multimodal Code Intelligence
+  - 2606.15971 [rss/ok] SAG: SQL-Retrieval Augmented Generation with Query-Time Dynamic Hyperedges
+  - 2606.16047 [rss/ok] From Argument Components to Graphs: A Multi-Agent Debate with Confidence Gating 
+  - 2606.16215 [rss/ok] PACT: Privileged Trace Co-Training for Multi-Turn Tool-Use Agents
+  - 2606.16368 [rss/ok] Evaluating LLM Personalization via Semantic Constraint Verification
+  - 2606.16409 [rss/ok] PathRouter: Aligning Rewards with Retrieval Quality in Agentic Graph Retrieval-A
+  - 2606.16428 [rss/ok] Lect\=uraAgents: A Multi-Agent Framework for Adaptive Personalized AI-Assisted L
+  - 2606.16496 [rss/ok] REFLEX: Reflective Evolution from LLM Experience
+  - 2606.16817 [rss/ok] Understanding the Behaviors of Environment-aware Information Retrieval
+  - 2606.16910 [rss/ok] IMPACTeen: Intentions, Manipulation, Persuasion, Annotations, and Consequences i
+  - 2606.16934 [rss/ok] Exploring Extrinsic and Intrinsic Properties for Effective Reasoning with Code I
+  - 2606.17056 [rss/ok] The Value Axis: Language Models Encode Whether They're on the Right Track
+  - 2606.14885 [rss/ok] Dr-DCI: Scaling Direct Corpus Interaction via Dynamic Workspace Expansion
+  - 2606.15367 [rss/ok] S1-DeepResearch: Beyond Search, Toward Real-World Long-Horizon Research Agents
+  - 2606.15621 [rss/ok] Re-feeding Is Not Replaying: Measuring Replay Noise in Counterfactual Token-Cred
+  - 2606.16100 [rss/ok] Your "Pro" LLM Subscription May Actually Be "Free": Exposing Fingerprint Spoofin
+  - 2606.16140 [rss/ok] VibeThinker-3B: Exploring the Frontier of Verifiable Reasoning in Small Language
+  - 2606.16206 [rss/ok] Measuring Whether LLM Tutors Teach or Solve: A Diagnostic for Educational Impact
+  - 2606.16429 [rss/ok] Taylor-Calibrate: Principled Initialization for Hybrid Linear Attention Distilla
+  - 2606.16497 [rss/ok] daVinci-kernel: Co-Evolving Skill Selection, Summarization, and Utilization via 
+  - 2606.14801 [rss/ok] QPILOTS: Efficient Test-Time Q-Steering for Flow Policies
+  - 2606.14960 [rss/ok] Leveraging Physiological Signals to Predict Exam Outcomes with Machine Learning
+  - 2606.15032 [rss/ok] How Should World Models Be Evaluated? A Decision-Making-Centric Position
+  - 2606.15127 [rss/ok] Beyond Accuracy: Measuring Bias Acknowledgment in Chain-of-Thought Reasoning for
+  - 2606.15155 [rss/ok] Semantic Reasoning in Medicine: The Role of Knowledge Graphs Across Five Key Dom
+  - 2606.15157 [rss/ok] PolyKV: Heterogeneous Retention and Allocation for KV Cache Compression
+  - 2606.15197 [rss/ok] StarOR: Synergizing Tree Search and Test-Time Reinforcement Learning for Optimiz
+  - 2606.15225 [rss/ok] Edu-Theater: A Data-Efficient Agent Framework for Scalable Learner Behavior Simu
+  - 2606.15260 [rss/ok] Trust-Region Diffusion Policies for Massively Parallel On-Policy RL
+  - 2606.15280 [rss/ok] Rethinking Structural Anomaly Detection: From Decision Boundaries to Projection 
+  - 2606.15288 [rss/ok] Hybrid NARX-LLM for Greenland Iceberg Discharge: Prompt-Driven Residual Correcti
+  - 2606.15301 [rss/ok] Discovering Lattice Reduction Strategies via Self-Play
+  - 2606.15359 [rss/ok] DiRecT: Safe Diffusion-Based Planning via Receding-Horizon Denoising
+  - 2606.15386 [rss/ok] A Compositional Framework for Open-ended Intelligence
+  - 2606.15427 [rss/ok] Post-Launch Capability Expansion of Vision-Language Models via Prompting for On-

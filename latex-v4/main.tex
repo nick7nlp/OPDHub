@@ -260,12 +260,12 @@ These three axes map onto independent terms of the unified OPD objective. The $f
         Decomposed-OPD~\citep{2606.00564}, Surgical-PT~\citep{2603.01683},\\[1pt]%
         Distributional DAgger~\citep{2606.05152}%
         }, leaf=tgcolor, edge={draw=tgcolor!30}]
-      [{\textbf{4.2 Adaptive Divergence Objectives}~{\tikz[baseline=-0.5ex]\node[badge=tgcolor]{10};}\\[2pt]%
+      [{\textbf{4.2 Adaptive Divergence Objectives}~{\tikz[baseline=-0.5ex]\node[badge=tgcolor]{11};}\\[2pt]%
         EOPD~\citep{2603.07079}, AOPD~\citep{2605.06387},\\[1pt]%
         Position-Weighted OPSD~\citep{2605.21606}, Token-Teachability~\citep{2605.26844},\\[1pt]%
         Lookahead Group Reward~\citep{2605.30833}, Trust-Region OPD~\citep{2606.01249}%
         }, leaf=tgcolor, edge={draw=tgcolor!30}]
-      [{\textbf{4.3 RL-Augmented Objectives}~{\tikz[baseline=-0.5ex]\node[badge=tgcolor]{20};}\\[2pt]%
+      [{\textbf{4.3 RL-Augmented Objectives}~{\tikz[baseline=-0.5ex]\node[badge=tgcolor]{21};}\\[2pt]%
         G-OPD~\citep{2602.12125}, RLKD~\citep{2505.16142}, KDRL~\citep{2506.02208},\\[1pt]%
         RLAD~\citep{2602.22495}, SuperCorrect~\citep{2410.09008}, SCoRe~\citep{2509.14257},\\[1pt]%
         AlignDistil~\citep{2503.02832}, $\mathcal{X}$-KD~\citep{2602.12674}, TSD-KD~\citep{2603.13260},\\[1pt]%
@@ -278,13 +278,13 @@ These three axes map onto independent terms of the unified OPD objective. The $f
     ]
     %% ===== Stage 2: Signal Source and Teacher Architecture (§5) =====
     [{\S 5 Signal Source and\\Teacher Architecture}, catSig, edge={draw=sdcolor!60, line width=1.2pt}
-      [{{\S 5.1 External Teacher Distillation}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{20};}}, catSigMid, edge={draw=sdcolor!30}
-        [{{\S 5.1.1 White-Box Logit Supervision}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{10};}}, catSigMid, edge={draw=sdcolor!30}
+      [{{\S 5.1 External Teacher Distillation}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{22};}}, catSigMid, edge={draw=sdcolor!30}
+        [{{\S 5.1.1 White-Box Logit Supervision}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{12};}}, catSigMid, edge={draw=sdcolor!30}
           [{\textbf{Same-Family}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{4};}\\[2pt]%
             MAD-OPD~\citep{2605.01347}, MPD~\citep{2605.08776}, BRTS~\citep{2605.09725},\\[1pt]%
             Pair-In, Pair-Out~\citep{2605.27255}%
             }, leaf=sdcolor, edge={draw=sdcolor!30}]
-          [{\textbf{Cross-Family}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{6};}\\[2pt]%
+          [{\textbf{Cross-Family}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{8};}\\[2pt]%
             Veto~\citep{2601.07155}, PromptKD~\citep{2402.12842}, DSKD~\citep{2504.11426},\\[1pt]%
             CSD~\citep{2509.25837}, SimCT~\citep{2605.07711}, DuDi~\citep{2606.04694}%
             }, leaf=sdcolor, edge={draw=sdcolor!30}]
@@ -296,8 +296,8 @@ These three axes map onto independent terms of the unified OPD objective. The $f
           ORPO-Distill~\citep{2509.25100}, OmniOPD~\citep{2606.01476}%
           }, leaf=sdcolor, edge={draw=sdcolor!30}]
       ]
-      [{{\S 5.2 Self-Distillation}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{55};}}, catSigMid, edge={draw=sdcolor!30}
-        [{\textbf{5.2.1 Privileged Information}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{23};}\\[2pt]%
+      [{{\S 5.2 Self-Distillation}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{63};}}, catSigMid, edge={draw=sdcolor!30}
+        [{\textbf{5.2.1 Privileged Information}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{32};}\\[2pt]%
           OPSD~\citep{2601.18734}, GATES~\citep{2602.20574}, $\pi$-Distill~\citep{2602.04942},\\[1pt]%
           OPCD~\citep{2602.12275}, OEL~\citep{2603.16856}, HDPO~\citep{2603.23871},\\[1pt]%
           CRISP~\citep{2603.05433}, OPSDL~\citep{2604.17535}, GUI-SD~\citep{2605.00642},\\[1pt]%
@@ -308,7 +308,7 @@ These three axes map onto independent terms of the unified OPD objective. The $f
           Constitutional Cross-SFT~\citep{2606.03089}, World-Model PI~\citep{2606.03603},\\[1pt]%
           SD-PG~\citep{2606.04036}%
           }, leaf=sdcolor, edge={draw=sdcolor!30}]
-        [{\textbf{5.2.2 Pure Self-Distillation}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{17};}\\[2pt]%
+        [{\textbf{5.2.2 Pure Self-Distillation}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{16};}\\[2pt]%
           SDFT~\citep{2601.19897}, MTP-SD~\citep{2602.06019}, UniSD~\citep{2605.06597},\\[1pt]%
           VPG~\citep{2605.11019}, Self-Sup OPD~\citep{2605.17497}, HINT-SD~\citep{2605.17873},\\[1pt]%
           SD-Search~\citep{2605.18299}, Vision-OPD~\citep{2605.18740}, It Takes Two~\citep{2605.20258},\\[1pt]%
@@ -348,7 +348,7 @@ These three axes map onto independent terms of the unified OPD objective. The $f
   ]
 \end{forest}
 }
-\caption{Taxonomy of On-Policy Distillation methods organized along three design axes: (1) Objective function design (\S\ref{sec:objectives}), (2) Signal source and teacher architecture (\S\ref{sec:signal}), and (3) Training dynamics and efficiency (\S\ref{sec:dynamics}). Each leaf lists a representative subset of methods, with the badge giving the total method count for that subsection (covering both the listed methods and additional papers discussed in the corresponding subsection prose). Methods are placed under their \emph{primary contribution}, so a method that uses white-box logits but innovates on the objective (e.g., GKD, DistiLLM, EOPD, G-OPD) appears under \S 4 rather than \S 5.1.1; the \S 5.1.1 leaf collects only methods whose primary contribution is the white-box signal interface itself. Methods that contribute to secondary dimensions (e.g., PAINT and PRISM contributing implicit curricula) are discussed in the relevant section prose rather than duplicated in the tree.}
+\caption{Taxonomy of On-Policy Distillation methods organized along three design axes: (1) Objective function design (\S\ref{sec:objectives}), (2) Signal source and teacher architecture (\S\ref{sec:signal}), and (3) Training dynamics and efficiency (\S\ref{sec:dynamics}). Each leaf lists a representative subset of methods, with the badge giving the total method count for that subsection (covering both the listed methods and additional papers discussed in the corresponding subsection prose). Methods are placed under their \emph{primary contribution}, so a method that uses white-box logits but innovates on the objective (e.g., GKD, DistiLLM, EOPD, G-OPD) appears under \S 4 rather than \S 5.1.1, and the \S 5.1.1 leaf collects only methods whose primary contribution is the white-box signal interface itself. Methods that contribute to secondary dimensions (e.g., PAINT and PRISM contributing implicit curricula) are discussed in the relevant section prose rather than duplicated in the tree.}
 \label{fig:taxonomy}
 \end{figure*}
 
@@ -1017,14 +1017,14 @@ Across the two access levels, external teacher distillation offers the densest s
         Self-Sup OPD \citep{2605.17497} & 2026 & Self (SD) & Intra-group KL & Self (GRPO group) & Token & Correct/incorrect-rollout contrast \\
         HINT-SD \citep{2605.17873} & 2026 & Self (SD) & Targeted hindsight relabel & Self & Turn & Failure-relevant turn selection \\
         SD-Search \citep{2605.18299} & 2026 & Self (SD) & Step hindsight relabel & Self & Step & Search-query-level supervision \\
-        Vision-OPD \citep{2605.18740} & 2026 & Self (PI) & Regional-to-global RKL & Self (regional PI) & Token & Fine-grained MLLM grounding \\
+        Vision-OPD \citep{2605.18740} & 2026 & Self (SD) & Regional-to-global RKL & Self (regional PI) & Token & Fine-grained MLLM grounding \\
         It Takes Two \citep{2605.20258} & 2026 & Self (SD) & Complementary parallel SD & Self (mutual splits) & Token & Contextual-integrity privacy alignment \\
-        TOD Proactivity \citep{2605.22240} & 2026 & Self (PI) & Asymmetric user-concern PI & Self (concerns) & Token & Proactive task-oriented dialogue \\
+        TOD Proactivity \citep{2605.22240} & 2026 & Self (SD) & Asymmetric user-concern PI & Self (concerns) & Token & Proactive task-oriented dialogue \\
         Search-E1 \citep{2605.22511} & 2026 & Self (SD) & GRPO + offline SD evolution & Self (snapshot) & Sequence & Self-evolution loop for search reasoning \\
-        MAIGO \citep{2605.27186} & 2026 & Self (PI) & History-cleaned RKL & Self (single-turn PI) & Token & Multi-turn lost-in-conversation gap \\
+        MAIGO \citep{2605.27186} & 2026 & Self (SD) & History-cleaned RKL & Self (single-turn PI) & Token & Multi-turn lost-in-conversation gap \\
         ROSD \citep{2605.28014} & 2026 & Self (SD) & Reflection + quote-localized & Self (reflector) & Token/Span & Error-suffix targeted SD \\
-        Canonical-Ctx OPD \citep{2605.30251} & 2026 & Self (PI) & Answer-masked RKL & Self (full-context PI) & Token & Multi-turn canonical-context alignment \\
-        COMAP \citep{2606.02372} & 2026 & Self (PI) & EMA SD + reflection gate & Self (world model) & Trajectory & Co-evolve agent and world model \\
+        Canonical-Ctx OPD \citep{2605.30251} & 2026 & Self (SD) & Answer-masked RKL & Self (full-context PI) & Token & Multi-turn canonical-context alignment \\
+        COMAP \citep{2606.02372} & 2026 & Self (SD) & EMA SD + reflection gate & Self (world model) & Trajectory & Co-evolve agent and world model \\
         OPCT \citep{2605.21834} & 2026 & Self (EF) & Frozen-copy contrastive RKL & Self (frozen-copy) & Token & Sycophancy/jailbreak consistency \\
         MGSD \citep{2606.06076} & 2026 & Self (PI) & Modality-gap-aware two-stage SD & Self (modality PI) & Token & Spatial planning with modality gap bridging \\
         PTD-PO \citep{2606.07000} & 2026 & Self (PI) & Top-$K$ JSD privileged tutoring & Self (spatial+reasoning PI) & Token & Spatial+reasoning hints for multimodal policy optimization \\
@@ -1034,7 +1034,7 @@ Across the two access levels, external teacher distillation offers the densest s
         AR-OPD \citep{2606.10385} & 2026 & Self (PI) & Anchor+oracle residual OPD & Self (oracle PI) & Token & Prevents hindsight leakage; $+2.3$ vs.\ full OPD \\
         HERO \citep{2606.11559} & 2026 & Self (PI) & Turn-level KL with future-obs PI & Self (future-env PI) & Turn & Future environment observations as privileged context \\
         When Ctx Returns \citep{2606.11627} & 2026 & Self (PI) & FKL no-context anchoring & Self (no-ctx PI) & Token & Anchoring regularizer prevents context-induced degradation \\
-        Rubric-Guided SD \citep{2606.12507} & 2026 & Self (PI) & JSD with rubric PI & Self (rubric PI) & Token & Eliminates external verifier via rubric-conditioned SD \\
+        Rubric-Guided SD \citep{2606.12507} & 2026 & Self (PI) & JSD with rubric PI & Self (rubric PI) & Token & Removes need for external verifier via rubric-conditioned SD \\
         AR-to-Diffusion \citep{2606.06712} & 2026 & Self (SD) & AR$\to$diffusion on-policy SD & Self (frozen AR) & Token & Converts AR LM to diffusion LM; $15\times$--$7000\times$ fewer training tokens \\
 SG-OPD \citep{2606.09304} & 2026 & Self (EF) & Sign-consistency gated SD & Self + Verifier & Token & Phased teacher sampling; $+1.98$ avg@32 / $+7.50$ pass@32 \\
         OPCoD \citep{2606.14368} & 2026 & Self (EF) & Coupled co-distillation + peer feedback & Mutual (peer) & Token & Cross-domain mutual Pareto improvement \\

@@ -861,9 +861,7 @@ def html_monthly_chart(records, start_ym: str = "2025-01") -> str:
     """SVG line chart of paper count per month, starting at `start_ym`.
 
     Pre-`start_ym` records are excluded entirely. Zero-count months are
-    rendered as on-line points so the time axis is continuous and the
-    visual contrast against the recent peak is preserved. Songci 胭脂
-    #C04851 stroke + light area fill, Inconsolata mono labels.
+    rendered as on-line points so the time axis is continuous.
     """
     counts: Counter[str] = Counter()
     for r in records:
@@ -917,17 +915,17 @@ def html_monthly_chart(records, start_ym: str = "2025-01") -> str:
     # Grid lines at 0 and max
     grid = (
         f'<line x1="{pad_l}" y1="{y_at(0):.1f}" x2="{w-pad_r}" y2="{y_at(0):.1f}" '
-        f'stroke="#e6dfd8" stroke-width="1"/>'
+        f'stroke="#e5e5e5" stroke-width="1"/>'
         f'<line x1="{pad_l}" y1="{y_at(max_n):.1f}" x2="{w-pad_r}" y2="{y_at(max_n):.1f}" '
-        f'stroke="#efe9e3" stroke-width="1" stroke-dasharray="2,3"/>'
+        f'stroke="#e5e5e5" stroke-width="1" stroke-dasharray="2,3"/>'
     )
 
     # Y-axis labels (0 and max)
     y_labels = (
         f'<text x="{pad_l-8:.1f}" y="{y_at(0)+4:.1f}" text-anchor="end" '
-        f'font-size="11" fill="#867892" font-family="Inconsolata,monospace">0</text>'
+        f'font-size="11" fill="#aaaaaa" font-family="monospace">0</text>'
         f'<text x="{pad_l-8:.1f}" y="{y_at(max_n)+4:.1f}" text-anchor="end" '
-        f'font-size="11" fill="#867892" font-family="Inconsolata,monospace">{max_n}</text>'
+        f'font-size="11" fill="#aaaaaa" font-family="monospace">{max_n}</text>'
     )
 
     # Data-point circles + non-zero count labels
@@ -935,13 +933,13 @@ def html_monthly_chart(records, start_ym: str = "2025-01") -> str:
     for (x, y), m in zip(pts, months):
         c = counts.get(m, 0)
         circles.append(
-            f'<circle cx="{x:.1f}" cy="{y:.1f}" r="3.5" '
-            f'fill="#C04851" stroke="#fff" stroke-width="1"/>'
+            f'<circle cx="{x:.1f}" cy="{y:.1f}" r="3" '
+            f'fill="#2563eb" stroke="#fff" stroke-width="1.5"/>'
         )
         if c > 0:
             value_labels.append(
                 f'<text x="{x:.1f}" y="{y-10:.1f}" text-anchor="middle" '
-                f'font-size="11" fill="#525C68" font-family="Inconsolata,monospace" '
+                f'font-size="11" fill="#444444" font-family="monospace" '
                 f'font-weight="600">{c}</text>'
             )
 
@@ -952,7 +950,7 @@ def html_monthly_chart(records, start_ym: str = "2025-01") -> str:
         label = f"{yyyy}-{mm}" if (mm == "01" or i == 0) else mm
         x_labels.append(
             f'<text x="{x_at(i):.1f}" y="{h-12:.1f}" text-anchor="middle" '
-            f'font-size="11" fill="#867892" font-family="Inconsolata,monospace">{label}</text>'
+            f'font-size="11" fill="#aaaaaa" font-family="monospace">{label}</text>'
         )
 
     svg = (
@@ -960,8 +958,8 @@ def html_monthly_chart(records, start_ym: str = "2025-01") -> str:
         f'xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" '
         f'role="img" aria-label="Monthly OPD paper count from {start_ym}">'
         + grid
-        + f'<path d="{path_area}" fill="#C04851" fill-opacity="0.10"/>'
-        + f'<path d="{path_line}" fill="none" stroke="#C04851" stroke-width="2.2" '
+        + f'<path d="{path_area}" fill="#2563eb" fill-opacity="0.08"/>'
+        + f'<path d="{path_line}" fill="none" stroke="#2563eb" stroke-width="2" '
         + 'stroke-linejoin="round" stroke-linecap="round"/>'
         + "".join(circles)
         + "".join(value_labels)

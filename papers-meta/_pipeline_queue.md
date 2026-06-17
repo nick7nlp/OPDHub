@@ -459,3 +459,115 @@
 
 ## 2026-06-15 (Mon) — weekend skip (PRE-CHECK exit 1)
 
+
+## 2026-06-16 (Tue) 09:30 — scout completed
+
+**50 candidates** downloaded to `pdfs/_staging/`. Follow-up Phase 2-7 **pending**.
+
+- `2606.13904`  SANA: What Matters for QA Agents over Massive Data Lakes?
+- `2606.13945`  MedLatentDx: Latent Multi-Agent Communication for Cross-Hospital Rare-Disease Diagnosis
+- `2606.14179`  CacheRL:Multi-Turn Tool-Calling Agents via Cached Rollouts and Hybrid Reward
+- `2606.14199`  OdysSim: Building Foundation Models for Human Behavior Simulation
+- `2606.14257`  The Linguistics Olympiads: Towards a New Corpus for Linguistics Research?
+- `2606.14302`  Retrospective Progress-Aware Self-Refinement for LLM Agent Training
+- `2606.14691`  CORA: Analyzing and bridging thinking-answer gap in Multimodal RLVR via Consistency-Oriented Reasoning Alignme
+- `2606.14694`  AdaSR: Adaptive Streaming Reasoning with Hierarchical Relative Policy Optimization
+- `2606.13683`  UP-NRPA: User Portrait based Nested Rollout Policy Adaptation for Planning with Large Language Models in Goal-
+- `2606.13684`  Cross-Dataset Bloom Question Classification: Supervised Models and Prompted LLMs
+- `2606.13691`  Incentives Of EdTech: A Systematic Review Of EduNLP Research
+- `2606.13707`  Orchestra-o1: Omnimodal Agent Orchestration
+- `2606.14113`  Simulating Students' Java Programming Errors with Large Language Models
+- `2606.14368`  Be My Tutor: On-Policy Co-Distillation for Mutual LLM Improvement via Peer Feedback
+- `2606.14654`  Abstracting Cross-Domain Action Sequences into Interpretable Workflows
+- `2606.14672`  Towards Direct Latent-Space Synthesis for Parallel Branches in LLM-Agent Workflows
+- `2606.13741`  High-Frequency Pricing at Scale for E-Commerce
+- `2606.13795`  Diffusion Policy Optimization without Drifting Apart
+- `2606.14192`  DRIVE: Distributional and Retrieval-Augmented Bidding with Value Evaluation
+- `2606.14195`  Structured Noise Adaptation for Sequential Bayesian Filtering with Embedded Latent Transfer Operators
+- `2606.14215`  LapidaryEngine: Fully Conversational Crystal Generation
+- `2606.14284`  Hierarchical ODE: Learning Continuous-Time Physical Prototypes for Early Link Failure Detection
+- `2606.14397`  Running the Gauntlet: Re-evaluating the Capabilities of Agents Beyond Familiar Environments
+- `2606.13704`  Position: AI Must Become Planet-Centered, Not Just Human-Centered
+- `2606.13709`  LoMC: Localized Multidirectional Correction for Refusal Suppression in Routed Foundation Models
+- `2606.13733`  How Task Structure Limits Multi-Agent Success: An Information-Theoretic Analysis
+- `2606.13817`  FlowMo-WM: A World Model with Object Momentum and Hidden Ambient Drift
+- `2606.13982`  Adaptive Nucleus Truncation for Long-Form Reasoning
+- `2606.14010`  RT-VLA: Real-Time Vision-Language-Action Models via Knowledge Distillation
+- `2606.14053`  Hybrid Uncertainty Sensitivity Analysis Based on the HSIC for High-Dimensional Responses with Aleatory--Episte
+- `2606.14120`  FAConformer: Frequency-Aware Convolutional Transformer for Auditory Attention Decoding
+- `2606.14181`  Robin-Neumann Coupling of PINN and FEM Solvers: A Steklov-Poincar\'e View, with Application to Fluid-Structure
+- `2606.14211`  Closing the Reflection Gap: A Free Calibration Bonus for Agentic RL
+- `2606.14684`  HumP-KD: A Hybrid Uncertainty-Aware Multi-Stage Progressive Knowledge Distillation Framework for Efficient Fir
+- `2606.13871`  Hyperdimensional computing for structured querying on tabular data embeddings
+- `2606.14000`  Formalizing Numerical Analysis: An Agent Pipeline and Quality Audit Beyond Kernel Acceptance
+- `2606.14249`  HarnessX: A Composable, Adaptive, and Evolvable Agent Harness Foundry
+- `2606.14314`  Communication Policy Evolution for Proactive LLM Agents
+- `2606.14579`  VISTA: View-Consistent Self-Verified Training for GUI Grounding
+- `2606.13794`  An integrated interpretable control effectiveness learning and nonlinear control allocation methodology for ov
+- `2606.13839`  Explaining RhythmFormer: A Systematic XAI Analysis of Periodic Sparse Attention for Remote Photoplethysmograph
+- `2606.13898`  HiLo-Token: Input-Adaptive High-Low Frequency Token Compression for Efficient Image Editing
+- `2606.14117`  A Two-Stage Statistical Framework for Evaluating Associative Interference in Large Language Models
+- `2606.14202`  MeEvo: Metacognitive Evolution Combined with Natural Evolution for Automatic Heuristic Design
+- `2606.14270`  Robust Fall Recovery for Armless Bipedal-Wheeled Robots Via Force-Guided Learning
+- `2606.14297`  Pix2Pix-Hybrid: Structure-Guided Conditional Synthesis of Hajj Crowd Images with Multi-Channel Conditioning an
+- `2606.14306`  Thinking Outside the [Chat]Box: Bridging Computer Science and Industrial Design for Cognitive-Inclusive Genera
+- `2606.14327`  I'm Sorry Driver, I'm Afraid I Can't Do That: Appraising the Safety of LLMs within Automotive Contexts
+- `2606.14350`  Design Methodology and Performance Trade-offs Management for Distributed and Compound AI Systems
+- `2606.14438`  CADET: Physics-Grounded Causal Auditing and Training-Free Deconfounding of End-to-End Driving Planners
+
+
+## 2026-06-17 (Wed) 09:30 — scout completed
+
+**50 candidates** downloaded to `pdfs/_staging/`. Follow-up Phase 2-7 **pending**.
+
+- `2606.15007`  Nemotron 3 Ultra: Open, Efficient Mixture-of-Experts Hybrid Mamba-Transformer Model for Agentic Reasoning
+- `2606.15070`  Stop When Further Reasoning Won't Help: Attention-State Adaptive Generation in Reasoning Models
+- `2606.15079`  Ling and Ring 2.6 Technical Report: Efficient and Instant Agentic Intelligence at Trillion-Parameter Scale
+- `2606.15080`  AdaMame: A Training Recipe for Adaptive Multilingual Reasoning
+- `2606.15144`  PACUTE: Phonology-, Affix-, and Character-level Understanding of Tokens for Filipino
+- `2606.15307`  Adapting Reinforcement Learning with Chain-of-Thought Supervision for Explainable Detection of Hateful and Pro
+- `2606.15333`  Replay What Matters: Off-Policy Replay for Efficient LLM Reinforcement Unlearning
+- `2606.15483`  Evaluative Judgement in Teaching AI-based Translation: A Class-room Case Study of AI-Mediated Translation and 
+- `2606.15517`  SHARD: Safe and Helpful Alignment via Self-Reframing Distillation
+- `2606.15641`  Distilling Examples into Task Instructions: Enhanced In-Context Learning for Real-World B2B Conversations
+- `2606.15741`  A Self Consistency Based Reranking for Narrative Question Answering
+- `2606.15833`  When Correct Edges Cannot Be Verified: A Provenance Gap in Incomplete KGQA and a Provenance-Favoring Completio
+- `2606.15872`  SciOrch: Learning to Orchestrate Expert LLMs for Solving Frontier Multimodal Scientific Reasoning Tasks
+- `2606.15893`  BALTO: Balanced Token-Level Policy Optimization for Hallucination Mitigation
+- `2606.15914`  Contaminated Collaboration: Measuring Gender Bias Transfer in LLM-Assisted Student Writing
+- `2606.15932`  Beyond NL2Code: A Structured Survey of Multimodal Code Intelligence
+- `2606.15971`  SAG: SQL-Retrieval Augmented Generation with Query-Time Dynamic Hyperedges
+- `2606.16047`  From Argument Components to Graphs: A Multi-Agent Debate with Confidence Gating for Argument Relations
+- `2606.16215`  PACT: Privileged Trace Co-Training for Multi-Turn Tool-Use Agents
+- `2606.16368`  Evaluating LLM Personalization via Semantic Constraint Verification
+- `2606.16409`  PathRouter: Aligning Rewards with Retrieval Quality in Agentic Graph Retrieval-Augmented Generation
+- `2606.16428`  Lect\=uraAgents: A Multi-Agent Framework for Adaptive Personalized AI-Assisted Learning and Embodied Teaching
+- `2606.16496`  REFLEX: Reflective Evolution from LLM Experience
+- `2606.16817`  Understanding the Behaviors of Environment-aware Information Retrieval
+- `2606.16910`  IMPACTeen: Intentions, Manipulation, Persuasion, Annotations, and Consequences in Teen Communication Dataset
+- `2606.16934`  Exploring Extrinsic and Intrinsic Properties for Effective Reasoning with Code Interpreter
+- `2606.17056`  The Value Axis: Language Models Encode Whether They're on the Right Track
+- `2606.14885`  Dr-DCI: Scaling Direct Corpus Interaction via Dynamic Workspace Expansion
+- `2606.15367`  S1-DeepResearch: Beyond Search, Toward Real-World Long-Horizon Research Agents
+- `2606.15621`  Re-feeding Is Not Replaying: Measuring Replay Noise in Counterfactual Token-Credit Estimation
+- `2606.16100`  Your "Pro" LLM Subscription May Actually Be "Free": Exposing Fingerprint Spoofing Risks in LLM Inference Servi
+- `2606.16140`  VibeThinker-3B: Exploring the Frontier of Verifiable Reasoning in Small Language Models
+- `2606.16206`  Measuring Whether LLM Tutors Teach or Solve: A Diagnostic for Educational Impact
+- `2606.16429`  Taylor-Calibrate: Principled Initialization for Hybrid Linear Attention Distillation
+- `2606.16497`  daVinci-kernel: Co-Evolving Skill Selection, Summarization, and Utilization via RL for GPU Kernel Optimization
+- `2606.14801`  QPILOTS: Efficient Test-Time Q-Steering for Flow Policies
+- `2606.14960`  Leveraging Physiological Signals to Predict Exam Outcomes with Machine Learning
+- `2606.15032`  How Should World Models Be Evaluated? A Decision-Making-Centric Position
+- `2606.15127`  Beyond Accuracy: Measuring Bias Acknowledgment in Chain-of-Thought Reasoning for Responsible AI Evaluation
+- `2606.15155`  Semantic Reasoning in Medicine: The Role of Knowledge Graphs Across Five Key Domains
+- `2606.15157`  PolyKV: Heterogeneous Retention and Allocation for KV Cache Compression
+- `2606.15197`  StarOR: Synergizing Tree Search and Test-Time Reinforcement Learning for Optimization Modeling
+- `2606.15225`  Edu-Theater: A Data-Efficient Agent Framework for Scalable Learner Behavior Simulation through Staging Roll-Ca
+- `2606.15260`  Trust-Region Diffusion Policies for Massively Parallel On-Policy RL
+- `2606.15280`  Rethinking Structural Anomaly Detection: From Decision Boundaries to Projection Operators
+- `2606.15288`  Hybrid NARX-LLM for Greenland Iceberg Discharge: Prompt-Driven Residual Correction
+- `2606.15301`  Discovering Lattice Reduction Strategies via Self-Play
+- `2606.15359`  DiRecT: Safe Diffusion-Based Planning via Receding-Horizon Denoising
+- `2606.15386`  A Compositional Framework for Open-ended Intelligence
+- `2606.15427`  Post-Launch Capability Expansion of Vision-Language Models via Prompting for On-Orbit Spacecraft Inspection
+

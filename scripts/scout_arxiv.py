@@ -34,7 +34,19 @@ import requests
 
 SURVEY_ROOT = Path("/apdcephfs_cq8/share_1324356/nickmysong/daily_research/on-policy-distillation-survey")
 KNOWN_IDS = SURVEY_ROOT / "papers-meta" / "known_arxiv_ids.txt"
-STAGING = SURVEY_ROOT / "pdfs" / "_staging"
+PDF_ROOT = SURVEY_ROOT / "pdfs"
+
+
+def get_monthly_dir(arxiv_id: str) -> Path:
+    """Map arxiv_id (YYMM.NNNNN) to monthly PDF directory. Pre-2026 goes to pre-2026/."""
+    m = re.match(r'^(\d{2})(\d{2})\.', arxiv_id)
+    if not m:
+        return PDF_ROOT / "pre-2026"
+    yy, mm = int(m.group(1)), int(m.group(2))
+    year = 2000 + yy
+    if year < 2026:
+        return PDF_ROOT / "pre-2026"
+    return PDF_ROOT / f"{year:04d}-{mm:02d}"
 
 sys.path.insert(0, str(SURVEY_ROOT / "scripts"))
 try:
@@ -305,7 +317,7 @@ def load_known() -> set[str]:
 
 def main():
     ap = argparse.ArgumentParser(description="OPD Daily Scout v3 — RSS-first")
-    ap.add_argument("--download", action="store_true", help="Download PDFs to staging")
+    ap.add_argument("--download", action="store_true", help="Download PDFs to monthly dirs (pdfs/YYYY-MM/)")
     ap.add_argument("--dry-run", action="store_true", help="No download")
     ap.add_argument("--max", type=int, default=30, help="Max candidates total")
     ap.add_argument("--output", default="/tmp/scout_arxiv_results.json")
@@ -417,16 +429,17 @@ def main():
 
     # === Download PDFs ===
     if args.download and not args.dry_run:
-        STAGING.mkdir(parents=True, exist_ok=True)
         for c in new_candidates:
             aid = c["arxiv_id"]
-            dest = STAGING / f"{aid}.pdf"
+            monthly_dir = get_monthly_dir(aid)
+            monthly_dir.mkdir(parents=True, exist_ok=True)
+            dest = monthly_dir / f"{aid}.pdf"
             if dest.exists():
-                c["staging_path"] = str(dest)
+                c["pdf_path"] = str(dest)
                 c["downloaded"] = "already-existed"
                 continue
             ok = download_pdf(session, c["pdf_url"], dest)
-            c["staging_path"] = str(dest) if ok else None
+            c["pdf_path"] = str(dest) if ok else None
             c["downloaded"] = "ok" if ok else "fail"
             time.sleep(2)
 
