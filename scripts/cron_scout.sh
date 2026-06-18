@@ -72,7 +72,7 @@ CAND=$(python3 -c "import json; d=json.loads(open('${SCOUT_OUT}').read()); print
     if [ "${CAND}" -eq 0 ]; then
         echo "**0 candidates.** No follow-up needed."
     else
-        echo "**${CAND} candidates** downloaded to monthly \`pdfs/YYYY-MM/\`. Follow-up Phase 2-7 **pending**."
+        echo "**${CAND} candidates** downloaded to \`pdfs/_staging/\`. Follow-up Phase 2-7 **pending**."
         echo ""
         python3 -c "
 import json

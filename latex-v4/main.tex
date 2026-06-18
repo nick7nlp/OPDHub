@@ -96,9 +96,9 @@ Our scope is centered on the on-policy regime. We cover methods in which the stu
 To understand why on-policy training is often preferable, we formalize the compounding geometry of autoregressive generation. We begin with classical KD and its limitations, then establish the unified $f$-divergence framework that subsumes modern OPD objectives.
 
 \textbf{Defining ``on-policy.''} A distillation method is \emph{on-policy} if the training data for the student is sampled from the student's own current policy $\ptheta$ at training time, rather than from a fixed external corpus $\mathcal{D}$ or from the teacher's generation distribution $\pteacher$. Formally, on-policy training optimizes:
-\begin{equation}
+\begin{equation*}
     \min_\theta \E_{x \sim \mathcal{D}}\, \E_{y \sim \ptheta(\cdot|x)} \left[ \mathcal{L}(y, x; \theta, T) \right]
-\end{equation}
+\end{equation*}
 where $\mathcal{L}$ is the distillation loss (divergence, reward, or hybrid). The key distinction is that the \emph{outer} expectation is over the student's own generations, not a static dataset. This creates a non-stationary optimization landscape because as $\theta$ updates, the data distribution $\ptheta$ shifts, requiring fresh rollouts at each training step. The computational cost of this fresh generation is a central systems-level challenge of OPD (Section~\ref{subsec:compute}).
 
 \textbf{Notation.} Throughout this survey, we use lowercase $p$ for token-level conditional distributions ($\pteacher(\cdot|x, y_{<t})$ for teacher, $\ptheta(\cdot|x, y_{<t})$ for student) and uppercase $P$ for sequence-level distributions ($P_T(y|x)$, $P_\theta(y|x)$). $\mathcal{D}$ denotes the training dataset, $\pdata$ the data distribution, and $|V|$ the vocabulary size. $\KL$ and $D_f$ denote KL divergence and general $f$-divergence respectively. In the RL formalization, $\pi$ denotes policies (e.g., $\pi_{\mathrm{mix}}$ for a mixture policy, $\pi_{\text{teach}}$ for a sequence-level teacher policy in DPO-style derivations, $\pi_{\text{ref}}$ for a reference policy) and $R(x,y)$ the outcome reward. When discussing individual methods, we follow each paper's conventions where clarity demands.
@@ -106,27 +106,28 @@ where $\mathcal{L}$ is the distillation loss (divergence, reward, or hybrid). Th
 \subsection{Classical Knowledge Distillation}
 
 The original KD formulation~\citep{1503.02531} trains the student to match the teacher's temperature-softened output distribution:
-\begin{equation}
+\begin{equation*}
     p_T^{(\tau)}(y|x) = \frac{\exp(z_y / \tau)}{\sum_{j} \exp(z_j / \tau)}
-\end{equation}
+\end{equation*}
 where $z_y$ are the teacher's logits and $\tau > 1$ is a temperature parameter. When $\tau \to \infty$, the softened distribution approaches a uniform distribution over the vocabulary, exposing the teacher's ``dark knowledge'' about inter-class similarities that hard labels hide. The gradient of the distillation loss with respect to the student's logits $z_i^{\mathcal{S}}$ shows why temperature matters:
-\begin{equation}
+\begin{equation*}
     \frac{\partial \loss_{\text{KD}}}{\partial z_i^{\mathcal{S}}} = \frac{1}{\tau}(p_i^{\mathcal{S}} - p_i^{\mathcal{T}})
-\end{equation}
+\end{equation*}
 In the high-temperature limit ($\tau \to \infty$), a Taylor expansion $\exp(z_i/\tau) \approx 1 + z_i/\tau$ together with the zero-mean assumption $\sum_i z_i^{\mathcal{S}} = \sum_i z_i^{\mathcal{T}} = 0$ reduces the gradient to $\frac{1}{|V|\tau^2}(z_i^{\mathcal{S}} - z_i^{\mathcal{T}})$~\citep{1503.02531}, so classical KD in this regime is equivalent to minimizing the mean squared error between raw logits. This encourages the student to replicate the teacher's \emph{entire} logit structure, transferring both primary predictive modes and nuanced sub-optimal probability masses (the ``dark knowledge''). The $1/\tau^2$ factor explains why the soft-target term is commonly upweighted by $\tau^2$ relative to the hard-label cross-entropy in the combined KD objective. In practice, LLM distillation operates at $\tau = 1$ or low-to-moderate temperatures~\citep{2402.11890} because the large vocabulary ($|V| > 30{,}000$) already produces richly structured non-peak probabilities without explicit softening, and higher temperatures may amplify noise in the teacher's poorly calibrated tail distribution.
 
 For autoregressive LLMs, the token-level distillation loss factors as:
 \begin{equation}
     \loss_{\text{Token-KD}} = \E_{x, y \sim \mathcal{D}} \left[ \sum_{t=1}^{|y|} \KL(\pteacher(\cdot | x, y_{<t}) \parallel \ptheta(\cdot | x, y_{<t})) \right]
+\label{eq:token_kd}
 \end{equation}
 This is computationally tractable because it relies on static, pre-computed prefixes from the dataset, but it optimizes next-token accuracy while assuming an error-free history $y_{<t}$. \citet{1606.07947} extended this to Sequence-Level Knowledge Distillation (Seq-KD), which instead minimizes the global KL divergence over the entire sequence space:
-\begin{equation}
+\begin{equation*}
     \loss_{\text{Seq-KD}} = \KL(P_T(y|x) \parallel P_\theta(y|x)) = \sum_{y \in \mathcal{Y}} P_T(y|x) \log \frac{P_T(y|x)}{P_\theta(y|x)}
-\end{equation}
+\end{equation*}
 Since $|\mathcal{Y}| = |V|^T$ grows exponentially with length, exact computation is intractable. Seq-KD approximates $P_T(y|x)$ with a Dirac delta at the beam-search output $\hat{y} = \arg\max_y P_T(y|x)$, reducing to standard negative log-likelihood on teacher-generated sequences:
-\begin{equation}
+\begin{equation*}
     \loss_{\text{Seq-KD}} \approx -\log P_\theta(\hat{y}|x)
-\end{equation}
+\end{equation*}
 This approximation works well when the teacher is highly confident but discards much of the information about the teacher's uncertainty and alternative modes. The practical consequence is twofold. Seq-KD collapses the teacher's distributional richness into a single point estimate, and it still trains on a \emph{static} dataset disconnected from the student's own generation behavior. These two limitations (loss of distributional signal and off-policy training) motivate the richer objectives below.
 
 Subsequent work~\citep{2402.11890} revisited these foundations for modern LLMs and suggested that classical assumptions (small teacher-student gap, shared vocabulary, similar architectural inductive biases) frequently fail when distilling across heterogeneous model families. The gap between classical assumptions and modern reality motivates the more general $f$-divergence framework below.
@@ -135,12 +136,12 @@ Subsequent work~\citep{2402.11890} revisited these foundations for modern LLMs a
 
 \subsection{Off-Policy Exposure Bias}
 
-The token-level loss in Eq.~(4) conditions on ground-truth prefixes $y_{<t}$ drawn from a static dataset. During inference, the student generates its own prefixes, creating a distribution mismatch between training and deployment that compounds over sequence length. We now formalize why this mismatch is catastrophic.
+The token-level loss in Eq.~(\ref{eq:token_kd}) conditions on ground-truth prefixes $y_{<t}$ drawn from a static dataset. During inference, the student generates its own prefixes, creating a distribution mismatch between training and deployment that compounds over sequence length. We now formalize why this mismatch is catastrophic.
 
 Standard knowledge distillation minimizes the KL divergence over states drawn from the dataset distribution $d_{\mathcal{D}}(s)$:
-\begin{equation}
+\begin{equation*}
     \loss_{\mathrm{Off-Policy}} = \E_{x, y \sim \pdata} \left[ \sum_{t=1}^{|y|} \KL(\pteacher(\cdot | x, y_{<t}) \parallel \ptheta(\cdot | x, y_{<t})) \right]
-\end{equation}
+\end{equation*}
 At inference, the student acts according to its own policy, inducing a different state visitation distribution $d_{\ptheta}(s)$. By the DAgger theorem~\citep{1011.0686}, if a policy mimics an expert with per-step error $\epsilon$ under the training distribution, the expected total discrepancy over a trajectory of length $T$ under the learner's own state visitation scales as $O(\epsilon T^2)$.
 
 This quadratic compounding has severe practical consequences for reasoning tasks. Even under the simplest independent-error assumption, a mathematical proof requiring 10 reasoning steps with per-step accuracy 95\% yields only $(0.95)^{10} \approx 60\%$ trajectory-level correctness. The DAgger bound predicts something strictly worse. Because off-policy training rarely exposes the student to its own error states, each mistake pushes the model into regions where its next-step accuracy degrades further (distributional shift), producing $O(\epsilon T^2)$ total error rather than the $O(\epsilon T)$ of independent compounding. On-policy training offers a way to mitigate this vicious cycle by exposing the student to its own error states during training, so that it can learn recovery strategies that keep distributional drift from amplifying local mistakes into trajectory-level collapse.
@@ -151,13 +152,13 @@ This quadratic compounding has severe practical consequences for reasoning tasks
 \label{subsec:f-div}
 
 OPD resolves exposure bias by altering the training expectation to sample from the student's own rollouts, or a mixture policy $\pi_{\mathrm{mix}}$. The generalized on-policy objective decouples the sampling trajectory from the local matching metric:
-\begin{equation}
+\begin{equation*}
     \loss_{\mathrm{OPD}}(\theta) = \E_{y \sim \pi_{\mathrm{mix}}} \left[ \sum_{t=1}^{|y|} D_f ( \pteacher(\cdot | x, y_{<t}),\; \ptheta(\cdot | x, y_{<t}) ) \right]
-\end{equation}
+\end{equation*}
 Here, $D_f$ represents a divergence from the $f$-divergence family~\citep{2307.15190}. Formally, given two distributions $P$ and $Q$, an $f$-divergence is defined as:
-\begin{equation}
+\begin{equation*}
     D_f(P \parallel Q) = \E_{y \sim Q}\left[f\!\left(\frac{P(y)}{Q(y)}\right)\right]
-\end{equation}
+\end{equation*}
 where $f: (0,\infty) \to \mathbb{R}$ is a convex generator with $f(1) = 0$. The choice of $f$ determines the implicit weighting of likelihood ratios $\pteacher(y)/\ptheta(y)$:
 
 \begin{itemize}[nosep]
@@ -373,24 +374,24 @@ Chronologically, the distribution of methods reflects shifting research emphasis
 \toprule
 \textbf{Method} & \textbf{Category} & \textbf{Core Contribution} & \textbf{Signal Source} & \textbf{Loss Granularity} \\
 \midrule
-GKD \citep{2306.13649} & \multirow{3}{*}{Objective (Fixed)} & DAgger for LLMs, interpolation & White-Box Logits & Token \\
-DistiLLM \citep{2402.03898} & & Skewed KL mixtures & White-Box Logits & Token \\
-MiniLLM \citep{2306.08543} & & Sequence-level Reverse KL via RL & White-Box Logits & Sequence \\
+GKD~\citep{2306.13649} & \multirow{3}{*}{Objective (Fixed)} & DAgger for LLMs, interpolation & White-Box Logits & Token \\
+DistiLLM~\citep{2402.03898} & & Skewed KL mixtures & White-Box Logits & Token \\
+MiniLLM~\citep{2306.08543} & & Sequence-level Reverse KL via RL & White-Box Logits & Sequence \\
 \midrule
-EOPD \citep{2603.07079} & Objective (Adaptive) & Entropy-aware FKL+RKL blend & White-Box Logits & Token \\
+EOPD~\citep{2603.07079} & Objective (Adaptive) & Entropy-aware FKL+RKL blend & White-Box Logits & Token \\
 \midrule
-G-OPD \citep{2602.12125} & \multirow{2}{*}{Objective (RL)} & OPD equivalence to KL-RL & White-Box Logits & Sequence/Token \\
-RLKD \citep{2505.16142} & & KD augmented with reward model & Reward Model & Sequence \\
+G-OPD~\citep{2602.12125} & \multirow{2}{*}{Objective (RL)} & OPD equivalence to KL-RL & White-Box Logits & Sequence/Token \\
+RLKD~\citep{2505.16142} & & KD augmented with reward model & Reward Model & Sequence \\
 \midrule
-DSKD \citep{2504.11426} & Signal (White-Box) & Cross-architecture alignment & White-Box Logits & Token \\
+DSKD~\citep{2504.11426} & Signal (White-Box) & Cross-architecture alignment & White-Box Logits & Token \\
 \midrule
-Lion \citep{2305.12870} & \multirow{2}{*}{Signal (Black-Box)} & Verbal feedback curriculum & Black-Box API & Sequence \\
-GAD \citep{2511.10643} & & Adversarial distribution matching & Black-Box API & Sequence \\
+Lion~\citep{2305.12870} & \multirow{2}{*}{Signal (Black-Box)} & Verbal feedback curriculum & Black-Box API & Sequence \\
+GAD~\citep{2511.10643} & & Adversarial distribution matching & Black-Box API & Sequence \\
 \midrule
-OPSD \citep{2601.18734} & Signal (Self) & Privileged Info (PI) conditioning & Self-Generated & Token \\
+OPSD~\citep{2601.18734} & Signal (Self) & Privileged Info (PI) conditioning & Self-Generated & Token \\
 \midrule
-TIP \citep{2604.14084} & Dynamics (Weight) & Token importance via entropy \& divergence & White-Box Logits & Token \\
-        PACED \citep{2603.11178} & Dynamics (Curriculum) & Beta-kernel curriculum pacing & White-Box Logits & Problem \\
+TIP~\citep{2604.14084} & Dynamics (Weight) & Token importance via entropy \& divergence & White-Box Logits & Token \\
+        PACED~\citep{2603.11178} & Dynamics (Curriculum) & Beta-kernel curriculum pacing & White-Box Logits & Problem \\
 \bottomrule
 \end{tabular}
 }
@@ -409,78 +410,78 @@ TIP \citep{2604.14084} & Dynamics (Weight) & Token importance via entropy \& div
         \midrule
         \multicolumn{5}{l}{\textit{Mathematical Reasoning}} \\
         \midrule
-        G-OPD \citep{2602.12125} & Qwen3-30B-A3B-Instruct & Qwen3-1.7B/4B & Dense logit + reward extrap. & AIME, HMMT, Code \\
-        OPSD \citep{2601.18734} & Self (GT-conditioned) & Qwen3-1.7B/4B/8B-Inst & GT-PI self-distillation & AIME, HMMT \\
-        PACED \citep{2603.11178} & Qwen3-14B & Qwen3-8B & Beta-kernel curriculum & MATH-500, AIME \\
-        KDRL \citep{2506.02208} & Skywork-OR1-Math-7B & R1-Distill-Qwen-1.5B/DeepScaleR & Joint KD + RL & MATH500, Minerva, AIME24 \\
-        LUFFY \citep{2504.14945} & DeepSeek-R1 (off-policy traces) & Qwen2.5-Math-7B/1.5B & Mixed-policy GRPO & AIME, AMC, MATH-500 \\
-        AOPD \citep{2605.06387} & Qwen3-32B/8B (teacher) & Qwen3-8B/4B-Base & Asymmetric PG + FKL & AIME'24/'25, HMMT'25 \\
-        vOPD \citep{2605.07865} & Qwen3-1.7B-Inst (Inst$\to$Base) & Qwen3-1.7B/4B-Base, OLMo-3-7B & CV baseline + single-sample RKL & MATH-500, AIME'24/'25, Minerva \\
+        G-OPD~\citep{2602.12125} & Qwen3-30B-A3B-Instruct & Qwen3-1.7B/4B & Dense logit + reward extrap. & AIME, HMMT, Code \\
+        OPSD~\citep{2601.18734} & Self (GT-conditioned) & Qwen3-1.7B/4B/8B-Inst & GT-PI self-distillation & AIME, HMMT \\
+        PACED~\citep{2603.11178} & Qwen3-14B & Qwen3-8B & Beta-kernel curriculum & MATH-500, AIME \\
+        KDRL~\citep{2506.02208} & Skywork-OR1-Math-7B & R1-Distill-Qwen-1.5B/DeepScaleR & Joint KD + RL & MATH500, Minerva, AIME24 \\
+        LUFFY~\citep{2504.14945} & DeepSeek-R1 (off-policy traces) & Qwen2.5-Math-7B/1.5B & Mixed-policy GRPO & AIME, AMC, MATH-500 \\
+        AOPD~\citep{2605.06387} & Qwen3-32B/8B (teacher) & Qwen3-8B/4B-Base & Asymmetric PG + FKL & AIME'24/'25, HMMT'25 \\
+        vOPD~\citep{2605.07865} & Qwen3-1.7B-Inst (Inst$\to$Base) & Qwen3-1.7B/4B-Base, OLMo-3-7B & CV baseline + single-sample RKL & MATH-500, AIME'24/'25, Minerva \\
         \midrule
         \multicolumn{5}{l}{\textit{Instruction Following \& General}} \\
         \midrule
-        GKD \citep{2306.13649} & T5-XL (3B) & T5-Small/Base & On-policy FKL/RKL/JSD & XSum, WMT \\
-        DistiLLM \citep{2402.03898} & GPT-2 XL (1.5B) & GPT-2 (124M) & Skewed KL & ROUGE-L, Dolly \\
-        AlignDistil \citep{2503.02832} & Self (contrastive DPO reward) & Qwen2/2.5-1.5B-Inst & Token-level RLHF distillation & AlpacaEval, MT-Bench, Arena-Hard \\
+        GKD~\citep{2306.13649} & T5-XL (3B) & T5-Small/Base & On-policy FKL/RKL/JSD & XSum, WMT \\
+        DistiLLM~\citep{2402.03898} & GPT-2 XL (1.5B) & GPT-2 (124M) & Skewed KL & ROUGE-L, Dolly \\
+        AlignDistil~\citep{2503.02832} & Self (contrastive DPO reward) & Qwen2/2.5-1.5B-Inst & Token-level RLHF distillation & AlpacaEval, MT-Bench, Arena-Hard \\
         \midrule
         \multicolumn{5}{l}{\textit{Industrial Scale}} \\
         \midrule
-        Qwen3 \citep{2505.09388} & Qwen3-32B/235B-A22B & Qwen3-0.6B--14B & On-policy logit distillation & AIME, MATH, LiveCode \\
-        Gemma 2 \citep{2408.00118} & Gemma 2 27B & Gemma 2 9B / 2B & KD in pre-training & MMLU, HellaSwag \\
-        MiMo-V2-Flash \citep{2601.02780} & Domain specialists & MiMo-V2-Flash (309B/15B MoE) & Multi-teacher logit + reward & AIME, MATH, GPQA \\
-        KAT-Coder-V2 \citep{2603.27703} & 5 domain specialists & Unified agentic coder & Specialize-then-Unify OPD & SWE-bench (79.6\%) \\
-        Nemotron-Cascade 2 \citep{2603.19220} & Domain RL/SFT teachers & 30B MoE (3B active) & Cascade RL + domain OPD & IMO, IOI, ICPC \\
-        DeepSeek-V4 \citep{deepseekv4} & 10+ domain experts (1.6T) & DeepSeek-V4-Pro (1.6T MoE) & Full-vocab multi-teacher RKL & LiveCodeBench, HMMT, IMOAnswerBench \\
-        ORBIT \citep{2601.08310} & Multi-mode RL experts & DeepSeek-Distill-Qwen-1.5B, Qwen3-4B, Openmath-Nemotron-7B & Multi-teacher mode fusion & AIME, GPQA, MMLU-Pro \\
+        Qwen3~\citep{2505.09388} & Qwen3-32B/235B-A22B & Qwen3-0.6B--14B & On-policy logit distillation & AIME, MATH, LiveCode \\
+        Gemma 2~\citep{2408.00118} & Gemma 2 27B & Gemma 2 9B / 2B & KD in pre-training & MMLU, HellaSwag \\
+        MiMo-V2-Flash~\citep{2601.02780} & Domain specialists & MiMo-V2-Flash (309B/15B MoE) & Multi-teacher logit + reward & AIME, MATH, GPQA \\
+        KAT-Coder-V2~\citep{2603.27703} & 5 domain specialists & Unified agentic coder & Specialize-then-Unify OPD & SWE-bench (79.6\%) \\
+        Nemotron-Cascade 2~\citep{2603.19220} & Domain RL/SFT teachers & 30B MoE (3B active) & Cascade RL + domain OPD & IMO, IOI, ICPC \\
+        DeepSeek-V4~\citep{deepseekv4} & 10+ domain experts (1.6T) & DeepSeek-V4-Pro (1.6T MoE) & Full-vocab multi-teacher RKL & LiveCodeBench, HMMT, IMOAnswerBench \\
+        ORBIT~\citep{2601.08310} & Multi-mode RL experts & DeepSeek-Distill-Qwen-1.5B, Qwen3-4B, Openmath-Nemotron-7B & Multi-teacher mode fusion & AIME, GPQA, MMLU-Pro \\
         \midrule
         \multicolumn{5}{l}{\textit{Multimodal \& Domain-Specific}} \\
         \midrule
-        SCoRe \citep{2509.14257} & Qwen2.5-72B-Inst & Qwen2.5-7B/3B, Llama-3.1-8B & Earliest-error correction & 12 Agent benchmarks \\
-        VOLD \citep{2510.23497} & Text-only teacher & VLM student & GRPO + token-level KL & MMMU-Pro, MathVista, LogicVista \\
-        CORD \citep{2601.16547} & Text-mode LALM & Audio-mode LALM & Cross-modal RKL + GRPO & Audio QA/reasoning \\
-        SKD \citep{2410.11325} & Gemma-7B-IT, Qwen2-7B & Gemma-2B, Qwen2-0.5B & Block-verified on-policy KL & Translation, Dialogue \\
-        DP-OPD \citep{2604.04461} & GPT-2 Large 774M & DistilGPT-2 82M & GKD + DP-SGD (student only) & Yelp, BigPatent \\
-        Veto \citep{2601.07155} & Qwen2-7B-IT & Qwen2-0.5B-IT & Geometric bridge KL & Reasoning, Generation \\
-        GUI-SD \citep{2605.00642} & Self (visual PI) & Qwen3-VL-Inst-8B & Entropy-guided KL & ScreenSpot-v2/Pro, OSWorld \\
-        MAD-OPD \citep{2605.01347} & Multi-teacher debate & Qwen3/3.5 (1.7B--14B) & Confidence-weighted JSD/RKL & Agentic, Code \\
-        MSD \citep{2605.02971} & Self (English CoT PI) & Qwen2.5-7B, Llama-3-8B & DPSW cross-lingual distill & Multilingual Safety \\
-        NPD \citep{2605.05940} & Teacher (parallel prefill) & openPangu-Embedded-1B & Async CE+KD + $\Delta$-IFD & GSM8K, MATH (8.1$\times$ speedup) \\
-        SimCT \citep{2605.07711} & Qwen2.5-7B-Inst, Phi-4-mini & Phi-4-mini, Gemma-2-2B-IT & Multi-token continuation KL & Math, Code (cross-tokenizer) \\
-        Prune-OPD \citep{2605.07804} & R1-Distill-Qwen-7B, Qwen3-4B & R1-Distill-Qwen-1.5B, Qwen3-1.7B & Top-$k$ overlap drift pruning & AMC, AIME, HMMT (37--68\% time saved) \\
-        SOD \citep{2605.07725} & Qwen3-4B & Qwen3-0.6B/1.7B & Step-level divergence reweighting & AIME'25 (26.13\% @0.6B), SciCode \\
-        LiteGUI \citep{2605.07505} & Qwen3-VL-32B & 2B--3B scale agents & Guided OPD + dual-level GRPO & ScreenSpot-Pro, OS-World, Lite-Bench \\
-        VISD \citep{2605.06094} & Self (video-aware judge) & VideoLLM & Dir.-mag.\ decoupled advantage + RL & Open-o3-Video benchmarks \\
-        Uni-OPD \citep{2605.03677} & Multi-teacher (LLM+MLLM) & Qwen3 (1.7B--4B), Qwen3-VL-4B & Dual-perspective OPD & Math, Code, MLLM (16 benchmarks) \\
-        TGPO \citep{2605.13230} & Teacher (directional PG) & NLP2CT/NEU students & Dense directional teacher RKL & NLP2CT, NEU translation \\
-        RWOPD \citep{2605.13501} & CodeV-SVA teacher & Qwen2.5-Coder-7B & Verifier-reward-weighted FKL & NL2SVA \\
-        ProteinOPD \citep{2605.10189} & Pretrained PLMs & Preference-specific students & OPD on student trajectories & Protein property design (8$\times$ speedup) \\
-        HyperEyes \citep{2605.07177} & External teacher & HyperEyes-30B & Dual-grained efficiency RL & IMEB \\
-        DAgger-LLM \citep{2605.12913} & GPT-4o & Qwen3-4B/8B & Turn-level interpolation SL & SWE-bench Verified \\
-        MOPD \citep{2605.12652} & Peer-conditioned teacher & Multi-rollout students & Success/failure group signals & Reasoning (CMU) \\
-        Local Collapse \citep{2605.13643} & Qwen3 family (strong) & Qwen3 family (weak) & BIC-truncated OPD & 5 in-domain + OOD benchmarks \\
+        SCoRe~\citep{2509.14257} & Qwen2.5-72B-Inst & Qwen2.5-7B/3B, Llama-3.1-8B & Earliest-error correction & 12 Agent benchmarks \\
+        VOLD~\citep{2510.23497} & Text-only teacher & VLM student & GRPO + token-level KL & MMMU-Pro, MathVista, LogicVista \\
+        CORD~\citep{2601.16547} & Text-mode LALM & Audio-mode LALM & Cross-modal RKL + GRPO & Audio QA/reasoning \\
+        SKD~\citep{2410.11325} & Gemma-7B-IT, Qwen2-7B & Gemma-2B, Qwen2-0.5B & Block-verified on-policy KL & Translation, Dialogue \\
+        DP-OPD~\citep{2604.04461} & GPT-2 Large 774M & DistilGPT-2 82M & GKD + DP-SGD (student only) & Yelp, BigPatent \\
+        Veto~\citep{2601.07155} & Qwen2-7B-IT & Qwen2-0.5B-IT & Geometric bridge KL & Reasoning, Generation \\
+        GUI-SD~\citep{2605.00642} & Self (visual PI) & Qwen3-VL-Inst-8B & Entropy-guided KL & ScreenSpot-v2/Pro, OSWorld \\
+        MAD-OPD~\citep{2605.01347} & Multi-teacher debate & Qwen3/3.5 (1.7B--14B) & Confidence-weighted JSD/RKL & Agentic, Code \\
+        MSD~\citep{2605.02971} & Self (English CoT PI) & Qwen2.5-7B, Llama-3-8B & DPSW cross-lingual distill & Multilingual Safety \\
+        NPD~\citep{2605.05940} & Teacher (parallel prefill) & openPangu-Embedded-1B & Async CE+KD + $\Delta$-IFD & GSM8K, MATH (8.1$\times$ speedup) \\
+        SimCT~\citep{2605.07711} & Qwen2.5-7B-Inst, Phi-4-mini & Phi-4-mini, Gemma-2-2B-IT & Multi-token continuation KL & Math, Code (cross-tokenizer) \\
+        Prune-OPD~\citep{2605.07804} & R1-Distill-Qwen-7B, Qwen3-4B & R1-Distill-Qwen-1.5B, Qwen3-1.7B & Top-$k$ overlap drift pruning & AMC, AIME, HMMT (37--68\% time saved) \\
+        SOD~\citep{2605.07725} & Qwen3-4B & Qwen3-0.6B/1.7B & Step-level divergence reweighting & AIME'25 (26.13\% @0.6B), SciCode \\
+        LiteGUI~\citep{2605.07505} & Qwen3-VL-32B & 2B--3B scale agents & Guided OPD + dual-level GRPO & ScreenSpot-Pro, OS-World, Lite-Bench \\
+        VISD~\citep{2605.06094} & Self (video-aware judge) & VideoLLM & Dir.-mag.\ decoupled advantage + RL & Open-o3-Video benchmarks \\
+        Uni-OPD~\citep{2605.03677} & Multi-teacher (LLM+MLLM) & Qwen3 (1.7B--4B), Qwen3-VL-4B & Dual-perspective OPD & Math, Code, MLLM (16 benchmarks) \\
+        TGPO~\citep{2605.13230} & Teacher (directional PG) & NLP2CT/NEU students & Dense directional teacher RKL & NLP2CT, NEU translation \\
+        RWOPD~\citep{2605.13501} & CodeV-SVA teacher & Qwen2.5-Coder-7B & Verifier-reward-weighted FKL & NL2SVA \\
+        ProteinOPD~\citep{2605.10189} & Pretrained PLMs & Preference-specific students & OPD on student trajectories & Protein property design (8$\times$ speedup) \\
+        HyperEyes~\citep{2605.07177} & External teacher & HyperEyes-30B & Dual-grained efficiency RL & IMEB \\
+        DAgger-LLM~\citep{2605.12913} & GPT-4o & Qwen3-4B/8B & Turn-level interpolation SL & SWE-bench Verified \\
+        MOPD~\citep{2605.12652} & Peer-conditioned teacher & Multi-rollout students & Success/failure group signals & Reasoning (CMU) \\
+        Local Collapse~\citep{2605.13643} & Qwen3 family (strong) & Qwen3 family (weak) & BIC-truncated OPD & 5 in-domain + OOD benchmarks \\
         \midrule
         \multicolumn{5}{l}{\textit{Self-Distillation}} \\
         \midrule
-        CRISP \citep{2603.05433} & Self (concise prompt) & Qwen3-8B/14B & Per-token RKL & AIME, MATH-500 \\
-        SD-ZERO \citep{2604.12002} & Self (revision-conditioned) & Qwen3-4B-Inst, OLMo-3-7B & On-policy self-distill & AIME, MATH, Codeforces \\
-        $\pi$-Play \citep{2604.14054} & Self (QCP-conditioned) & Qwen3-4B/8B & Multi-agent self-distill & NQ, TriviaQA, HotpotQA \\
-        UniSD \citep{2605.06597} & Self (EMA + multi-teacher agree.) & Qwen2.5-7B/0.5B--3B, Llama-3.1-8B, Gemma-3-4B & Agreement + EMA + contrastive + feat.~match & ScienceQA, MBPP, CoS-E, ToolAlpaca \\
-        SDPO \citep{2601.20802} & Self (textual feedback) & Qwen3-8B & Credit-assignment self-distill & Code, Math \\
-        SRPO \citep{2604.02288} & Self (SDPO+GRPO) & Qwen3-8B & Sample-routed dual-objective & Chem, Phys, Bio, Mat, ToolUse \\
-        PBSD \citep{2605.05040} & Self (ctx-augmented ref.) & Qwen3-1.7B/4B/8B-Inst & Pref.-based reward-reg.\ KL & AIME'24/'25, HMMT'25, Tool Use \\
-        TT-OPD \citep{2605.02943} & Self (EMA + outcome hints) & Qwen3.5-9B & Turn-level truncated KL & Healthcare AI GYM (18 benchmarks) \\
+        CRISP~\citep{2603.05433} & Self (concise prompt) & Qwen3-8B/14B & Per-token RKL & AIME, MATH-500 \\
+        SD-ZERO~\citep{2604.12002} & Self (revision-conditioned) & Qwen3-4B-Inst, OLMo-3-7B & On-policy self-distill & AIME, MATH, Codeforces \\
+        $\pi$-Play~\citep{2604.14054} & Self (QCP-conditioned) & Qwen3-4B/8B & Multi-agent self-distill & NQ, TriviaQA, HotpotQA \\
+        UniSD~\citep{2605.06597} & Self (EMA + multi-teacher agree.) & Qwen2.5-7B/0.5B--3B, Llama-3.1-8B, Gemma-3-4B & Agreement + EMA + contrastive + feat.~match & ScienceQA, MBPP, CoS-E, ToolAlpaca \\
+        SDPO~\citep{2601.20802} & Self (textual feedback) & Qwen3-8B & Credit-assignment self-distill & Code, Math \\
+        SRPO~\citep{2604.02288} & Self (SDPO+GRPO) & Qwen3-8B & Sample-routed dual-objective & Chem, Phys, Bio, Mat, ToolUse \\
+        PBSD~\citep{2605.05040} & Self (ctx-augmented ref.) & Qwen3-1.7B/4B/8B-Inst & Pref.-based reward-reg.\ KL & AIME'24/'25, HMMT'25, Tool Use \\
+        TT-OPD~\citep{2605.02943} & Self (EMA + outcome hints) & Qwen3.5-9B & Turn-level truncated KL & Healthcare AI GYM (18 benchmarks) \\
         \citet{2605.06188} & Self (GT-conditioned) & Qwen3-8B, R1-Distill-7B, AceReason-7B & Correct-only OPSD & MATH-500, AIME'24/'25 \\
-        EGRSD \citep{2605.13255} & Self (entropy-gated) & Qwen3-4B/8B (thinking mode) & Entropy-guided confidence gate & Math reasoning (accuracy-length frontier) \\
-        RESD \citep{2605.12741} & Self (reflection-enhanced) & LLM agents & Failure reflection + playbook & Continual agentic learning \\
-        SDAR \citep{2605.15155} & Self (gated RL+OPSD) & Qwen2.5/Qwen3 families & Sigmoid-gated OPSD auxiliary & ALFWorld, WebShop, SearchQA \\
-        GEAR \citep{2605.11853} & Self (GT-conditioned) & LLM agents & Adaptive segment advantage & Agent tasks \\
+        EGRSD~\citep{2605.13255} & Self (entropy-gated) & Qwen3-4B/8B (thinking mode) & Entropy-guided confidence gate & Math reasoning (accuracy-length frontier) \\
+        RESD~\citep{2605.12741} & Self (reflection-enhanced) & LLM agents & Failure reflection + playbook & Continual agentic learning \\
+        SDAR~\citep{2605.15155} & Self (gated RL+OPSD) & Qwen2.5/Qwen3 families & Sigmoid-gated OPSD auxiliary & ALFWorld, WebShop, SearchQA \\
+        GEAR~\citep{2605.11853} & Self (GT-conditioned) & LLM agents & Adaptive segment advantage & Agent tasks \\
         \midrule
         \multicolumn{5}{l}{\textit{Black-Box}} \\
         \midrule
-        GAD \citep{2511.10643} & GPT-5-Chat (API only) & Qwen2.5-14B-Inst & Adversarial minimax & LMSYS-Chat, Dolly \\
-        Lion \citep{2305.12870} & ChatGPT (API only) & LLaMA-7B/13B & NL critique curriculum & BIG-Bench Hard, AGIEval \\
-        OVD \citep{2601.21968} & QwQ-32B / Env.~Agent & Qwen2.5-3B, Llama-3.2-3B & Verbal scores (0--9) & Web QA, MATH \\
-        ROPD \citep{2605.07396} & GPT-5.2, Qwen3-30B-A3B & Qwen3-4B, Gemma3-4B & Rubric-based semantic scoring & AIME'24/'25, HMMT'25, GPQA-D, IFEval \\
+        GAD~\citep{2511.10643} & GPT-5-Chat (API only) & Qwen2.5-14B-Inst & Adversarial minimax & LMSYS-Chat, Dolly \\
+        Lion~\citep{2305.12870} & ChatGPT (API only) & LLaMA-7B/13B & NL critique curriculum & BIG-Bench Hard, AGIEval \\
+        OVD~\citep{2601.21968} & QwQ-32B / Env.~Agent & Qwen2.5-3B, Llama-3.2-3B & Verbal scores (0--9) & Web QA, MATH \\
+        ROPD~\citep{2605.07396} & GPT-5.2, Qwen3-30B-A3B & Qwen3-4B, Gemma3-4B & Rubric-based semantic scoring & AIME'24/'25, HMMT'25, GPQA-D, IFEval \\
         \bottomrule
     \end{tabular}
     }
@@ -517,18 +518,18 @@ The objective function determines what mathematical quantity the student optimiz
         \toprule
         \textbf{Method} & \textbf{Year} & \textbf{Category} & \textbf{Divergence/Objective} & \textbf{Signal} & \textbf{Granularity} & \textbf{Key Innovation} \\
         \midrule
-        GKD \citep{2306.13649} & 2023 & Objective & FKL / RKL / JSD & White-box & Token & Unified OPD framework, DAgger for LLMs \\
-        MiniLLM \citep{2306.08543} & 2023 & Objective & Reverse KL & White-box & Sequence & REINFORCE with teacher as reward \\
-        DistiLLM \citep{2402.03898} & 2024 & Objective & Skew KL (SKL+SRKL) & White-box & Token & $\alpha$-smoothing for KL stability \\
-        DistiLLM-2 \citep{2503.07067} & 2025 & Objective & Contrastive SKL/SRKL & White-box & Token & Asymmetric loss per data source \\
-        KETCHUP \citep{2504.19024} & 2025 & Objective & Reverse KL & White-box & Sequence & $K$-step Bellman return estimation \\
-        vOPD \citep{2605.07865} & 2026 & Objective & Reverse KL + CV baseline & White-box & Token & Control variate variance reduction \\
-        AntiSD \citep{2605.11609} & 2026 & Objective & Divergence ascent & Self (PI) & Token & Deliberation-token boosting via PMI sign flip \\
+        GKD~\citep{2306.13649} & 2023 & Objective & FKL / RKL / JSD & White-box & Token & Unified OPD framework, DAgger for LLMs \\
+        MiniLLM~\citep{2306.08543} & 2023 & Objective & Reverse KL & White-box & Sequence & REINFORCE with teacher as reward \\
+        DistiLLM~\citep{2402.03898} & 2024 & Objective & Skew KL (SKL+SRKL) & White-box & Token & $\alpha$-smoothing for KL stability \\
+        DistiLLM-2~\citep{2503.07067} & 2025 & Objective & Contrastive SKL/SRKL & White-box & Token & Asymmetric loss per data source \\
+        KETCHUP~\citep{2504.19024} & 2025 & Objective & Reverse KL & White-box & Sequence & $K$-step Bellman return estimation \\
+        vOPD~\citep{2605.07865} & 2026 & Objective & Reverse KL + CV baseline & White-box & Token & Control variate variance reduction \\
+        AntiSD~\citep{2605.11609} & 2026 & Objective & Divergence ascent & Self (PI) & Token & Deliberation-token boosting via PMI sign flip \\
         OPD+ \citep{2606.01039} & 2026 & Objective & $f$-div gradient-faithful & White-box & Token & Curvature-aware advantage $w_f$ \\
-        Bridging \citep{2606.00305} & 2026 & Objective & Reverse KL + OT prefix signal & White-box & Token/Span & Near-future trajectory alignment \\
-        Decomposed-OPD \citep{2606.00564} & 2026 & Objective & Reverse KL + VGS & White-box & Token & Visual-language gradient steering \\
-        Surgical-PT \citep{2603.01683} & 2026 & Objective & Proximal KL-constrained & Oracle & Token/Sequence & Retention via KL-constrained reward \\
-        Distributional DAgger \citep{2606.05152} & 2026 & Objective & Forward CE + REINFORCE & Self (EMA, feedback) & Token & DAgger with teacher-distribution feedback \\
+        Bridging~\citep{2606.00305} & 2026 & Objective & Reverse KL + OT prefix signal & White-box & Token/Span & Near-future trajectory alignment \\
+        Decomposed-OPD~\citep{2606.00564} & 2026 & Objective & Reverse KL + VGS & White-box & Token & Visual-language gradient steering \\
+        Surgical-PT~\citep{2603.01683} & 2026 & Objective & Proximal KL-constrained & Oracle & Token/Sequence & Retention via KL-constrained reward \\
+        Distributional DAgger~\citep{2606.05152} & 2026 & Objective & Forward CE + REINFORCE & Self (EMA, feedback) & Token & DAgger with teacher-distribution feedback \\
         \bottomrule
     \end{tabular}
     }
@@ -537,9 +538,9 @@ The objective function determines what mathematical quantity the student optimiz
 GKD~\citep{2306.13649} established the canonical OPD framework by drawing on the on-policy imitation learning paradigm~\citep{1011.0686} for autoregressive language models. It samples trajectories from a mixture policy $\pi_{\mathrm{mix}} = \lambda \ptheta + (1-\lambda) \pdata$ and applies standard $f$-divergences (Forward KL, Reverse KL, or JSD) at each token position. The mixture coefficient $\lambda$ interpolates between fully off-policy ($\lambda=0$) and fully on-policy ($\lambda=1$), serving as a single control for exposure bias mitigation. On instruction-following and summarization benchmarks, moderate on-policy mixing ($\lambda \geq 0.5$) outperforms pure off-policy training, supporting the distributional alignment hypothesis.
 
 Pure KL divergences, though elegant, exhibit numerical instability during on-policy exploration. When the student generates tokens to which the teacher assigns near-zero probability, Forward KL produces unbounded gradients. Reverse KL ignores these regions entirely, creating blind spots in the loss landscape. DistiLLM~\citep{2402.03898} tackles this through \emph{Skewed KL} (SKL), which replaces $q_\theta$ in the standard KL with a skewed mixture $\tilde{p} = \alpha \pteacher + (1-\alpha)\ptheta$ for $\alpha \in (0,1]$. The token-level SKL loss is
-\begin{equation}
+\begin{equation*}
     \loss_{\text{SKL}} = \E_{(x,y) \sim \mathcal{D}_{\text{mix}}} \left[ \sum_{t=1}^{|y|} \KL\big(\pteacher(\cdot|y_{<t}) \parallel \alpha \pteacher(\cdot|y_{<t}) + (1-\alpha) \ptheta(\cdot|y_{<t})\big) \right]
-\end{equation}
+\end{equation*}
 where $\mathcal{D}_{\text{mix}}$ mixes ground-truth sequences with cached student rollouts according to DistiLLM's adaptive off-policy scheduler.
 Skewing ensures the target density is bounded below by $(1-\alpha)\ptheta$, which avoids gradient explosion without requiring RL policy gradients. DistiLLM further proposes Skewed Reverse KL (SRKL) for mode-seeking applications, creating a symmetric pair of stabilized divergences. Its successor, DistiLLM-2~\citep{2503.07067}, recognizes that teacher-generated and student-generated data carry qualitatively different learning signals and applies \emph{asymmetric} objectives, using Forward SKL on teacher-generated data (where mode-covering teaches the student to explore the teacher's full distribution) and Reverse SRKL on student-generated data (where mode-seeking teaches the student to sharpen its own best responses). This source-aware asymmetry produces consistent improvements over symmetric single-divergence baselines across instruction following and summarization tasks. The appropriate divergence is data-source-dependent.
 
@@ -662,9 +663,9 @@ Skewing ensures the target density is bounded below by $(1-\alpha)\ptheta$, whic
 DistiLLM-2 applies different divergences to different data sources, but operates at a coarse granularity (entire sequences grouped by source). The fixed-divergence family faces a more fundamental limitation rooted in the heterogeneity of autoregressive token distributions \emph{within} a single sequence. The choice between Forward KL (mode-covering) and Reverse KL (mode-seeking) is a global decision applied uniformly across all token positions (Figure~\ref{fig:kl_divergence}). The teacher's distributional structure, however, varies considerably within a single sequence. At a mathematical operator token, the teacher concentrates probability mass on one or two correct symbols, so mode-seeking is appropriate because the student must commit to the correct answer. At a conjunction or filler word, dozens of tokens share comparable probability, so mode-covering is appropriate because any synonym suffices. Applying a single divergence to both positions therefore wastes gradient signal in one regime or discards coverage information in the other. This per-position mismatch between the geometry of the loss and the geometry of the target distribution motivates the adaptive methods of Section~\ref{subsec:adaptive_div}.
 
 Sequence-level objectives offer a sequence-level perspective. MiniLLM~\citep{2306.08543} elevates Reverse KL to the full sequence level, where the student $\ptheta$ appears inside the sampling expectation. The central challenge is computing the gradient of an expectation over $\ptheta$ when $\ptheta$ itself is parameterized by $\theta$. Starting from $\KL(\ptheta \parallel \pteacher) = \E_{y \sim \ptheta}[\log \ptheta(y|x) - \log \pteacher(y|x)]$ and applying the policy gradient theorem, MiniLLM derives (Eq.~2 of~\citealp{2306.08543}):
-\begin{equation}
+\begin{equation*}
     \nabla_\theta \loss_{\text{MiniLLM}} = -\E_{y \sim \ptheta} \left[ \sum_{t=1}^{|y|} (R_t - 1)\, \nabla_\theta \log \ptheta(y_t|y_{<t}) \right],\quad R_t = \sum_{t'=t}^{|y|} \log \frac{\pteacher(y_{t'}|y_{<t'})}{\ptheta(y_{t'}|y_{<t'})}
-\end{equation}
+\end{equation*}
 where the $-1$ arises from the $-\log \ptheta(y|x)$ entropy term of the reverse-KL objective. Minimizing sequence-level Reverse KL is thus mathematically equivalent to policy gradient RL with per-step reward $r_t = \log[\pteacher(y_t|y_{<t}) / \ptheta(y_t|y_{<t})]$ and an entropy-induced constant. MiniLLM further decomposes $R_t$ into a single-step quality term and a future-return term (Eq.~3 of~\citealp{2306.08543}), computing $\E_{y_t \sim q_\theta}[r_t]$ in closed form over the vocabulary instead of by Monte Carlo sampling. This decomposition reduces variance by isolating the dominant source of gradient noise (single-step quality) from the accumulated future return, and supports credit assignment at the token level. Per-step returns $R_t$ attribute the trajectory's deviation from the teacher to specific token decisions rather than spreading uniform blame across the sequence, placing the optimization within the RL framework with the teacher's log-probability as a dense reward. This connection to policy optimization aligns with MiniLLM's empirical strength on reasoning tasks where sequence-level coherence matters more than token-level accuracy, at the cost of higher training compute because REINFORCE estimation in combinatorial output spaces requires more iterations and careful baseline subtraction to converge. KETCHUP~\citep{2504.19024} addresses this variance problem by replacing the full cumulative return $G_t$ with a $K$-step Bellman return estimate derived from the optimality equation, reducing gradient variance at a power rate in $K$ while preserving the sequence-level objective (Theorem~1 of~\citealp{2504.19024}).
 
 \textbf{The token-level vs.\ sequence-level tradeoff.} The choice between token-level and sequence-level objectives represents a core bias-variance tradeoff whose resolution foreshadows the RL-augmented methods of \S\ref{subsec:rl_objectives}. Token-level methods (GKD, DistiLLM) produce $|V|$-dimensional gradient signals at every position, resulting in low variance but potentially biased gradients when the teacher's token-level distribution is poorly calibrated (the flawed prefix trap of Section~\ref{subsec:weighting}). Sequence-level methods (MiniLLM, KETCHUP) yield unbiased gradients through the policy gradient theorem but suffer from high variance due to single-sample REINFORCE estimation over exponentially large sequence spaces. The practical resolution is task-dependent. For instruction following where token-level teacher quality is high, GKD-style methods tend to dominate. For reasoning tasks where sequence-level coherence matters more, MiniLLM-style methods are often preferred despite their variance, and KETCHUP's $K$-step Bellman returns offer an intermediate bias-variance point on this spectrum. Recognizing that MiniLLM is already performing policy gradient RL (with the teacher's log-probability as reward) suggests that sequence-level distillation and RL-augmented distillation are not distinct paradigms but endpoints of a continuum parameterized by the reward source, with pure teacher signal at one end, pure task reward at the other, and hybrid objectives (G-OPD, RLKD) interpolating between them.
@@ -691,17 +692,17 @@ where the $-1$ arises from the $-\log \ptheta(y|x)$ entropy term of the reverse-
         \toprule
         \textbf{Method} & \textbf{Year} & \textbf{Category} & \textbf{Divergence/Objective} & \textbf{Signal} & \textbf{Granularity} & \textbf{Key Innovation} \\
         \midrule
-        EOPD \citep{2603.07079} & 2026 & Objective & Continuous FKL+RKL blend & White-box & Token & Entropy-aware on-policy distillation \\
-        AOPD \citep{2605.06387} & 2026 & Objective & Asymmetric PG/FKL switch & White-box & Token & Advantage-sign token-level switching \\
-        CREDIT \citep{2605.11613} & 2026 & Self (EF) & Contrastive pMI decomposition & Self (contrastive) & Token & Input-specific credit for OPSD reward \\
-        OGLS-SD \citep{2605.12400} & 2026 & Self (EF) & Outcome-guided logit steering & Self (outcome) & Token & Outcome-based teacher calibration \\
-        Position-Weighted OPSD \citep{2605.21606} & 2026 & Objective & Position-aware reliability & Self (PI) & Token & Per-position reliability score \\
-        Direction-Adaptive SD \citep{2605.22263} & 2026 & Objective & Entropy-routed polarity & Self (PI) & Token & High-entropy teacher reversal \\
-        Token-Teachability \citep{2605.26844} & 2026 & Objective & Teachability-gated KL & White-box & Token & Fixed-context learnability diagnostic \\
-        Lookahead Group Reward \citep{2605.30833} & 2026 & Objective & RKL + look-ahead group reward & White-box & Token & One-step-ahead teacher confidence \\
-        RAFT \citep{2606.00147} & 2026 & Objective & Top-$K$ temperature distill & Self & Token & Data refinement + EMA loss balance \\
-        Trust-Region OPD \citep{2606.01249} & 2026 & Objective & Adaptive trust-region KL & White-box & Token & Speculative-decoding-ratio gating \\
-        GNDPO \citep{2606.09091} & 2026 & Objective & Global batch-normalized KL & White-box & Token & Batch-relative KL normalization for MLLM stability \\
+        EOPD~\citep{2603.07079} & 2026 & Objective & Continuous FKL+RKL blend & White-box & Token & Entropy-aware on-policy distillation \\
+        AOPD~\citep{2605.06387} & 2026 & Objective & Asymmetric PG/FKL switch & White-box & Token & Advantage-sign token-level switching \\
+        CREDIT~\citep{2605.11613} & 2026 & Self (EF) & Contrastive pMI decomposition & Self (contrastive) & Token & Input-specific credit for OPSD reward \\
+        OGLS-SD~\citep{2605.12400} & 2026 & Self (EF) & Outcome-guided logit steering & Self (outcome) & Token & Outcome-based teacher calibration \\
+        Position-Weighted OPSD~\citep{2605.21606} & 2026 & Objective & Position-aware reliability & Self (PI) & Token & Per-position reliability score \\
+        Direction-Adaptive SD~\citep{2605.22263} & 2026 & Objective & Entropy-routed polarity & Self (PI) & Token & High-entropy teacher reversal \\
+        Token-Teachability~\citep{2605.26844} & 2026 & Objective & Teachability-gated KL & White-box & Token & Fixed-context learnability diagnostic \\
+        Lookahead Group Reward~\citep{2605.30833} & 2026 & Objective & RKL + look-ahead group reward & White-box & Token & One-step-ahead teacher confidence \\
+        RAFT~\citep{2606.00147} & 2026 & Objective & Top-$K$ temperature distill & Self & Token & Data refinement + EMA loss balance \\
+        Trust-Region OPD~\citep{2606.01249} & 2026 & Objective & Adaptive trust-region KL & White-box & Token & Speculative-decoding-ratio gating \\
+        GNDPO~\citep{2606.09091} & 2026 & Objective & Global batch-normalized KL & White-box & Token & Batch-relative KL normalization for MLLM stability \\
         \bottomrule
     \end{tabular}
     }
@@ -710,9 +711,9 @@ where the $-1$ arises from the $-\log \ptheta(y|x)$ entropy term of the reverse-
 Adaptive methods tackle this per-position mismatch by selecting or interpolating divergences based on local distributional geometry (Table~\ref{tab:methods_adaptive_div}). When the teacher is certain (low entropy), mode-seeking Reverse KL preserves precision, and when uncertain (high entropy), mode-covering Forward KL preserves diversity.
 
 EOPD~\citep{2603.07079} uses the teacher's per-token entropy $H(\pteacher(\cdot|y_{<t}))$ as a gating signal. The base objective is Reverse KL at all positions, with Forward KL \emph{additively} activated at high-entropy tokens where the teacher distributes probability across multiple valid continuations:
-\begin{equation}
+\begin{equation*}
     \loss_{\text{EA}} = \E_{y \sim \ptheta} \left[ \sum_{t=1}^{|y|} \KL(\ptheta \parallel \pteacher) + \mathbb{I}[H_t > \tau_H] \cdot \KL(\pteacher \parallel \ptheta) \right]
-\end{equation}
+\end{equation*}
 EOPD outperforms fixed divergence baselines across six competition-math reasoning benchmarks, the appropriate divergence is position-dependent. Conditioning on teacher uncertainty alone (a marginal property) gives EOPD a stable routing signal independent of student quality, making it suitable for early training when the student's distribution is less reliable.
 
 \textbf{Self-distillation reward calibration.} Two recent methods address pathologies specific to the self-distillation reward signal by injecting contrastive or outcome-based corrections. CREDIT~\citep{2605.11613} decomposes the standard OPSD token reward into input-specific and input-generic components via a batch-contrastive baseline, suppressing generic shortcuts that inflate pointwise mutual information without contributing task-relevant reasoning (Section~\ref{subsec:external_feedback}). OGLS-SD~\citep{2605.12400} calibrates the self-reflected teacher distribution using verifiable outcome rewards to contrast successful and failed on-policy trajectories, addressing reflection-induced bias that shifts teacher logits away from optimal targets (Section~\ref{subsec:external_feedback}). Both methods operate within the self-distillation paradigm and are detailed in Section~\ref{subsec:external_feedback}.
@@ -739,27 +740,27 @@ The field has moved noticeably from ``which divergence?'' to ``which divergence 
         \toprule
         \textbf{Method} & \textbf{Year} & \textbf{Category} & \textbf{Divergence/Objective} & \textbf{Signal} & \textbf{Granularity} & \textbf{Key Innovation} \\
         \midrule
-        G-OPD \citep{2602.12125} & 2026 & Objective & KL-Constrained RL & White-box & Token/Seq & OPD $\equiv$ dense KL-RL, reward extrapolation \\
-        RLKD \citep{2505.16142} & 2025 & Objective & KD + Reward Model & Reward Model & Sequence & Generative Structure Reward Model (GSRM) \\
-        KDRL \citep{2506.02208} & 2025 & Objective & Joint KD + RL & White-box & Token/Seq & On-policy KL regularizer during RL \\
-        RLAD \citep{2602.22495} & 2026 & Objective & Trust Region Ratio & White-box & Token/Seq & PPO-style selective teacher following \\
-        AlignDistil \citep{2503.02832} & 2025 & Objective & DPO + Reverse DPO & White-box & Token & Token-level RLHF via contrastive DPO reward \\
-        SuperCorrect \citep{2410.09008} & 2024 & Objective & Template + Cross-DPO & White-box & Sequence & Hierarchical thought scaffolding \\
-        SCoRe \citep{2509.14257} & 2025 & Objective & Earliest-error correction & White-box & Sequence & Root-cause error targeting \\
-        CMDP-KD \citep{2509.22921} & 2025 & Objective & Constrained KL & White-box & Sequence & Unaugmented CMDP with hard KL budget \\
-        $\mathcal{X}$-KD \citep{2602.12674} & 2026 & Objective & Inverse RL + KL & White-box & Token/Seq & AVRIL-based reward recovery distillation \\
-        TSD-KD \citep{2603.13260} & 2026 & Objective & Indirect + Direct KD & White-box & Sequence & Indirect re-ranking + selective direct KL \\
-        REOPOLD \citep{2603.11137} & 2026 & Objective & Log-ratio token reward & White-box & Token & Mixture reward clipping + entropy-dynamic sampling \\
-        CoDistill-GRPO \citep{2605.08873} & 2026 & Objective & GRPO + KD reward & White-box & Sequence & Bidirectional co-distillation, 18\% speedup \\
-        dGRPO \citep{2605.12227} & 2026 & Objective & GRPO + dense OPD & White-box & Token/Seq & Long-context reasoning with LongBlocks data \\
-        Sparse-to-Dense \citep{2605.12483} & 2026 & Objective & Staged RL$\to$OPD$\to$RL & White-box & Token/Seq & Reward-density allocation principle \\
-        TGPO \citep{2605.13230} & 2026 & Objective & Directional teacher PG & White-box & Token & Dense directional teacher guidance on RKL \\
-        RWOPD \citep{2605.13501} & 2026 & Objective & Verifier-weighted FKL & White-box & Sequence & Verifier-reward-weighted OPD for NL2SVA \\
-        AMR-SD \citep{2605.18529} & 2026 & Objective & Asymmetric meta-reflective & Self & Token & Meta-reflection self-teacher in RLVR \\
-        OPPO \citep{2605.21851} & 2026 & Objective & Bayesian value recursion & Oracle (PI) & Token & Likelihood-ratio per-token credit \\
-        StepOPSD \citep{2605.27140} & 2026 & Objective & Step-aware preference + KL & Self (hindsight) & Step/Token & Dual-granularity for multi-turn agents \\
-        Self-Eval OPD \citep{2606.05122} & 2026 & Objective & Cyclic GRPO + masked judge KD & External judge & Token & Self-evaluation channel calibration \\
-        RLCSD \citep{2606.11709} & 2026 & Objective & Contrastive RKL in GRPO & White-box & Token & Correct-hint teacher pull, wrong-hint push in two-path distillation \\
+        G-OPD~\citep{2602.12125} & 2026 & Objective & KL-Constrained RL & White-box & Token/Seq & OPD $\equiv$ dense KL-RL, reward extrapolation \\
+        RLKD~\citep{2505.16142} & 2025 & Objective & KD + Reward Model & Reward Model & Sequence & Generative Structure Reward Model (GSRM) \\
+        KDRL~\citep{2506.02208} & 2025 & Objective & Joint KD + RL & White-box & Token/Seq & On-policy KL regularizer during RL \\
+        RLAD~\citep{2602.22495} & 2026 & Objective & Trust Region Ratio & White-box & Token/Seq & PPO-style selective teacher following \\
+        AlignDistil~\citep{2503.02832} & 2025 & Objective & DPO + Reverse DPO & White-box & Token & Token-level RLHF via contrastive DPO reward \\
+        SuperCorrect~\citep{2410.09008} & 2024 & Objective & Template + Cross-DPO & White-box & Sequence & Hierarchical thought scaffolding \\
+        SCoRe~\citep{2509.14257} & 2025 & Objective & Earliest-error correction & White-box & Sequence & Root-cause error targeting \\
+        CMDP-KD~\citep{2509.22921} & 2025 & Objective & Constrained KL & White-box & Sequence & Unaugmented CMDP with hard KL budget \\
+        $\mathcal{X}$-KD~\citep{2602.12674} & 2026 & Objective & Inverse RL + KL & White-box & Token/Seq & AVRIL-based reward recovery distillation \\
+        TSD-KD~\citep{2603.13260} & 2026 & Objective & Indirect + Direct KD & White-box & Sequence & Indirect re-ranking + selective direct KL \\
+        REOPOLD~\citep{2603.11137} & 2026 & Objective & Log-ratio token reward & White-box & Token & Mixture reward clipping + entropy-dynamic sampling \\
+        CoDistill-GRPO~\citep{2605.08873} & 2026 & Objective & GRPO + KD reward & White-box & Sequence & Bidirectional co-distillation, 18\% speedup \\
+        dGRPO~\citep{2605.12227} & 2026 & Objective & GRPO + dense OPD & White-box & Token/Seq & Long-context reasoning with LongBlocks data \\
+        Sparse-to-Dense~\citep{2605.12483} & 2026 & Objective & Staged RL$\to$OPD$\to$RL & White-box & Token/Seq & Reward-density allocation principle \\
+        TGPO~\citep{2605.13230} & 2026 & Objective & Directional teacher PG & White-box & Token & Dense directional teacher guidance on RKL \\
+        RWOPD~\citep{2605.13501} & 2026 & Objective & Verifier-weighted FKL & White-box & Sequence & Verifier-reward-weighted OPD for NL2SVA \\
+        AMR-SD~\citep{2605.18529} & 2026 & Objective & Asymmetric meta-reflective & Self & Token & Meta-reflection self-teacher in RLVR \\
+        OPPO~\citep{2605.21851} & 2026 & Objective & Bayesian value recursion & Oracle (PI) & Token & Likelihood-ratio per-token credit \\
+        StepOPSD~\citep{2605.27140} & 2026 & Objective & Step-aware preference + KL & Self (hindsight) & Step/Token & Dual-granularity for multi-turn agents \\
+        Self-Eval OPD~\citep{2606.05122} & 2026 & Objective & Cyclic GRPO + masked judge KD & External judge & Token & Self-evaluation channel calibration \\
+        RLCSD~\citep{2606.11709} & 2026 & Objective & Contrastive RKL in GRPO & White-box & Token & Correct-hint teacher pull, wrong-hint push in two-path distillation \\
         \bottomrule
     \end{tabular}
     }
@@ -768,9 +769,9 @@ The field has moved noticeably from ``which divergence?'' to ``which divergence 
 Divergence matching, whether fixed or adaptive, tends to bound the student near the teacher's capability ceiling (Table~\ref{tab:methods_rl}). In the limit of perfect optimization, the student matches the teacher's distribution and rarely exceeds it. RL-augmented objectives target this limitation by injecting an external performance signal that can steer the student toward solutions the teacher itself would be unlikely to produce.
 
 \textbf{OPD as KL-constrained RL.} G-OPD~\citep{2602.12125} formalizes an equivalence between standard OPD and dense KL-constrained reinforcement learning. It formulates distillation as maximizing a token-level reward defined as the log-probability ratio between teacher and reference policy, penalized by KL divergence from the reference:
-\begin{equation}
+\begin{equation*}
     \max_\theta \E_{y \sim \ptheta} \left[ \sum_{t=1}^{|y|} \alpha \log \frac{\pteacher(y_t | y_{<t})}{p_{\text{ref}}(y_t | y_{<t})} - \KL\big(\ptheta(\cdot | y_{<t}) \parallel p_{\text{ref}}(\cdot | y_{<t})\big) \right]
-\end{equation}
+\end{equation*}
 When $\alpha = 1$, this reduces to standard Reverse KL distillation. When $\alpha > 1$, the objective forces the student to \emph{extrapolate} beyond the teacher's probability mass, allowing a phenomenon documented as \emph{Reward Extrapolation}, whereby the student discovers previously unseen, structurally sound reasoning paths in regions where the teacher's generation probability $\pteacher(y|x)$ is low but the outcome reward remains high. In the multi-teacher setting where several domain-specific RL experts share the same base model, reward extrapolation (ExOPD) produces a unified student that surpasses all its same-size domain teachers, a result that positions OPD as a potential amplification mechanism rather than a lossy compression step.
 
 This equivalence carries a broader consequence for the section as a whole. It connects the distillation and RL communities by the objectives discussed here (GKD's token-level KL, MiniLLM's sequence-level Reverse KL, G-OPD's reward-augmented formulation) can be viewed as special cases of KL-constrained policy optimization with different reward definitions and constraint strengths. Advances in KL-constrained RL (better trust regions, adaptive penalty coefficients, variance reduction) are therefore likely to transfer to OPD, and vice versa.
@@ -778,9 +779,9 @@ This equivalence carries a broader consequence for the section as a whole. It co
 \textbf{Gradient decomposition and the KD+RL complementarity.} The unified KD+RL framework of~\citet{2512.23097} decomposes the hybrid gradient into two components, a dense KD gradient for token-level imitation and a Monte Carlo RL gradient for reward maximization. The KD component dampens the high variance inherent in policy gradient estimation, while the RL component prevents the student from collapsing onto teacher modes that are suboptimal for the downstream task. REOPOLD~\citep{2603.11137} instantiates this insight by interpreting on-policy distillation as policy optimization where the teacher-student log-likelihood ratio acts as a token reward. It stabilizes training through three mechanisms, mixture-based reward clipping to prevent over-trust of extreme teacher signals, entropy-based dynamic sampling that selectively weights teacher feedback at high-uncertainty tokens, and a unified exploration-to-refinement schedule. Empirically, REOPOLD attains 6.7--12$\times$ greater sample efficiency than recent RL approaches and allows a 7B student to match a 32B teacher in visual reasoning with $\sim$3.3$\times$ inference speedup.
 
 \textbf{Structure-aware reward as an alternative to dense KL.} While G-OPD and REOPOLD retain token-level KL as the primary distillation signal (differing only in how they augment or stabilize it), RLKD~\citep{2505.16142} departs from this template entirely by replacing token-level KL with a Generative Structure Reward Model (GSRM). The GSRM parses both teacher and student reasoning paths into sequences of meta-reasoning and solving steps, then scores structural alignment between the two sequences. This structural reward is combined with a task-level outcome reward (e.g., math accuracy) and optimized via GRPO:
-\begin{equation}
+\begin{equation*}
     R_{\text{total}}(x, y) = \alpha \, R_{\text{GSRM}}(y, y^{\text{teach}}) + (1-\alpha) \, R_{\text{outcome}}(x, y)
-\end{equation}
+\end{equation*}
 The main idea is that reasoning distillation need not operate at the token level. By supervising at the \emph{step structure} level, RLKD avoids the vocabulary-coupling assumption of logit-based methods while still transferring the teacher's multi-branch reasoning strategy. Empirically, RLKD trained on only 0.1\% of the data under a pure RL regime surpasses standard SFT-RL pipelines, showing that structural reward can substitute for dense KL when the teacher's value lies in its reasoning organization rather than its token-level distribution. This progression from dense token-level KL (G-OPD) through variance-reduced token rewards (REOPOLD) to step-level structural matching (RLKD) traces an increasing abstraction of what ``teacher knowledge'' means, moving from distributional fidelity to behavioral organization.
 
 \textbf{Bidirectional co-distillation.} CoDistill-GRPO~\citep{2605.08873} addresses the common failure of GRPO on small models (where sparse rewards on difficult tasks yield negligible learning signal) through a co-distillation algorithm that simultaneously trains a large and a small model with carefully designed GRPO objectives. The small model uses an on-policy KD reward derived from the large model's distribution as dense supervision, while the large model trains on the small model's rollouts with importance reweighting, reducing the computational overhead of rollout generation. On Qwen2.5-Math-1.5B, CoDistill-GRPO reaches 32\% on Minerva, an 11.6-point increase over the base model and 6.0 points over standard GRPO. The large model (Qwen2.5-Math-7B) nearly matches standard GRPO despite training on small-model rollouts, providing an approximate 18\% speedup. The bidirectional design avoids the common assumption that a pre-trained oracle must exist, instead producing both the teacher signal and the student improvement simultaneously.
@@ -817,9 +818,9 @@ With the objective function fixed (Section~\ref{sec:objectives}), the next desig
 Historically, signal sources have evolved along both levels. The access-level dimension moved first. Early OPD methods (GKD, DistiLLM) assumed full white-box access to model internals, a requirement that limits distillation to same-organization deployments, while the rise of proprietary API-only models (GPT-4, Claude) necessitated black-box methods that extract knowledge from text outputs alone. The teacher-identity dimension shifted later, as self-distillation methods removed the external teacher entirely, permitting continuous improvement without access to any stronger model. The progression along the access-level dimension, from full access through limited access, and along the identity dimension, from an external teacher to none, both represent increasing autonomy at the cost of signal density, and the two trade-offs are largely independent.
 
 Complex reasoning is among the settings where OPD tends to show pronounced gains over off-policy alternatives. The underlying reason is that reasoning is \emph{path-dependent}~\citep{2306.13649}. A proof that begins ``assume for contradiction...'' requires entirely different subsequent tokens than one beginning ``we proceed by induction...'' If the student has never generated the inductive approach during training, it is unlikely to recover at inference time when that path would be optimal. Off-policy training over a fixed dataset of teacher reasoning traces only covers a finite set of solution paths, while the student needs to navigate its own terrain of partial solutions, dead ends, and recovery strategies. This observation motivates the on-policy formulation for reasoning transfer. The student generates its own intermediate reasoning steps $r^S \sim P_\theta(\cdot|x)$, and the teacher evaluates these student-generated chains instead of dictating its own:
-\begin{equation}
+\begin{equation*}
     \loss_{\text{CoT-OPD}}(\theta) = \E_{x \sim \mathcal{D},\; r^S \sim P_\theta(\cdot|x)} \left[ \sum_{t=1}^{|r^S|} \KL\!\left( \pteacher(\cdot|x, r^S_{<t}) \;\|\; \ptheta(\cdot|x, r^S_{<t}) \right) \right]
-\end{equation}
+\end{equation*}
 The Forward KL direction encourages mode-covering, so that the student allocates probability wherever the teacher does on the student's own prefixes, receiving corrective feedback on its actual generation patterns instead of memorizing the teacher's preferred trajectories. This self-consistent learning dynamic, where the student practices its own reasoning style under expert supervision, has made on-policy CoT distillation a common choice for transferring multi-step reasoning to smaller models. The principle that rationale transfer outperforms answer-only supervision was first established in the off-policy setting by~\citet{2305.02301}, and subsequent work showed that generating rationales on-policy~\citep{2306.13649} can yield further gains by reducing exposure bias, an effect that has also been observed at scale in DeepSeek-R1~\citep{2501.12948} and its successors.
 
 \subsection{External Teacher Distillation}
@@ -839,18 +840,18 @@ External teacher distillation assumes access to a separate model whose capabilit
         \toprule
         \textbf{Method} & \textbf{Year} & \textbf{Category} & \textbf{Divergence/Objective} & \textbf{Signal} & \textbf{Granularity} & \textbf{Key Innovation} \\
         \midrule
-        DSKD \citep{2504.11426} & 2025 & Signal & Dual-Space KL & White-box & Token & Cross-vocabulary projection \\
-        PromptKD \citep{2402.12842} & 2024 & Signal & Prompt-based elicitation & White-box & Token & Input-side distillation \\
-        MAD-OPD \citep{2605.01347} & 2026 & Signal & Multi-agent debate ensemble & White-box & Token & Confidence-weighted multi-teacher \\
-        Veto \citep{2601.07155} & 2026 & Signal & Geometric bridge KL & White-box & Token & Adaptive target reformulation \\
-        SimCT \citep{2605.07711} & 2026 & Signal & Multi-token continuation KL & White-box & Token & Cross-tokenizer supervision recovery \\
-        CSD \citep{2509.25837} & 2025 & Signal & Continuous score matching & White-box & Token & Bypasses discrete vocabulary mismatch \\
-        MPD \citep{2605.08776} & 2026 & Signal & Mixed-policy KL & White-box & Token & Teacher rewrites student traces concisely \\
-        BRTS \citep{2605.09725} & 2026 & Signal & Best-of-N teacher selection & White-box & Sequence & Priority rollout selection for teacher reliability \\
-        Pair-In, Pair-Out \citep{2605.27255} & 2026 & Signal & MTP confidence-head KL & White-box (full backbone) & Token & OPD-supervised latent-MTP head \\
-        DuDi \citep{2606.04694} & 2026 & Signal & Dual-signal cross-lingual KD & White-box & Token/Sequence & SPIN + token KD via cross-lingual verbalizer \\
-        OPRD \citep{2606.06021} & 2026 & Signal & Representation-space OPD & White-box & Layer & Hidden-state alignment extends logit-space distillation \\
-        BTB \citep{2606.09456} & 2026 & Signal & Cross-tokenizer OPD & White-box & Token & Token-mapping bridges heterogeneous model families \\
+        DSKD~\citep{2504.11426} & 2025 & Signal & Dual-Space KL & White-box & Token & Cross-vocabulary projection \\
+        PromptKD~\citep{2402.12842} & 2024 & Signal & Prompt-based elicitation & White-box & Token & Input-side distillation \\
+        MAD-OPD~\citep{2605.01347} & 2026 & Signal & Multi-agent debate ensemble & White-box & Token & Confidence-weighted multi-teacher \\
+        Veto~\citep{2601.07155} & 2026 & Signal & Geometric bridge KL & White-box & Token & Adaptive target reformulation \\
+        SimCT~\citep{2605.07711} & 2026 & Signal & Multi-token continuation KL & White-box & Token & Cross-tokenizer supervision recovery \\
+        CSD~\citep{2509.25837} & 2025 & Signal & Continuous score matching & White-box & Token & Bypasses discrete vocabulary mismatch \\
+        MPD~\citep{2605.08776} & 2026 & Signal & Mixed-policy KL & White-box & Token & Teacher rewrites student traces concisely \\
+        BRTS~\citep{2605.09725} & 2026 & Signal & Best-of-N teacher selection & White-box & Sequence & Priority rollout selection for teacher reliability \\
+        Pair-In, Pair-Out~\citep{2605.27255} & 2026 & Signal & MTP confidence-head KL & White-box (full backbone) & Token & OPD-supervised latent-MTP head \\
+        DuDi~\citep{2606.04694} & 2026 & Signal & Dual-signal cross-lingual KD & White-box & Token/Sequence & SPIN + token KD via cross-lingual verbalizer \\
+        OPRD~\citep{2606.06021} & 2026 & Signal & Representation-space OPD & White-box & Layer & Hidden-state alignment extends logit-space distillation \\
+        BTB~\citep{2606.09456} & 2026 & Signal & Cross-tokenizer OPD & White-box & Token & Token-mapping bridges heterogeneous model families \\
         \bottomrule
     \end{tabular}
     }
@@ -879,9 +880,9 @@ When teacher and student share the same tokenizer (as within a single model fami
 \label{subsubsec:cross_family}
 
 The methods above assume that teacher and student share a common tokenizer, which holds when both belong to the same model family (e.g., Qwen3-30B$\to$Qwen3-4B). A key challenge arises when teacher and student use different tokenizers or vocabulary sizes, as is common in cross-family transfer (e.g., Llama teacher$\to$Qwen student). Direct KL divergence over mismatched vocabularies is undefined. DSKD~\citep{2504.11426} addresses this through \emph{dual-space} knowledge distillation, employing projectors that map between teacher and student representation spaces:
-\begin{equation}
+\begin{equation*}
     \mathcal{L}_{\text{DSKD}} = \KL(P_{T \to S} \parallel P_S) + \KL(P_T \parallel P_{S \to T})
-\end{equation}
+\end{equation*}
 where $P_{T \to S}$ denotes the teacher's hidden states projected into the student's space and decoded through the student's prediction head. An exact token alignment algorithm handles vocabulary mismatches by identifying identical tokens across tokenizers. Vocabulary tokens with similar semantic embeddings should receive similar probability mass even when the tokenization schemes differ, allowing distillation across different architectures (e.g., Llama teacher to Qwen student) that share no vocabulary overlap. CSD~\citep{2509.25837} offers another solution, distilling via a continuous score function that bypasses the discrete vocabulary mismatch.
 
 SimCT~\citep{2605.07711} takes a different approach that operates entirely within the OPD loss form itself. Rather than projecting representations or transporting probability mass, SimCT enlarges the supervision space by comparing teacher and student over short multi-token continuation units that both tokenizers can realize. These units represent the finest jointly tokenizable supervision interface, recovering teacher signal that exact shared-token matching silently discards at positions where vocabularies disagree. Across three heterogeneous teacher-student pairs (Qwen2.5-7B$\to$Phi-4-mini, Qwen2.5-7B$\to$Gemma-2-2B, Phi-4-mini$\to$Gemma-2-2B) on math reasoning and code generation, SimCT outperforms both shared-vocabulary OPD and coarser cross-tokenizer baselines, with pronounced gains at positions of maximal vocabulary disagreement. The result suggests that a substantial fraction of the cross-tokenizer supervision loss documented under shared-token matching stems not from inherent incompatibility but from an unnecessarily restrictive matching granularity.
@@ -906,16 +907,16 @@ A separate challenge in cross-family transfer is teacher \emph{overconfidence}. 
         \toprule
         \textbf{Method} & \textbf{Year} & \textbf{Category} & \textbf{Divergence/Objective} & \textbf{Signal} & \textbf{Granularity} & \textbf{Key Innovation} \\
         \midrule
-        GAD \citep{2511.10643} & 2025 & Signal & Adversarial matching & Black-box & Sequence & Discriminator as proxy reward \\
-        Lion \citep{2305.12870} & 2023 & Signal & Verbal feedback & Black-box & Sequence & NL critique curriculum \\
-        OVD \citep{2601.21968} & 2026 & Signal & Verbal scores (0--9) & Black-box & Sequence & Score-based trajectory matching \\
-        LUFFY \citep{2504.14945} & 2025 & Signal & Mixed-policy GRPO & Off-policy + RL & Sequence & Importance-weighted off-policy \\
-        PRISM \citep{2604.28123} & 2026 & Signal & Black-box pre-alignment & Black-box (API) & Sequence & Multimodal OPD before RLVR \\
-        ROPD \citep{2605.07396} & 2026 & Signal & Rubric-based scoring & Black-box (API) & Sequence & Structured semantic rubrics, 10$\times$ sample efficiency \\
-        DASD \citep{2601.09088} & 2026 & Signal & Sequence-level distribution match & Black-box & Sequence & Multi-trace distribution alignment \\
-        DDT \citep{2602.12222} & 2026 & Signal & Theoretical RL+KD framework & Black-box & Sequence & On-policy generalization theory \\
-        ORPO-Distill \citep{2509.25100} & 2025 & Signal & ORPO contrastive preference & Black-box (API) & Sequence & Mixed-policy negative sampling \\
-        OmniOPD \citep{2606.01476} & 2026 & Signal & Chunk MC verification + KL anchor & Black-box (API) & Chunk/Token & Logit-free Bayesian smoothing \\
+        GAD~\citep{2511.10643} & 2025 & Signal & Adversarial matching & Black-box & Sequence & Discriminator as proxy reward \\
+        Lion~\citep{2305.12870} & 2023 & Signal & Verbal feedback & Black-box & Sequence & NL critique curriculum \\
+        OVD~\citep{2601.21968} & 2026 & Signal & Verbal scores (0--9) & Black-box & Sequence & Score-based trajectory matching \\
+        LUFFY~\citep{2504.14945} & 2025 & Signal & Mixed-policy GRPO & Off-policy + RL & Sequence & Importance-weighted off-policy \\
+        PRISM~\citep{2604.28123} & 2026 & Signal & Black-box pre-alignment & Black-box (API) & Sequence & Multimodal OPD before RLVR \\
+        ROPD~\citep{2605.07396} & 2026 & Signal & Rubric-based scoring & Black-box (API) & Sequence & Structured semantic rubrics, 10$\times$ sample efficiency \\
+        DASD~\citep{2601.09088} & 2026 & Signal & Sequence-level distribution match & Black-box & Sequence & Multi-trace distribution alignment \\
+        DDT~\citep{2602.12222} & 2026 & Signal & Theoretical RL+KD framework & Black-box & Sequence & On-policy generalization theory \\
+        ORPO-Distill~\citep{2509.25100} & 2025 & Signal & ORPO contrastive preference & Black-box (API) & Sequence & Mixed-policy negative sampling \\
+        OmniOPD~\citep{2606.01476} & 2026 & Signal & Chunk MC verification + KL anchor & Black-box (API) & Chunk/Token & Logit-free Bayesian smoothing \\
         \bottomrule
     \end{tabular}
     }
@@ -928,9 +929,9 @@ When only API access is available, the student observes the teacher's top-1 text
 If extracting textual rationales recovers partial teacher reasoning, a further question is whether a richer proxy for the teacher's full distribution can be reconstructed from black-box outputs alone. The following methods attempt increasingly aggressive reconstructions, from adversarial discrimination through verbal scoring to preference ranking.
 
 \textbf{Adversarial distribution matching.} GAD~\citep{2511.10643} reformulates the distillation problem as a generative adversarial game:
-\begin{equation}
+\begin{equation*}
     \max_{G} \min_{D}\; V(G, D) = \E_{(x, y^T) \sim \mathcal{T}} \left[ -\log \sigma\!\left( D(y^T) - D(G(x)) \right) \right]
-\end{equation}
+\end{equation*}
 A discriminator $D$ (initialized from the student with a scalar prediction head) distinguishes student rollouts from teacher API outputs via a Bradley-Terry preference model, while the generator $G$ maximizes $V$ via policy gradient (implemented as GRPO) using the discriminator score as an evolving on-policy reward signal. Unlike white-box methods that match full distributions, GAD extracts knowledge through a scalar quality signal, trading distributional fidelity for API compatibility. It inherits the training instability of adversarial objectives, as the discriminator can overfit to stylistic cues rather than semantic quality, but produces reliable gains over SFT baselines.
 
 \textbf{Verbal feedback and curriculum.} Lion~\citep{2305.12870} exploits the teacher's capacity as a natural language critic through a three-stage adversarial loop comprising (i) an \emph{imitation} stage where the student is fine-tuned on teacher-generated responses, (ii) a \emph{discrimination} stage where the teacher identifies instructions on which the student still falls short, and (iii) a \emph{generation} stage where the teacher creates harder instructions targeting the student's identified weaknesses. This closed-loop curriculum steadily narrows the teacher-student gap without requiring any gradient information from the teacher, making it applicable to any instruction-following API. Lion-13B reaches competitive performance on BIG-Bench Hard and AGIEval using only 70K training examples.
@@ -965,79 +966,79 @@ Across the two access levels, external teacher distillation offers the densest s
         \toprule
         \textbf{Method} & \textbf{Year} & \textbf{Category} & \textbf{Divergence/Objective} & \textbf{Signal} & \textbf{Granularity} & \textbf{Key Innovation} \\
         \midrule
-        OPSD \citep{2601.18734} & 2026 & Self (PI) & KL on GT-conditioned & Self & Token & Ground-truth as privileged info \\
-        CRISP \citep{2603.05433} & 2026 & Self (PI) & Conciseness PI & Self & Token & 57\% token reduction, +9\% accuracy \\
-        GATES \citep{2602.20574} & 2026 & Self (PI) & Gated consensus KL & Self & Token & Document as PI, gated supervision \\
-        OPSDL \citep{2604.17535} & 2026 & Self (PI) & Short-ctx $\to$ long-ctx & Self & Token & Long-context self-distillation \\
-        SD-ZERO \citep{2604.12002} & 2026 & Self (EF) & Self-revision preference & Self + Verifier & Sequence & Binary reward $\to$ dense self-supervision \\
-        $\pi$-Play \citep{2604.14054} & 2026 & Self (EF) & Multi-agent co-evolution & Self & Token & Internally generated PI from co-evolution \\
-        UniSD \citep{2605.06597} & 2026 & Self (SD) & Multi-axis unified SD & Self (EMA + agreement) & Token & Systematic component analysis \\
-        RLRT \citep{2605.10781} & 2026 & Self (EF) & Reversed teacher signal & Self (reversed) & Token & Reinforcing self-driven reasoning tokens \\
-        SDPO \citep{2601.20802} & 2026 & Self (EF) & Textual feedback + DPO & Self + Verifier & Sequence & Credit assignment from outcomes \\
-        RLTF \citep{2602.02482} & 2026 & Self (EF) & Critique-conditioned & Self + Verifier & Sequence & Text feedback for self-distillation \\
-        SRPO \citep{2604.02288} & 2026 & Self (EF) & GRPO + SDPO routing & Self + Verifier & Sequence & Sample-routed multi-objective \\
-        CoPD \citep{2604.27083} & 2026 & Self (EF) & Co-evolving bidirectional OPD & Mutual (parallel) & Sequence & Multi-capability consolidation \\
-        VPD \citep{2605.15113} & 2026 & Self (EF) & Variational EM co-evolution & Self (co-evolved) & Token & Trust-region teacher adaptation from language feedback \\
-        PAINT \citep{2604.26573} & 2026 & Self (EF) & Partial-solution masking & Self (re-score) & Token & Overlap-adaptive self-distillation \\
-        RESD \citep{2605.12741} & 2026 & Self (EF) & Reflection-enhanced self-distill & Self + Env.~Feedback & Token & Failure reflection + persistent playbook \\
-        MSD \citep{2605.02971} & 2026 & Self (PI) & Cross-lingual safety distill & Self (English PI) & Token & Multilingual safety alignment \\
-        GUI-SD \citep{2605.00642} & 2026 & Self (PI) & Visual spatial PI for GUI & Self (Gaussian mask) & Token & Multimodal GUI grounding \\
-        PBSD \citep{2605.05040} & 2026 & Self (PI) & Pref.-based reward-reg.\ KL & Self (ctx-augmented) & Sequence & DPO-style loss, preference margin \\
-        TT-OPD \citep{2605.02943} & 2026 & Self (PI) & Turn-level truncated KL & Self (EMA + outcome hints) & Turn & Multi-turn agentic OPD \\
-        VISD \citep{2605.06094} & 2026 & Self (PI) & Direction-magnitude decouple & Self (structured judge) & Token & Structured PI for video reasoning \\
-        $\pi$-Distill \citep{2602.04942} & 2026 & Self (PI) & Unified PI framework & Self & Token & Theoretical foundations for PI self-distill \\
-        OPCD \citep{2602.12275} & 2026 & Self (PI) & Context-conditioned RKL & Self (experience PI) & Token & Experiential knowledge internalization \\
-        OEL \citep{2603.16856} & 2026 & Self (PI) & Online experiential learning & Self (trajectory PI) & Token & Continuous post-deployment distillation loop \\
-        HDPO \citep{2603.23871} & 2026 & Self (PI) & GRPO + JSD self-distill & Self (GT-conditioned) & Sequence & Cliff-prompt non-zero gradient patch \\
-        MTP-SD \citep{2602.06019} & 2026 & Self (SD) & Multi-token span scoring & Self (frozen copy) & Span & Architectural self-distillation for $>3\times$ decoding \\
-        SDFT \citep{2601.19897} & 2026 & Self (SD) & In-context demo teacher RKL & Self (ICL-conditioned) & Token & Forgetting resistance via trust-region implicit KL \\
-        RLSD \citep{2604.03128} & 2026 & Self (EF) & RLVR + self-distill decomp. & Self + Verifier & Token & Magnitude (self-distill) + direction (RLVR), $2\times$ efficiency \\
-        SDAR \citep{2605.15155} & 2026 & Self (EF) & Gated OPSD + RL & Self (PI) + RL & Token & Sigmoid-gated auxiliary self-distill for agents \\
-        OPHSD \citep{2605.08741} & 2026 & Self (PI) & Harness-augmented self-KL & Self (harness PI) & Token & Internalizes inference scaffolds as PI \\
-        COPSD \citep{2605.09548} & 2026 & Self (PI) & Cross-lingual token KL & Self (English PI) & Token & 17 African languages via cross-lingual PI \\
-        ATESD \citep{2605.11458} & 2026 & Self (PI) & Beta-policy exposure control & Self (adaptive PI) & Token & Learnable teacher exposure ratio \\
-        TRACE \citep{2605.10194} & 2026 & Self (PI) & Token-routed FKL/RKL & Self (annotator PI) & Span & Critical-span OPD + GRPO on rest \\
-        ListOPD \citep{2605.08737} & 2026 & Theory & Reward-extrapolation clip safety & White-box & Token & Closed-form $\lambda^\star$ for format collapse \\
-        Rock Tokens \citep{2605.09253} & 2026 & Theory & Persistent high-loss analysis & White-box & Token & 18\% structurally uninformative tokens \\
-        Many Faces \citep{2605.11182} & 2026 & Theory & Comprehensive failure catalog & White-box/Self & Token & Biased top-$K$ KL + PI type limitation \\
-        Unmasking OPD \citep{2605.10889} & 2026 & Theory & Per-token gradient alignment & White-box/Self & Token & Training-free diagnostic framework \\
-        Local Collapse \citep{2605.13643} & 2026 & Theory & BIC-style release rule & White-box & Segment & Local teachability collapse in suffix OPD \\
-        Safactory \citep{2605.06230} & 2026 & Application & Safety evolution pipeline & White-box & Trajectory & Closed-loop OPD for agent safety \\
-        HyperEyes \citep{2605.07177} & 2026 & Application & Dual-grained efficiency RL & White-box & Token/Seq & Multimodal search agent with OPD \\
-        ProteinOPD \citep{2605.10189} & 2026 & Application & Multi-teacher consensus OPD & White-box (multi) & Token & Protein PLM preference alignment \\
-        TTS \citep{2605.09329} & 2026 & Application & Online test-time OPD & White-box & Token & Draft-model adaptation for speculative decoding \\
-        DAgger-LLM \citep{2605.12913} & 2026 & Application & Turn-level student-teacher mix & White-box & Turn & DAgger for multi-turn LLM agents \\
-        AVSD \citep{2605.20643} & 2026 & Self (PI) & Multi-view consensus + residual & Self (multi-view) & Token & Decompose consensus vs view-specific \\
-        Skill-Cond.\ Gated SD \citep{2605.28791} & 2026 & Self (PI) & Outcome-validated polarity & Self (multi-teacher) & Token & Outcome-gated bounded SD \\
-        Critique Distill \citep{2606.00424} & 2026 & Self (PI) & Weak-critic conditioned KL & Self (weak critic) & Token & Scalable oversight inversion \\
-        Constitutional Cross-SFT \citep{2606.03089} & 2026 & Self (PI) & Cross-SFT cold-start + RKL & Self (constitution) & Token & Safety-expressiveness preservation \\
-        World-Model PI \citep{2606.03603} & 2026 & Self (PI) & Advantage-weighted decision-node KL & Self (future-video PI) & Step & Verify/invoke/rely on world-model rollouts \\
-        SD-PG \citep{2606.04036} & 2026 & Self (PI) & Full-vocab RKL + REINFORCE & Self & Token & Full-vocab SD with positive-advantage gating \\
-        VPG \citep{2605.11019} & 2026 & Self (SD) & Length-aware variational posterior & Self & Sequence & Efficiency-aware reasoning self-distill \\
-        Self-Sup OPD \citep{2605.17497} & 2026 & Self (SD) & Intra-group KL & Self (GRPO group) & Token & Correct/incorrect-rollout contrast \\
-        HINT-SD \citep{2605.17873} & 2026 & Self (SD) & Targeted hindsight relabel & Self & Turn & Failure-relevant turn selection \\
-        SD-Search \citep{2605.18299} & 2026 & Self (SD) & Step hindsight relabel & Self & Step & Search-query-level supervision \\
-        Vision-OPD \citep{2605.18740} & 2026 & Self (SD) & Regional-to-global RKL & Self (regional PI) & Token & Fine-grained MLLM grounding \\
-        It Takes Two \citep{2605.20258} & 2026 & Self (SD) & Complementary parallel SD & Self (mutual splits) & Token & Contextual-integrity privacy alignment \\
-        TOD Proactivity \citep{2605.22240} & 2026 & Self (SD) & Asymmetric user-concern PI & Self (concerns) & Token & Proactive task-oriented dialogue \\
-        Search-E1 \citep{2605.22511} & 2026 & Self (SD) & GRPO + offline SD evolution & Self (snapshot) & Sequence & Self-evolution loop for search reasoning \\
-        MAIGO \citep{2605.27186} & 2026 & Self (SD) & History-cleaned RKL & Self (single-turn PI) & Token & Multi-turn lost-in-conversation gap \\
-        ROSD \citep{2605.28014} & 2026 & Self (SD) & Reflection + quote-localized & Self (reflector) & Token/Span & Error-suffix targeted SD \\
-        Canonical-Ctx OPD \citep{2605.30251} & 2026 & Self (SD) & Answer-masked RKL & Self (full-context PI) & Token & Multi-turn canonical-context alignment \\
-        COMAP \citep{2606.02372} & 2026 & Self (SD) & EMA SD + reflection gate & Self (world model) & Trajectory & Co-evolve agent and world model \\
-        OPCT \citep{2605.21834} & 2026 & Self (EF) & Frozen-copy contrastive RKL & Self (frozen-copy) & Token & Sycophancy/jailbreak consistency \\
-        MGSD \citep{2606.06076} & 2026 & Self (PI) & Modality-gap-aware two-stage SD & Self (modality PI) & Token & Spatial planning with modality gap bridging \\
-        PTD-PO \citep{2606.07000} & 2026 & Self (PI) & Top-$K$ JSD privileged tutoring & Self (spatial+reasoning PI) & Token & Spatial+reasoning hints for multimodal policy optimization \\
-        TWI \citep{2606.08719} & 2026 & Self (PI) & Cropped-image zoom-in PI & Self (cropped PI) & Token & Privileged zoom-in reasoning internalizes visual grounding \\
+        OPSD~\citep{2601.18734} & 2026 & Self (PI) & KL on GT-conditioned & Self & Token & Ground-truth as privileged info \\
+        CRISP~\citep{2603.05433} & 2026 & Self (PI) & Conciseness PI & Self & Token & 57\% token reduction, +9\% accuracy \\
+        GATES~\citep{2602.20574} & 2026 & Self (PI) & Gated consensus KL & Self & Token & Document as PI, gated supervision \\
+        OPSDL~\citep{2604.17535} & 2026 & Self (PI) & Short-ctx $\to$ long-ctx & Self & Token & Long-context self-distillation \\
+        SD-ZERO~\citep{2604.12002} & 2026 & Self (EF) & Self-revision preference & Self + Verifier & Sequence & Binary reward $\to$ dense self-supervision \\
+        $\pi$-Play~\citep{2604.14054} & 2026 & Self (EF) & Multi-agent co-evolution & Self & Token & Internally generated PI from co-evolution \\
+        UniSD~\citep{2605.06597} & 2026 & Self (SD) & Multi-axis unified SD & Self (EMA + agreement) & Token & Systematic component analysis \\
+        RLRT~\citep{2605.10781} & 2026 & Self (EF) & Reversed teacher signal & Self (reversed) & Token & Reinforcing self-driven reasoning tokens \\
+        SDPO~\citep{2601.20802} & 2026 & Self (EF) & Textual feedback + DPO & Self + Verifier & Sequence & Credit assignment from outcomes \\
+        RLTF~\citep{2602.02482} & 2026 & Self (EF) & Critique-conditioned & Self + Verifier & Sequence & Text feedback for self-distillation \\
+        SRPO~\citep{2604.02288} & 2026 & Self (EF) & GRPO + SDPO routing & Self + Verifier & Sequence & Sample-routed multi-objective \\
+        CoPD~\citep{2604.27083} & 2026 & Self (EF) & Co-evolving bidirectional OPD & Mutual (parallel) & Sequence & Multi-capability consolidation \\
+        VPD~\citep{2605.15113} & 2026 & Self (EF) & Variational EM co-evolution & Self (co-evolved) & Token & Trust-region teacher adaptation from language feedback \\
+        PAINT~\citep{2604.26573} & 2026 & Self (EF) & Partial-solution masking & Self (re-score) & Token & Overlap-adaptive self-distillation \\
+        RESD~\citep{2605.12741} & 2026 & Self (EF) & Reflection-enhanced self-distill & Self + Env.~Feedback & Token & Failure reflection + persistent playbook \\
+        MSD~\citep{2605.02971} & 2026 & Self (PI) & Cross-lingual safety distill & Self (English PI) & Token & Multilingual safety alignment \\
+        GUI-SD~\citep{2605.00642} & 2026 & Self (PI) & Visual spatial PI for GUI & Self (Gaussian mask) & Token & Multimodal GUI grounding \\
+        PBSD~\citep{2605.05040} & 2026 & Self (PI) & Pref.-based reward-reg.\ KL & Self (ctx-augmented) & Sequence & DPO-style loss, preference margin \\
+        TT-OPD~\citep{2605.02943} & 2026 & Self (PI) & Turn-level truncated KL & Self (EMA + outcome hints) & Turn & Multi-turn agentic OPD \\
+        VISD~\citep{2605.06094} & 2026 & Self (PI) & Direction-magnitude decouple & Self (structured judge) & Token & Structured PI for video reasoning \\
+        $\pi$-Distill~\citep{2602.04942} & 2026 & Self (PI) & Unified PI framework & Self & Token & Theoretical foundations for PI self-distill \\
+        OPCD~\citep{2602.12275} & 2026 & Self (PI) & Context-conditioned RKL & Self (experience PI) & Token & Experiential knowledge internalization \\
+        OEL~\citep{2603.16856} & 2026 & Self (PI) & Online experiential learning & Self (trajectory PI) & Token & Continuous post-deployment distillation loop \\
+        HDPO~\citep{2603.23871} & 2026 & Self (PI) & GRPO + JSD self-distill & Self (GT-conditioned) & Sequence & Cliff-prompt non-zero gradient patch \\
+        MTP-SD~\citep{2602.06019} & 2026 & Self (SD) & Multi-token span scoring & Self (frozen copy) & Span & Architectural self-distillation for $>3\times$ decoding \\
+        SDFT~\citep{2601.19897} & 2026 & Self (SD) & In-context demo teacher RKL & Self (ICL-conditioned) & Token & Forgetting resistance via trust-region implicit KL \\
+        RLSD~\citep{2604.03128} & 2026 & Self (EF) & RLVR + self-distill decomp. & Self + Verifier & Token & Magnitude (self-distill) + direction (RLVR), $2\times$ efficiency \\
+        SDAR~\citep{2605.15155} & 2026 & Self (EF) & Gated OPSD + RL & Self (PI) + RL & Token & Sigmoid-gated auxiliary self-distill for agents \\
+        OPHSD~\citep{2605.08741} & 2026 & Self (PI) & Harness-augmented self-KL & Self (harness PI) & Token & Internalizes inference scaffolds as PI \\
+        COPSD~\citep{2605.09548} & 2026 & Self (PI) & Cross-lingual token KL & Self (English PI) & Token & 17 African languages via cross-lingual PI \\
+        ATESD~\citep{2605.11458} & 2026 & Self (PI) & Beta-policy exposure control & Self (adaptive PI) & Token & Learnable teacher exposure ratio \\
+        TRACE~\citep{2605.10194} & 2026 & Self (PI) & Token-routed FKL/RKL & Self (annotator PI) & Span & Critical-span OPD + GRPO on rest \\
+        ListOPD~\citep{2605.08737} & 2026 & Theory & Reward-extrapolation clip safety & White-box & Token & Closed-form $\lambda^\star$ for format collapse \\
+        Rock Tokens~\citep{2605.09253} & 2026 & Theory & Persistent high-loss analysis & White-box & Token & 18\% structurally uninformative tokens \\
+        Many Faces~\citep{2605.11182} & 2026 & Theory & Comprehensive failure catalog & White-box/Self & Token & Biased top-$K$ KL + PI type limitation \\
+        Unmasking OPD~\citep{2605.10889} & 2026 & Theory & Per-token gradient alignment & White-box/Self & Token & Training-free diagnostic framework \\
+        Local Collapse~\citep{2605.13643} & 2026 & Theory & BIC-style release rule & White-box & Segment & Local teachability collapse in suffix OPD \\
+        Safactory~\citep{2605.06230} & 2026 & Application & Safety evolution pipeline & White-box & Trajectory & Closed-loop OPD for agent safety \\
+        HyperEyes~\citep{2605.07177} & 2026 & Application & Dual-grained efficiency RL & White-box & Token/Seq & Multimodal search agent with OPD \\
+        ProteinOPD~\citep{2605.10189} & 2026 & Application & Multi-teacher consensus OPD & White-box (multi) & Token & Protein PLM preference alignment \\
+        TTS~\citep{2605.09329} & 2026 & Application & Online test-time OPD & White-box & Token & Draft-model adaptation for speculative decoding \\
+        DAgger-LLM~\citep{2605.12913} & 2026 & Application & Turn-level student-teacher mix & White-box & Turn & DAgger for multi-turn LLM agents \\
+        AVSD~\citep{2605.20643} & 2026 & Self (PI) & Multi-view consensus + residual & Self (multi-view) & Token & Decompose consensus vs view-specific \\
+        Skill-Cond.\ Gated SD~\citep{2605.28791} & 2026 & Self (PI) & Outcome-validated polarity & Self (multi-teacher) & Token & Outcome-gated bounded SD \\
+        Critique Distill~\citep{2606.00424} & 2026 & Self (PI) & Weak-critic conditioned KL & Self (weak critic) & Token & Scalable oversight inversion \\
+        Constitutional Cross-SFT~\citep{2606.03089} & 2026 & Self (PI) & Cross-SFT cold-start + RKL & Self (constitution) & Token & Safety-expressiveness preservation \\
+        World-Model PI~\citep{2606.03603} & 2026 & Self (PI) & Advantage-weighted decision-node KL & Self (future-video PI) & Step & Verify/invoke/rely on world-model rollouts \\
+        SD-PG~\citep{2606.04036} & 2026 & Self (PI) & Full-vocab RKL + REINFORCE & Self & Token & Full-vocab SD with positive-advantage gating \\
+        VPG~\citep{2605.11019} & 2026 & Self (SD) & Length-aware variational posterior & Self & Sequence & Efficiency-aware reasoning self-distill \\
+        Self-Sup OPD~\citep{2605.17497} & 2026 & Self (SD) & Intra-group KL & Self (GRPO group) & Token & Correct/incorrect-rollout contrast \\
+        HINT-SD~\citep{2605.17873} & 2026 & Self (SD) & Targeted hindsight relabel & Self & Turn & Failure-relevant turn selection \\
+        SD-Search~\citep{2605.18299} & 2026 & Self (SD) & Step hindsight relabel & Self & Step & Search-query-level supervision \\
+        Vision-OPD~\citep{2605.18740} & 2026 & Self (SD) & Regional-to-global RKL & Self (regional PI) & Token & Fine-grained MLLM grounding \\
+        It Takes Two~\citep{2605.20258} & 2026 & Self (SD) & Complementary parallel SD & Self (mutual splits) & Token & Contextual-integrity privacy alignment \\
+        TOD Proactivity~\citep{2605.22240} & 2026 & Self (SD) & Asymmetric user-concern PI & Self (concerns) & Token & Proactive task-oriented dialogue \\
+        Search-E1~\citep{2605.22511} & 2026 & Self (SD) & GRPO + offline SD evolution & Self (snapshot) & Sequence & Self-evolution loop for search reasoning \\
+        MAIGO~\citep{2605.27186} & 2026 & Self (SD) & History-cleaned RKL & Self (single-turn PI) & Token & Multi-turn lost-in-conversation gap \\
+        ROSD~\citep{2605.28014} & 2026 & Self (SD) & Reflection + quote-localized & Self (reflector) & Token/Span & Error-suffix targeted SD \\
+        Canonical-Ctx OPD~\citep{2605.30251} & 2026 & Self (SD) & Answer-masked RKL & Self (full-context PI) & Token & Multi-turn canonical-context alignment \\
+        COMAP~\citep{2606.02372} & 2026 & Self (SD) & EMA SD + reflection gate & Self (world model) & Trajectory & Co-evolve agent and world model \\
+        OPCT~\citep{2605.21834} & 2026 & Self (EF) & Frozen-copy contrastive RKL & Self (frozen-copy) & Token & Sycophancy/jailbreak consistency \\
+        MGSD~\citep{2606.06076} & 2026 & Self (PI) & Modality-gap-aware two-stage SD & Self (modality PI) & Token & Spatial planning with modality gap bridging \\
+        PTD-PO~\citep{2606.07000} & 2026 & Self (PI) & Top-$K$ JSD privileged tutoring & Self (spatial+reasoning PI) & Token & Spatial+reasoning hints for multimodal policy optimization \\
+        TWI~\citep{2606.08719} & 2026 & Self (PI) & Cropped-image zoom-in PI & Self (cropped PI) & Token & Privileged zoom-in reasoning internalizes visual grounding \\
         PBSD$^*$ \citep{2606.09348} & 2026 & Self (PI) & Bayesian turn-level SD & Self (trajectory reward) & Turn & Sparse trajectory rewards $\to$ turn-level credit \\
-        Visual-SDPO \citep{2606.10334} & 2026 & Self (PI) & Statement-weighted KL + GRPO & Self (visual artifact PI) & Token & Rendered visual artifact as privileged feedback \\
-        AR-OPD \citep{2606.10385} & 2026 & Self (PI) & Anchor+oracle residual OPD & Self (oracle PI) & Token & Prevents hindsight leakage; $+2.3$ vs.\ full OPD \\
-        HERO \citep{2606.11559} & 2026 & Self (PI) & Turn-level KL with future-obs PI & Self (future-env PI) & Turn & Future environment observations as privileged context \\
-        When Ctx Returns \citep{2606.11627} & 2026 & Self (PI) & FKL no-context anchoring & Self (no-ctx PI) & Token & Anchoring regularizer prevents context-induced degradation \\
-        Rubric-Guided SD \citep{2606.12507} & 2026 & Self (PI) & JSD with rubric PI & Self (rubric PI) & Token & Removes need for external verifier via rubric-conditioned SD \\
-        AR-to-Diffusion \citep{2606.06712} & 2026 & Self (SD) & AR$\to$diffusion on-policy SD & Self (frozen AR) & Token & Converts AR LM to diffusion LM; $15\times$--$7000\times$ fewer training tokens \\
-SG-OPD \citep{2606.09304} & 2026 & Self (EF) & Sign-consistency gated SD & Self + Verifier & Token & Phased teacher sampling; $+1.98$ avg@32 / $+7.50$ pass@32 \\
-        OPCoD \citep{2606.14368} & 2026 & Self (EF) & Coupled co-distillation + peer feedback & Mutual (peer) & Token & Cross-domain mutual Pareto improvement \\
+        Visual-SDPO~\citep{2606.10334} & 2026 & Self (PI) & Statement-weighted KL + GRPO & Self (visual artifact PI) & Token & Rendered visual artifact as privileged feedback \\
+        AR-OPD~\citep{2606.10385} & 2026 & Self (PI) & Anchor+oracle residual OPD & Self (oracle PI) & Token & Prevents hindsight leakage; $+2.3$ vs.\ full OPD \\
+        HERO~\citep{2606.11559} & 2026 & Self (PI) & Turn-level KL with future-obs PI & Self (future-env PI) & Turn & Future environment observations as privileged context \\
+        When Ctx Returns~\citep{2606.11627} & 2026 & Self (PI) & FKL no-context anchoring & Self (no-ctx PI) & Token & Anchoring regularizer prevents context-induced degradation \\
+        Rubric-Guided SD~\citep{2606.12507} & 2026 & Self (PI) & JSD with rubric PI & Self (rubric PI) & Token & Removes need for external verifier via rubric-conditioned SD \\
+        AR-to-Diffusion~\citep{2606.06712} & 2026 & Self (SD) & AR$\to$diffusion on-policy SD & Self (frozen AR) & Token & Converts AR LM to diffusion LM; $15\times$--$7000\times$ fewer training tokens \\
+SG-OPD~\citep{2606.09304} & 2026 & Self (EF) & Sign-consistency gated SD & Self + Verifier & Token & Phased teacher sampling; $+1.98$ avg@32 / $+7.50$ pass@32 \\
+        OPCoD~\citep{2606.14368} & 2026 & Self (EF) & Coupled co-distillation + peer feedback & Mutual (peer) & Token & Cross-domain mutual Pareto improvement \\
         \bottomrule
     \end{tabular}
     }
@@ -1053,9 +1054,9 @@ Self-distillation removes the need for an external teacher entirely (Table~\ref{
 The first family creates asymmetry through \emph{privileged information} (PI), meaning training-time access to context unavailable at inference. Conditioning the same model on additional context produces a stronger policy that can supervise the unconditioned version, turning a single network into both teacher and student. The methods below differ mostly in what plays the role of that context, ranging from a ground-truth answer through retrieved documents, spatial masks, structured judge feedback, and future observations to a weak external critique. This surface variety is largely orthogonal to the distillation mechanism itself, which remains token-level matching of a PI-conditioned self-teacher over student rollouts. What does vary in consequence is the \emph{type} of privileged signal. A shared latent rule that applies across instances (a system prompt, a constitution, a grading rubric) can be internalized into a PI-free policy, whereas an instance-specific answer cannot be aggregated the same way, a distinction that bounds when PI distillation succeeds and that we return to in the failure analysis of Section~\ref{subsec:failure}. We therefore present the methods in order of increasing distance from the original ground-truth-as-PI construction, noting for each what privileged signal it introduces and which limitation it addresses.
 
 \textbf{Ground-truth as PI.} OPSD~\citep{2601.18734} constructs the teacher policy by conditioning on both the problem $x$ and the ground-truth answer $y^\star$, while the student conditions only on $x$. The student generates on-policy rollouts, and the teacher delivers dense token-level supervision.
-\begin{equation}
+\begin{equation*}
     \loss_{\text{OPSD}}(\theta) = \E_{(x, y^\star) \sim \mathcal{S}} \E_{\hat{y} \sim \ptheta(\cdot|x)} \left[ \sum_{n=1}^{|\hat{y}|} D\!\left( p_\theta(\cdot|x, y^\star, \hat{y}_{<n}) \;\|\; \ptheta(\cdot|x, \hat{y}_{<n}) \right) \right]
-\end{equation}
+\end{equation*}
 On competition-level math benchmarks (AIME 2024/2025, HMMT), OPSD matches or exceeds GRPO at the 4B and 8B scales while using only a single rollout per problem versus GRPO's eight, yielding a significant computational advantage. The gains are largest at 8B (+0.9 average points over GRPO) and 4B (+0.8 over GRPO), but it underperforms GRPO at 1.7B (-0.5), likely because OPSD's reliance on self-rationalization requires sufficient model capacity to produce a meaningful dense token-level signal. The authors note a theoretical limitation, that when problems exceed a model's comprehension threshold, even the ground-truth-conditioned teacher cannot supply meaningful supervision, evidence of a problem-difficulty ceiling in the PI mechanism that scales with model capacity.
 
 A separate limitation arises when all rollouts for a given prompt fail (the ``cliff prompt'' problem), causing the policy gradient to vanish entirely. This failure mode directly parallels PACED's finding (Section~\ref{subsec:curriculum}) that gradient SNR vanishes when student pass rate approaches zero, but with an important difference. PACED tackles this through curriculum selection (avoiding problematic prompts), while HDPO~\citep{2603.23871} tackles it through signal augmentation. HDPO augments GRPO with a JSD-based self-distillation term on ground-truth-conditioned rollouts, providing non-zero gradients even at the boundary of the student's competence, directly patching the cliff-prompt vulnerability without restricting the problem distribution.
@@ -1166,38 +1167,38 @@ Across signal sources, from white-box logits through black-box APIs to self-dist
         \toprule
         \textbf{Method} & \textbf{Year} & \textbf{Category} & \textbf{Divergence/Objective} & \textbf{Signal} & \textbf{Granularity} & \textbf{Key Innovation} \\
         \midrule
-        TIP \citep{2604.14084} & 2026 & Dynamics & Soft-OR token weighting & White-box & Token & Entropy$\times$divergence quadrant scoring \\
-        SCOPE \citep{2604.10688} & 2026 & Dynamics & Rollout routing & White-box & Token & Redirect on flawed prefix \\
-        SelecTKD \citep{2510.24021} & 2025 & Dynamics & Confidence filtering & White-box & Token & Top-1 probability threshold \\
-        AdaSwitch \citep{2510.07842} & 2025 & Dynamics & Exploration/guidance switch & White-box & Token & Binary mode switching \\
-        PACED \citep{2603.11178} & 2026 & Dynamics & Beta-kernel curriculum & White-box & Sample & Frontier difficulty sampling \\
-        FOPD \citep{2602.15260} & 2026 & Dynamics & Prefix truncation & White-box & Hybrid & Early-token focus \\
-        Lightning-OPD \citep{2604.13010} & 2026 & Dynamics & Offline caching & White-box & Token & $4.0\times$ cost reduction \\
-        SKD \citep{2410.11325} & 2025 & Dynamics & Draft-verify & White-box & Block & Amortized teacher cost \\
-        NPD \citep{2605.05940} & 2026 & Dynamics & Async gen-train decoupling & White-box & Token & 8.1$\times$ speedup via $\Delta$-IFD filtering \\
-        Prune-OPD \citep{2605.07804} & 2026 & Dynamics & Top-$k$ overlap drift detection & White-box & Token & Dynamic trajectory pruning, 37--68\% time reduction \\
-        R-OPD \citep{2603.25562} & 2026 & Dynamics & Top-$p$ rollout + masking & White-box & Token & Empirical failure mode fixes \\
-        SOD \citep{2605.07725} & 2026 & Dynamics & Step-level divergence reweighting & White-box & Step & Tool-call cascade attenuation \\
-        Stable-OPD \citep{2604.08527} & 2026 & Dynamics & RKL + reference div. & White-box & Token & Rollout mixing for stability \\
-        TCOD \citep{2604.24005} & 2026 & Dynamics & Temporal curriculum & White-box & Trajectory & Multi-turn KL stability \\
-        Uni-OPD \citep{2605.03677} & 2026 & Dynamics & Dual-perspective data balancing & White-box (multi-teacher) & Token & Unified LLM+MLLM OPD \\
-        CaOPD \citep{2604.16830} & 2026 & Dynamics & Calibration-aware OPD & White-box & Token & Diagnoses scaling law of miscalibration \\
-        EGRSD \citep{2605.13255} & 2026 & Dynamics & Entropy-gated self-distillation & Self (PI) & Token & Teacher-entropy confidence gate + causal lookahead \\
-        MOPD \citep{2605.12652} & 2026 & Dynamics & Peer-conditioned multi-rollout & White-box & Sample & Success/failure rollout group weighting \\
-        GEAR \citep{2605.11853} & 2026 & Dynamics & Adaptive segment reweighting & Self (PI) & Segment & Granularity-adaptive advantage boundaries \\
-        EffOPD \citep{2605.11739} & 2026 & Dynamics & Parameter-dynamics foresight & White-box & Token & 3$\times$ acceleration via update extrapolation \\
-        Visual-Adv.\ OPD \citep{2605.21924} & 2026 & Dynamics & Visual-grounded reweighting & White-box & Token & Per-token visual-advantage gradient \\
-        Filter-Then-Reweight \citep{2606.02684} & 2026 & Dynamics & Trajectory filter + token reweight & White-box & Token/Trajectory & Dual-granularity OPD \\
-        Less-is-More \citep{2605.27028} & 2026 & Dynamics & Early-stop rollout & White-box & Token & Off-policy teacher-decay truncation \\
-        DeltaPrompts \citep{2605.15532} & 2026 & Dynamics & Prompt-divergence curriculum & White-box (VLM) & Prompt & Zero-delta-trap synthesis \\
-        f-OPD \citep{2605.17862} & 2026 & Dynamics & Freshness-aware control & White-box & Trajectory & Async-OPD lag bounding \\
-        TR-Behav.\ Blend \citep{2605.31159} & 2026 & Dynamics & Trust-region warmup & White-box & Token & Closed-form geometric blend \\
-        Adaptive Refresh \citep{2606.03532} & 2026 & Dynamics & Three-gate teacher refresh & Self (PI) & Trajectory & Isolation/reward/length-tail gating \\
-        CEI \citep{2606.04703} & 2026 & Dynamics & Iterative experience internalization & Self & Step & Multi-iter agent self-evolution \\
-        POPD/TOPD \citep{2605.31490} & 2026 & Dynamics & Horizon-controlled rollout & White-box & Token & Progressive/truncated horizon \\
-        SafeSteer \citep{2606.02530} & 2026 & Dynamics & Safety-token localized RKL & Self (steered) & Token & Activation-steered safety teacher \\
-        TRD \citep{2606.08432} & 2026 & Dynamics & Trajectory-refined distillation & White-box & Sequence & Teacher correction at prefix-failure points \\
-        KAT \citep{2606.09471} & 2026 & Dynamics & KL-agreement trap truncation & White-box & Token & Online rollout truncation at KL-agreement trap regions \\
+        TIP~\citep{2604.14084} & 2026 & Dynamics & Soft-OR token weighting & White-box & Token & Entropy$\times$divergence quadrant scoring \\
+        SCOPE~\citep{2604.10688} & 2026 & Dynamics & Rollout routing & White-box & Token & Redirect on flawed prefix \\
+        SelecTKD~\citep{2510.24021} & 2025 & Dynamics & Confidence filtering & White-box & Token & Top-1 probability threshold \\
+        AdaSwitch~\citep{2510.07842} & 2025 & Dynamics & Exploration/guidance switch & White-box & Token & Binary mode switching \\
+        PACED~\citep{2603.11178} & 2026 & Dynamics & Beta-kernel curriculum & White-box & Sample & Frontier difficulty sampling \\
+        FOPD~\citep{2602.15260} & 2026 & Dynamics & Prefix truncation & White-box & Hybrid & Early-token focus \\
+        Lightning-OPD~\citep{2604.13010} & 2026 & Dynamics & Offline caching & White-box & Token & $4.0\times$ cost reduction \\
+        SKD~\citep{2410.11325} & 2025 & Dynamics & Draft-verify & White-box & Block & Amortized teacher cost \\
+        NPD~\citep{2605.05940} & 2026 & Dynamics & Async gen-train decoupling & White-box & Token & 8.1$\times$ speedup via $\Delta$-IFD filtering \\
+        Prune-OPD~\citep{2605.07804} & 2026 & Dynamics & Top-$k$ overlap drift detection & White-box & Token & Dynamic trajectory pruning, 37--68\% time reduction \\
+        R-OPD~\citep{2603.25562} & 2026 & Dynamics & Top-$p$ rollout + masking & White-box & Token & Empirical failure mode fixes \\
+        SOD~\citep{2605.07725} & 2026 & Dynamics & Step-level divergence reweighting & White-box & Step & Tool-call cascade attenuation \\
+        Stable-OPD~\citep{2604.08527} & 2026 & Dynamics & RKL + reference div. & White-box & Token & Rollout mixing for stability \\
+        TCOD~\citep{2604.24005} & 2026 & Dynamics & Temporal curriculum & White-box & Trajectory & Multi-turn KL stability \\
+        Uni-OPD~\citep{2605.03677} & 2026 & Dynamics & Dual-perspective data balancing & White-box (multi-teacher) & Token & Unified LLM+MLLM OPD \\
+        CaOPD~\citep{2604.16830} & 2026 & Dynamics & Calibration-aware OPD & White-box & Token & Diagnoses scaling law of miscalibration \\
+        EGRSD~\citep{2605.13255} & 2026 & Dynamics & Entropy-gated self-distillation & Self (PI) & Token & Teacher-entropy confidence gate + causal lookahead \\
+        MOPD~\citep{2605.12652} & 2026 & Dynamics & Peer-conditioned multi-rollout & White-box & Sample & Success/failure rollout group weighting \\
+        GEAR~\citep{2605.11853} & 2026 & Dynamics & Adaptive segment reweighting & Self (PI) & Segment & Granularity-adaptive advantage boundaries \\
+        EffOPD~\citep{2605.11739} & 2026 & Dynamics & Parameter-dynamics foresight & White-box & Token & 3$\times$ acceleration via update extrapolation \\
+        Visual-Adv.\ OPD~\citep{2605.21924} & 2026 & Dynamics & Visual-grounded reweighting & White-box & Token & Per-token visual-advantage gradient \\
+        Filter-Then-Reweight~\citep{2606.02684} & 2026 & Dynamics & Trajectory filter + token reweight & White-box & Token/Trajectory & Dual-granularity OPD \\
+        Less-is-More~\citep{2605.27028} & 2026 & Dynamics & Early-stop rollout & White-box & Token & Off-policy teacher-decay truncation \\
+        DeltaPrompts~\citep{2605.15532} & 2026 & Dynamics & Prompt-divergence curriculum & White-box (VLM) & Prompt & Zero-delta-trap synthesis \\
+        f-OPD~\citep{2605.17862} & 2026 & Dynamics & Freshness-aware control & White-box & Trajectory & Async-OPD lag bounding \\
+        TR-Behav.\ Blend~\citep{2605.31159} & 2026 & Dynamics & Trust-region warmup & White-box & Token & Closed-form geometric blend \\
+        Adaptive Refresh~\citep{2606.03532} & 2026 & Dynamics & Three-gate teacher refresh & Self (PI) & Trajectory & Isolation/reward/length-tail gating \\
+        CEI~\citep{2606.04703} & 2026 & Dynamics & Iterative experience internalization & Self & Step & Multi-iter agent self-evolution \\
+        POPD/TOPD~\citep{2605.31490} & 2026 & Dynamics & Horizon-controlled rollout & White-box & Token & Progressive/truncated horizon \\
+        SafeSteer~\citep{2606.02530} & 2026 & Dynamics & Safety-token localized RKL & Self (steered) & Token & Activation-steered safety teacher \\
+        TRD~\citep{2606.08432} & 2026 & Dynamics & Trajectory-refined distillation & White-box & Sequence & Teacher correction at prefix-failure points \\
+        KAT~\citep{2606.09471} & 2026 & Dynamics & KL-agreement trap truncation & White-box & Token & Online rollout truncation at KL-agreement trap regions \\
         \bottomrule
     \end{tabular}
     }
@@ -1283,9 +1284,9 @@ Each component admits independent optimization, and the methods below attack dif
 These two methods expose a deeper structural point. The ``on-policy'' requirement is not binary but admits degrees of approximation. FOPD shows that partial rollouts preserve most of the distributional alignment benefit. Lightning-OPD shows that fixed (stale) teacher signals remain effective when teacher consistency holds and the implicit regularization bounds policy drift. Together, they define a \emph{fidelity-efficiency frontier} along which the degree of on-policy approximation trades off against compute cost, with full on-policy training at one extreme (maximum alignment, maximum cost) and fully offline SFT at the other (minimum cost, exposure bias ceiling).
 
 \textbf{Speculative knowledge distillation.} DistillSpec~\citep{2310.08461} first applied on-policy KD to improve the \emph{draft} model used by speculative decoding at \emph{inference} time, training the draft to better match the target model's distribution and thereby raising the acceptance rate of speculatively proposed tokens. SKD~\citep{2410.11325} subsequently adapts the speculative-decoding mechanism to the \emph{training} side, where the student generates candidate tokens that the teacher verifies and selectively replaces based on its distribution, creating a data generation strategy that dynamically interpolates between supervised and on-policy KD. When student samples are consistently rejected, SKD degenerates to supervised KD. When they are consistently accepted, it degenerates to on-policy KD. The expected wall-clock speedup of speculative decoding is
-\begin{equation}
+\begin{equation*}
     E[S] = \frac{\tau(x)}{c\gamma + 1} \quad \text{where } c = \frac{\text{cost}(\text{draft forward})}{\text{cost}(\text{target forward})}
-\end{equation}
+\end{equation*}
 with $\tau(x)$ denoting the block efficiency (expected tokens generated per verification step) and $\gamma$ the block size. DistillSpec improves $\tau(x)$ by aligning the draft model's distribution with the target model's, yielding 10\%--45\% speedup improvements over standard speculative decoding. Combined with lossy speculative decoding under both greedy and non-greedy sampling, DistillSpec also enables fine-grained control over the latency-performance tradeoff. In practical multi-scale deployments, first distilling a stronger target model and then applying DistillSpec to train a well-aligned draft model can reduce decoding latency by 6--10$\times$ with minimal performance drop relative to standard decoding without distillation.
 
 \textbf{GPU memory management.} Beyond FLOPs, the most severe constraint for white-box OPD is GPU memory. Holding a 70B teacher alongside a 7B student requires the teacher's weights ($\sim$140\,GB in BF16), the student's weights and optimizer states ($\sim$84\,GB), and the full-vocabulary logits tensor $[B, T, |V|]$ for distillation. Peak memory can easily exceed an $8\times80$\,GB H100 node. Practitioners alleviate this via (1) \textit{teacher quantization}, serving the teacher in FP8 or INT4 for a 2--4$\times$ memory reduction at negligible precision loss, (2) \textit{logit offloading}, immediately streaming logits to CPU RAM or retaining only the top-$k$ entries (since 99\% of the probability mass is typically concentrated in fewer than 100 tokens), and (3) \textit{aggressive gradient checkpointing} to minimize student activation memory during the backward pass. Combining these techniques is typically required for viable white-box OPD on standard clusters.
@@ -1394,10 +1395,10 @@ The theoretical frameworks above indicate that on-policy training offers systema
 \textbf{The hybrid pipeline as standard recipe.} Qwen3~\citep{2505.09388}, DeepSeek-V4~\citep{deepseekv4}, and MiMo-V2-Flash~\citep{2601.02780} converge on a two-phase pattern in which off-policy SFT establishes a strong distributional foundation and on-policy OPD or RL closes the remaining gap between the student's generation distribution and the optimal policy. The transition point depends on the student's initial capability. Weaker students benefit from extended off-policy warmup to reduce the teacher-student pattern gap~\citep{2604.13016}, while stronger students can transition earlier because their on-policy rollouts already occupy high-density regions of the teacher's distribution.
 
 \textbf{Compute-quality tradeoff.} The expected compute cost for $N$ tokens under each regime:
-\begin{align}
+\begin{align*}
     C_{\text{off}} &\approx N \times (F_{\text{teacher}} + F_{\text{student}} + B_{\text{student}}) \\
     C_{\text{on}} &\approx N \times \left( G_{\text{student}} + \rho F_{\text{teacher}} + F_{\text{student}} + B_{\text{student}} \right)
-\end{align}
+\end{align*}
 where $F, B$ denote forward and backward FLOPs, $G$ is the autoregressive generation cost, and $\rho \in (0, 1]$ is the teacher supervision refresh rate (the fraction of steps requiring a fresh teacher forward pass). Because $G_{\text{student}} \gg F_{\text{student}}$, on-policy training incurs a substantial multiplier. For generic knowledge transfer where the off-policy ceiling is high, this overhead is rarely justified. For reasoning, code generation, and complex mathematics where the off-policy ceiling is low and marginal on-policy returns are high, the investment typically pays off. In practice, the most effective industrial pipelines tend to front-load cheap off-policy learning and reserve expensive on-policy compute for the final quality push (Section~\ref{subsec:budget}).
 
 \textbf{Summary decision rule.} Use off-policy SFT alone when the teacher-student capacity ratio exceeds $10{\times}$ and the task admits bounded reasoning depth (factual QA, translation, summarization). Switch to on-policy OPD when any of three conditions holds: (1) the student exceeds $\sim$7B parameters and begins to explore regions uncovered by static teacher traces, (2) the target task involves multi-step reasoning where intermediate errors compound, or (3) the off-policy loss plateaus while held-out reward continues to improve under on-policy rollouts. In all other cases, the hybrid pipeline (off-policy warmup followed by on-policy refinement) tends to yield a favorable cost-quality tradeoff.
@@ -1423,9 +1424,9 @@ Recent foundation models have increasingly incorporated OPD into their post-trai
 \textbf{OPD as model consolidation.} A second pattern uses on-policy distillation for \emph{merging} multiple specialized experts into a single deployable model. DeepSeek-V4~\citep{deepseekv4} entirely replaces the mixed RL stage of its predecessor (DeepSeek-V3) with pure multi-teacher OPD, consolidating more than ten domain-specific experts (mathematics, coding, agent, instruction-following) into a unified 1.6T-parameter model through full-vocabulary Reverse KL distillation. Computing the full $|V|$-dimensional KL at each position (rather than the sampled-token approximation) ensures more stable gradients when merging experts with diverse specializations, while hidden-state caching with on-the-fly logit reconstruction makes this feasible across trillion-parameter teachers (Section~\ref{subsec:fixed_div}). KAT-Coder-V2~\citep{2603.27703} decomposes agentic coding into five expert domains, each undergoing independent SFT and RL training, and consolidates them via on-policy distillation, scoring 79.6\% on SWE-bench Verified. Nemotron-Cascade~2~\citep{2603.19220} applies the same principle to a 30B MoE model with only 3B activated parameters, reaching Gold Medal-level performance on IMO, IOI, and ICPC World Finals with $20\times$ fewer parameters than DeepSeek-R1. CoPD~\citep{2604.27083} identifies a key limitation of sequential expert-then-distill pipelines, that large behavioral pattern gaps between fully-trained teachers and untrained students prevent effective capability absorption. The root cause is that experts trained in isolation develop idiosyncratic reasoning strategies that are mutually incompatible when merged. CoPD's solution is \emph{co-evolution}, running parallel RLVR expert training with interleaved bidirectional OPD so that experts serve as mutual teachers during their own training rather than after completion. This maintains consistent behavioral patterns among experts while preserving complementary knowledge. The result is a single model integrating text, image, and video reasoning capabilities that surpasses both mixed RLVR and sequential multi-teacher OPD (MOPD). The deeper insight is architectural. Co-evolution imposes a soft constraint on teacher diversity, preventing the specialization-consolidation gap that plagues post-hoc distillation from independently trained experts.
 
 \textbf{OPD for multi-budget reasoning.} ORBIT~\citep{2601.08310} targets the deployment challenge of variable reasoning depth, where users need different compute budgets depending on query difficulty. It produces stage-wise expert policies through RLVR under successively tighter context budgets ($L_{k+1} = L_k/2$), then fuses them into a single model through mode-aware Reverse KL:
-\begin{equation}
+\begin{equation*}
     \loss_{\text{fusion}}(\phi) = \E_{k \sim U(1,K)} \E_{\substack{q \sim \mathcal{D} \\ o \sim \pi_\phi(\cdot|q, p_k)}} \left[ \sum_t \log \frac{\pi_\phi(o_t | q, p_k, o_{<t})}{\pi_{\theta_k}(o_t | q, p_k, o_{<t})} \right]
-\end{equation}
+\end{equation*}
 where $p_k$ is the mode-specific prompt and $\{\pi_{\theta_k}\}$ are the frontier experts. Model merging initializes the student to mitigate the cold-start problem identified by~\citet{2601.07155}. Without initialization near the expert manifold, the student's on-policy rollouts rarely reach the teachers' high-density regions, starving the distillation objective of useful signal. Across DeepSeek-Distill-Qwen-1.5B, Qwen3-4B, and Openmath-Nemotron-7B, ORBIT produces models that smoothly interpolate between four reasoning modes (with budget tiers from 2K to 32K tokens depending on student size) with competitive performance at each budget level, matching the initial model's accuracy at the highest budget while delivering significant token savings at lower budgets. This connects to the consolidation pattern above. Where KAT-Coder-V2 and Nemotron-Cascade~2 merge experts specialized by \emph{domain}, ORBIT merges experts specialized by \emph{compute budget}, a sign that on-policy distillation is emerging as a general-purpose multi-teacher fusion tool across diverse axes of model specialization.
 
 \textbf{Agentic distillation.} Extending OPD from single-turn generation to multi-turn agentic tasks introduces a distinct challenge: \emph{error compounding}. In single-turn settings, a flawed token affects only subsequent tokens within the same sequence. In multi-turn agent settings, a flawed action at step $t$ shifts the entire environmental state, causing all subsequent teacher supervision to operate on a distribution far from what the teacher encountered during its own training. This error compounding problem motivates three complementary solutions that attack it at different granularities.
@@ -1454,9 +1455,9 @@ These five patterns reflect a broader shift in how industry treats OPD, namely a
 VOLD~\citep{2510.23497} provides evidence that a text-only teacher can guide a VLM student through on-policy distillation without ever observing the visual input. The teacher supplies reasoning supervision on student-generated visual reasoning traces, using text-based reasoning structure as a modality-agnostic scaffold. The authors report that an SFT cold-start phase is important for cross-modal distributional alignment. Without it, the student's on-policy rollouts in the visual reasoning space are too far from the teacher's text-based distribution for distillation to converge. On MMMU-Pro, VOLD improves over the baseline model by a notable margin, consistent with the hypothesis that the reasoning structure itself (rather than perceptual grounding) carries much of the transferable knowledge.
 
 This cross-modal principle manifests along two axes, intra-model modality self-alignment and external-teacher cross-modal transfer. CORD~\citep{2601.16547} is an early instance of intra-model self-distillation, where the stronger text mode of the \emph{same} model serves as teacher for the weaker audio mode. CORD formalizes this with weighted Reverse KL between the audio and text modes of a single model:
-\begin{equation}
+\begin{equation*}
     \loss_{\text{CORD}} = \E_{x \sim \mathcal{D}} \E_{\hat{y} \sim \pi_{\text{audio}}(\cdot|x)} \left[ \sum_{t} w_t \cdot \KL\!\left(\pi_{\text{audio}}(\cdot|x, \hat{y}_{<t}) \;\|\; \pi_{\text{text}}(\cdot|x, \hat{y}_{<t})\right) \right]
-\end{equation}
+\end{equation*}
 where the audio mode generates on-policy rollouts and the text mode supplies token-level targets, combined with GRPO for outcome reward maximization. CORD reports strong speech reasoning performance, indicating that cross-modal self-distillation can align weaker modality modes to stronger ones within a single model. Along the second axis, Video-OPD~\citep{2602.02994} tackles temporal video grounding, where the student must localize events within video sequences, adding a temporal dimension that static image reasoning lacks. X-OPD~\citep{2603.24596} distills a separate text-only teacher into a speech LLM student by generating on-policy rollouts and aligning them with the teacher's evaluation through token-level feedback, effectively distilling the teacher's capabilities into the student's multi-modal representations.
 
 KEPO~\citep{2602.00400} identifies a prerequisite common to these multimodal OPD methods. When initial solve rates approach zero (common in specialized visual domains such as medical VQA), sparse RLVR tends to fail due to exploration collapse before any meaningful on-policy data can be generated. By conditioning preference optimization on teacher knowledge, KEPO supplies the dense bootstrapping signal that allows subsequent on-policy training to converge. VISD~\citep{2605.06094} extends the paradigm to video reasoning through structured self-distillation, where a video-aware judge decomposes reasoning quality into multiple diagnostic dimensions and a direction-magnitude decoupling mechanism combines RL stability with fine-grained OPD credit assignment, recording approximately $2\times$ faster convergence than RLVR baselines (see Section~\ref{subsec:self_pi} for details). HyperEyes~\citep{2605.07177} applies OPD to multimodal search agents, where parallel tool invocations across visual entities create a credit-assignment challenge that sparse outcome rewards alone cannot resolve. A dual-grained efficiency-aware RL framework combines a macro-level trajectory reward (TRACE, which monotonically tightens a reference tool-call budget during training) with micro-level OPD that injects dense token-level corrections from an external teacher on failed rollouts. HyperEyes-30B surpasses the strongest open-source multimodal search agent of comparable scale by 9.9\% in accuracy while reducing tool-call rounds by 5.3$\times$ on average, evidence that OPD and efficiency-oriented RL can be co-optimized in multimodal agentic settings. The progression from VOLD through CORD to KEPO, VISD, and HyperEyes thus maps a complete pipeline, from dense bootstrapping (KEPO) $\to$ cross-modal transfer from a text-only teacher (VOLD, X-OPD) $\to$ intra-model self-alignment (CORD) $\to$ structured self-distillation for temporal reasoning (VISD) $\to$ efficiency-aware agentic OPD for multimodal search (HyperEyes).
@@ -1512,9 +1513,9 @@ The methods surveyed above follow a recognizable trajectory from fixed objective
 \textbf{Distillation scaling laws.} While parameter-scaling laws for pre-training are well-established~\citep{2001.08361,2203.15556}, the study of distillation-specific scaling has only recently begun. \citet{2502.08606} proposed the first distillation scaling laws under an off-policy setting, exposing a non-monotonic relationship between compute budget and optimal teacher size. As compute increases, the optimal teacher first grows until it slightly exceeds the student, then plateaus, and eventually \emph{decreases} because inference cost with large teachers dominates the compute budget. Meanwhile, optimal student distillation tokens continue to scale as a power law. DeepSeek-R1~\citep{2501.12948} offers complementary off-policy evidence on the student-size axis (Section~\ref{subsec:on_vs_off}): on AIME 2024, performance scales as 28.9\% $\to$ 55.5\% $\to$ 69.7\% $\to$ 72.6\% for student sizes 1.5B $\to$ 7B $\to$ 14B $\to$ 32B, with the steepest gain between 1.5B and 7B and sharply diminishing returns beyond 14B. Student capacity follows a power-law saturation pattern even under off-policy distillation.
 
 Yet no equivalent framework exists for on-policy distillation, where the generation cost of student rollouts introduces an additional compute axis absent from off-policy settings. By analogy with these off-policy findings, one plausible conjectured functional form for the on-policy distillation loss is a joint power-law:
-\begin{equation}
+\begin{equation*}
     L(N_S, N_T, D_{\text{on}}) = E + \frac{A}{N_S^\alpha} + \frac{B}{N_T^\beta} + \frac{C}{D_{\text{on}}^\gamma} + f(N_S, N_T)
-\end{equation}
+\end{equation*}
 where $E$ is the irreducible task entropy, the first three terms capture independent scaling of student size, teacher size, and on-policy rollout budget, and $f(N_S, N_T)$ models the capacity-gap interference between student and teacher. This form is speculative and has not been validated empirically for on-policy settings. Whether a separable power-law with an additive interaction term captures the true scaling behavior remains an open question, and the actual relationship may be substantially more complex. Nevertheless, even as a heuristic scaffold, this conjectured form helps organize the constraints that existing off-policy evidence imposes. The non-monotone teacher-size finding implies that $B/N_T^\beta$ alone is insufficient and the interaction term $f$ must capture the regime where teacher inference cost overwhelms quality gains. Qwen3~\citep{2505.09388} further shows that distilling from multiple specialized teachers yields better scaling than from a single monolithic teacher of equivalent total parameters, indicating that $f$ must also account for teacher diversity. A key open question is whether the on-policy rollout term $C/D_{\text{on}}^\gamma$ interacts synergistically or antagonistically with the teacher-size term, that is, whether more on-policy data can compensate for a weaker teacher, or whether teacher quality sets a hard ceiling regardless of rollout volume. Future work could conduct controlled grid searches that independently vary $N_S$, $N_T$, and $D_{\text{on}}$ under on-policy training to disentangle these effects, addressing allocation questions such as ``Given a fixed GPU budget, is it more effective to invest in a larger teacher or in more student rollouts?'' Establishing such scaling laws could move OPD compute allocation closer to the predictable footing that pre-training scaling enjoys.
 
 \textbf{Uncertainty-aware feedback.} Teachers currently supply point-estimate probabilities. When the teacher itself is uncertain about a token, its logits carry little useful information, yet the student treats all teacher signals equally. A promising next step is for OPD frameworks to incorporate the teacher's \emph{epistemic uncertainty}, allowing the student to discount feedback on queries where the teacher is guessing. Process reward models~\citep{2305.20050} offer a potential path by scoring each reasoning step independently, allowing identification of precisely where teacher supervision is reliable versus speculative.

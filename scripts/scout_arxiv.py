@@ -35,18 +35,7 @@ import requests
 SURVEY_ROOT = Path("/apdcephfs_cq8/share_1324356/nickmysong/daily_research/on-policy-distillation-survey")
 KNOWN_IDS = SURVEY_ROOT / "papers-meta" / "known_arxiv_ids.txt"
 PDF_ROOT = SURVEY_ROOT / "pdfs"
-
-
-def get_monthly_dir(arxiv_id: str) -> Path:
-    """Map arxiv_id (YYMM.NNNNN) to monthly PDF directory. Pre-2026 goes to pre-2026/."""
-    m = re.match(r'^(\d{2})(\d{2})\.', arxiv_id)
-    if not m:
-        return PDF_ROOT / "pre-2026"
-    yy, mm = int(m.group(1)), int(m.group(2))
-    year = 2000 + yy
-    if year < 2026:
-        return PDF_ROOT / "pre-2026"
-    return PDF_ROOT / f"{year:04d}-{mm:02d}"
+STAGING = SURVEY_ROOT / "pdfs" / "_staging"
 
 sys.path.insert(0, str(SURVEY_ROOT / "scripts"))
 try:
@@ -429,11 +418,10 @@ def main():
 
     # === Download PDFs ===
     if args.download and not args.dry_run:
+        STAGING.mkdir(parents=True, exist_ok=True)
         for c in new_candidates:
             aid = c["arxiv_id"]
-            monthly_dir = get_monthly_dir(aid)
-            monthly_dir.mkdir(parents=True, exist_ok=True)
-            dest = monthly_dir / f"{aid}.pdf"
+            dest = STAGING / f"{aid}.pdf"
             if dest.exists():
                 c["pdf_path"] = str(dest)
                 c["downloaded"] = "already-existed"

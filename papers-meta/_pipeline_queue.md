@@ -571,3 +571,59 @@
 - `2606.15386`  A Compositional Framework for Open-ended Intelligence
 - `2606.15427`  Post-Launch Capability Expansion of Vision-Language Models via Prompting for On-Orbit Spacecraft Inspection
 
+
+## 2026-06-18 (Thu) 09:30 — scout completed
+
+**50 candidates** downloaded to `pdfs/_staging/`. Follow-up Phase 2-7 **pending**.
+
+- `2606.15007`  Nemotron 3 Ultra: Open, Efficient Mixture-of-Experts Hybrid Mamba-Transformer Model for Agentic Reasoning
+- `2606.15070`  Stop When Further Reasoning Won't Help: Attention-State Adaptive Generation in Reasoning Models
+- `2606.15079`  Ling and Ring 2.6 Technical Report: Efficient and Instant Agentic Intelligence at Trillion-Parameter Scale
+- `2606.15080`  AdaMame: A Training Recipe for Adaptive Multilingual Reasoning
+- `2606.15144`  PACUTE: Phonology-, Affix-, and Character-level Understanding of Tokens for Filipino
+- `2606.15307`  Adapting Reinforcement Learning with Chain-of-Thought Supervision for Explainable Detection of Hateful and Pro
+- `2606.15333`  Replay What Matters: Off-Policy Replay for Efficient LLM Reinforcement Unlearning
+- `2606.15483`  Evaluative Judgement in Teaching AI-based Translation: A Class-room Case Study of AI-Mediated Translation and 
+- `2606.15517`  SHARD: Safe and Helpful Alignment via Self-Reframing Distillation
+- `2606.15641`  Distilling Examples into Task Instructions: Enhanced In-Context Learning for Real-World B2B Conversations
+- `2606.15741`  A Self Consistency Based Reranking for Narrative Question Answering
+- `2606.15833`  When Correct Edges Cannot Be Verified: A Provenance Gap in Incomplete KGQA and a Provenance-Favoring Completio
+- `2606.15872`  SciOrch: Learning to Orchestrate Expert LLMs for Solving Frontier Multimodal Scientific Reasoning Tasks
+- `2606.15893`  BALTO: Balanced Token-Level Policy Optimization for Hallucination Mitigation
+- `2606.15914`  Contaminated Collaboration: Measuring Gender Bias Transfer in LLM-Assisted Student Writing
+- `2606.15932`  Beyond NL2Code: A Structured Survey of Multimodal Code Intelligence
+- `2606.15971`  SAG: SQL-Retrieval Augmented Generation with Query-Time Dynamic Hyperedges
+- `2606.16047`  From Argument Components to Graphs: A Multi-Agent Debate with Confidence Gating for Argument Relations
+- `2606.16215`  PACT: Privileged Trace Co-Training for Multi-Turn Tool-Use Agents
+- `2606.16368`  Evaluating LLM Personalization via Semantic Constraint Verification
+- `2606.16409`  PathRouter: Aligning Rewards with Retrieval Quality in Agentic Graph Retrieval-Augmented Generation
+- `2606.16428`  Lect\=uraAgents: A Multi-Agent Framework for Adaptive Personalized AI-Assisted Learning and Embodied Teaching
+- `2606.16496`  REFLEX: Reflective Evolution from LLM Experience
+- `2606.16817`  Understanding the Behaviors of Environment-aware Information Retrieval
+- `2606.16910`  IMPACTeen: Intentions, Manipulation, Persuasion, Annotations, and Consequences in Teen Communication Dataset
+- `2606.16934`  Exploring Extrinsic and Intrinsic Properties for Effective Reasoning with Code Interpreter
+- `2606.17056`  The Value Axis: Language Models Encode Whether They're on the Right Track
+- `2606.14885`  Dr-DCI: Scaling Direct Corpus Interaction via Dynamic Workspace Expansion
+- `2606.15367`  S1-DeepResearch: Beyond Search, Toward Real-World Long-Horizon Research Agents
+- `2606.15621`  Re-feeding Is Not Replaying: Measuring Replay Noise in Counterfactual Token-Credit Estimation
+- `2606.16100`  Your "Pro" LLM Subscription May Actually Be "Free": Exposing Fingerprint Spoofing Risks in LLM Inference Servi
+- `2606.16140`  VibeThinker-3B: Exploring the Frontier of Verifiable Reasoning in Small Language Models
+- `2606.16206`  Measuring Whether LLM Tutors Teach or Solve: A Diagnostic for Educational Impact
+- `2606.16429`  Taylor-Calibrate: Principled Initialization for Hybrid Linear Attention Distillation
+- `2606.16497`  daVinci-kernel: Co-Evolving Skill Selection, Summarization, and Utilization via RL for GPU Kernel Optimization
+- `2606.17199`  PowerOPD: Stabilizing On-Policy Distillation with Bounded Power Transformation
+- `2606.17229`  Rift: A Conflict Signature for Deception in Language Models
+- `2606.17250`  Rethinking Groups in Critic-Free RLVR
+- `2606.17321`  ProCUA-SFT Technical Report
+- `2606.17413`  Amortized Probabilistic Retrieval of Atmospheric CO2 from OCO-2 Spectra Using Deep Learning with Laplace Appro
+- `2606.17435`  MorphStrata: Layer-Specific Perturbations for Generating Morphence Students in Time-Series Moving Target Defen
+- `2606.17462`  ResAware: Cross-Environment Website Fingerprinting via Resource-Privileged Distillation
+- `2606.17545`  Continuous-time Optimal Stopping through Deep Reinforcement Learning
+- `2606.17551`  Reversal Q-Learning
+- `2606.17579`  LLM Features Can Hurt GNNs: Concatenation Interference on Homophilous Graph Benchmarks
+- `2606.17680`  EnvRL: Learn from Environment Dynamics in Agentic Reinforcement Learning
+- `2606.17706`  Confusion-Aware Transfer Teacher Curriculum Learning Framework: Disentangling Scoring and Pacing Effects
+- `2606.17803`  Continual Self-Improvement with Lightweight Experiential Latent Memories
+- `2606.17810`  No-Free-Fairness: Fundamental Limits and Trade-offs in Learning Systems
+- `2606.18024`  Catastrophic Forgetting is Low-Rank: A Function-Space Theory for Continual Adaptation
+

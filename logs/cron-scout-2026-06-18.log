@@ -1,0 +1,79 @@
+✅ Refreshed known_arxiv_ids.txt: 336 IDs
+[scout] DATE WINDOW (CST): 2026-06-17 → 2026-06-18  (days_back=1)
+[scout] accepting YYMM prefixes: ['2606']
+[scout] architecture: RSS-primary + API-verify + S2-crosscheck
+[scout] known IDs to skip: 336
+
+[scout] === Phase 1: RSS feeds (3 categories) ===
+[scout/rss] cs.CL: 283 total items, 35 OPD-keyword matches
+[scout/rss] cs.LG: 294 total items, 25 OPD-keyword matches
+[scout/rss] cs.AI: 342 total items, 37 OPD-keyword matches
+[scout/rss] total unique candidates: 84
+
+[scout] === Phase 2: S2 cross-check (4 queries) ===
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] added 13 papers not found in RSS
+
+[scout] combined unique: 97 (RSS: 84, S2-extra: 13)
+[scout] ⚠️ 10 rejected by DATE WINDOW: ['2503.02832', '2605.07725', '2605.12483', '2511.10643', '2510.23497', '2605.28014', '2604.07944', '2604.04461', '2605.30251', '2604.10688']
+[scout] 3 skipped (already known)
+
+[scout] === Phase 3: no S2-sourced papers to verify ===
+
+[scout] ✅ 50 new candidates for deep-read
+[scout] wrote /tmp/scout_arxiv_results.json
+
+## Scout Summary: 50 new in-window candidates
+
+  - 2606.15007 [rss/already-existed] Nemotron 3 Ultra: Open, Efficient Mixture-of-Experts Hybrid Mamba-Transformer Mo
+  - 2606.15070 [rss/already-existed] Stop When Further Reasoning Won't Help: Attention-State Adaptive Generation in R
+  - 2606.15079 [rss/already-existed] Ling and Ring 2.6 Technical Report: Efficient and Instant Agentic Intelligence a
+  - 2606.15080 [rss/already-existed] AdaMame: A Training Recipe for Adaptive Multilingual Reasoning
+  - 2606.15144 [rss/already-existed] PACUTE: Phonology-, Affix-, and Character-level Understanding of Tokens for Fili
+  - 2606.15307 [rss/already-existed] Adapting Reinforcement Learning with Chain-of-Thought Supervision for Explainabl
+  - 2606.15333 [rss/already-existed] Replay What Matters: Off-Policy Replay for Efficient LLM Reinforcement Unlearnin
+  - 2606.15483 [rss/already-existed] Evaluative Judgement in Teaching AI-based Translation: A Class-room Case Study o
+  - 2606.15517 [rss/already-existed] SHARD: Safe and Helpful Alignment via Self-Reframing Distillation
+  - 2606.15641 [rss/already-existed] Distilling Examples into Task Instructions: Enhanced In-Context Learning for Rea
+  - 2606.15741 [rss/already-existed] A Self Consistency Based Reranking for Narrative Question Answering
+  - 2606.15833 [rss/already-existed] When Correct Edges Cannot Be Verified: A Provenance Gap in Incomplete KGQA and a
+  - 2606.15872 [rss/already-existed] SciOrch: Learning to Orchestrate Expert LLMs for Solving Frontier Multimodal Sci
+  - 2606.15893 [rss/already-existed] BALTO: Balanced Token-Level Policy Optimization for Hallucination Mitigation
+  - 2606.15914 [rss/already-existed] Contaminated Collaboration: Measuring Gender Bias Transfer in LLM-Assisted Stude
+  - 2606.15932 [rss/already-existed] Beyond NL2Code: A Structured Survey of Multimodal Code Intelligence
+  - 2606.15971 [rss/already-existed] SAG: SQL-Retrieval Augmented Generation with Query-Time Dynamic Hyperedges
+  - 2606.16047 [rss/already-existed] From Argument Components to Graphs: A Multi-Agent Debate with Confidence Gating 
+  - 2606.16215 [rss/already-existed] PACT: Privileged Trace Co-Training for Multi-Turn Tool-Use Agents
+  - 2606.16368 [rss/already-existed] Evaluating LLM Personalization via Semantic Constraint Verification
+  - 2606.16409 [rss/already-existed] PathRouter: Aligning Rewards with Retrieval Quality in Agentic Graph Retrieval-A
+  - 2606.16428 [rss/already-existed] Lect\=uraAgents: A Multi-Agent Framework for Adaptive Personalized AI-Assisted L
+  - 2606.16496 [rss/already-existed] REFLEX: Reflective Evolution from LLM Experience
+  - 2606.16817 [rss/already-existed] Understanding the Behaviors of Environment-aware Information Retrieval
+  - 2606.16910 [rss/already-existed] IMPACTeen: Intentions, Manipulation, Persuasion, Annotations, and Consequences i
+  - 2606.16934 [rss/already-existed] Exploring Extrinsic and Intrinsic Properties for Effective Reasoning with Code I
+  - 2606.17056 [rss/already-existed] The Value Axis: Language Models Encode Whether They're on the Right Track
+  - 2606.14885 [rss/already-existed] Dr-DCI: Scaling Direct Corpus Interaction via Dynamic Workspace Expansion
+  - 2606.15367 [rss/already-existed] S1-DeepResearch: Beyond Search, Toward Real-World Long-Horizon Research Agents
+  - 2606.15621 [rss/already-existed] Re-feeding Is Not Replaying: Measuring Replay Noise in Counterfactual Token-Cred
+  - 2606.16100 [rss/already-existed] Your "Pro" LLM Subscription May Actually Be "Free": Exposing Fingerprint Spoofin
+  - 2606.16140 [rss/already-existed] VibeThinker-3B: Exploring the Frontier of Verifiable Reasoning in Small Language
+  - 2606.16206 [rss/already-existed] Measuring Whether LLM Tutors Teach or Solve: A Diagnostic for Educational Impact
+  - 2606.16429 [rss/already-existed] Taylor-Calibrate: Principled Initialization for Hybrid Linear Attention Distilla
+  - 2606.16497 [rss/already-existed] daVinci-kernel: Co-Evolving Skill Selection, Summarization, and Utilization via 
+  - 2606.17199 [rss/ok] PowerOPD: Stabilizing On-Policy Distillation with Bounded Power Transformation
+  - 2606.17229 [rss/ok] Rift: A Conflict Signature for Deception in Language Models
+  - 2606.17250 [rss/ok] Rethinking Groups in Critic-Free RLVR
+  - 2606.17321 [rss/ok] ProCUA-SFT Technical Report
+  - 2606.17413 [rss/ok] Amortized Probabilistic Retrieval of Atmospheric CO2 from OCO-2 Spectra Using De
+  - 2606.17435 [rss/ok] MorphStrata: Layer-Specific Perturbations for Generating Morphence Students in T
+  - 2606.17462 [rss/ok] ResAware: Cross-Environment Website Fingerprinting via Resource-Privileged Disti
+  - 2606.17545 [rss/ok] Continuous-time Optimal Stopping through Deep Reinforcement Learning
+  - 2606.17551 [rss/ok] Reversal Q-Learning
+  - 2606.17579 [rss/ok] LLM Features Can Hurt GNNs: Concatenation Interference on Homophilous Graph Benc
+  - 2606.17680 [rss/ok] EnvRL: Learn from Environment Dynamics in Agentic Reinforcement Learning
+  - 2606.17706 [rss/ok] Confusion-Aware Transfer Teacher Curriculum Learning Framework: Disentangling Sc
+  - 2606.17803 [rss/ok] Continual Self-Improvement with Lightweight Experiential Latent Memories
+  - 2606.17810 [rss/ok] No-Free-Fairness: Fundamental Limits and Trade-offs in Learning Systems
+  - 2606.18024 [rss/ok] Catastrophic Forgetting is Low-Rank: A Function-Space Theory for Continual Adapt
