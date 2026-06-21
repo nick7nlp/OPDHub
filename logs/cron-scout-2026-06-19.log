@@ -1,0 +1,78 @@
+✅ Refreshed known_arxiv_ids.txt: 336 IDs
+[scout] DATE WINDOW (CST): 2026-06-18 → 2026-06-19  (days_back=1)
+[scout] accepting YYMM prefixes: ['2606']
+[scout] architecture: RSS-primary + API-verify + S2-crosscheck
+[scout] known IDs to skip: 336
+
+[scout] === Phase 1: RSS feeds (3 categories) ===
+[scout/rss] cs.CL: 130 total items, 18 OPD-keyword matches
+[scout/rss] cs.LG: 307 total items, 25 OPD-keyword matches
+[scout/rss] cs.AI: 342 total items, 37 OPD-keyword matches
+[scout/rss] total unique candidates: 76
+
+[scout] === Phase 2: S2 cross-check (4 queries) ===
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] added 0 papers not found in RSS
+
+[scout] combined unique: 76 (RSS: 76, S2-extra: 0)
+
+[scout] === Phase 3: no S2-sourced papers to verify ===
+
+[scout] ✅ 50 new candidates for deep-read
+[scout] wrote /tmp/scout_arxiv_results.json
+
+## Scout Summary: 50 new in-window candidates
+
+  - 2606.18372 [rss/ok] Redact or Keep? A Fully Local AI Cascade for Educational Dialogue De-Identificat
+  - 2606.18406 [rss/ok] CoreMem: Riemannian Retrieval and Fisher-Guided Distillation for Long-Term Memor
+  - 2606.18508 [rss/ok] MCompassRAG: Topic Metadata as a Semantic Compass for Paragraph-Level Retrieval
+  - 2606.18624 [rss/ok] PragReST: Self-Reinforcing Counterfactual Reasoning for Pragmatic Language Under
+  - 2606.18709 [rss/ok] LLMs Struggle to Measure What Distinguishes Students of Different Proficiency Le
+  - 2606.18850 [rss/ok] ScholarSum: Student-Teacher Abstractive Summarization via Knowledge Graph Reason
+  - 2606.18875 [rss/ok] Efficient Financial Language Understanding via Distillation with Synthetic Data
+  - 2606.18954 [rss/ok] GraphPO: Graph-based Policy Optimization for Reasoning Models
+  - 2606.19257 [rss/ok] DreamReasoner-8B: Block-Size Curriculum Learning for Diffusion Reasoning Models
+  - 2606.18284 [rss/ok] Breaking the Solver Bottleneck: Training Task Generators at the Learnable Fronti
+  - 2606.18487 [rss/ok] SFT Overtraining Predicts Rank Inversion via Entropy Collapse Under RLVR
+  - 2606.18686 [rss/ok] ForecastBench-Sim: A Simulated-World Forecasting Benchmark
+  - 2606.18780 [rss/ok] SAMA: Semantic Anchor-aligned Augmentation for Unified Low-Resource Multimodal I
+  - 2606.18788 [rss/ok] HandwritingAgent: Language-Driven Handwriting Synthesis in Scalable Vector Space
+  - 2606.18910 [rss/ok] REVES: REvision and VErification--Augmented Training for Test-Time Scaling
+  - 2606.18941 [rss/ok] Graph-ESBMC-PLC: Formal Verification of Graphical PLCopen XML Ladder Diagram Pro
+  - 2606.19327 [rss/ok] Rethinking Reward Supervision: Rubric-Conditioned Self-Distillation
+  - 2606.19341 [rss/ok] Native Active Perception as Reasoning for Omni-Modal Understanding
+  - 2606.18307 [rss/ok] DRIFT: Refining Instruction Data via On-Policy Data Attribution
+  - 2606.18316 [rss/ok] A Survey on Data-Driven Models for Soil Moisture Regression and Classification
+  - 2606.18317 [rss/ok] Enhanced Graph Neural Networks using K-Hop Gaussian Diffusion
+  - 2606.18457 [rss/ok] Task-Restricted Symmetries in Recurrent Weight Space
+  - 2606.18650 [rss/ok] BLADE: Scalable Bi-level Adaptive Data Selection for LLM Training
+  - 2606.18688 [rss/ok] Dual-Channel Grounded World Modeling (DCGWM): Structural Prevention of Objective
+  - 2606.18810 [rss/ok] Learning from Own Solutions: Self-Conditioned Credit Assignment for Reinforcemen
+  - 2606.18820 [rss/ok] Maturing Markov Decision Processes: Decision Making under Increasing Information
+  - 2606.18844 [rss/ok] Learning from Your Own Mistakes: Constructing Learnable Micro-Reflective Traject
+  - 2606.18864 [rss/ok] Scaling Learning-based AEB with Massive Unlabeled Data
+  - 2606.18933 [rss/ok] Zero-Shot Active Feature Acquisition via LLM-Elicitation
+  - 2606.18961 [rss/ok] Be Your Own Teacher: Steering Protein Language Models via Unsupervised Reward Op
+  - 2606.18997 [rss/ok] DIPHINE: Diffusion-based $\Phi$-ID Neural Estimator
+  - 2606.19026 [rss/ok] A Hybrid LSTM--Vision Transformer Architecture for Predicting HRRR Forecast Erro
+  - 2606.19120 [rss/ok] Seeing Before Reasoning: Decoupling Perception and Reasoning for Shortcut-Resili
+  - 2606.19315 [rss/ok] Diffusion-Proof: Recipe for Formal Theorem Proving Beyond Auto-Regressive Genera
+  - 2606.18527 [rss/ok] Toward Simultaneously Optimal Regret in U-Calibration
+  - 2606.18837 [rss/ok] Skill-MAS: Evolving Meta-Skill for Automatic Multi-Agent Systems
+  - 2606.19004 [rss/ok] Spotlight: Synergizing Seed Exploration and Spot GPUs for DiT RL Post-Training
+  - 2606.19184 [rss/ok] When AUC Misleads: Polarization-Aware Evaluation of Deepfake Detectors under Dom
+  - 2606.19329 [rss/ok] The Chandra-Gaia Catalog of Counterparts: Resolving ambiguous Gaia matches to X-
+  - 2606.17209 [rss/ok] Beyond Parallel Sampling: Diverse Query Initialization for Agentic Search
+  - 2606.17450 [rss/ok] A Machine-Learned Comorbidity Index
+  - 2606.17507 [rss/ok] LLM-as-Judge in Education: A Curriculum-Grounded Marking Pipeline
+  - 2606.17591 [rss/ok] Closing the Feedback Loop: From Experience Extraction to Insight Governance in V
+  - 2606.17642 [rss/ok] FinAcumen: Financial Multimodal Reasoning via Self-Evolving Experience Memory Ha
+  - 2606.17888 [rss/ok] MathVis-Fine: Aligning Visual Supervision with Necessity via Progressive Depende
+  - 2606.17979 [rss/ok] STAR: SpatioTemporal Adaptive Reward Allocation for Text-to-Image RL Post-Traini
+  - 2606.18075 [rss/ok] A Unified Framework for Context-Aware and Relation-Aware Graph Retrieval-Augment
+  - 2606.18101 [rss/ok] Trust the Right Teacher: Quality-Aware Self-Distillation for GUI Grounding
+  - 2606.17080 [rss/ok] HRDX: A Large-Scale Vector HD-Map Dataset
+  - 2606.17082 [rss/ok] ParkingTransformer: LLM-Enhanced End-to-End Trajectory Planning for Autonomous P

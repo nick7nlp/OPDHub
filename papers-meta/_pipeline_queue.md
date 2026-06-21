@@ -627,3 +627,59 @@
 - `2606.17810`  No-Free-Fairness: Fundamental Limits and Trade-offs in Learning Systems
 - `2606.18024`  Catastrophic Forgetting is Low-Rank: A Function-Space Theory for Continual Adaptation
 
+
+## 2026-06-19 (Fri) 09:30 — scout completed
+
+**50 candidates** downloaded to `pdfs/_staging/`. Follow-up Phase 2-7 **pending**.
+
+- `2606.18372`  Redact or Keep? A Fully Local AI Cascade for Educational Dialogue De-Identification
+- `2606.18406`  CoreMem: Riemannian Retrieval and Fisher-Guided Distillation for Long-Term Memory in Dialogue Agents
+- `2606.18508`  MCompassRAG: Topic Metadata as a Semantic Compass for Paragraph-Level Retrieval
+- `2606.18624`  PragReST: Self-Reinforcing Counterfactual Reasoning for Pragmatic Language Understanding
+- `2606.18709`  LLMs Struggle to Measure What Distinguishes Students of Different Proficiency Levels: A Study of Item Discrimi
+- `2606.18850`  ScholarSum: Student-Teacher Abstractive Summarization via Knowledge Graph Reasoning and Reflective Refinement
+- `2606.18875`  Efficient Financial Language Understanding via Distillation with Synthetic Data
+- `2606.18954`  GraphPO: Graph-based Policy Optimization for Reasoning Models
+- `2606.19257`  DreamReasoner-8B: Block-Size Curriculum Learning for Diffusion Reasoning Models
+- `2606.18284`  Breaking the Solver Bottleneck: Training Task Generators at the Learnable Frontier
+- `2606.18487`  SFT Overtraining Predicts Rank Inversion via Entropy Collapse Under RLVR
+- `2606.18686`  ForecastBench-Sim: A Simulated-World Forecasting Benchmark
+- `2606.18780`  SAMA: Semantic Anchor-aligned Augmentation for Unified Low-Resource Multimodal Information Extraction
+- `2606.18788`  HandwritingAgent: Language-Driven Handwriting Synthesis in Scalable Vector Space
+- `2606.18910`  REVES: REvision and VErification--Augmented Training for Test-Time Scaling
+- `2606.18941`  Graph-ESBMC-PLC: Formal Verification of Graphical PLCopen XML Ladder Diagram Programs Using SMT-Based Model Ch
+- `2606.19327`  Rethinking Reward Supervision: Rubric-Conditioned Self-Distillation
+- `2606.19341`  Native Active Perception as Reasoning for Omni-Modal Understanding
+- `2606.18307`  DRIFT: Refining Instruction Data via On-Policy Data Attribution
+- `2606.18316`  A Survey on Data-Driven Models for Soil Moisture Regression and Classification
+- `2606.18317`  Enhanced Graph Neural Networks using K-Hop Gaussian Diffusion
+- `2606.18457`  Task-Restricted Symmetries in Recurrent Weight Space
+- `2606.18650`  BLADE: Scalable Bi-level Adaptive Data Selection for LLM Training
+- `2606.18688`  Dual-Channel Grounded World Modeling (DCGWM): Structural Prevention of Objective Interference Collapse via Het
+- `2606.18810`  Learning from Own Solutions: Self-Conditioned Credit Assignment for Reinforcement Learning with Verifiable Rew
+- `2606.18820`  Maturing Markov Decision Processes: Decision Making under Increasing Information and Shrinking Action Sets
+- `2606.18844`  Learning from Your Own Mistakes: Constructing Learnable Micro-Reflective Trajectories for Self-Distillation
+- `2606.18864`  Scaling Learning-based AEB with Massive Unlabeled Data
+- `2606.18933`  Zero-Shot Active Feature Acquisition via LLM-Elicitation
+- `2606.18961`  Be Your Own Teacher: Steering Protein Language Models via Unsupervised Reward Optimization
+- `2606.18997`  DIPHINE: Diffusion-based $\Phi$-ID Neural Estimator
+- `2606.19026`  A Hybrid LSTM--Vision Transformer Architecture for Predicting HRRR Forecast Errors
+- `2606.19120`  Seeing Before Reasoning: Decoupling Perception and Reasoning for Shortcut-Resilient Multimodal On-Policy Self-
+- `2606.19315`  Diffusion-Proof: Recipe for Formal Theorem Proving Beyond Auto-Regressive Generation
+- `2606.18527`  Toward Simultaneously Optimal Regret in U-Calibration
+- `2606.18837`  Skill-MAS: Evolving Meta-Skill for Automatic Multi-Agent Systems
+- `2606.19004`  Spotlight: Synergizing Seed Exploration and Spot GPUs for DiT RL Post-Training
+- `2606.19184`  When AUC Misleads: Polarization-Aware Evaluation of Deepfake Detectors under Domain Shift
+- `2606.19329`  The Chandra-Gaia Catalog of Counterparts: Resolving ambiguous Gaia matches to X-ray sources in the Chandra Sou
+- `2606.17209`  Beyond Parallel Sampling: Diverse Query Initialization for Agentic Search
+- `2606.17450`  A Machine-Learned Comorbidity Index
+- `2606.17507`  LLM-as-Judge in Education: A Curriculum-Grounded Marking Pipeline
+- `2606.17591`  Closing the Feedback Loop: From Experience Extraction to Insight Governance in Verbal Reinforcement Learning
+- `2606.17642`  FinAcumen: Financial Multimodal Reasoning via Self-Evolving Experience Memory Harness
+- `2606.17888`  MathVis-Fine: Aligning Visual Supervision with Necessity via Progressive Dependency-Guided Training for Multim
+- `2606.17979`  STAR: SpatioTemporal Adaptive Reward Allocation for Text-to-Image RL Post-Training
+- `2606.18075`  A Unified Framework for Context-Aware and Relation-Aware Graph Retrieval-Augmented Generation
+- `2606.18101`  Trust the Right Teacher: Quality-Aware Self-Distillation for GUI Grounding
+- `2606.17080`  HRDX: A Large-Scale Vector HD-Map Dataset
+- `2606.17082`  ParkingTransformer: LLM-Enhanced End-to-End Trajectory Planning for Autonomous Parking
+

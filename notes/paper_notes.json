@@ -35,7 +35,8 @@
         "secondary_sections": [
           "§5.3.3"
         ],
-        "reasoning": "核心signal来自self（same-model self-distillation reversed），但基础RL奖励来自verifier（数学答案正确性判断），主体机制是self-only → §5.3.2，verifier辅助 → §5.3.3。"
+        "reasoning": "核心signal来自self（same-model self-distillation reversed），但基础RL奖励来自verifier（数学答案正确性判断），主体机制是self-only → §5.3.2，verifier辅助 → §5.3.3。",
+        "section": "§5.3.2"
       },
       "teacher_student_pairs": [
         {
@@ -306,7 +307,8 @@
         "secondary_sections": [
           "§5.3.3"
         ],
-        "reasoning": "Stage1为外部教师（Qwen3-VL-32B）提供logits的在线策略蒸馏（§5.1/§5.2）；Stage2的GRPO阶段使用VLM judge（冻结的同款Qwen3-VL-32B-Instruct）作为verifier给reward信号（§5.3.3）。"
+        "reasoning": "Stage1为外部教师（Qwen3-VL-32B）提供logits的在线策略蒸馏（§5.1/§5.2）；Stage2的GRPO阶段使用VLM judge（冻结的同款Qwen3-VL-32B-Instruct）作为verifier给reward信号（§5.3.3）。",
+        "section": "§8.2"
       },
       "teacher_student_pairs": [
         {
@@ -524,7 +526,8 @@
         "secondary_sections": [
           "§5.1"
         ],
-        "reasoning": "External teacher (Qwen3-32B / Qwen3-8B) provides logit-level supervision on student's own online rollouts; signal_source is external-teacher → §5.1/§5.2 (teacher-model distillation with online student trajectories)."
+        "reasoning": "External teacher (Qwen3-32B / Qwen3-8B) provides logit-level supervision on student's own online rollouts; signal_source is external-teacher → §5.1/§5.2 (teacher-model distillation with online student trajectories).",
+        "section": "§4.2"
       },
       "teacher_student_pairs": [
         {
@@ -749,7 +752,8 @@
         "is_opd": "yes",
         "primary_section": "§6.3",
         "secondary_sections": [],
-        "reasoning": "使用外部教师模型（DeepSeek-R1-Distill-Qwen-7B、JustRL-DeepSeek-1.5B、Qwen3-4B、Skywork-OR1-7B）对学生训练时实时采样的rollout计算logits级别的KL蒸馏奖励，属于外部教师on-policy蒸馏（§5.1），是OPD效率改进而非新范式。"
+        "reasoning": "使用外部教师模型（DeepSeek-R1-Distill-Qwen-7B、JustRL-DeepSeek-1.5B、Qwen3-4B、Skywork-OR1-7B）对学生训练时实时采样的rollout计算logits级别的KL蒸馏奖励，属于外部教师on-policy蒸馏（§5.1），是OPD效率改进而非新范式。",
+        "section": "§6"
       },
       "teacher_student_pairs": [
         {
@@ -1019,7 +1023,8 @@
         "secondary_sections": [
           "§5.3.2"
         ],
-        "reasoning": "训练循环内 per-step 实时采样 student rollout + 以 GT answer 为特权上下文的冻结自教师提供 logit-level 信号，属于 PI(GT) 驱动的 on-policy distillation；同时自教师参数与学生共享（self），故兼涉 §5.3.2，但主判 §5.3.1。"
+        "reasoning": "训练循环内 per-step 实时采样 student rollout + 以 GT answer 为特权上下文的冻结自教师提供 logit-level 信号，属于 PI(GT) 驱动的 on-policy distillation；同时自教师参数与学生共享（self），故兼涉 §5.3.2，但主判 §5.3.1。",
+        "section": "§7.1"
       },
       "teacher_student_pairs": [
         {
@@ -1265,7 +1270,8 @@
         "secondary_sections": [
           "§5.3.3"
         ],
-        "reasoning": "teacher与student是同一模型（EMA版本）初始化，属于self-distillation；judge模型(GPT-5.4)仅提供诊断context给teacher，最终训练reward仍来自verifier（ground-truth answer + grounding annotations），故同时涉及verifier-RLVR信号"
+        "reasoning": "teacher与student是同一模型（EMA版本）初始化，属于self-distillation；judge模型(GPT-5.4)仅提供诊断context给teacher，最终训练reward仍来自verifier（ground-truth answer + grounding annotations），故同时涉及verifier-RLVR信号",
+        "section": "§5.3.1"
       },
       "teacher_student_pairs": [
         {
@@ -1464,7 +1470,8 @@
         "secondary_sections": [
           "§5.2"
         ],
-        "reasoning": "外部 teacher 模型（openPangu-7B / Qwen2.5-Math-7B-Inst）提供 top-k logit 信号，student 在训练循环内每 K epoch 生成 rollout，属于 on-policy distillation（外部 teacher→student），对应 §5.1.1；后续叠加 GRPO 强化学习属 §5.2 组合流程。"
+        "reasoning": "外部 teacher 模型（openPangu-7B / Qwen2.5-Math-7B-Inst）提供 top-k logit 信号，student 在训练循环内每 K epoch 生成 rollout，属于 on-policy distillation（外部 teacher→student），对应 §5.1.1；后续叠加 GRPO 强化学习属 §5.2 组合流程。",
+        "section": "§6"
       },
       "teacher_student_pairs": [
         {
@@ -1742,7 +1749,8 @@
         "secondary_sections": [
           "§5.3.1"
         ],
-        "reasoning": "CoPD 中 teacher 为另一并行训练的 expert 分支（external-teacher），student 在训练中实时生成 on-policy rollout 接受 teacher logits 监督，属于 §5.2 on-policy distillation from external evolving teacher；teacher 本身由 RLVR+verifiable reward 驱动，可视为 §5.3.1 PI(GT) verifier 驱动，但主要机制是 cross-branch KD。"
+        "reasoning": "CoPD 中 teacher 为另一并行训练的 expert 分支（external-teacher），student 在训练中实时生成 on-policy rollout 接受 teacher logits 监督，属于 §5.2 on-policy distillation from external evolving teacher；teacher 本身由 RLVR+verifiable reward 驱动，可视为 §5.3.1 PI(GT) verifier 驱动，但主要机制是 cross-branch KD。",
+        "section": "§6"
       },
       "teacher_student_pairs": [
         {
@@ -1988,7 +1996,8 @@
         "is_opd": "yes",
         "primary_section": "§5.3.1",
         "secondary_sections": [],
-        "reasoning": "纯自蒸馏：teacher与student是同一模型（同权重初始化θ₀，frozen），无外部教师模型，无verifier/reward，信号仅来自自身在特权上下文下的logits分布。"
+        "reasoning": "纯自蒸馏：teacher与student是同一模型（同权重初始化θ₀，frozen），无外部教师模型，无verifier/reward，信号仅来自自身在特权上下文下的logits分布。",
+        "section": "§5.3.1"
       },
       "teacher_student_pairs": [
         {
@@ -2222,7 +2231,8 @@
           "§5.2",
           "§5.3.1"
         ],
-        "reasoning": "训练信号来自外部教师模型（Qwen2.5-7B-RL 或 Qwen3-30B）的 logits，学生 rollout 在训练循环内实时采样，是标准 on-policy KD with external teacher，对应 §5.1；B2F 变体用教师成功轨迹作为前缀导航（PI/demos），兼有 §5.3.1 特征。"
+        "reasoning": "训练信号来自外部教师模型（Qwen2.5-7B-RL 或 Qwen3-30B）的 logits，学生 rollout 在训练循环内实时采样，是标准 on-policy KD with external teacher，对应 §5.1；B2F 变体用教师成功轨迹作为前缀导航（PI/demos），兼有 §5.3.1 特征。",
+        "section": "§6"
       },
       "teacher_student_pairs": [
         {
@@ -2541,10 +2551,10 @@
         "evidence_quote": "Regenerating responses at iteration 1 supplies negatives that reflect the model's current weaknesses, and in IRIS additionally triggers a recalibration of α via the adaptive schedule, keeping the objective aligned with the evolving distributional gap. Training longer on fixed synthetic responses plateaus near 42.1%, but iteration 1 with regenerated responses achieves 43.1%."
       },
       "opd_classification": {
-        "is_opd": "yes",
-        "primary_section": "§5.3.2",
+        "is_opd": "no",
+        "primary_section": "§9",
         "secondary_sections": [],
-        "reasoning": "学生模型（主模型）在每次迭代中对自身参数做在线采样生成合成回复，信号来自自身log-ratio奖励，无外部教师模型也无GT验证器，属于self信号源的在策略蒸馏。"
+        "reasoning": "Game-theoretic self-play (Rényi divergence generalization of SPIN). Cited in §9 Future Directions as adjacent paradigm."
       },
       "teacher_student_pairs": [
         {
@@ -2721,7 +2731,8 @@
       "score": 7,
       "_success": true,
       "_read_date": "2026-05-17T02:38:00.847898",
-      "_attempts": 1
+      "_attempts": 1,
+      "is_opd": "no"
     },
     "2604.17535": {
       "_schema_version": "v3",
@@ -2756,7 +2767,8 @@
         "is_opd": "yes",
         "primary_section": "§5.3.1",
         "secondary_sections": [],
-        "reasoning": "信号源为 self（同一模型权重短上下文条件），无外部教师模型、无 verifier/GT，属于 self-only on-policy distillation（§5.3.2）"
+        "reasoning": "信号源为 self（同一模型权重短上下文条件），无外部教师模型、无 verifier/GT，属于 self-only on-policy distillation（§5.3.2）",
+        "section": "§5.3.1"
       },
       "teacher_student_pairs": [
         {
@@ -3027,7 +3039,8 @@
           "§5.2",
           "§5.3.2"
         ],
-        "reasoning": "训练循环内学生实时采样rollout，teacher为外部frozen大模型提供logit级token-level监督（reverse KL），属于external-teacher on-policy蒸馏；同时深入分析不同token类型的信号性质，涉及token重要性方法论研究。"
+        "reasoning": "训练循环内学生实时采样rollout，teacher为外部frozen大模型提供logit级token-level监督（reverse KL），属于external-teacher on-policy蒸馏；同时深入分析不同token类型的信号性质，涉及token重要性方法论研究。",
+        "section": "§6"
       },
       "teacher_student_pairs": [
         {
@@ -3290,7 +3303,8 @@
         "secondary_sections": [
           "§5.3.1"
         ],
-        "reasoning": "教师是学生的EMA自身（same-scale，无外部teacher），用QCP（自博弈内生特权信息）做token级蒸馏；QCP近似GT solution路径（含PI语义），但教师本质上是self-derived——主体归§5.3.2（self蒸馏），QCP的PI角色使其亦触及§5.3.1边界。"
+        "reasoning": "教师是学生的EMA自身（same-scale，无外部teacher），用QCP（自博弈内生特权信息）做token级蒸馏；QCP近似GT solution路径（含PI语义），但教师本质上是self-derived——主体归§5.3.2（self蒸馏），QCP的PI角色使其亦触及§5.3.1边界。",
+        "section": "§5.3.1"
       },
       "teacher_student_pairs": [
         {
@@ -3518,7 +3532,8 @@
           "§4.1",
           "§7.1"
         ],
-        "reasoning": "Core contribution is making OPD computationally efficient by eliminating live teacher server through offline precomputation, with theoretical analysis proving equivalence to online OPD under teacher consistency."
+        "reasoning": "Core contribution is making OPD computationally efficient by eliminating live teacher server through offline precomputation, with theoretical analysis proving equivalence to online OPD under teacher consistency.",
+        "section": "§6"
       },
       "teacher_student_pairs": [
         {
@@ -3785,7 +3800,8 @@
         "secondary_sections": [
           "§5.1"
         ],
-        "reasoning": "SCOPE 是 OPD 的增强方法，student 实时采样 rollout，用外部 teacher model 提供 token-level KL 监督信号，属于 external-teacher 驱动的 on-policy distillation（§5.2），并在此基础上引入信号质量感知加权。"
+        "reasoning": "SCOPE 是 OPD 的增强方法，student 实时采样 rollout，用外部 teacher model 提供 token-level KL 监督信号，属于 external-teacher 驱动的 on-policy distillation（§5.2），并在此基础上引入信号质量感知加权。",
+        "section": "§6"
       },
       "teacher_student_pairs": [
         {
@@ -3993,7 +4009,8 @@
         "secondary_sections": [
           "§5.3.1"
         ],
-        "reasoning": "Phase 2在训练循环内实时采样学生轨迹（on-policy），teacher是同一模型SRT检查点（self），通过二元GT验证器条件化修正提示（P_r依赖GT answer），信号源以self为主但有PI(GT)辅助，主归§5.3.2。"
+        "reasoning": "Phase 2在训练循环内实时采样学生轨迹（on-policy），teacher是同一模型SRT检查点（self），通过二元GT验证器条件化修正提示（P_r依赖GT answer），信号源以self为主但有PI(GT)辅助，主归§5.3.2。",
+        "section": "§5.3.3"
       },
       "teacher_student_pairs": [
         {
@@ -4193,7 +4210,8 @@
         "is_opd": "yes",
         "primary_section": "§8.2",
         "secondary_sections": [],
-        "reasoning": "Teacher 与 student 是同一模型的不同 prompt 条件版本（shared θ），无外部 teacher 模型，无 GT reward filter，属于 self-distillation；student on-policy 采样的 token 被 skill-augmented 同参数模型 re-score，为训练循环内实时采样的 self-only 信号。"
+        "reasoning": "Teacher 与 student 是同一模型的不同 prompt 条件版本（shared θ），无外部 teacher 模型，无 GT reward filter，属于 self-distillation；student on-policy 采样的 token 被 skill-augmented 同参数模型 re-score，为训练循环内实时采样的 self-only 信号。",
+        "section": "§8.2"
       },
       "teacher_student_pairs": [
         {
@@ -4393,7 +4411,8 @@
         "secondary_sections": [
           "§5.1"
         ],
-        "reasoning": "学生在训练循环内实时rollout自身轨迹（per-step on-policy），使用外部更大教师模型（Qwen3-8B）的完整词表logits作为token级监督信号，属于外部教师在线蒸馏（§5.2）。"
+        "reasoning": "学生在训练循环内实时rollout自身轨迹（per-step on-policy），使用外部更大教师模型（Qwen3-8B）的完整词表logits作为token级监督信号，属于外部教师在线蒸馏（§5.2）。",
+        "section": "§8.2"
       },
       "teacher_student_pairs": [
         {
@@ -4584,7 +4603,8 @@
         "secondary_sections": [
           "§5.2"
         ],
-        "reasoning": "外部冻结教师（GPT-2 Large）每步在学生实时生成的 rollout 上提供 logit-level 监督信号，属于 external-teacher on-policy distillation。"
+        "reasoning": "外部冻结教师（GPT-2 Large）每步在学生实时生成的 rollout 上提供 logit-level 监督信号，属于 external-teacher on-policy distillation。",
+        "section": "§8.2"
       },
       "teacher_student_pairs": [
         {
@@ -4755,7 +4775,8 @@
         "secondary_sections": [
           "§5.3.3"
         ],
-        "reasoning": "teacher 与 student 是同一模型（is_self=true），teacher 通过 GT answer 做条件前向传播提供 token-level 信号（self-distillation），同时配合 verifier binary reward；信号源为 self + verifier，主判定为 §5.3.2（self-distillation），verifier reward 方向辅助归 §5.3.3"
+        "reasoning": "teacher 与 student 是同一模型（is_self=true），teacher 通过 GT answer 做条件前向传播提供 token-level 信号（self-distillation），同时配合 verifier binary reward；信号源为 self + verifier，主判定为 §5.3.2（self-distillation），verifier reward 方向辅助归 §5.3.3",
+        "section": "§5.3.3"
       },
       "teacher_student_pairs": [
         {
@@ -4949,7 +4970,8 @@
         "secondary_sections": [
           "§5.3.3"
         ],
-        "reasoning": "自教师 = 同一模型在增强上下文下重打分（self signal），同时用正确 sibling rollout 作 GT-filter（PI(GT)），主信号为 self logit 蒸馏，归 §5.3.2；用正确 sibling 作 teacher info 可视为 PI(GT) 引导，兼涉 §5.3.1/§5.3.3 边界，但主导机制是 self-distillation。"
+        "reasoning": "自教师 = 同一模型在增强上下文下重打分（self signal），同时用正确 sibling rollout 作 GT-filter（PI(GT)），主信号为 self logit 蒸馏，归 §5.3.2；用正确 sibling 作 teacher info 可视为 PI(GT) 引导，兼涉 §5.3.1/§5.3.3 边界，但主导机制是 self-distillation。",
+        "section": "§5.3.3"
       },
       "teacher_student_pairs": [
         {
@@ -5183,7 +5205,8 @@
         "secondary_sections": [
           "§5.3.3"
         ],
-        "reasoning": "Student 在每个训练迭代内实时生成 rollout，由最优领域专家以 log-prob 提供 dense supervision（external teacher），同时有环境 verifier reward；属于外部教师模型驱动的 OPD，主要对应 §5.2（cross-family/domain expert teacher + on-policy student rollout），辅以 verifier 环境反馈（§5.3.3）。"
+        "reasoning": "Student 在每个训练迭代内实时生成 rollout，由最优领域专家以 log-prob 提供 dense supervision（external teacher），同时有环境 verifier reward；属于外部教师模型驱动的 OPD，主要对应 §5.2（cross-family/domain expert teacher + on-policy student rollout），辅以 verifier 环境反馈（§5.3.3）。",
+        "section": "§8.1"
       },
       "teacher_student_pairs": [
         {
@@ -5459,7 +5482,8 @@
         "secondary_sections": [
           "§5.1"
         ],
-        "reasoning": "学生每轮与环境交互采集on-policy轨迹，冻结外部教师模型在学生访问的每个state上实时提供token级logits作为dense reward，属于external-teacher驱动的on-policy蒸馏，对应§5.2（外部教师+on-policy student rollout）。"
+        "reasoning": "学生每轮与环境交互采集on-policy轨迹，冻结外部教师模型在学生访问的每个state上实时提供token级logits作为dense reward，属于external-teacher驱动的on-policy蒸馏，对应§5.2（外部教师+on-policy student rollout）。",
+        "section": "§8.2"
       },
       "teacher_student_pairs": [
         {
@@ -5655,7 +5679,8 @@
         "secondary_sections": [
           "§5.1"
         ],
-        "reasoning": "学生实时 on-policy rollout，外部文本教师模型提供 token 级 logits 信号，属于 external-teacher 驱动的 on-policy distillation（§5.1/§5.2），且跨模态（语音→文本教师）为其核心创新"
+        "reasoning": "学生实时 on-policy rollout，外部文本教师模型提供 token 级 logits 信号，属于 external-teacher 驱动的 on-policy distillation（§5.1/§5.2），且跨模态（语音→文本教师）为其核心创新",
+        "section": "§8.2"
       },
       "teacher_student_pairs": [
         {
@@ -5850,7 +5875,8 @@
           "§5.2",
           "§5.3.1"
         ],
-        "reasoning": "本文是对OPD方法的系统性分析与改进：使用外部教师模型的logits作为监督信号，学生实时采样rollout，属于external-teacher驱动的on-policy KD（§5.1），同时探讨了多教师多任务设置（§5.2）。"
+        "reasoning": "本文是对OPD方法的系统性分析与改进：使用外部教师模型的logits作为监督信号，学生实时采样rollout，属于external-teacher驱动的on-policy KD（§5.1），同时探讨了多教师多任务设置（§5.2）。",
+        "section": "§7.2"
       },
       "teacher_student_pairs": [
         {
@@ -6083,7 +6109,8 @@
         "secondary_sections": [
           "§5.3.2"
         ],
-        "reasoning": "teacher=student同权重（self），privileged信息为ground-truth answer注入prompt（PI(GT)），属于同模型+PI(GT)的on-policy蒸馏，对应§5.3.1；同权重self-distillation成分亦涉及§5.3.2，但GT privileged信息是核心区分特征，主归§5.3.1。"
+        "reasoning": "teacher=student同权重（self），privileged信息为ground-truth answer注入prompt（PI(GT)），属于同模型+PI(GT)的on-policy蒸馏，对应§5.3.1；同权重self-distillation成分亦涉及§5.3.2，但GT privileged信息是核心区分特征，主归§5.3.1。",
+        "section": "§5.3.1"
       },
       "teacher_student_pairs": [
         {
@@ -6252,7 +6279,8 @@
           "§5.1",
           "§5.3.2"
         ],
-        "reasoning": "MOPD 阶段中，学生在训练循环内实时采样响应（π_inf），教师来自同一 Cascade RL 管道内的最优 checkpoint（即学生自身不同训练阶段，非外部模型），提供 token-level reverse-KL 蒸馏信号；RL 阶段（GRPO）使用 RLVR verifier（GT answer + 编译器/测试用例），属 §5.3.3。主体创新为 MOPD 的内部教师在线蒸馏，最贴近 §5.2（同模型家族不同 checkpoint 作教师）。"
+        "reasoning": "MOPD 阶段中，学生在训练循环内实时采样响应（π_inf），教师来自同一 Cascade RL 管道内的最优 checkpoint（即学生自身不同训练阶段，非外部模型），提供 token-level reverse-KL 蒸馏信号；RL 阶段（GRPO）使用 RLVR verifier（GT answer + 编译器/测试用例），属 §5.3.3。主体创新为 MOPD 的内部教师在线蒸馏，最贴近 §5.2（同模型家族不同 checkpoint 作教师）。",
+        "section": "§8.1"
       },
       "teacher_student_pairs": [
         {
@@ -6591,7 +6619,8 @@
         "is_opd": "yes",
         "primary_section": "§5.3.1",
         "secondary_sections": [],
-        "reasoning": "teacher = frozen self（初始π_θ加知识条件化），student在训练循环内实时生成rollout，无外部teacher模型、无verifier/reward，signal_source=self → §5.3.2。"
+        "reasoning": "teacher = frozen self（初始π_θ加知识条件化），student在训练循环内实时生成rollout，无外部teacher模型、无verifier/reward，signal_source=self → §5.3.2。",
+        "section": "§5.3.1"
       },
       "teacher_student_pairs": [
         {
@@ -6851,7 +6880,8 @@
         "secondary_sections": [
           "§5.2"
         ],
-        "reasoning": "学生在训练循环内实时采样 rollout，教师以 logits 提供 token 级偏序排名和分布匹配信号，属于 on-policy + external teacher model 蒸馏（§5.1/§5.2），非 RLVR 也非纯自蒸馏。"
+        "reasoning": "学生在训练循环内实时采样 rollout，教师以 logits 提供 token 级偏序排名和分布匹配信号，属于 on-policy + external teacher model 蒸馏（§5.1/§5.2），非 RLVR 也非纯自蒸馏。",
+        "section": "§4.3"
       },
       "teacher_student_pairs": [
         {
@@ -7127,7 +7157,8 @@
         "secondary_sections": [
           "§5.3.2"
         ],
-        "reasoning": "主体为 external frozen teacher 的白盒 logits 蒸馏（§5.1 范畴），自蒸馏 track 为同模型冻结副本（§5.3.2），通过率权重用 GT 验证但不作为 RL reward。"
+        "reasoning": "主体为 external frozen teacher 的白盒 logits 蒸馏（§5.1 范畴），自蒸馏 track 为同模型冻结副本（§5.3.2），通过率权重用 GT 验证但不作为 RL reward。",
+        "section": "§6"
       },
       "teacher_student_pairs": [
         {
@@ -7357,7 +7388,8 @@
         "secondary_sections": [
           "§5.3.3"
         ],
-        "reasoning": "OPD 使用同一模型（self）在 hint-enhanced context 下作为 teacher 提供 token-level log-prob 差，属于 self-distillation；通用 Agent track 额外使用 PRM judge + verifiable outcome reward，涉及 verifier/RLVR 信号。"
+        "reasoning": "OPD 使用同一模型（self）在 hint-enhanced context 下作为 teacher 提供 token-level log-prob 差，属于 self-distillation；通用 Agent track 额外使用 PRM judge + verifiable outcome reward，涉及 verifier/RLVR 信号。",
+        "section": "§8.2"
       },
       "teacher_student_pairs": [
         {
@@ -7629,7 +7661,8 @@
           "§5.1",
           "§5.3.1"
         ],
-        "reasoning": "学生在每个训练 step 实时采样轨迹，以外部 teacher 模型的 token-level logits 作为 reward signal，属于 external-teacher 的 on-policy distillation，主实验在视觉推理（§5.2），数学推理（§5.1）为扩展。"
+        "reasoning": "学生在每个训练 step 实时采样轨迹，以外部 teacher 模型的 token-level logits 作为 reward signal，属于 external-teacher 的 on-policy distillation，主实验在视觉推理（§5.2），数学推理（§5.1）为扩展。",
+        "section": "§4.2"
       },
       "teacher_student_pairs": [
         {
@@ -7934,7 +7967,8 @@
         "secondary_sections": [
           "§5.1"
         ],
-        "reasoning": "Student 在训练循环内实时生成 rollout，teacher 提供 dense token-level logits 作为监督信号，属于 external teacher model 驱动的 on-policy distillation（§5.1/§5.2）；EOPD 是对 OPD 目标函数的改进，核心仍是 student rollout + teacher logit 对齐。"
+        "reasoning": "Student 在训练循环内实时生成 rollout，teacher 提供 dense token-level logits 作为监督信号，属于 external teacher model 驱动的 on-policy distillation（§5.1/§5.2）；EOPD 是对 OPD 目标函数的改进，核心仍是 student rollout + teacher logit 对齐。",
+        "section": "§4.2"
       },
       "teacher_student_pairs": [
         {
@@ -8182,7 +8216,8 @@
         "is_opd": "yes",
         "primary_section": "§5.3.1",
         "secondary_sections": [],
-        "reasoning": "tutor与student是同一模型（共享参数），signal_source为self（document-conditioned log-prob差值），无外部teacher模型、无GT verifier，属于self-only on-policy distillation，归§5.3.2。"
+        "reasoning": "tutor与student是同一模型（共享参数），signal_source为self（document-conditioned log-prob差值），无外部teacher模型、无GT verifier，属于self-only on-policy distillation，归§5.3.2。",
+        "section": "§5.3.1"
       },
       "teacher_student_pairs": [
         {
@@ -8386,7 +8421,8 @@
           "§5.3.1",
           "§5.3.2"
         ],
-        "reasoning": "student 每步在线生成 rollout，外部固定教师（Qwen3-8B）提供 token-level logits 作为监督信号，属于 external-teacher OPD（§5.1），核心创新是 prefix 截断与调度。"
+        "reasoning": "student 每步在线生成 rollout，外部固定教师（Qwen3-8B）提供 token-level logits 作为监督信号，属于 external-teacher OPD（§5.1），核心创新是 prefix 截断与调度。",
+        "section": "§6"
       },
       "teacher_student_pairs": [
         {
@@ -8660,7 +8696,8 @@
           "§5.2.1",
           "§5.2.2"
         ],
-        "reasoning": "学生在训练循环内实时采样rollout，教师模型（外部、更大模型）提供token-level logits作为监督信号，属于on-policy + external-teacher蒸馏，对应§5.1/§5.2（external teacher model）。"
+        "reasoning": "学生在训练循环内实时采样rollout，教师模型（外部、更大模型）提供token-level logits作为监督信号，属于on-policy + external-teacher蒸馏，对应§5.1/§5.2（external teacher model）。",
+        "section": "§4.3"
       },
       "teacher_student_pairs": [
         {
@@ -8981,7 +9018,8 @@
         "is_opd": "yes",
         "primary_section": "§5.3.2",
         "secondary_sections": [],
-        "reasoning": "无外部teacher模型，signal来自GT answer正确性过滤（PI(GT)）：在线采样rollout，保留correct且满足长度约束的样本做SFT，属于PI监督下的on-policy蒸馏/自训练范畴（§5.3.1：PI信号驱动的在线策略训练）。"
+        "reasoning": "无外部teacher模型，signal来自GT answer正确性过滤（PI(GT)）：在线采样rollout，保留correct且满足长度约束的样本做SFT，属于PI监督下的on-policy蒸馏/自训练范畴（§5.3.1：PI信号驱动的在线策略训练）。",
+        "section": "not-applicable"
       },
       "teacher_student_pairs": [
         {
@@ -9208,7 +9246,8 @@
         "secondary_sections": [
           "§5.1.1"
         ],
-        "reasoning": "学生在训练循环内实时生成rollout（on-policy，概率α），用外部教师模型logits（白盒）或序列输出（黑盒）作为信号，同时学习教师奖励函数，属于带外部教师信号的在线策略蒸馏。"
+        "reasoning": "学生在训练循环内实时生成rollout（on-policy，概率α），用外部教师模型logits（白盒）或序列输出（黑盒）作为信号，同时学习教师奖励函数，属于带外部教师信号的在线策略蒸馏。",
+        "section": "§4.3"
       },
       "teacher_student_pairs": [
         {
@@ -9525,7 +9564,8 @@
         "secondary_sections": [
           "§5.1"
         ],
-        "reasoning": "学生实时生成 on-policy rollout，教师为外部 frozen 模型提供 token-level logit 信号（teacher-student 配置），属于外部教师模型 on-policy 蒸馏（§5.2）；自蒸馏变体（shared weights）归 §5.1 但论文主推 teacher-student。"
+        "reasoning": "学生实时生成 on-policy rollout，教师为外部 frozen 模型提供 token-level logit 信号（teacher-student 配置），属于外部教师模型 on-policy 蒸馏（§5.2）；自蒸馏变体（shared weights）归 §5.1 但论文主推 teacher-student。",
+        "section": "§5.3.1"
       },
       "teacher_student_pairs": [
         {
@@ -9891,7 +9931,8 @@
         "secondary_sections": [
           "§5.1"
         ],
-        "reasoning": "训练前做一次rollout后用GT答案过滤/重写（PI(GT)），属于§5.3.1；同时Section 4.1中也有distill DeepSeek-R1数据（外部teacher model蒸馏）的设置，部分属于§5.1，但作者主要贡献在于PT-rollout+GT filter框架，本质是PI-guided on-policy SFT。"
+        "reasoning": "训练前做一次rollout后用GT答案过滤/重写（PI(GT)），属于§5.3.1；同时Section 4.1中也有distill DeepSeek-R1数据（外部teacher model蒸馏）的设置，部分属于§5.1，但作者主要贡献在于PT-rollout+GT filter框架，本质是PI-guided on-policy SFT。",
+        "section": "§4.2"
       },
       "teacher_student_pairs": [
         {
@@ -10161,7 +10202,8 @@
         "is_opd": "yes",
         "primary_section": "§5.3.2",
         "secondary_sections": [],
-        "reasoning": "teacher与student同一初始checkpoint（self），student在训练循环内实时生成rollout，teacher为frozen copy of self，signal_source=self → §5.3.2"
+        "reasoning": "teacher与student同一初始checkpoint（self），student在训练循环内实时生成rollout，teacher为frozen copy of self，signal_source=self → §5.3.2",
+        "section": "§5.3.2"
       },
       "teacher_student_pairs": [
         {
@@ -10412,7 +10454,8 @@
           "§5.1.2",
           "§5.3.3"
         ],
-        "reasoning": "学生在训练循环内实时采样轨迹，教师提供 token-level log-prob 监督（logits），属于 external-teacher on-policy distillation（§5.2）；ExOPD λ>1 是对标准 OPD 的奖励外推扩展，reward correction 变体引入 verifier（binary reward）辅助构造更准确 reference，涉及 §5.3.3 边界。"
+        "reasoning": "学生在训练循环内实时采样轨迹，教师提供 token-level log-prob 监督（logits），属于 external-teacher on-policy distillation（§5.2）；ExOPD λ>1 是对标准 OPD 的奖励外推扩展，reward correction 变体引入 verifier（binary reward）辅助构造更准确 reference，涉及 §5.3.3 边界。",
+        "section": "§4.3"
       },
       "teacher_student_pairs": [
         {
@@ -10697,7 +10740,8 @@
         "secondary_sections": [
           "§5.2"
         ],
-        "reasoning": "OPSD 是 student on-policy 采样 + PI-conditioned teacher 提供 KL 监督信号，PI 来自前沿模型成功轨迹（demos），属于 PI(demos) → §5.3.1；π-Distill 的 student 从 teacher 离线轨迹学习，偏 §5.2 off-policy KD。"
+        "reasoning": "OPSD 是 student on-policy 采样 + PI-conditioned teacher 提供 KL 监督信号，PI 来自前沿模型成功轨迹（demos），属于 PI(demos) → §5.3.1；π-Distill 的 student 从 teacher 离线轨迹学习，偏 §5.2 off-policy KD。",
+        "section": "§5.3.1"
       },
       "teacher_student_pairs": [
         {
@@ -10949,7 +10993,8 @@
         "secondary_sections": [
           "§5.1"
         ],
-        "reasoning": "学生每步在线采样轨迹，由外部固定教师模型提供 token 级 logits 信号，属于 external-teacher on-policy distillation（§5.2）；TVDF 数据选择为辅助机制"
+        "reasoning": "学生每步在线采样轨迹，由外部固定教师模型提供 token 级 logits 信号，属于 external-teacher on-policy distillation（§5.2）；TVDF 数据选择为辅助机制",
+        "section": "§8.2"
       },
       "teacher_student_pairs": [
         {
@@ -11429,7 +11474,8 @@
           "§5.1",
           "§5.3.2"
         ],
-        "reasoning": "外部教师模型（Qwen3-235B）实时生成文本反馈指导学生在线rollout，属于external-teacher蒸馏；同时RLTF-FM包含自我预测反馈的辅助任务（self成分），故主体归§5.2（cross-size teacher→student蒸馏），次级含§5.3.2（self-distillation变体）。"
+        "reasoning": "外部教师模型（Qwen3-235B）实时生成文本反馈指导学生在线rollout，属于external-teacher蒸馏；同时RLTF-FM包含自我预测反馈的辅助任务（self成分），故主体归§5.2（cross-size teacher→student蒸馏），次级含§5.3.2（self-distillation变体）。",
+        "section": "§5.3.3"
       },
       "teacher_student_pairs": [
         {
@@ -11663,7 +11709,8 @@
         "secondary_sections": [
           "§5.3.3"
         ],
-        "reasoning": "学生在训练循环内实时rollout，教师提供dense logit蒸馏信号（质量门控KL）且同时提供hint辅助探索，属于有外部教师模型的在线策略蒸馏（§5.2），hint拒绝采样中亦使用GT answer作为PI信号（§5.3.1特征），但主导机制是external-teacher蒸馏。"
+        "reasoning": "学生在训练循环内实时rollout，教师提供dense logit蒸馏信号（质量门控KL）且同时提供hint辅助探索，属于有外部教师模型的在线策略蒸馏（§5.2），hint拒绝采样中亦使用GT answer作为PI信号（§5.3.1特征），但主导机制是external-teacher蒸馏。",
+        "section": "§4.3"
       },
       "teacher_student_pairs": [
         {
@@ -11825,7 +11872,8 @@
         "is_opd": "yes",
         "primary_section": "§5.3.1",
         "secondary_sections": [],
-        "reasoning": "teacher与student共享同一模型参数θ（is_self=true），teacher信号来源是ground-truth solution y⋆作为privileged information（PI(GT)），而非外部独立teacher模型；轨迹在训练循环内实时采样（on-policy）→ §5.3.2（self only / same-model self-distillation with PI(GT) privileged context）"
+        "reasoning": "teacher与student共享同一模型参数θ（is_self=true），teacher信号来源是ground-truth solution y⋆作为privileged information（PI(GT)），而非外部独立teacher模型；轨迹在训练循环内实时采样（on-policy）→ §5.3.2（self only / same-model self-distillation with PI(GT) privileged context）",
+        "section": "§5.3.1"
       },
       "teacher_student_pairs": [
         {
@@ -12062,7 +12110,8 @@
         "is_opd": "yes",
         "primary_section": "§5.3.2",
         "secondary_sections": [],
-        "reasoning": "Teacher 是同一模型自身以 demonstration 为条件的版本（self），signal_source=PI(demos)，属于自蒸馏 on-policy；无外部独立 teacher 模型，无 verifier/RLVR，signal 来自 self（EMA 参数）conditioned on demos，归入 §5.3.2（self on-policy）。"
+        "reasoning": "Teacher 是同一模型自身以 demonstration 为条件的版本（self），signal_source=PI(demos)，属于自蒸馏 on-policy；无外部独立 teacher 模型，无 verifier/RLVR，signal 来自 self（EMA 参数）conditioned on demos，归入 §5.3.2（self on-policy）。",
+        "section": "§5.3.2"
       },
       "teacher_student_pairs": [
         {
@@ -12341,7 +12390,8 @@
         "secondary_sections": [
           "§5.3.3"
         ],
-        "reasoning": "teacher信号来源为模型自身的文本模态（self），无外部teacher模型，轨迹在训练循环内实时采样（on-policy），属于self on-policy蒸馏（§5.3.2）；序列级GRPO部分用内部judge模型评分，带有verifier性质可归入§5.3.3。"
+        "reasoning": "teacher信号来源为模型自身的文本模态（self），无外部teacher模型，轨迹在训练循环内实时采样（on-policy），属于self on-policy蒸馏（§5.3.2）；序列级GRPO部分用内部judge模型评分，带有verifier性质可归入§5.3.3。",
+        "section": "§8.2"
       },
       "teacher_student_pairs": [
         {
@@ -12539,7 +12589,8 @@
           "§5.1.1",
           "§5.3.3"
         ],
-        "reasoning": "The exploitation phase is explicitly on-policy distillation from K external teacher expert models (produced by per-mode RL) using student rollouts and Reverse KL loss per step; exploration phase uses RLVR with verifiable math rewards."
+        "reasoning": "The exploitation phase is explicitly on-policy distillation from K external teacher expert models (produced by per-mode RL) using student rollouts and Reverse KL loss per step; exploration phase uses RLVR with verifiable math rewards.",
+        "section": "§8.1"
       },
       "teacher_student_pairs": [
         {
@@ -12760,7 +12811,8 @@
           "§5.1.1",
           "§5.1.2"
         ],
-        "reasoning": "学生在训练循环内实时rollout，teacher提供token-level logits作为监督信号，属于external-teacher的on-policy蒸馏方法（§5.2范畴）。"
+        "reasoning": "学生在训练循环内实时rollout，teacher提供token-level logits作为监督信号，属于external-teacher的on-policy蒸馏方法（§5.2范畴）。",
+        "section": "§4.2"
       },
       "teacher_student_pairs": [
         {
@@ -12965,7 +13017,8 @@
           "§5.1",
           "§5.1.1"
         ],
-        "reasoning": "学生在训练循环内 on-policy 采样，teacher 提供 logit 级软标签作为 Dense 信号，同时有 reward 信号作为 Sparse 信号，属于 on-policy distillation + reward 的混合框架；与 external teacher model 对应 §5.1/§5.2。"
+        "reasoning": "学生在训练循环内 on-policy 采样，teacher 提供 logit 级软标签作为 Dense 信号，同时有 reward 信号作为 Sparse 信号，属于 on-policy distillation + reward 的混合框架；与 external teacher model 对应 §5.1/§5.2。",
+        "section": "§7.3"
       },
       "teacher_student_pairs": [
         {
@@ -13084,7 +13137,8 @@
           "§5.1",
           "§5.3.3"
         ],
-        "reasoning": "MOPD是典型的on-policy distillation：学生在训练循环内实时采样轨迹，teacher信号来自外部domain-specialized教师模型（通过token级KL divergence），同时结合ORM/verifier奖励（§5.3.3特征）；主体上teacher是独立训练的外部模型，对应§5.2（cross-model on-policy KD）"
+        "reasoning": "MOPD是典型的on-policy distillation：学生在训练循环内实时采样轨迹，teacher信号来自外部domain-specialized教师模型（通过token级KL divergence），同时结合ORM/verifier奖励（§5.3.3特征）；主体上teacher是独立训练的外部模型，对应§5.2（cross-model on-policy KD）",
+        "section": "§8.1"
       },
       "teacher_student_pairs": [
         {
@@ -13350,7 +13404,8 @@
         "secondary_sections": [
           "§5.1"
         ],
-        "reasoning": "学生在训练循环内实时rollout，判别器（由外部教师响应训练）提供on-policy reward信号，属于外部教师模型驱动的on-policy黑盒蒸馏（§5.2 cross-tokenizer/black-box外部teacher scenario）。"
+        "reasoning": "学生在训练循环内实时rollout，判别器（由外部教师响应训练）提供on-policy reward信号，属于外部教师模型驱动的on-policy黑盒蒸馏（§5.2 cross-tokenizer/black-box外部teacher scenario）。",
+        "section": "§5.2"
       },
       "teacher_student_pairs": [
         {
@@ -13783,7 +13838,8 @@
         "secondary_sections": [
           "§5.1"
         ],
-        "reasoning": "使用外部固定教师模型（Qwen3-8B/4B/14B）对学生实时 rollout 的 prefix 提供 token-level KL 蒸馏信号，属于 external-teacher on-policy distillation（§5.2）；同时第一阶段 off-policy SFT 属于 §5.1。"
+        "reasoning": "使用外部固定教师模型（Qwen3-8B/4B/14B）对学生实时 rollout 的 prefix 提供 token-level KL 蒸馏信号，属于 external-teacher on-policy distillation（§5.2）；同时第一阶段 off-policy SFT 属于 §5.1。",
+        "section": "§8.2"
       },
       "teacher_student_pairs": [
         {
@@ -14047,7 +14103,8 @@
         "secondary_sections": [
           "§5.3.1"
         ],
-        "reasoning": "学生在训练循环内实时采样rollout，使用binary verifier reward（GT answer验证）作为信号源，属于verifier-RLVR类型；同时有Iterative-SFT变体使用PI(GT)过滤正确rollout，对应§5.3.1"
+        "reasoning": "学生在训练循环内实时采样rollout，使用binary verifier reward（GT answer验证）作为信号源，属于verifier-RLVR类型；同时有Iterative-SFT变体使用PI(GT)过滤正确rollout，对应§5.3.1",
+        "section": "not-applicable"
       },
       "teacher_student_pairs": [
         {
@@ -14512,7 +14569,8 @@
         "secondary_sections": [
           "§5.1"
         ],
-        "reasoning": "学生在训练循环内实时自主采样token（on-policy rollout），以外部教师logits为信号计算KL散度并监督学习，属于外部教师模型引导的on-policy蒸馏（§5.2混合on/off-policy变体）。"
+        "reasoning": "学生在训练循环内实时自主采样token（on-policy rollout），以外部教师logits为信号计算KL散度并监督学习，属于外部教师模型引导的on-policy蒸馏（§5.2混合on/off-policy变体）。",
+        "section": "§6"
       },
       "teacher_student_pairs": [
         {
@@ -14725,7 +14783,8 @@
         "secondary_sections": [
           "§5.1.2"
         ],
-        "reasoning": "学生在训练循环内实时采样生成轨迹（ImitKD/GKD 模式），教师提供 logit 信号作为蒸馏目标，属于外部教师模型驱动的 on-policy distillation（§5.1）。"
+        "reasoning": "学生在训练循环内实时采样生成轨迹（ImitKD/GKD 模式），教师提供 logit 信号作为蒸馏目标，属于外部教师模型驱动的 on-policy distillation（§5.1）。",
+        "section": "§4.1"
       },
       "teacher_student_pairs": [
         {
@@ -15035,7 +15094,8 @@
         "secondary_sections": [
           "§5.1.1"
         ],
-        "reasoning": "student在训练循环内实时采样rollout，teacher提供per-token logits作为KL约束信号（external teacher model），同时结合binary task reward（GT answer verifier），属于on-policy + external teacher蒸馏。"
+        "reasoning": "student在训练循环内实时采样rollout，teacher提供per-token logits作为KL约束信号（external teacher model），同时结合binary task reward（GT answer verifier），属于on-policy + external teacher蒸馏。",
+        "section": "§4.3"
       },
       "teacher_student_pairs": [
         {
@@ -15237,7 +15297,8 @@
         "secondary_sections": [
           "§5.1"
         ],
-        "reasoning": "学生在训练循环内实时滚出轨迹（mixed-policy：ϕ=0.5混合base和最新checkpoint），用GT标签过滤正/负例（PI(GT)），属于有外部教师模型监督的on-policy蒸馏，主section对应§5.2（外部教师模型提供preference信号的黑盒KD + 学生rollout）。"
+        "reasoning": "学生在训练循环内实时滚出轨迹（mixed-policy：ϕ=0.5混合base和最新checkpoint），用GT标签过滤正/负例（PI(GT)），属于有外部教师模型监督的on-policy蒸馏，主section对应§5.2（外部教师模型提供preference信号的黑盒KD + 学生rollout）。",
+        "section": "§5.2"
       },
       "teacher_student_pairs": [
         {
@@ -15643,7 +15704,8 @@
           "§5.3.1",
           "§5.3.3"
         ],
-        "reasoning": "Student rollouts are generated within training (online); teacher model provides corrective logits/text at first error step (external teacher signal); RL phase also uses code execution (verifier) for reward computation — primarily §5.1 (external teacher model correction-based KD), with elements of §5.3.1 (GT-verified prefix filtering) and §5.3.3 (verifier/code execution for reward)."
+        "reasoning": "Student rollouts are generated within training (online); teacher model provides corrective logits/text at first error step (external teacher signal); RL phase also uses code execution (verifier) for reward computation — primarily §5.1 (external teacher model correction-based KD), with elements of §5.3.1 (GT-verified prefix filtering) and §5.3.3 (verifier/code execution for reward).",
+        "section": "§4.3"
       },
       "teacher_student_pairs": [
         {
@@ -15908,7 +15970,8 @@
         "is_opd": "yes",
         "primary_section": "§5.3.3",
         "secondary_sections": [],
-        "reasoning": "Teacher是student本身加特权上下文（self-distillation），无外部teacher模型，signal_source=self → §5.3.2"
+        "reasoning": "Teacher是student本身加特权上下文（self-distillation），无外部teacher模型，signal_source=self → §5.3.2",
+        "section": "§5.3.3"
       },
       "teacher_student_pairs": [
         {
@@ -16144,7 +16207,8 @@
           "§5.3.1",
           "§5.3.3"
         ],
-        "reasoning": "核心是自蒸馏：teacher 与 student 是同一网络（ϕ=θ），teacher 信号来自 self（条件化同模型的 logits），student rollout 实时采样用于 M-step 蒸馏；但反馈来源包括环境 verifier（§5.3.3）、对比兄弟 rollout（§5.3.1），亦适用；主分类按 signal_source=self → §5.3.2。"
+        "reasoning": "核心是自蒸馏：teacher 与 student 是同一网络（ϕ=θ），teacher 信号来自 self（条件化同模型的 logits），student rollout 实时采样用于 M-step 蒸馏；但反馈来源包括环境 verifier（§5.3.3）、对比兄弟 rollout（§5.3.1），亦适用；主分类按 signal_source=self → §5.3.2。",
+        "section": "§5.3.3"
       },
       "teacher_student_pairs": [
         {
@@ -16408,7 +16472,8 @@
         "secondary_sections": [
           "§5.1.1"
         ],
-        "reasoning": "学生实时在线采样（on-policy），外部形式验证器（SymbiYosys+Z3 = compiler/verifier）作为 signal_source，同时用冻结外部教师 logits 作为 KL 目标，故同时跨 §5.3.3（verifier-RLVR）与 §5.1.1（external-teacher KD）；主判定以验证器权重为核心创新定为 §5.3.3。"
+        "reasoning": "学生实时在线采样（on-policy），外部形式验证器（SymbiYosys+Z3 = compiler/verifier）作为 signal_source，同时用冻结外部教师 logits 作为 KL 目标，故同时跨 §5.3.3（verifier-RLVR）与 §5.1.1（external-teacher KD）；主判定以验证器权重为核心创新定为 §5.3.3。",
+        "section": "§8.2"
       },
       "teacher_student_pairs": [
         {
@@ -16593,7 +16658,8 @@
         "is_opd": "yes",
         "primary_section": "§6.1",
         "secondary_sections": [],
-        "reasoning": "teacher 与 student 共享同一 backbone（self-distillation），teacher 信号为自身 logits，无外部模型或 verifier，属于 self-only on-policy self-distillation。"
+        "reasoning": "teacher 与 student 共享同一 backbone（self-distillation），teacher 信号为自身 logits，无外部模型或 verifier，属于 self-only on-policy self-distillation。",
+        "section": "§6"
       },
       "teacher_student_pairs": [
         {
@@ -16823,7 +16889,8 @@
         "secondary_sections": [
           "§5.3.1"
         ],
-        "reasoning": "本文系统分析 OPD 并提出替代方案 DAgger，teacher 为固定外部模型（Qwen3-Coder-30B），属于 external-teacher 类；但训练信号为 teacher actions（token-level CE）而非 KL-logits，与标准 OPD 有别，归 §5.1 external-teacher 指导 + 讨论 §5.3.1（PI over student rollouts with teacher labels）。"
+        "reasoning": "本文系统分析 OPD 并提出替代方案 DAgger，teacher 为固定外部模型（Qwen3-Coder-30B），属于 external-teacher 类；但训练信号为 teacher actions（token-level CE）而非 KL-logits，与标准 OPD 有别，归 §5.1 external-teacher 指导 + 讨论 §5.3.1（PI over student rollouts with teacher labels）。",
+        "section": "§8.2"
       },
       "teacher_student_pairs": [
         {
@@ -17007,7 +17074,8 @@
         "secondary_sections": [
           "§5.2"
         ],
-        "reasoning": "学生实时在训练循环内采样 rollout，教师为外部/更大同族模型（或自身特权版本），token 级 logit 蒸馏；verifier 仅用于划分 peer 而非直接提供 RL 梯度，核心信号来自外部教师 logits，归 §5.1（external teacher model OPD），自蒸馏变体对应 §5.3.1（PI via verifier partition）。"
+        "reasoning": "学生实时在训练循环内采样 rollout，教师为外部/更大同族模型（或自身特权版本），token 级 logit 蒸馏；verifier 仅用于划分 peer 而非直接提供 RL 梯度，核心信号来自外部教师 logits，归 §5.1（external teacher model OPD），自蒸馏变体对应 §5.3.1（PI via verifier partition）。",
+        "section": "§6"
       },
       "teacher_student_pairs": [
         {
@@ -17244,7 +17312,8 @@
         "secondary_sections": [
           "§5.3.2"
         ],
-        "reasoning": "student 在训练循环内实时采样（on-policy），teacher 是同一模型（self-distillation），信号来自任务环境 verifier（奖励/反馈），符合 §5.3.3（verifier/RLVR 信号）；同时具备 §5.3.2（self 信号）特征。"
+        "reasoning": "student 在训练循环内实时采样（on-policy），teacher 是同一模型（self-distillation），信号来自任务环境 verifier（奖励/反馈），符合 §5.3.3（verifier/RLVR 信号）；同时具备 §5.3.2（self 信号）特征。",
+        "section": "§5.3.3"
       },
       "teacher_student_pairs": [
         {
@@ -17458,7 +17527,8 @@
           "§5.3",
           "§4"
         ],
-        "reasoning": "核心贡献是FKL-to-OPD两阶段桥接（外部RL教师→学生），属于外部教师模型提供logits的OPD，对应§5.1/§5.2；同时含Stage1 teacher-side sparse RL和Stage3 post-bridge student RL，属于复合pipeline。"
+        "reasoning": "核心贡献是FKL-to-OPD两阶段桥接（外部RL教师→学生），属于外部教师模型提供logits的OPD，对应§5.1/§5.2；同时含Stage1 teacher-side sparse RL和Stage3 post-bridge student RL，属于复合pipeline。",
+        "section": "§4.3"
       },
       "teacher_student_pairs": [
         {
@@ -17700,7 +17770,8 @@
         "secondary_sections": [
           "§5.2"
         ],
-        "reasoning": "student 在训练循环内实时采样 rollout，外部 teacher 模型（Qwen3-30B-A3B）提供 token 级 logits 监督，属于 external-teacher on-policy distillation（§5.1）。"
+        "reasoning": "student 在训练循环内实时采样 rollout，外部 teacher 模型（Qwen3-30B-A3B）提供 token 级 logits 监督，属于 external-teacher on-policy distillation（§5.1）。",
+        "section": "§4.3"
       },
       "teacher_student_pairs": [
         {
@@ -17934,7 +18005,8 @@
         "secondary_sections": [
           "§5.3.2"
         ],
-        "reasoning": "学生在训练循环内实时采样 rollouts，并用 GT verifier 过滤正确轨迹作为 PI(GT)，属于 PI(GT) signal source，归 §5.3.1；教师为同一模型（自蒸馏），亦有 §5.3.2 特征，但 GT verifier 筛选是核心机制，主分类为 §5.3.1。"
+        "reasoning": "学生在训练循环内实时采样 rollouts，并用 GT verifier 过滤正确轨迹作为 PI(GT)，属于 PI(GT) signal source，归 §5.3.1；教师为同一模型（自蒸馏），亦有 §5.3.2 特征，但 GT verifier 筛选是核心机制，主分类为 §5.3.1。",
+        "section": "§5.3.3"
       },
       "teacher_student_pairs": [
         {
@@ -18130,7 +18202,8 @@
         "secondary_sections": [
           "§5.2"
         ],
-        "reasoning": "dGRPO 在学生自身轨迹上计算 KL(π_θ ∥ π_teacher_external) 作为 dense 辅助损失，属于 external-teacher 驱动的 OPD 与 RL 联合训练（§5.1/§5.2 范畴）。"
+        "reasoning": "dGRPO 在学生自身轨迹上计算 KL(π_θ ∥ π_teacher_external) 作为 dense 辅助损失，属于 external-teacher 驱动的 OPD 与 RL 联合训练（§5.1/§5.2 范畴）。",
+        "section": "§4.3"
       },
       "teacher_student_pairs": [
         {
@@ -18563,7 +18636,8 @@
         "secondary_sections": [
           "§5.3.2"
         ],
-        "reasoning": "同一模型自蒸馏（§5.3.2 特征），但教师状态以 GT 答案前缀构建（PI(GT) 信号），同时满足 §5.3.1；蒸馏信号作为 GRPO advantage 的调制权重而非独立 KD loss，与 OPD 定义有差异，故标 analysis。"
+        "reasoning": "同一模型自蒸馏（§5.3.2 特征），但教师状态以 GT 答案前缀构建（PI(GT) 信号），同时满足 §5.3.1；蒸馏信号作为 GRPO advantage 的调制权重而非独立 KD loss，与 OPD 定义有差异，故标 analysis。",
+        "section": "§6"
       },
       "teacher_student_pairs": [
         {
@@ -18801,7 +18875,8 @@
         "secondary_sections": [
           "§5.2"
         ],
-        "reasoning": "使用外部 RL 训练的教师模型提供 logit 级监督，学生在线采样轨迹；同家族同规模或跨规模均有测试，属于标准 OPD + 效率分析/加速方法。"
+        "reasoning": "使用外部 RL 训练的教师模型提供 logit 级监督，学生在线采样轨迹；同家族同规模或跨规模均有测试，属于标准 OPD + 效率分析/加速方法。",
+        "section": "§6"
       },
       "teacher_student_pairs": [
         {
@@ -19074,7 +19149,8 @@
         "is_opd": "yes",
         "primary_section": "§5.3.1",
         "secondary_sections": [],
-        "reasoning": "True self-distillation (same model as teacher and student), on-policy student rollouts every step, no external teacher model or reward verifier — signal source is self only."
+        "reasoning": "True self-distillation (same model as teacher and student), on-policy student rollouts every step, no external teacher model or reward verifier — signal source is self only.",
+        "section": "§5.3.1"
       },
       "teacher_student_pairs": [
         {
@@ -19298,7 +19374,8 @@
         "secondary_sections": [
           "§5.3.3"
         ],
-        "reasoning": "使用π_θ自身EMA作为教师（self-distillation），环境反馈z（测试结果/GT答案）作为条件信号，学生实时在线采样rollout，属于self信号源的on-policy self-distillation；环境反馈属于verifier辅助信号（§5.3.3次级）。"
+        "reasoning": "使用π_θ自身EMA作为教师（self-distillation），环境反馈z（测试结果/GT答案）作为条件信号，学生实时在线采样rollout，属于self信号源的on-policy self-distillation；环境反馈属于verifier辅助信号（§5.3.3次级）。",
+        "section": "§5.3.3"
       },
       "teacher_student_pairs": [
         {
@@ -19511,7 +19588,8 @@
           "§5.3.2",
           "§5.3.1"
         ],
-        "reasoning": "本文是 OPD/OPSD 的综合分析论文，既涵盖 external teacher（§5.1）也涵盖 self+PI（§5.3.1/§5.3.2），主体是对 OPD 机制的分析与修复而非提出单一新方法"
+        "reasoning": "本文是 OPD/OPSD 的综合分析论文，既涵盖 external teacher（§5.1）也涵盖 self+PI（§5.3.1/§5.3.2），主体是对 OPD 机制的分析与修复而非提出单一新方法",
+        "section": "§7.2"
       },
       "teacher_student_pairs": [
         {
@@ -19830,7 +19908,8 @@
         "secondary_sections": [
           "§5.3.1"
         ],
-        "reasoning": "teacher = student 自身加 privileged context（verified solution），无外部教师；但 privileged context 包含 GT verified solution（通过 GRPO 奖励函数验证），故兼具 §5.3.1 的 PI(GT) 信号；主体属于 self OPD（§5.3.2）"
+        "reasoning": "teacher = student 自身加 privileged context（verified solution），无外部教师；但 privileged context 包含 GT verified solution（通过 GRPO 奖励函数验证），故兼具 §5.3.1 的 PI(GT) 信号；主体属于 self OPD（§5.3.2）",
+        "section": "§4.1"
       },
       "teacher_student_pairs": [
         {
@@ -20146,7 +20225,8 @@
         "is_opd": "analysis",
         "primary_section": "§7.1",
         "secondary_sections": [],
-        "reasoning": "本文是诊断/分析框架而非训练方法，研究 OPD 的效果机制，不属于某一具体 OPD 方法分类节。"
+        "reasoning": "本文是诊断/分析框架而非训练方法，研究 OPD 的效果机制，不属于某一具体 OPD 方法分类节。",
+        "section": "§7.1"
       },
       "teacher_student_pairs": [
         {
@@ -20481,7 +20561,8 @@
         "secondary_sections": [
           "§5.2"
         ],
-        "reasoning": "External preference-specific teacher PLMs (SFT-adapted, same backbone) provide token-level logit supervision on student-generated rollouts; multi-teacher PoE aggregation extends to §5.2 (multi-teacher OPD)."
+        "reasoning": "External preference-specific teacher PLMs (SFT-adapted, same backbone) provide token-level logit supervision on student-generated rollouts; multi-teacher PoE aggregation extends to §5.2 (multi-teacher OPD).",
+        "section": "§8.2"
       },
       "teacher_student_pairs": [
         {
@@ -20708,7 +20789,8 @@
         "is_opd": "yes",
         "primary_section": "§5.3.1",
         "secondary_sections": [],
-        "reasoning": "student rollout 实时采样于训练循环内，teacher 信号为同一模型自身 logits（is_self=true），无外部教师模型，符合 §5.3.2 on-policy self-distillation；GT answer filter 仅起质量筛选作用，核心信号仍为 self-logits。"
+        "reasoning": "student rollout 实时采样于训练循环内，teacher 信号为同一模型自身 logits（is_self=true），无外部教师模型，符合 §5.3.2 on-policy self-distillation；GT answer filter 仅起质量筛选作用，核心信号仍为 self-logits。",
+        "section": "§5.3.1"
       },
       "teacher_student_pairs": [
         {
@@ -20922,7 +21004,8 @@
           "§5.1.1",
           "§5.1.2"
         ],
-        "reasoning": "外部教师模型（JustRL-1.5B / DeepSeek-R1-7B）在每训练步在线采样轨迹，以 token-level KL 蒸馏学生，属于标准跨模型 OPD（§5.1），并以 Best-of-N 选优扩展（§5.1.1/5.1.2）。"
+        "reasoning": "外部教师模型（JustRL-1.5B / DeepSeek-R1-7B）在每训练步在线采样轨迹，以 token-level KL 蒸馏学生，属于标准跨模型 OPD（§5.1），并以 Best-of-N 选优扩展（§5.1.1/5.1.2）。",
+        "section": "§5.1"
       },
       "teacher_student_pairs": [
         {
@@ -21131,7 +21214,8 @@
           "§5.2"
         ],
         "reasoning": "本文是对 OPD 训练动态的分析工作（is_opd=analysis），核心贡献是分析 rock token 现象 + 提效策略（选择性冻结）。teacher 是外部更大模型（Qwen3-30B-A3B），student 是 Qwen3-4B，属于标准外部教师 OPD（§5.1）的分析。此前标 §5.3.2（self-distillation 谱系）与 signal=external-teacher 矛盾，修正为 §5.1 分析类。",
-        "_fix_note": "Round 8 fix: primary_section corrected from §5.3.2 to §5.1 (external-teacher analysis, not self-distillation)"
+        "_fix_note": "Round 8 fix: primary_section corrected from §5.3.2 to §5.1 (external-teacher analysis, not self-distillation)",
+        "section": "§7.2"
       },
       "teacher_student_pairs": [
         {
@@ -21300,7 +21384,8 @@
         "is_opd": "yes",
         "primary_section": "§8.3",
         "secondary_sections": [],
-        "reasoning": "student（draft）在推理时实时采样 rollout，teacher 为外部 target 模型提供 logit 分布信号，属于 external-teacher online policy distillation（§5.1），但发生在 test-time 而非传统训练阶段"
+        "reasoning": "student（draft）在推理时实时采样 rollout，teacher 为外部 target 模型提供 logit 分布信号，属于 external-teacher online policy distillation（§5.1），但发生在 test-time 而非传统训练阶段",
+        "section": "§8.3"
       },
       "teacher_student_pairs": [
         {
@@ -21588,7 +21673,8 @@
         "is_opd": "yes",
         "primary_section": "§5.3.1",
         "secondary_sections": [],
-        "reasoning": "Teacher 与 student 同参数（self），每步实时采样 rollout，无外部教师模型，信号来源为 self-snapshot，属于 on-policy self-distillation（§5.3.2）。"
+        "reasoning": "Teacher 与 student 同参数（self），每步实时采样 rollout，无外部教师模型，信号来源为 self-snapshot，属于 on-policy self-distillation（§5.3.2）。",
+        "section": "§6"
       },
       "teacher_student_pairs": [
         {
@@ -21806,7 +21892,8 @@
         "primary_section": "§4.3",
         "secondary_sections": [],
         "reasoning": "小模型 π_φ 每步生成 rollout，大模型 π_θ 提供 logit 级信号（KL reward），属于典型的 on-policy distillation with external teacher（§5.1）。此前标注 is_opd=no 因错误地将 OPD 等同于 self-distillation；实际 student 每步实时生成 rollout + 外部教师信号 = on-policy KD。额外特色：co-distillation 使大模型也从小模型 rollout 学习。",
-        "_fix_note": "Round 8 fix: is_opd corrected from no to yes (student per-step rollout + external teacher = OPD §5.1)"
+        "_fix_note": "Round 8 fix: is_opd corrected from no to yes (student per-step rollout + external teacher = OPD §5.1)",
+        "section": "§4.3"
       },
       "teacher_student_pairs": [
         {
@@ -22022,7 +22109,8 @@
         "is_opd": "yes",
         "primary_section": "§5.3.1",
         "secondary_sections": [],
-        "reasoning": "教师为自身（同架构、冻结初始权重）在 harness 上下文下的条件分布，无外部教师模型，信号来源为 self；学生 rollout 在训练循环内实时采样（on-policy），归 §5.3.2。"
+        "reasoning": "教师为自身（同架构、冻结初始权重）在 harness 上下文下的条件分布，无外部教师模型，信号来源为 self；学生 rollout 在训练循环内实时采样（on-policy），归 §5.3.2。",
+        "section": "§5.3.1"
       },
       "teacher_student_pairs": [
         {
@@ -22228,7 +22316,8 @@
         "secondary_sections": [
           "§5.1.2"
         ],
-        "reasoning": "Student rollouts are generated online each step (on-policy), and the signal comes from an external larger teacher model (Qwen3-8B) providing compressed token distributions via forward-KL — this is on-policy distillation from an external teacher (§5.1)."
+        "reasoning": "Student rollouts are generated online each step (on-policy), and the signal comes from an external larger teacher model (Qwen3-8B) providing compressed token distributions via forward-KL — this is on-policy distillation from an external teacher (§5.1).",
+        "section": "§5.1"
       },
       "teacher_student_pairs": [
         {
@@ -22437,7 +22526,8 @@
           "§5.3.1",
           "§5.3.2"
         ],
-        "reasoning": "Student rollouts in-loop per step; external teacher provides per-token logits; GRPO IS-clipped reverse-KL with reward extrapolation → §5.1 (external-teacher OPD)."
+        "reasoning": "Student rollouts in-loop per step; external teacher provides per-token logits; GRPO IS-clipped reverse-KL with reward extrapolation → §5.1 (external-teacher OPD).",
+        "section": "§7.2"
       },
       "teacher_student_pairs": [
         {
@@ -22694,7 +22784,8 @@
         "is_opd": "yes",
         "primary_section": "§5.2",
         "secondary_sections": [],
-        "reasoning": "Black-box OPD：学生 on-policy rollout 实时采样，teacher 仅提供文本（GPT-5.2 API-only 或 Qwen3-30B），通过 rubric-based reward 而非 logit 引导策略优化，属于 external-teacher black-box OPD。"
+        "reasoning": "Black-box OPD：学生 on-policy rollout 实时采样，teacher 仅提供文本（GPT-5.2 API-only 或 Qwen3-30B），通过 rubric-based reward 而非 logit 引导策略优化，属于 external-teacher black-box OPD。",
+        "section": "§5.2"
       },
       "teacher_student_pairs": [
         {
@@ -22933,7 +23024,8 @@
         "is_opd": "yes",
         "primary_section": "§5.1",
         "secondary_sections": [],
-        "reasoning": "跨 tokenizer 异构外部教师 + 学生实时 rollout + 白盒 logits → 属于跨架构外部教师 OPD（§5.2）"
+        "reasoning": "跨 tokenizer 异构外部教师 + 学生实时 rollout + 白盒 logits → 属于跨架构外部教师 OPD（§5.2）",
+        "section": "§5.1"
       },
       "teacher_student_pairs": [
         {
@@ -23162,7 +23254,8 @@
         "secondary_sections": [
           "§5.3.3"
         ],
-        "reasoning": "外部教师模型提供 logits 监督，学生在训练循环中实时采样轨迹，属于 external-teacher OPD（§5.1）；同时使用工具/验证器反馈的 GRPO reward（§5.3.3）"
+        "reasoning": "外部教师模型提供 logits 监督，学生在训练循环中实时采样轨迹，属于 external-teacher OPD（§5.1）；同时使用工具/验证器反馈的 GRPO reward（§5.3.3）",
+        "section": "§8.2"
       },
       "teacher_student_pairs": [
         {
@@ -23444,7 +23537,8 @@
         "secondary_sections": [
           "§5.3.1"
         ],
-        "reasoning": "外部冻结教师（HyperEyes-235B RL）提供 token 级 logit 监督，作用于学生在线采样的失败 rollout，属于 external-teacher OPD（§5.1/§5.2），同时 rollout 成功/失败由 GT-answer verifier 判定，含 PI(GT) 信号故亦涉及 §5.3.1。"
+        "reasoning": "外部冻结教师（HyperEyes-235B RL）提供 token 级 logit 监督，作用于学生在线采样的失败 rollout，属于 external-teacher OPD（§5.1/§5.2），同时 rollout 成功/失败由 GT-answer verifier 判定，含 PI(GT) 信号故亦涉及 §5.3.1。",
+        "section": "§8.2"
       },
       "teacher_student_pairs": [
         {
@@ -23657,7 +23751,8 @@
         "is_opd": "yes",
         "primary_section": "§5.3.2",
         "secondary_sections": [],
-        "reasoning": "无外部教师，teacher.is_self=true，学生每步在线采样轨迹后由自身（EMA 或同权重）教师提供 logit 监督，属于 self-only on-policy self-distillation。"
+        "reasoning": "无外部教师，teacher.is_self=true，学生每步在线采样轨迹后由自身（EMA 或同权重）教师提供 logit 监督，属于 self-only on-policy self-distillation。",
+        "section": "§5.3.2"
       },
       "teacher_student_pairs": [
         {
@@ -23972,7 +24067,8 @@
         "is_opd": "yes",
         "primary_section": "§5.3.1",
         "secondary_sections": [],
-        "reasoning": "同基模型（same Qwen3 with context c）作为教师，学生在线采样，无外部 reward/verifier，属于 self 信号来源的在线自蒸馏（§5.3.2）。"
+        "reasoning": "同基模型（same Qwen3 with context c）作为教师，学生在线采样，无外部 reward/verifier，属于 self 信号来源的在线自蒸馏（§5.3.2）。",
+        "section": "§5.3.1"
       },
       "teacher_student_pairs": [
         {
@@ -24219,7 +24315,8 @@
           "§5.2",
           "§5.3.1"
         ],
-        "reasoning": "学生实时在线采样轨迹 + 外部teacher模型提供logit级监督 + outcome reward (GT verifier) 作为全局anchor做margin校准，属于外部teacher OPD，辅以GT verifier信号"
+        "reasoning": "学生实时在线采样轨迹 + 外部teacher模型提供logit级监督 + outcome reward (GT verifier) 作为全局anchor做margin校准，属于外部teacher OPD，辅以GT verifier信号",
+        "section": "§6"
       },
       "teacher_student_pairs": [
         {
@@ -24745,7 +24842,8 @@
         "is_opd": "yes",
         "primary_section": "§5.3.1",
         "secondary_sections": [],
-        "reasoning": "Teacher与student为同一模型参数（仅prompt上下文不同），属于self-signal的on-policy自蒸馏，无外部teacher模型或GT verifier介入"
+        "reasoning": "Teacher与student为同一模型参数（仅prompt上下文不同），属于self-signal的on-policy自蒸馏，无外部teacher模型或GT verifier介入",
+        "section": "§5.3.1"
       },
       "teacher_student_pairs": [
         {
@@ -24993,7 +25091,8 @@
         "secondary_sections": [
           "§5.1"
         ],
-        "reasoning": "外部教师（多个）提供 logit 级监督，学生轨迹在训练循环内实时采样，属于 external-teacher OPD；引入 debate 机制和 OPAD 为其主要创新。"
+        "reasoning": "外部教师（多个）提供 logit 级监督，学生轨迹在训练循环内实时采样，属于 external-teacher OPD；引入 debate 机制和 OPAD 为其主要创新。",
+        "section": "§4.3"
       },
       "teacher_student_pairs": [
         {
@@ -25306,7 +25405,8 @@
         "is_opd": "yes",
         "primary_section": "§5.3.1",
         "secondary_sections": [],
-        "reasoning": "EMA 教师 = 学生自身权重的指数平均（self），无外部教师模型，属于 self-distillation；student rollout 在训练循环内实时采样（on-policy）"
+        "reasoning": "EMA 教师 = 学生自身权重的指数平均（self），无外部教师模型，属于 self-distillation；student rollout 在训练循环内实时采样（on-policy）",
+        "section": "§5.3.1"
       },
       "teacher_student_pairs": [
         {
@@ -25549,7 +25649,8 @@
         "secondary_sections": [
           "§5.1"
         ],
-        "reasoning": "学生在训练中实时采样 rollout，监督信号来自由 Gemini 3 Flash demonstrations 训练的外部 MoE 判别器（response-level preference，无 logits），属于 black-box external-teacher OPD；含少量自身 rollout 对比，归入 §5.2（black-box/response-level OPD）。"
+        "reasoning": "学生在训练中实时采样 rollout，监督信号来自由 Gemini 3 Flash demonstrations 训练的外部 MoE 判别器（response-level preference，无 logits），属于 black-box external-teacher OPD；含少量自身 rollout 对比，归入 §5.2（black-box/response-level OPD）。",
+        "section": "§5.2"
       },
       "teacher_student_pairs": [
         {
@@ -25776,7 +25877,8 @@
         "is_opd": "yes",
         "primary_section": "§5.3.1",
         "secondary_sections": [],
-        "reasoning": "同一模型自蒸馏（teacher.is_self=true），teacher通过特权上下文（bbox由GT提供但模型权重共享），student实时单rollout采样，属于on-policy self-distillation；signal_source=self（特权bbox属于训练数据标注，非外部teacher模型），归入§5.3.2。"
+        "reasoning": "同一模型自蒸馏（teacher.is_self=true），teacher通过特权上下文（bbox由GT提供但模型权重共享），student实时单rollout采样，属于on-policy self-distillation；signal_source=self（特权bbox属于训练数据标注，非外部teacher模型），归入§5.3.2。",
+        "section": "§5.3.1"
       },
       "teacher_student_pairs": [
         {
@@ -26022,7 +26124,8 @@
         "is_opd": "yes",
         "primary_section": "§7.2",
         "secondary_sections": [],
-        "reasoning": "学生在训练循环内实时采样 rollout，用自身经验成功率作为监督信号，无外部教师模型，属于 self-signal on-policy self-distillation。"
+        "reasoning": "学生在训练循环内实时采样 rollout，用自身经验成功率作为监督信号，无外部教师模型，属于 self-signal on-policy self-distillation。",
+        "section": "§7.2"
       },
       "teacher_student_pairs": [
         {
@@ -26364,7 +26467,8 @@
           "§5.3.2",
           "§5.3.3"
         ],
-        "reasoning": "本文是 OPD 综合分析与诊断论文（phenomenology + mechanism + recipe），不属于单一新方法提出，而是覆盖多种 OPD 变体的系统研究。"
+        "reasoning": "本文是 OPD 综合分析与诊断论文（phenomenology + mechanism + recipe），不属于单一新方法提出，而是覆盖多种 OPD 变体的系统研究。",
+        "section": "§7.1"
       },
       "teacher_student_pairs": [
         {
@@ -26761,7 +26865,8 @@
         "is_opd": "yes",
         "primary_section": "§8.2",
         "secondary_sections": [],
-        "reasoning": "外部更大教师模型（MoE-A32B）在 student 实时采样的 rollout 上 teacher-forcing 提供 logit 级 forward-KL 监督，是标准 OPD（external teacher + student rollout in training loop）。"
+        "reasoning": "外部更大教师模型（MoE-A32B）在 student 实时采样的 rollout 上 teacher-forcing 提供 logit 级 forward-KL 监督，是标准 OPD（external teacher + student rollout in training loop）。",
+        "section": "§8.2"
       },
       "teacher_student_pairs": [
         {
@@ -26978,7 +27083,8 @@
         "is_opd": "yes",
         "primary_section": "§5.3.1",
         "secondary_sections": [],
-        "reasoning": "teacher 与 student 同一模型参数（shared weight），仅通过 conciseness 指令区分，无外部 teacher、无 GT verifier，属于纯 self on-policy distillation。"
+        "reasoning": "teacher 与 student 同一模型参数（shared weight），仅通过 conciseness 指令区分，无外部 teacher、无 GT verifier，属于纯 self on-policy distillation。",
+        "section": "§5.3.1"
       },
       "teacher_student_pairs": [
         {
@@ -27203,7 +27309,8 @@
           "§5.2",
           "§5.3.1"
         ],
-        "reasoning": "学生实时采样rollout + 外部teacher模型提供logit监督，是标准on-policy KD；§5.1对应external-teacher dense logit蒸馏，混入golden SFT属于off-policy KD辅助稳定。"
+        "reasoning": "学生实时采样rollout + 外部teacher模型提供logit监督，是标准on-policy KD；§5.1对应external-teacher dense logit蒸馏，混入golden SFT属于off-policy KD辅助稳定。",
+        "section": "§6"
       },
       "teacher_student_pairs": [
         {
@@ -27443,7 +27550,8 @@
         "secondary_sections": [
           "§5.3.1"
         ],
-        "reasoning": "本文是分析性论文，研究同模型自蒸馏（self OPD）的 failure mode；主要 signal 来自 self（同模型 + 解答上下文），属于 §5.3.2；在 off-policy SFT 实验中教师 rollout 使用了 ground-truth solution 过滤（PI），对应 §5.3.1 边界"
+        "reasoning": "本文是分析性论文，研究同模型自蒸馏（self OPD）的 failure mode；主要 signal 来自 self（同模型 + 解答上下文），属于 §5.3.2；在 off-policy SFT 实验中教师 rollout 使用了 ground-truth solution 过滤（PI），对应 §5.3.1 边界",
+        "section": "§7.2"
       },
       "teacher_student_pairs": [
         {
@@ -27664,7 +27772,8 @@
         "secondary_sections": [
           "§5.1"
         ],
-        "reasoning": "学生在训练循环内实时采样轨迹，外部教师（QwQ-32B / SFT-agent）提供 verbal score 作为信号，属于 on-policy + external-teacher 蒸馏（§5.2）；同时涉及 §5.1 的跨模型蒸馏框架"
+        "reasoning": "学生在训练循环内实时采样轨迹，外部教师（QwQ-32B / SFT-agent）提供 verbal score 作为信号，属于 on-policy + external-teacher 蒸馏（§5.2）；同时涉及 §5.1 的跨模型蒸馏框架",
+        "section": "§5.2"
       },
       "teacher_student_pairs": [
         {
@@ -27945,7 +28054,8 @@
         "secondary_sections": [
           "§5.1.1"
         ],
-        "reasoning": "Stages 1-2 are off-policy SFT on teacher-generated data (§5.1.1), but Stage 3 mixed-policy distillation involves student rollouts in the training loop with teacher completion providing the signal, making it on-policy distillation from an external teacher (§5.1.2)."
+        "reasoning": "Stages 1-2 are off-policy SFT on teacher-generated data (§5.1.1), but Stage 3 mixed-policy distillation involves student rollouts in the training loop with teacher completion providing the signal, making it on-policy distillation from an external teacher (§5.1.2).",
+        "section": "§4.2"
       },
       "teacher_student_pairs": [
         {
@@ -28716,7 +28826,8 @@
         "secondary_sections": [
           "§5.3.1"
         ],
-        "reasoning": "学生在线采样 rollout + 外部教师模型（Skywork-OR1-Math-7B）提供 token 级 logit 监督，属于 external-teacher on-policy distillation；同时叠加 GRPO（verifier reward），次要归入 §5.3.1（PI GT verifier）。"
+        "reasoning": "学生在线采样 rollout + 外部教师模型（Skywork-OR1-Math-7B）提供 token 级 logit 监督，属于 external-teacher on-policy distillation；同时叠加 GRPO（verifier reward），次要归入 §5.3.1（PI GT verifier）。",
+        "section": "§4.3"
       },
       "teacher_student_pairs": [
         {
@@ -28978,7 +29089,8 @@
         "secondary_sections": [
           "§5.3.3"
         ],
-        "reasoning": "外部教师模型（DeepSeek-R1）提供结构奖励信号，学生在训练循环内实时采样rollout，属于外部teacher驱动的on-policy distillation（§5.1）；GSRM作为结构verifier亦含verifier-RLVR特征（§5.3.3）。"
+        "reasoning": "外部教师模型（DeepSeek-R1）提供结构奖励信号，学生在训练循环内实时采样rollout，属于外部teacher驱动的on-policy distillation（§5.1）；GSRM作为结构verifier亦含verifier-RLVR特征（§5.3.3）。",
+        "section": "§4.3"
       },
       "teacher_student_pairs": [
         {
@@ -29205,7 +29317,8 @@
         "secondary_sections": [
           "§5.3.1"
         ],
-        "reasoning": "训练循环内实时采样 student rollout，教师为同一模型不同上下文（self），但反馈 f 来自环境 verifier（编译器/测试），因此同时具有 §5.3.2（self OPSD）和 §5.3.1（PI/verifier 信号）双重属性，主体归 §5.3.2。"
+        "reasoning": "训练循环内实时采样 student rollout，教师为同一模型不同上下文（self），但反馈 f 来自环境 verifier（编译器/测试），因此同时具有 §5.3.2（self OPSD）和 §5.3.1（PI/verifier 信号）双重属性，主体归 §5.3.2。",
+        "section": "§5.3.3"
       },
       "teacher_student_pairs": [
         {
@@ -29487,7 +29600,8 @@
         "is_opd": "yes",
         "primary_section": "§4.3",
         "secondary_sections": [],
-        "reasoning": "学生在训练循环内实时采样轨迹，以教师logits（Q值）为信号做REINFORCE更新，属于外部教师模型提供token-level信号的on-policy蒸馏。"
+        "reasoning": "学生在训练循环内实时采样轨迹，以教师logits（Q值）为信号做REINFORCE更新，属于外部教师模型提供token-level信号的on-policy蒸馏。",
+        "section": "§4.3"
       },
       "teacher_student_pairs": [
         {
@@ -29711,7 +29825,8 @@
         "secondary_sections": [
           "§5.1"
         ],
-        "reasoning": "蒸馏阶段分两 Phase：Phase1 为 off-policy SFT（§5.1），Phase2 为学生自采样 + 外部教师 logits KL（§5.2 on-policy KD from external teacher）。"
+        "reasoning": "蒸馏阶段分两 Phase：Phase1 为 off-policy SFT（§5.1），Phase2 为学生自采样 + 外部教师 logits KL（§5.2 on-policy KD from external teacher）。",
+        "section": "§8.1"
       },
       "teacher_student_pairs": [
         {
@@ -30058,7 +30173,8 @@
         "secondary_sections": [
           "§5.2"
         ],
-        "reasoning": "有外部 teacher 模型提供 logit 信号，student 在训练循环内实时采样（on-policy），属于 external-teacher on-policy KD（§5.1/§5.2），同时也支持 off-policy 变体。"
+        "reasoning": "有外部 teacher 模型提供 logit 信号，student 在训练循环内实时采样（on-policy），属于 external-teacher on-policy KD（§5.1/§5.2），同时也支持 off-policy 变体。",
+        "section": "§5.1"
       },
       "teacher_student_pairs": [
         {
@@ -30452,7 +30568,8 @@
           "§5.2",
           "§5.3.1"
         ],
-        "reasoning": "外部 teacher（DeepSeek-R1）生成离线轨迹作为蒸馏信号，同时在训练循环内实时采样在线 rollout；verifier（Math-Verify）提供 GT 验证奖励，兼具 external-teacher 蒸馏（§5.1）和 PI(GT) verifier（§5.3.1）双重信号源，主导分类为有外部 teacher 的 OPD。"
+        "reasoning": "外部 teacher（DeepSeek-R1）生成离线轨迹作为蒸馏信号，同时在训练循环内实时采样在线 rollout；verifier（Math-Verify）提供 GT 验证奖励，兼具 external-teacher 蒸馏（§5.1）和 PI(GT) verifier（§5.3.1）双重信号源，主导分类为有外部 teacher 的 OPD。",
+        "section": "§4.3"
       },
       "teacher_student_pairs": [
         {
@@ -30768,7 +30885,8 @@
         "secondary_sections": [
           "§5.2"
         ],
-        "reasoning": "教师信号来自预训练的 DPO/反向DPO 模型（外部 teacher model），学生在训练循环内实时采样 rollout，属于 on-policy distillation from external teacher model，归 §5.1/§5.2。"
+        "reasoning": "教师信号来自预训练的 DPO/反向DPO 模型（外部 teacher model），学生在训练循环内实时采样 rollout，属于 on-policy distillation from external teacher model，归 §5.1/§5.2。",
+        "section": "§4.3"
       },
       "teacher_student_pairs": [
         {
@@ -31717,7 +31835,8 @@
         "secondary_sections": [
           "§5.1"
         ],
-        "reasoning": "Student rolls out in-loop per training step, teacher provides token-level logit supervision on interleaved on-policy sequences — classic on-policy KD with external teacher model; maps to §5.1/§5.2 (external-teacher soft-label distillation with on-policy student samples)."
+        "reasoning": "Student rolls out in-loop per training step, teacher provides token-level logit supervision on interleaved on-policy sequences — classic on-policy KD with external teacher model; maps to §5.1/§5.2 (external-teacher soft-label distillation with on-policy student samples).",
+        "section": "§8.3"
       },
       "teacher_student_pairs": [
         {
@@ -31920,13 +32039,13 @@
         "evidence_quote": "we utilize the fine-tuned student LLM π_ref to conduct thought-based reasoning on our sampled test dataset denoted as D_test = {x_test, ŷ_test, ŝ_test}, and we obtain the test results"
       },
       "opd_classification": {
-        "is_opd": "yes",
-        "primary_section": "§5.1.1",
+        "is_opd": "no",
+        "primary_section": "§4.3",
         "secondary_sections": [
           "§4.3",
           "§6.2"
         ],
-        "reasoning": "Core contribution is distilling teacher correction traces into student via DPO on student-generated erroneous reasoning, combining white-box teacher signal with on-policy student rollouts for preference optimization."
+        "reasoning": "Credit assignment method (thought template + cross-DPO). Cited in §4.3 as RL-augmented example, not core OPD method."
       },
       "teacher_student_pairs": [
         {
@@ -32080,7 +32199,8 @@
       ],
       "score": 6,
       "_worker": "v2-direct-llm-api",
-      "_model": "claude"
+      "_model": "claude",
+      "is_opd": "no"
     },
     "2404.02657": {
       "_schema_version": "v3",
@@ -32300,7 +32420,8 @@
         "is_opd": "yes",
         "primary_section": "§5.1",
         "secondary_sections": [],
-        "reasoning": "每步从学生实时采样伪目标（on-policy rollout），再用外部教师模型（带软提示）的 logits 分布作为监督信号，属于外部教师驱动的 on-policy 蒸馏（§5.1 范畴）。"
+        "reasoning": "每步从学生实时采样伪目标（on-policy rollout），再用外部教师模型（带软提示）的 logits 分布作为监督信号，属于外部教师驱动的 on-policy 蒸馏（§5.1 范畴）。",
+        "section": "§5.1"
       },
       "teacher_student_pairs": [
         {
@@ -32596,7 +32717,8 @@
         "secondary_sections": [
           "§5.1"
         ],
-        "reasoning": "学生在训练循环中实时生成SGO（off-policy buffer），由外部教师模型提供logit信号进行蒸馏，属于外部teacher驱动的OPD，使用replay buffer降低生成频率。"
+        "reasoning": "学生在训练循环中实时生成SGO（off-policy buffer），由外部教师模型提供logit信号进行蒸馏，属于外部teacher驱动的OPD，使用replay buffer降低生成频率。",
+        "section": "§4.1"
       },
       "teacher_student_pairs": [
         {
@@ -32927,7 +33049,8 @@
         "secondary_sections": [
           "§5.2"
         ],
-        "reasoning": "每epoch开始时用外部teacher模型和student模型在线采样响应，构建训练集，属于外部teacher主导的on-policy蒸馏（§5.1/§5.2），teacher提供logit-level软目标"
+        "reasoning": "每epoch开始时用外部teacher模型和student模型在线采样响应，构建训练集，属于外部teacher主导的on-policy蒸馏（§5.1/§5.2），teacher提供logit-level软目标",
+        "section": "§4.1"
       },
       "teacher_student_pairs": [
         {
@@ -33676,10 +33799,10 @@
         "evidence_quote": "the LLM generates its own training data from its previous iterations, refining its policy by discerning these self-generated responses from those obtained from human-annotated data. Our method progressively elevates the LLM from a nascent model to a formidable one, unlocking the full potential of human-annotated demonstration data for SFT."
       },
       "opd_classification": {
-        "is_opd": "yes",
-        "primary_section": "§5.3.2",
+        "is_opd": "no",
+        "primary_section": "§9",
         "secondary_sections": [],
-        "reasoning": "仅使用自身上一迭代rollout作为对手（负样本），正信号来自人类SFT数据（目标分布），无外部teacher模型，无verifier/reward model，本质是self on-policy distillation（以人类数据分布为对齐目标）。"
+        "reasoning": "Game-theoretic self-play (Nash equilibrium), not OPD. Cited in §9 Future Directions as adjacent paradigm."
       },
       "teacher_student_pairs": [
         {
@@ -33817,7 +33940,8 @@
       "score": 7,
       "_read_date": "2026-05-17T11:24:15.096579",
       "_attempts": 1,
-      "_success": true
+      "_success": true,
+      "is_opd": "no"
     },
     "2402.12030": {
       "_schema_version": "v3",
@@ -34438,7 +34562,8 @@
         "secondary_sections": [
           "§5.1.2"
         ],
-        "reasoning": "使用外部教师模型logits作为奖励信号，学生在训练循环内实时采样rollout，属于external-teacher OPD（§5.1）；使用teacher-mixed sampling可归为§5.1.2混合策略蒸馏变体。"
+        "reasoning": "使用外部教师模型logits作为奖励信号，学生在训练循环内实时采样rollout，属于external-teacher OPD（§5.1）；使用teacher-mixed sampling可归为§5.1.2混合策略蒸馏变体。",
+        "section": "§5.1"
       },
       "teacher_student_pairs": [
         {
@@ -34773,7 +34898,8 @@
         "is_opd": "yes",
         "primary_section": "§4.1",
         "secondary_sections": [],
-        "reasoning": "学生在训练循环内 per-step 采样自身轨迹，teacher 提供 token-level logits 作为监督信号，属于外部 teacher model 驱动的 on-policy distillation，对应 §5.1。"
+        "reasoning": "学生在训练循环内 per-step 采样自身轨迹，teacher 提供 token-level logits 作为监督信号，属于外部 teacher model 驱动的 on-policy distillation，对应 §5.1。",
+        "section": "§4.1"
       },
       "teacher_student_pairs": [
         {
@@ -35066,7 +35192,8 @@
           "§5.2",
           "§4.3"
         ],
-        "reasoning": "The core contribution is an adversarial curriculum that iteratively identifies hard instructions based on student performance gap and generates new hard training data, which is a curriculum/data selection strategy for black-box distillation."
+        "reasoning": "The core contribution is an adversarial curriculum that iteratively identifies hard instructions based on student performance gap and generates new hard training data, which is a curriculum/data selection strategy for black-box distillation.",
+        "section": "§6"
       },
       "teacher_student_pairs": [
         {
@@ -35248,7 +35375,8 @@
         "secondary_sections": [
           "§5.2"
         ],
-        "reasoning": "训练循环内实时从学生采样序列，用 frozen external teacher 的 logits 作监督，属于 external-teacher on-policy KD（§5.1/§5.2）；目标是 Speculative Decoding 的 acceptance rate 优化而非通用生成质量。"
+        "reasoning": "训练循环内实时从学生采样序列，用 frozen external teacher 的 logits 作监督，属于 external-teacher on-policy KD（§5.1/§5.2）；目标是 Speculative Decoding 的 acceptance rate 优化而非通用生成质量。",
+        "section": "§8.3"
       },
       "teacher_student_pairs": [
         {
@@ -35500,7 +35628,8 @@
         "is_opd": "yes",
         "primary_section": "§4.1",
         "secondary_sections": [],
-        "reasoning": "vOPD直接继承并扩展OPD框架：学生生成在线rollout，使用学生-教师KL散度作为训练信号，核心在线策略机制不变，仅引入封闭形式基线降低方差"
+        "reasoning": "vOPD直接继承并扩展OPD框架：学生生成在线rollout，使用学生-教师KL散度作为训练信号，核心在线策略机制不变，仅引入封闭形式基线降低方差",
+        "section": "§4.1"
       },
       "teacher_student_pairs": [
         {
@@ -35748,7 +35877,8 @@
         "secondary_sections": [
           "§5.2"
         ],
-        "reasoning": "student在每个token位置实时采样（greedy argmax或speculative sampling）并与外部teacher logits比较进行verify，属于训练循环内student rollout + external teacher logits蒸馏，即on-policy KD (§5.1)"
+        "reasoning": "student在每个token位置实时采样（greedy argmax或speculative sampling）并与外部teacher logits比较进行verify，属于训练循环内student rollout + external teacher logits蒸馏，即on-policy KD (§5.1)",
+        "section": "§6"
       },
       "teacher_student_pairs": [
         {
@@ -36110,7 +36240,8 @@
         "secondary_sections": [
           "§5.2"
         ],
-        "reasoning": "student 在训练循环中实时采样自身 rollout，并用外部更强 teacher 模型（Qwen3-30B-A3B）的 logits 提供密集监督信号，属于 external-teacher OPD；核心贡献是对 OPD 监督区域的自适应截断。"
+        "reasoning": "student 在训练循环中实时采样自身 rollout，并用外部更强 teacher 模型（Qwen3-30B-A3B）的 logits 提供密集监督信号，属于 external-teacher OPD；核心贡献是对 OPD 监督区域的自适应截断。",
+        "section": "§7.2"
       },
       "teacher_student_pairs": [
         {
@@ -36403,7 +36534,8 @@
           "§5.1.1",
           "§6.3"
         ],
-        "reasoning": "工业级multi-teacher on-policy distillation应用，student实时生成rollouts，full-vocab KL优化"
+        "reasoning": "工业级multi-teacher on-policy distillation应用，student实时生成rollouts，full-vocab KL优化",
+        "section": "§8.1"
       },
       "teacher_student_pairs": [
         {
@@ -36616,7 +36748,7 @@
       },
       "opd_classification": {
         "is_opd": "yes",
-        "section": "variational inference OPD for efficient reasoning",
+        "section": "§5.3.2",
         "output_modality": "text"
       },
       "teacher_student_pairs": [
@@ -36845,7 +36977,7 @@
       },
       "opd_classification": {
         "is_opd": "yes",
-        "section": "on-policy self-distillation for safety alignment",
+        "section": "§8.1",
         "output_modality": "text"
       },
       "teacher_student_pairs": [
@@ -37112,7 +37244,7 @@
       },
       "opd_classification": {
         "is_opd": "yes",
-        "section": "data-centric OPD / prompt selection for multimodal distillation",
+        "section": "§6",
         "output_modality": "image"
       },
       "teacher_student_pairs": [
@@ -37532,7 +37664,7 @@
       },
       "opd_classification": {
         "is_opd": "yes",
-        "section": "systems/infrastructure for scalable OPD (async training)",
+        "section": "§6",
         "output_modality": "text"
       },
       "teacher_student_pairs": [
@@ -37701,7 +37833,7 @@
       },
       "opd_classification": {
         "is_opd": "yes",
-        "section": "on-policy self-distillation / vision-language",
+        "section": "§5.3.2",
         "output_modality": "text"
       },
       "teacher_student_pairs": [
@@ -38130,7 +38262,7 @@
       },
       "opd_classification": {
         "is_opd": "yes",
-        "section": "self-supervised on-policy distillation for math reasoning",
+        "section": "§5.3.2",
         "output_modality": "text"
       },
       "teacher_student_pairs": [
@@ -38356,7 +38488,7 @@
       },
       "opd_classification": {
         "is_opd": "yes",
-        "section": "targeted on-policy self-distillation for long-horizon agents",
+        "section": "§5.3.2",
         "output_modality": "text"
       },
       "teacher_student_pairs": [
@@ -38539,7 +38671,7 @@
       },
       "opd_classification": {
         "is_opd": "yes",
-        "section": "on-policy self-distillation for search/retrieval-augmented reasoning",
+        "section": "§5.3.2",
         "output_modality": "text"
       },
       "teacher_student_pairs": [
@@ -39083,7 +39215,7 @@
       },
       "opd_classification": {
         "is_opd": "yes",
-        "section": "on-policy distillation with exposure-bias mitigation",
+        "section": "§6",
         "output_modality": "text"
       },
       "teacher_student_pairs": [
@@ -39586,7 +39718,7 @@
       },
       "opd_classification": {
         "is_opd": "yes",
-        "section": "on-policy self-distillation with multi-view privileged information",
+        "section": "§5.3.1",
         "output_modality": "text"
       },
       "teacher_student_pairs": [
@@ -39806,7 +39938,7 @@
       },
       "opd_classification": {
         "is_opd": "yes",
-        "section": "on-policy self-distillation / task-oriented dialogue with privileged information",
+        "section": "§5.3.2",
         "output_modality": "text"
       },
       "teacher_student_pairs": [
@@ -40034,7 +40166,7 @@
       },
       "opd_classification": {
         "is_opd": "yes",
-        "section": "on-policy distillation / vision-language with visual-advantage weighting",
+        "section": "§6",
         "output_modality": "text"
       },
       "teacher_student_pairs": [
@@ -40283,7 +40415,7 @@
       },
       "opd_classification": {
         "is_opd": "yes",
-        "section": "§4.2",
+        "section": "§4.3",
         "output_modality": "text"
       },
       "teacher_student_pairs": [
@@ -40711,7 +40843,7 @@
       },
       "opd_classification": {
         "is_opd": "yes",
-        "section": "Self-distillation / RL+distillation interleaved",
+        "section": "§5.3.2",
         "output_modality": "text"
       },
       "teacher_student_pairs": [
@@ -40931,7 +41063,7 @@
       },
       "opd_classification": {
         "is_opd": "yes",
-        "section": "Self-distillation / Entropy-aware OPD",
+        "section": "§4.2",
         "output_modality": "text"
       },
       "teacher_student_pairs": [
@@ -41392,7 +41524,7 @@
       },
       "opd_classification": {
         "is_opd": "yes",
-        "section": "on-policy self-distillation / safety-alignment",
+        "section": "§5.3.2",
         "output_modality": "text"
       },
       "teacher_student_pairs": [
@@ -41692,7 +41824,7 @@
       },
       "opd_classification": {
         "is_opd": "yes",
-        "section": "Self-distillation / Multi-turn robustness",
+        "section": "§5.3.2",
         "output_modality": "text"
       },
       "teacher_student_pairs": [
@@ -41795,7 +41927,7 @@
       },
       "opd_classification": {
         "is_opd": "yes",
-        "section": "Multi-teacher OPD / Capability recovery",
+        "section": "§6",
         "output_modality": "text"
       },
       "teacher_student_pairs": [
@@ -41893,7 +42025,7 @@
       },
       "opd_classification": {
         "is_opd": "yes",
-        "section": "Efficient OPD / Rollout truncation",
+        "section": "§6",
         "output_modality": "text"
       },
       "teacher_student_pairs": [
@@ -41941,7 +42073,7 @@
       },
       "opd_classification": {
         "is_opd": "yes",
-        "section": "Selective/efficient OPD / Token selection",
+        "section": "§4.2",
         "output_modality": "text"
       },
       "teacher_student_pairs": [
@@ -41990,7 +42122,7 @@
       },
       "opd_classification": {
         "is_opd": "yes",
-        "section": "on-policy self-distillation with adaptive token weighting",
+        "section": "§4.2",
         "output_modality": "text"
       },
       "teacher_student_pairs": [
@@ -42142,7 +42274,7 @@
       },
       "opd_classification": {
         "is_opd": "yes",
-        "section": "OPD for efficient inference / Architecture-OPD co-design",
+        "section": "§5.1",
         "output_modality": "text"
       },
       "teacher_student_pairs": [
@@ -42372,7 +42504,7 @@
       },
       "opd_classification": {
         "is_opd": "yes",
-        "section": "on-policy self-distillation / safety-alignment",
+        "section": "§5.3.3",
         "output_modality": "text"
       },
       "deep_read_date": "2026-05-28",
@@ -42402,7 +42534,8 @@
         "is_opd": "yes",
         "reasoning": "ROSD satisfies all 3 OPD conditions: (C1) Self-teacher provides distribution-level supervision via π_θ(·|x,e,y<t). (C2) Standalone KL/JSD distillation loss (Eq. 9) directly optimizes θ. (C3) Rollouts are sampled from current student policy π_θ at every training step. This is strict OPD with a novel contribution: error-localized masking that restricts distillation to erroneous segments.",
         "opd_type": "strict OPD (standalone JSD/KL loss, per-step student rollouts)",
-        "r2_standalone": true
+        "r2_standalone": true,
+        "section": "§5.3.2"
       },
       "benchmarks": {
         "models": [
@@ -42527,7 +42660,8 @@
           "§4.3",
           "§6.1"
         ],
-        "reasoning": "Core contribution is a self-distillation method where privileged information (skill bank) conditions the teacher, with verifier outcomes validating teacher polarity—PI-based on-policy self-distillation with environment feedback."
+        "reasoning": "Core contribution is a self-distillation method where privileged information (skill bank) conditions the teacher, with verifier outcomes validating teacher polarity—PI-based on-policy self-distillation with environment feedback.",
+        "section": "§5.3.1"
       },
       "teacher_student_pairs": [
         {
@@ -42738,7 +42872,8 @@
           "§6.1",
           "§6.2"
         ],
-        "reasoning": "The core contribution is an adaptive on-policy distillation objective with answer-conditioned teacher and EMA-based adaptive weighting, making it primarily about adaptive divergence/loss formulation for on-policy distillation."
+        "reasoning": "The core contribution is an adaptive on-policy distillation objective with answer-conditioned teacher and EMA-based adaptive weighting, making it primarily about adaptive divergence/loss formulation for on-policy distillation.",
+        "section": "§4.2"
       },
       "teacher_student_pairs": [
         {
@@ -42942,7 +43077,8 @@
           "§6.1",
           "§4.3"
         ],
-        "reasoning": "Core contribution is a new trajectory-aware objective (OT-based loss) that augments the standard reverse-KL OPD loss with near-future trajectory alignment, making it primarily a novel loss/objective for on-policy distillation."
+        "reasoning": "Core contribution is a new trajectory-aware objective (OT-based loss) that augments the standard reverse-KL OPD loss with near-future trajectory alignment, making it primarily a novel loss/objective for on-policy distillation.",
+        "section": "§4.1"
       },
       "teacher_student_pairs": [
         {
@@ -43115,7 +43251,8 @@
           "§6.1",
           "§8.3"
         ],
-        "reasoning": "The core contribution is a new decomposed loss formulation for on-policy distillation that separates visual grounding from language prior and steers the optimization objective toward the visual subspace, constituting a novel objective/divergence design."
+        "reasoning": "The core contribution is a new decomposed loss formulation for on-policy distillation that separates visual grounding from language prior and steers the optimization objective toward the visual subspace, constituting a novel objective/divergence design.",
+        "section": "§4.1"
       },
       "teacher_student_pairs": [
         {
@@ -43338,7 +43475,8 @@
         "secondary_sections": [
           "§4.3"
         ],
-        "reasoning": "Core contribution is a new corrected objective/divergence formulation for on-policy distillation, deriving gradient-faithful advantage for general f-divergences."
+        "reasoning": "Core contribution is a new corrected objective/divergence formulation for on-policy distillation, deriving gradient-faithful advantage for general f-divergences.",
+        "section": "§4.1"
       },
       "teacher_student_pairs": [
         {
@@ -43530,7 +43668,8 @@
           "§4.1",
           "§6.1"
         ],
-        "reasoning": "Core contribution is an adaptive trust-region divergence objective that selectively applies RKL in reliable regions and FKL in outlier regions during on-policy distillation, fitting adaptive objective formulation."
+        "reasoning": "Core contribution is an adaptive trust-region divergence objective that selectively applies RKL in reliable regions and FKL in outlier regions during on-policy distillation, fitting adaptive objective formulation.",
+        "section": "§4.2"
       },
       "teacher_student_pairs": [
         {
@@ -43759,7 +43898,8 @@
           "§4.2",
           "§6.1"
         ],
-        "reasoning": "Core contribution is enabling on-policy distillation from black-box teachers without logit access, using chunk-level semantic verification as the supervision signal."
+        "reasoning": "Core contribution is enabling on-policy distillation from black-box teachers without logit access, using chunk-level semantic verification as the supervision signal.",
+        "section": "§5.2"
       },
       "teacher_student_pairs": [
         {
@@ -44049,7 +44189,8 @@
           "§4.2",
           "§6.2"
         ],
-        "reasoning": "The core contribution is on-policy self-distillation of the world model using the student's own rollouts with an EMA teacher providing soft targets—a pure self-distillation mechanism without external teacher models."
+        "reasoning": "The core contribution is on-policy self-distillation of the world model using the student's own rollouts with an EMA teacher providing soft targets—a pure self-distillation mechanism without external teacher models.",
+        "section": "§5.3.2"
       },
       "teacher_student_pairs": [
         {
@@ -44308,7 +44449,8 @@
           "§5.3.2",
           "§4.1"
         ],
-        "reasoning": "Core contribution is token-level weighting (restricting KL to safety tokens) within on-policy distillation using a self-constructed teacher via activation steering"
+        "reasoning": "Core contribution is token-level weighting (restricting KL to safety tokens) within on-policy distillation using a self-constructed teacher via activation steering",
+        "section": "§6"
       },
       "teacher_student_pairs": [
         {
@@ -44571,7 +44713,8 @@
         "secondary_sections": [
           "§6.2"
         ],
-        "reasoning": "Core contribution is a compute-efficiency technique (horizon control) for on-policy distillation, falling under efficiency/stability techniques for OPD."
+        "reasoning": "Core contribution is a compute-efficiency technique (horizon control) for on-policy distillation, falling under efficiency/stability techniques for OPD.",
+        "section": "§6"
       },
       "teacher_student_pairs": [
         {
@@ -44761,7 +44904,8 @@
           "§4.1",
           "§5.1.1"
         ],
-        "reasoning": "Core contribution is self-distillation where the same backbone serves as both frozen FULL-context teacher and trainable RAW-SHARDED student, with on-policy rollouts and reverse-KL alignment—pure self-distillation for presentation invariance."
+        "reasoning": "Core contribution is self-distillation where the same backbone serves as both frozen FULL-context teacher and trainable RAW-SHARDED student, with on-policy rollouts and reverse-KL alignment—pure self-distillation for presentation invariance.",
+        "section": "§5.3.2"
       },
       "teacher_student_pairs": [
         {
@@ -45253,7 +45397,8 @@
           "§6.1",
           "§7.1"
         ],
-        "reasoning": "Core contribution is an adaptive supervision signal (lookahead confidence reward) that addresses degradation of teacher signal quality during on-policy distillation, modifying the effective objective based on student state"
+        "reasoning": "Core contribution is an adaptive supervision signal (lookahead confidence reward) that addresses degradation of teacher signal quality during on-policy distillation, modifying the effective objective based on student state",
+        "section": "§4.2"
       },
       "teacher_student_pairs": [
         {
@@ -45485,7 +45630,8 @@
           "§4.2",
           "§6.1"
         ],
-        "reasoning": "Core contribution is on-policy self-distillation where the teacher is the same strong model conditioned on weak critique (privileged information), making it a self-teacher with external critique as privileged signal."
+        "reasoning": "Core contribution is on-policy self-distillation where the teacher is the same strong model conditioned on weak critique (privileged information), making it a self-teacher with external critique as privileged signal.",
+        "section": "§5.3.1"
       },
       "teacher_student_pairs": [
         {
@@ -45907,7 +46053,8 @@
           "§4.2",
           "§5.1.1"
         ],
-        "reasoning": "Core contribution is a curriculum/warmup technique (annealed trust-region behavior blending) that improves early-stage on-policy distillation stability"
+        "reasoning": "Core contribution is a curriculum/warmup technique (annealed trust-region behavior blending) that improves early-stage on-policy distillation stability",
+        "section": "§6"
       },
       "teacher_student_pairs": [
         {
@@ -46143,7 +46290,8 @@
         "secondary_sections": [
           "§4.2"
         ],
-        "reasoning": "Core contribution is a token-level and trajectory-level weighting/filtering scheme for on-policy distillation, which is an efficiency/stability technique for selective supervision (token weighting + curriculum-like filtering)."
+        "reasoning": "Core contribution is a token-level and trajectory-level weighting/filtering scheme for on-policy distillation, which is an efficiency/stability technique for selective supervision (token weighting + curriculum-like filtering).",
+        "section": "§6"
       },
       "teacher_student_pairs": [
         {
@@ -46387,7 +46535,8 @@
           "§4.3",
           "§5.1"
         ],
-        "reasoning": "The core contribution is on-policy self-distillation using privileged information (ground-truth future videos/answers) as teacher-side context to calibrate student's own trajectories—distillation IS the method."
+        "reasoning": "The core contribution is on-policy self-distillation using privileged information (ground-truth future videos/answers) as teacher-side context to calibrate student's own trajectories—distillation IS the method.",
+        "section": "§5.3.1"
       },
       "teacher_student_pairs": [
         {
@@ -46564,7 +46713,8 @@
           "§4.3",
           "§7.1"
         ],
-        "reasoning": "Core contribution is on-policy self-distillation with privileged information (safety constitution) as the teacher signal source; the distillation IS the method and removing it eliminates the contribution."
+        "reasoning": "Core contribution is on-policy self-distillation with privileged information (safety constitution) as the teacher signal source; the distillation IS the method and removing it eliminates the contribution.",
+        "section": "§5.3.1"
       },
       "teacher_student_pairs": [
         {
@@ -46793,7 +46943,8 @@
           "§5.3.2",
           "§4.2"
         ],
-        "reasoning": "Core contribution is a curriculum/scheduling mechanism (CGTR) that adaptively controls when the self-teacher refreshes during on-policy distillation, making it primarily a stability/scheduling technique (§6.2) for self-distillation (§5.3.2) with an adaptive objective component (§4.2)."
+        "reasoning": "Core contribution is a curriculum/scheduling mechanism (CGTR) that adaptively controls when the self-teacher refreshes during on-policy distillation, making it primarily a stability/scheduling technique (§6.2) for self-distillation (§5.3.2) with an adaptive objective component (§4.2).",
+        "section": "§6"
       },
       "teacher_student_pairs": [
         {
@@ -46970,7 +47121,8 @@
           "§5.3.2",
           "§4.2"
         ],
-        "reasoning": "Core contribution is a per-batch token/information weighting mechanism (adaptive step-size modulation) for on-policy self-distillation, fitting §6.1 (token/sample weighting for efficiency/stability)."
+        "reasoning": "Core contribution is a per-batch token/information weighting mechanism (adaptive step-size modulation) for on-policy self-distillation, fitting §6.1 (token/sample weighting for efficiency/stability).",
+        "section": "§6"
       },
       "teacher_student_pairs": [
         {
@@ -47146,7 +47298,8 @@
           "§4.3",
           "§6.1"
         ],
-        "reasoning": "Core contribution is on-policy self-distillation where the teacher is the same model conditioned on privileged information (PI from ground-truth answers), combined with RL outcome rewards; removing the distillation term loses the main contribution."
+        "reasoning": "Core contribution is on-policy self-distillation where the teacher is the same model conditioned on privileged information (PI from ground-truth answers), combined with RL outcome rewards; removing the distillation term loses the main contribution.",
+        "section": "§5.3.1"
       },
       "teacher_student_pairs": [
         {
@@ -47328,7 +47481,8 @@
           "§4.2",
           "§6.1"
         ],
-        "reasoning": "Core contribution is on-policy knowledge distillation with a cross-lingual verbalizer enhancing white-box teacher logit transfer to student on student-generated rollouts."
+        "reasoning": "Core contribution is on-policy knowledge distillation with a cross-lingual verbalizer enhancing white-box teacher logit transfer to student on student-generated rollouts.",
+        "section": "§5.1"
       },
       "teacher_student_pairs": [
         {
@@ -47563,7 +47717,8 @@
           "§5.1.1",
           "§5.3.2"
         ],
-        "reasoning": "Core contribution is a curriculum/recipe for stable multi-iteration context-distillation comparing on-policy vs off-policy regimes, experience granularity, and injection patterns—fitting stability/curriculum design for on-policy distillation."
+        "reasoning": "Core contribution is a curriculum/recipe for stable multi-iteration context-distillation comparing on-policy vs off-policy regimes, experience granularity, and injection patterns—fitting stability/curriculum design for on-policy distillation.",
+        "section": "§6"
       },
       "teacher_student_pairs": [
         {
@@ -47752,7 +47907,8 @@
           "§5.3.1",
           "§6.2"
         ],
-        "reasoning": "The core method is on-policy distillation of an external judge's scores into the model's self-evaluation tokens on the model's own rollouts, with RL augmenting the distillation cycle rather than being the sole contribution."
+        "reasoning": "The core method is on-policy distillation of an external judge's scores into the model's self-evaluation tokens on the model's own rollouts, with RL augmenting the distillation cycle rather than being the sole contribution.",
+        "section": "§4.3"
       },
       "teacher_student_pairs": [
         {
@@ -47958,7 +48114,8 @@
           "§5.3.2",
           "§6.1"
         ],
-        "reasoning": "Core contribution is a new forward cross-entropy divergence objective for on-policy self-distillation with monotonic improvement guarantees, fitting adaptive divergence/objective design"
+        "reasoning": "Core contribution is a new forward cross-entropy divergence objective for on-policy self-distillation with monotonic improvement guarantees, fitting adaptive divergence/objective design",
+        "section": "§4.1"
       },
       "teacher_student_pairs": [
         {
@@ -48184,7 +48341,8 @@
         "secondary_sections": [
           "§8.2"
         ],
-        "reasoning": "Student (diffusion LM) generates on-policy trajectories; frozen original AR model acts as self-teacher; distillation is the main training objective. Fits §5.3.2 (pure self-distillation, frozen-copy teacher)."
+        "reasoning": "Student (diffusion LM) generates on-policy trajectories; frozen original AR model acts as self-teacher; distillation is the main training objective. Fits §5.3.2 (pure self-distillation, frozen-copy teacher).",
+        "section": "§5.3.2"
       },
       "teacher_student_pairs": [
         {
@@ -48284,7 +48442,8 @@
         "secondary_sections": [
           "§7.3"
         ],
-        "reasoning": "Empirical geometry analysis of OPD parameter-space dynamics; no new training method. Subspace locking is an empirical finding that explains OPD's sample efficiency."
+        "reasoning": "Empirical geometry analysis of OPD parameter-space dynamics; no new training method. Subspace locking is an empirical finding that explains OPD's sample efficiency.",
+        "section": "§7.1"
       },
       "teacher_student_pairs": [],
       "training_setup": {
@@ -48364,7 +48523,8 @@
         "secondary_sections": [
           "§4.2"
         ],
-        "reasoning": "Binary verifier provides external feedback to gate teacher trust in OPD; fits §5.3.3 (verifier-guided distillation). Sign-consistency gating is also adaptive weighting (§4.2)."
+        "reasoning": "Binary verifier provides external feedback to gate teacher trust in OPD; fits §5.3.3 (verifier-guided distillation). Sign-consistency gating is also adaptive weighting (§4.2).",
+        "section": "§5.3.3"
       },
       "teacher_student_pairs": [
         {
@@ -48486,7 +48646,8 @@
         "secondary_sections": [
           "§4.3"
         ],
-        "reasoning": "Self-distillation where privileged info (GT answer) conditions the teacher distribution; Bayesian credit decomposition uses PI(GT) to provide dense supervision over student's on-policy rollouts. Fits §5.3.1."
+        "reasoning": "Self-distillation where privileged info (GT answer) conditions the teacher distribution; Bayesian credit decomposition uses PI(GT) to provide dense supervision over student's on-policy rollouts. Fits §5.3.1.",
+        "section": "§5.3.1"
       },
       "teacher_student_pairs": [
         {
@@ -48584,7 +48745,8 @@
         "is_opd": "yes",
         "primary_section": "§5.3.1",
         "secondary_sections": [],
-        "reasoning": "Addresses hindsight leakage in privileged on-policy distillation; oracle/GT info is the privileged teacher signal; anchored residual decomposition is a principled improvement to §5.3.1 PI-OPD methods."
+        "reasoning": "Addresses hindsight leakage in privileged on-policy distillation; oracle/GT info is the privileged teacher signal; anchored residual decomposition is a principled improvement to §5.3.1 PI-OPD methods.",
+        "section": "§5.3.1"
       },
       "teacher_student_pairs": [
         {
@@ -48721,7 +48883,8 @@
         "secondary_sections": [
           "§4.1"
         ],
-        "reasoning": "Privileged teacher provides structured hints (spatial attention + reasoning steps) without answer leakage; student optimized on-policy via Top-K JSD. §5.3.1 (privileged info) primary; §4.1 (new divergence: Top-K JSD) secondary."
+        "reasoning": "Privileged teacher provides structured hints (spatial attention + reasoning steps) without answer leakage; student optimized on-policy via Top-K JSD. §5.3.1 (privileged info) primary; §4.1 (new divergence: Top-K JSD) secondary.",
+        "section": "§5.3.1"
       },
       "teacher_student_pairs": [
         {
@@ -48833,7 +48996,8 @@
         "secondary_sections": [
           "§7.2"
         ],
-        "reasoning": "Trajectory-level correction is a training stabilization/efficiency technique for OPD; prefix failure analysis is a failure mode diagnostic (§7.2 secondary)."
+        "reasoning": "Trajectory-level correction is a training stabilization/efficiency technique for OPD; prefix failure analysis is a failure mode diagnostic (§7.2 secondary).",
+        "section": "§6"
       },
       "teacher_student_pairs": [
         {
@@ -48938,7 +49102,8 @@
         "secondary_sections": [
           "§6"
         ],
-        "reasoning": "Normalization of KL signal to batch-relative advantages is an adaptive modification of the distillation divergence (§4.2); primary motivation is stabilization (§6 secondary)."
+        "reasoning": "Normalization of KL signal to batch-relative advantages is an adaptive modification of the distillation divergence (§4.2); primary motivation is stabilization (§6 secondary).",
+        "section": "§4.2"
       },
       "teacher_student_pairs": [
         {
@@ -49043,7 +49208,8 @@
         "secondary_sections": [
           "§5.2"
         ],
-        "reasoning": "White-box teacher logit supervision across different tokenizer families; cross-tokenizer token-mapping is the technical contribution enabling §5.1 across model families. §5.2 secondary as the constraint resembles API-constrained scenario."
+        "reasoning": "White-box teacher logit supervision across different tokenizer families; cross-tokenizer token-mapping is the technical contribution enabling §5.1 across model families. §5.2 secondary as the constraint resembles API-constrained scenario.",
+        "section": "§5.1"
       },
       "teacher_student_pairs": [
         {
@@ -49138,7 +49304,8 @@
         "is_opd": "yes",
         "primary_section": "§5.1",
         "secondary_sections": [],
-        "reasoning": "Extends OPD from output (logit) space to hidden-state representation space; student generates on-policy rollouts and aligns intermediate representations with teacher. Distillation loss is the main training objective."
+        "reasoning": "Extends OPD from output (logit) space to hidden-state representation space; student generates on-policy rollouts and aligns intermediate representations with teacher. Distillation loss is the main training objective.",
+        "section": "§5.1"
       },
       "teacher_student_pairs": [],
       "training_setup": {
@@ -49209,7 +49376,8 @@
         "is_opd": "yes",
         "primary_section": "§5.3.1",
         "secondary_sections": [],
-        "reasoning": "Two-stage MGSD: privileged symbolic-state teacher (access to symbolic game state) supervises visual VLM student on on-policy rollouts; distillation KL is the main training objective. Privileged context is symbolic state, not available at student inference time."
+        "reasoning": "Two-stage MGSD: privileged symbolic-state teacher (access to symbolic game state) supervises visual VLM student on on-policy rollouts; distillation KL is the main training objective. Privileged context is symbolic state, not available at student inference time.",
+        "section": "§5.3.1"
       },
       "teacher_student_pairs": [],
       "training_setup": {
@@ -49280,7 +49448,8 @@
         "is_opd": "yes",
         "primary_section": "§5.3.1",
         "secondary_sections": [],
-        "reasoning": "Privileged self-distillation: teacher receives cropped image tiles (zoomed regions) as extra context; student receives only original image. Student generates rollouts, KL-aligns to teacher's token distribution. Distillation is the main training objective."
+        "reasoning": "Privileged self-distillation: teacher receives cropped image tiles (zoomed regions) as extra context; student receives only original image. Student generates rollouts, KL-aligns to teacher's token distribution. Distillation is the main training objective.",
+        "section": "§5.3.1"
       },
       "teacher_student_pairs": [],
       "training_setup": {
@@ -49353,7 +49522,8 @@
         "secondary_sections": [
           "§7.3"
         ],
-        "reasoning": "Proposes online rollout truncation at KL agreement trap (low-KL prefix degradation) points to restore useful supervision signal and improve OPD efficiency. Distillation objective (KL) is main training loss; student generates on-policy rollouts."
+        "reasoning": "Proposes online rollout truncation at KL agreement trap (low-KL prefix degradation) points to restore useful supervision signal and improve OPD efficiency. Distillation objective (KL) is main training loss; student generates on-policy rollouts.",
+        "section": "§6"
       },
       "teacher_student_pairs": [],
       "training_setup": {
@@ -49427,7 +49597,8 @@
         "secondary_sections": [
           "§4.2"
         ],
-        "reasoning": "Visual-SDPO: teacher sees rendered visual artifact (from student-generated code) as privileged feedback; student sees only code. Student generates on-policy code rollouts; KL + statement-weighted loss is the main training objective. Combines privileged OPD with GRPO."
+        "reasoning": "Visual-SDPO: teacher sees rendered visual artifact (from student-generated code) as privileged feedback; student sees only code. Student generates on-policy code rollouts; KL + statement-weighted loss is the main training objective. Combines privileged OPD with GRPO.",
+        "section": "§5.3.1"
       },
       "teacher_student_pairs": [],
       "training_setup": {
@@ -49498,7 +49669,8 @@
         "is_opd": "yes",
         "primary_section": "§5.3.1",
         "secondary_sections": [],
-        "reasoning": "HERO: teacher gets hindsight environment observations (observations from future turns) as privileged context; student does not. Student generates multi-turn on-policy trajectories; turn-level KL distillation is the main training objective."
+        "reasoning": "HERO: teacher gets hindsight environment observations (observations from future turns) as privileged context; student does not. Student generates multi-turn on-policy trajectories; turn-level KL distillation is the main training objective.",
+        "section": "§5.3.1"
       },
       "teacher_student_pairs": [],
       "training_setup": {
@@ -49571,7 +49743,8 @@
         "secondary_sections": [
           "§4.2"
         ],
-        "reasoning": "Studies context-induced degradation in privileged OPD; proposes FKL no-context anchoring regularizer to prevent distribution shift when privileged context is returned at test time. Student generates on-policy rollouts; FKL + anchoring is the main training objective."
+        "reasoning": "Studies context-induced degradation in privileged OPD; proposes FKL no-context anchoring regularizer to prevent distribution shift when privileged context is returned at test time. Student generates on-policy rollouts; FKL + anchoring is the main training objective.",
+        "section": "§5.3.1"
       },
       "teacher_student_pairs": [],
       "training_setup": {
@@ -49644,7 +49817,8 @@
         "secondary_sections": [
           "§5.3.1"
         ],
-        "reasoning": "RLCSD: combines GRPO RL with contrastive RKL between correct-hint and wrong-hint teacher distributions. Two-path loss: GRPO outcome reward + RKL toward correct-hint teacher + RKL away from wrong-hint teacher. All on-policy. Distillation is part of main training objective."
+        "reasoning": "RLCSD: combines GRPO RL with contrastive RKL between correct-hint and wrong-hint teacher distributions. Two-path loss: GRPO outcome reward + RKL toward correct-hint teacher + RKL away from wrong-hint teacher. All on-policy. Distillation is part of main training objective.",
+        "section": "§4.3"
       },
       "teacher_student_pairs": [],
       "training_setup": {
@@ -49715,7 +49889,8 @@
         "is_opd": "yes",
         "primary_section": "§5.3.1",
         "secondary_sections": [],
-        "reasoning": "Rubric-conditioned same-model teacher provides supervision via JSD distillation on student on-policy rollouts. Teacher = same model conditioned on rubric; student = no rubric. Distillation is the main training objective; eliminates external LLM verifier."
+        "reasoning": "Rubric-conditioned same-model teacher provides supervision via JSD distillation on student on-policy rollouts. Teacher = same model conditioned on rubric; student = no rubric. Distillation is the main training objective; eliminates external LLM verifier.",
+        "section": "§5.3.1"
       },
       "teacher_student_pairs": [],
       "training_setup": {
@@ -49788,7 +49963,8 @@
         "secondary_sections": [
           "§7.3"
         ],
-        "reasoning": "Empirical analysis of OPD parameter updates: finds updates are coordinate-sparse, FFN-heavy, and off-principal from source weights. Complements 2606.07082. No new training method; classifies as analysis."
+        "reasoning": "Empirical analysis of OPD parameter updates: finds updates are coordinate-sparse, FFN-heavy, and off-principal from source weights. Complements 2606.07082. No new training method; classifies as analysis.",
+        "section": "§7.1"
       },
       "teacher_student_pairs": [],
       "training_setup": {
@@ -49868,7 +50044,8 @@
         "secondary_sections": [
           "§5.3.1"
         ],
-        "reasoning": "On-policy self-distillation (student matches token-level self-teacher distribution over its own rollouts). Peer natural-language feedback conditions the self-teacher (privileged-info-like). Co-distillation variant; §5.3.2 pure self-distillation primary, §5.3.1 (feedback as PI) secondary."
+        "reasoning": "On-policy self-distillation (student matches token-level self-teacher distribution over its own rollouts). Peer natural-language feedback conditions the self-teacher (privileged-info-like). Co-distillation variant; §5.3.2 pure self-distillation primary, §5.3.1 (feedback as PI) secondary.",
+        "section": "§5.3.2"
       },
       "teacher_student_pairs": [
         {
