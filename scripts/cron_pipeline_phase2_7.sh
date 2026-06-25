@@ -196,22 +196,29 @@ for aid in keep_ids:
     model_pair = ''
     if pairs and isinstance(pairs, list) and len(pairs) > 0:
         p = pairs[0]
-        t = p.get('teacher', {})
-        s = p.get('student', {})
+        t = p.get('teacher', {}) if isinstance(p.get('teacher'), dict) else {}
+        s = p.get('student', {}) if isinstance(p.get('student'), dict) else {}
         t_name = t.get('name', '?')
         s_name = s.get('name', '?')
         model_pair = f'{t_name} → {s_name}'
     # One-line from summary (first sentence)
     summary = rec.get('summary', '')
     one_line = summary.split('。')[0].split('. ')[0][:120] if summary else ''
+    # Fix subsections not in inserter mapping
+    section = cls.get('primary_section', '')
+    _sec_fix = {'§5.1.1': '§5.1', '§5.1.2': '§5.1'}
+    section = _sec_fix.get(section, section)
+    # Handle openness being str or dict
+    openness = rec.get('openness', {})
+    code_url = openness.get('code_url') if isinstance(openness, dict) else None
     batch.append({
         'aid': aid,
-        'section': cls.get('primary_section', ''),
+        'section': section,
         'title': rec.get('title', ''),
         'model_pair': model_pair,
         'one_line': one_line,
         'year': rec.get('year', 2026),
-        'code_url': (rec.get('openness', {}) or {}).get('code_url'),
+        'code_url': code_url,
     })
 Path('${TRIAGE_KEEP_JSON}').write_text(json.dumps(batch, ensure_ascii=False, indent=2))
 print(f'Prepared {len(batch)} papers for insertion:')
@@ -224,6 +231,41 @@ python3 "${SCRIPTS}/awesome_list_inserter.py" \
     --commit
 INSERT_RC=$?
 echo "  inserter exit code: ${INSERT_RC}"
+echo ""
+
+# ──────────────────────────────────────────────
+# Phase 4.5: Move kept PDFs from staging to month bucket
+# ──────────────────────────────────────────────
+echo "▶ Phase 4.5: staging cleanup (mv kept PDFs to month bucket)"
+
+python3 -c "
+import json, re
+from pathlib import Path
+from datetime import datetime
+
+staging = Path('${PROJECT_ROOT}/pdfs/_staging')
+db = json.load(open('${NOTES_PATH}'))
+notes = db.get('notes', {})
+moved = 0
+for pdf in sorted(staging.glob('*.pdf')):
+    aid = pdf.stem
+    if not re.match(r'\d{4}\.\d{4,5}', aid):
+        continue
+    rec = notes.get(aid, {})
+    is_opd = (rec.get('opd_classification', {}) or {}).get('is_opd', '').lower()
+    if is_opd in ('yes', 'analysis'):
+        # Determine month bucket from arxiv ID (YYMM.NNNNN)
+        yymm = aid[:4]
+        month_dir = Path('${PROJECT_ROOT}/pdfs') / f'20{yymm[:2]}-{yymm[2:]}'
+        month_dir.mkdir(parents=True, exist_ok=True)
+        dst = month_dir / pdf.name
+        if not dst.exists():
+            pdf.rename(dst)
+            moved += 1
+print(f'  Moved {moved} kept PDFs from staging to month buckets')
+remaining = len(list(staging.glob('*.pdf')))
+print(f'  Remaining in staging: {remaining}')
+" 2>/dev/null
 echo ""
 
 # ──────────────────────────────────────────────
