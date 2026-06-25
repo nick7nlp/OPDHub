@@ -53107,7 +53107,7 @@
         {
           "teacher": {
             "name": "Qwen2.5-Math-7B",
-            "family": "Qwen3",
+            "family": "Qwen2.5",
             "size_B": 7,
             "type": "dense",
             "moe_active_B": null,
@@ -53687,7 +53687,7 @@
         "evidence_quote": "K-Forcing distills an existing AR model into a conditional push-forward mapping—one that transforms independent uniform noise variables into a joint sample of multiple future tokens in a single forward pass"
       },
       "opd_classification": {
-        "is_opd": "yes",
+        "is_opd": "no",
         "primary_section": "§6.3",
         "secondary_sections": [
           "§5.1",
@@ -57642,7 +57642,7 @@
         "evidence_quote": "Rather than distilling from a larger teacher, we fine-tune a target model on its own best self-reframed responses."
       },
       "opd_classification": {
-        "is_opd": "yes",
+        "is_opd": "no",
         "primary_section": "§5.3.2",
         "secondary_sections": [
           "§6.2",
@@ -58517,7 +58517,7 @@
         {
           "teacher": {
             "name": "Qwen2.5-7B-Instruct (frozen reference)",
-            "family": "Qwen3",
+            "family": "Qwen2.5",
             "size_B": 7,
             "type": "dense",
             "moe_active_B": null,
@@ -58526,7 +58526,7 @@
           },
           "student": {
             "name": "Qwen2.5-7B-Instruct",
-            "family": "Qwen3",
+            "family": "Qwen2.5",
             "size_B": 7,
             "type": "dense",
             "init_from": "SFT",
@@ -58538,7 +58538,7 @@
         {
           "teacher": {
             "name": "Qwen2.5-3B-Instruct (frozen reference)",
-            "family": "Qwen3",
+            "family": "Qwen2.5",
             "size_B": 3,
             "type": "dense",
             "moe_active_B": null,
@@ -58547,7 +58547,7 @@
           },
           "student": {
             "name": "Qwen2.5-3B-Instruct",
-            "family": "Qwen3",
+            "family": "Qwen2.5",
             "size_B": 3,
             "type": "dense",
             "init_from": "SFT",
@@ -58559,7 +58559,7 @@
         {
           "teacher": {
             "name": "Qwen2.5-1.5B-Instruct (frozen reference)",
-            "family": "Qwen3",
+            "family": "Qwen2.5",
             "size_B": 1.5,
             "type": "dense",
             "moe_active_B": null,
@@ -58568,7 +58568,7 @@
           },
           "student": {
             "name": "Qwen2.5-1.5B-Instruct",
-            "family": "Qwen3",
+            "family": "Qwen2.5",
             "size_B": 1.5,
             "type": "dense",
             "init_from": "SFT",
@@ -58580,7 +58580,7 @@
         {
           "teacher": {
             "name": "Qwen2.5-7B-Instruct (frozen)",
-            "family": "Qwen3",
+            "family": "Qwen2.5",
             "size_B": 7,
             "type": "dense",
             "moe_active_B": null,
@@ -58589,7 +58589,7 @@
           },
           "student": {
             "name": "Qwen2.5-1.5B-Instruct",
-            "family": "Qwen3",
+            "family": "Qwen2.5",
             "size_B": 1.5,
             "type": "dense",
             "init_from": "SFT",
@@ -62038,7 +62038,7 @@
         "evidence_quote": "During RL training, the model produces both correct and incorrect rollouts to the same query, and TAPO leverages this contrastive structure to construct micro-reflective corrections, new training trajectories that retain the model's erroneous reasoning up to the point of failure"
       },
       "opd_classification": {
-        "is_opd": "yes",
+        "is_opd": "no",
         "primary_section": "§5.3.2",
         "secondary_sections": [
           "§4.3",
@@ -62206,7 +62206,7 @@
       },
       "opd_classification": {
         "is_opd": "yes",
-        "primary_section": "§5.1.2",
+        "primary_section": "§5.1",
         "secondary_sections": [
           "§4.1",
           "§6.1"
@@ -62217,7 +62217,7 @@
         {
           "teacher": {
             "name": "Qwen2.5-VL-3B-Instruct (frozen)",
-            "family": "Qwen3",
+            "family": "Qwen2.5",
             "size_B": 3,
             "type": "dense",
             "moe_active_B": null,
@@ -62226,7 +62226,7 @@
           },
           "student": {
             "name": "Qwen2.5-VL-3B-Instruct",
-            "family": "Qwen3",
+            "family": "Qwen2.5",
             "size_B": 3,
             "type": "dense",
             "init_from": "SFT",
@@ -62238,7 +62238,7 @@
         {
           "teacher": {
             "name": "Qwen2.5-VL-7B-Instruct (frozen)",
-            "family": "Qwen3",
+            "family": "Qwen2.5",
             "size_B": 7,
             "type": "dense",
             "moe_active_B": null,
@@ -62247,7 +62247,7 @@
           },
           "student": {
             "name": "Qwen2.5-VL-7B-Instruct",
-            "family": "Qwen3",
+            "family": "Qwen2.5",
             "size_B": 7,
             "type": "dense",
             "init_from": "SFT",
@@ -65429,7 +65429,7 @@
         {
           "teacher": {
             "name": "Qwen2.5-7B-Instruct (self, strategy-guided)",
-            "family": "Qwen3",
+            "family": "Qwen2.5",
             "size_B": 7,
             "type": "dense",
             "moe_active_B": null,
@@ -65438,7 +65438,7 @@
           },
           "student": {
             "name": "Qwen2.5-7B-Instruct",
-            "family": "Qwen3",
+            "family": "Qwen2.5",
             "size_B": 7,
             "type": "dense",
             "init_from": "SFT",
@@ -65450,7 +65450,7 @@
         {
           "teacher": {
             "name": "Qwen2.5-1.5B-Instruct (self, strategy-guided)",
-            "family": "Qwen3",
+            "family": "Qwen2.5",
             "size_B": 1.5,
             "type": "dense",
             "moe_active_B": null,
@@ -65459,7 +65459,7 @@
           },
           "student": {
             "name": "Qwen2.5-1.5B-Instruct",
-            "family": "Qwen3",
+            "family": "Qwen2.5",
             "size_B": 1.5,
             "type": "dense",
             "init_from": "SFT",
@@ -65651,7 +65651,7 @@
         {
           "teacher": {
             "name": "DynaWM Teacher Encoder",
-            "family": "Llama",
+            "family": "DynaWM",
             "size_B": null,
             "type": "dense",
             "moe_active_B": null,
@@ -65660,7 +65660,7 @@
           },
           "student": {
             "name": "DynaWM Student Encoder",
-            "family": "Llama",
+            "family": "DynaWM",
             "size_B": null,
             "type": "dense",
             "init_from": "base",
@@ -67533,5 +67533,5 @@
       "_model": "claude"
     }
   },
-  "last_updated": "2026-06-25T13:53:32.376808Z"
+  "last_updated": "2026-06-25T15:12:47.853263+00:00"
 }
