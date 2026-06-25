@@ -1,0 +1,80 @@
+✅ Refreshed known_arxiv_ids.txt: 336 IDs
+[scout] DATE WINDOW (CST): 2026-06-23 → 2026-06-24  (days_back=1)
+[scout] accepting YYMM prefixes: ['2606']
+[scout] architecture: RSS-primary + API-verify + S2-crosscheck
+[scout] known IDs to skip: 336
+
+[scout] === Phase 1: RSS feeds (3 categories) ===
+[scout/rss] cs.CL: 378 total items, 37 OPD-keyword matches
+[scout/rss] cs.LG: 826 total items, 86 OPD-keyword matches
+[scout/rss] cs.AI: 854 total items, 100 OPD-keyword matches
+[scout/rss] total unique candidates: 162
+
+[scout] === Phase 2: S2 cross-check (4 queries) ===
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] added 14 papers not found in RSS
+
+[scout] combined unique: 176 (RSS: 162, S2-extra: 14)
+[scout] ⚠️ 13 rejected by DATE WINDOW: ['2605.31159', '2605.16826', '2605.07865', '2604.00223', '2504.20445', '2507.18569', '2505.16297', '2506.02208', '2603.25562', '2602.04942']
+[scout] 1 skipped (already known)
+
+[scout] === Phase 3: no S2-sourced papers to verify ===
+
+[scout] ✅ 50 new candidates for deep-read
+[scout] wrote /tmp/scout_arxiv_results.json
+
+## Scout Summary: 50 new in-window candidates
+
+  - 2606.20632 [rss/ok] Post-Training Recipe, More Than Model Family, Shapes Multi-Agent LLM Conversatio
+  - 2606.20897 [rss/ok] PeerCheck: Enhancing LLM-Generated Academic Reviews Towards Human-Level Quality
+  - 2606.20936 [rss/ok] Comparing Transformers and Hybrid Models at the Token Level
+  - 2606.20946 [rss/ok] Scaling Diverse Language Generation for 3D Visual Grounding
+  - 2606.20954 [rss/ok] Learning What Not to Forget: Long-Horizon Agent Memory from a Few Kilobytes of L
+  - 2606.21066 [rss/ok] Demographic Metadata as Construct-Irrelevant Noise in DistilBERT-Based Automated
+  - 2606.21098 [rss/ok] LLM-Based Multi-Reference Evaluation for Efficient and Robust Assessment of Phra
+  - 2606.21502 [rss/ok] Towards Pedagogically Aligned LLM Tutors for Math Mistake Remediation
+  - 2606.21557 [rss/ok] PeerMathDial: A Middle School Dialogue Dataset for Student Collaborative Math Pr
+  - 2606.21704 [rss/ok] When Compression Helps and When It Hurts: Condition-Aware Analysis of Chain-of-T
+  - 2606.21851 [rss/ok] TALAS: Teacher-Anchored Layer Alignment with Adaptive Sharpness-Aware Minimizati
+  - 2606.22207 [rss/ok] Lexical Consensus: Grounded Word Learning and Shared Meaning in Artificial Agent
+  - 2606.22305 [rss/ok] Learning at the Right Pace: Adaptive Data Scheduling Improves LLM Reinforcement 
+  - 2606.22342 [rss/ok] How Does Research Evolve? Tracing Cross-Domain Trajectories in NLP, ML, and CV w
+  - 2606.22474 [rss/ok] Not All Claims Are Equally Risky: FACTOR for Adaptive Verification in Factual Lo
+  - 2606.22511 [rss/ok] Breaking the Likelihood Trap: Variance-Calibrated Modulation for Large Language 
+  - 2606.22570 [rss/ok] What are Key Factors for Updates in RL for LLM Reasoning?
+  - 2606.22578 [rss/ok] Context-Aware Distillation and Ablation for Text2DSL
+  - 2606.22798 [rss/ok] Does the Same Token Mean the Same State? MoE Routing as Signal for Reasoning Con
+  - 2606.22942 [rss/ok] Understanding Knowledge Distillation in Post-Training: When It Helps and When It
+  - 2606.22992 [rss/ok] Predicate Importance Estimation and Decoupled Rationale-Score Distillation for E
+  - 2606.23002 [rss/ok] Machine Translation and Post-Editing: Comparative Evaluation of Different MT Sys
+  - 2606.23107 [rss/ok] A Dual-Track Framework for Template-Constrained LaTeX Conversion
+  - 2606.23124 [rss/ok] PRIDE: Privileged Information-enhanced Distillation for Empathetic Dialogue Gene
+  - 2606.23283 [rss/ok] Towards Root Memories: Benchmarking and Enhancing Implicit Logical Memory Retrie
+  - 2606.20585 [rss/ok] Turning Intent into Specifications: A Benchmark and an Interactive User-Assistan
+  - 2606.20663 [rss/ok] DrugBench: Evaluating AI Control Protocols for Medication Harm Mitigation
+  - 2606.20708 [rss/ok] Simulated Customers Never Walk Away: Decision Fidelity of LLM User Simulators Me
+  - 2606.21121 [rss/ok] Answer Engineering: Local Trajectory Editing for Protocol-Constrained Decision M
+  - 2606.21194 [rss/ok] MEDLAYXPLAIN: Benchmarking the Expert-Lay Gap in Medical Vision-Language Models
+  - 2606.21262 [rss/ok] ARCO: Adaptive Rubric with Co-Evolution for Multi-Step LLM-Based Agents
+  - 2606.21884 [rss/ok] A Verifiable Search Is Not a Learnable Chain-of-Thought
+  - 2606.22608 [rss/ok] Automated sign detection across the Electronic Babylonian Library: A large-scale
+  - 2606.22692 [rss/ok] VISTA Architect: A graph database-oriented health AI system demonstrated in mult
+  - 2606.22953 [rss/ok] Plans Don't Persist: Why Context Management Is Load Bearing for LLM Agents
+  - 2606.23094 [rss/ok] Cognitive Digital Twins: Ethical Risks and Governance for AI Systems That Model 
+  - 2606.23112 [rss/ok] Self-Evolution for Multi-Turn Tool-Calling Agents via Divergence-Point Preferenc
+  - 2606.20673 [rss/ok] NeuroShield: A Device-Agnostic Foundation Model for EEG Authentication
+  - 2606.20920 [rss/ok] $\Omega$: Operator-based Mixture Ensemble for Generative Assimilation
+  - 2606.20961 [rss/ok] Is Our Benchmark Enough? An Analysis of Continual Learning for MLLMs
+  - 2606.21126 [rss/ok] What Accuracy and Gradient Cosine Miss: Evaluating Feedback Alignment via Scale 
+  - 2606.21189 [rss/ok] TF-SNO: Time-Frequency Gated Spectral Neural Operators for Learning Non-Stationa
+  - 2606.21256 [rss/ok] Intrinsic Flow Matching on Quantum Pure-State Manifolds with Phase-Aligned Trans
+  - 2606.21271 [rss/ok] Reward-free Pretraining for Reinforcement Learning via Occupancy Coverage Maximi
+  - 2606.21386 [rss/ok] VLA-FAIL: Efficient Task Failure Detection for Finetuned Vision-Language-Action 
+  - 2606.21415 [rss/ok] One Size does not Fit All: Heterogeneous Latent Space Alignment for Unsupervised
+  - 2606.21434 [rss/ok] Universal Encoders for Modular Relational Deep Learning
+  - 2606.21497 [rss/ok] Breaking chains with trees: Deep learning with $\mathcal{O}(\log N)$ parallel ti
+  - 2606.21514 [rss/ok] Towards Understanding the Power and Limits of the Muon Optimizer: A River-Valley
+  - 2606.21604 [rss/ok] Learning to Place Guards by Reinforcement: A Geo-Free Neural Policy for the Vert

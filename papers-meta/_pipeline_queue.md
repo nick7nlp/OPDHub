@@ -683,3 +683,121 @@
 - `2606.17080`  HRDX: A Large-Scale Vector HD-Map Dataset
 - `2606.17082`  ParkingTransformer: LLM-Enhanced End-to-End Trajectory Planning for Autonomous Parking
 
+
+## 2026-06-22 (Mon) — weekend skip (PRE-CHECK exit 1)
+
+
+## 2026-06-23 (Tue) 09:30 — scout completed
+
+**0 candidates.** No follow-up needed.
+
+
+## 2026-06-24 (Wed) 09:30 — scout completed
+
+**50 candidates** downloaded to `pdfs/_staging/`. Follow-up Phase 2-7 **pending**.
+
+- `2606.20632`  Post-Training Recipe, More Than Model Family, Shapes Multi-Agent LLM Conversational Behavior
+- `2606.20897`  PeerCheck: Enhancing LLM-Generated Academic Reviews Towards Human-Level Quality
+- `2606.20936`  Comparing Transformers and Hybrid Models at the Token Level
+- `2606.20946`  Scaling Diverse Language Generation for 3D Visual Grounding
+- `2606.20954`  Learning What Not to Forget: Long-Horizon Agent Memory from a Few Kilobytes of Learning
+- `2606.21066`  Demographic Metadata as Construct-Irrelevant Noise in DistilBERT-Based Automated Essay Scoring
+- `2606.21098`  LLM-Based Multi-Reference Evaluation for Efficient and Robust Assessment of Phrase Break Annotations
+- `2606.21502`  Towards Pedagogically Aligned LLM Tutors for Math Mistake Remediation
+- `2606.21557`  PeerMathDial: A Middle School Dialogue Dataset for Student Collaborative Math Problem Solving
+- `2606.21704`  When Compression Helps and When It Hurts: Condition-Aware Analysis of Chain-of-Thought Distillation
+- `2606.21851`  TALAS: Teacher-Anchored Layer Alignment with Adaptive Sharpness-Aware Minimization for Embedding Distillation
+- `2606.22207`  Lexical Consensus: Grounded Word Learning and Shared Meaning in Artificial Agents
+- `2606.22305`  Learning at the Right Pace: Adaptive Data Scheduling Improves LLM Reinforcement Learning
+- `2606.22342`  How Does Research Evolve? Tracing Cross-Domain Trajectories in NLP, ML, and CV with Claim-Grounded Typed Citat
+- `2606.22474`  Not All Claims Are Equally Risky: FACTOR for Adaptive Verification in Factual Long-Form Generation
+- `2606.22511`  Breaking the Likelihood Trap: Variance-Calibrated Modulation for Large Language Model Decoding
+- `2606.22570`  What are Key Factors for Updates in RL for LLM Reasoning?
+- `2606.22578`  Context-Aware Distillation and Ablation for Text2DSL
+- `2606.22798`  Does the Same Token Mean the Same State? MoE Routing as Signal for Reasoning Control
+- `2606.22942`  Understanding Knowledge Distillation in Post-Training: When It Helps and When It Fails
+- `2606.22992`  Predicate Importance Estimation and Decoupled Rationale-Score Distillation for Entity Alignment
+- `2606.23002`  Machine Translation and Post-Editing: Comparative Evaluation of Different MT Systems and Post-Editor Groups in
+- `2606.23107`  A Dual-Track Framework for Template-Constrained LaTeX Conversion
+- `2606.23124`  PRIDE: Privileged Information-enhanced Distillation for Empathetic Dialogue Generation
+- `2606.23283`  Towards Root Memories: Benchmarking and Enhancing Implicit Logical Memory Retrieval for Personalized LLMs
+- `2606.20585`  Turning Intent into Specifications: A Benchmark and an Interactive User-Assistant Agent
+- `2606.20663`  DrugBench: Evaluating AI Control Protocols for Medication Harm Mitigation
+- `2606.20708`  Simulated Customers Never Walk Away: Decision Fidelity of LLM User Simulators Measured Against Real Purchase O
+- `2606.21121`  Answer Engineering: Local Trajectory Editing for Protocol-Constrained Decision Making in Large Language Models
+- `2606.21194`  MEDLAYXPLAIN: Benchmarking the Expert-Lay Gap in Medical Vision-Language Models
+- `2606.21262`  ARCO: Adaptive Rubric with Co-Evolution for Multi-Step LLM-Based Agents
+- `2606.21884`  A Verifiable Search Is Not a Learnable Chain-of-Thought
+- `2606.22608`  Automated sign detection across the Electronic Babylonian Library: A large-scale dataset and end-to-end cuneif
+- `2606.22692`  VISTA Architect: A graph database-oriented health AI system demonstrated in multidisciplinary tumor boards
+- `2606.22953`  Plans Don't Persist: Why Context Management Is Load Bearing for LLM Agents
+- `2606.23094`  Cognitive Digital Twins: Ethical Risks and Governance for AI Systems That Model the Mind
+- `2606.23112`  Self-Evolution for Multi-Turn Tool-Calling Agents via Divergence-Point Preference Learning
+- `2606.20673`  NeuroShield: A Device-Agnostic Foundation Model for EEG Authentication
+- `2606.20920`  $\Omega$: Operator-based Mixture Ensemble for Generative Assimilation
+- `2606.20961`  Is Our Benchmark Enough? An Analysis of Continual Learning for MLLMs
+- `2606.21126`  What Accuracy and Gradient Cosine Miss: Evaluating Feedback Alignment via Scale Stability, Reference Validity,
+- `2606.21189`  TF-SNO: Time-Frequency Gated Spectral Neural Operators for Learning Non-Stationary Partial Differential Equati
+- `2606.21256`  Intrinsic Flow Matching on Quantum Pure-State Manifolds with Phase-Aligned Transport
+- `2606.21271`  Reward-free Pretraining for Reinforcement Learning via Occupancy Coverage Maximization
+- `2606.21386`  VLA-FAIL: Efficient Task Failure Detection for Finetuned Vision-Language-Action Models
+- `2606.21415`  One Size does not Fit All: Heterogeneous Latent Space Alignment for Unsupervised Domain Adaptation
+- `2606.21434`  Universal Encoders for Modular Relational Deep Learning
+- `2606.21497`  Breaking chains with trees: Deep learning with $\mathcal{O}(\log N)$ parallel time complexity
+- `2606.21514`  Towards Understanding the Power and Limits of the Muon Optimizer: A River-Valley Perspective
+- `2606.21604`  Learning to Place Guards by Reinforcement: A Geo-Free Neural Policy for the Vertex-Guard Art Gallery Problem
+
+
+## 2026-06-25 (Thu) 09:30 — scout completed
+
+**48 candidates** downloaded to `pdfs/_staging/`. Follow-up Phase 2-7 **pending**.
+
+- `2606.23937`  When Retrieval Metrics Mislead: Measuring Policy Signal in Long-Horizon Tool-Use Agents
+- `2606.24151`  Metis: Bridging Text and Code Memory for Self-Evolving Agents
+- `2606.24428`  Escaping the Self-Confirmation Trap: An Execute-Distill-Verify Paradigm for Agentic Experience Learning
+- `2606.24530`  NatureBench: Can Coding Agents Match the Published SOTA of Nature-Family Papers?
+- `2606.24579`  Cross-Lingual Exploration for Parametric Knowledge
+- `2606.24758`  CANDLE: Character-level Arabic Noise Deduplication using Lightweight Encoder
+- `2606.23870`  ESBMC-PLC+: A Unified IEC~61131-3 Formal Verification Framework as a PLCverif Successor
+- `2606.24033`  RoPE-Aware Bit Allocation for KV-Cache Quantization
+- `2606.24084`  Blockwise Policy-Drift Gating for On-Policy Distillation
+- `2606.24133`  Holistic Data Scheduler for LLM Pre-training via Multi-Objective Reinforcement Learning
+- `2606.24346`  PETRA: Transforming Web Text for Petroleum-Engineering Domain Adaptation
+- `2606.23740`  Weight-Space Geometry of Offline Reasoning Training
+- `2606.23838`  The Degeneracy Distillery
+- `2606.23851`  Machine Learning Modeling for Real-Time Melt Pool Monitoring in Laser Powder Bed Fusion Additive Manufacturing
+- `2606.23898`  ARIA: Adaptive Region-Based Importance Allocation for Conditional Diffusion Distillation
+- `2606.23932`  KLip-PPO: A per-sample KL perspective on PPO-Clip
+- `2606.23957`  Learning the Koopman Operator using Attention Free Transformers
+- `2606.23995`  EMAgnet: Parameter-Space EMA Regularization for Policy Gradient Self-Play in Large Games
+- `2606.24143`  AsyncOPD: How Stale Can On-Policy Distillation Be?
+- `2606.24173`  Lightweight Transformer Models for On-Device Fault Detection: A Benchmark Study on Resource-Constrained Deploy
+- `2606.24408`  Natural Identifiers for Privacy and Data Audits in Large Language Models
+- `2606.24679`  FlowPipe: LLM-Enhanced Conditional Generative Flow Networks for Data Preparation Pipeline Construction
+- `2606.24353`  Open-Vocabulary BEV Segmentation with 3D-Aware Geometric Constraints
+- `2606.24403`  RE4: Transformation-aware Imitation of Object Interactions Using Manipulation Modes
+- `2606.24770`  Context-Aware Prediction of Student Quiz Performance with Multimodal Textbook Features
+- `2606.24064`  Beyond Trajectory Imitation: Strategy-Guided Policy Optimization for LLM Reasoning
+- `2606.24160`  An Introduction to Causal Reinforcement Learning
+- `2606.24196`  Navigating User Behavior toward Personalized Multimodal Generation
+- `2606.24237`  Towards Federated Long-Tailed Graph Learning: An Energy-Guided Dual Decoupling Approach
+- `2606.24369`  Accelerating Disaggregated RL for Visual Generative LLMs with Diffusion-Based Parallelism and Trainer-Assisted
+- `2606.24370`  When Helpfulness Overrides Causal Caution: Context-Dependent Suppression and Recovery in LLMs
+- `2606.24421`  Can Aggregate Invariants Accelerate Continuous Subgraph Matching? Limits, Laws, and a Dynamic Spectral Index
+- `2606.24437`  ReM-MoA: Reasoning Memory Sustains Mixture-of-Agents Scaling
+- `2606.24605`  ScaleToT: Generalizing Structured LLM Reasoning for Billion-Scale Low-Activity User Modeling
+- `2606.24747`  Scaling Laws for Task-Specific LLM Distillation
+- `2606.24781`  Assessing Distribution Shift in Human Activity Recognition for Domain Generalization
+- `2606.24842`  World Models in Pieces: Structural Certification for General Agents
+- `2606.23690`  Beyond the Autoregressive Horizon: A Comprehensive Survey of Diffusion Models, World Modelling, and State Spac
+- `2606.23759`  VeriPilot: An LLM-Powered Verilog Debugging Framework
+- `2606.23897`  The Professor: Multi-Teacher Unsupervised Prompt Distillation for Vision-Language Models
+- `2606.24089`  DynaWM: Dynamics-Aware Distillation with World Model and Momentum Targets for Smooth Locomotion over Continuou
+- `2606.24104`  The impact of generative artificial intelligence on academic development of Chinese students in humanities and
+- `2606.24127`  DTT-BSR+: A Generative-Regression Cascade for Music Source Restoration
+- `2606.24206`  Inclusive Interactive Collisions for Multi-View Consistent Compositional 3D Generation
+- `2606.24307`  Real-Time Interactive Music Generation via Data-Free Streaming Consistency Distillation
+- `2606.24472`  G$^3$VLA: Geometric inductive bias for Vision-Language-Action Models
+- `2606.24799`  OrbitForge: Text-to-3D Scene Generation via Reconstruction-Anchored Video Synthesis
+- `2606.24849`  IV-CoT: Implicit Visual Chain-of-Thought for Structure-Aware Text-to-Image Generation
+

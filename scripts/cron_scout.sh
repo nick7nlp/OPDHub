@@ -9,15 +9,11 @@
 #   2. Phase 1 SCOUT (scout_arxiv.py --download --max 50).
 #   3. Appends a result block to papers-meta/_pipeline_queue.md.
 #
-# What it does NOT do (intentional — needs interactive Claude session):
-#   - Phase 2 deep-read (LLM API calls).
-#   - Phase 3 triage / 3.5 3-cond filter.
-#   - Phase 4 awesome list inserter / Phase 6 loss tax / Phase 7 site refresh.
+# Phase 2-7 follow-up now automated by cron_pipeline_phase2_7.sh (10:30 CST).
 #
 # Daily workflow:
-#   - This cron quietly downloads candidates each weekday morning.
-#   - When you (or me) start a Claude session, check papers-meta/_pipeline_queue.md.
-#   - Non-empty / status:pending entries → trigger Phase 2-7 manually.
+#   - 09:30 this cron downloads candidates to pdfs/_staging/
+#   - 10:30 cron_pipeline_phase2_7.sh runs deep-read + triage + insert + push
 
 set -u
 

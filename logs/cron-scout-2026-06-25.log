@@ -1,0 +1,78 @@
+✅ Refreshed known_arxiv_ids.txt: 336 IDs
+[scout] DATE WINDOW (CST): 2026-06-24 → 2026-06-25  (days_back=1)
+[scout] accepting YYMM prefixes: ['2606']
+[scout] architecture: RSS-primary + API-verify + S2-crosscheck
+[scout] known IDs to skip: 336
+
+[scout] === Phase 1: RSS feeds (3 categories) ===
+[scout/rss] cs.CL: 145 total items, 11 OPD-keyword matches
+[scout/rss] cs.LG: 240 total items, 18 OPD-keyword matches
+[scout/rss] cs.AI: 299 total items, 32 OPD-keyword matches
+[scout/rss] total unique candidates: 48
+
+[scout] === Phase 2: S2 cross-check (4 queries) ===
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] added 12 papers not found in RSS
+
+[scout] combined unique: 60 (RSS: 48, S2-extra: 12)
+[scout] ⚠️ 11 rejected by DATE WINDOW: ['2509.22984', '2511.17041', '2507.08877', '2510.16079', '2509.01566', '2512.11755', '2510.06657', '2510.01375', '2510.05733', '2512.03737']
+
+[scout] === Phase 3: verifying 1 S2-sourced candidates via id_list API ===
+[scout/verify] 2606.12198 rejected: published 2026-06-10 < window 2026-06-23
+[scout/verify] 0/1 S2 papers passed
+
+[scout] ✅ 48 new candidates for deep-read
+[scout] wrote /tmp/scout_arxiv_results.json
+
+## Scout Summary: 48 new in-window candidates
+
+  - 2606.23937 [rss/ok] When Retrieval Metrics Mislead: Measuring Policy Signal in Long-Horizon Tool-Use
+  - 2606.24151 [rss/ok] Metis: Bridging Text and Code Memory for Self-Evolving Agents
+  - 2606.24428 [rss/ok] Escaping the Self-Confirmation Trap: An Execute-Distill-Verify Paradigm for Agen
+  - 2606.24530 [rss/ok] NatureBench: Can Coding Agents Match the Published SOTA of Nature-Family Papers?
+  - 2606.24579 [rss/ok] Cross-Lingual Exploration for Parametric Knowledge
+  - 2606.24758 [rss/ok] CANDLE: Character-level Arabic Noise Deduplication using Lightweight Encoder
+  - 2606.23870 [rss/ok] ESBMC-PLC+: A Unified IEC~61131-3 Formal Verification Framework as a PLCverif Su
+  - 2606.24033 [rss/ok] RoPE-Aware Bit Allocation for KV-Cache Quantization
+  - 2606.24084 [rss/ok] Blockwise Policy-Drift Gating for On-Policy Distillation
+  - 2606.24133 [rss/ok] Holistic Data Scheduler for LLM Pre-training via Multi-Objective Reinforcement L
+  - 2606.24346 [rss/ok] PETRA: Transforming Web Text for Petroleum-Engineering Domain Adaptation
+  - 2606.23740 [rss/ok] Weight-Space Geometry of Offline Reasoning Training
+  - 2606.23838 [rss/ok] The Degeneracy Distillery
+  - 2606.23851 [rss/ok] Machine Learning Modeling for Real-Time Melt Pool Monitoring in Laser Powder Bed
+  - 2606.23898 [rss/ok] ARIA: Adaptive Region-Based Importance Allocation for Conditional Diffusion Dist
+  - 2606.23932 [rss/ok] KLip-PPO: A per-sample KL perspective on PPO-Clip
+  - 2606.23957 [rss/ok] Learning the Koopman Operator using Attention Free Transformers
+  - 2606.23995 [rss/ok] EMAgnet: Parameter-Space EMA Regularization for Policy Gradient Self-Play in Lar
+  - 2606.24143 [rss/ok] AsyncOPD: How Stale Can On-Policy Distillation Be?
+  - 2606.24173 [rss/ok] Lightweight Transformer Models for On-Device Fault Detection: A Benchmark Study 
+  - 2606.24408 [rss/ok] Natural Identifiers for Privacy and Data Audits in Large Language Models
+  - 2606.24679 [rss/ok] FlowPipe: LLM-Enhanced Conditional Generative Flow Networks for Data Preparation
+  - 2606.24353 [rss/ok] Open-Vocabulary BEV Segmentation with 3D-Aware Geometric Constraints
+  - 2606.24403 [rss/ok] RE4: Transformation-aware Imitation of Object Interactions Using Manipulation Mo
+  - 2606.24770 [rss/ok] Context-Aware Prediction of Student Quiz Performance with Multimodal Textbook Fe
+  - 2606.24064 [rss/ok] Beyond Trajectory Imitation: Strategy-Guided Policy Optimization for LLM Reasoni
+  - 2606.24160 [rss/ok] An Introduction to Causal Reinforcement Learning
+  - 2606.24196 [rss/ok] Navigating User Behavior toward Personalized Multimodal Generation
+  - 2606.24237 [rss/ok] Towards Federated Long-Tailed Graph Learning: An Energy-Guided Dual Decoupling A
+  - 2606.24369 [rss/fail] Accelerating Disaggregated RL for Visual Generative LLMs with Diffusion-Based Pa
+  - 2606.24370 [rss/ok] When Helpfulness Overrides Causal Caution: Context-Dependent Suppression and Rec
+  - 2606.24421 [rss/ok] Can Aggregate Invariants Accelerate Continuous Subgraph Matching? Limits, Laws, 
+  - 2606.24437 [rss/ok] ReM-MoA: Reasoning Memory Sustains Mixture-of-Agents Scaling
+  - 2606.24605 [rss/ok] ScaleToT: Generalizing Structured LLM Reasoning for Billion-Scale Low-Activity U
+  - 2606.24747 [rss/ok] Scaling Laws for Task-Specific LLM Distillation
+  - 2606.24781 [rss/ok] Assessing Distribution Shift in Human Activity Recognition for Domain Generaliza
+  - 2606.24842 [rss/ok] World Models in Pieces: Structural Certification for General Agents
+  - 2606.23690 [rss/ok] Beyond the Autoregressive Horizon: A Comprehensive Survey of Diffusion Models, W
+  - 2606.23759 [rss/ok] VeriPilot: An LLM-Powered Verilog Debugging Framework
+  - 2606.23897 [rss/ok] The Professor: Multi-Teacher Unsupervised Prompt Distillation for Vision-Languag
+  - 2606.24089 [rss/ok] DynaWM: Dynamics-Aware Distillation with World Model and Momentum Targets for Sm
+  - 2606.24104 [rss/ok] The impact of generative artificial intelligence on academic development of Chin
+  - 2606.24127 [rss/ok] DTT-BSR+: A Generative-Regression Cascade for Music Source Restoration
+  - 2606.24206 [rss/ok] Inclusive Interactive Collisions for Multi-View Consistent Compositional 3D Gene
+  - 2606.24307 [rss/ok] Real-Time Interactive Music Generation via Data-Free Streaming Consistency Disti
+  - 2606.24472 [rss/ok] G$^3$VLA: Geometric inductive bias for Vision-Language-Action Models
+  - 2606.24799 [rss/ok] OrbitForge: Text-to-3D Scene Generation via Reconstruction-Anchored Video Synthe
+  - 2606.24849 [rss/ok] IV-CoT: Implicit Visual Chain-of-Thought for Structure-Aware Text-to-Image Gener
