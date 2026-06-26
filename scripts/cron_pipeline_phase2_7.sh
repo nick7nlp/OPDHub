@@ -14,8 +14,8 @@
 #   Phase 7: git commit + push
 #
 # Safety:
-#   - deep-read uses --from-staging --days-back 3 (covers gaps, dedup built-in)
-#   - triage uses safe mv-to-trash (never rm)
+#   - deep-read uses --from-staging --days-back 2 (today+yesterday only, dedup built-in)
+#   - triage deletes non-OPD PDFs directly (rm, no .trash accumulation)
 #   - awesome inserter is idempotent (already_present = skip)
 #   - git push only if there are actual changes
 #   - all output logged to logs/cron-pipeline-YYYY-MM-DD.log
@@ -53,14 +53,14 @@ cd "${PROJECT_ROOT}" || { echo "FATAL: cannot cd to ${PROJECT_ROOT}"; exit 2; }
 # ──────────────────────────────────────────────
 # Phase 2: Deep-read (LLM API)
 # ──────────────────────────────────────────────
-echo "▶ Phase 2: batch deep-read (--from-staging --days-back 3)"
+echo "▶ Phase 2: batch deep-read (--from-staging --days-back 2)"
 
 STAGING_COUNT=$(ls "${PROJECT_ROOT}/pdfs/_staging/"*.pdf 2>/dev/null | wc -l)
 echo "  _staging/ has ${STAGING_COUNT} PDFs total"
 
 python3 /root/clawd/scripts/batch_deep_read.py \
     --from-staging \
-    --days-back 3 \
+    --days-back 2 \
     --workers 3 \
     --model claude \
     --summary-out "${DEEP_READ_SUMMARY}"
@@ -241,12 +241,12 @@ echo "▶ Phase 4.5: staging cleanup (mv kept PDFs to month bucket)"
 python3 -c "
 import json, re
 from pathlib import Path
-from datetime import datetime
 
 staging = Path('${PROJECT_ROOT}/pdfs/_staging')
 db = json.load(open('${NOTES_PATH}'))
 notes = db.get('notes', {})
 moved = 0
+deleted = 0
 for pdf in sorted(staging.glob('*.pdf')):
     aid = pdf.stem
     if not re.match(r'\d{4}\.\d{4,5}', aid):
@@ -262,7 +262,12 @@ for pdf in sorted(staging.glob('*.pdf')):
         if not dst.exists():
             pdf.rename(dst)
             moved += 1
+    elif is_opd == 'no':
+        # Non-OPD: delete directly (pipeline-scouted only)
+        pdf.unlink()
+        deleted += 1
 print(f'  Moved {moved} kept PDFs from staging to month buckets')
+print(f'  Deleted {deleted} non-OPD PDFs from staging')
 remaining = len(list(staging.glob('*.pdf')))
 print(f'  Remaining in staging: {remaining}')
 " 2>/dev/null

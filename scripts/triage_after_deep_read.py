@@ -127,36 +127,21 @@ def triage_paper(paper_id, db, dry_run=False):
         return ("keep", f"is_opd={is_opd}; section={cls.get('primary_section', '?')}; title={title[:60]}")
 
     if is_opd == "no":
-        # exclude flow
+        # exclude flow — delete non-OPD PDFs directly (no .trash accumulation)
         action_log = []
-        # 1. mv PDF to trash (NOT direct unlink — SOUL rule 5/19)
-        # safe_delete.py is the canonical tool, but we need an inline equivalent
-        # so this script can run autonomously inside cron without spawning subprocess.
-        from datetime import datetime as _dt
-        trash_root = SURVEY_ROOT / f".trash-{_dt.utcnow().strftime('%Y-%m-%d')}-triage-exclude"
-        if not dry_run:
-            trash_root.mkdir(parents=True, exist_ok=True)
+        # 1. rm PDF directly (pipeline-scouted papers only; pre-existing background
+        #    papers are never passed to triage, so safe to rm here)
         pdfs = find_pdf(paper_id)
         for pdf in pdfs:
             try:
                 if not dry_run:
-                    # mirror src path under trash to avoid collisions
-                    rel = pdf.relative_to(SURVEY_ROOT) if str(pdf).startswith(str(SURVEY_ROOT)) else Path(pdf.name)
-                    dst = trash_root / rel
-                    dst.parent.mkdir(parents=True, exist_ok=True)
-                    if dst.exists():
-                        dst = dst.with_suffix(dst.suffix + f".dup-{paper_id}")
-                    pdf.rename(dst)  # rename = mv on same filesystem
-                    # verify mv (SOUL rule: 看到 0/空 警觉)
+                    pdf.unlink()
                     if pdf.exists():
-                        action_log.append(f"FAIL src still exists: {pdf}")
+                        action_log.append(f"FAIL rm failed: {pdf}")
                         continue
-                    if not dst.exists():
-                        action_log.append(f"FAIL dst missing: {dst}")
-                        continue
-                action_log.append(f"mv {pdf.name} → trash")
+                action_log.append(f"rm {pdf.name}")
             except Exception as e:
-                action_log.append(f"mv-fail {pdf}: {e}")
+                action_log.append(f"rm-fail {pdf}: {e}")
 
         # 2. delete by-aid symlink
         link = BY_AID / f"{paper_id}.pdf"

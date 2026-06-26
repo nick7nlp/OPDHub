@@ -1,0 +1,78 @@
+
+================================================================
+  OPD Pipeline Phase 2-7  |  2026-06-26 10:30
+================================================================
+
+▶ Phase 2: batch deep-read (--from-staging --days-back 3)
+  _staging/ has 50 PDFs total
+[batch] from-staging: found 50 pending IDs in _staging/
+[batch] 50 papers to process: ['2606.24039', '2606.24891', '2606.24894', '2606.24910', '2606.24945', '2606.24946', '2606.24954', '2606.24969', '2606.24973', '2606.24980', '2606.24987', '2606.24994', '2606.25059', '2606.25073', '2606.25149', '2606.25156', '2606.25198', '2606.25200', '2606.25207', '2606.25237', '2606.25246', '2606.25278', '2606.25285', '2606.25325', '2606.25338', '2606.25362', '2606.25402', '2606.25432', '2606.25442', '2606.25450', '2606.25451', '2606.25456', '2606.25473', '2606.25476', '2606.25488', '2606.25491', '2606.25526', '2606.25556', '2606.25665', '2606.25674', '2606.25757', '2606.25769', '2606.25800', '2606.25821', '2606.25852', '2606.25923', '2606.25927', '2606.25964', '2606.25989', '2606.26091']
+[batch] 2606.24039 ← 2606.24039.pdf (model=claude)
+[batch] 2606.24891 ← 2606.24891.pdf (model=claude)
+[batch] 2606.24894 ← 2606.24894.pdf (model=claude)
+[batch] ✅ 2606.24891 (26.7s) is_opd=no §not-applicable
+[batch] 2606.24910 ← 2606.24910.pdf (model=claude)
+[batch] ✅ 2606.24894 (37.6s) is_opd=no §not-applicable
+[batch] 2606.24945 ← 2606.24945.pdf (model=claude)
+[batch] ✅ 2606.24039 (45.2s) is_opd=no §not-applicable
+[batch] 2606.24946 ← 2606.24946.pdf (model=claude)
+[batch] ✅ 2606.24910 (43.6s) is_opd=no §not-applicable
+[batch] 2606.24954 ← 2606.24954.pdf (model=claude)
+[batch] ✅ 2606.24945 (46.1s) is_opd=no §not-applicable
+[batch] 2606.24969 ← 2606.24969.pdf (model=claude)
+[batch] ✅ 2606.24946 (45.1s) is_opd=no §not-applicable
+[batch] 2606.24973 ← 2606.24973.pdf (model=claude)
+[batch] ✅ 2606.24954 (44.0s) is_opd=no §not-applicable
+[batch] 2606.24980 ← 2606.24980.pdf (model=claude)
+[batch] ✅ 2606.24973 (31.1s) is_opd=no §not-applicable
+[batch] 2606.24987 ← 2606.24987.pdf (model=claude)
+[batch] ✅ 2606.24969 (44.9s) is_opd=no §not-applicable
+[batch] 2606.24994 ← 2606.24994.pdf (model=claude)
+[batch] ✅ 2606.24980 (38.0s) is_opd=no §not-applicable
+[batch] 2606.25059 ← 2606.25059.pdf (model=claude)
+[batch] ✅ 2606.24987 (35.7s) is_opd=no §not-applicable
+[batch] 2606.25073 ← 2606.25073.pdf (model=claude)
+[batch] ✅ 2606.24994 (51.0s) is_opd=no §not-applicable
+[batch] 2606.25149 ← 2606.25149.pdf (model=claude)
+[batch] ✅ 2606.25073 (41.7s) is_opd=no §not-applicable
+[batch] 2606.25156 ← 2606.25156.pdf (model=claude)
+[batch] ✅ 2606.25149 (21.5s) is_opd=no §not-applicable
+[batch] 2606.25198 ← 2606.25198.pdf (model=claude)
+[batch] ✅ 2606.25156 (44.4s) is_opd=no §not-applicable
+[batch] 2606.25200 ← 2606.25200.pdf (model=claude)
+[batch] ✅ 2606.25198 (53.0s) is_opd=no §not-applicable
+[batch] 2606.25207 ← 2606.25207.pdf (model=claude)
+[batch] ✅ 2606.25200 (40.2s) is_opd=no §not-applicable
+[batch] 2606.25237 ← 2606.25237.pdf (model=claude)
+[batch] ✅ 2606.25207 (47.4s) is_opd=no §not-applicable
+[batch] 2606.25246 ← 2606.25246.pdf (model=claude)
+[batch] ✅ 2606.25237 (45.9s) is_opd=no §not-applicable
+[batch] 2606.25278 ← 2606.25278.pdf (model=claude)
+[batch] ✅ 2606.25246 (34.9s) is_opd=no §not-applicable
+[batch] 2606.25285 ← 2606.25285.pdf (model=claude)
+[batch] ✅ 2606.25278 (38.6s) is_opd=no §not-applicable
+[batch] 2606.25325 ← 2606.25325.pdf (model=claude)
+[batch] ✅ 2606.25285 (40.6s) is_opd=no §not-applicable
+[batch] 2606.25338 ← 2606.25338.pdf (model=claude)
+[batch] ✅ 2606.25338 (33.4s) is_opd=no §not-applicable
+[batch] 2606.25362 ← 2606.25362.pdf (model=claude)
+[batch] ✅ 2606.25325 (53.3s) is_opd=no §not-applicable
+[batch] 2606.25402 ← 2606.25402.pdf (model=claude)
+[batch] ✅ 2606.25362 (48.2s) is_opd=no §not-applicable
+[batch] 2606.25432 ← 2606.25432.pdf (model=claude)
+[batch] ✅ 2606.25402 (42.3s) is_opd=no §not-applicable
+[batch] 2606.25442 ← 2606.25442.pdf (model=claude)
+[batch] ✅ 2606.25432 (45.4s) is_opd=no §not-applicable
+[batch] 2606.25450 ← 2606.25450.pdf (model=claude)
+[batch] ✅ 2606.25442 (56.9s) is_opd=yes §§5.3.1
+[batch] 2606.25451 ← 2606.25451.pdf (model=claude)
+[batch] ✅ 2606.25450 (49.2s) is_opd=no §not-applicable
+[batch] 2606.25456 ← 2606.25456.pdf (model=claude)
+[batch] ✅ 2606.25451 (47.8s) is_opd=no §not-applicable
+[batch] 2606.25473 ← 2606.25473.pdf (model=claude)
+[batch] ✅ 2606.25456 (49.2s) is_opd=no §not-applicable
+[batch] 2606.25476 ← 2606.25476.pdf (model=claude)
+[batch] ✅ 2606.25473 (57.5s) is_opd=no §not-applicable
+[batch] 2606.25488 ← 2606.25488.pdf (model=claude)
+[batch] ✅ 2606.25476 (39.7s) is_opd=no §not-applicable
+[batch] 2606.25491 ← 2606.25491.pdf (model=claude)

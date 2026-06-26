@@ -801,3 +801,59 @@
 - `2606.24799`  OrbitForge: Text-to-3D Scene Generation via Reconstruction-Anchored Video Synthesis
 - `2606.24849`  IV-CoT: Implicit Visual Chain-of-Thought for Structure-Aware Text-to-Image Generation
 
+
+## 2026-06-26 (Fri) 09:30 — scout completed
+
+**50 candidates** downloaded to `pdfs/_staging/`. Follow-up Phase 2-7 **pending**.
+
+- `2606.24973`  LLM Performance on a Real, Double-Marked GCSE Benchmark
+- `2606.25338`  Hybrid-IR: Dual-Path Hybrid Retrieval with Iterative Reasoning for Complex Medical Question Answering
+- `2606.25442`  PolicyAlign: Direct Policy-Based Safety Alignment for Large Language Models
+- `2606.25476`  A Red Teaming Framework for Large Language Models: A Case Study on Faithfulness Evaluation
+- `2606.25556`  BiPACE: Bisimulation-Guided Policy Optimization with Action Counterfactual Estimation for LLM Agents
+- `2606.25674`  BitNet Text Embeddings
+- `2606.25757`  OPERA: Aligning Open-Ended Reasoning via Objective Perplexity-based Reinforcement Learning
+- `2606.25821`  SARA: Unlocking Multilingual Knowledge in Mixture-of-Experts via Semantically Anchored Routing Alignment
+- `2606.24954`  Digital Twin-Driven Adaptive Sim-to-Real Alignment via Reinforcement Learning for Vibration-Based Bearing Heal
+- `2606.25207`  ASAP: Agent-System Co-Design for Wall-Clock-Centered Auto HPO Research for ML Experiments
+- `2606.25246`  Multilingual Hematology Visual Question Answering Dataset
+- `2606.25450`  The Generalization Spectrum: A Chromatographic Approach to Evaluating Learning Algorithms
+- `2606.24945`  When Do Conservation Laws Survive Learned Representations? Certified Horizons for Latent World Models
+- `2606.24946`  Conformal Orbit-Valid Trust Horizons for Equivariant World Models
+- `2606.24969`  Frequency Domain Reservoir Computing
+- `2606.24980`  Closed-Loop Graph Algorithm Execution with Small Language Models: Step Accuracy and Rollout Reliability
+- `2606.24994`  ExTra: Exploratory Trajectory Optimization for Language Model Reinforcement Learning
+- `2606.25073`  GCT-MARL: Graph-Based Contrastive Transfer for Sample-Efficient Cooperative Multi-Agent Reinforcement Learning
+- `2606.25156`  ATMA: Length-Invariant Language Modeling via Polar Attention and Gated-Delta Compression Memory
+- `2606.25200`  A Hybrid CNN-LSTM Intrusion Detection Framework for Cybersecurity in Smart Renewable Energy Grids
+- `2606.25285`  EPTS: Elastic Post-Training Sparsity for Efficient Large Language Model Compression
+- `2606.25432`  Brevity is the Soul of Inference Efficiency: Inducing Concision in VLMs via Data Curation
+- `2606.25451`  Learning with a Single Rollout via Monte Carlo Pass@k Critic
+- `2606.25456`  Towards Robust EEG Decoding Based on Riemannian Self-Attention
+- `2606.25488`  Distill on a Diet: Efficient Knowledge Distillation via Learnable Data Pruning
+- `2606.25526`  Low Variance Trust Region Optimization with Independent Actors and Sequential Updates in Cooperative Multi-age
+- `2606.25665`  Learning Subset-Shared Invariances for Domain Generalization with Mixture-of-Experts
+- `2606.25769`  Deep Neural Networks with Ordinal Loss for Medical Applications
+- `2606.25800`  ROAD-VLA: Robust Online Adaptation via Self-Distillation for Vision-Language-Action Models
+- `2606.25852`  Semantic Consistency Policy Optimization for Reinforcement Learning of LLM Agents
+- `2606.25923`  $\text{DT}^2$: Decision-Targeted Digital Twins
+- `2606.26091`  On-Policy Self-Distillation with Sampled Demonstrations Reduces Output Diversity
+- `2606.24039`  TurboMPC: Fast, Scalable, and Differentiable Model Predictive Control on the GPU
+- `2606.24987`  Sample complexity of unbalanced entropic OT
+- `2606.25237`  Extreme Meta-Classification for Large-Scale Zero-Shot Retrieval
+- `2606.25362`  Learning Optimization Proxies for Sequential Contextual Stochastic Programs: An Order Fulfillment Application
+- `2606.25473`  Causal-rCM: A Unified Teacher-Forcing and Self-Forcing Open Recipe for Autoregressive Diffusion Distillation i
+- `2606.25927`  Knowledge Cascade: Reverse Knowledge Distillation on Nonparametric Multivariate Functional Estimation
+- `2606.25964`  WinDOM: Self-Family Distillation for Small-Model GUI Grounding
+- `2606.25989`  Taxonomy-aware deep learning for hierarchical marine species classification in underwater imagery
+- `2606.25198`  Heuresis: Search Strategies for Autonomous AI Research Agents Across Quality, Diversity and Novelty
+- `2606.25325`  Omni-Perception Policy Optimization for Multimodal Emotion Reasoning
+- `2606.24891`  Type Checking Project Haystack Grids using JSON Schema and Pydantic
+- `2606.24894`  RWGBench: Evaluating Scholarly Positioning in Related Work Generation
+- `2606.24910`  End-to-End Voice Intent Recognition for Spontaneous Human-Drone Interaction with Naive Users
+- `2606.25059`  What Does It Mean to Break a Distillation Defense?
+- `2606.25149`  Proactive Systems in HCI and AI: Concepts, Challenges, and Opportunities
+- `2606.25278`  Heterogeneous and Adept Snapshot Distillation for 3D Semantic Segmentation
+- `2606.25402`  LibEvoBench: Probing Temporal Knowledge Stratification in Code Generation Models
+- `2606.25491`  HG-Bench: A Benchmark for Multi-Page Handwritten Answer-Region Grounding in Automated Homework Assessment
+
