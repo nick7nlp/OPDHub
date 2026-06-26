@@ -166,12 +166,59 @@ for r in results:
 " 2>/dev/null
 
 if [ -z "${FINAL_KEEP_IDS}" ]; then
-    echo "  No papers passed 3-condition filter — skipping Phase 4-7."
+    echo "  No papers passed 3-condition filter — skipping Phase 3.7-7."
     echo "  Pipeline complete."
     exit 0
 fi
 
-echo "  Final KEEP: ${FINAL_KEEP_IDS}"
+echo "  Final KEEP (pre-2nd-opinion): ${FINAL_KEEP_IDS}"
+echo ""
+
+# ──────────────────────────────────────────────
+# Phase 3.7: Second-opinion verification (cross-model)
+# ──────────────────────────────────────────────
+echo "▶ Phase 3.7: second-opinion verification (Gemini cross-check)"
+
+python3 "${SCRIPTS}/opd_second_opinion.py" \
+    --aids "${FINAL_KEEP_IDS}" \
+    --model gemini \
+    --format json > /tmp/opd_2nd_opinion_result.json
+OPINION_RC=$?
+echo "  2nd-opinion exit code: ${OPINION_RC}"
+
+# Parse: only CONFIRM verdicts proceed to Phase 4
+VERIFIED_IDS=$(python3 -c "
+import json
+results = json.load(open('/tmp/opd_2nd_opinion_result.json'))
+confirmed = [r['aid'] for r in results if r.get('verdict') == 'CONFIRM']
+print(','.join(confirmed))
+" 2>/dev/null || echo "")
+
+# Log rejected/uncertain papers
+python3 -c "
+import json
+results = json.load(open('/tmp/opd_2nd_opinion_result.json'))
+for r in results:
+    v = r.get('verdict', '?')
+    if v != 'CONFIRM':
+        print(f\"  ⚠️  {r['aid']}: {v} — {r.get('reasoning', '')[:100]}\")
+" 2>/dev/null
+
+# Fallback: if 2nd-opinion script fails entirely, pass through (don't block pipeline)
+if [ "${OPINION_RC}" -ne 0 ] && [ -z "${VERIFIED_IDS}" ]; then
+    echo "  ⚠️  2nd-opinion script failed — falling back to 3-cond filter results"
+    VERIFIED_IDS="${FINAL_KEEP_IDS}"
+fi
+
+FINAL_KEEP_IDS="${VERIFIED_IDS}"
+
+if [ -z "${FINAL_KEEP_IDS}" ]; then
+    echo "  No papers confirmed by 2nd-opinion — skipping Phase 4-7."
+    echo "  Pipeline complete."
+    exit 0
+fi
+
+echo "  Final KEEP (verified): ${FINAL_KEEP_IDS}"
 echo ""
 
 # ──────────────────────────────────────────────
