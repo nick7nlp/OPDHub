@@ -857,3 +857,45 @@
 - `2606.25402`  LibEvoBench: Probing Temporal Knowledge Stratification in Code Generation Models
 - `2606.25491`  HG-Bench: A Benchmark for Multi-Page Handwritten Answer-Region Grounding in Automated Homework Assessment
 
+
+## 2026-06-29 (Mon) — weekend skip (PRE-CHECK exit 1)
+
+
+## 2026-06-30 (Tue) 09:30 — scout completed
+
+**33 candidates** downloaded to `pdfs/_staging/`. Follow-up Phase 2-7 **pending**.
+
+- `2606.27378`  Formalizing Latent Thoughts: Four Axioms of Thought Representation in LLMs
+- `2606.27598`  Narrative-UFET: Narrative Generation for Ultra-Fine Entity Typing
+- `2606.27617`  Masked Language Flow Models
+- `2606.27705`  Mitigating Position Bias in Transformers via Layer-Specific Positional Embedding Scaling
+- `2606.27959`  An Empirical Analysis of Factual Errors in Human-Written Text and its Application
+- `2606.27383`  CalBrief: A Pilot Diagnostic Benchmark for Evidence-Calibrated Scientific Briefing with Large Language Models
+- `2606.27681`  Textual Belief States for World Models: Identifiable Representation Learning Under Strict Mediation
+- `2606.27580`  Retroactive Advantage Correction: Closed-Form V-Trace Bias Correction for Delay-Aware RLHF
+- `2606.27609`  Training Observable Control Policies to Expose Agent State Through Actions
+- `2606.27651`  TeRoR: Decoupled Temporal Rotation with Relational Circular Region for Temporal Knowledge Graph Embedding
+- `2606.27672`  Are Time-Series Foundation Models Ready for E-Nose Data? An Empirical Assessment of Their Embeddings
+- `2606.27688`  Deployment-Side Adaptiveness in Multi-Horizon Volatility Forecasting
+- `2606.27748`  Flexformer: Flexible Linear Transformer with Learnable Attention Kernel
+- `2606.27984`  Dual-Learning based Penalized Multi-Align Clustering for Multi-View Incomplete and Disorderly Data
+- `2606.28142`  MixTTA: Low-Rank Cross-Channel Mixing for Reliable Test-Time Adaptation
+- `2606.28220`  Physics-Informed Neural Network with Transfer Learning for State Estimation in Lithium-Ion Batteries using the
+- `2606.27475`  Support-Constrained RL Enables Real-World Policy Improvement without Real-World Experience
+- `2606.27527`  Large Language Model Teaches Visual Students: Cross-Modality Transfer of Fine-Grained Conceptual Knowledge
+- `2606.27539`  Benchmarking Multi-Modal Graph-based Social Media Popularity Prediction
+- `2606.27608`  Qwen-Image-2.0-RL Technical Report
+- `2606.27701`  Room for Error: Large-Scale Simulation of Over-the-Air Acoustic Attacks
+- `2606.27797`  Optimizing Teacher-Student Partitioning for Scalable Knowledge Distillation on HPC Systems
+- `2606.27483`  Internalizing the Future: A Unified Agentic Training Paradigm for World Model Planning
+- `2606.27780`  Understanding Rollout Error in Graph World Models
+- `2606.27814`  ATOD: Annealed Turn-aware On-policy Distillation for Multi-turn Autonomous Agents
+- `2606.27967`  RelBall: Relation Ball with Quaternion Rotation for Knowledge Graph Completion
+- `2606.28166`  Tandem Reinforcement Learning with Verifiable Rewards
+- `2606.27872`  S$^2$-VLA: State-Space Guided Vision-Language-Action Models for Long-Horizon Manipulation
+- `2606.27922`  Reflect-R1: Evidence-Driven Reflection for Self-Correction in Long Video Understanding
+- `2606.27978`  Parallel Rollout Approximation for Pixel-Space Autoregressive Image Generation
+- `2606.28039`  Mind the Gap: Quantifying the Domain Gap in Cross-Sensor Diffusion Super-Resolution
+- `2606.28061`  ToolPrivacyBench: Benchmarking Purpose-Bound Privacy in Tool-Using LLM Agents
+- `2606.28279`  Agentic Hardware Design as Repository-Level Code Evolution
+

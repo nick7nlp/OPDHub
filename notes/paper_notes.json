@@ -52315,7 +52315,210 @@
       "score": 7,
       "_worker": "v2-direct-llm-api",
       "_model": "claude"
+    },
+    "2606.27814": {
+      "_schema_version": "v3",
+      "paper_id": "2606.27814",
+      "title": "ATOD: Annealed Turn-aware On-policy Distillation for Multi-turn Autonomous Agents",
+      "venue": "arXiv 2026",
+      "year": 2026,
+      "authors_first": "Qitai Tan",
+      "affiliation_primary": "Tencent",
+      "summary": "Hybrid annealed OPD-RL schedule with turn-level disagreement-uncertainty reweighting for multi-turn agents",
+      "method": {
+        "training_loop": "Student rolls out trajectories on-policy; compute GRPO advantages from env reward + OPD advantages from teacher logprobs with T-DUR turn weights; anneal κ(OPD) down and ρ(RL) up; update via clipped surrogate",
+        "loss_formulation": "A_t = κ(s) * (logπ_T(a_t|s_t) - logπ_θ(a_t|s_t)) * w_{k(t)} + ρ(s) * A^GRPO_t",
+        "data_source": "ALFWorld, WebShop, Search-QA environment interactions",
+        "key_components": [
+          "Annealed OPD-RL coefficient schedule",
+          "Turn-level Disagreement-Uncertainty Reweighting (T-DUR)",
+          "Soft-OR fusion of disagreement and entropy proxies",
+          "Clipped surrogate actor update with hybrid advantage"
+        ]
+      },
+      "novelty": "Combines OPD and GRPO into a single token-level advantage with annealed coefficients transitioning from teacher-dominated to reward-dominated training, plus a turn-level soft-OR reweighting mechanism (T-DUR) that focuses distillation on high-utility agent decision turns",
+      "on_policy_mechanism": {
+        "student_rollout_in_training": "yes",
+        "rollout_frequency": "per-outer-iter",
+        "teacher_signal": "logits",
+        "signal_source": "external-teacher",
+        "evidence_quote": "OPD trains the student on trajectories sampled from the student itself while using an external teacher distribution to provide dense token-level supervision"
+      },
+      "opd_classification": {
+        "is_opd": "yes",
+        "primary_section": "§4.3",
+        "secondary_sections": [
+          "§6.1",
+          "§4.2"
+        ],
+        "reasoning": "ATOD combines on-policy distillation with RL through an annealed schedule (RL-augmented OPD objective §4.3), with T-DUR providing turn-level token weighting (§6.1) and adaptive coefficient annealing (§4.2)"
+      },
+      "teacher_student_pairs": [
+        {
+          "teacher": {
+            "name": "Qwen3-4B GRPO",
+            "family": "Qwen3",
+            "size_B": 4,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": false,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "Qwen3-0.6B",
+            "family": "Qwen3",
+            "size_B": 0.6,
+            "type": "dense",
+            "init_from": "base",
+            "is_self": false
+          },
+          "vocab_match": "shared",
+          "scenario": "main"
+        },
+        {
+          "teacher": {
+            "name": "Qwen3-4B GRPO",
+            "family": "Qwen3",
+            "size_B": 4,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": false,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "Qwen3-1.7B",
+            "family": "Qwen3",
+            "size_B": 1.7,
+            "type": "dense",
+            "init_from": "base",
+            "is_self": false
+          },
+          "vocab_match": "shared",
+          "scenario": "main"
+        },
+        {
+          "teacher": {
+            "name": "Qwen3-30B-A3B GRPO",
+            "family": "Qwen3",
+            "size_B": 30,
+            "type": "MoE",
+            "moe_active_B": 3,
+            "is_self": false,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "Qwen3-4B",
+            "family": "Qwen3",
+            "size_B": 4,
+            "type": "dense",
+            "init_from": "base",
+            "is_self": false
+          },
+          "vocab_match": "shared",
+          "scenario": "main"
+        }
+      ],
+      "training_setup": {
+        "compute_budget": "8 GPUs (single node)",
+        "tokens_seen_B": null,
+        "context_length": 4096,
+        "rollout_batch_size": null,
+        "rollouts_per_iter": 8,
+        "kl_coeff": null,
+        "rl_algorithm": "GRPO",
+        "stabilization_tricks": [
+          "clipped surrogate",
+          "annealed OPD-RL coefficients",
+          "per-trajectory T-DUR normalization"
+        ],
+        "warmup_off_policy": "no",
+        "warmup_method": "n/a"
+      },
+      "datasets": {
+        "train": [
+          "ALFWorld",
+          "WebShop",
+          "Search-QA"
+        ],
+        "eval": [
+          "ALFWorld",
+          "WebShop",
+          "Search-QA (NaturalQuestions, TriviaQA, PopQA, HotpotQA, 2WikiMultiHopQA, MuSiQue, Bamboogle)"
+        ],
+        "domain": "agent"
+      },
+      "benchmarks": [
+        {
+          "name": "ALFWorld",
+          "metric": "success rate (%)",
+          "student_baseline": 72.66,
+          "student_after_OPD": 80.47,
+          "delta": 7.81,
+          "teacher_score": 76.56,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "Search-QA",
+          "metric": "success rate (%)",
+          "student_baseline": 44.73,
+          "student_after_OPD": 45.21,
+          "delta": 0.48,
+          "teacher_score": 48.19,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "WebShop",
+          "metric": "success rate (%)",
+          "student_baseline": 77.34,
+          "student_after_OPD": 89.06,
+          "delta": 11.72,
+          "teacher_score": 82.03,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        }
+      ],
+      "key_findings": [
+        "ATOD improves average success rate by 3.03 points over OPD and 23.62 points over GRPO across three student sizes",
+        "ATOD surpasses teacher models by 2.16 points on average across all benchmarks",
+        "For 0.6B student, ATOD lifts ALFWorld performance from 0.78% to 82.81% (over 100× improvement vs vanilla)",
+        "Removing annealing causes the largest performance drop (e.g., 0.6B drops from 82.8% to 75.8% on ALFWorld)",
+        "Turn-level T-DUR outperforms both token-level reweighting and uniform weighting across all model sizes"
+      ],
+      "ablations_summary": "Annealing schedule is most critical (largest drop without it, especially for weaker students). Turn-level T-DUR outperforms token-level reweighting and uniform weighting. Both components contribute independently to final performance.",
+      "limitations": [],
+      "failure_modes": [],
+      "compute_efficiency": {
+        "teacher_inference_cost": "1×",
+        "speedup_vs_baseline": "not-reported",
+        "memory_footprint": "unspecified"
+      },
+      "openness": {
+        "code_released": "no",
+        "code_url": null,
+        "model_released": "no",
+        "data_released": "no"
+      },
+      "theory": {
+        "has_theoretical_analysis": "yes",
+        "theoretical_claim": "Entropy proxy h_k is an unbiased estimator of average token entropy with variance O(1/N_k) via martingale difference argument",
+        "proof_sketch": "X_t = -logπ_θ(a_t|s_t) has E[X_t|F_{t-1}] = H(π_θ(·|s_t)), so D_t = X_t - H_t is a martingale difference with uncorrelated cross-terms, giving Var(avg) = O(1/N_k)"
+      },
+      "relevance_to_opd": "Directly extends on-policy distillation for multi-turn agents by combining OPD with RL via annealed coefficients and introducing turn-level reweighting to focus teacher logit supervision on high-utility decision points in agent trajectories",
+      "comparable_papers": [
+        "2310.13332",
+        "2306.08543",
+        "2601.07155",
+        "2604.24005",
+        "2605.07725",
+        "2604.14084",
+        "2602.12125"
+      ],
+      "score": 8,
+      "_worker": "v2-direct-llm-api",
+      "_model": "claude"
     }
   },
-  "last_updated": "2026-06-26T02:47:11.790665Z"
+  "last_updated": "2026-06-30T02:38:14.715301Z"
 }

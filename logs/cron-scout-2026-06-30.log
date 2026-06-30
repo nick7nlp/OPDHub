@@ -1,0 +1,61 @@
+✅ Refreshed known_arxiv_ids.txt: 346 IDs
+[scout] DATE WINDOW (CST): 2026-06-29 → 2026-06-30  (days_back=1)
+[scout] accepting YYMM prefixes: ['2606']
+[scout] architecture: RSS-primary + API-verify + S2-crosscheck
+[scout] known IDs to skip: 346
+
+[scout] === Phase 1: RSS feeds (3 categories) ===
+[scout/rss] cs.CL: 101 total items, 7 OPD-keyword matches
+[scout/rss] cs.LG: 232 total items, 18 OPD-keyword matches
+[scout/rss] cs.AI: 233 total items, 20 OPD-keyword matches
+[scout/rss] total unique candidates: 33
+
+[scout] === Phase 2: S2 cross-check (4 queries) ===
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] added 0 papers not found in RSS
+
+[scout] combined unique: 33 (RSS: 33, S2-extra: 0)
+
+[scout] === Phase 3: no S2-sourced papers to verify ===
+
+[scout] ✅ 33 new candidates for deep-read
+[scout] wrote /tmp/scout_arxiv_results.json
+
+## Scout Summary: 33 new in-window candidates
+
+  - 2606.27378 [rss/ok] Formalizing Latent Thoughts: Four Axioms of Thought Representation in LLMs
+  - 2606.27598 [rss/ok] Narrative-UFET: Narrative Generation for Ultra-Fine Entity Typing
+  - 2606.27617 [rss/ok] Masked Language Flow Models
+  - 2606.27705 [rss/ok] Mitigating Position Bias in Transformers via Layer-Specific Positional Embedding
+  - 2606.27959 [rss/ok] An Empirical Analysis of Factual Errors in Human-Written Text and its Applicatio
+  - 2606.27383 [rss/ok] CalBrief: A Pilot Diagnostic Benchmark for Evidence-Calibrated Scientific Briefi
+  - 2606.27681 [rss/ok] Textual Belief States for World Models: Identifiable Representation Learning Und
+  - 2606.27580 [rss/ok] Retroactive Advantage Correction: Closed-Form V-Trace Bias Correction for Delay-
+  - 2606.27609 [rss/ok] Training Observable Control Policies to Expose Agent State Through Actions
+  - 2606.27651 [rss/ok] TeRoR: Decoupled Temporal Rotation with Relational Circular Region for Temporal 
+  - 2606.27672 [rss/ok] Are Time-Series Foundation Models Ready for E-Nose Data? An Empirical Assessment
+  - 2606.27688 [rss/ok] Deployment-Side Adaptiveness in Multi-Horizon Volatility Forecasting
+  - 2606.27748 [rss/ok] Flexformer: Flexible Linear Transformer with Learnable Attention Kernel
+  - 2606.27984 [rss/ok] Dual-Learning based Penalized Multi-Align Clustering for Multi-View Incomplete a
+  - 2606.28142 [rss/ok] MixTTA: Low-Rank Cross-Channel Mixing for Reliable Test-Time Adaptation
+  - 2606.28220 [rss/ok] Physics-Informed Neural Network with Transfer Learning for State Estimation in L
+  - 2606.27475 [rss/ok] Support-Constrained RL Enables Real-World Policy Improvement without Real-World 
+  - 2606.27527 [rss/ok] Large Language Model Teaches Visual Students: Cross-Modality Transfer of Fine-Gr
+  - 2606.27539 [rss/ok] Benchmarking Multi-Modal Graph-based Social Media Popularity Prediction
+  - 2606.27608 [rss/ok] Qwen-Image-2.0-RL Technical Report
+  - 2606.27701 [rss/ok] Room for Error: Large-Scale Simulation of Over-the-Air Acoustic Attacks
+  - 2606.27797 [rss/ok] Optimizing Teacher-Student Partitioning for Scalable Knowledge Distillation on H
+  - 2606.27483 [rss/ok] Internalizing the Future: A Unified Agentic Training Paradigm for World Model Pl
+  - 2606.27780 [rss/ok] Understanding Rollout Error in Graph World Models
+  - 2606.27814 [rss/ok] ATOD: Annealed Turn-aware On-policy Distillation for Multi-turn Autonomous Agent
+  - 2606.27967 [rss/ok] RelBall: Relation Ball with Quaternion Rotation for Knowledge Graph Completion
+  - 2606.28166 [rss/ok] Tandem Reinforcement Learning with Verifiable Rewards
+  - 2606.27872 [rss/ok] S$^2$-VLA: State-Space Guided Vision-Language-Action Models for Long-Horizon Man
+  - 2606.27922 [rss/ok] Reflect-R1: Evidence-Driven Reflection for Self-Correction in Long Video Underst
+  - 2606.27978 [rss/ok] Parallel Rollout Approximation for Pixel-Space Autoregressive Image Generation
+  - 2606.28039 [rss/ok] Mind the Gap: Quantifying the Domain Gap in Cross-Sensor Diffusion Super-Resolut
+  - 2606.28061 [rss/ok] ToolPrivacyBench: Benchmarking Purpose-Bound Privacy in Tool-Using LLM Agents
+  - 2606.28279 [rss/ok] Agentic Hardware Design as Repository-Level Code Evolution

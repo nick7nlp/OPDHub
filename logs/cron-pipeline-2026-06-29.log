@@ -1,0 +1,32 @@
+
+================================================================
+  OPD Pipeline Phase 2-7  |  2026-06-29 10:30
+================================================================
+
+▶ Phase 2: batch deep-read (--from-staging --days-back 2)
+  _staging/ has 1 PDFs total
+[batch] from-staging: found 1 pending IDs in _staging/
+[batch] 1 papers to process: ['2606.25059']
+[batch] 2606.25059 ← 2606.25059.pdf (model=claude)
+[batch] ✅ 2606.25059 (42.0s) is_opd=no §not-applicable
+
+=== batch done ===
+  total: 1  ok: 1  fail: 0  duration: 42.1s
+  is_opd: yes=0 no=1 analysis=0
+  notes: +1 new, ~0 updated, -0 skipped
+  summary: /tmp/opd_pipeline_deep_read_summary.json
+  deep-read exit code: 0
+  deep-read: total=1 ok=1 opd_yes=0 opd_no=1
+  deep-read IDs: 2606.25059
+
+▶ Phase 3: triage
+[triage] 1 candidates 
+
+  🗑️ 2606.25059     [exclude] rm 2606.25059.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+
+[triage] summary: 0 kept, 1 excluded, 0 skipped
+  triage exit code: 0
+
+▶ Phase 3.5: 3-condition filter
+  No OPD papers after triage — skipping Phase 3.5-7.
+  Pipeline complete.
