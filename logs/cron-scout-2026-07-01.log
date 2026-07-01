@@ -1,0 +1,80 @@
+✅ Refreshed known_arxiv_ids.txt: 347 IDs
+[scout] DATE WINDOW (CST): 2026-06-30 → 2026-07-01  (days_back=1)
+[scout] accepting YYMM prefixes: ['2606', '2607']
+[scout] architecture: RSS-primary + API-verify + S2-crosscheck
+[scout] known IDs to skip: 347
+
+[scout] === Phase 1: RSS feeds (3 categories) ===
+[scout/rss] cs.CL: 285 total items, 28 OPD-keyword matches
+[scout/rss] cs.LG: 583 total items, 58 OPD-keyword matches
+[scout/rss] cs.AI: 233 total items, 20 OPD-keyword matches
+[scout/rss] total unique candidates: 100
+
+[scout] === Phase 2: S2 cross-check (4 queries) ===
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] added 0 papers not found in RSS
+
+[scout] combined unique: 100 (RSS: 100, S2-extra: 0)
+[scout] ⚠️ 1 rejected by DATE WINDOW: ['2502.16886']
+[scout] 1 skipped (already known)
+
+[scout] === Phase 3: no S2-sourced papers to verify ===
+
+[scout] ✅ 50 new candidates for deep-read
+[scout] wrote /tmp/scout_arxiv_results.json
+
+## Scout Summary: 50 new in-window candidates
+
+  - 2606.28526 [rss/ok] A French OSCE Dialogue Dataset and Controllable Virtual Patient System for Clini
+  - 2606.28562 [rss/ok] SEAD: Competence-Aware On-Policy Distillation via Entropy-Guided Supervision
+  - 2606.28823 [rss/ok] Labeling Training Data for Entity Matching Using Large Language Models
+  - 2606.28898 [rss/ok] PASTA: A Paraphrasing And Self-Training Approach for Knowledge Updating in LLMs
+  - 2606.28943 [rss/ok] A3M: Adaptive, Adversarial and Multi-Objective Learning for Strategic Bidding in
+  - 2606.28999 [rss/ok] BERTomelo: Your Portuguese Encoder Best Friend
+  - 2606.29130 [rss/ok] DistilledGemma: Balanced Efficiency-Accuracy for Person-Place Relation Extractio
+  - 2606.29375 [rss/ok] TriageRA-CCF: Source-Side Clinical Confidence and Coverage Signals for Adaptive 
+  - 2606.29793 [rss/ok] Fund2Persona: A Framework for Building and Refining Financial Advisor Personas f
+  - 2606.29815 [rss/ok] SrDetection: A Self-Referential Framework for Data Leakage Detection in Code Lar
+  - 2606.29824 [rss/ok] Neural Procedural Memory: Empowering LLM Agents with Implicit Activation Steerin
+  - 2606.29863 [rss/ok] KbSD: Knowledge Boundary aware Self-Distillation for Behavioral Calibration in A
+  - 2606.29869 [rss/ok] ARKD: Adaptive Reinforcement Learning-Guided Bidirectional KL Divergence Distill
+  - 2606.29938 [rss/ok] LatentRevise: Learning from Zero-Hit Reasoning
+  - 2606.30005 [rss/ok] LLM Agents Are Latent Context Managers: Eliciting Self-Managed Context via a Pro
+  - 2606.30015 [rss/ok] Parametric Skills
+  - 2606.30406 [rss/ok] MOPD: Multi-Teacher On-Policy Distillation for Capability Integration in LLM Pos
+  - 2606.30518 [rss/ok] Regime-Aware Peer Specialization for Robust RAG under Heterogeneous Knowledge Co
+  - 2606.30562 [rss/ok] Morphing into Hybrid Attention Models
+  - 2606.30616 [rss/ok] Scaling the Horizon, Not the Parameters: Reaching Trillion-Parameter Performance
+  - 2606.28544 [rss/ok] Who Plays Which Role When? Communication Role Dynamics for Peer Recognition and 
+  - 2606.29069 [rss/ok] Low-cost concept-based localized explanations: How far can we get with training-
+  - 2606.29171 [rss/ok] Symbolic Mechanistic Data Attribution: Tracing Training Influence to Learned Beh
+  - 2606.29215 [rss/ok] Multi-Block Diffusion Language Models
+  - 2606.29280 [rss/ok] Deterministic Decisions for High-Stakes AI. A Zero-Egress Pipeline with the Depl
+  - 2606.29425 [rss/ok] Mixture of Debaters: Learn to Debate at Architectural Level in Multi-Agent Reaso
+  - 2606.29502 [rss/ok] UCOB: Learning to Utilize and Evolve Agentic Skills via Credit-Aware On-Policy B
+  - 2606.30571 [rss/ok] Attractor States Emerge in Multi-Turn LLM Conversations
+  - 2606.28671 [rss/ok] Entropy-Regularized Reinforcement Learning for Linear-Quadratic Stackelberg Diff
+  - 2606.28751 [rss/ok] A Path-Space Formulation of Prediction in World Models: From a Single Action to 
+  - 2606.28764 [rss/ok] Hierarchical Decision Making with Structured Policies: A Principled Design via I
+  - 2606.28881 [rss/ok] An Integrated Machine Learning and Hierarchical Variance Decomposition Pipeline 
+  - 2606.28923 [rss/ok] Towards Improved Anomaly Detection for Cloud Cybersecurity via Graph Neural Netw
+  - 2606.28939 [rss/ok] ReGuide: From Test-Time Guidance to Self-Improving Diffusion Policies
+  - 2606.29049 [rss/ok] MOSAIC: Orchestrating Collaborative Knowledge Tracing with Hierarchical Semantic
+  - 2606.29110 [rss/ok] Few-Step Boltzmann Generators via Scalable Likelihood Flow Maps
+  - 2606.29238 [rss/ok] On the Policy Gradient Foundations of Group Relative Policy Optimization: Credit
+  - 2606.29287 [rss/ok] Beyond Trajectory Matching: Reflow with Marginal Distribution Alignment
+  - 2606.29386 [rss/ok] Interventional Flow Matching: Prospective Dose-Response Forecasting with Velocit
+  - 2606.29476 [rss/ok] CRAFT: Counterfactual Credit Assignment from Free Sibling Rollouts for Self-Dist
+  - 2606.29613 [rss/ok] Does Role Specialization Matter for Explanation Faithfulness in Mixture-of-Exper
+  - 2606.29721 [rss/ok] Redefining Maritime Anomaly Detection via Equation-Grounded Synthetic Anomalies
+  - 2606.29725 [rss/ok] Optimizing Nursing Care Taxi Dispatch Leveraging Integer Linear Programming Solv
+  - 2606.29758 [rss/ok] PS-PPO: Prefix-Sampling PPO for Critic-Free RLHF
+  - 2606.29773 [rss/ok] GLIP: Graph and LLM Joint Pretraining for Graph-Level Tasks
+  - 2606.29832 [rss/ok] The Forgetting-Retention Dilemma: Certified Unlearning Theory in Continual Learn
+  - 2606.29961 [rss/ok] DuoMem: Towards Capable On-Device Memory Agents via Dual-Space Distillation
+  - 2606.30044 [rss/ok] Building Multi-Task Agentic LLMs via Two-Phase Distillation
+  - 2606.30067 [rss/ok] Neural Subspace Reallocation: Continual Learning as Retrieval-Based Subspace Mem
+  - 2606.30136 [rss/ok] Robust Strategic Classification under Decision-Dependent Cost Uncertainty

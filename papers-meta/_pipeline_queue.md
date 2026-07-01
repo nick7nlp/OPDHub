@@ -899,3 +899,59 @@
 - `2606.28061`  ToolPrivacyBench: Benchmarking Purpose-Bound Privacy in Tool-Using LLM Agents
 - `2606.28279`  Agentic Hardware Design as Repository-Level Code Evolution
 
+
+## 2026-07-01 (Wed) 09:30 — scout completed
+
+**50 candidates** downloaded to `pdfs/_staging/`. Follow-up Phase 2-7 **pending**.
+
+- `2606.28526`  A French OSCE Dialogue Dataset and Controllable Virtual Patient System for Clinical Training
+- `2606.28562`  SEAD: Competence-Aware On-Policy Distillation via Entropy-Guided Supervision
+- `2606.28823`  Labeling Training Data for Entity Matching Using Large Language Models
+- `2606.28898`  PASTA: A Paraphrasing And Self-Training Approach for Knowledge Updating in LLMs
+- `2606.28943`  A3M: Adaptive, Adversarial and Multi-Objective Learning for Strategic Bidding in Repeated Auctions
+- `2606.28999`  BERTomelo: Your Portuguese Encoder Best Friend
+- `2606.29130`  DistilledGemma: Balanced Efficiency-Accuracy for Person-Place Relation Extraction from Multilingual Historical
+- `2606.29375`  TriageRA-CCF: Source-Side Clinical Confidence and Coverage Signals for Adaptive Rank Budgeting in Medical LLMs
+- `2606.29793`  Fund2Persona: A Framework for Building and Refining Financial Advisor Personas from Fund Disclosure Data
+- `2606.29815`  SrDetection: A Self-Referential Framework for Data Leakage Detection in Code Large Language Models
+- `2606.29824`  Neural Procedural Memory: Empowering LLM Agents with Implicit Activation Steering
+- `2606.29863`  KbSD: Knowledge Boundary aware Self-Distillation for Behavioral Calibration in Agentic Search
+- `2606.29869`  ARKD: Adaptive Reinforcement Learning-Guided Bidirectional KL Divergence Distillation for Text Generation
+- `2606.29938`  LatentRevise: Learning from Zero-Hit Reasoning
+- `2606.30005`  LLM Agents Are Latent Context Managers: Eliciting Self-Managed Context via a Proprioceptive Dashboard
+- `2606.30015`  Parametric Skills
+- `2606.30406`  MOPD: Multi-Teacher On-Policy Distillation for Capability Integration in LLM Post-Training
+- `2606.30518`  Regime-Aware Peer Specialization for Robust RAG under Heterogeneous Knowledge Conflicts
+- `2606.30562`  Morphing into Hybrid Attention Models
+- `2606.30616`  Scaling the Horizon, Not the Parameters: Reaching Trillion-Parameter Performance with a 35B Agent
+- `2606.28544`  Who Plays Which Role When? Communication Role Dynamics for Peer Recognition and Team Performance Prediction
+- `2606.29069`  Low-cost concept-based localized explanations: How far can we get with training-free approaches?
+- `2606.29171`  Symbolic Mechanistic Data Attribution: Tracing Training Influence to Learned Behavioral Policies
+- `2606.29215`  Multi-Block Diffusion Language Models
+- `2606.29280`  Deterministic Decisions for High-Stakes AI. A Zero-Egress Pipeline with the Deployability of RAG and the Accur
+- `2606.29425`  Mixture of Debaters: Learn to Debate at Architectural Level in Multi-Agent Reasoning
+- `2606.29502`  UCOB: Learning to Utilize and Evolve Agentic Skills via Credit-Aware On-Policy Bidirectional Self-Distillation
+- `2606.30571`  Attractor States Emerge in Multi-Turn LLM Conversations
+- `2606.28671`  Entropy-Regularized Reinforcement Learning for Linear-Quadratic Stackelberg Differential Games in Regime-Switc
+- `2606.28751`  A Path-Space Formulation of Prediction in World Models: From a Single Action to Prediction, Planning, and Irre
+- `2606.28764`  Hierarchical Decision Making with Structured Policies: A Principled Design via Inverse Optimization
+- `2606.28881`  An Integrated Machine Learning and Hierarchical Variance Decomposition Pipeline for Student Performance Predic
+- `2606.28923`  Towards Improved Anomaly Detection for Cloud Cybersecurity via Graph Neural Networks
+- `2606.28939`  ReGuide: From Test-Time Guidance to Self-Improving Diffusion Policies
+- `2606.29049`  MOSAIC: Orchestrating Collaborative Knowledge Tracing with Hierarchical Semantic Alignment
+- `2606.29110`  Few-Step Boltzmann Generators via Scalable Likelihood Flow Maps
+- `2606.29238`  On the Policy Gradient Foundations of Group Relative Policy Optimization: Credit Assignment, Gradient Sparsity
+- `2606.29287`  Beyond Trajectory Matching: Reflow with Marginal Distribution Alignment
+- `2606.29386`  Interventional Flow Matching: Prospective Dose-Response Forecasting with Velocity-Field Jacobian Regularizatio
+- `2606.29476`  CRAFT: Counterfactual Credit Assignment from Free Sibling Rollouts for Self-Distilled Agentic Reinforcement Le
+- `2606.29613`  Does Role Specialization Matter for Explanation Faithfulness in Mixture-of-Experts?
+- `2606.29721`  Redefining Maritime Anomaly Detection via Equation-Grounded Synthetic Anomalies
+- `2606.29725`  Optimizing Nursing Care Taxi Dispatch Leveraging Integer Linear Programming Solvers and Machine Learning
+- `2606.29758`  PS-PPO: Prefix-Sampling PPO for Critic-Free RLHF
+- `2606.29773`  GLIP: Graph and LLM Joint Pretraining for Graph-Level Tasks
+- `2606.29832`  The Forgetting-Retention Dilemma: Certified Unlearning Theory in Continual Learning
+- `2606.29961`  DuoMem: Towards Capable On-Device Memory Agents via Dual-Space Distillation
+- `2606.30044`  Building Multi-Task Agentic LLMs via Two-Phase Distillation
+- `2606.30067`  Neural Subspace Reallocation: Continual Learning as Retrieval-Based Subspace Memory Management
+- `2606.30136`  Robust Strategic Classification under Decision-Dependent Cost Uncertainty
+
