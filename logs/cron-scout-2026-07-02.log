@@ -1,0 +1,30 @@
+✅ Refreshed known_arxiv_ids.txt: 355 IDs
+[scout] DATE WINDOW (CST): 2026-07-01 → 2026-07-02  (days_back=1)
+[scout] accepting YYMM prefixes: ['2607']
+[scout] architecture: RSS-primary + API-verify + S2-crosscheck
+[scout] known IDs to skip: 355
+
+[scout] === Phase 1: RSS feeds (3 categories) ===
+[scout/rss] cs.CL: 132 total items, 9 OPD-keyword matches
+[scout/rss] cs.LG: 290 total items, 28 OPD-keyword matches
+[scout/rss] cs.AI: 356 total items, 46 OPD-keyword matches
+[scout/rss] total unique candidates: 63
+
+[scout] === Phase 2: S2 cross-check (4 queries) ===
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] added 0 papers not found in RSS
+
+[scout] combined unique: 63 (RSS: 63, S2-extra: 0)
+[scout] ⚠️ 63 rejected by DATE WINDOW: ['2606.30943', '2606.31039', '2606.31411', '2606.32014', '2606.32038', '2606.30852', '2606.31519', '2606.31781', '2606.32034', '2606.30923']
+
+[scout] === Phase 3: no S2-sourced papers to verify ===
+
+[scout] ✅ 0 new candidates for deep-read
+[scout] wrote /tmp/scout_arxiv_results.json
+
+## Scout Summary: 0 new in-window candidates
+
+(no new OPD-relevant candidates today)

@@ -1,0 +1,18 @@
+
+================================================================
+  OPD Pipeline Phase 2-7  |  2026-07-02 10:30
+================================================================
+
+▶ Phase 2: batch deep-read (--from-staging --days-back 2)
+  _staging/ has 0 PDFs total
+[batch] from-staging: found 0 pending IDs in _staging/
+[batch] 0 papers to process: []
+
+=== batch done ===
+  total: 0  ok: 0  fail: 0  duration: 0.0s
+  is_opd: yes=0 no=0 analysis=0
+  notes: +0 new, ~0 updated, -0 skipped
+  summary: /tmp/opd_pipeline_deep_read_summary.json
+  deep-read exit code: 0
+  deep-read: total=0 ok=0 opd_yes=0 opd_no=0
+  0 papers to process — pipeline complete.

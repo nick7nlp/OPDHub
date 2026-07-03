@@ -955,3 +955,60 @@
 - `2606.30067`  Neural Subspace Reallocation: Continual Learning as Retrieval-Based Subspace Memory Management
 - `2606.30136`  Robust Strategic Classification under Decision-Dependent Cost Uncertainty
 
+
+## 2026-07-02 (Thu) 09:30 — scout completed
+
+**0 candidates.** No follow-up needed.
+
+
+## 2026-07-03 (Fri) 09:30 — scout completed
+
+**46 candidates** downloaded to `pdfs/_staging/`. Follow-up Phase 2-7 **pending**.
+
+- `2607.00127`  A Filtered Mixture-of-Generators for Fully Synthetic Survival Training
+- `2607.00173`  TallyTrain: Communication-Efficient Federated Distillation
+- `2607.00329`  K-Inverse-RFM: A Modified RFM that Bridges the Gap to Neural Networks for Data-Corrupted Mathematical Tasks
+- `2607.00358`  PRISM: Prioritized Channel Importance with Semi-supervised Domain Adaptation for Cross-Subject EEG Emotion Rec
+- `2607.00377`  SAOT: Self-Supervised Continual Graph Learning with Structure-Aware Optimal Transport
+- `2607.00512`  From Structural Equation Modelling to Double Machine Learning: Robustness Analysis for Survey-Based Research
+- `2607.01083`  Staleness-Learning Rate Scaling Laws for Asynchronous RLHF
+- `2607.01104`  CausalMix: Data Mixture as Causal Inference for Language Model Training
+- `2607.01181`  Right in the Right Way: LM Training with Verifiable Rewards and Human Demonstrations
+- `2607.01204`  TiRex-2: Generalizing TiRex to Multivariate Data and Streaming
+- `2607.01225`  Language-Critique Imitation Learning from Suboptimal Demonstrations
+- `2607.00140`  CogTax: A Four-Level Cognitive Taxonomy for Command-Line Computing Education
+- `2607.00208`  SLIM-RL: Risk-Budgeted Random-Masking RL for Diffusion LLMs Without Trajectory Slicing
+- `2607.00858`  MoVA: Learning Asymmetric Dual Projections for Modular Long Video-Text Alignment
+- `2607.00961`  Bridging Quantum Computing Paradigms toward Semiconductor Yield: A Controlled CV-versus-DV Comparison on Wafer
+- `2607.01111`  FAR: Failure-Aware Retry for Test-Time Recovery and Continual Policy Improvement
+- `2607.01208`  Distill to Detect: Exposing Stealth Biases in LLMs through Cartridge Distillation
+- `2607.00002`  Bounded Morality: Defining the Space of Moral Computation
+- `2607.00032`  The MMM Data Model -- A Normative Specification for Knowledge Interoperability in a Decentralisable Knowledge 
+- `2607.00147`  RareDxR1: Autonomous Medical Reasoning for Rare Disease Diagnosis Beyond Human Annotation
+- `2607.00211`  Constructing Epistemic AI Literacy: Detecting Epistemic Aims and Processes in Student-AI Co-Programming
+- `2607.00454`  Agri-SAGE: Simulation-Grounded Multi-Agent LLM for Context-Aware Agricultural Advisory Generation
+- `2607.00972`  Bayesian Uncertainty Propagation for Agentic RAG Pipelines: A Proof-of-Concept Study on Multi-Hop Question Ans
+- `2607.01188`  Optimal Resource Utilization for Autonomous Laboratory Orchestrators
+- `2607.00012`  PRA-RAG: Provably Robust Aggregation in Retrieval-Augmented Generation against Retrieval Corruption
+- `2607.00029`  Memory-Native Non-Terrestrial Networks for Embodied Intelligence
+- `2607.00057`  Enhancing Oracle Bone Inscription Recognition via Multi-Scale Layer Attention
+- `2607.00272`  ASPIRE: Agentic /Skills Discovery for Robotics
+- `2607.00274`  SEFORA: Student Essays with Feedback Corpus and LLM Feedback Evaluation Framework
+- `2607.00296`  Learning When to Listen: Gated Affect Fusion for Human Motion Prediction
+- `2607.00310`  RetailSMV: Exocentric vs. Egocentric Adaptation of Foundation Video World Models in Retail
+- `2607.00398`  Holographic Quantum Transformer: A Generalist Neuro-Symbolic Architecture for Solving Frustrated Systems via G
+- `2607.00442`  Learning Gait-Aware Quadruped Locomotion with Temporal Logic Specifications
+- `2607.00446`  VideoSearch-R1: Iterative Video Retrieval and Reasoning via Soft Query Refinement
+- `2607.00460`  A Multi-Resolution Finite-Volume Inspired Deep Learning Framework for Spatiotemporal Dynamics Prediction
+- `2607.00710`  Creating Impactful Autonomous Driving Datasets: A Strategic Guide from Research Gap to Benchmark
+- `2607.00714`  Self-conditioned Flow Map Language Models via Fixed-point Flows
+- `2607.00784`  LeVLJEPA: End-to-End Vision-Language Pretraining Without Negatives
+- `2607.00832`  Pano2World: End-to-End 3D Generation via Unified Multi-View Sequences
+- `2607.00860`  Meta-Transfer Learning for mmWave Beam Alignment
+- `2607.00862`  CAT: Confidence-Adaptive Thinking for Efficient Reasoning of Large Reasoning Models
+- `2607.00989`  SenseWalk: Agent-Based Semantic Trajectory Simulation Powered by Large Language Models in Zoned Environments
+- `2607.01086`  LongVQUBench: Benchmarking Long-Term Video Quality Understanding of Vision-Language Models
+- `2607.01131`  Autonomous Scientific Discovery via Iterative Meta-Reflection
+- `2607.01170`  Diffusion-GR2: Diffusion Generative Reasoning Re-ranker
+- `2607.01202`  World from Motion: Generative Dynamic Gaussian Reconstruction from Monocular Video
+

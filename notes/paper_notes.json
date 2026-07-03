@@ -54490,7 +54490,167 @@
       "score": 8,
       "_worker": "v2-direct-llm-api",
       "_model": "claude"
+    },
+    "2607.01170": {
+      "_schema_version": "v3",
+      "paper_id": "2607.01170",
+      "title": "Diffusion-GR2: Diffusion Generative Reasoning Re-ranker",
+      "venue": "arXiv 2026",
+      "year": 2026,
+      "authors_first": "Zhuoxuan Zhang",
+      "affiliation_primary": "Meta AI",
+      "summary": "Converts AR reasoning re-ranker to block-diffusion via CFT, OPD, and RL",
+      "method": {
+        "training_loop": "Initialize block-diffusion from AR weights → CFT on re-ranking data → OPD: student rolls out trajectories, AR teacher provides per-token KL targets → RL with rank-promotion reward via GRPO/DAPO",
+        "loss_formulation": "L_OPD(θ) = E_{P~D} E_{o~π_θ(·|P)} [1/|o| Σ_t KL(π^AR_ϕ(·|P,o_{<t}) ∥ π_θ(·|P,o_{<t}))]",
+        "data_source": "Amazon Review Beauty dataset",
+        "key_components": [
+          "conversion fine-tuning (CFT)",
+          "on-policy distillation (OPD)",
+          "reinforcement learning with rank-promotion reward",
+          "block-diffusion decoder with confidence-thresholded parallel decoding"
+        ]
+      },
+      "novelty": "First recipe to convert an AR reasoning re-ranker to block-diffusion with CFT for permutation validity, followed by on-policy distillation where the diffusion student generates rollouts and receives dense per-token KL supervision from the frozen AR teacher, closing the off-policy gap specific to AR-to-diffusion conversion",
+      "on_policy_mechanism": {
+        "student_rollout_in_training": "yes",
+        "rollout_frequency": "per-outer-iter",
+        "teacher_signal": "logits",
+        "signal_source": "external-teacher",
+        "evidence_quote": "The converted model generates trajectories under its real decoding distribution (block-diffusion denoising as used at inference) and the AR model supplies dense, per-token supervision on exactly those samples."
+      },
+      "opd_classification": {
+        "is_opd": "yes",
+        "primary_section": "§8.1",
+        "secondary_sections": [
+          "§4.1",
+          "§6.3"
+        ],
+        "reasoning": "The paper applies on-policy distillation (student generates rollouts, teacher provides logit-level KL supervision) as a core stage in a domain-specific application (recommendation re-ranking with block-diffusion decoding), making it an application of OPD to a new domain/system."
+      },
+      "teacher_student_pairs": [
+        {
+          "teacher": {
+            "name": "AR GR2 (Qwen3-8B)",
+            "family": "Qwen3",
+            "size_B": 8,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": false,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "Diffusion-GR2 (Qwen3-8B block-diffusion)",
+            "family": "Qwen3",
+            "size_B": 8,
+            "type": "dense",
+            "init_from": "RL-trained",
+            "is_self": false
+          },
+          "vocab_match": "shared",
+          "scenario": "main"
+        }
+      ],
+      "training_setup": {
+        "compute_budget": "unspecified",
+        "tokens_seen_B": null,
+        "context_length": 2215,
+        "rollout_batch_size": 128,
+        "rollouts_per_iter": 4,
+        "kl_coeff": null,
+        "rl_algorithm": "GRPO",
+        "stabilization_tricks": [
+          "decoupled loss weights for reasoning vs answer tokens",
+          "group-normalized advantage",
+          "clip range 0.2"
+        ],
+        "warmup_off_policy": "yes",
+        "warmup_method": "SFT"
+      },
+      "datasets": {
+        "train": [
+          "Amazon Review Beauty"
+        ],
+        "eval": [
+          "Amazon Review Beauty"
+        ],
+        "domain": "general"
+      },
+      "benchmarks": [
+        {
+          "name": "Amazon Beauty Recall@1",
+          "metric": "Recall@1",
+          "student_baseline": 0.2811,
+          "student_after_OPD": 0.2951,
+          "delta": 0.014,
+          "teacher_score": 0.296,
+          "gap_closed_pct": 94.0,
+          "is_main_result": true
+        },
+        {
+          "name": "Amazon Beauty Recall@3",
+          "metric": "Recall@3",
+          "student_baseline": 0.5591,
+          "student_after_OPD": 0.5671,
+          "delta": 0.008,
+          "teacher_score": 0.5651,
+          "gap_closed_pct": 100.0,
+          "is_main_result": true
+        },
+        {
+          "name": "Amazon Beauty NDCG@3",
+          "metric": "NDCG@3",
+          "student_baseline": 0.4401,
+          "student_after_OPD": 0.4517,
+          "delta": 0.0116,
+          "teacher_score": 0.4497,
+          "gap_closed_pct": 100.0,
+          "is_main_result": true
+        }
+      ],
+      "key_findings": [
+        "CFT recovers most of the conversion gap: Recall@1 from 0.2811 (naive) to 0.2930 (+CFT)",
+        "OPD closes the residual gap: Recall@1 0.2944, within 0.0016 of AR teacher's 0.2960",
+        "OPD→RL reaches Recall@1 0.2951, essentially matching the AR teacher",
+        "Block-diffusion decoding achieves 2.4–3.5× decode throughput speedup over AR at reasoning output length",
+        "On Recall@3 and NDCG@3, Diffusion-GR2 +OPD→RL surpasses the AR teacher (0.5671 vs 0.5651, 0.4517 vs 0.4497)"
+      ],
+      "ablations_summary": "CFT accounts for most recovered accuracy (0.2811→0.2930); OPD adds incremental gain (0.2930→0.2944); RL on top of OPD recovers final margin (0.2944→0.2951). Confidence threshold τ trades off accuracy vs speed: τ=0.9 gives 2.4× speedup with near-AR accuracy, τ=0.4 gives 3.5× but degrades parsing.",
+      "limitations": [
+        "Evaluated only on Amazon Beauty dataset with N=10 candidates",
+        "Single backbone (Qwen3-8B) tested",
+        "Accuracy gap is narrow (0.0149 Recall@1 between pre-rank floor and AR teacher), limiting generalizability assessment"
+      ],
+      "failure_modes": [
+        "At low confidence thresholds (τ≤0.4) parsing degrades and accuracy drops",
+        "Naive diffusion conversion produces invalid rankings (duplicates, omissions, out-of-set IDs) for 99.9% of queries"
+      ],
+      "compute_efficiency": {
+        "teacher_inference_cost": "amortized",
+        "speedup_vs_baseline": "2.4-3.5×",
+        "memory_footprint": "shared"
+      },
+      "openness": {
+        "code_released": "no",
+        "code_url": null,
+        "model_released": "no",
+        "data_released": "no"
+      },
+      "theory": {
+        "has_theoretical_analysis": "no",
+        "theoretical_claim": null,
+        "proof_sketch": null
+      },
+      "relevance_to_opd": "Directly implements on-policy distillation where a block-diffusion student generates rollouts under its own decoding distribution and receives dense per-token forward-KL supervision from a frozen AR teacher, closing the off-policy gap from conversion fine-tuning.",
+      "comparable_papers": [
+        "2310.13332",
+        "2606.06712",
+        "2509.06949"
+      ],
+      "score": 8,
+      "_worker": "v2-direct-llm-api",
+      "_model": "claude"
     }
   },
-  "last_updated": "2026-07-01T02:43:50.062449Z"
+  "last_updated": "2026-07-03T02:41:32.157368Z"
 }

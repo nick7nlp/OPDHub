@@ -1,0 +1,75 @@
+✅ Refreshed known_arxiv_ids.txt: 355 IDs
+[scout] DATE WINDOW (CST): 2026-07-02 → 2026-07-03  (days_back=1)
+[scout] accepting YYMM prefixes: ['2607']
+[scout] architecture: RSS-primary + API-verify + S2-crosscheck
+[scout] known IDs to skip: 355
+
+[scout] === Phase 1: RSS feeds (3 categories) ===
+[scout/rss] cs.CL: 132 total items, 9 OPD-keyword matches
+[scout/rss] cs.LG: 238 total items, 17 OPD-keyword matches
+[scout/rss] cs.AI: 293 total items, 37 OPD-keyword matches
+[scout/rss] total unique candidates: 55
+
+[scout] === Phase 2: S2 cross-check (4 queries) ===
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] added 13 papers not found in RSS
+
+[scout] combined unique: 68 (RSS: 55, S2-extra: 13)
+[scout] ⚠️ 22 rejected by DATE WINDOW: ['2606.30943', '2606.31039', '2606.31411', '2606.32014', '2606.32038', '2606.30852', '2606.31519', '2606.31781', '2606.32034', '2509.22984']
+
+[scout] === Phase 3: no S2-sourced papers to verify ===
+
+[scout] ✅ 46 new candidates for deep-read
+[scout] wrote /tmp/scout_arxiv_results.json
+
+## Scout Summary: 46 new in-window candidates
+
+  - 2607.00127 [rss/ok] A Filtered Mixture-of-Generators for Fully Synthetic Survival Training
+  - 2607.00173 [rss/ok] TallyTrain: Communication-Efficient Federated Distillation
+  - 2607.00329 [rss/ok] K-Inverse-RFM: A Modified RFM that Bridges the Gap to Neural Networks for Data-C
+  - 2607.00358 [rss/ok] PRISM: Prioritized Channel Importance with Semi-supervised Domain Adaptation for
+  - 2607.00377 [rss/ok] SAOT: Self-Supervised Continual Graph Learning with Structure-Aware Optimal Tran
+  - 2607.00512 [rss/ok] From Structural Equation Modelling to Double Machine Learning: Robustness Analys
+  - 2607.01083 [rss/ok] Staleness-Learning Rate Scaling Laws for Asynchronous RLHF
+  - 2607.01104 [rss/ok] CausalMix: Data Mixture as Causal Inference for Language Model Training
+  - 2607.01181 [rss/ok] Right in the Right Way: LM Training with Verifiable Rewards and Human Demonstrat
+  - 2607.01204 [rss/ok] TiRex-2: Generalizing TiRex to Multivariate Data and Streaming
+  - 2607.01225 [rss/ok] Language-Critique Imitation Learning from Suboptimal Demonstrations
+  - 2607.00140 [rss/ok] CogTax: A Four-Level Cognitive Taxonomy for Command-Line Computing Education
+  - 2607.00208 [rss/ok] SLIM-RL: Risk-Budgeted Random-Masking RL for Diffusion LLMs Without Trajectory S
+  - 2607.00858 [rss/ok] MoVA: Learning Asymmetric Dual Projections for Modular Long Video-Text Alignment
+  - 2607.00961 [rss/ok] Bridging Quantum Computing Paradigms toward Semiconductor Yield: A Controlled CV
+  - 2607.01111 [rss/ok] FAR: Failure-Aware Retry for Test-Time Recovery and Continual Policy Improvement
+  - 2607.01208 [rss/ok] Distill to Detect: Exposing Stealth Biases in LLMs through Cartridge Distillatio
+  - 2607.00002 [rss/ok] Bounded Morality: Defining the Space of Moral Computation
+  - 2607.00032 [rss/ok] The MMM Data Model -- A Normative Specification for Knowledge Interoperability i
+  - 2607.00147 [rss/ok] RareDxR1: Autonomous Medical Reasoning for Rare Disease Diagnosis Beyond Human A
+  - 2607.00211 [rss/ok] Constructing Epistemic AI Literacy: Detecting Epistemic Aims and Processes in St
+  - 2607.00454 [rss/ok] Agri-SAGE: Simulation-Grounded Multi-Agent LLM for Context-Aware Agricultural Ad
+  - 2607.00972 [rss/ok] Bayesian Uncertainty Propagation for Agentic RAG Pipelines: A Proof-of-Concept S
+  - 2607.01188 [rss/ok] Optimal Resource Utilization for Autonomous Laboratory Orchestrators
+  - 2607.00012 [rss/ok] PRA-RAG: Provably Robust Aggregation in Retrieval-Augmented Generation against R
+  - 2607.00029 [rss/ok] Memory-Native Non-Terrestrial Networks for Embodied Intelligence
+  - 2607.00057 [rss/ok] Enhancing Oracle Bone Inscription Recognition via Multi-Scale Layer Attention
+  - 2607.00272 [rss/ok] ASPIRE: Agentic /Skills Discovery for Robotics
+  - 2607.00274 [rss/ok] SEFORA: Student Essays with Feedback Corpus and LLM Feedback Evaluation Framewor
+  - 2607.00296 [rss/ok] Learning When to Listen: Gated Affect Fusion for Human Motion Prediction
+  - 2607.00310 [rss/ok] RetailSMV: Exocentric vs. Egocentric Adaptation of Foundation Video World Models
+  - 2607.00398 [rss/ok] Holographic Quantum Transformer: A Generalist Neuro-Symbolic Architecture for So
+  - 2607.00442 [rss/ok] Learning Gait-Aware Quadruped Locomotion with Temporal Logic Specifications
+  - 2607.00446 [rss/ok] VideoSearch-R1: Iterative Video Retrieval and Reasoning via Soft Query Refinemen
+  - 2607.00460 [rss/ok] A Multi-Resolution Finite-Volume Inspired Deep Learning Framework for Spatiotemp
+  - 2607.00710 [rss/ok] Creating Impactful Autonomous Driving Datasets: A Strategic Guide from Research 
+  - 2607.00714 [rss/ok] Self-conditioned Flow Map Language Models via Fixed-point Flows
+  - 2607.00784 [rss/ok] LeVLJEPA: End-to-End Vision-Language Pretraining Without Negatives
+  - 2607.00832 [rss/ok] Pano2World: End-to-End 3D Generation via Unified Multi-View Sequences
+  - 2607.00860 [rss/ok] Meta-Transfer Learning for mmWave Beam Alignment
+  - 2607.00862 [rss/ok] CAT: Confidence-Adaptive Thinking for Efficient Reasoning of Large Reasoning Mod
+  - 2607.00989 [rss/ok] SenseWalk: Agent-Based Semantic Trajectory Simulation Powered by Large Language 
+  - 2607.01086 [rss/ok] LongVQUBench: Benchmarking Long-Term Video Quality Understanding of Vision-Langu
+  - 2607.01131 [rss/ok] Autonomous Scientific Discovery via Iterative Meta-Reflection
+  - 2607.01170 [rss/ok] Diffusion-GR2: Diffusion Generative Reasoning Re-ranker
+  - 2607.01202 [rss/ok] World from Motion: Generative Dynamic Gaussian Reconstruction from Monocular Vid
