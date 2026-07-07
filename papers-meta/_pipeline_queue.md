@@ -1012,3 +1012,11 @@
 - `2607.01170`  Diffusion-GR2: Diffusion Generative Reasoning Re-ranker
 - `2607.01202`  World from Motion: Generative Dynamic Gaussian Reconstruction from Monocular Video
 
+
+## 2026-07-06 (Mon) — weekend skip (PRE-CHECK exit 1)
+
+
+## 2026-07-07 (Tue) 09:30 — scout completed
+
+**0 candidates.** No follow-up needed.
+
