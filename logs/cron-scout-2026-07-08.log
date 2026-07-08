@@ -1,0 +1,80 @@
+✅ Refreshed known_arxiv_ids.txt: 365 IDs
+[scout] DATE WINDOW (CST): 2026-07-07 → 2026-07-08  (days_back=1)
+[scout] accepting YYMM prefixes: ['2607']
+[scout] architecture: RSS-primary + API-verify + S2-crosscheck
+[scout] known IDs to skip: 365
+
+[scout] === Phase 1: RSS feeds (3 categories) ===
+[scout/rss] cs.CL: 295 total items, 20 OPD-keyword matches
+[scout/rss] cs.LG: 747 total items, 61 OPD-keyword matches
+[scout/rss] cs.AI: 783 total items, 72 OPD-keyword matches
+[scout/rss] total unique candidates: 113
+
+[scout] === Phase 2: S2 cross-check (4 queries) ===
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] added 0 papers not found in RSS
+
+[scout] combined unique: 113 (RSS: 113, S2-extra: 0)
+[scout] ⚠️ 1 rejected by DATE WINDOW: ['2405.07332']
+[scout] 5 skipped (already known)
+
+[scout] === Phase 3: no S2-sourced papers to verify ===
+
+[scout] ✅ 50 new candidates for deep-read
+[scout] wrote /tmp/scout_arxiv_results.json
+
+## Scout Summary: 50 new in-window candidates
+
+  - 2607.03154 [rss/ok] Conditional Diffusion Guided Knowledge Transfer for Multi-Domain Knowledge Graph
+  - 2607.03466 [rss/ok] CaresAI at SMM4H-HeaRD 2026: Predicting TNM Staging
+  - 2607.03481 [rss/ok] Learning from Lost Provenance: Multiple Instance Learning for Cancer Registry Tu
+  - 2607.03540 [rss/ok] Mental Health Disorder Detection Beyond Social Media: A Systematic Review of Ava
+  - 2607.03726 [rss/ok] SelfMem: Self-Optimizing Memory for AI Agents
+  - 2607.03882 [rss/ok] Consistent but Miscalibrated: Evaluating LLM Limitations for Risk Communication 
+  - 2607.04235 [rss/ok] Spinning Straw into Gold: Relabeling LLM Agent Trajectories in Hindsight for Suc
+  - 2607.04728 [rss/ok] Turning Off-Policy Tokens On-Policy: A Plug-in Approach for Improving LLM Alignm
+  - 2607.04945 [rss/ok] You Frame It: How Conceptual Representations Shape LLM Detection and Reasoning a
+  - 2607.02593 [rss/ok] Token-level Response-visual Attention Guidance for Multimodal LLMs Knowledge Dis
+  - 2607.02907 [rss/ok] ProLaViT: Learning Progressive Latent Visual Thoughts in Structured Latent Space
+  - 2607.03091 [rss/ok] Silicon Sampling via Cross-Survey Transfer
+  - 2607.03523 [rss/ok] Anchored Self-Play for Code Repair
+  - 2607.04010 [rss/ok] Explainable AI for Screening Abuse-Related Trauma in Bangladeshi Children: A Tra
+  - 2607.04433 [rss/ok] Autonomous Information Seeking: A Roadmap for Agentic Recommender Systems
+  - 2607.02632 [rss/ok] QuantFlow: A Federated Mamba-Based Post-Transformer Foundation Model for Time-Se
+  - 2607.02850 [rss/ok] Labeled-Data-Free Meta-Learning: Efficient Task Generation Using Pre-trained Mod
+  - 2607.02864 [rss/ok] Trading Confidence: Comprehensive Uncertainty Estimation in Algorithmic Trading
+  - 2607.02928 [rss/ok] CoFEND: A Cross-Modal Fusion End-to-End Network for Cold-Start Drug-Drug Interac
+  - 2607.03057 [rss/ok] LACE-SVD: Loss-Aware SVD with Cumulative Error Correction for LLM Compression
+  - 2607.03097 [rss/ok] Heterogeneous Graph Condensation via Role-Aware Clustering
+  - 2607.03126 [rss/ok] ACPO: Adaptive Credit Policy Optimization via Fine-Grained Surrogate Entropy
+  - 2607.03245 [rss/ok] PhenoNEST: A Neuro-Symbolic Framework for Ontology-Aware Multimodal Plant Phenot
+  - 2607.03347 [rss/ok] The Multiscale Single-Index Model: A Stylized Model for Hierarchical Feature Lea
+  - 2607.03487 [rss/ok] Towards Diverse and Comprehensive Benchmarks for Mutual Information Estimation
+  - 2607.03572 [rss/ok] Teacher Supervision over Representation Equivalence Classes
+  - 2607.03663 [rss/ok] Phase-Preserving Trimodal Transformer for Tropical Forest Biomass Estimation Usi
+  - 2607.03788 [rss/ok] Tensor-Train Joint Modeling for Few-Step Discrete Diffusion
+  - 2607.03847 [rss/ok] NeSy-CSA: A Neuro-Symbolic Framework for Open-Ended Critical Scenario Attributio
+  - 2607.03925 [rss/ok] NeuroOnline: Bridging Pretraining and Online Adaptation for EEG Foundation Model
+  - 2607.04037 [rss/ok] Reward-Gated On-Policy Distillation
+  - 2607.04244 [rss/ok] Quantize the Target, Quantize the Drafter: Efficient Inference with Qwen3.5-4B
+  - 2607.04306 [rss/ok] SAD-LoRA: Spectral Alignment for Low-Rank Knowledge Distillation
+  - 2607.04339 [rss/ok] One Framework for All: Cross-Modal Membership Inference for Generative Models
+  - 2607.04409 [rss/ok] Learning Task-Sufficient World Models by Synergizing Agentic Exploration and Str
+  - 2607.04432 [rss/ok] Covert Trait Propagation Is Representation Alignment: Mechanistic Evidence from 
+  - 2607.04464 [rss/ok] Operator-on-F complements value-equivalence: a planning-time diagnostic for late
+  - 2607.04542 [rss/ok] Auto: The AGI Compiler
+  - 2607.04574 [rss/ok] A Few Teacher Steps Go a Long Way: Cost-Efficient On-Policy Data Augmentation fo
+  - 2607.04600 [rss/ok] Measuring What Matters: A Unified Evaluation Framework for GNN Explainability
+  - 2607.04648 [rss/ok] Machine Learning for Depression Screening and Intervention: an Original Circadia
+  - 2607.04709 [rss/ok] Hierarchical Scaffolding Enables Human-Like Cognitive Selectivity under Data Sca
+  - 2607.04751 [rss/ok] Trust Region Policy Distillation
+  - 2607.04777 [rss/ok] Towards Personalized Differentially Private Learning for Decentralized Local Gra
+  - 2607.04906 [rss/ok] RL-Ballast: Ship Ballast Water Path Planning and Clog Prediction via Reinforceme
+  - 2607.04978 [rss/ok] Qantara: Bridge-Flow Training for Multi-Paradigm JEPA Control
+  - 2607.05061 [rss/ok] KVpop -- Key-Value Cache Compression with Predictive Online Pruning
+  - 2607.05175 [rss/ok] Platonic Projection Structures: Operator-Induced Observability in Representation
+  - 2607.05272 [rss/ok] Adaptive Inference Batching using Policy Gradients
+  - 2607.05339 [rss/ok] TREK: Distill to Explore, Reinforce to Refine

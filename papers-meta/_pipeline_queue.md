@@ -1020,3 +1020,59 @@
 
 **0 candidates.** No follow-up needed.
 
+
+## 2026-07-08 (Wed) 09:30 — scout completed
+
+**50 candidates** downloaded to `pdfs/_staging/`. Follow-up Phase 2-7 **pending**.
+
+- `2607.03154`  Conditional Diffusion Guided Knowledge Transfer for Multi-Domain Knowledge Graph Completion
+- `2607.03466`  CaresAI at SMM4H-HeaRD 2026: Predicting TNM Staging
+- `2607.03481`  Learning from Lost Provenance: Multiple Instance Learning for Cancer Registry Tumor Group Classification
+- `2607.03540`  Mental Health Disorder Detection Beyond Social Media: A Systematic Review of Available Datasets
+- `2607.03726`  SelfMem: Self-Optimizing Memory for AI Agents
+- `2607.03882`  Consistent but Miscalibrated: Evaluating LLM Limitations for Risk Communication in Natural Language
+- `2607.04235`  Spinning Straw into Gold: Relabeling LLM Agent Trajectories in Hindsight for Successful Demonstrations
+- `2607.04728`  Turning Off-Policy Tokens On-Policy: A Plug-in Approach for Improving LLM Alignment
+- `2607.04945`  You Frame It: How Conceptual Representations Shape LLM Detection and Reasoning about Antisemitism
+- `2607.02593`  Token-level Response-visual Attention Guidance for Multimodal LLMs Knowledge Distillation
+- `2607.02907`  ProLaViT: Learning Progressive Latent Visual Thoughts in Structured Latent Space
+- `2607.03091`  Silicon Sampling via Cross-Survey Transfer
+- `2607.03523`  Anchored Self-Play for Code Repair
+- `2607.04010`  Explainable AI for Screening Abuse-Related Trauma in Bangladeshi Children: A Training-Free Multimodal Framewor
+- `2607.04433`  Autonomous Information Seeking: A Roadmap for Agentic Recommender Systems
+- `2607.02632`  QuantFlow: A Federated Mamba-Based Post-Transformer Foundation Model for Time-Series Forecasting
+- `2607.02850`  Labeled-Data-Free Meta-Learning: Efficient Task Generation Using Pre-trained Models and Unlabeled Data
+- `2607.02864`  Trading Confidence: Comprehensive Uncertainty Estimation in Algorithmic Trading
+- `2607.02928`  CoFEND: A Cross-Modal Fusion End-to-End Network for Cold-Start Drug-Drug Interaction Prediction
+- `2607.03057`  LACE-SVD: Loss-Aware SVD with Cumulative Error Correction for LLM Compression
+- `2607.03097`  Heterogeneous Graph Condensation via Role-Aware Clustering
+- `2607.03126`  ACPO: Adaptive Credit Policy Optimization via Fine-Grained Surrogate Entropy
+- `2607.03245`  PhenoNEST: A Neuro-Symbolic Framework for Ontology-Aware Multimodal Plant Phenotyping and Trait Discovery
+- `2607.03347`  The Multiscale Single-Index Model: A Stylized Model for Hierarchical Feature Learning
+- `2607.03487`  Towards Diverse and Comprehensive Benchmarks for Mutual Information Estimation
+- `2607.03572`  Teacher Supervision over Representation Equivalence Classes
+- `2607.03663`  Phase-Preserving Trimodal Transformer for Tropical Forest Biomass Estimation Using Optical and PolInSAR Data
+- `2607.03788`  Tensor-Train Joint Modeling for Few-Step Discrete Diffusion
+- `2607.03847`  NeSy-CSA: A Neuro-Symbolic Framework for Open-Ended Critical Scenario Attribution
+- `2607.03925`  NeuroOnline: Bridging Pretraining and Online Adaptation for EEG Foundation Models
+- `2607.04037`  Reward-Gated On-Policy Distillation
+- `2607.04244`  Quantize the Target, Quantize the Drafter: Efficient Inference with Qwen3.5-4B
+- `2607.04306`  SAD-LoRA: Spectral Alignment for Low-Rank Knowledge Distillation
+- `2607.04339`  One Framework for All: Cross-Modal Membership Inference for Generative Models
+- `2607.04409`  Learning Task-Sufficient World Models by Synergizing Agentic Exploration and Structured Modeling
+- `2607.04432`  Covert Trait Propagation Is Representation Alignment: Mechanistic Evidence from Hidden-Channel Distillation
+- `2607.04464`  Operator-on-F complements value-equivalence: a planning-time diagnostic for latent world models
+- `2607.04542`  Auto: The AGI Compiler
+- `2607.04574`  A Few Teacher Steps Go a Long Way: Cost-Efficient On-Policy Data Augmentation for Agent Post-Training
+- `2607.04600`  Measuring What Matters: A Unified Evaluation Framework for GNN Explainability
+- `2607.04648`  Machine Learning for Depression Screening and Intervention: an Original Circadian Rhythm Score-based Methodolo
+- `2607.04709`  Hierarchical Scaffolding Enables Human-Like Cognitive Selectivity under Data Scarcity
+- `2607.04751`  Trust Region Policy Distillation
+- `2607.04777`  Towards Personalized Differentially Private Learning for Decentralized Local Graphs
+- `2607.04906`  RL-Ballast: Ship Ballast Water Path Planning and Clog Prediction via Reinforcement Learning
+- `2607.04978`  Qantara: Bridge-Flow Training for Multi-Paradigm JEPA Control
+- `2607.05061`  KVpop -- Key-Value Cache Compression with Predictive Online Pruning
+- `2607.05175`  Platonic Projection Structures: Operator-Induced Observability in Representation Learning
+- `2607.05272`  Adaptive Inference Batching using Policy Gradients
+- `2607.05339`  TREK: Distill to Explore, Reinforce to Refine
+

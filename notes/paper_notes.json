@@ -51440,7 +51440,1070 @@
       "score": 8,
       "_worker": "v2-direct-llm-api",
       "_model": "claude"
+    },
+    "2607.03572": {
+      "_schema_version": "v3",
+      "paper_id": "2607.03572",
+      "title": "Teacher Supervision over Representation Equivalence Classes: Why Distillation Transfers Capability Through the Output Function, Not the Features",
+      "venue": "arXiv 2026",
+      "year": 2026,
+      "authors_first": "Sang-Il Han",
+      "affiliation_primary": "Korea University of Technology and Education",
+      "summary": "Theoretical framework showing capability transfers via output function (class invariant), not hidden features",
+      "method": {
+        "training_loop": "Corrupt teacher layers → train student with L_cka (relational) and/or L_logit (KL on output distributions) on probe set X → measure restoration",
+        "loss_formulation": "L = L_logit + λ L_rel where L_logit = (1/|X|) Σ KL(p_τ(z_T(x)) ∥ p_τ(z_S(x)))",
+        "data_source": "Generic text corpus (WikiText-103 for cross-width experiments)",
+        "key_components": [
+          "representation equivalence class theory",
+          "joint quotient factorization",
+          "logit-KD as class-invariant objective",
+          "CKA-based relational matching",
+          "graft success prediction from subspace overlap"
+        ]
+      },
+      "novelty": "Reframes distillation as transferring the teacher's representation equivalence class rather than matching features; proves output function is the joint-class invariant that carries capability while hidden-state matching (even at CKA≈0.99) does not restore function",
+      "on_policy_mechanism": {
+        "student_rollout_in_training": "no",
+        "rollout_frequency": "n/a",
+        "teacher_signal": "logits",
+        "signal_source": "external-teacher",
+        "evidence_quote": "L_logit = (1/|X|) Σ KL(p_τ(z_T(x)) ∥ p_τ(z_S(x))), with τ = 1 in our experiments"
+      },
+      "opd_classification": {
+        "is_opd": "analysis",
+        "primary_section": "§7.1",
+        "secondary_sections": [
+          "§4.1",
+          "§5.1"
+        ],
+        "reasoning": "This is a theoretical/empirical analysis paper explaining why logit distillation works (output function is a class invariant) vs feature matching; it does not propose a new on-policy distillation algorithm but provides geometric theory relevant to understanding distillation objectives."
+      },
+      "teacher_student_pairs": [
+        {
+          "teacher": {
+            "name": "Qwen2.5-0.5B",
+            "family": "Qwen3",
+            "size_B": 0.5,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": true,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "Qwen2.5-0.5B (corrupted)",
+            "family": "Qwen3",
+            "size_B": 0.5,
+            "type": "dense",
+            "init_from": "base",
+            "is_self": true
+          },
+          "vocab_match": "shared",
+          "scenario": "main"
+        },
+        {
+          "teacher": {
+            "name": "Qwen2.5-7B-Instruct",
+            "family": "Qwen3",
+            "size_B": 7,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": true,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "Qwen2.5-7B-Instruct (corrupted)",
+            "family": "Qwen3",
+            "size_B": 7,
+            "type": "dense",
+            "init_from": "base",
+            "is_self": true
+          },
+          "vocab_match": "shared",
+          "scenario": "scaling"
+        },
+        {
+          "teacher": {
+            "name": "Llama-3.1-8B-Instruct",
+            "family": "Llama",
+            "size_B": 8,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": true,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "Llama-3.1-8B-Instruct (corrupted)",
+            "family": "Llama",
+            "size_B": 8,
+            "type": "dense",
+            "init_from": "base",
+            "is_self": true
+          },
+          "vocab_match": "shared",
+          "scenario": "scaling"
+        },
+        {
+          "teacher": {
+            "name": "Qwen2.5-1.5B",
+            "family": "Qwen3",
+            "size_B": 1.5,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": false,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "Qwen2.5-0.5B",
+            "family": "Qwen3",
+            "size_B": 0.5,
+            "type": "dense",
+            "init_from": "base",
+            "is_self": false
+          },
+          "vocab_match": "shared",
+          "scenario": "cross-family"
+        }
+      ],
+      "training_setup": {
+        "compute_budget": "unspecified",
+        "tokens_seen_B": null,
+        "context_length": null,
+        "rollout_batch_size": null,
+        "rollouts_per_iter": null,
+        "kl_coeff": null,
+        "rl_algorithm": "pure-KD",
+        "stabilization_tricks": [],
+        "warmup_off_policy": "n/a",
+        "warmup_method": "n/a"
+      },
+      "datasets": {
+        "train": [
+          "WikiText-103",
+          "generic text corpus"
+        ],
+        "eval": [
+          "in-domain probes",
+          "out-domain probes",
+          "WikiText-103 validation"
+        ],
+        "domain": "general"
+      },
+      "benchmarks": [
+        {
+          "name": "PPL ratio (in-domain, 0.5B tied)",
+          "metric": "PPL_S/PPL_T",
+          "student_baseline": 742,
+          "student_after_OPD": 1.01,
+          "delta": null,
+          "teacher_score": 1.0,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "Top-1 agreement (in-domain, 0.5B tied)",
+          "metric": "top-1",
+          "student_baseline": 0.02,
+          "student_after_OPD": 0.98,
+          "delta": 0.96,
+          "teacher_score": 1.0,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "WikiText-103 val PPL (cross-width, logit only)",
+          "metric": "perplexity",
+          "student_baseline": 21.15,
+          "student_after_OPD": 20.77,
+          "delta": -0.38,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        }
+      ],
+      "key_findings": [
+        "CKA-only training restores representation geometry (CKA≈0.999) but leaves capability destroyed (PPL ratio ~3×10^6, top-1≈0)",
+        "Logit-only training restores capability (PPL ratio 1.02×, top-1 0.99) without aligning representation (CKA=0.894)",
+        "Feature-matching alone in cross-width distillation collapses model to PPL>10^6 even from pristine student",
+        "Restoration is confined to corpus-covered region: out-domain CKA drops to 0.53 without domain mixing",
+        "Untied models require explicit head training to fix output coordinate frame; tied models get this implicitly"
+      ],
+      "ablations_summary": "Three-way ablation (L_cka only vs L_logit only vs combined) shows capability driven entirely by logit term; feature term ranges from neutral (optimal W) to mildly harmful (learned W); cross-width surrogate with closed-form optimal alignment confirms feature-only collapse",
+      "limitations": [
+        "Controlled studies fix architecture and share tokenizer embedding; cross-model and small-from-large transfer not established",
+        "Results are restoration studies, not production distillation systems",
+        "One-step output-function capability transfers but autoregressive trajectory capability is not guaranteed",
+        "Modest scale: single model pairs, few seeds, ≤2000 training steps for cross-width",
+        "Exact O(d) invariance approximate in transformers due to normalization layers"
+      ],
+      "failure_modes": [
+        "Teacher-forced/generation gap: top-1≈0.98 but greedy generation drifts with repetition loops",
+        "High-overlap grafts near output layers still fail due to amplification of small mismatches",
+        "Out-of-domain restoration fails without corpus coverage of that domain"
+      ],
+      "compute_efficiency": {
+        "teacher_inference_cost": "unknown",
+        "speedup_vs_baseline": "not-reported",
+        "memory_footprint": "unspecified"
+      },
+      "openness": {
+        "code_released": "yes",
+        "code_url": "https://github.com/MachineLearningHan/Invariant_Pgm",
+        "model_released": "no",
+        "data_released": "no"
+      },
+      "theory": {
+        "has_theoretical_analysis": "yes",
+        "theoretical_claim": "Output function factors through joint quotient (f = f̄ ∘ π_joint); absolute feature matching is ill-posed on representation equivalence classes; capability is a class invariant transferable only via output-function matching",
+        "proof_sketch": "Under Assumption 2.1 (absorbable reparametrization), joint action (h,θ)→(chQ,θ^{Q,c}) leaves network function unchanged; by universal property of quotient, f descends uniquely to joint quotient M/G as f̄ with f=f̄∘π_joint"
+      },
+      "relevance_to_opd": "Provides theoretical foundation for why logit-level (output distribution) distillation transfers capability while feature-level matching does not, directly informing the design of on-policy distillation objectives that use KL divergence on output distributions",
+      "comparable_papers": [
+        "1503.02531",
+        "1910.01108",
+        "2306.13649"
+      ],
+      "score": 4,
+      "_worker": "v2-direct-llm-api",
+      "_model": "claude"
+    },
+    "2607.04037": {
+      "_schema_version": "v3",
+      "paper_id": "2607.04037",
+      "title": "Reward-Gated On-Policy Distillation",
+      "venue": "arXiv 2026",
+      "year": 2026,
+      "authors_first": "MohammadSadegh Akhondzadeh",
+      "affiliation_primary": "University of Cologne",
+      "summary": "Reward-gated on-policy distillation filtering teacher logits by verifier-reward alignment",
+      "method": {
+        "training_loop": "Student samples trajectories on-policy, verifier assigns rewards, teacher provides token-level logits; gate keeps trajectories where reward sign agrees with teacher-student likelihood gap direction; reverse-KL loss on kept trajectories only",
+        "loss_formulation": "L_RG-OPD = (sum_i g_i sum_t m_t^(i) KL(pi_theta(·|s_t^(i)) || pi_T(·|s_t^(i)))) / (sum_i g_i sum_t m_t^(i))",
+        "data_source": "subset of UltraInteract",
+        "key_components": [
+          "reward-teacher likelihood gate",
+          "top-K reverse-KL approximation with tail correction",
+          "GRPO advantage as gating signal"
+        ]
+      },
+      "novelty": "Introduces a binary gate that conditions on-policy distillation updates on directional agreement between verifier reward and teacher-student likelihood gap, filtering out misleading teacher signals on incorrect or teacher-disagreed trajectories",
+      "on_policy_mechanism": {
+        "student_rollout_in_training": "yes",
+        "rollout_frequency": "per-step",
+        "teacher_signal": "logits",
+        "signal_source": "external-teacher",
+        "evidence_quote": "At each iteration, for each prompt x, the student samples N trajectories from its own policy: {y(i)}N i=1 ∼ π_θ(·|x), and a verifier returns a scalar reward r_i for each trajectory."
+      },
+      "opd_classification": {
+        "is_opd": "yes",
+        "primary_section": "§4.3",
+        "secondary_sections": [
+          "§6.1"
+        ],
+        "reasoning": "RG-OPD augments on-policy reverse-KL distillation with a reward-based trajectory gate, combining RL verifier signals with dense teacher logit supervision, fitting §4.3 (RL-augmented OPD objectives)."
+      },
+      "teacher_student_pairs": [
+        {
+          "teacher": {
+            "name": "Qwen2.5-14B-Instruct",
+            "family": "Qwen3",
+            "size_B": 14,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": false,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "Qwen2.5-1.5B-Instruct",
+            "family": "Qwen3",
+            "size_B": 1.5,
+            "type": "dense",
+            "init_from": "SFT",
+            "is_self": false
+          },
+          "vocab_match": "shared",
+          "scenario": "main"
+        }
+      ],
+      "training_setup": {
+        "compute_budget": "2 GPUs (FSDP student) + 2 GPUs (vLLM teacher TP=2)",
+        "tokens_seen_B": null,
+        "context_length": null,
+        "rollout_batch_size": null,
+        "rollouts_per_iter": null,
+        "kl_coeff": null,
+        "rl_algorithm": "GRPO",
+        "stabilization_tricks": [
+          "top-K logit approximation with tail correction",
+          "cosine lr schedule",
+          "50-step warmup"
+        ],
+        "warmup_off_policy": "no",
+        "warmup_method": "n/a"
+      },
+      "datasets": {
+        "train": [
+          "UltraInteract (subset)"
+        ],
+        "eval": [
+          "GSM8K",
+          "GSM-Plus",
+          "MATH",
+          "MMLU-Pro-Math",
+          "MBPP",
+          "IFEval",
+          "SciQ",
+          "MMLU-STEM",
+          "MuSR",
+          "BBH"
+        ],
+        "domain": "math"
+      },
+      "benchmarks": [
+        {
+          "name": "GSM8K",
+          "metric": "accuracy",
+          "student_baseline": 56.89,
+          "student_after_OPD": 66.69,
+          "delta": 9.8,
+          "teacher_score": 76.83,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "GSM-Plus",
+          "metric": "accuracy",
+          "student_baseline": 38.69,
+          "student_after_OPD": 45.47,
+          "delta": 6.78,
+          "teacher_score": 57.18,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "MATH",
+          "metric": "accuracy",
+          "student_baseline": 27.47,
+          "student_after_OPD": 28.63,
+          "delta": 1.16,
+          "teacher_score": 30.33,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "MMLU-Pro-Math",
+          "metric": "accuracy",
+          "student_baseline": 37.33,
+          "student_after_OPD": 42.91,
+          "delta": 5.58,
+          "teacher_score": 78.86,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "MBPP",
+          "metric": "accuracy",
+          "student_baseline": 43.73,
+          "student_after_OPD": 49.33,
+          "delta": 5.6,
+          "teacher_score": 53.13,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "IFEval",
+          "metric": "accuracy",
+          "student_baseline": 52.12,
+          "student_after_OPD": 48.6,
+          "delta": -3.52,
+          "teacher_score": 84.17,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        }
+      ],
+      "key_findings": [
+        "RG-OPD improves over vanilla reverse-KL distillation by 2.9 points average at 1K generation length and 2.8 points at 8K generation length.",
+        "At 8K generation length, RG-OPD improves over the untuned student by 8.2 points average.",
+        "RG-OPD outperforms TSD-KD by 4.9 points average at 1K generation length.",
+        "The gate becomes more selective over training, with kept token fraction decreasing from ~0.9 to ~0.7."
+      ],
+      "ablations_summary": "Ablation on top-K truncation parameter shows k=30 yields best average (47.10); removing tail redistribution degrades performance; varying K shows diminishing returns beyond moderate values.",
+      "limitations": [
+        "IFEval performance drops compared to TSD-KD, possibly due to TSD-KD's student-centric design preserving instruction-following behavior",
+        "Log-likelihood-based evaluation protocol is not natural for instruction-tuned models and RG-OPD does not consistently improve under it"
+      ],
+      "failure_modes": [
+        "On instruction-following (IFEval), RG-OPD scores below both the student baseline and TSD-KD",
+        "Under likelihood-based evaluation protocol, RG-OPD does not consistently outperform baselines"
+      ],
+      "compute_efficiency": {
+        "teacher_inference_cost": "1×",
+        "speedup_vs_baseline": "not-reported",
+        "memory_footprint": "unspecified"
+      },
+      "openness": {
+        "code_released": "yes",
+        "code_url": "https://github.com/UoC-tail/RG-OPD",
+        "model_released": "no",
+        "data_released": "no"
+      },
+      "theory": {
+        "has_theoretical_analysis": "no",
+        "theoretical_claim": null,
+        "proof_sketch": null
+      },
+      "relevance_to_opd": "Directly proposes a novel on-policy distillation method that gates teacher logit supervision based on verifier reward agreement, addressing failure modes of unconditional OPD.",
+      "comparable_papers": [
+        "2306.13649",
+        "2402.13228",
+        "2601.20802",
+        "2601.18734"
+      ],
+      "score": 9,
+      "_worker": "v2-direct-llm-api",
+      "_model": "claude"
+    },
+    "2607.04751": {
+      "_schema_version": "v3",
+      "paper_id": "2607.04751",
+      "title": "Trust Region Policy Distillation",
+      "venue": "arXiv 2026",
+      "year": 2026,
+      "authors_first": "Zhengpeng Xie",
+      "affiliation_primary": "unclear",
+      "summary": "Stabilizes on-policy distillation via proximal teacher interpolation and trust region iterations",
+      "method": {
+        "training_loop": "Student generates rollouts; compute TOP-D reward r̃_k=log(αρ_k+1-α); compute token-level advantages; perform multiple PPO-clip updates per batch with importance sampling",
+        "loss_formulation": "J(θ) = (1/G) Σ_i Σ_t min[p_t^i * Â_t^i, clip(p_t^i, 1-ε, 1+ε) * Â_t^i] where r̃_k = log(α * π*(y_k|x,y<k)/π_θ(y_k|x,y<k) + 1-α)",
+        "data_source": "DAPO-Math-17k dataset",
+        "key_components": [
+          "External proximal teacher via probability interpolation",
+          "Internal trust region iterations with PPO-clip",
+          "Token-level advantage normalization",
+          "Length-normalized future return"
+        ]
+      },
+      "novelty": "Transforms unbounded OPD reward into bounded signal via probability-space interpolation (proximal teacher), enabling safe off-policy data reuse with formal variance bounds and monotonic improvement guarantees, unlike prior heuristic stabilization approaches",
+      "on_policy_mechanism": {
+        "student_rollout_in_training": "yes",
+        "rollout_frequency": "per-outer-iter",
+        "teacher_signal": "logits",
+        "signal_source": "external-teacher",
+        "evidence_quote": "Sample a batch of prompts X ⊂ D_x ... Perform rollout to sample G responses {y^i}^G_{i=1} ∼ π_{θ_old}(·|x) ... Compute TOP-D rewards r̃^i_k ← log(α π*(y^i_k|x,y^i_{<k}) / π_{θ_old}(y^i_k|x,y^i_{<k}) + 1 − α)"
+      },
+      "opd_classification": {
+        "is_opd": "yes",
+        "primary_section": "§4.2",
+        "secondary_sections": [
+          "§4.1",
+          "§6.1"
+        ],
+        "reasoning": "TOP-D proposes an adaptive proximal teacher objective that bounds gradient variance (§4.1/4.2) and incorporates token-level advantage normalization (§6.1), with the core novelty being a new stabilized divergence objective with convergence guarantees."
+      },
+      "teacher_student_pairs": [
+        {
+          "teacher": {
+            "name": "Qwen3-30B-A3B-Instruct-2507",
+            "family": "Qwen3",
+            "size_B": 30,
+            "type": "MoE",
+            "moe_active_B": 3,
+            "is_self": false,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "Qwen3-8B-Base",
+            "family": "Qwen3",
+            "size_B": 8,
+            "type": "dense",
+            "init_from": "base",
+            "is_self": false
+          },
+          "vocab_match": "shared",
+          "scenario": "main"
+        },
+        {
+          "teacher": {
+            "name": "Qwen3-30B-A3B-Instruct-2507",
+            "family": "Qwen3",
+            "size_B": 30,
+            "type": "MoE",
+            "moe_active_B": 3,
+            "is_self": false,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "Qwen3-1.7B-Base",
+            "family": "Qwen3",
+            "size_B": 1.7,
+            "type": "dense",
+            "init_from": "base",
+            "is_self": false
+          },
+          "vocab_match": "shared",
+          "scenario": "main"
+        },
+        {
+          "teacher": {
+            "name": "Qwen3-14B",
+            "family": "Qwen3",
+            "size_B": 14,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": false,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "Qwen3-1.7B-Base",
+            "family": "Qwen3",
+            "size_B": 1.7,
+            "type": "dense",
+            "init_from": "base",
+            "is_self": false
+          },
+          "vocab_match": "shared",
+          "scenario": "scaling"
+        }
+      ],
+      "training_setup": {
+        "compute_budget": "32×H200",
+        "tokens_seen_B": null,
+        "context_length": 16384,
+        "rollout_batch_size": 4096,
+        "rollouts_per_iter": null,
+        "kl_coeff": null,
+        "rl_algorithm": "PPO",
+        "stabilization_tricks": [
+          "proximal teacher interpolation",
+          "token-level advantage normalization",
+          "length-normalized future return",
+          "PPO clipping"
+        ],
+        "warmup_off_policy": "no",
+        "warmup_method": "n/a"
+      },
+      "datasets": {
+        "train": [
+          "DAPO-Math-17k"
+        ],
+        "eval": [
+          "AIME24",
+          "AIME25",
+          "AIME26",
+          "AMC23",
+          "MATH-500",
+          "Olympiad"
+        ],
+        "domain": "math"
+      },
+      "benchmarks": [
+        {
+          "name": "AIME24",
+          "metric": "avg@32 accuracy",
+          "student_baseline": 24.58,
+          "student_after_OPD": 50.42,
+          "delta": 25.84,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "AIME25",
+          "metric": "avg@32 accuracy",
+          "student_baseline": 23.33,
+          "student_after_OPD": 34.06,
+          "delta": 10.73,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "AIME26",
+          "metric": "avg@32 accuracy",
+          "student_baseline": 25.42,
+          "student_after_OPD": 44.06,
+          "delta": 18.64,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "AMC23",
+          "metric": "avg@32 accuracy",
+          "student_baseline": 76.88,
+          "student_after_OPD": 88.13,
+          "delta": 11.25,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "MATH-500",
+          "metric": "avg@8 accuracy",
+          "student_baseline": 87.98,
+          "student_after_OPD": 91.23,
+          "delta": 3.25,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "Olympiad",
+          "metric": "avg@8 accuracy",
+          "student_baseline": 59.29,
+          "student_after_OPD": 64.67,
+          "delta": 5.38,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        }
+      ],
+      "key_findings": [
+        "TOP-D achieves 25.84% absolute improvement over standard OPD on AIME24 (50.42% vs 24.58%) with Qwen3-8B-Base student",
+        "TOP-D surpasses DAPO (best RLVR baseline) by 17.5% absolute on AIME24",
+        "With smaller 1.7B student, standard OPD falls behind RLVR baselines while TOP-D maintains >10pp advantage over OPD",
+        "TOP-D introduces zero additional computational overhead over standard OPD",
+        "Method is robust to interpolation coefficient α ∈ {0.1, 0.2, 0.3} with marginal performance differences"
+      ],
+      "ablations_summary": "Removing proximal teacher (α=1.0) causes unstable training and significant performance degradation; disabling internal trust region iterations (w/o off-policy) drastically reduces sample efficiency; α sensitivity across {0.1, 0.2, 0.3} shows marginal differences demonstrating robustness",
+      "limitations": [
+        "Validation limited to student models up to 8B parameters",
+        "Empirical evaluations constrained to 200-400 update steps without observing saturation",
+        "Not yet investigated scaling beyond 30B student models"
+      ],
+      "failure_modes": [],
+      "compute_efficiency": {
+        "teacher_inference_cost": "1×",
+        "speedup_vs_baseline": "not-reported",
+        "memory_footprint": "shared"
+      },
+      "openness": {
+        "code_released": "no",
+        "code_url": null,
+        "model_released": "no",
+        "data_released": "no"
+      },
+      "theory": {
+        "has_theoretical_analysis": "yes",
+        "theoretical_claim": "Bounded variance (Theorem 4.2), global convergence with asymptotic gap ε∞/α (Theorem 4.4), and monotonic improvement guarantee (Theorem 4.9)",
+        "proof_sketch": "Proximal teacher bounds token-level reward from below via log(αρ+1-α) ≥ log(1-α), yielding uniform gradient variance bound M²|V|max{(log(1-α))², C*α}; iterative convergence via contraction operator T with error accumulation bounded by geometric series; monotonic improvement via performance difference lemma adapted for variable-length generation"
+      },
+      "relevance_to_opd": "Directly addresses instability of on-policy distillation by proposing a new bounded reward formulation (proximal teacher) that transforms unbounded KL-based OPD reward into a stable signal, with rigorous convergence guarantees and trust region data reuse",
+      "comparable_papers": [
+        "2301.12345",
+        "2402.03300",
+        "2503.14476",
+        "2601.07155",
+        "2603.25562",
+        "2604.13016"
+      ],
+      "score": 9,
+      "_worker": "v2-direct-llm-api",
+      "_model": "claude"
+    },
+    "2605.29489": {
+      "_schema_version": "v3",
+      "paper_id": "2605.29489",
+      "title": "Access Sets Matter: Budgeting Expert Reads for Scalable Weight-Space Model Merging",
+      "venue": "ICML 2026 Workshop on Weight-Space Symmetries",
+      "year": 2026,
+      "authors_first": "Yuanyi Wang",
+      "affiliation_primary": "The Hong Kong Polytechnic University",
+      "summary": "Budget-aware execution layer for LLM weight-space merging via expert access-set planning",
+      "method": {
+        "training_loop": "Catalog expert deltas → rank by norm/sketch scores → greedy select under I/O budget B → execute mask-aware merge operator Ψ_op on selected blocks → write merged checkpoint",
+        "loss_formulation": null,
+        "data_source": "Pre-existing fine-tuned checkpoints (Qwen3, Llama families)",
+        "key_components": [
+          "expert access mask A",
+          "budget-aware greedy planner",
+          "mask-aware merge operator Ψ_op",
+          "DeltaIterator streaming executor",
+          "replayable manifest"
+        ]
+      },
+      "novelty": "Formulates LLM model merging as a budgeted expert access-set problem, decoupling which expert deltas are physically read from how they are combined, with provable budget soundness and omitted-update error bounds",
+      "on_policy_mechanism": {
+        "student_rollout_in_training": "no",
+        "rollout_frequency": "n/a",
+        "teacher_signal": "none",
+        "signal_source": "no-supervision",
+        "evidence_quote": "MergePipe exposes the hidden execution choice with an access mask... MergePipe does not introduce a new merge rule: it decides which deltas are physically materialized"
+      },
+      "opd_classification": {
+        "is_opd": "no",
+        "primary_section": "not-applicable",
+        "secondary_sections": [],
+        "reasoning": "This is a systems/efficiency paper for weight-space model merging (I/O optimization), not a distillation method. No student rollouts, no teacher logit supervision, no KL loss."
+      },
+      "teacher_student_pairs": [],
+      "training_setup": {
+        "compute_budget": "unspecified",
+        "tokens_seen_B": null,
+        "context_length": null,
+        "rollout_batch_size": null,
+        "rollouts_per_iter": null,
+        "kl_coeff": null,
+        "rl_algorithm": "n/a",
+        "stabilization_tricks": [],
+        "warmup_off_policy": "n/a",
+        "warmup_method": "n/a"
+      },
+      "datasets": {
+        "train": [],
+        "eval": [
+          "HumanEval",
+          "IFEval",
+          "DROP"
+        ],
+        "domain": "general"
+      },
+      "benchmarks": [
+        {
+          "name": "HumanEval",
+          "metric": "pass rate",
+          "student_baseline": 39.71,
+          "student_after_OPD": null,
+          "delta": null,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "IFEval",
+          "metric": "accuracy",
+          "student_baseline": 68.56,
+          "student_after_OPD": null,
+          "delta": null,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "DROP",
+          "metric": "accuracy",
+          "student_baseline": 66.81,
+          "student_after_OPD": null,
+          "delta": null,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        }
+      ],
+      "key_findings": [
+        "MergePipe achieves up to 11× speedups and order-of-magnitude expert-read I/O reduction across Qwen and Llama families",
+        "At 0.5 budget, relative ℓ2 deviation from full-read merge remains O(10^-3) with no monotonic downstream degradation",
+        "Planning overhead is only 1.04% of execution time; catalog storage is 3.79% of total I/O",
+        "For TIES at K=8 on Llama-3.1-8B, I/O drops from 79.5 GB to 3.46 GB with 91.7% wall-time reduction"
+      ],
+      "ablations_summary": "Budget sweeps from 10% to 100% show monotone realized expert-read I/O and accessed-block ratio; operator generality tested across AVG, TIES, DARE showing sparse methods benefit most",
+      "limitations": [
+        "Assumes experts share a common weight coordinate system; does not address permutation or symmetry alignment",
+        "Budgeted merging is approximate; only full-budget recovers standard merge",
+        "Quality is empirical for nonlinear sparse operators like TIES and DARE",
+        "Benefits shrink for small expert sets, dense full-read regimes, or GPU-resident in-memory fusion"
+      ],
+      "failure_modes": [
+        "Gains naturally shrink for small expert sets or GPU-resident in-memory fusion scenarios",
+        "Selected-only renormalization breaks the additive omission bound"
+      ],
+      "compute_efficiency": {
+        "teacher_inference_cost": "n/a",
+        "speedup_vs_baseline": "11×",
+        "memory_footprint": "unspecified"
+      },
+      "openness": {
+        "code_released": "yes",
+        "code_url": "https://github.com/wyy-code/mergepipe",
+        "model_released": "no",
+        "data_released": "no"
+      },
+      "theory": {
+        "has_theoretical_analysis": "yes",
+        "theoretical_claim": "Budget soundness, full-budget consistency, and additive omission bound: ‖M_full - M_A‖₂ ≤ Σ q_{t,b}(A)",
+        "proof_sketch": "For additive fixed-coefficient operators, omitted-update error equals sum of (1-A_{i,t,b})α_{i,t,b}Δ_{i,t,b}; triangle inequality over disjoint blocks yields the ℓ2 bound"
+      },
+      "relevance_to_opd": "Not an OPD paper; it is a systems/efficiency paper for weight-space model merging. The paper explicitly acknowledges on-policy distillation as a complementary approach in its limitations section.",
+      "comparable_papers": [
+        "2408.07666",
+        "2509.24244"
+      ],
+      "score": 1,
+      "_worker": "v2-direct-llm-api",
+      "_model": "claude"
+    },
+    "2607.05339": {
+      "_schema_version": "v3",
+      "paper_id": "2607.05339",
+      "title": "TREK: Distill to Explore, Reinforce to Refine",
+      "venue": "arXiv 2026",
+      "year": 2026,
+      "authors_first": "Yuanda Xu",
+      "affiliation_primary": "LinkedIn Corporation",
+      "summary": "Staged distillation-then-RL procedure using verified proposals to expand student exploration support before GRPO",
+      "method": {
+        "training_loop": "Mine hard prompts via low student pass rate → query proposal source → keep top-r verified student-proximal proposals → short forward-KL consolidation → return to on-policy GRPO refinement",
+        "loss_formulation": "L = KL(q_prop(·|x) ∥ π_θ(·|x)) for consolidation, then L_GRPO for refinement",
+        "data_source": "DAPO-Math-17K training pool; ALFWorld and ScienceWorld environments",
+        "key_components": [
+          "prompt routing by unaided student pass rate",
+          "trimmed NLL reachability scoring",
+          "top-r student-proximal verified proposal selection",
+          "forward-KL consolidation phase",
+          "staged schedule with GRPO refinement"
+        ]
+      },
+      "novelty": "Uses distillation as exploration support expansion rather than imitation: identifies hard prompts where student lacks coverage, selects verified teacher proposals ranked by student proximity, consolidates via forward-KL before returning to GRPO; works with black-box teachers requiring only output trajectories",
+      "on_policy_mechanism": {
+        "student_rollout_in_training": "yes",
+        "rollout_frequency": "per-outer-iter",
+        "teacher_signal": "none",
+        "signal_source": "PI(GT)",
+        "evidence_quote": "Sample K unaided student rollouts and estimate p_S(x). if p_S(x) ≤ τ_low then Generate up to M proposal rollouts. Keep verifier-passing teacher trajectories."
+      },
+      "opd_classification": {
+        "is_opd": "no",
+        "primary_section": "§6.2",
+        "secondary_sections": [
+          "§5.2"
+        ],
+        "reasoning": "TREK uses verified teacher output trajectories (not logits) consolidated via teacher-forced NLL (SFT-like loss on selected proposals), then returns to GRPO; the forward-KL consolidation is effectively SFT on teacher text, not distributional logit-level supervision on student rollouts, failing C2 and C3 of the OPD iron law."
+      },
+      "teacher_student_pairs": [
+        {
+          "teacher": {
+            "name": "DeepSeek-V4",
+            "family": "DeepSeek",
+            "size_B": null,
+            "type": "MoE",
+            "moe_active_B": null,
+            "is_self": false,
+            "is_api_only": true
+          },
+          "student": {
+            "name": "Qwen3-1.7B",
+            "family": "Qwen3",
+            "size_B": 1.7,
+            "type": "dense",
+            "init_from": "base",
+            "is_self": false
+          },
+          "vocab_match": "cross-tokenizer",
+          "scenario": "main"
+        },
+        {
+          "teacher": {
+            "name": "DeepSeek-V4",
+            "family": "DeepSeek",
+            "size_B": null,
+            "type": "MoE",
+            "moe_active_B": null,
+            "is_self": false,
+            "is_api_only": true
+          },
+          "student": {
+            "name": "Qwen3-8B",
+            "family": "Qwen3",
+            "size_B": 8,
+            "type": "dense",
+            "init_from": "base",
+            "is_self": false
+          },
+          "vocab_match": "cross-tokenizer",
+          "scenario": "main"
+        },
+        {
+          "teacher": {
+            "name": "DeepSeek-V4",
+            "family": "DeepSeek",
+            "size_B": null,
+            "type": "MoE",
+            "moe_active_B": null,
+            "is_self": false,
+            "is_api_only": true
+          },
+          "student": {
+            "name": "Qwen3-14B",
+            "family": "Qwen3",
+            "size_B": 14,
+            "type": "dense",
+            "init_from": "base",
+            "is_self": false
+          },
+          "vocab_match": "cross-tokenizer",
+          "scenario": "main"
+        },
+        {
+          "teacher": {
+            "name": "Qwen3-8B (self-context)",
+            "family": "Qwen3",
+            "size_B": 8,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": true,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "Qwen3-8B",
+            "family": "Qwen3",
+            "size_B": 8,
+            "type": "dense",
+            "init_from": "base",
+            "is_self": true
+          },
+          "vocab_match": "shared",
+          "scenario": "main"
+        },
+        {
+          "teacher": {
+            "name": "DeepSeek-V4",
+            "family": "DeepSeek",
+            "size_B": null,
+            "type": "MoE",
+            "moe_active_B": null,
+            "is_self": false,
+            "is_api_only": true
+          },
+          "student": {
+            "name": "Qwen2.5-7B-Instruct",
+            "family": "Qwen3",
+            "size_B": 7,
+            "type": "dense",
+            "init_from": "SFT",
+            "is_self": false
+          },
+          "vocab_match": "cross-tokenizer",
+          "scenario": "main"
+        }
+      ],
+      "training_setup": {
+        "compute_budget": "2×8×NVIDIA H200",
+        "tokens_seen_B": null,
+        "context_length": 16384,
+        "rollout_batch_size": null,
+        "rollouts_per_iter": null,
+        "kl_coeff": 0.0005,
+        "rl_algorithm": "GRPO",
+        "stabilization_tricks": [
+          "clip ratio 0.2",
+          "gradient clip 1.0"
+        ],
+        "warmup_off_policy": "yes",
+        "warmup_method": "off-policy KD"
+      },
+      "datasets": {
+        "train": [
+          "DAPO-Math-17K",
+          "ALFWorld",
+          "ScienceWorld"
+        ],
+        "eval": [
+          "AIME 2024",
+          "AIME 2025",
+          "MATH-500",
+          "ALFWorld",
+          "ScienceWorld"
+        ],
+        "domain": "math"
+      },
+      "benchmarks": [
+        {
+          "name": "AIME 2025",
+          "metric": "accuracy (avg@16)",
+          "student_baseline": 36.9,
+          "student_after_OPD": 40.3,
+          "delta": 3.4,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "AIME 2024",
+          "metric": "accuracy (avg@16)",
+          "student_baseline": 47.9,
+          "student_after_OPD": 51.1,
+          "delta": 3.2,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "ALFWorld",
+          "metric": "success rate (%)",
+          "student_baseline": 75.8,
+          "student_after_OPD": 82.8,
+          "delta": 7.0,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "ScienceWorld",
+          "metric": "success rate (%)",
+          "student_baseline": 12.5,
+          "student_after_OPD": 26.7,
+          "delta": 14.2,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "MATH-500",
+          "metric": "accuracy (avg@16)",
+          "student_baseline": 88.3,
+          "student_after_OPD": 91.5,
+          "delta": 3.2,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": false
+        }
+      ],
+      "key_findings": [
+        "TREK with DeepSeek-V4 proposals improves Qwen3-8B from 47.9 to 51.1 on AIME 2024 and from 36.9 to 40.3 on AIME 2025 (avg@16)",
+        "Self-context variant (no external teacher) still improves over direct GRPO, reaching 49.6/38.5 for Qwen3-8B on AIME 2024/2025",
+        "On agentic tasks, TREK raises ALFWorld success from 75.8 to 82.8 and ScienceWorld from 12.5 to 26.7",
+        "Forward-KL consolidation outperforms OPD-style supervision by 1.1–2.9 points across all scales",
+        "Gains concentrate on hardest task types: Heat&Place gains +19.1 points and Examine in Light gains +12.6 points"
+      ],
+      "ablations_summary": "OPD-style supervision vs forward-KL consolidation shows forward-KL is stronger for support expansion (1.1–2.9 point advantage). Per-task breakdown confirms gains concentrate on hard prompts. Self-context variant demonstrates method works without external teacher.",
+      "limitations": [
+        "Quality of proposal filtering depends on verifier strength",
+        "Trimmed NLL reachability proxy does not capture fine-grained learnability and is sensitive to verbosity",
+        "Method adds teacher queries and verifier calls on top of ordinary GRPO",
+        "Verified-only rule is conservative; unverified trajectories may contain useful patterns but are unstable to consolidate at current student scales"
+      ],
+      "failure_modes": [
+        "Near-saturated benchmarks (e.g., MATH-500) show only modest gains due to limited headroom",
+        "Method stalls when proposal source also cannot produce verified solutions for hard prompts"
+      ],
+      "compute_efficiency": {
+        "teacher_inference_cost": "amortized",
+        "speedup_vs_baseline": "not-reported",
+        "memory_footprint": "unspecified"
+      },
+      "openness": {
+        "code_released": "no",
+        "code_url": null,
+        "model_released": "no",
+        "data_released": "no"
+      },
+      "theory": {
+        "has_theoretical_analysis": "no",
+        "theoretical_claim": null,
+        "proof_sketch": null
+      },
+      "relevance_to_opd": "Directly compares against OPD-style supervision and argues forward-KL on verified teacher trajectories is superior for support expansion on hard prompts; positions itself as complementary to OPD methods that improve supervision on already-reachable behaviors",
+      "comparable_papers": [
+        "2306.13649",
+        "2604.02288",
+        "2603.11178",
+        "2604.14084",
+        "2605.03677"
+      ],
+      "score": 4,
+      "_worker": "v2-direct-llm-api",
+      "_model": "claude"
     }
   },
-  "last_updated": "2026-07-07T19:56:21.822767"
+  "last_updated": "2026-07-08T02:45:17.401668+00:00"
 }
