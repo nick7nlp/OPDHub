@@ -52503,7 +52503,543 @@
       "score": 4,
       "_worker": "v2-direct-llm-api",
       "_model": "claude"
+    },
+    "2607.05471": {
+      "_schema_version": "v3",
+      "paper_id": "2607.05471",
+      "title": "KAT-Coder-V2.5 Technical Report",
+      "venue": "arXiv 2026",
+      "year": 2026,
+      "authors_first": "KwaiKATTeam",
+      "affiliation_primary": "Kuaishou",
+      "summary": "End-to-end agentic post-training framework for coding agents with multi-teacher on-policy distillation",
+      "method": {
+        "training_loop": "Train domain experts via PPO with harness randomization, then fuse via Multi-Teacher On-Policy Distillation: student generates trajectories, domain teacher provides token-level logits, optimize reverse KL",
+        "loss_formulation": "L_MOPD(θ) = E_{(x,d)~D} E_{y~π_θ(·|x)} Σ_t w_t KL(π_θ(·|x,y_{<t}) || π_{T_d}(·|x,y_{<t}))",
+        "data_source": "Repository environments from AutoBuilder + KwaiClawEnv synthesized tool-use trajectories",
+        "key_components": [
+          "Multi-Teacher On-Policy Distillation (MOPD)",
+          "AutoBuilder environment construction",
+          "KwaiClawEnv tool-use trajectory synthesis",
+          "Asymmetric actor-critic PPO with hindsight-augmented value estimation",
+          "Harness randomization",
+          "Drift-aware dynamic truncation",
+          "Off-policy cold start",
+          "Harness-oriented reward framework"
+        ]
+      },
+      "novelty": "Multi-Teacher On-Policy Distillation (MOPD) that fuses five domain experts into a single student via reverse KL on student-generated trajectories with drift-aware truncation and off-policy cold start, avoiding see-saw degradation of weight-space merging",
+      "on_policy_mechanism": {
+        "student_rollout_in_training": "yes",
+        "rollout_frequency": "per-step",
+        "teacher_signal": "logits",
+        "signal_source": "external-teacher",
+        "evidence_quote": "the student first generates an on-policy trajectory y ∼ π_θ(· | x). The corresponding domain teacher π_T_d then provides token-level logit supervision on the same trajectory."
+      },
+      "opd_classification": {
+        "is_opd": "yes",
+        "primary_section": "§5.1",
+        "secondary_sections": [
+          "§4.2",
+          "§6.1",
+          "§6.2"
+        ],
+        "reasoning": "MOPD is a white-box multi-teacher on-policy distillation method with reverse KL on student rollouts, with stabilization via drift-aware truncation (token weighting) and off-policy cold start"
+      },
+      "teacher_student_pairs": [
+        {
+          "teacher": {
+            "name": "SWE Expert",
+            "family": "unclear",
+            "size_B": null,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": false,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "KAT-Coder-V2.5",
+            "family": "unclear",
+            "size_B": null,
+            "type": "dense",
+            "init_from": "SFT",
+            "is_self": false
+          },
+          "vocab_match": "shared",
+          "scenario": "main"
+        },
+        {
+          "teacher": {
+            "name": "Agent-Claw Expert",
+            "family": "unclear",
+            "size_B": null,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": false,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "KAT-Coder-V2.5",
+            "family": "unclear",
+            "size_B": null,
+            "type": "dense",
+            "init_from": "SFT",
+            "is_self": false
+          },
+          "vocab_match": "shared",
+          "scenario": "main"
+        },
+        {
+          "teacher": {
+            "name": "WebCoding Expert",
+            "family": "unclear",
+            "size_B": null,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": false,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "KAT-Coder-V2.5",
+            "family": "unclear",
+            "size_B": null,
+            "type": "dense",
+            "init_from": "SFT",
+            "is_self": false
+          },
+          "vocab_match": "shared",
+          "scenario": "main"
+        },
+        {
+          "teacher": {
+            "name": "Terminal Expert",
+            "family": "unclear",
+            "size_B": null,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": false,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "KAT-Coder-V2.5",
+            "family": "unclear",
+            "size_B": null,
+            "type": "dense",
+            "init_from": "SFT",
+            "is_self": false
+          },
+          "vocab_match": "shared",
+          "scenario": "main"
+        },
+        {
+          "teacher": {
+            "name": "General Knowledge Expert",
+            "family": "unclear",
+            "size_B": null,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": false,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "KAT-Coder-V2.5",
+            "family": "unclear",
+            "size_B": null,
+            "type": "dense",
+            "init_from": "SFT",
+            "is_self": false
+          },
+          "vocab_match": "shared",
+          "scenario": "main"
+        }
+      ],
+      "training_setup": {
+        "compute_budget": "unspecified",
+        "tokens_seen_B": null,
+        "context_length": null,
+        "rollout_batch_size": null,
+        "rollouts_per_iter": null,
+        "kl_coeff": null,
+        "rl_algorithm": "PPO",
+        "stabilization_tricks": [
+          "off-policy cold start",
+          "drift-aware dynamic truncation",
+          "length-stratified batching",
+          "reliability-hardened sandbox"
+        ],
+        "warmup_off_policy": "yes",
+        "warmup_method": "off-policy KD"
+      },
+      "datasets": {
+        "train": [
+          "AutoBuilder reconstructed repositories (100K+ environments, 12 languages)",
+          "KwaiClawEnv synthesized tool-use trajectories"
+        ],
+        "eval": [
+          "SWE-Bench Pro",
+          "KAT Code Bench",
+          "PinchBench",
+          "KAT Claw Bench",
+          "Terminal-Bench 2.1",
+          "SciCode"
+        ],
+        "domain": "code"
+      },
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Pro",
+          "metric": "accuracy",
+          "student_baseline": null,
+          "student_after_OPD": 65.2,
+          "delta": null,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "KAT Code Bench",
+          "metric": "accuracy",
+          "student_baseline": null,
+          "student_after_OPD": 53.1,
+          "delta": null,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "PinchBench",
+          "metric": "accuracy (Avg)",
+          "student_baseline": null,
+          "student_after_OPD": 94.9,
+          "delta": null,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "KAT Claw Bench",
+          "metric": "accuracy",
+          "student_baseline": null,
+          "student_after_OPD": 85.5,
+          "delta": null,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "Terminal-Bench 2.1",
+          "metric": "accuracy",
+          "student_baseline": null,
+          "student_after_OPD": 60.7,
+          "delta": null,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "SciCode",
+          "metric": "accuracy",
+          "student_baseline": null,
+          "student_after_OPD": 50.3,
+          "delta": null,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        }
+      ],
+      "key_findings": [
+        "KAT-Coder-V2.5 achieves 94.9 on PinchBench, the best agentic tool-use result surpassing Opus 4.8 (93.5)",
+        "KAT-Coder-V2.5 scores 65.2 on SWE-Bench Pro, ranking second only to Opus 4.8 (69.2)",
+        "Sandbox feedback error rate dropped from ~16% to below 2% after reliability hardening",
+        "MOPD fuses five domain experts without the see-saw effect of weight-space merging",
+        "AutoBuilder increased environment-construction success rate from 16.5% to 57.2%"
+      ],
+      "ablations_summary": "No formal ablation table is provided; the paper describes qualitative contributions of sandbox optimization (16%→<2% error), harness scaling for cross-harness generalization, drift-aware truncation for long-context stability, and off-policy cold start before MOPD",
+      "limitations": [
+        "Extending verifiable environment construction to broader settings",
+        "Strengthening long-horizon credit assignment",
+        "Improving generalization on terminal and scientific tasks"
+      ],
+      "failure_modes": [
+        "Format/context-structure/control-flow overfitting when training on single harness",
+        "Teacher distribution becomes unreliable on long student-generated prefixes causing loss oscillation and entropy collapse"
+      ],
+      "compute_efficiency": {
+        "teacher_inference_cost": "unknown",
+        "speedup_vs_baseline": "not-reported",
+        "memory_footprint": "unspecified"
+      },
+      "openness": {
+        "code_released": "no",
+        "code_url": null,
+        "model_released": "no",
+        "data_released": "no"
+      },
+      "theory": {
+        "has_theoretical_analysis": "no",
+        "theoretical_claim": null,
+        "proof_sketch": null
+      },
+      "relevance_to_opd": "Proposes Multi-Teacher On-Policy Distillation (MOPD) where the student generates agentic trajectories and multiple domain-expert teachers provide token-level logit supervision via reverse KL, with drift-aware truncation and off-policy cold start for long-context stability",
+      "comparable_papers": [
+        "2310.13332",
+        "2605.07804"
+      ],
+      "score": 8,
+      "_worker": "v2-direct-llm-api",
+      "_model": "claude"
+    },
+    "2607.05804": {
+      "_schema_version": "v3",
+      "paper_id": "2607.05804",
+      "title": "TurnOPD: Making On-Policy Distillation Turn-Aware for Efficient Long-Horizon Agent Training",
+      "venue": "arXiv 2026",
+      "year": 2026,
+      "authors_first": "Yuhang Zhou",
+      "affiliation_primary": "Fudan University",
+      "summary": "Turn-level budgeting strategy for efficient on-policy distillation of long-horizon agents",
+      "method": {
+        "training_loop": "Student rolls out in environment, teacher provides reverse-KL supervision on student-visited prefixes; adaptive rollout-depth controller truncates rollouts, progressive turn-normalized loss shifts KL weighting from token-level to turn-balanced",
+        "loss_formulation": "L = (1 - α) L_token + α L_round, where α increases linearly with training progress; base loss is reverse-KL: D_KL(π_θ(·|s_i) || π_T(·|s_i))",
+        "data_source": "On-policy student rollouts in ALFWorld, WebShop, and Multi-Hop Search environments",
+        "key_components": [
+          "adaptive rollout-depth budgeting via probe-based turn statistics",
+          "progressive turn-normalized loss budgeting with linear blend",
+          "survivor-weighted KL centroid",
+          "coverage-based lower bound"
+        ]
+      },
+      "novelty": "Introduces turn-level budgeting for agent OPD: adaptive rollout-depth controller that dynamically selects rollout length via survivor-weighted KL centroid and coverage thresholds, plus progressive turn-normalized loss that shifts from trajectory-level to turn-balanced KL allocation over training",
+      "on_policy_mechanism": {
+        "student_rollout_in_training": "yes",
+        "rollout_frequency": "per-step",
+        "teacher_signal": "logits",
+        "signal_source": "external-teacher",
+        "evidence_quote": "the student samples its own rollout τ ∼ π_θ(·|x) for a prompt x ∼ p_data, and a frozen teacher π_T provides token-level supervision on the student-visited prefixes"
+      },
+      "opd_classification": {
+        "is_opd": "yes",
+        "primary_section": "§6.2",
+        "secondary_sections": [
+          "§6.1",
+          "§4.2"
+        ],
+        "reasoning": "The paper proposes a curriculum/scheduling strategy (adaptive rollout depth + progressive loss normalization) for on-policy distillation of agents, fitting efficiency/curriculum techniques for OPD."
+      },
+      "teacher_student_pairs": [
+        {
+          "teacher": {
+            "name": "Qwen3-8B-GRPO",
+            "family": "Qwen3",
+            "size_B": 8,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": false,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "Qwen3-1.7B",
+            "family": "Qwen3",
+            "size_B": 1.7,
+            "type": "dense",
+            "init_from": "base",
+            "is_self": false
+          },
+          "vocab_match": "shared",
+          "scenario": "main"
+        },
+        {
+          "teacher": {
+            "name": "Qwen3-8B-GRPO",
+            "family": "Qwen3",
+            "size_B": 8,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": false,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "Qwen3-4B",
+            "family": "Qwen3",
+            "size_B": 4,
+            "type": "dense",
+            "init_from": "base",
+            "is_self": false
+          },
+          "vocab_match": "shared",
+          "scenario": "main"
+        },
+        {
+          "teacher": {
+            "name": "Qwen3.5-9B-GRPO",
+            "family": "Qwen3",
+            "size_B": 9,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": false,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "Qwen3.5-2B",
+            "family": "Qwen3",
+            "size_B": 2,
+            "type": "dense",
+            "init_from": "base",
+            "is_self": false
+          },
+          "vocab_match": "shared",
+          "scenario": "main"
+        }
+      ],
+      "training_setup": {
+        "compute_budget": "32×H20 GPUs (80GB each)",
+        "tokens_seen_B": null,
+        "context_length": null,
+        "rollout_batch_size": 64,
+        "rollouts_per_iter": null,
+        "kl_coeff": 0,
+        "rl_algorithm": "pure-KD",
+        "stabilization_tricks": [
+          "importance-ratio clipping (0.9/9)",
+          "EMA smoothing of rollout depth",
+          "top-K reverse KL"
+        ],
+        "warmup_off_policy": "no",
+        "warmup_method": "n/a"
+      },
+      "datasets": {
+        "train": [
+          "ALFWorld",
+          "Multi-Hop Search (PopQA, NQ, 2WikiMultiHopQA, HotpotQA)",
+          "WebShop"
+        ],
+        "eval": [
+          "ALFWorld (valid_unseen)",
+          "PopQA",
+          "NQ",
+          "2WikiMultiHopQA",
+          "HotpotQA",
+          "WebShop"
+        ],
+        "domain": "agent"
+      },
+      "benchmarks": [
+        {
+          "name": "ALFWorld (1.7B)",
+          "metric": "Avg@4",
+          "student_baseline": 83.0,
+          "student_after_OPD": 86.29,
+          "delta": 3.29,
+          "teacher_score": 90.75,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "ALFWorld (4B)",
+          "metric": "Avg@4",
+          "student_baseline": 91.81,
+          "student_after_OPD": 92.21,
+          "delta": 0.4,
+          "teacher_score": 90.75,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "Multi-Hop Search (2B)",
+          "metric": "Avg@4",
+          "student_baseline": 47.82,
+          "student_after_OPD": 47.24,
+          "delta": -0.58,
+          "teacher_score": 59.0,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "WebShop (1.7B)",
+          "metric": "Avg@4",
+          "student_baseline": 81.65,
+          "student_after_OPD": 82.8,
+          "delta": 1.15,
+          "teacher_score": 84.46,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "ALFWorld (1.7B) Least-Time",
+          "metric": "Avg@4",
+          "student_baseline": 73.52,
+          "student_after_OPD": 85.6,
+          "delta": 12.08,
+          "teacher_score": 90.75,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "Multi-Hop Search (2B) Least-Time",
+          "metric": "Avg@4",
+          "student_baseline": 45.77,
+          "student_after_OPD": 47.24,
+          "delta": 1.47,
+          "teacher_score": 59.0,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "WebShop (1.7B) Least-Time",
+          "metric": "Avg@4",
+          "student_baseline": 76.98,
+          "student_after_OPD": 82.8,
+          "delta": 5.82,
+          "teacher_score": 84.46,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        }
+      ],
+      "key_findings": [
+        "TurnOPD achieves 2.29× faster training on ALFWorld-1.7B while improving Same-Step Avg@4 from 83.0 to 86.3",
+        "On WebShop, TurnOPD improves both accuracy (82.80 vs 81.65) and wall time (1.24h vs 1.57h)",
+        "Adaptive depth alone cuts wall time from 4.42h to 1.96h but does not improve accuracy; linear KL blend improves accuracy to 85.1; combining both gives best tradeoff",
+        "Only 3.6–4.5% of KL loss is assigned to the deepest third of turns on ALFWorld under vanilla OPD",
+        "Qwen3-4B student exceeds teacher reference (92.21 vs 90.75) on ALFWorld with TurnOPD"
+      ],
+      "ablations_summary": "Adaptive depth provides efficiency (halves wall time) but not accuracy alone; linear KL blend provides accuracy improvement (+2.1 on ALFWorld-1.7B); combining both gives best accuracy-time tradeoff. Hard turn-level KL achieves 85.0 vs linear blend's 85.1. Coverage quantile p controls rollout depth conservativeness smoothly.",
+      "limitations": [
+        "Evaluated on only three agent benchmarks with relatively structured environments",
+        "Requires periodic full-depth probe rollouts which add overhead",
+        "Coverage controller requires distinguishing successful from failed trajectories (though full-population CDF variant exists)",
+        "Method tested with only 100 optimizer steps"
+      ],
+      "failure_modes": [
+        "On Multi-Hop Search Same-Step setting, vanilla OPD retains small advantage over TurnOPD",
+        "Full-population CDF overestimates required depth due to failed trajectories stalling at max depth"
+      ],
+      "compute_efficiency": {
+        "teacher_inference_cost": "1×",
+        "speedup_vs_baseline": "2.29×",
+        "memory_footprint": "unspecified"
+      },
+      "openness": {
+        "code_released": "no",
+        "code_url": null,
+        "model_released": "no",
+        "data_released": "no"
+      },
+      "theory": {
+        "has_theoretical_analysis": "yes",
+        "theoretical_claim": "Contamination-compression bound: observed KL ≤ (1-λ(c)) × free-component KL, explaining why late-turn KL underestimates true policy disagreement",
+        "proof_sketch": "Uses joint convexity of KL divergence and log-sum inequality to show that context-forced mass λ compresses measured KL even when free-component disagreement persists"
+      },
+      "relevance_to_opd": "Directly proposes and evaluates improvements to on-policy distillation for multi-turn agent tasks, with turn-level budgeting of both rollout depth and KL loss allocation as the core contribution",
+      "comparable_papers": [
+        "2306.13649",
+        "2604.24005",
+        "2605.07725",
+        "2601.18734"
+      ],
+      "score": 9,
+      "_worker": "v2-direct-llm-api",
+      "_model": "claude"
     }
   },
-  "last_updated": "2026-07-08T02:45:17.401668+00:00"
+  "last_updated": "2026-07-09T02:41:53.835594Z"
 }

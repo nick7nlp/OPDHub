@@ -1,0 +1,75 @@
+✅ Refreshed known_arxiv_ids.txt: 370 IDs
+[scout] DATE WINDOW (CST): 2026-07-08 → 2026-07-09  (days_back=1)
+[scout] accepting YYMM prefixes: ['2607']
+[scout] architecture: RSS-primary + API-verify + S2-crosscheck
+[scout] known IDs to skip: 370
+
+[scout] === Phase 1: RSS feeds (3 categories) ===
+[scout/rss] cs.CL: 113 total items, 11 OPD-keyword matches
+[scout/rss] cs.LG: 228 total items, 18 OPD-keyword matches
+[scout/rss] cs.AI: 279 total items, 34 OPD-keyword matches
+[scout/rss] total unique candidates: 47
+
+[scout] === Phase 2: S2 cross-check (4 queries) ===
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] added 0 papers not found in RSS
+
+[scout] combined unique: 47 (RSS: 47, S2-extra: 0)
+
+[scout] === Phase 3: no S2-sourced papers to verify ===
+
+[scout] ✅ 47 new candidates for deep-read
+[scout] wrote /tmp/scout_arxiv_results.json
+
+## Scout Summary: 47 new in-window candidates
+
+  - 2607.05614 [rss/ok] BaFCo: A Document Understanding Benchmark for Complex Bangla Form Comprehension
+  - 2607.05721 [rss/ok] SpanUQ: Span-Level Uncertainty Quantification for Large Language Model Generatio
+  - 2607.05752 [rss/ok] When Should LLMs Search? Counterfactual Supervision for Search Routing
+  - 2607.05861 [rss/ok] Mitigating Factual Hallucination in Large Reasoning Models via Mixed-Mode Advant
+  - 2607.06157 [rss/ok] LLM Agents for Deliberative Collaboration: A Study on Joint Decision Making Unde
+  - 2607.06160 [rss/ok] LongCrafter: Towards Diverse Long-Context Understanding via Evidence-Graph-Guide
+  - 2607.05804 [rss/ok] TurnOPD: Making On-Policy Distillation Turn-Aware for Efficient Long-Horizon Age
+  - 2607.05903 [rss/ok] K-ABENA: K-Adaptive Backpropagation with Error-based N-exclusion Algorithm : (Co
+  - 2607.05910 [rss/ok] PolicyShiftGuard: Benchmarking and Improving Policy-Adaptive Image Guardrails
+  - 2607.06055 [rss/ok] Nested Episodic State Topology (NEST): A Graph-Theoretic Architecture of Cogniti
+  - 2607.06461 [rss/ok] WordVoice: Explicit and Decoupled Multi-Dimensional Word-Level Control for LLM-B
+  - 2607.05458 [rss/ok] Learning to Control LLM Agent Harnesses with Offline Reinforcement Learning
+  - 2607.05476 [rss/ok] Parameter-Free Encoders Remain Viable for RDB Foundation Models
+  - 2607.05541 [rss/ok] Self-Review Reinforcement Learning (SRRL) with Cross-Episode Memory and Policy D
+  - 2607.05635 [rss/ok] Intuitionistic Fuzzy Graph Embedded Random Vector Functional Link with Multiview
+  - 2607.05683 [rss/ok] Deep Reinforcement Learning for Dynamic Battery Management of Autonomous Order P
+  - 2607.05711 [rss/ok] FourTune: Towards Fully 4-Bit Efficient Post-Training for Diffusion Models
+  - 2607.05724 [rss/ok] Low-Overhead Error-Corrected QCNNs Using Bivariate Bicycle Codes
+  - 2607.05855 [rss/ok] Unsupervised Anomaly Detection of Information Operations Users via Behavioral an
+  - 2607.05904 [rss/ok] More Convincing, Not More Correct: Self-Play Reward Hacking of Reference-Free LL
+  - 2607.06114 [rss/ok] x-Prediction Is All You Need:Training-Free Accelerated Generation via Endpoint D
+  - 2607.06546 [rss/ok] Graph Convolutional Attention: A Spectral Perspective on Graph Denoising and Dif
+  - 2607.05536 [rss/ok] Higher-Order Certified Robustness for Regression
+  - 2607.05705 [rss/ok] IMR: Iterative Mode-World Weighted Regression for Multi-Agent Trajectory Predict
+  - 2607.05891 [rss/ok] Few-Medoids: An Embarrassingly Simple Coreset Selection Method for Few-Shot Know
+  - 2607.06150 [rss/ok] Enhanced Seam Segmentation for Automated Welding Robot in Construction Through T
+  - 2607.06252 [rss/ok] A Convex Approximation Framework for Neural Likelihood-Based Bayesian Inverse Pr
+  - 2607.05571 [rss/ok] CSTutorBench: Benchmarking Small Language Models as Tutors for Block-Based Progr
+  - 2607.05750 [rss/ok] ArtisanCAD: An Industrial-Level CAD Agent with Expert-Grounded Knowledge Distill
+  - 2607.05761 [rss/ok] Synthetic Consumer Insight Generation with Large Language Models
+  - 2607.05775 [rss/ok] Beyond the Leaderboard: A Synthesis of Tool-Use, Planning, and Reasoning Failure
+  - 2607.05985 [rss/ok] Auto-DSM Under the Lens: A Black-Box Evaluation Framework for LLM-Based DSM Gene
+  - 2607.06223 [rss/ok] Information Gain-based Rollout Policy Optimization: An Adaptive Tree-Structured 
+  - 2607.06326 [rss/ok] DT-Guard: Intent-Driven Reasoning-Active Training for Reasoning-Free LLM Safety 
+  - 2607.06407 [rss/ok] ExplAIner: A Declarative Query Language for Explaining Classification Models
+  - 2607.06519 [rss/ok] FreqDepthKV: Frequency-Guided Depth Sharing for Robust KV Cache Compression in L
+  - 2607.05061 [rss/ok] KVpop -- Key-Value Cache Compression with Predictive Online Pruning
+  - 2607.05403 [rss/ok] AI tools in Arab University English classrooms: Looking back and forward
+  - 2607.05406 [rss/ok] A Guiding Framework for K-12 Teachers in Creating AI-powered Learning Technologi
+  - 2607.05407 [rss/ok] Position: Preventing AI-Generated CSAM Necessitates New Approaches to AI Safety
+  - 2607.05411 [rss/ok] The GenAI Skill Bypass: Mapping Divergent Pathways of University Students and St
+  - 2607.05465 [rss/ok] CanvasAgent: Enabling Complex Image Creation and Editing via Visual Tool Orchest
+  - 2607.05468 [rss/ok] Learning 4D Geometric Priors for Inference-Efficient World Action Models
+  - 2607.05471 [rss/ok] KAT-Coder-V2.5 Technical Report
+  - 2607.06097 [rss/ok] PVCap: Towards Accurate 3D Dense Captioning via PseudoCap and VoxelCapNet
+  - 2607.06111 [rss/ok] LLM-Guided Measurement Credibility Correction for Trustworthy Industrial Process
+  - 2607.06309 [rss/ok] Token-Based Dual-view Fusion and Adaptation of Large Vision Models for Breast Ca

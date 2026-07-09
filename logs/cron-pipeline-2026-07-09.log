@@ -1,0 +1,226 @@
+
+================================================================
+  OPD Pipeline Phase 2-7  |  2026-07-09 10:30
+================================================================
+
+▶ Phase 2: batch deep-read (--from-staging --days-back 2)
+  _staging/ has 49 PDFs total
+[batch] from-staging: skipped 2 already in paper_notes.json: ['2605.29489', '2607.05339']
+[batch] from-staging: found 47 pending IDs in _staging/
+[batch] 47 papers to process: ['2607.05061', '2607.05403', '2607.05406', '2607.05407', '2607.05411', '2607.05458', '2607.05465', '2607.05468', '2607.05471', '2607.05476', '2607.05536', '2607.05541', '2607.05571', '2607.05614', '2607.05635', '2607.05683', '2607.05705', '2607.05711', '2607.05721', '2607.05724', '2607.05750', '2607.05752', '2607.05761', '2607.05775', '2607.05804', '2607.05855', '2607.05861', '2607.05891', '2607.05903', '2607.05904', '2607.05910', '2607.05985', '2607.06055', '2607.06097', '2607.06111', '2607.06114', '2607.06150', '2607.06157', '2607.06160', '2607.06223', '2607.06252', '2607.06309', '2607.06326', '2607.06407', '2607.06461', '2607.06519', '2607.06546']
+[batch] 2607.05061 ← 2607.05061.pdf (model=claude)
+[batch] 2607.05403 ← 2607.05403.pdf (model=claude)
+[batch] 2607.05406 ← 2607.05406.pdf (model=claude)
+[batch] ✅ 2607.05403 (27.6s) is_opd=no §not-applicable
+[batch] 2607.05407 ← 2607.05407.pdf (model=claude)
+[batch] ✅ 2607.05406 (29.3s) is_opd=no §not-applicable
+[batch] 2607.05411 ← 2607.05411.pdf (model=claude)
+[batch] ✅ 2607.05061 (54.9s) is_opd=no §not-applicable
+[batch] 2607.05458 ← 2607.05458.pdf (model=claude)
+[batch] ✅ 2607.05411 (26.6s) is_opd=no §not-applicable
+[batch] 2607.05465 ← 2607.05465.pdf (model=claude)
+[batch] ✅ 2607.05407 (31.5s) is_opd=no §not-applicable
+[batch] 2607.05468 ← 2607.05468.pdf (model=claude)
+[batch] ✅ 2607.05465 (42.5s) is_opd=no §not-applicable
+[batch] 2607.05471 ← 2607.05471.pdf (model=claude)
+[batch] ✅ 2607.05468 (43.2s) is_opd=no §not-applicable
+[batch] 2607.05476 ← 2607.05476.pdf (model=claude)
+[batch] ✅ 2607.05458 (51.7s) is_opd=no §not-applicable
+[batch] 2607.05536 ← 2607.05536.pdf (model=claude)
+[batch] ✅ 2607.05476 (39.2s) is_opd=no §not-applicable
+[batch] 2607.05541 ← 2607.05541.pdf (model=claude)
+[batch] ✅ 2607.05536 (43.8s) is_opd=no §not-applicable
+[batch] 2607.05571 ← 2607.05571.pdf (model=claude)
+[batch] ✅ 2607.05471 (53.8s) is_opd=yes §§5.1
+[batch] 2607.05614 ← 2607.05614.pdf (model=claude)
+[batch] ✅ 2607.05541 (35.2s) is_opd=no §not-applicable
+[batch] 2607.05635 ← 2607.05635.pdf (model=claude)
+[batch] ✅ 2607.05571 (34.3s) is_opd=no §not-applicable
+[batch] 2607.05683 ← 2607.05683.pdf (model=claude)
+[batch] ✅ 2607.05614 (39.3s) is_opd=no §not-applicable
+[batch] 2607.05705 ← 2607.05705.pdf (model=claude)
+[batch] ✅ 2607.05635 (30.9s) is_opd=no §not-applicable
+[batch] 2607.05711 ← 2607.05711.pdf (model=claude)
+[batch] ✅ 2607.05705 (26.5s) is_opd=no §not-applicable
+[batch] 2607.05721 ← 2607.05721.pdf (model=claude)
+[batch] ✅ 2607.05711 (38.5s) is_opd=no §not-applicable
+[batch] 2607.05724 ← 2607.05724.pdf (model=claude)
+[batch] ✅ 2607.05683 (69.9s) is_opd=no §not-applicable
+[batch] 2607.05750 ← 2607.05750.pdf (model=claude)
+[batch] ✅ 2607.05721 (44.5s) is_opd=no §not-applicable
+[batch] 2607.05752 ← 2607.05752.pdf (model=claude)
+[batch] ✅ 2607.05724 (31.6s) is_opd=no §not-applicable
+[batch] 2607.05761 ← 2607.05761.pdf (model=claude)
+[batch] ✅ 2607.05750 (33.4s) is_opd=no §not-applicable
+[batch] 2607.05775 ← 2607.05775.pdf (model=claude)
+[batch] ✅ 2607.05761 (35.0s) is_opd=no §not-applicable
+[batch] 2607.05804 ← 2607.05804.pdf (model=claude)
+[batch] ✅ 2607.05752 (51.4s) is_opd=no §not-applicable
+[batch] 2607.05855 ← 2607.05855.pdf (model=claude)
+[batch] ✅ 2607.05775 (35.1s) is_opd=no §not-applicable
+[batch] 2607.05861 ← 2607.05861.pdf (model=claude)
+[batch] ✅ 2607.05855 (39.9s) is_opd=no §not-applicable
+[batch] 2607.05891 ← 2607.05891.pdf (model=claude)
+[batch] ✅ 2607.05861 (48.5s) is_opd=no §not-applicable
+[batch] 2607.05903 ← 2607.05903.pdf (model=claude)
+[batch] ✅ 2607.05804 (70.8s) is_opd=yes §§6.2
+[batch] 2607.05904 ← 2607.05904.pdf (model=claude)
+[batch] ✅ 2607.05891 (47.6s) is_opd=no §not-applicable
+[batch] 2607.05910 ← 2607.05910.pdf (model=claude)
+[batch] ✅ 2607.05903 (42.0s) is_opd=no §not-applicable
+[batch] 2607.05985 ← 2607.05985.pdf (model=claude)
+[batch] ✅ 2607.05904 (49.8s) is_opd=no §not-applicable
+[batch] 2607.06055 ← 2607.06055.pdf (model=claude)
+[batch] ✅ 2607.05910 (48.4s) is_opd=no §not-applicable
+[batch] 2607.06097 ← 2607.06097.pdf (model=claude)
+[batch] ✅ 2607.05985 (37.9s) is_opd=no §not-applicable
+[batch] 2607.06111 ← 2607.06111.pdf (model=claude)
+[batch] ✅ 2607.06055 (29.7s) is_opd=no §not-applicable
+[batch] 2607.06114 ← 2607.06114.pdf (model=claude)
+[batch] ✅ 2607.06097 (39.1s) is_opd=no §not-applicable
+[batch] 2607.06150 ← 2607.06150.pdf (model=claude)
+[batch] ✅ 2607.06111 (41.0s) is_opd=no §not-applicable
+[batch] 2607.06157 ← 2607.06157.pdf (model=claude)
+[batch] ✅ 2607.06114 (48.4s) is_opd=no §not-applicable
+[batch] 2607.06160 ← 2607.06160.pdf (model=claude)
+[batch] ✅ 2607.06150 (38.0s) is_opd=no §not-applicable
+[batch] 2607.06223 ← 2607.06223.pdf (model=claude)
+[batch] ✅ 2607.06157 (35.7s) is_opd=no §not-applicable
+[batch] 2607.06252 ← 2607.06252.pdf (model=claude)
+[batch] ✅ 2607.06160 (39.6s) is_opd=no §not-applicable
+[batch] 2607.06309 ← 2607.06309.pdf (model=claude)
+[batch] ✅ 2607.06252 (35.8s) is_opd=no §not-applicable
+[batch] 2607.06326 ← 2607.06326.pdf (model=claude)
+[batch] ✅ 2607.06223 (53.0s) is_opd=no §not-applicable
+[batch] 2607.06407 ← 2607.06407.pdf (model=claude)
+[batch] ✅ 2607.06309 (36.0s) is_opd=no §not-applicable
+[batch] 2607.06461 ← 2607.06461.pdf (model=claude)
+[batch] ✅ 2607.06326 (41.5s) is_opd=no §not-applicable
+[batch] 2607.06519 ← 2607.06519.pdf (model=claude)
+[batch] ✅ 2607.06407 (34.4s) is_opd=no §not-applicable
+[batch] 2607.06546 ← 2607.06546.pdf (model=claude)
+[batch] ✅ 2607.06461 (39.3s) is_opd=no §not-applicable
+[batch] ✅ 2607.06519 (42.6s) is_opd=no §not-applicable
+[batch] ✅ 2607.06546 (44.8s) is_opd=no §not-applicable
+
+=== batch done ===
+  total: 47  ok: 47  fail: 0  duration: 660.5s
+  is_opd: yes=2 no=45 analysis=0
+  notes: +47 new, ~0 updated, -0 skipped
+  summary: /tmp/opd_pipeline_deep_read_summary.json
+  deep-read exit code: 0
+  deep-read: total=47 ok=47 opd_yes=2 opd_no=45
+  deep-read IDs: 2607.05403,2607.05406,2607.05061,2607.05411,2607.05407,2607.05465,2607.05468,2607.05458,2607.05476,2607.05536,2607.05471,2607.05541,2607.05571,2607.05614,2607.05635,2607.05705,2607.05711,2607.05683,2607.05721,2607.05724,2607.05750,2607.05761,2607.05752,2607.05775,2607.05855,2607.05861,2607.05804,2607.05891,2607.05903,2607.05904,2607.05910,2607.05985,2607.06055,2607.06097,2607.06111,2607.06114,2607.06150,2607.06157,2607.06160,2607.06252,2607.06223,2607.06309,2607.06326,2607.06407,2607.06461,2607.06519,2607.06546
+
+▶ Phase 3: triage
+[triage] 47 candidates 
+
+  🗑️ 2607.05403     [exclude] rm 2607.05403.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.05406     [exclude] rm 2607.05406.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.05061     [exclude] rm 2607.05061.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.05411     [exclude] rm 2607.05411.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.05407     [exclude] rm 2607.05407.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.05465     [exclude] rm 2607.05465.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.05468     [exclude] rm 2607.05468.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.05458     [exclude] rm 2607.05458.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.05476     [exclude] rm 2607.05476.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.05536     [exclude] rm 2607.05536.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  ✅ 2607.05471     [keep   ] is_opd=yes; section=§5.1; title=KAT-Coder-V2.5 Technical Report
+  🗑️ 2607.05541     [exclude] rm 2607.05541.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.05571     [exclude] rm 2607.05571.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.05614     [exclude] rm 2607.05614.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.05635     [exclude] rm 2607.05635.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.05705     [exclude] rm 2607.05705.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.05711     [exclude] rm 2607.05711.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.05683     [exclude] rm 2607.05683.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.05721     [exclude] rm 2607.05721.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.05724     [exclude] rm 2607.05724.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.05750     [exclude] rm 2607.05750.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.05761     [exclude] rm 2607.05761.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.05752     [exclude] rm 2607.05752.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.05775     [exclude] rm 2607.05775.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.05855     [exclude] rm 2607.05855.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.05861     [exclude] rm 2607.05861.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  ✅ 2607.05804     [keep   ] is_opd=yes; section=§6.2; title=TurnOPD: Making On-Policy Distillation Turn-Aware for Effici
+  🗑️ 2607.05891     [exclude] rm 2607.05891.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.05903     [exclude] rm 2607.05903.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.05904     [exclude] rm 2607.05904.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.05910     [exclude] rm 2607.05910.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.05985     [exclude] rm 2607.05985.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.06055     [exclude] rm 2607.06055.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.06097     [exclude] rm 2607.06097.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.06111     [exclude] rm 2607.06111.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.06114     [exclude] rm 2607.06114.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.06150     [exclude] rm 2607.06150.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.06157     [exclude] rm 2607.06157.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.06160     [exclude] rm 2607.06160.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.06252     [exclude] rm 2607.06252.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.06223     [exclude] rm 2607.06223.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.06309     [exclude] rm 2607.06309.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.06326     [exclude] rm 2607.06326.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.06407     [exclude] rm 2607.06407.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.06461     [exclude] rm 2607.06461.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.06519     [exclude] rm 2607.06519.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.06546     [exclude] rm 2607.06546.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+
+[triage] summary: 2 kept, 45 excluded, 0 skipped
+  triage exit code: 0
+
+▶ Phase 3.5: 3-condition filter
+  Papers for 3-cond filter: 2607.05471,2607.05804
+  3-cond filter exit code: 0
+  Final KEEP (pre-2nd-opinion): 2607.05471,2607.05804
+
+▶ Phase 3.7: second-opinion verification (Gemini cross-check)
+[2nd-opinion] 2607.05471 ← 2607.05471.pdf (model=gemini)
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+[2nd-opinion] 2607.05471: UNCERTAIN — LLM error: 400 Client Error: Bad Request for url: http://llm-api.model-eval.woa.com/v1/chat/completi
+[2nd-opinion] 2607.05804 ← 2607.05804.pdf (model=gemini)
+[2nd-opinion] 2607.05804: CONFIRM — The paper introduces TurnOPD, a novel on-policy distillation method for language agents where a stud
+
+[2nd-opinion] summary: 1 CONFIRM, 0 REJECT, 1 UNCERTAIN
+  2nd-opinion exit code: 0
+  ⚠️  2607.05471: UNCERTAIN — LLM error: 400 Client Error: Bad Request for url: http://llm-api.model-eval.woa.com/v1/chat/completi
+  Final KEEP (verified): 2607.05804
+
+▶ Phase 4: awesome list inserter
+Prepared 1 papers for insertion:
+  2607.05804 → §6.2 | TurnOPD: Making On-Policy Distillation Turn-Aware for Effici
+[master 96e5875] Add 2607.05804 to §6.2 (TurnOPD: Making On-Policy Distillation Turn-Aware for Effici)
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+[inserter] wrote /apdcephfs_cq8/share_1324356/nickmysong/daily_research/on-policy-distillation-survey/Awesome-LLM-On-Policy-Distillation/README.md
+  ✓ 2607.05804 → §6.2 (226→227)
+[git] committed: Add 2607.05804 to §6.2 (TurnOPD: Making On-Policy Distillation Turn-Aware for Effici)
+  inserter exit code: 0
+
+▶ Phase 4.5: staging cleanup (mv kept PDFs to month bucket)
+  Moved 2 kept PDFs from staging to month buckets
+  Deleted 2 non-OPD PDFs from staging
+  Remaining in staging: 0
+
+▶ Phase 5: refresh known_arxiv_ids.txt
+✅ Refreshed known_arxiv_ids.txt: 372 IDs
+  known_arxiv_ids: 45 new IDs added, total 417
+
+▶ Phase 6: (skipped — heatmap/stats manual for now)
+
+▶ Phase 7: git commit + push

@@ -1076,3 +1076,56 @@
 - `2607.05272`  Adaptive Inference Batching using Policy Gradients
 - `2607.05339`  TREK: Distill to Explore, Reinforce to Refine
 
+
+## 2026-07-09 (Thu) 09:30 — scout completed
+
+**47 candidates** downloaded to `pdfs/_staging/`. Follow-up Phase 2-7 **pending**.
+
+- `2607.05614`  BaFCo: A Document Understanding Benchmark for Complex Bangla Form Comprehension
+- `2607.05721`  SpanUQ: Span-Level Uncertainty Quantification for Large Language Model Generation
+- `2607.05752`  When Should LLMs Search? Counterfactual Supervision for Search Routing
+- `2607.05861`  Mitigating Factual Hallucination in Large Reasoning Models via Mixed-Mode Advantage Regularization
+- `2607.06157`  LLM Agents for Deliberative Collaboration: A Study on Joint Decision Making Under Partial Observability
+- `2607.06160`  LongCrafter: Towards Diverse Long-Context Understanding via Evidence-Graph-Guided Instruction Synthesis
+- `2607.05804`  TurnOPD: Making On-Policy Distillation Turn-Aware for Efficient Long-Horizon Agent Training
+- `2607.05903`  K-ABENA: K-Adaptive Backpropagation with Error-based N-exclusion Algorithm : (Compensated Loss-Based Sample Ex
+- `2607.05910`  PolicyShiftGuard: Benchmarking and Improving Policy-Adaptive Image Guardrails
+- `2607.06055`  Nested Episodic State Topology (NEST): A Graph-Theoretic Architecture of Cognitive States
+- `2607.06461`  WordVoice: Explicit and Decoupled Multi-Dimensional Word-Level Control for LLM-Based TTS
+- `2607.05458`  Learning to Control LLM Agent Harnesses with Offline Reinforcement Learning
+- `2607.05476`  Parameter-Free Encoders Remain Viable for RDB Foundation Models
+- `2607.05541`  Self-Review Reinforcement Learning (SRRL) with Cross-Episode Memory and Policy Distillation
+- `2607.05635`  Intuitionistic Fuzzy Graph Embedded Random Vector Functional Link with Multiview Learning
+- `2607.05683`  Deep Reinforcement Learning for Dynamic Battery Management of Autonomous Order Pickers
+- `2607.05711`  FourTune: Towards Fully 4-Bit Efficient Post-Training for Diffusion Models
+- `2607.05724`  Low-Overhead Error-Corrected QCNNs Using Bivariate Bicycle Codes
+- `2607.05855`  Unsupervised Anomaly Detection of Information Operations Users via Behavioral and Language Patterns
+- `2607.05904`  More Convincing, Not More Correct: Self-Play Reward Hacking of Reference-Free LLM Judges
+- `2607.06114`  x-Prediction Is All You Need:Training-Free Accelerated Generation via Endpoint Decodability
+- `2607.06546`  Graph Convolutional Attention: A Spectral Perspective on Graph Denoising and Diffusion
+- `2607.05536`  Higher-Order Certified Robustness for Regression
+- `2607.05705`  IMR: Iterative Mode-World Weighted Regression for Multi-Agent Trajectory Prediction
+- `2607.05891`  Few-Medoids: An Embarrassingly Simple Coreset Selection Method for Few-Shot Knowledge Distillation
+- `2607.06150`  Enhanced Seam Segmentation for Automated Welding Robot in Construction Through Transfer Learning: Addressing L
+- `2607.06252`  A Convex Approximation Framework for Neural Likelihood-Based Bayesian Inverse Problems
+- `2607.05571`  CSTutorBench: Benchmarking Small Language Models as Tutors for Block-Based Programming
+- `2607.05750`  ArtisanCAD: An Industrial-Level CAD Agent with Expert-Grounded Knowledge Distillation
+- `2607.05761`  Synthetic Consumer Insight Generation with Large Language Models
+- `2607.05775`  Beyond the Leaderboard: A Synthesis of Tool-Use, Planning, and Reasoning Failures in Large Language Model Agen
+- `2607.05985`  Auto-DSM Under the Lens: A Black-Box Evaluation Framework for LLM-Based DSM Generation
+- `2607.06223`  Information Gain-based Rollout Policy Optimization: An Adaptive Tree-Structured Rollout Approach for Multi-Tur
+- `2607.06326`  DT-Guard: Intent-Driven Reasoning-Active Training for Reasoning-Free LLM Safety Guardrail
+- `2607.06407`  ExplAIner: A Declarative Query Language for Explaining Classification Models
+- `2607.06519`  FreqDepthKV: Frequency-Guided Depth Sharing for Robust KV Cache Compression in Long-Context LLM Inference
+- `2607.05061`  KVpop -- Key-Value Cache Compression with Predictive Online Pruning
+- `2607.05403`  AI tools in Arab University English classrooms: Looking back and forward
+- `2607.05406`  A Guiding Framework for K-12 Teachers in Creating AI-powered Learning Technologies through Vibe Coding
+- `2607.05407`  Position: Preventing AI-Generated CSAM Necessitates New Approaches to AI Safety
+- `2607.05411`  The GenAI Skill Bypass: Mapping Divergent Pathways of University Students and Staff AI Literacy
+- `2607.05465`  CanvasAgent: Enabling Complex Image Creation and Editing via Visual Tool Orchestration
+- `2607.05468`  Learning 4D Geometric Priors for Inference-Efficient World Action Models
+- `2607.05471`  KAT-Coder-V2.5 Technical Report
+- `2607.06097`  PVCap: Towards Accurate 3D Dense Captioning via PseudoCap and VoxelCapNet
+- `2607.06111`  LLM-Guided Measurement Credibility Correction for Trustworthy Industrial Process Inference
+- `2607.06309`  Token-Based Dual-view Fusion and Adaptation of Large Vision Models for Breast Cancer Classification
+
