@@ -59,3 +59,4 @@ scripts/.deprecated/
 # Trash dirs (created by mv-before-delete discipline)
 .trash-*
 **/.trash-*
+awesome-llm-opd-site/

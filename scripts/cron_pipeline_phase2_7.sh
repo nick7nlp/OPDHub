@@ -354,18 +354,39 @@ echo ""
 # ──────────────────────────────────────────────
 echo "▶ Phase 7: git commit + push"
 
+# Guard against stale .git/index.lock (a crashed/concurrent git op once left one
+# on 2026-07-09, silently blocking 18 days of commits). Remove only if stale
+# (>2 min old) so we never clobber a lock from a genuinely in-flight git op.
+clear_stale_git_lock() {
+    local lock="$1/.git/index.lock"
+    if [ -f "${lock}" ]; then
+        if [ -z "$(find "${lock}" -mmin -2 2>/dev/null)" ]; then
+            rm -f "${lock}" && echo "  cleared stale git lock: ${lock}"
+        else
+            echo "  ⚠️ recent git lock (<2min) present — leaving it: ${lock}"
+        fi
+    fi
+}
+
 # Survey repo
 cd "${PROJECT_ROOT}" || true
+clear_stale_git_lock "${PROJECT_ROOT}"
 if git diff --quiet && git diff --cached --quiet; then
     echo "  survey repo: no changes"
 else
     git add -A
     git commit -m "cron: pipeline Phase 2-7 — ${DATE_CST} (${OK} deep-read, keep ${FINAL_KEEP_IDS})"
-    echo "  survey repo: committed"
+    rc=$?
+    if [ ${rc} -eq 0 ]; then
+        echo "  survey repo: committed"
+    else
+        echo "  ❌ survey repo: commit FAILED (rc=${rc}) — changes left uncommitted"
+    fi
 fi
 
 # Awesome repo
 cd "${AWESOME_DIR}" || true
+clear_stale_git_lock "${AWESOME_DIR}"
 if git diff --quiet && git diff --cached --quiet; then
     echo "  awesome repo: no changes"
 else
@@ -378,7 +399,12 @@ m = re.search(r'Papers-(\d+)-blue', text)
 print(m.group(1) if m else '?')
 " 2>/dev/null || echo "?")
     git commit -m "cron: pipeline ${DATE_CST} — badge=${BADGE}"
-    echo "  awesome repo: committed (badge=${BADGE})"
+    rc=$?
+    if [ ${rc} -eq 0 ]; then
+        echo "  awesome repo: committed (badge=${BADGE})"
+    else
+        echo "  ❌ awesome repo: commit FAILED (rc=${rc}) — changes left uncommitted"
+    fi
 fi
 
 # Push both repos

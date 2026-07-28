@@ -181,10 +181,15 @@ Legacy code may reference `papers/opd/<aid>.pdf`. A symlink keeps it alive:
 
 ## 🔄 Daily Automation
 
-| Cron | Time (CST) | What |
-|------|------------|------|
-| `daily-opd-paper-pipeline` | 02:40 | Scout new papers + deep-read |
-| `opd-scout-retry` | 06:40 | Retry failed scouts |
+自 2026-07-27 起改为 **tclaude 驱动**：OS cron（永久、无人值守、重启自恢复）触发 `scripts/tclaude_cron.sh`，wrapper 先直接跑现有 phase 脚本（重活，绕开 Claude Code Bash 工具 10 分钟上限），再用 headless `tclaude -p`（haiku、只读）读当天日志、输出一行状态。
+
+| Cron (CST) | Wrapper | 内部脚本 | What |
+|------------|---------|----------|------|
+| `27 9 * * 1-5` | `tclaude_cron.sh scout` | `cron_scout.sh` | Phase 0+1：scout + 下载候选到 `_staging/` |
+| `27 10 * * 1-5` | `tclaude_cron.sh pipeline` | `cron_pipeline_phase2_7.sh` | Phase 2-7：deep-read → triage → 3-cond → 2nd-opinion → insert → push |
+
+> Wrapper 日志：`logs/cron-tclaude-{scout,pipeline}-YYYY-MM-DD.log`；phase 脚本原始日志：`logs/cron-{scout,pipeline}-YYYY-MM-DD.log`。
+> 未采用 tclaude 内置 scheduler（`.claude/scheduled_tasks.json`），因其 recurring 任务 7 天自动过期且需活跃会话，不适合永久无人值守。
 
 ---
 
