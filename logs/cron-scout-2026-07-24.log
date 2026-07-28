@@ -1,0 +1,78 @@
+✅ Refreshed known_arxiv_ids.txt: 388 IDs
+[scout] DATE WINDOW (CST): 2026-07-23 → 2026-07-24  (days_back=1)
+[scout] accepting YYMM prefixes: ['2607']
+[scout] architecture: RSS-primary + API-verify + S2-crosscheck
+[scout] known IDs to skip: 388
+
+[scout] === Phase 1: RSS feeds (3 categories) ===
+[scout/rss] cs.CL: 105 total items, 16 OPD-keyword matches
+[scout/rss] cs.LG: 268 total items, 28 OPD-keyword matches
+[scout/rss] cs.AI: 322 total items, 29 OPD-keyword matches
+[scout/rss] total unique candidates: 67
+
+[scout] === Phase 2: S2 cross-check (4 queries) ===
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] added 0 papers not found in RSS
+
+[scout] combined unique: 67 (RSS: 67, S2-extra: 0)
+
+[scout] === Phase 3: no S2-sourced papers to verify ===
+
+[scout] ✅ 50 new candidates for deep-read
+[scout] wrote /tmp/scout_arxiv_results.json
+
+## Scout Summary: 50 new in-window candidates
+
+  - 2607.19523 [rss/ok] When Reasoning Narrows the Move: Diversity Collapse in LLM Game Play
+  - 2607.19686 [rss/ok] Multi-Mask Diffusion Language Models for Few-Step Generation
+  - 2607.19691 [rss/ok] SLPO: Scaling Latent Reasoning via a Surrogate Policy
+  - 2607.19830 [rss/ok] VizRAG: Enhancing Retrieval-Augmented Generation with Hypergraph Visualization
+  - 2607.19956 [rss/ok] When Does Knowledge Distillation Hurt? Reliability-Aware Distillation for Low-Re
+  - 2607.20062 [rss/ok] Solar Open 2 Technical Report
+  - 2607.20372 [rss/ok] Notes to Self: Can LLMs Benefit from Experiential Abstractions?
+  - 2607.19363 [rss/ok] AdaRoPE: Not All Attention Heads Should Rotate and Scale Equally
+  - 2607.19371 [rss/ok] Mitigating Scaffolding Collapse in Socratic Tutors via Representation Alignment
+  - 2607.19393 [rss/ok] Decodable but Not Detectable: A Leakage Fingerprint for Near-OOD Benchmarks
+  - 2607.19398 [rss/ok] HyGRL: Adaptive Hybrid Graph Reasoning for Multi-Entity Questions
+  - 2607.19415 [rss/ok] Auditing Retrieval-Augmented LLM Hypotheses for Longitudinal Cell Painting Morph
+  - 2607.19424 [rss/ok] JailMeter: An Evidence-Based Evaluation Framework for Jailbreak Attacks on Large
+  - 2607.19592 [rss/ok] Knowledge-Centric Self-Improvement
+  - 2607.19824 [rss/ok] Rewarding Better Thinking for LLM Preference Alignment
+  - 2607.19865 [rss/ok] DocOps: A Verifiable Benchmark for Autonomous Agents in Complex Document Operati
+  - 2607.19387 [rss/ok] Scale-Aware Learning of Chaotic Dynamics on Unstructured Meshes via Binned Spect
+  - 2607.19395 [rss/ok] From Trajectories to Prefixes: Reusing Teacher Trajectories via Replayed Prefixe
+  - 2607.19399 [rss/ok] Leveraging Offline Supervision for Efficient and Generalizable Reinforcement Lea
+  - 2607.19406 [rss/ok] NMR Elucidation as an Agentic Search Problem, Not a Modeling Problem
+  - 2607.19450 [rss/ok] REGEN: Replay-recycling for Expert-to-Generalist distillation with Offline Reinf
+  - 2607.19712 [rss/ok] How Fast Can Reward Models Score? A Systems Study of C++ and PyTorch Inference R
+  - 2607.19719 [rss/ok] Koopman Dreamer: Spectrally Constrained Latent Dynamics for Stable World-Model I
+  - 2607.19749 [rss/ok] The World Model Remembers, the Actor Forgets: Dream Rehearsal for Continual Mode
+  - 2607.19855 [rss/ok] Adversarial Frontiers: Minimum-Norm Attack Ensembles for Robustness Evaluation
+  - 2607.19902 [rss/ok] Nonlinear Bias-Compensated Adaptive Filter and Its Application for Time-Series P
+  - 2607.20046 [rss/ok] Test Case Prioritization for DNNs via Neural Collapse Instability
+  - 2607.20083 [rss/ok] Co-Evolving LLM Evaluators and Policies via DynamicRubric
+  - 2607.20162 [rss/ok] Self-organizing Architecture of Receptron Units: a Hardware-Aware Framework for 
+  - 2607.20173 [rss/ok] Instance Hardness-Based Relevance for Imbalanced Regression
+  - 2607.19426 [rss/ok] Making Single-Cell Data Distillation Auditable: Traceable Real-Cell Coresets via
+  - 2607.19563 [rss/ok] Machine-learned syndrome post-selection for reliable quantum error correction
+  - 2607.19674 [rss/ok] FedLSG: LLM-Enhanced Semantic Calibration for Federated Graph Backdoor Defense
+  - 2607.19782 [rss/ok] A Multiclass Quantum Aligned Centroid Kernel
+  - 2607.19919 [rss/ok] Diffusion ReRoll: Revisable Denoising for Robotic Sequential Prediction
+  - 2607.20057 [rss/ok] Antigen-specific Antibody Multi-modal Foundation Model for Functional Antibody D
+  - 2607.20171 [rss/ok] Hard Guarantees at a Measured Price: Entropy-Stable Learned Finite Volumes for C
+  - 2607.20235 [rss/ok] Dynamical and Optimization Trade-offs of Levi--Civita Coordinates for Learned Cl
+  - 2607.18264 [rss/ok] MUX: Continuous Reasoning via Multiplexed Tokens
+  - 2607.18367 [rss/ok] AlayaWorld: Interactive Long-Horizon World Modeling -- Full Technical Report
+  - 2607.18859 [rss/ok] PhoenixRepair: Rethinking Repair Strategy Exploration in Software Agents
+  - 2607.19327 [rss/ok] Associative Emotional Learning in Convolutional Neural Networks
+  - 2607.19338 [rss/ok] CodeRescue: Budget-Calibrated Recovery Routing for Coding Agents
+  - 2607.18257 [rss/ok] Assistant or Actor? Student Trust, Control, and Delegation Regret When Using a G
+  - 2607.18291 [rss/ok] Dual-domain fused LSTM modeling for efficient time-dependent reliability analysi
+  - 2607.18292 [rss/ok] Reliability Scales Inversely: Bigger Models Compound Mistakes Faster via a Hidde
+  - 2607.18311 [rss/ok] Approximating SPR Distance Between Phylogenetic Trees with Graph Neural Networks
+  - 2607.18325 [rss/ok] Hazard or Anomaly? Evaluating VLMs for Understanding Dangers and Discrepancies
+  - 2607.18344 [rss/ok] FSDBN: Foreground-Aware EEG-Visual Alignment via Dynamic Brain Networks
+  - 2607.18345 [rss/ok] Addressing Limited Data in Auditory Attention Decoding with Diffusion Generative

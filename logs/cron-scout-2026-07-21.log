@@ -1,0 +1,66 @@
+✅ Refreshed known_arxiv_ids.txt: 382 IDs
+[scout] DATE WINDOW (CST): 2026-07-20 → 2026-07-21  (days_back=1)
+[scout] accepting YYMM prefixes: ['2607']
+[scout] architecture: RSS-primary + API-verify + S2-crosscheck
+[scout] known IDs to skip: 382
+
+[scout] === Phase 1: RSS feeds (3 categories) ===
+[scout/rss] cs.CL: 76 total items, 10 OPD-keyword matches
+[scout/rss] cs.LG: 206 total items, 25 OPD-keyword matches
+[scout/rss] cs.AI: 201 total items, 18 OPD-keyword matches
+[scout/rss] total unique candidates: 39
+
+[scout] === Phase 2: S2 cross-check (4 queries) ===
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] added 26 papers not found in RSS
+
+[scout] combined unique: 65 (RSS: 39, S2-extra: 26)
+[scout] ⚠️ 26 rejected by DATE WINDOW: ['2605.26772', '2605.07725', '2605.12483', '2503.02832', '2511.10643', '2510.23497', '2605.28014', '2606.06712', '2606.00564', '2604.07944']
+[scout] 1 skipped (already known)
+
+[scout] === Phase 3: no S2-sourced papers to verify ===
+
+[scout] ✅ 38 new candidates for deep-read
+[scout] wrote /tmp/scout_arxiv_results.json
+
+## Scout Summary: 38 new in-window candidates
+
+  - 2607.15610 [rss/ok] Process Reward Informed Tree Rollout for Effective Multi-Turn RL
+  - 2607.15655 [rss/ok] Adaptive Multi-Step Lookahead Decoding for Diffusion Language Models
+  - 2607.15736 [rss/ok] Better Starts, Better Ends: Bootstrapped Iterative Self-Reasoning Distillation f
+  - 2607.15829 [rss/ok] Cost-efficient generative AI summarization for scalable automated essay scoring 
+  - 2607.15957 [rss/ok] From Plausible to Actionable: A Position on LLM Self-Explanations
+  - 2607.16001 [rss/ok] BayesPO: Bayesian Prompt Optimization via Parallel-Tempered Gradient-Guided Disc
+  - 2607.15286 [rss/ok] Hidden in Thought: Transferable Chain-of-Thought Artifacts Induce Harmful Behavi
+  - 2607.15456 [rss/ok] Looped Latent Attention: Cross-Loop KV Compression for Looped Transformers
+  - 2607.16010 [rss/ok] AI Watermark Evidence Fails Forensic Readiness: An Empirical Evaluation
+  - 2607.16076 [rss/ok] HCIG: A Hierarchical Cross-Modal Incongruity Graph Network for Multimodal Sarcas
+  - 2607.15313 [rss/ok] Position: Quantum Program Generation Must Prioritize Validity Over Probabilistic
+  - 2607.15414 [rss/ok] AI Trading: Evaluating Large Language Models for Technical Market Analysis
+  - 2607.15467 [rss/ok] ADS-C: Antidistillation Sampling for Classification
+  - 2607.15528 [rss/ok] Publicly-Verifiable Certificates for Statistical Algorithms
+  - 2607.15587 [rss/ok] Rethinking Transfer in Continual Learning: A Replay-Based Realisation
+  - 2607.15745 [rss/ok] Learning Faster without Deeper Networks: A*-Inspired Batch Selection for Efficie
+  - 2607.15775 [rss/ok] AquaAugmentor: A Novel Feature Augmentation Algorithm for Water Potability Predi
+  - 2607.15810 [rss/ok] QUADS: Stabilizing NVFP4 Reinforcement Learning for MoE via QUantization-error A
+  - 2607.15919 [rss/ok] On the Failure of Boundary-Seeking Distillation in Bottlenecked Generative Archi
+  - 2607.16031 [rss/ok] Revisiting data-driven dynamic security assessment with a tabular foundation mod
+  - 2607.15450 [rss/ok] Prediction-Only Distillation in Linear and Logistic Regression
+  - 2607.15713 [rss/ok] Map as a Prompt: Learning Multi-Modal Spatial-Signal Foundation Models for Cross
+  - 2607.15740 [rss/ok] Debiasing Text-to-Image Evaluation via Implicit Cultural Alignment Reward Modeli
+  - 2607.15880 [rss/ok] Dynamics-Aware Meta-Imitation for Generalization to Unseen Robotic Manipulation
+  - 2607.15898 [rss/ok] Orbis 2: A Hierarchical World Model for Driving
+  - 2607.15970 [rss/ok] Code-Poisoning Property Inference Attacks
+  - 2607.15995 [rss/ok] CanonicalPhys: Pose-Robust Remote Photoplethysmography via Canonical-Space Prior
+  - 2607.16053 [rss/ok] Deep and Probabilistic Models for Gene Regulatory Network Inference
+  - 2607.16178 [rss/ok] Cluster-Aware Matching via Laplacian Optimal Transport
+  - 2607.15459 [rss/ok] From Black Box to Executable Logic: Explainable Reinforcement Learning through P
+  - 2607.15592 [rss/ok] MGDT: MLLM-Guided Diffusion Transformer with Relation-Adaptive Mixture-of-Expert
+  - 2607.15845 [rss/ok] Knowledge-Centric Agents for Workflow Generation
+  - 2607.15992 [rss/ok] Closing the AI Trust Gap: The Case for Independent Certification for Trustworthy
+  - 2607.16112 [rss/ok] Harmonizing AI Safety Thresholds
+  - 2607.15298 [rss/ok] Data-driven Video Codec with Implicit Neural Representations
+  - 2607.15711 [rss/ok] Efficient Difficulty-Aware Dynamic Routing for Diffusion-Based Real-World Image 
+  - 2607.15778 [rss/ok] Modularized Dynamic-Granularity Video LLM for Multi-Event Long Video Understandi
+  - 2607.16074 [rss/ok] JoyNexus: Service-Oriented Multi-Tenant Post-Training for VLA Models

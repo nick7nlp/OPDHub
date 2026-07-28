@@ -1,0 +1,77 @@
+✅ Refreshed known_arxiv_ids.txt: 372 IDs
+[scout] DATE WINDOW (CST): 2026-07-09 → 2026-07-10  (days_back=1)
+[scout] accepting YYMM prefixes: ['2607']
+[scout] architecture: RSS-primary + API-verify + S2-crosscheck
+[scout] known IDs to skip: 372
+
+[scout] === Phase 1: RSS feeds (3 categories) ===
+[scout/rss] cs.CL: 77 total items, 9 OPD-keyword matches
+[scout/rss] cs.LG: 271 total items, 30 OPD-keyword matches
+[scout/rss] cs.AI: 231 total items, 32 OPD-keyword matches
+[scout/rss] total unique candidates: 49
+
+[scout] === Phase 2: S2 cross-check (4 queries) ===
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] added 0 papers not found in RSS
+
+[scout] combined unique: 49 (RSS: 49, S2-extra: 0)
+
+[scout] === Phase 3: no S2-sourced papers to verify ===
+
+[scout] ✅ 49 new candidates for deep-read
+[scout] wrote /tmp/scout_arxiv_results.json
+
+## Scout Summary: 49 new in-window candidates
+
+  - 2607.06940 [rss/ok] Comprehensive Evaluation of Large Language Model Responses: A Multi-Factor Scori
+  - 2607.07050 [rss/ok] Behavior Leverage Imbalance in Multi-Teacher On-Policy Distillation
+  - 2607.07302 [rss/ok] Evaluating RAG Metrics in Applied Contexts: An Experiment, Its Findings and Its 
+  - 2607.07548 [rss/ok] Think Big, Search Small: Where Capacity Matters in Hierarchical Search Agents?
+  - 2607.07626 [rss/ok] Future Confidence Distillation in Large Language Models
+  - 2607.06720 [rss/ok] When Does In-Context Search Help? A Sampling-Complexity Theory of Reflection-Dri
+  - 2607.06763 [rss/ok] Trees from Marginals: Autoregressive drafting with factorized priors
+  - 2607.06855 [rss/ok] Geometric Self-Distillation for Reasoning Generalization
+  - 2607.07674 [rss/ok] Max Out GRPO Signal: Adaptive Trace Prefix Control for Hard Reasoning Problems
+  - 2607.06609 [rss/ok] D2PO: Optimizing Diffusion Samplers via Dynamic Preference
+  - 2607.06610 [rss/ok] Deep Reinforcement Learning for Reliability Based Bi-Objective Portfolio Optimiz
+  - 2607.06625 [rss/ok] Open-Ended Scenario Reasoning for Specialist Model Adaptation
+  - 2607.06652 [rss/ok] From Jumps to Signatures: a Generative Method for Temporal Point Processes
+  - 2607.06772 [rss/ok] Efficient Long-Horizon Learning for Learned Optimization
+  - 2607.06799 [rss/ok] What Predicts Correctness in Text-to-SQL? A Selective-Prediction Study
+  - 2607.06854 [rss/ok] A Gold-Standard Study of What Makes a Lightweight Game-Playing Agent Strong
+  - 2607.07060 [rss/ok] Complexity-Budgeted, Interaction-Aware Interpretable Model for Tabular Data
+  - 2607.07233 [rss/ok] HPG-Diff: Hierarchical physics-guided diffusion with differentiable connectivity
+  - 2607.07235 [rss/ok] ORCAID: Oblique Rule-Based Continuous-Action Interpretation for Deep RL Policies
+  - 2607.07343 [rss/ok] Latency-Aware Bid Acceptance under Operational Feasibility: A Public Benchmark w
+  - 2607.07423 [rss/ok] The Optimal Sample Complexity of Learning Autoregressive Chain-of-Thought
+  - 2607.07435 [rss/ok] RLVP: Penalize the Path, Reward the Outcome
+  - 2607.07508 [rss/ok] Single-Rollout Asynchronous Optimization for Agentic Reinforcement Learning
+  - 2607.07565 [rss/ok] Collaborative Synthetic Data Generation for Knowledge Transfer in Federated Lear
+  - 2607.07623 [rss/ok] Higher-Order Geometric Updates for Levenberg-Marquardt Method via Riemann Normal
+  - 2607.07693 [rss/ok] Selective Timestep Weighting and Advantage-Based Replay for Sample-Efficient Dif
+  - 2607.06590 [rss/ok] AI for Cultural Heritage Textiles: Fine-Tuned Latent Diffusion for Novel Ulos Mo
+  - 2607.06622 [rss/ok] Creating Power Distribution Network Layouts Using Generative Adversarial Network
+  - 2607.06631 [rss/ok] Dynamic-in-Few-Step: Unifying Dynamic Computation and Few-Step Distillation for 
+  - 2607.06647 [rss/ok] ORAN-DEFEND: Subspace Detection and Sanitization of Backdoor DRL xApps in Open R
+  - 2607.06701 [rss/ok] SPEAR: A Simulator for Photorealistic Embodied AI Research
+  - 2607.06856 [rss/ok] Gen4U: Unifying Video Generation and Understanding via Diffusion
+  - 2607.06957 [rss/ok] Flow-ERD: Agent-type Aware Flow Matching with Entropy-Regularized Distillation f
+  - 2607.07179 [rss/ok] Comparative Study of Domain-adapted VLMs for General Document Visual Question An
+  - 2607.07395 [rss/ok] When Prompts Ignore Structure: Graph-Based Attribute Reasoning for Calibrated VL
+  - 2607.07492 [rss/ok] Search, Fail, Recover: A Training Framework for Correction-Aware Reasoning
+  - 2607.07663 [rss/ok] Recursive Self-Improvement in AI: From Bounded Self-Refinement to Autonomous Res
+  - 2607.06603 [rss/ok] Do Counterfactually Fair Image Classifiers Satisfy Group Fairness? -- A Theoreti
+  - 2607.06633 [rss/ok] ProMoE-FL: Prototype-conditioned Mixture of Experts for Multimodal Federated Lea
+  - 2607.06807 [rss/ok] When Agents Go Rogue: Activation-Based Detection of Malicious Behaviors in Multi
+  - 2607.06882 [rss/ok] GemNav: Discrete-Token Visual Robot Navigation using a Multimodal Large Language
+  - 2607.06929 [rss/ok] MADB: A Large-Scale Music Aesthetics Dataset with Professional and Multi-Dimensi
+  - 2607.07052 [rss/ok] Progressive Crystallization: Turning Agent Exploration into Deterministic, Lower
+  - 2607.07101 [rss/ok] GeoProp: Grounding Robot State in Vision for Generalist Manipulation
+  - 2607.07207 [rss/ok] Memory Scarcity, Open Models, and the Restructuring of the AI Industry, 2026-203
+  - 2607.07292 [rss/ok] CarbonCLIP: Enhance Carbon Prediction from Satellite Imagery via Integrated Stre
+  - 2607.07313 [rss/ok] POO-LPSP: Parallel Osprey Optimized Least Penalty-Squared Prioritization Methods
+  - 2607.07357 [rss/ok] HumAIN: Human-Aware Implicit Social Robot Navigation
+  - 2607.07634 [rss/ok] QCNN with Rough Path Signature Kernels

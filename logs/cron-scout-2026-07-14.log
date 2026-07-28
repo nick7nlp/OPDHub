@@ -1,0 +1,60 @@
+✅ Refreshed known_arxiv_ids.txt: 374 IDs
+[scout] DATE WINDOW (CST): 2026-07-13 → 2026-07-14  (days_back=1)
+[scout] accepting YYMM prefixes: ['2607']
+[scout] architecture: RSS-primary + API-verify + S2-crosscheck
+[scout] known IDs to skip: 374
+
+[scout] === Phase 1: RSS feeds (3 categories) ===
+[scout/rss] cs.CL: 69 total items, 3 OPD-keyword matches
+[scout/rss] cs.LG: 187 total items, 21 OPD-keyword matches
+[scout/rss] cs.AI: 177 total items, 19 OPD-keyword matches
+[scout/rss] total unique candidates: 30
+
+[scout] === Phase 2: S2 cross-check (4 queries) ===
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] added 10 papers not found in RSS
+
+[scout] combined unique: 40 (RSS: 30, S2-extra: 10)
+[scout] ⚠️ 9 rejected by DATE WINDOW: ['2605.28014', '2602.04577', '2601.18734', '2605.26132', '2604.17535', '2605.18141', '2605.06597', '2606.12072', '2601.20802']
+[scout] 1 skipped (already known)
+
+[scout] === Phase 3: no S2-sourced papers to verify ===
+
+[scout] ✅ 30 new candidates for deep-read
+[scout] wrote /tmp/scout_arxiv_results.json
+
+## Scout Summary: 30 new in-window candidates
+
+  - 2607.09092 [rss/ok] AgentKGV: Agentic LLM-RAG Framework with Two-Stage Training for the Fact Verific
+  - 2607.08776 [rss/ok] A Unified Approach to Interpreting Knowledge Distillation for Large Language Mod
+  - 2607.09375 [rss/ok] Mach-Mind-4-Flash Technical Report
+  - 2607.08783 [rss/ok] LieBN: Batch Normalization over Lie Groups
+  - 2607.08837 [rss/ok] Prompt-Driven Exploration
+  - 2607.08925 [rss/ok] SafeExplorer: An Unbiased Policy Gradient for Reinforcement Learning with Recove
+  - 2607.08960 [rss/ok] Eluna: An Agentic LLM System for Automating Warehouse Operations with Reasoning 
+  - 2607.08984 [rss/ok] AlphaZero in Sparsely Rewarded Games: Limits and Auxiliary Supervision
+  - 2607.08996 [rss/ok] Model Agnostic Graph Prompt Learning for Crystal Property Prediction
+  - 2607.09039 [rss/ok] Variable-Length Generative Protein Design via Generalized Poisson Flow
+  - 2607.09042 [rss/ok] Learning More from Less: Reinforcement Learning from Hindsight
+  - 2607.09202 [rss/ok] Interference and Retention in Continual Learning
+  - 2607.09232 [rss/ok] Temporal Knowledge Graph Forecasting under Distribution Shifts: A Synthetic Eval
+  - 2607.09298 [rss/ok] Risk-Aware General-Utility Markov Decision Processes
+  - 2607.09336 [rss/ok] Shortcut Trajectory Planning for Efficient Offline Reinforcement Learning
+  - 2607.09456 [rss/ok] Active rejection enables reliable generalization of universal machine-learning i
+  - 2607.08793 [rss/ok] EHR-MPC: Inference-Time Control for Sepsis Treatment with Generative Patient Dig
+  - 2607.09113 [rss/ok] Quantum-Enhanced Synthetic Data Generation Using Quantum Circuit Born Machines f
+  - 2607.09230 [rss/ok] When Does Order Flow Matter? State-Dependent L2 Liquidity-State Transitions in C
+  - 2607.09428 [rss/ok] Multimodal Scenario Similarity Search for Autonomous Driving
+  - 2607.09560 [rss/ok] Beyond Fixed Representations: The Vocabulary and Verifier Gaps in Open-Ended AI
+  - 2607.09616 [rss/ok] LLM for EDA in Front-End Design: Challenges and Opportunities
+  - 2607.09076 [rss/ok] Neuro-Agentic Control: A Deep Learning-based LLM-Powered Agentic AI Framework fo
+  - 2607.09153 [rss/ok] KV-PRM: Efficient Process Reward Modeling via KV-Cache Transfer for Multi-Agent 
+  - 2607.08970 [rss/ok] MultiView-Bench: A Diagnostic Benchmark for World-Centric Multi-View Integration
+  - 2607.09068 [rss/ok] OmniMapBench: Benchmarking Visual-Centric Reasoning on Diverse Map Documents
+  - 2607.09114 [rss/ok] Event Stream based Multi-Modal Video Anomaly Detection: A Benchmark Dataset and 
+  - 2607.09133 [rss/ok] IB-Flow: Information Bottleneck-Guided CFG Distillation for Few-Step Text-to-Ima
+  - 2607.09218 [rss/ok] Tactile and Vision Conditioned Contact-Centric Control for Whole-Arm Manipulatio
+  - 2607.09520 [rss/ok] Seeing is Free, Speaking is Not: Uncovering the True Energy Bottleneck in Edge V

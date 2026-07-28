@@ -1129,3 +1129,475 @@
 - `2607.06111`  LLM-Guided Measurement Credibility Correction for Trustworthy Industrial Process Inference
 - `2607.06309`  Token-Based Dual-view Fusion and Adaptation of Large Vision Models for Breast Cancer Classification
 
+
+## 2026-07-10 (Fri) 09:30 — scout completed
+
+**49 candidates** downloaded to `pdfs/_staging/`. Follow-up Phase 2-7 **pending**.
+
+- `2607.06940`  Comprehensive Evaluation of Large Language Model Responses: A Multi-Factor Scoring System
+- `2607.07050`  Behavior Leverage Imbalance in Multi-Teacher On-Policy Distillation
+- `2607.07302`  Evaluating RAG Metrics in Applied Contexts: An Experiment, Its Findings and Its Limitations
+- `2607.07548`  Think Big, Search Small: Where Capacity Matters in Hierarchical Search Agents?
+- `2607.07626`  Future Confidence Distillation in Large Language Models
+- `2607.06720`  When Does In-Context Search Help? A Sampling-Complexity Theory of Reflection-Driven Reasoning
+- `2607.06763`  Trees from Marginals: Autoregressive drafting with factorized priors
+- `2607.06855`  Geometric Self-Distillation for Reasoning Generalization
+- `2607.07674`  Max Out GRPO Signal: Adaptive Trace Prefix Control for Hard Reasoning Problems
+- `2607.06609`  D2PO: Optimizing Diffusion Samplers via Dynamic Preference
+- `2607.06610`  Deep Reinforcement Learning for Reliability Based Bi-Objective Portfolio Optimization
+- `2607.06625`  Open-Ended Scenario Reasoning for Specialist Model Adaptation
+- `2607.06652`  From Jumps to Signatures: a Generative Method for Temporal Point Processes
+- `2607.06772`  Efficient Long-Horizon Learning for Learned Optimization
+- `2607.06799`  What Predicts Correctness in Text-to-SQL? A Selective-Prediction Study
+- `2607.06854`  A Gold-Standard Study of What Makes a Lightweight Game-Playing Agent Strong
+- `2607.07060`  Complexity-Budgeted, Interaction-Aware Interpretable Model for Tabular Data
+- `2607.07233`  HPG-Diff: Hierarchical physics-guided diffusion with differentiable connectivity constraints for topology opti
+- `2607.07235`  ORCAID: Oblique Rule-Based Continuous-Action Interpretation for Deep RL Policies
+- `2607.07343`  Latency-Aware Bid Acceptance under Operational Feasibility: A Public Benchmark with Hindsight Ceilings
+- `2607.07423`  The Optimal Sample Complexity of Learning Autoregressive Chain-of-Thought
+- `2607.07435`  RLVP: Penalize the Path, Reward the Outcome
+- `2607.07508`  Single-Rollout Asynchronous Optimization for Agentic Reinforcement Learning
+- `2607.07565`  Collaborative Synthetic Data Generation for Knowledge Transfer in Federated Learning
+- `2607.07623`  Higher-Order Geometric Updates for Levenberg-Marquardt Method via Riemann Normal Coordinates
+- `2607.07693`  Selective Timestep Weighting and Advantage-Based Replay for Sample-Efficient Diffusion RLHF
+- `2607.06590`  AI for Cultural Heritage Textiles: Fine-Tuned Latent Diffusion for Novel Ulos Motif Synthesis
+- `2607.06622`  Creating Power Distribution Network Layouts Using Generative Adversarial Networks and Image-Based Representati
+- `2607.06631`  Dynamic-in-Few-Step: Unifying Dynamic Computation and Few-Step Distillation for Efficient Video Generation
+- `2607.06647`  ORAN-DEFEND: Subspace Detection and Sanitization of Backdoor DRL xApps in Open RAN
+- `2607.06701`  SPEAR: A Simulator for Photorealistic Embodied AI Research
+- `2607.06856`  Gen4U: Unifying Video Generation and Understanding via Diffusion
+- `2607.06957`  Flow-ERD: Agent-type Aware Flow Matching with Entropy-Regularized Distillation for Diverse Traffic Simulation
+- `2607.07179`  Comparative Study of Domain-adapted VLMs for General Document Visual Question Answering
+- `2607.07395`  When Prompts Ignore Structure: Graph-Based Attribute Reasoning for Calibrated VLMs
+- `2607.07492`  Search, Fail, Recover: A Training Framework for Correction-Aware Reasoning
+- `2607.07663`  Recursive Self-Improvement in AI: From Bounded Self-Refinement to Autonomous Research Loops
+- `2607.06603`  Do Counterfactually Fair Image Classifiers Satisfy Group Fairness? -- A Theoretical and Empirical Study
+- `2607.06633`  ProMoE-FL: Prototype-conditioned Mixture of Experts for Multimodal Federated Learning with Missing Modalities
+- `2607.06807`  When Agents Go Rogue: Activation-Based Detection of Malicious Behaviors in Multi-Agent Systems
+- `2607.06882`  GemNav: Discrete-Token Visual Robot Navigation using a Multimodal Large Language Model
+- `2607.06929`  MADB: A Large-Scale Music Aesthetics Dataset with Professional and Multi-Dimensional Annotations
+- `2607.07052`  Progressive Crystallization: Turning Agent Exploration into Deterministic, Lower-Cost Workflows in Production
+- `2607.07101`  GeoProp: Grounding Robot State in Vision for Generalist Manipulation
+- `2607.07207`  Memory Scarcity, Open Models, and the Restructuring of the AI Industry, 2026-2030 -- A quantitative scenario a
+- `2607.07292`  CarbonCLIP: Enhance Carbon Prediction from Satellite Imagery via Integrated Street-View Semantics and Temporal
+- `2607.07313`  POO-LPSP: Parallel Osprey Optimized Least Penalty-Squared Prioritization Methods for Priority Derivation in th
+- `2607.07357`  HumAIN: Human-Aware Implicit Social Robot Navigation
+- `2607.07634`  QCNN with Rough Path Signature Kernels
+
+
+## 2026-07-13 (Mon) — weekend skip (PRE-CHECK exit 1)
+
+
+## 2026-07-14 (Tue) 09:30 — scout completed
+
+**30 candidates** downloaded to `pdfs/_staging/`. Follow-up Phase 2-7 **pending**.
+
+- `2607.09092`  AgentKGV: Agentic LLM-RAG Framework with Two-Stage Training for the Fact Verification of Knowledge Graphs
+- `2607.08776`  A Unified Approach to Interpreting Knowledge Distillation for Large Language Models via Interactions
+- `2607.09375`  Mach-Mind-4-Flash Technical Report
+- `2607.08783`  LieBN: Batch Normalization over Lie Groups
+- `2607.08837`  Prompt-Driven Exploration
+- `2607.08925`  SafeExplorer: An Unbiased Policy Gradient for Reinforcement Learning with Recovery Interventions
+- `2607.08960`  Eluna: An Agentic LLM System for Automating Warehouse Operations with Reasoning and Task Execution
+- `2607.08984`  AlphaZero in Sparsely Rewarded Games: Limits and Auxiliary Supervision
+- `2607.08996`  Model Agnostic Graph Prompt Learning for Crystal Property Prediction
+- `2607.09039`  Variable-Length Generative Protein Design via Generalized Poisson Flow
+- `2607.09042`  Learning More from Less: Reinforcement Learning from Hindsight
+- `2607.09202`  Interference and Retention in Continual Learning
+- `2607.09232`  Temporal Knowledge Graph Forecasting under Distribution Shifts: A Synthetic Evaluation
+- `2607.09298`  Risk-Aware General-Utility Markov Decision Processes
+- `2607.09336`  Shortcut Trajectory Planning for Efficient Offline Reinforcement Learning
+- `2607.09456`  Active rejection enables reliable generalization of universal machine-learning interatomic potentials
+- `2607.08793`  EHR-MPC: Inference-Time Control for Sepsis Treatment with Generative Patient Digital Twins
+- `2607.09113`  Quantum-Enhanced Synthetic Data Generation Using Quantum Circuit Born Machines for Imbalanced Tabular Learning
+- `2607.09230`  When Does Order Flow Matter? State-Dependent L2 Liquidity-State Transitions in Crypto Futures
+- `2607.09428`  Multimodal Scenario Similarity Search for Autonomous Driving
+- `2607.09560`  Beyond Fixed Representations: The Vocabulary and Verifier Gaps in Open-Ended AI
+- `2607.09616`  LLM for EDA in Front-End Design: Challenges and Opportunities
+- `2607.09076`  Neuro-Agentic Control: A Deep Learning-based LLM-Powered Agentic AI Framework for Controlling Security Control
+- `2607.09153`  KV-PRM: Efficient Process Reward Modeling via KV-Cache Transfer for Multi-Agent Test-Time Scaling
+- `2607.08970`  MultiView-Bench: A Diagnostic Benchmark for World-Centric Multi-View Integration in VLMs
+- `2607.09068`  OmniMapBench: Benchmarking Visual-Centric Reasoning on Diverse Map Documents
+- `2607.09114`  Event Stream based Multi-Modal Video Anomaly Detection: A Benchmark Dataset and Algorithms
+- `2607.09133`  IB-Flow: Information Bottleneck-Guided CFG Distillation for Few-Step Text-to-Image Generation
+- `2607.09218`  Tactile and Vision Conditioned Contact-Centric Control for Whole-Arm Manipulation
+- `2607.09520`  Seeing is Free, Speaking is Not: Uncovering the True Energy Bottleneck in Edge VLM Inference
+
+
+## 2026-07-15 (Wed) 09:30 — scout completed
+
+**50 candidates** downloaded to `pdfs/_staging/`. Follow-up Phase 2-7 **pending**.
+
+- `2607.10235`  Consensus vs. Dissent: Dynamic LLM Modeling of Subjective Preferences in Group Recommenders
+- `2607.10386`  Structured Thoughts For Improved Reasoning And Context Pruning
+- `2607.10647`  Knowledge Distillation for Automated AI Tutor Evaluation
+- `2607.10805`  Diagnosing and Mitigating Thinking Collapse in On-Policy Self-Distillation
+- `2607.11012`  EasyOPD: An Easy-to-use On-Policy Distillation Framework for Large Language Models
+- `2607.11207`  ProgramTab: Boosting Table Reasoning of LLMs via Programmatic Paradigm
+- `2607.11341`  The In-Car Sign Language Corpus (ICSL): A Multi-Modal Resource for Constrained-Space Sign Language Recognition
+- `2607.11358`  RefineEvo: Planning-Guided Heuristic Evolution with Bidirectional Experience
+- `2607.11486`  Communicating Chess Strategies in Natural Language
+- `2607.11736`  MET: Theory-Grounded and Culture-Aware Multilingual Moral Reasoning
+- `2607.09692`  Reference-Based Distillation Detection in LLMs
+- `2607.09773`  EvoCUA-1.5: Online Reinforcement Learning for Multi-turn Computer-Use Agents
+- `2607.09842`  From Direction to Magnitude: How Multimodal Instruction-Tuning Reorganizes the Geometric Encoding of Identity-
+- `2607.10179`  From Patent Expiry to Business Pathways: AI Workflows for Activating Innovation Archives
+- `2607.10275`  Information-seeking failures of large language models in agentic clinical reasoning
+- `2607.10441`  Context by Distinct Information: An Auditable Dirichlet-Process Working Memory for Long, Redundant Context Str
+- `2607.10481`  ARMOR: Stabilizing On-Policy LLM RL with Off-Policy Anchor Samples
+- `2607.10738`  To Answer or to Abstain: Mitigating Search-Agent Hallucinations via Abstention-Aware Reinforcement Learning
+- `2607.10836`  Route, Communicate, and Reason: Gated Routing and Adaptive Depth for Efficient Multi-Agent Reasoning
+- `2607.11292`  The Paternalistic Filter: Epistemic Injustice and Differential Refusal in LLM-Mediated History Education for M
+- `2607.11475`  HyperSafe: Inference-Time Safety Recovery for Fine-Tuned Language Models
+- `2607.11760`  From Expressivity to Sample Complexity: Narrow Teachers for Transformers via C-RASP
+- `2607.09666`  Knowledge Graphs Meet Graph Neural Networks: A Comprehensive Survey
+- `2607.09686`  MawForge: Memory-Bounded Expert Materialization for Local Mixture-of-Experts Inference
+- `2607.09801`  Discovering Latent Response Laws in Forced Physical Systems
+- `2607.09869`  Nonlinear Axiomatic Attribution for Cooperative Games
+- `2607.09936`  SMETA-ZSL:Semantic Meta-Alignment for Zero-Shot Threat Classification
+- `2607.10044`  FlashTrie: A GPU-Accelerated Constrained Beam Search for Generative Retrieval
+- `2607.10127`  GAE: Graph-Augmented Evolution for Scientific Discovery via Reinforcement Optimization
+- `2607.10131`  SALT-GNN: Handling Dense Neighborhoods in Anti-Money Laundering Graphs via Statistics-Aware Attention
+- `2607.10190`  PhysMRV: Physical Memory Retrieval and Verification for Physics Plausibility Reasoning
+- `2607.10203`  When Does Depth Survive Composition? Compute--Quality Regimes in Latent World Models
+- `2607.10244`  DSSMs: State Space Models with Explicit Memory via Delay Differential Equations
+- `2607.10362`  A Control Theory of Predictability in Latent World Models
+- `2607.10517`  Conditional Optimal Bridge for Riemannian Activation Steering
+- `2607.10582`  MemDecay: Region-Aware KV Cache Eviction for Efficient LLM Agent Inference
+- `2607.10633`  Auditing Construct Overlap in Explainable Machine Learning: Evidence from Burnout-Depression Prediction Across
+- `2607.10694`  Learning to Fine-tune Foundation Models under Resource Limitations
+- `2607.10729`  Scaffold splits hide structural-frontier failures in ADMET models
+- `2607.10748`  Policy-Driven CT-Agent: Modeling Phase-Aware Diagnostic Control for Clinically Consistent CT Reasoning
+- `2607.10784`  LSTrans: Efficient Knowledge Transfer for Lightweight and Automated ECG Classification
+- `2607.10848`  Predictive Divergence Masks for LLM RL
+- `2607.11107`  A Novel Graph Fraud Detector via Grouped Attribute Completion and Confidence-Aware Contrastive Learning
+- `2607.11116`  The Equilibrium Is the Initialization: Lazy Identity Collapse in Physics-Structured Deep Equilibrium Reasoning
+- `2607.11327`  PRISM Edit: One Vector for All Temporal Answers
+- `2607.11493`  Agentic Skill Optimization over Lie Algebroids
+- `2607.11578`  DiffEEG: A Self-Supervised Denoising Diffusion Model for Learning EEG Generic Representations
+- `2607.11635`  Fundamental Limitations of Fixed-Budget Best-Arm Identification
+- `2607.11758`  From Global to Factor-Wise Expert Composition in Discrete Diffusion Models
+- `2607.11816`  Relaxing Faithfulness with Intervention-Only Causal Discovery
+
+
+## 2026-07-16 (Thu) 09:30 — scout completed
+
+**50 candidates** downloaded to `pdfs/_staging/`. Follow-up Phase 2-7 **pending**.
+
+- `2607.11891`  CANDI: Contextual Alignment for Niche Domains Question Answering
+- `2607.11893`  I'm Sorry, but I Can't Help with Braille: Revealing Accessibility Failures in State-of-the-Art LLMs
+- `2607.11898`  TAKE: Trajectory-Aware Knowledge Estimation for Text Dataset Distillation
+- `2607.11933`  Transforming LLMs into Efficient Cross-Encoders via Knowledge Distillation for RAG Reranking
+- `2607.11946`  Hybrid Continual Learning for Low-Resource Australian Aboriginal Language Identification
+- `2607.12336`  Evaluating Health Misinformation in Low-Resource Languages: Integrating Small Language Models with a Culturall
+- `2607.12835`  Can LLMs Write Reliable Rubrics? A Meta-Evaluation for Experiment Reproduction
+- `2607.11464`  FAIR GraphRAG: A Retrieval-Augmented Generation Approach for Semantic Data Analysis
+- `2607.11948`  Ontology-Amplified Distillation and Contextuality Auditing for Sovereign Enterprise Language Models: A Combine
+- `2607.12771`  Learning Mechanistic Reasoning for Chemical Reactions with Large Language Models
+- `2607.12787`  Do We Really Need Multimodal Emotion Language Models Larger Than 1B Parameters?
+- `2607.11937`  Mirror Horizon: Viable Path Entropy as a Measure of Bounded Reflection
+- `2607.11952`  Scalable Optimal Transport Algorithm for Network Alignment
+- `2607.11953`  When Does Reward Teach State? A Hidden-Automaton Instrument and the Group-Language Boundary
+- `2607.11963`  Evaluating Reliability in Machine Learning Models for Early Chronic Kidney Disease Prediction: A Systematic Re
+- `2607.11964`  LIDAR-AD: A Decoder-Free Latent-Interaction Dreamer with Action-Residual Chains for Autonomous Driving
+- `2607.11970`  Self-Evolving In-Context Learning for Direct Pilot-to-Beamformer Design in MU-MISO Systems
+- `2607.12243`  Cluster-Weighted EDMD
+- `2607.13028`  TerraZero: Procedural Driving Simulation for Zero-Demonstration Self-Play at Scale
+- `2607.11899`  Predictive Modeling of High-Altitude Clear Air Turbulence in the United States: A Machine Learning Approach
+- `2607.11918`  AAAI-26 Dual Submissions: Novel Challenges
+- `2607.12042`  SymbOmni: Evolving Agentic Omni Models via Symbolic Concept Learning
+- `2607.12570`  Deep Learning-based Surrogate Modelling of the LOD Method for Multiscale Problems
+- `2607.12590`  Environment Parameter Gradient Theorem for Policy-Environment Co-Design in Reinforcement Learning
+- `2607.12833`  ANGLE: Angular Neural Generative Learning via Engression
+- `2607.09709`  The Verifier is the Curriculum: Execution-Gated Self-Distillation for Cross-Family Game Generation
+- `2607.09751`  Task-Conditioned Synthetic Data Generation for Improving Machine Learning Performance in Agricultural Predicti
+- `2607.09773`  EvoCUA-1.5: Online Reinforcement Learning for Multi-turn Computer-Use Agents
+- `2607.09839`  Exploring Agentic Workflows for Generating High Quality Math Visual Aids
+- `2607.10113`  Dynamic Agent Skills: A Lifecycle Survey and Taxonomy of Evolving Skill Libraries
+- `2607.10159`  UNIT: Unleash Large Language Models Potential for Graph Continual Learning
+- `2607.10251`  Behavioural Signatures of Risk-Sensitive Decision-Making in Large Language Models
+- `2607.10275`  Information-seeking failures of large language models in agentic clinical reasoning
+- `2607.10366`  Co4ICF: Co-evolving Physics-Informed Surrogate and RL-based Pulse Optimizer for Inertial Confinement Fusion
+- `2607.10562`  CRiT-QA: Evaluating Multi-hop Reasoning with Counterfactual Chains and Distractor Traps
+- `2607.10601`  Agentic-DPO: From Imitation to Agentic Policy Optimization on Expert Trajectories
+- `2607.10750`  Filtering Harmful Actions Isn't Enough: Phantom Transfer in Agentic SDF
+- `2607.10836`  Route, Communicate, and Reason: Gated Routing and Adaptive Depth for Efficient Multi-Agent Reasoning
+- `2607.10966`  SVR-R1: Bootstrapping Multi-modal Reasoning with Self-verification in Reinforcement Learning
+- `2607.11138`  A Formal Hierarchical Architecture for Agentic Orchestration with Stack-Based Execution and Lazy Discovery
+- `2607.11185`  SCALECUA: Scaling Computer Use Agents with Verifiable Task Synthesis and Efficient Online RL
+- `2607.11212`  PREF-Gate: Provenance-Constrained Relational Evidence Fusion with Validation-Gated Selection for Graph Fraud D
+- `2607.11266`  Valid $\ne$ Necessary: Diagnosing Latent Inefficiency in Chain-of-Thought
+- `2607.11317`  Calibrated e-CUSUM Decoding for Quantized Reasoning Models: Why Token Log-Probability Is the Wrong Observable 
+- `2607.11501`  Comparative Analysis of GAT and BERT for Human-Like Playtesting
+- `2607.09666`  Knowledge Graphs Meet Graph Neural Networks: A Comprehensive Survey
+- `2607.09764`  OmniSCS: Omni Safety-Critical Scenario Synthesis for Autonomous Driving via a Fully Editable Driving World
+- `2607.09776`  Maximizing Human Efficiency in Large-Scale Robot Post-Training via VLAC-Cut Guided Pipeline
+- `2607.09785`  Lifelong Representations: A Survey on Continual Self-Supervised Learning for Vision Models
+- `2607.09792`  A Comprehensive Survey and Systematic Real-World Evaluation of Embodied Vision-and-Language Navigation
+
+
+## 2026-07-17 (Fri) 09:30 — scout completed
+
+**46 candidates** downloaded to `pdfs/_staging/`. Follow-up Phase 2-7 **pending**.
+
+- `2607.13036`  Ask Before You Diagnose: Safe-Psych, a Sequential Evaluation Benchmark for LLMs in Psychiatry
+- `2607.13260`  Discourse-Aware Policy Analysis with Argumentation: A Hybrid LLM-Symbolic Framework for Disaster Governance
+- `2607.13347`  Evaluation Ability Does Not Imply Optimization Utility: LLM-as-a-Judge Signals in Closed-Loop Table Recognitio
+- `2607.13394`  GFlowRL: Scaling Distribution-Matching RL to Large Language Models
+- `2607.13399`  Demystifying On-Policy Distillation: Roles, Pathologies, and Regulations
+- `2607.13433`  When Rubrics Change: Cross-Rubric Generalization for Critical Thinking Essay Scoring
+- `2607.13591`  Memory as a Controlled Process: Learned Adaptive Memory Management for LLM Agents
+- `2607.13753`  Post-Training Shifts Confidence: A Three-Stage Analysis of How SFT, RL, and OPD Shape Pre-, Intra-, and Post-C
+- `2607.13854`  SPyCE: Skill-Policy Co-evolution for Multimodal Agents
+- `2607.13901`  High-Order Question Generation in a Multilingual Educational Context
+- `2607.13977`  Constraint-Aware Counterfactual Editing for Aspect-Based Sentiment Analysis
+- `2607.13124`  ShortOPD: Recovering Pruned LLMs with Short-to-Long On-Policy Distillation
+- `2607.13389`  Where Should RL Post-Training Compute Go? Model Size, Search, Learning, and Feedback
+- `2607.13643`  Consensus as Privileged Context for Label-Free Self-Distillation
+- `2607.13103`  Disentangling Knowledge States with Ability and Proficiency Modeling for Knowledge Tracing
+- `2607.13155`  HEDGEHOG: Hierarchical Evaluation of Drug Generators Through Rigorous Filtration
+- `2607.13175`  SteinGate: Tail-Sensitive Safe Reinforcement Learning via Stein Discrepancy
+- `2607.13188`  Concurrent Image Understanding and Generation: Self-Correcting Coupled Markov Jump Processes
+- `2607.13436`  Distributionally Robust and Safe Imitation Learning
+- `2607.13494`  A VAE-Driven Multi-Task Satellite-Aided Semantic Communication Framework for 6G-Enabled Connected Autonomous V
+- `2607.13703`  Conditional Invertible Neural Networks for Data-Driven UAV Control: A 2-D Proof of Concept
+- `2607.13735`  Constraint-Driven Model Optimization: An Industry Framework for Selecting Compression and Acceleration Techniq
+- `2607.13837`  NodeImport: Imbalanced Node Classification with Node Importance Assessment
+- `2607.13841`  Heavy-Tailed Flow Matching via Random Clocks
+- `2607.13877`  AI-Augmented Adaptive Digital Twin Modeling for Brain Tumor Evolution Prediction and Treatment Scheduling
+- `2607.13880`  Task-Oriented Sensing and Covert Transmissions for Collaborative Multi-AUV Systems
+- `2607.13988`  TRACE: Turn-level Reward Assignment via Credit Estimation for Long-Horizon Agents
+- `2607.14086`  Leveraging unlabelled data for generalizable neural population decoding
+- `2607.13056`  HRIBench: Benchmarking Interaction-Centric Human-Robot Collaboration
+- `2607.13319`  Adapting Generalist Vehicle Models for High-Speed MPC Across Terrains
+- `2607.13550`  Parallel gradient boosting for flexible estimation of conditional distributions
+- `2607.13618`  STOCKTAKE: Measuring the Gap Between Perception and Action in LLM Agents with a Fair Oracle
+- `2607.13073`  Probabilistic Extension of Neuro-Symbolic AGI Robots based on Belnap's Typed Intensional FOL
+- `2607.13501`  LAPO: Leave-One-Turn Attribution for Self-Generated Process Rewards in Multi-Turn Search Reasoning
+- `2607.13621`  UESF-Bench: Benchmarking and Probing for Unified Embodied Seeking and Following
+- `2607.13899`  AIMO Interpretability Challenge
+- `2607.14046`  Earthquaker-AI: A Retrieval-Augmented Generation Framework with Rubric-Based Assessment for Primary School Ear
+- `2607.14049`  Deep Interaction: An Efficient Human-AI Interaction Method for Large Reasoning Models
+- `2607.13094`  Analyzing Curricular Pattern Complexity Using AI to Improve On-Time Graduation Rates
+- `2607.13111`  SemaDiff: Identifying Semantic-Changing Commits with Generated Code and Tests
+- `2607.13370`  Learning Engagement Assistant (LEA): Cross-Course Scalability and Classroom Evaluation of an Agentic AI Tutori
+- `2607.13421`  ScanFocus: A Coarse-to-Fine Framework for Spatio-Temporal Video Grounding
+- `2607.13454`  GeoAnchor: Collaborative Reasoning via Latent Decomposition for 3D Spatial Understanding
+- `2607.13639`  OvisOCR2 Technical Report
+- `2607.13689`  Barnamala: Parameter-Efficient Handwritten Devanagari Recognition at Benchmark Saturation
+- `2607.13693`  Social Simulations: from Agent-Based Modeling to Digital Twins
+
+
+## 2026-07-20 (Mon) — weekend skip (PRE-CHECK exit 1)
+
+
+## 2026-07-21 (Tue) 09:30 — scout completed
+
+**38 candidates** downloaded to `pdfs/_staging/`. Follow-up Phase 2-7 **pending**.
+
+- `2607.15610`  Process Reward Informed Tree Rollout for Effective Multi-Turn RL
+- `2607.15655`  Adaptive Multi-Step Lookahead Decoding for Diffusion Language Models
+- `2607.15736`  Better Starts, Better Ends: Bootstrapped Iterative Self-Reasoning Distillation for Compressed Reasoning
+- `2607.15829`  Cost-efficient generative AI summarization for scalable automated essay scoring in educational assessment
+- `2607.15957`  From Plausible to Actionable: A Position on LLM Self-Explanations
+- `2607.16001`  BayesPO: Bayesian Prompt Optimization via Parallel-Tempered Gradient-Guided Discrete MCMC
+- `2607.15286`  Hidden in Thought: Transferable Chain-of-Thought Artifacts Induce Harmful Behavior
+- `2607.15456`  Looped Latent Attention: Cross-Loop KV Compression for Looped Transformers
+- `2607.16010`  AI Watermark Evidence Fails Forensic Readiness: An Empirical Evaluation
+- `2607.16076`  HCIG: A Hierarchical Cross-Modal Incongruity Graph Network for Multimodal Sarcasm and Cyberbullying Detection
+- `2607.15313`  Position: Quantum Program Generation Must Prioritize Validity Over Probabilistic Scaling
+- `2607.15414`  AI Trading: Evaluating Large Language Models for Technical Market Analysis
+- `2607.15467`  ADS-C: Antidistillation Sampling for Classification
+- `2607.15528`  Publicly-Verifiable Certificates for Statistical Algorithms
+- `2607.15587`  Rethinking Transfer in Continual Learning: A Replay-Based Realisation
+- `2607.15745`  Learning Faster without Deeper Networks: A*-Inspired Batch Selection for Efficient CNN Training
+- `2607.15775`  AquaAugmentor: A Novel Feature Augmentation Algorithm for Water Potability Prediction
+- `2607.15810`  QUADS: Stabilizing NVFP4 Reinforcement Learning for MoE via QUantization-error Alignment across Dual Sides
+- `2607.15919`  On the Failure of Boundary-Seeking Distillation in Bottlenecked Generative Architectures
+- `2607.16031`  Revisiting data-driven dynamic security assessment with a tabular foundation model
+- `2607.15450`  Prediction-Only Distillation in Linear and Logistic Regression
+- `2607.15713`  Map as a Prompt: Learning Multi-Modal Spatial-Signal Foundation Models for Cross-scenario Wireless Localizatio
+- `2607.15740`  Debiasing Text-to-Image Evaluation via Implicit Cultural Alignment Reward Modeling
+- `2607.15880`  Dynamics-Aware Meta-Imitation for Generalization to Unseen Robotic Manipulation
+- `2607.15898`  Orbis 2: A Hierarchical World Model for Driving
+- `2607.15970`  Code-Poisoning Property Inference Attacks
+- `2607.15995`  CanonicalPhys: Pose-Robust Remote Photoplethysmography via Canonical-Space Priors
+- `2607.16053`  Deep and Probabilistic Models for Gene Regulatory Network Inference
+- `2607.16178`  Cluster-Aware Matching via Laplacian Optimal Transport
+- `2607.15459`  From Black Box to Executable Logic: Explainable Reinforcement Learning through Prolog Expert Systems
+- `2607.15592`  MGDT: MLLM-Guided Diffusion Transformer with Relation-Adaptive Mixture-of-Experts for Multimodal Knowledge Gra
+- `2607.15845`  Knowledge-Centric Agents for Workflow Generation
+- `2607.15992`  Closing the AI Trust Gap: The Case for Independent Certification for Trustworthy AI
+- `2607.16112`  Harmonizing AI Safety Thresholds
+- `2607.15298`  Data-driven Video Codec with Implicit Neural Representations
+- `2607.15711`  Efficient Difficulty-Aware Dynamic Routing for Diffusion-Based Real-World Image Super-Resolution
+- `2607.15778`  Modularized Dynamic-Granularity Video LLM for Multi-Event Long Video Understanding
+- `2607.16074`  JoyNexus: Service-Oriented Multi-Tenant Post-Training for VLA Models
+
+
+## 2026-07-22 (Wed) 09:30 — scout completed
+
+**50 candidates** downloaded to `pdfs/_staging/`. Follow-up Phase 2-7 **pending**.
+
+- `2607.16451`  Committed Before Reasoning: Behavioral Reproduction and Preliminary Activation-Level Evidence of Answer Pre-Co
+- `2607.16872`  Trace-Based On-Policy Distillation for Masked Diffusion Language Models
+- `2607.17250`  EvolvingWorld: An Open-Schema Framework for Co-Evolving Role-Play Agents and World Model in Interactive Litera
+- `2607.17452`  How Reliable Are Multimodal Signals of Conversational State? Evidence from Remote Dyadic Collaborative Tasks
+- `2607.17689`  Tokenizing Crosslingual Homographs
+- `2607.17713`  AEGIS: Awareness-Enhanced Guidance for Iterative Safeguard
+- `2607.17738`  Large Language Models for Citation Function Classification
+- `2607.17828`  When a Name Is Not a Name: A Benchmark Dataset and Distilled Reasoning for Culturally Entangled Bangla Homogra
+- `2607.18235`  Automated Discovery Has No Universally Superior Harness
+- `2607.16352`  Clarify Before Executing: A Self-Evolving Agent for Resolving Intent Asymmetry in 3D Tool Orchestration
+- `2607.16442`  One Modality to Forget Them All: Enhancing Cross-Modal Unlearning in Vision-Language Models
+- `2607.16609`  Can Multimodal Large Language Models Understand OCT?
+- `2607.16692`  Dependency-Guided Code Generation: Structured Matrix Decomposition and Consistency-Guided Refinement
+- `2607.16972`  Training Continuous Chain of Thought Models: A Tale of Two Regimes
+- `2607.17075`  A Systematic Evaluation of Traditional Privacy Policy Analysis Tools Against LLMs
+- `2607.17139`  SynH-Rank: Quality-Aware Code Search via Diverse Data Synthesis and Hierarchical Ranking Training
+- `2607.17299`  WAR: Workload-Aware Rollouts for Synchronous Agentic Reinforcement Learning
+- `2607.17523`  Thinking in Video: Can Video Generators Really Reason About the Real World?
+- `2607.17538`  D-NOVA: In-Storage Retrieval Accelerator via Dual-Bound 3D NAND-Optimized Similarity Search with Vector Adapta
+- `2607.18006`  MADA-RL: Multi-Agent Debate-Aware Reinforcement Learning for Parameter-Efficient Reasoning in Compact Models
+- `2607.18110`  LLM-as-a-Coach: Experiential Learning for Non-Verifiable Tasks
+- `2607.18142`  O-VAD: Industrial Video Anomaly Detection through Object-Centric Tracking and Reasoning
+- `2607.16233`  Token-Level Cross-Modal Transformer with Contrastive Multi-Task Learning for Breast Cancer Subtype Classificat
+- `2607.16246`  Let the Data Decide: Supervision Analysis, Capability Trade-offs, and Adaptive Objective Routing in Continued 
+- `2607.16254`  More Than Memory: Task-Conditioned Signed FFN Writes in Long-Context Retrieval
+- `2607.16258`  Neural Controlled Differential Equations for EMT-Level Surrogate Modeling of Grid-Forming Inverters
+- `2607.16260`  AdaSurvMamba: Dynamic Fusion and Semantic Scanning for Multimodal Survival Analysis
+- `2607.16354`  A Predict-then-Correct Loop Based on Few-Shot Continuous Contextual Bandit for Demand Forecasting
+- `2607.16534`  Building2Building: A Large Scale Benchmark for Generalizable Real-World Reinforcement Learning
+- `2607.16728`  Graph-Embedded Intuitionistic Fuzzy Broad Learning System: A Multi-view Framework
+- `2607.16731`  BG4Sea: Biogeochemical Seasonal Forecastability via Progressive Information Scaling
+- `2607.16891`  Certified-Gap Dual-Price Policies for Real-Time Truckload Bid Acceptance with Relocating, Clock-Constrained Re
+- `2607.16955`  CADENCE: Closing the Reasoning Gap via Coverage-Adaptive On-Policy Distillation
+- `2607.16973`  TurboVec: A Case Study in Cost-Efficient Private Retrieval for Enterprise RAG via Codebook-Oblivious Quantizat
+- `2607.16986`  Periodic Bootstrap Thompson Sampling For Periodically Non-Stationary Bandit Problems
+- `2607.17003`  Scalable Causal Imitation Learning
+- `2607.17037`  Apeliotes: A Diffusion-Based Modeling Framework for km-scale Multi-Level Atmospheric Fields
+- `2607.17247`  Distilled Reinforcement Learning for LLM Post-training
+- `2607.17281`  AIGB-R1: Self-Evolving Generative Auto-Bidding via Hierarchical Planner-Executor Optimization
+- `2607.17326`  Rethinking the Suitability of Reinforcement Learning Algorithms Under Practical Transfer Constraints
+- `2607.17345`  A multiverse-consensus pipeline for reproducible feature selection in untargeted LC-MS metabolomics
+- `2607.17398`  CoEvoP&amp;R: Co-Evolving Placement Objectives with Routing Feedback via Large Language Models
+- `2607.17601`  Trustworthy Protein-Ligand Binding Affinity Prediction via Reliability-Aware Multi-Engine Fusion
+- `2607.17668`  Selectivity Matters: Source Node Influence Pruning for Unsupervised Graph Domain Adaptation
+- `2607.17990`  fSRD: Fuzzy Spectral Region Decomposition -- Automated Multi Operator Koopman Representations via an Adaptive 
+- `2607.18046`  SEE: Structure-aware Exploring \&amp; Exploiting for Long-horizon GUI Agent Trajectory Synthesis
+- `2607.18082`  Enhancing Rubric-based RL via Self-Distillation
+- `2607.18101`  Empowering On-Device Model Adaptation with an Edge AI Inference Accelerator
+- `2607.18163`  OR Else: A Differentiable Trust Region for Policy Optimization
+- `2607.16198`  A Survey on GNN-based Link Prediction: Techniques, Applications, and Challenges
+
+
+## 2026-07-24 (Fri) 09:30 — scout completed
+
+**50 candidates** downloaded to `pdfs/_staging/`. Follow-up Phase 2-7 **pending**.
+
+- `2607.19523`  When Reasoning Narrows the Move: Diversity Collapse in LLM Game Play
+- `2607.19686`  Multi-Mask Diffusion Language Models for Few-Step Generation
+- `2607.19691`  SLPO: Scaling Latent Reasoning via a Surrogate Policy
+- `2607.19830`  VizRAG: Enhancing Retrieval-Augmented Generation with Hypergraph Visualization
+- `2607.19956`  When Does Knowledge Distillation Hurt? Reliability-Aware Distillation for Low-Resource Language Summarization
+- `2607.20062`  Solar Open 2 Technical Report
+- `2607.20372`  Notes to Self: Can LLMs Benefit from Experiential Abstractions?
+- `2607.19363`  AdaRoPE: Not All Attention Heads Should Rotate and Scale Equally
+- `2607.19371`  Mitigating Scaffolding Collapse in Socratic Tutors via Representation Alignment
+- `2607.19393`  Decodable but Not Detectable: A Leakage Fingerprint for Near-OOD Benchmarks
+- `2607.19398`  HyGRL: Adaptive Hybrid Graph Reasoning for Multi-Entity Questions
+- `2607.19415`  Auditing Retrieval-Augmented LLM Hypotheses for Longitudinal Cell Painting Morphology
+- `2607.19424`  JailMeter: An Evidence-Based Evaluation Framework for Jailbreak Attacks on Large Language Models
+- `2607.19592`  Knowledge-Centric Self-Improvement
+- `2607.19824`  Rewarding Better Thinking for LLM Preference Alignment
+- `2607.19865`  DocOps: A Verifiable Benchmark for Autonomous Agents in Complex Document Operations
+- `2607.19387`  Scale-Aware Learning of Chaotic Dynamics on Unstructured Meshes via Binned Spectral Losses
+- `2607.19395`  From Trajectories to Prefixes: Reusing Teacher Trajectories via Replayed Prefixes and Online Continuation
+- `2607.19399`  Leveraging Offline Supervision for Efficient and Generalizable Reinforcement Learning in Large-Scale Vision-La
+- `2607.19406`  NMR Elucidation as an Agentic Search Problem, Not a Modeling Problem
+- `2607.19450`  REGEN: Replay-recycling for Expert-to-Generalist distillation with Offline Reinforcement Learning
+- `2607.19712`  How Fast Can Reward Models Score? A Systems Study of C++ and PyTorch Inference Runtimes for RLHF
+- `2607.19719`  Koopman Dreamer: Spectrally Constrained Latent Dynamics for Stable World-Model Imagination
+- `2607.19749`  The World Model Remembers, the Actor Forgets: Dream Rehearsal for Continual Model-Based RL
+- `2607.19855`  Adversarial Frontiers: Minimum-Norm Attack Ensembles for Robustness Evaluation
+- `2607.19902`  Nonlinear Bias-Compensated Adaptive Filter and Its Application for Time-Series Prediction
+- `2607.20046`  Test Case Prioritization for DNNs via Neural Collapse Instability
+- `2607.20083`  Co-Evolving LLM Evaluators and Policies via DynamicRubric
+- `2607.20162`  Self-organizing Architecture of Receptron Units: a Hardware-Aware Framework for Edge Intelligence
+- `2607.20173`  Instance Hardness-Based Relevance for Imbalanced Regression
+- `2607.19426`  Making Single-Cell Data Distillation Auditable: Traceable Real-Cell Coresets via Discrete Min-Max Selection
+- `2607.19563`  Machine-learned syndrome post-selection for reliable quantum error correction
+- `2607.19674`  FedLSG: LLM-Enhanced Semantic Calibration for Federated Graph Backdoor Defense
+- `2607.19782`  A Multiclass Quantum Aligned Centroid Kernel
+- `2607.19919`  Diffusion ReRoll: Revisable Denoising for Robotic Sequential Prediction
+- `2607.20057`  Antigen-specific Antibody Multi-modal Foundation Model for Functional Antibody Design
+- `2607.20171`  Hard Guarantees at a Measured Price: Entropy-Stable Learned Finite Volumes for Compressible Flow
+- `2607.20235`  Dynamical and Optimization Trade-offs of Levi--Civita Coordinates for Learned Close-Encounter Dynamics
+- `2607.18264`  MUX: Continuous Reasoning via Multiplexed Tokens
+- `2607.18367`  AlayaWorld: Interactive Long-Horizon World Modeling -- Full Technical Report
+- `2607.18859`  PhoenixRepair: Rethinking Repair Strategy Exploration in Software Agents
+- `2607.19327`  Associative Emotional Learning in Convolutional Neural Networks
+- `2607.19338`  CodeRescue: Budget-Calibrated Recovery Routing for Coding Agents
+- `2607.18257`  Assistant or Actor? Student Trust, Control, and Delegation Regret When Using a General-Purpose AI Agent
+- `2607.18291`  Dual-domain fused LSTM modeling for efficient time-dependent reliability analysis
+- `2607.18292`  Reliability Scales Inversely: Bigger Models Compound Mistakes Faster via a Hidden Auto-Regressive Risk Regime
+- `2607.18311`  Approximating SPR Distance Between Phylogenetic Trees with Graph Neural Networks
+- `2607.18325`  Hazard or Anomaly? Evaluating VLMs for Understanding Dangers and Discrepancies
+- `2607.18344`  FSDBN: Foreground-Aware EEG-Visual Alignment via Dynamic Brain Networks
+- `2607.18345`  Addressing Limited Data in Auditory Attention Decoding with Diffusion Generative Models
+
+
+## 2026-07-27 (Mon) — weekend skip (PRE-CHECK exit 1)
+
+
+## 2026-07-28 (Tue) 09:27 — scout completed
+
+**46 candidates** downloaded to `pdfs/_staging/`. Follow-up Phase 2-7 **pending**.
+
+- `2607.21758`  Humanly: A Configurable and Traceable Environment for Human-AI Collaborative Writing
+- `2607.21936`  Leveraging External Knowledge for Historical Document Restoration via Retrieval-Augmented Large Language Model
+- `2607.22039`  Enough is as good as a feast: A Comprehensive Analysis of How Reinforcement Learning Mitigates Task Conflicts 
+- `2607.22043`  Scaling Native Multimodal Pre-Training From Scratch
+- `2607.22529`  Skill Self-Play: Pushing the Frontier of LLM Capability with Co-Evolving Skills
+- `2607.21653`  Molt: A Scalable PyTorch-Native Training Framework for Agentic Reinforcement Learning
+- `2607.21655`  Progress Reward Modeling for Robotic Learning: A Comprehensive Survey
+- `2607.21692`  Learning What Matters: Supervising Sparse Attention Routing with Causal Evidence Sets
+- `2607.21856`  LeAct: Learning to Reason from Expert Actions
+- `2607.21887`  Towards Reducing Foreign Language Anxiety Using Level-Appropriate Embodied Conversational Agents
+- `2607.22334`  Cross-Tokenizer On-Policy Distillation via Byte-Prefix Marginalization
+- `2607.21633`  On the Depth Scalability of Logic Gate Networks
+- `2607.21636`  Measuring the Dependency Gap: Diagnosing Inter-Column Fidelity in Tabular Generative Models
+- `2607.21644`  Toward Goal-Agnostic Joint-Embedding Predictive Control of Partial Differential Equations
+- `2607.21702`  An Introduction to Bayesian and Frequentist Simulation-Based Inference with Machine Learning
+- `2607.21866`  Scaling Laws for Classical Machine Learning on Tabular Data: A Benchmark Study
+- `2607.22081`  A Leakage-Free Stacked Ensemble Method for Multiclass Classification
+- `2607.22258`  Class-Balanced Softmax: A Bayes Theory-Based Method for Long-Tailed Recognition
+- `2607.22361`  Indexing: the Beginning and the End
+- `2607.22367`  Interior interpretability with attention rollout: contraction and propagation profiles in Transformers
+- `2607.22430`  On the Identifiability of Controlled World Models
+- `2607.21612`  Procedural Knowledge Is Not Low-Rank: Why LoRA Fails to Internalize Multi-Step Procedures
+- `2607.21660`  Generative and multimodal AI for materials prediction and design: Progress, challenges, and perspectives
+- `2607.21688`  Explainable quantum-compressed machine learning for complex fluid flows
+- `2607.21797`  Relaxed activation analysis of dataflow networks - A clock calculus for machine learning and real-time schedul
+- `2607.21832`  How Do AI Coding Agents Contribute to Software Development? an Empirical Study of Agentic Pull Requests
+- `2607.21842`  Quantifying Political Partisanship for Cross-Platform Analyses
+- `2607.22119`  One Hand Watches The Other: Dynamic Multi-Agent Cooperation for Sample-Efficient Bimanual Manipulation in Dyna
+- `2607.22385`  Agentic Root Cause Analysis through Evidence-Grounded Reasoning
+- `2607.21597`  Risk Is Not the Target: A Monotonic Framework for Evaluating Wildfire Operational Risk Signals
+- `2607.21616`  Lost in Context: Addressing Context Anxiety in Large Language Models
+- `2607.21867`  When Is a Learned Command Adapter Worth It? Closed-Loop Identification and Counterfactual Auditing of Frozen L
+- `2607.22002`  Learning as Reasoning Unfolds: Progressive Rollout Allocation for Efficient Reinforcement Learning
+- `2607.22186`  Deconstructing Off-Policy Ratios: Entropy-Scaled Trust Regions for Asynchronous Reinforcement Learning
+- `2607.22375`  IDEAgent: Agentic Quality-Diversity Search for Research Idea Generation
+- `2607.21603`  Analyzing Middle School Students' Dialogue and Behaviors during Collaborative AI Chatbot Development Using Ord
+- `2607.21777`  AI-Integrated Scientific Inquiry: A Practice-Centered Vision for Science Education
+- `2607.21970`  TextSLIP: Text Self-Supervised CLIP for Medical Report Generation
+- `2607.22009`  Practical Graph Optimisation and AI-Driven Models for Active Directory Security Hardening
+- `2607.22013`  Visual Saliency Steering Distillation for Multimodal Chain-of-Thought Reasoning
+- `2607.22016`  EVL-MCoT: Enhanced Vision-Language Multi-CoT for Harmful Meme Detection
+- `2607.22166`  Learning Spatiotemporal Decision Priors for Efficient Path Planning under Partial Observability
+- `2607.22280`  Neptuna: A Comprehensive Machine Learning Framework for Benchmarking Complex Multiphase Flows
+- `2607.22345`  Teachy Mini: Development and Preliminary Evaluation of a Knowledge-Based Generative Social Robot for Higher Ed
+- `2607.22434`  Robot Learning to Communicate through Projected Visual Abstractions
+- `2607.22463`  Beyond Perspectives: A Trio-Ethnography of Interpretation Evolution in LLM-Supported Programming Education
+

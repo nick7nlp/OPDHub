@@ -1,0 +1,74 @@
+✅ Refreshed known_arxiv_ids.txt: 389 IDs
+[scout] DATE WINDOW (CST): 2026-07-27 → 2026-07-28  (days_back=1)
+[scout] accepting YYMM prefixes: ['2607']
+[scout] architecture: RSS-primary + API-verify + S2-crosscheck
+[scout] known IDs to skip: 389
+
+[scout] === Phase 1: RSS feeds (3 categories) ===
+[scout/rss] cs.CL: 81 total items, 11 OPD-keyword matches
+[scout/rss] cs.LG: 230 total items, 22 OPD-keyword matches
+[scout/rss] cs.AI: 223 total items, 28 OPD-keyword matches
+[scout/rss] total unique candidates: 46
+
+[scout] === Phase 2: S2 cross-check (4 queries) ===
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] added 0 papers not found in RSS
+
+[scout] combined unique: 46 (RSS: 46, S2-extra: 0)
+
+[scout] === Phase 3: no S2-sourced papers to verify ===
+
+[scout] ✅ 46 new candidates for deep-read
+[scout] wrote /tmp/scout_arxiv_results.json
+
+## Scout Summary: 46 new in-window candidates
+
+  - 2607.21758 [rss/ok] Humanly: A Configurable and Traceable Environment for Human-AI Collaborative Wri
+  - 2607.21936 [rss/ok] Leveraging External Knowledge for Historical Document Restoration via Retrieval-
+  - 2607.22039 [rss/ok] Enough is as good as a feast: A Comprehensive Analysis of How Reinforcement Lear
+  - 2607.22043 [rss/ok] Scaling Native Multimodal Pre-Training From Scratch
+  - 2607.22529 [rss/ok] Skill Self-Play: Pushing the Frontier of LLM Capability with Co-Evolving Skills
+  - 2607.21653 [rss/ok] Molt: A Scalable PyTorch-Native Training Framework for Agentic Reinforcement Lea
+  - 2607.21655 [rss/ok] Progress Reward Modeling for Robotic Learning: A Comprehensive Survey
+  - 2607.21692 [rss/ok] Learning What Matters: Supervising Sparse Attention Routing with Causal Evidence
+  - 2607.21856 [rss/ok] LeAct: Learning to Reason from Expert Actions
+  - 2607.21887 [rss/ok] Towards Reducing Foreign Language Anxiety Using Level-Appropriate Embodied Conve
+  - 2607.22334 [rss/ok] Cross-Tokenizer On-Policy Distillation via Byte-Prefix Marginalization
+  - 2607.21633 [rss/ok] On the Depth Scalability of Logic Gate Networks
+  - 2607.21636 [rss/ok] Measuring the Dependency Gap: Diagnosing Inter-Column Fidelity in Tabular Genera
+  - 2607.21644 [rss/ok] Toward Goal-Agnostic Joint-Embedding Predictive Control of Partial Differential 
+  - 2607.21702 [rss/ok] An Introduction to Bayesian and Frequentist Simulation-Based Inference with Mach
+  - 2607.21866 [rss/ok] Scaling Laws for Classical Machine Learning on Tabular Data: A Benchmark Study
+  - 2607.22081 [rss/ok] A Leakage-Free Stacked Ensemble Method for Multiclass Classification
+  - 2607.22258 [rss/ok] Class-Balanced Softmax: A Bayes Theory-Based Method for Long-Tailed Recognition
+  - 2607.22361 [rss/ok] Indexing: the Beginning and the End
+  - 2607.22367 [rss/ok] Interior interpretability with attention rollout: contraction and propagation pr
+  - 2607.22430 [rss/ok] On the Identifiability of Controlled World Models
+  - 2607.21612 [rss/ok] Procedural Knowledge Is Not Low-Rank: Why LoRA Fails to Internalize Multi-Step P
+  - 2607.21660 [rss/ok] Generative and multimodal AI for materials prediction and design: Progress, chal
+  - 2607.21688 [rss/ok] Explainable quantum-compressed machine learning for complex fluid flows
+  - 2607.21797 [rss/ok] Relaxed activation analysis of dataflow networks - A clock calculus for machine 
+  - 2607.21832 [rss/ok] How Do AI Coding Agents Contribute to Software Development? an Empirical Study o
+  - 2607.21842 [rss/ok] Quantifying Political Partisanship for Cross-Platform Analyses
+  - 2607.22119 [rss/ok] One Hand Watches The Other: Dynamic Multi-Agent Cooperation for Sample-Efficient
+  - 2607.22385 [rss/ok] Agentic Root Cause Analysis through Evidence-Grounded Reasoning
+  - 2607.21597 [rss/ok] Risk Is Not the Target: A Monotonic Framework for Evaluating Wildfire Operationa
+  - 2607.21616 [rss/ok] Lost in Context: Addressing Context Anxiety in Large Language Models
+  - 2607.21867 [rss/ok] When Is a Learned Command Adapter Worth It? Closed-Loop Identification and Count
+  - 2607.22002 [rss/ok] Learning as Reasoning Unfolds: Progressive Rollout Allocation for Efficient Rein
+  - 2607.22186 [rss/ok] Deconstructing Off-Policy Ratios: Entropy-Scaled Trust Regions for Asynchronous 
+  - 2607.22375 [rss/ok] IDEAgent: Agentic Quality-Diversity Search for Research Idea Generation
+  - 2607.21603 [rss/ok] Analyzing Middle School Students' Dialogue and Behaviors during Collaborative AI
+  - 2607.21777 [rss/ok] AI-Integrated Scientific Inquiry: A Practice-Centered Vision for Science Educati
+  - 2607.21970 [rss/ok] TextSLIP: Text Self-Supervised CLIP for Medical Report Generation
+  - 2607.22009 [rss/ok] Practical Graph Optimisation and AI-Driven Models for Active Directory Security 
+  - 2607.22013 [rss/ok] Visual Saliency Steering Distillation for Multimodal Chain-of-Thought Reasoning
+  - 2607.22016 [rss/ok] EVL-MCoT: Enhanced Vision-Language Multi-CoT for Harmful Meme Detection
+  - 2607.22166 [rss/ok] Learning Spatiotemporal Decision Priors for Efficient Path Planning under Partia
+  - 2607.22280 [rss/ok] Neptuna: A Comprehensive Machine Learning Framework for Benchmarking Complex Mul
+  - 2607.22345 [rss/ok] Teachy Mini: Development and Preliminary Evaluation of a Knowledge-Based Generat
+  - 2607.22434 [rss/ok] Robot Learning to Communicate through Projected Visual Abstractions
+  - 2607.22463 [rss/ok] Beyond Perspectives: A Trio-Ethnography of Interpretation Evolution in LLM-Suppo

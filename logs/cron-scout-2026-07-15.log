@@ -1,0 +1,79 @@
+✅ Refreshed known_arxiv_ids.txt: 375 IDs
+[scout] DATE WINDOW (CST): 2026-07-14 → 2026-07-15  (days_back=1)
+[scout] accepting YYMM prefixes: ['2607']
+[scout] architecture: RSS-primary + API-verify + S2-crosscheck
+[scout] known IDs to skip: 375
+
+[scout] === Phase 1: RSS feeds (3 categories) ===
+[scout/rss] cs.CL: 225 total items, 23 OPD-keyword matches
+[scout/rss] cs.LG: 488 total items, 61 OPD-keyword matches
+[scout/rss] cs.AI: 485 total items, 71 OPD-keyword matches
+[scout/rss] total unique candidates: 110
+
+[scout] === Phase 2: S2 cross-check (4 queries) ===
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] added 0 papers not found in RSS
+
+[scout] combined unique: 110 (RSS: 110, S2-extra: 0)
+[scout] ⚠️ 1 rejected by DATE WINDOW: ['2606.01592']
+
+[scout] === Phase 3: no S2-sourced papers to verify ===
+
+[scout] ✅ 50 new candidates for deep-read
+[scout] wrote /tmp/scout_arxiv_results.json
+
+## Scout Summary: 50 new in-window candidates
+
+  - 2607.10235 [rss/ok] Consensus vs. Dissent: Dynamic LLM Modeling of Subjective Preferences in Group R
+  - 2607.10386 [rss/ok] Structured Thoughts For Improved Reasoning And Context Pruning
+  - 2607.10647 [rss/ok] Knowledge Distillation for Automated AI Tutor Evaluation
+  - 2607.10805 [rss/ok] Diagnosing and Mitigating Thinking Collapse in On-Policy Self-Distillation
+  - 2607.11012 [rss/ok] EasyOPD: An Easy-to-use On-Policy Distillation Framework for Large Language Mode
+  - 2607.11207 [rss/ok] ProgramTab: Boosting Table Reasoning of LLMs via Programmatic Paradigm
+  - 2607.11341 [rss/ok] The In-Car Sign Language Corpus (ICSL): A Multi-Modal Resource for Constrained-S
+  - 2607.11358 [rss/ok] RefineEvo: Planning-Guided Heuristic Evolution with Bidirectional Experience
+  - 2607.11486 [rss/ok] Communicating Chess Strategies in Natural Language
+  - 2607.11736 [rss/ok] MET: Theory-Grounded and Culture-Aware Multilingual Moral Reasoning
+  - 2607.09692 [rss/ok] Reference-Based Distillation Detection in LLMs
+  - 2607.09773 [rss/ok] EvoCUA-1.5: Online Reinforcement Learning for Multi-turn Computer-Use Agents
+  - 2607.09842 [rss/ok] From Direction to Magnitude: How Multimodal Instruction-Tuning Reorganizes the G
+  - 2607.10179 [rss/ok] From Patent Expiry to Business Pathways: AI Workflows for Activating Innovation 
+  - 2607.10275 [rss/ok] Information-seeking failures of large language models in agentic clinical reason
+  - 2607.10441 [rss/ok] Context by Distinct Information: An Auditable Dirichlet-Process Working Memory f
+  - 2607.10481 [rss/ok] ARMOR: Stabilizing On-Policy LLM RL with Off-Policy Anchor Samples
+  - 2607.10738 [rss/ok] To Answer or to Abstain: Mitigating Search-Agent Hallucinations via Abstention-A
+  - 2607.10836 [rss/ok] Route, Communicate, and Reason: Gated Routing and Adaptive Depth for Efficient M
+  - 2607.11292 [rss/ok] The Paternalistic Filter: Epistemic Injustice and Differential Refusal in LLM-Me
+  - 2607.11475 [rss/ok] HyperSafe: Inference-Time Safety Recovery for Fine-Tuned Language Models
+  - 2607.11760 [rss/ok] From Expressivity to Sample Complexity: Narrow Teachers for Transformers via C-R
+  - 2607.09666 [rss/ok] Knowledge Graphs Meet Graph Neural Networks: A Comprehensive Survey
+  - 2607.09686 [rss/ok] MawForge: Memory-Bounded Expert Materialization for Local Mixture-of-Experts Inf
+  - 2607.09801 [rss/ok] Discovering Latent Response Laws in Forced Physical Systems
+  - 2607.09869 [rss/ok] Nonlinear Axiomatic Attribution for Cooperative Games
+  - 2607.09936 [rss/ok] SMETA-ZSL:Semantic Meta-Alignment for Zero-Shot Threat Classification
+  - 2607.10044 [rss/ok] FlashTrie: A GPU-Accelerated Constrained Beam Search for Generative Retrieval
+  - 2607.10127 [rss/ok] GAE: Graph-Augmented Evolution for Scientific Discovery via Reinforcement Optimi
+  - 2607.10131 [rss/ok] SALT-GNN: Handling Dense Neighborhoods in Anti-Money Laundering Graphs via Stati
+  - 2607.10190 [rss/ok] PhysMRV: Physical Memory Retrieval and Verification for Physics Plausibility Rea
+  - 2607.10203 [rss/ok] When Does Depth Survive Composition? Compute--Quality Regimes in Latent World Mo
+  - 2607.10244 [rss/ok] DSSMs: State Space Models with Explicit Memory via Delay Differential Equations
+  - 2607.10362 [rss/ok] A Control Theory of Predictability in Latent World Models
+  - 2607.10517 [rss/ok] Conditional Optimal Bridge for Riemannian Activation Steering
+  - 2607.10582 [rss/ok] MemDecay: Region-Aware KV Cache Eviction for Efficient LLM Agent Inference
+  - 2607.10633 [rss/ok] Auditing Construct Overlap in Explainable Machine Learning: Evidence from Burnou
+  - 2607.10694 [rss/ok] Learning to Fine-tune Foundation Models under Resource Limitations
+  - 2607.10729 [rss/ok] Scaffold splits hide structural-frontier failures in ADMET models
+  - 2607.10748 [rss/ok] Policy-Driven CT-Agent: Modeling Phase-Aware Diagnostic Control for Clinically C
+  - 2607.10784 [rss/ok] LSTrans: Efficient Knowledge Transfer for Lightweight and Automated ECG Classifi
+  - 2607.10848 [rss/ok] Predictive Divergence Masks for LLM RL
+  - 2607.11107 [rss/ok] A Novel Graph Fraud Detector via Grouped Attribute Completion and Confidence-Awa
+  - 2607.11116 [rss/ok] The Equilibrium Is the Initialization: Lazy Identity Collapse in Physics-Structu
+  - 2607.11327 [rss/ok] PRISM Edit: One Vector for All Temporal Answers
+  - 2607.11493 [rss/ok] Agentic Skill Optimization over Lie Algebroids
+  - 2607.11578 [rss/ok] DiffEEG: A Self-Supervised Denoising Diffusion Model for Learning EEG Generic Re
+  - 2607.11635 [rss/ok] Fundamental Limitations of Fixed-Budget Best-Arm Identification
+  - 2607.11758 [rss/ok] From Global to Factor-Wise Expert Composition in Discrete Diffusion Models
+  - 2607.11816 [rss/ok] Relaxing Faithfulness with Intervention-Only Causal Discovery

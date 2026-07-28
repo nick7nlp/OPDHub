@@ -1,0 +1,78 @@
+✅ Refreshed known_arxiv_ids.txt: 384 IDs
+[scout] DATE WINDOW (CST): 2026-07-21 → 2026-07-22  (days_back=1)
+[scout] accepting YYMM prefixes: ['2607']
+[scout] architecture: RSS-primary + API-verify + S2-crosscheck
+[scout] known IDs to skip: 384
+
+[scout] === Phase 1: RSS feeds (3 categories) ===
+[scout/rss] cs.CL: 184 total items, 22 OPD-keyword matches
+[scout/rss] cs.LG: 481 total items, 43 OPD-keyword matches
+[scout/rss] cs.AI: 519 total items, 68 OPD-keyword matches
+[scout/rss] total unique candidates: 99
+
+[scout] === Phase 2: S2 cross-check (4 queries) ===
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] added 0 papers not found in RSS
+
+[scout] combined unique: 99 (RSS: 99, S2-extra: 0)
+
+[scout] === Phase 3: no S2-sourced papers to verify ===
+
+[scout] ✅ 50 new candidates for deep-read
+[scout] wrote /tmp/scout_arxiv_results.json
+
+## Scout Summary: 50 new in-window candidates
+
+  - 2607.16451 [rss/ok] Committed Before Reasoning: Behavioral Reproduction and Preliminary Activation-L
+  - 2607.16872 [rss/ok] Trace-Based On-Policy Distillation for Masked Diffusion Language Models
+  - 2607.17250 [rss/ok] EvolvingWorld: An Open-Schema Framework for Co-Evolving Role-Play Agents and Wor
+  - 2607.17452 [rss/ok] How Reliable Are Multimodal Signals of Conversational State? Evidence from Remot
+  - 2607.17689 [rss/ok] Tokenizing Crosslingual Homographs
+  - 2607.17713 [rss/ok] AEGIS: Awareness-Enhanced Guidance for Iterative Safeguard
+  - 2607.17738 [rss/ok] Large Language Models for Citation Function Classification
+  - 2607.17828 [rss/ok] When a Name Is Not a Name: A Benchmark Dataset and Distilled Reasoning for Cultu
+  - 2607.18235 [rss/ok] Automated Discovery Has No Universally Superior Harness
+  - 2607.16352 [rss/ok] Clarify Before Executing: A Self-Evolving Agent for Resolving Intent Asymmetry i
+  - 2607.16442 [rss/ok] One Modality to Forget Them All: Enhancing Cross-Modal Unlearning in Vision-Lang
+  - 2607.16609 [rss/ok] Can Multimodal Large Language Models Understand OCT?
+  - 2607.16692 [rss/ok] Dependency-Guided Code Generation: Structured Matrix Decomposition and Consisten
+  - 2607.16972 [rss/ok] Training Continuous Chain of Thought Models: A Tale of Two Regimes
+  - 2607.17075 [rss/ok] A Systematic Evaluation of Traditional Privacy Policy Analysis Tools Against LLM
+  - 2607.17139 [rss/ok] SynH-Rank: Quality-Aware Code Search via Diverse Data Synthesis and Hierarchical
+  - 2607.17299 [rss/ok] WAR: Workload-Aware Rollouts for Synchronous Agentic Reinforcement Learning
+  - 2607.17523 [rss/ok] Thinking in Video: Can Video Generators Really Reason About the Real World?
+  - 2607.17538 [rss/ok] D-NOVA: In-Storage Retrieval Accelerator via Dual-Bound 3D NAND-Optimized Simila
+  - 2607.18006 [rss/ok] MADA-RL: Multi-Agent Debate-Aware Reinforcement Learning for Parameter-Efficient
+  - 2607.18110 [rss/ok] LLM-as-a-Coach: Experiential Learning for Non-Verifiable Tasks
+  - 2607.18142 [rss/ok] O-VAD: Industrial Video Anomaly Detection through Object-Centric Tracking and Re
+  - 2607.16233 [rss/ok] Token-Level Cross-Modal Transformer with Contrastive Multi-Task Learning for Bre
+  - 2607.16246 [rss/ok] Let the Data Decide: Supervision Analysis, Capability Trade-offs, and Adaptive O
+  - 2607.16254 [rss/ok] More Than Memory: Task-Conditioned Signed FFN Writes in Long-Context Retrieval
+  - 2607.16258 [rss/ok] Neural Controlled Differential Equations for EMT-Level Surrogate Modeling of Gri
+  - 2607.16260 [rss/ok] AdaSurvMamba: Dynamic Fusion and Semantic Scanning for Multimodal Survival Analy
+  - 2607.16354 [rss/ok] A Predict-then-Correct Loop Based on Few-Shot Continuous Contextual Bandit for D
+  - 2607.16534 [rss/ok] Building2Building: A Large Scale Benchmark for Generalizable Real-World Reinforc
+  - 2607.16728 [rss/ok] Graph-Embedded Intuitionistic Fuzzy Broad Learning System: A Multi-view Framewor
+  - 2607.16731 [rss/ok] BG4Sea: Biogeochemical Seasonal Forecastability via Progressive Information Scal
+  - 2607.16891 [rss/ok] Certified-Gap Dual-Price Policies for Real-Time Truckload Bid Acceptance with Re
+  - 2607.16955 [rss/ok] CADENCE: Closing the Reasoning Gap via Coverage-Adaptive On-Policy Distillation
+  - 2607.16973 [rss/ok] TurboVec: A Case Study in Cost-Efficient Private Retrieval for Enterprise RAG vi
+  - 2607.16986 [rss/ok] Periodic Bootstrap Thompson Sampling For Periodically Non-Stationary Bandit Prob
+  - 2607.17003 [rss/ok] Scalable Causal Imitation Learning
+  - 2607.17037 [rss/ok] Apeliotes: A Diffusion-Based Modeling Framework for km-scale Multi-Level Atmosph
+  - 2607.17247 [rss/ok] Distilled Reinforcement Learning for LLM Post-training
+  - 2607.17281 [rss/ok] AIGB-R1: Self-Evolving Generative Auto-Bidding via Hierarchical Planner-Executor
+  - 2607.17326 [rss/ok] Rethinking the Suitability of Reinforcement Learning Algorithms Under Practical 
+  - 2607.17345 [rss/ok] A multiverse-consensus pipeline for reproducible feature selection in untargeted
+  - 2607.17398 [rss/ok] CoEvoP&amp;R: Co-Evolving Placement Objectives with Routing Feedback via Large L
+  - 2607.17601 [rss/ok] Trustworthy Protein-Ligand Binding Affinity Prediction via Reliability-Aware Mul
+  - 2607.17668 [rss/ok] Selectivity Matters: Source Node Influence Pruning for Unsupervised Graph Domain
+  - 2607.17990 [rss/ok] fSRD: Fuzzy Spectral Region Decomposition -- Automated Multi Operator Koopman Re
+  - 2607.18046 [rss/ok] SEE: Structure-aware Exploring \&amp; Exploiting for Long-horizon GUI Agent Traj
+  - 2607.18082 [rss/ok] Enhancing Rubric-based RL via Self-Distillation
+  - 2607.18101 [rss/ok] Empowering On-Device Model Adaptation with an Edge AI Inference Accelerator
+  - 2607.18163 [rss/ok] OR Else: A Differentiable Trust Region for Policy Optimization
+  - 2607.16198 [rss/ok] A Survey on GNN-based Link Prediction: Techniques, Applications, and Challenges

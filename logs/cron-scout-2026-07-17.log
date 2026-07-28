@@ -1,0 +1,74 @@
+✅ Refreshed known_arxiv_ids.txt: 376 IDs
+[scout] DATE WINDOW (CST): 2026-07-16 → 2026-07-17  (days_back=1)
+[scout] accepting YYMM prefixes: ['2607']
+[scout] architecture: RSS-primary + API-verify + S2-crosscheck
+[scout] known IDs to skip: 376
+
+[scout] === Phase 1: RSS feeds (3 categories) ===
+[scout/rss] cs.CL: 94 total items, 14 OPD-keyword matches
+[scout/rss] cs.LG: 237 total items, 24 OPD-keyword matches
+[scout/rss] cs.AI: 228 total items, 25 OPD-keyword matches
+[scout/rss] total unique candidates: 46
+
+[scout] === Phase 2: S2 cross-check (4 queries) ===
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] added 0 papers not found in RSS
+
+[scout] combined unique: 46 (RSS: 46, S2-extra: 0)
+
+[scout] === Phase 3: no S2-sourced papers to verify ===
+
+[scout] ✅ 46 new candidates for deep-read
+[scout] wrote /tmp/scout_arxiv_results.json
+
+## Scout Summary: 46 new in-window candidates
+
+  - 2607.13036 [rss/ok] Ask Before You Diagnose: Safe-Psych, a Sequential Evaluation Benchmark for LLMs 
+  - 2607.13260 [rss/ok] Discourse-Aware Policy Analysis with Argumentation: A Hybrid LLM-Symbolic Framew
+  - 2607.13347 [rss/ok] Evaluation Ability Does Not Imply Optimization Utility: LLM-as-a-Judge Signals i
+  - 2607.13394 [rss/ok] GFlowRL: Scaling Distribution-Matching RL to Large Language Models
+  - 2607.13399 [rss/ok] Demystifying On-Policy Distillation: Roles, Pathologies, and Regulations
+  - 2607.13433 [rss/ok] When Rubrics Change: Cross-Rubric Generalization for Critical Thinking Essay Sco
+  - 2607.13591 [rss/ok] Memory as a Controlled Process: Learned Adaptive Memory Management for LLM Agent
+  - 2607.13753 [rss/ok] Post-Training Shifts Confidence: A Three-Stage Analysis of How SFT, RL, and OPD 
+  - 2607.13854 [rss/ok] SPyCE: Skill-Policy Co-evolution for Multimodal Agents
+  - 2607.13901 [rss/ok] High-Order Question Generation in a Multilingual Educational Context
+  - 2607.13977 [rss/ok] Constraint-Aware Counterfactual Editing for Aspect-Based Sentiment Analysis
+  - 2607.13124 [rss/ok] ShortOPD: Recovering Pruned LLMs with Short-to-Long On-Policy Distillation
+  - 2607.13389 [rss/ok] Where Should RL Post-Training Compute Go? Model Size, Search, Learning, and Feed
+  - 2607.13643 [rss/ok] Consensus as Privileged Context for Label-Free Self-Distillation
+  - 2607.13103 [rss/ok] Disentangling Knowledge States with Ability and Proficiency Modeling for Knowled
+  - 2607.13155 [rss/ok] HEDGEHOG: Hierarchical Evaluation of Drug Generators Through Rigorous Filtration
+  - 2607.13175 [rss/ok] SteinGate: Tail-Sensitive Safe Reinforcement Learning via Stein Discrepancy
+  - 2607.13188 [rss/ok] Concurrent Image Understanding and Generation: Self-Correcting Coupled Markov Ju
+  - 2607.13436 [rss/ok] Distributionally Robust and Safe Imitation Learning
+  - 2607.13494 [rss/ok] A VAE-Driven Multi-Task Satellite-Aided Semantic Communication Framework for 6G-
+  - 2607.13703 [rss/ok] Conditional Invertible Neural Networks for Data-Driven UAV Control: A 2-D Proof 
+  - 2607.13735 [rss/ok] Constraint-Driven Model Optimization: An Industry Framework for Selecting Compre
+  - 2607.13837 [rss/ok] NodeImport: Imbalanced Node Classification with Node Importance Assessment
+  - 2607.13841 [rss/ok] Heavy-Tailed Flow Matching via Random Clocks
+  - 2607.13877 [rss/ok] AI-Augmented Adaptive Digital Twin Modeling for Brain Tumor Evolution Prediction
+  - 2607.13880 [rss/ok] Task-Oriented Sensing and Covert Transmissions for Collaborative Multi-AUV Syste
+  - 2607.13988 [rss/ok] TRACE: Turn-level Reward Assignment via Credit Estimation for Long-Horizon Agent
+  - 2607.14086 [rss/ok] Leveraging unlabelled data for generalizable neural population decoding
+  - 2607.13056 [rss/ok] HRIBench: Benchmarking Interaction-Centric Human-Robot Collaboration
+  - 2607.13319 [rss/ok] Adapting Generalist Vehicle Models for High-Speed MPC Across Terrains
+  - 2607.13550 [rss/ok] Parallel gradient boosting for flexible estimation of conditional distributions
+  - 2607.13618 [rss/ok] STOCKTAKE: Measuring the Gap Between Perception and Action in LLM Agents with a 
+  - 2607.13073 [rss/ok] Probabilistic Extension of Neuro-Symbolic AGI Robots based on Belnap's Typed Int
+  - 2607.13501 [rss/ok] LAPO: Leave-One-Turn Attribution for Self-Generated Process Rewards in Multi-Tur
+  - 2607.13621 [rss/ok] UESF-Bench: Benchmarking and Probing for Unified Embodied Seeking and Following
+  - 2607.13899 [rss/ok] AIMO Interpretability Challenge
+  - 2607.14046 [rss/ok] Earthquaker-AI: A Retrieval-Augmented Generation Framework with Rubric-Based Ass
+  - 2607.14049 [rss/ok] Deep Interaction: An Efficient Human-AI Interaction Method for Large Reasoning M
+  - 2607.13094 [rss/ok] Analyzing Curricular Pattern Complexity Using AI to Improve On-Time Graduation R
+  - 2607.13111 [rss/ok] SemaDiff: Identifying Semantic-Changing Commits with Generated Code and Tests
+  - 2607.13370 [rss/ok] Learning Engagement Assistant (LEA): Cross-Course Scalability and Classroom Eval
+  - 2607.13421 [rss/ok] ScanFocus: A Coarse-to-Fine Framework for Spatio-Temporal Video Grounding
+  - 2607.13454 [rss/ok] GeoAnchor: Collaborative Reasoning via Latent Decomposition for 3D Spatial Under
+  - 2607.13639 [rss/ok] OvisOCR2 Technical Report
+  - 2607.13689 [rss/ok] Barnamala: Parameter-Efficient Handwritten Devanagari Recognition at Benchmark S
+  - 2607.13693 [rss/ok] Social Simulations: from Agent-Based Modeling to Digital Twins

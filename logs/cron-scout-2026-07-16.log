@@ -1,0 +1,79 @@
+✅ Refreshed known_arxiv_ids.txt: 376 IDs
+[scout] DATE WINDOW (CST): 2026-07-15 → 2026-07-16  (days_back=1)
+[scout] accepting YYMM prefixes: ['2607']
+[scout] architecture: RSS-primary + API-verify + S2-crosscheck
+[scout] known IDs to skip: 376
+
+[scout] === Phase 1: RSS feeds (3 categories) ===
+[scout/rss] cs.CL: 103 total items, 11 OPD-keyword matches
+[scout/rss] cs.LG: 234 total items, 18 OPD-keyword matches
+[scout/rss] cs.AI: 485 total items, 71 OPD-keyword matches
+[scout/rss] total unique candidates: 96
+
+[scout] === Phase 2: S2 cross-check (4 queries) ===
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] added 13 papers not found in RSS
+
+[scout] combined unique: 109 (RSS: 96, S2-extra: 13)
+[scout] ⚠️ 13 rejected by DATE WINDOW: ['2509.22984', '2511.17041', '2507.08877', '2510.16079', '2509.01566', '2510.01375', '2510.05733', '2510.06657', '2512.11755', '2512.03737']
+
+[scout] === Phase 3: no S2-sourced papers to verify ===
+
+[scout] ✅ 50 new candidates for deep-read
+[scout] wrote /tmp/scout_arxiv_results.json
+
+## Scout Summary: 50 new in-window candidates
+
+  - 2607.11891 [rss/ok] CANDI: Contextual Alignment for Niche Domains Question Answering
+  - 2607.11893 [rss/ok] I'm Sorry, but I Can't Help with Braille: Revealing Accessibility Failures in St
+  - 2607.11898 [rss/ok] TAKE: Trajectory-Aware Knowledge Estimation for Text Dataset Distillation
+  - 2607.11933 [rss/ok] Transforming LLMs into Efficient Cross-Encoders via Knowledge Distillation for R
+  - 2607.11946 [rss/ok] Hybrid Continual Learning for Low-Resource Australian Aboriginal Language Identi
+  - 2607.12336 [rss/ok] Evaluating Health Misinformation in Low-Resource Languages: Integrating Small La
+  - 2607.12835 [rss/ok] Can LLMs Write Reliable Rubrics? A Meta-Evaluation for Experiment Reproduction
+  - 2607.11464 [rss/ok] FAIR GraphRAG: A Retrieval-Augmented Generation Approach for Semantic Data Analy
+  - 2607.11948 [rss/ok] Ontology-Amplified Distillation and Contextuality Auditing for Sovereign Enterpr
+  - 2607.12771 [rss/ok] Learning Mechanistic Reasoning for Chemical Reactions with Large Language Models
+  - 2607.12787 [rss/ok] Do We Really Need Multimodal Emotion Language Models Larger Than 1B Parameters?
+  - 2607.11937 [rss/ok] Mirror Horizon: Viable Path Entropy as a Measure of Bounded Reflection
+  - 2607.11952 [rss/ok] Scalable Optimal Transport Algorithm for Network Alignment
+  - 2607.11953 [rss/ok] When Does Reward Teach State? A Hidden-Automaton Instrument and the Group-Langua
+  - 2607.11963 [rss/ok] Evaluating Reliability in Machine Learning Models for Early Chronic Kidney Disea
+  - 2607.11964 [rss/ok] LIDAR-AD: A Decoder-Free Latent-Interaction Dreamer with Action-Residual Chains 
+  - 2607.11970 [rss/ok] Self-Evolving In-Context Learning for Direct Pilot-to-Beamformer Design in MU-MI
+  - 2607.12243 [rss/ok] Cluster-Weighted EDMD
+  - 2607.13028 [rss/ok] TerraZero: Procedural Driving Simulation for Zero-Demonstration Self-Play at Sca
+  - 2607.11899 [rss/ok] Predictive Modeling of High-Altitude Clear Air Turbulence in the United States: 
+  - 2607.11918 [rss/ok] AAAI-26 Dual Submissions: Novel Challenges
+  - 2607.12042 [rss/ok] SymbOmni: Evolving Agentic Omni Models via Symbolic Concept Learning
+  - 2607.12570 [rss/ok] Deep Learning-based Surrogate Modelling of the LOD Method for Multiscale Problem
+  - 2607.12590 [rss/ok] Environment Parameter Gradient Theorem for Policy-Environment Co-Design in Reinf
+  - 2607.12833 [rss/ok] ANGLE: Angular Neural Generative Learning via Engression
+  - 2607.09709 [rss/ok] The Verifier is the Curriculum: Execution-Gated Self-Distillation for Cross-Fami
+  - 2607.09751 [rss/ok] Task-Conditioned Synthetic Data Generation for Improving Machine Learning Perfor
+  - 2607.09773 [rss/ok] EvoCUA-1.5: Online Reinforcement Learning for Multi-turn Computer-Use Agents
+  - 2607.09839 [rss/ok] Exploring Agentic Workflows for Generating High Quality Math Visual Aids
+  - 2607.10113 [rss/ok] Dynamic Agent Skills: A Lifecycle Survey and Taxonomy of Evolving Skill Librarie
+  - 2607.10159 [rss/ok] UNIT: Unleash Large Language Models Potential for Graph Continual Learning
+  - 2607.10251 [rss/ok] Behavioural Signatures of Risk-Sensitive Decision-Making in Large Language Model
+  - 2607.10275 [rss/ok] Information-seeking failures of large language models in agentic clinical reason
+  - 2607.10366 [rss/ok] Co4ICF: Co-evolving Physics-Informed Surrogate and RL-based Pulse Optimizer for 
+  - 2607.10562 [rss/ok] CRiT-QA: Evaluating Multi-hop Reasoning with Counterfactual Chains and Distracto
+  - 2607.10601 [rss/ok] Agentic-DPO: From Imitation to Agentic Policy Optimization on Expert Trajectorie
+  - 2607.10750 [rss/ok] Filtering Harmful Actions Isn't Enough: Phantom Transfer in Agentic SDF
+  - 2607.10836 [rss/ok] Route, Communicate, and Reason: Gated Routing and Adaptive Depth for Efficient M
+  - 2607.10966 [rss/ok] SVR-R1: Bootstrapping Multi-modal Reasoning with Self-verification in Reinforcem
+  - 2607.11138 [rss/ok] A Formal Hierarchical Architecture for Agentic Orchestration with Stack-Based Ex
+  - 2607.11185 [rss/ok] SCALECUA: Scaling Computer Use Agents with Verifiable Task Synthesis and Efficie
+  - 2607.11212 [rss/ok] PREF-Gate: Provenance-Constrained Relational Evidence Fusion with Validation-Gat
+  - 2607.11266 [rss/ok] Valid $\ne$ Necessary: Diagnosing Latent Inefficiency in Chain-of-Thought
+  - 2607.11317 [rss/ok] Calibrated e-CUSUM Decoding for Quantized Reasoning Models: Why Token Log-Probab
+  - 2607.11501 [rss/ok] Comparative Analysis of GAT and BERT for Human-Like Playtesting
+  - 2607.09666 [rss/ok] Knowledge Graphs Meet Graph Neural Networks: A Comprehensive Survey
+  - 2607.09764 [rss/ok] OmniSCS: Omni Safety-Critical Scenario Synthesis for Autonomous Driving via a Fu
+  - 2607.09776 [rss/ok] Maximizing Human Efficiency in Large-Scale Robot Post-Training via VLAC-Cut Guid
+  - 2607.09785 [rss/ok] Lifelong Representations: A Survey on Continual Self-Supervised Learning for Vis
+  - 2607.09792 [rss/ok] A Comprehensive Survey and Systematic Real-World Evaluation of Embodied Vision-a

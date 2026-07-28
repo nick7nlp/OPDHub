@@ -1,0 +1,228 @@
+
+================================================================
+  OPD Pipeline Phase 2-7  |  2026-07-17 10:30
+================================================================
+
+▶ Phase 2: batch deep-read (--from-staging --days-back 2)
+  _staging/ has 47 PDFs total
+[batch] from-staging: skipped 1 already in paper_notes.json: ['2607.10805']
+[batch] from-staging: found 46 pending IDs in _staging/
+[batch] 46 papers to process: ['2607.13036', '2607.13056', '2607.13073', '2607.13094', '2607.13103', '2607.13111', '2607.13124', '2607.13155', '2607.13175', '2607.13188', '2607.13260', '2607.13319', '2607.13347', '2607.13370', '2607.13389', '2607.13394', '2607.13399', '2607.13421', '2607.13433', '2607.13436', '2607.13454', '2607.13494', '2607.13501', '2607.13550', '2607.13591', '2607.13618', '2607.13621', '2607.13639', '2607.13643', '2607.13689', '2607.13693', '2607.13703', '2607.13735', '2607.13753', '2607.13837', '2607.13841', '2607.13854', '2607.13877', '2607.13880', '2607.13899', '2607.13901', '2607.13977', '2607.13988', '2607.14046', '2607.14049', '2607.14086']
+[batch] 2607.13056 ← 2607.13056.pdf (model=claude)
+[batch] 2607.13036 ← 2607.13036.pdf (model=claude)
+[batch] 2607.13073 ← 2607.13073.pdf (model=claude)
+[batch] ✅ 2607.13073 (33.0s) is_opd=no §not-applicable
+[batch] 2607.13094 ← 2607.13094.pdf (model=claude)
+[batch] ✅ 2607.13036 (37.7s) is_opd=no §not-applicable
+[batch] 2607.13103 ← 2607.13103.pdf (model=claude)
+[batch] ✅ 2607.13056 (38.3s) is_opd=no §not-applicable
+[batch] 2607.13111 ← 2607.13111.pdf (model=claude)
+[batch] ✅ 2607.13094 (28.8s) is_opd=no §not-applicable
+[batch] 2607.13124 ← 2607.13124.pdf (model=claude)
+[batch] ✅ 2607.13111 (35.2s) is_opd=no §not-applicable
+[batch] 2607.13155 ← 2607.13155.pdf (model=claude)
+[batch] ✅ 2607.13103 (37.9s) is_opd=no §not-applicable
+[batch] 2607.13175 ← 2607.13175.pdf (model=claude)
+[batch] ✅ 2607.13155 (36.7s) is_opd=no §not-applicable
+[batch] 2607.13188 ← 2607.13188.pdf (model=claude)
+[batch] ✅ 2607.13124 (59.2s) is_opd=yes §§6.2
+[batch] 2607.13260 ← 2607.13260.pdf (model=claude)
+[batch] ✅ 2607.13175 (50.3s) is_opd=no §not-applicable
+[batch] 2607.13319 ← 2607.13319.pdf (model=claude)
+[batch] ✅ 2607.13188 (47.8s) is_opd=no §not-applicable
+[batch] 2607.13347 ← 2607.13347.pdf (model=claude)
+[batch] ✅ 2607.13260 (40.3s) is_opd=no §not-applicable
+[batch] 2607.13370 ← 2607.13370.pdf (model=claude)
+[batch] ✅ 2607.13319 (38.0s) is_opd=no §not-applicable
+[batch] 2607.13389 ← 2607.13389.pdf (model=claude)
+[batch] ✅ 2607.13347 (40.1s) is_opd=no §not-applicable
+[batch] 2607.13394 ← 2607.13394.pdf (model=claude)
+[batch] ✅ 2607.13389 (36.3s) is_opd=no §not-applicable
+[batch] 2607.13399 ← 2607.13399.pdf (model=claude)
+[batch] ✅ 2607.13370 (39.5s) is_opd=no §not-applicable
+[batch] 2607.13421 ← 2607.13421.pdf (model=claude)
+[batch] ✅ 2607.13421 (36.5s) is_opd=no §not-applicable
+[batch] 2607.13433 ← 2607.13433.pdf (model=claude)
+[batch] ✅ 2607.13394 (52.8s) is_opd=no §not-applicable
+[batch] 2607.13436 ← 2607.13436.pdf (model=claude)
+[batch] ✅ 2607.13399 (57.5s) is_opd=analysis §§7.2
+[batch] 2607.13454 ← 2607.13454.pdf (model=claude)
+[batch] ✅ 2607.13433 (40.0s) is_opd=no §not-applicable
+[batch] 2607.13494 ← 2607.13494.pdf (model=claude)
+[batch] ✅ 2607.13436 (34.5s) is_opd=no §not-applicable
+[batch] 2607.13501 ← 2607.13501.pdf (model=claude)
+[batch] ✅ 2607.13454 (37.3s) is_opd=no §not-applicable
+[batch] 2607.13550 ← 2607.13550.pdf (model=claude)
+[batch] ✅ 2607.13494 (28.3s) is_opd=no §not-applicable
+[batch] 2607.13591 ← 2607.13591.pdf (model=claude)
+[batch] ✅ 2607.13501 (45.1s) is_opd=no §not-applicable
+[batch] 2607.13618 ← 2607.13618.pdf (model=claude)
+[batch] ✅ 2607.13550 (38.0s) is_opd=no §not-applicable
+[batch] 2607.13621 ← 2607.13621.pdf (model=claude)
+[batch] ✅ 2607.13591 (50.6s) is_opd=no §not-applicable
+[batch] 2607.13639 ← 2607.13639.pdf (model=claude)
+[batch] ✅ 2607.13618 (40.6s) is_opd=no §not-applicable
+[batch] 2607.13643 ← 2607.13643.pdf (model=claude)
+[batch] ✅ 2607.13621 (41.1s) is_opd=no §not-applicable
+[batch] 2607.13689 ← 2607.13689.pdf (model=claude)
+[batch] ✅ 2607.13639 (55.6s) is_opd=yes §§5.1
+[batch] 2607.13693 ← 2607.13693.pdf (model=claude)
+[batch] ✅ 2607.13689 (46.1s) is_opd=no §not-applicable
+[batch] 2607.13703 ← 2607.13703.pdf (model=claude)
+[batch] ✅ 2607.13643 (63.3s) is_opd=yes §§5.3.2
+[batch] 2607.13735 ← 2607.13735.pdf (model=claude)
+[batch] ✅ 2607.13693 (24.2s) is_opd=no §not-applicable
+[batch] 2607.13753 ← 2607.13753.pdf (model=claude)
+[batch] ✅ 2607.13703 (37.0s) is_opd=no §not-applicable
+[batch] 2607.13837 ← 2607.13837.pdf (model=claude)
+[batch] ✅ 2607.13735 (30.0s) is_opd=no §not-applicable
+[batch] 2607.13841 ← 2607.13841.pdf (model=claude)
+[batch] ✅ 2607.13753 (45.9s) is_opd=analysis §§7.1
+[batch] 2607.13854 ← 2607.13854.pdf (model=claude)
+[batch] ✅ 2607.13837 (38.3s) is_opd=no §not-applicable
+[batch] 2607.13877 ← 2607.13877.pdf (model=claude)
+[batch] ✅ 2607.13841 (40.4s) is_opd=no §not-applicable
+[batch] 2607.13880 ← 2607.13880.pdf (model=claude)
+[batch] ✅ 2607.13854 (43.0s) is_opd=no §not-applicable
+[batch] 2607.13899 ← 2607.13899.pdf (model=claude)
+[batch] ✅ 2607.13880 (27.4s) is_opd=no §not-applicable
+[batch] 2607.13901 ← 2607.13901.pdf (model=claude)
+[batch] ✅ 2607.13877 (38.4s) is_opd=no §not-applicable
+[batch] 2607.13977 ← 2607.13977.pdf (model=claude)
+[batch] ✅ 2607.13899 (26.0s) is_opd=no §not-applicable
+[batch] 2607.13988 ← 2607.13988.pdf (model=claude)
+[batch] ✅ 2607.13901 (30.9s) is_opd=no §not-applicable
+[batch] 2607.14046 ← 2607.14046.pdf (model=claude)
+[batch] ✅ 2607.13977 (36.6s) is_opd=no §not-applicable
+[batch] 2607.14049 ← 2607.14049.pdf (model=claude)
+[batch] ✅ 2607.14046 (28.3s) is_opd=no §not-applicable
+[batch] 2607.14086 ← 2607.14086.pdf (model=claude)
+[batch] ✅ 2607.13988 (54.5s) is_opd=no §not-applicable
+[batch] ✅ 2607.14049 (47.4s) is_opd=no §not-applicable
+[batch] ✅ 2607.14086 (46.7s) is_opd=no §not-applicable
+
+=== batch done ===
+  total: 46  ok: 46  fail: 0  duration: 639.1s
+  is_opd: yes=3 no=41 analysis=2
+  notes: +46 new, ~0 updated, -0 skipped
+  summary: /tmp/opd_pipeline_deep_read_summary.json
+  deep-read exit code: 0
+  deep-read: total=46 ok=46 opd_yes=3 opd_no=41
+  deep-read IDs: 2607.13073,2607.13036,2607.13056,2607.13094,2607.13111,2607.13103,2607.13155,2607.13124,2607.13175,2607.13188,2607.13260,2607.13319,2607.13347,2607.13389,2607.13370,2607.13421,2607.13394,2607.13399,2607.13433,2607.13436,2607.13454,2607.13494,2607.13501,2607.13550,2607.13591,2607.13618,2607.13621,2607.13639,2607.13689,2607.13643,2607.13693,2607.13703,2607.13735,2607.13753,2607.13837,2607.13841,2607.13854,2607.13880,2607.13877,2607.13899,2607.13901,2607.13977,2607.14046,2607.13988,2607.14049,2607.14086
+
+▶ Phase 3: triage
+[triage] 46 candidates 
+
+  🗑️ 2607.13073     [exclude] rm 2607.13073.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.13036     [exclude] rm 2607.13036.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.13056     [exclude] rm 2607.13056.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.13094     [exclude] rm 2607.13094.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.13111     [exclude] rm 2607.13111.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.13103     [exclude] rm 2607.13103.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.13155     [exclude] rm 2607.13155.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  ✅ 2607.13124     [keep   ] is_opd=yes; section=§6.2; title=ShortOPD: Recovering Pruned LLMs with Short-to-Long On-Polic
+  🗑️ 2607.13175     [exclude] rm 2607.13175.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.13188     [exclude] rm 2607.13188.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.13260     [exclude] rm 2607.13260.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.13319     [exclude] rm 2607.13319.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.13347     [exclude] rm 2607.13347.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.13389     [exclude] rm 2607.13389.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.13370     [exclude] rm 2607.13370.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.13421     [exclude] rm 2607.13421.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.13394     [exclude] rm 2607.13394.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  ✅ 2607.13399     [keep   ] is_opd=analysis; section=§7.2; title=Demystifying On-Policy Distillation: Roles, Pathologies, and
+  🗑️ 2607.13433     [exclude] rm 2607.13433.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.13436     [exclude] rm 2607.13436.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.13454     [exclude] rm 2607.13454.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.13494     [exclude] rm 2607.13494.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.13501     [exclude] rm 2607.13501.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.13550     [exclude] rm 2607.13550.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.13591     [exclude] rm 2607.13591.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.13618     [exclude] rm 2607.13618.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.13621     [exclude] rm 2607.13621.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  ✅ 2607.13639     [keep   ] is_opd=yes; section=§5.1; title=OvisOCR2 Technical Report
+  🗑️ 2607.13689     [exclude] rm 2607.13689.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  ✅ 2607.13643     [keep   ] is_opd=yes; section=§5.3.2; title=Consensus as Privileged Context for Label-Free Self-Distilla
+  🗑️ 2607.13693     [exclude] rm 2607.13693.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.13703     [exclude] rm 2607.13703.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.13735     [exclude] rm 2607.13735.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  ✅ 2607.13753     [keep   ] is_opd=analysis; section=§7.1; title=Post-Training Shifts Confidence: A Three-Stage Analysis of H
+  🗑️ 2607.13837     [exclude] rm 2607.13837.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.13841     [exclude] rm 2607.13841.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.13854     [exclude] rm 2607.13854.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.13880     [exclude] rm 2607.13880.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.13877     [exclude] rm 2607.13877.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.13899     [exclude] rm 2607.13899.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.13901     [exclude] rm 2607.13901.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.13977     [exclude] rm 2607.13977.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.14046     [exclude] rm 2607.14046.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.13988     [exclude] rm 2607.13988.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.14049     [exclude] rm 2607.14049.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.14086     [exclude] rm 2607.14086.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+
+[triage] summary: 5 kept, 41 excluded, 0 skipped
+  triage exit code: 0
+
+▶ Phase 3.5: 3-condition filter
+  Papers for 3-cond filter: 2607.13124,2607.13399,2607.13639,2607.13643,2607.13753
+  3-cond filter exit code: 0
+  🚫 2607.13399: REJECT — V3 精读自标 is_opd=analysis → analysis-only 论文, 综述 Theory 章可 cite 但不进 backlog
+  🚫 2607.13643: REJECT — rollout_frequency=once-before-training → off-policy SFT 或 self-play (不在 training loop 内 rollout)
+  🚫 2607.13753: REJECT — V3 精读自标 is_opd=analysis → analysis-only 论文, 综述 Theory 章可 cite 但不进 backlog
+  Final KEEP (pre-2nd-opinion): 2607.13124,2607.13639
+
+▶ Phase 3.7: second-opinion verification (Gemini cross-check)
+[2nd-opinion] 2607.13124 ← 2607.13124.pdf (model=gemini)
+[2nd-opinion] 2607.13124: CONFIRM — The paper introduces ShortOPD, a novel on-policy distillation method where a pruned student generate
+[2nd-opinion] 2607.13639 ← 2607.13639.pdf (model=gemini)
+[2nd-opinion] 2607.13639: REJECT — The paper perfectly meets the technical criteria for OPD (student rollouts, separate 4B teacher, rev
+
+[2nd-opinion] summary: 1 CONFIRM, 1 REJECT, 0 UNCERTAIN
+  2nd-opinion exit code: 0
+  ⚠️  2607.13639: REJECT — The paper perfectly meets the technical criteria for OPD (student rollouts, separate 4B teacher, rev
+  Final KEEP (verified): 2607.13124
+
+▶ Phase 4: awesome list inserter
+Prepared 1 papers for insertion:
+  2607.13124 → §6.2 | ShortOPD: Recovering Pruned LLMs with Short-to-Long On-Polic
+[master 2dc6482] Add 2607.13124 to §6.2 (ShortOPD: Recovering Pruned LLMs with Short-to-Long On-Polic)
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+[inserter] wrote /apdcephfs_cq8/share_1324356/nickmysong/daily_research/on-policy-distillation-survey/Awesome-LLM-On-Policy-Distillation/README.md
+  ✓ 2607.13124 → §6.2 (229→230)
+[git] committed: Add 2607.13124 to §6.2 (ShortOPD: Recovering Pruned LLMs with Short-to-Long On-Polic)
+  inserter exit code: 0
+
+▶ Phase 4.5: staging cleanup (mv kept PDFs to month bucket)
+  Moved 6 kept PDFs from staging to month buckets
+  Deleted 0 non-OPD PDFs from staging
+  Remaining in staging: 0
+
+▶ Phase 5: refresh known_arxiv_ids.txt
+✅ Refreshed known_arxiv_ids.txt: 381 IDs
+  known_arxiv_ids: 41 new IDs added, total 422
+
+▶ Phase 6: (skipped — heatmap/stats manual for now)
+
+▶ Phase 7: git commit + push
+fatal: Unable to create '/apdcephfs_cq8/share_1324356/nickmysong/daily_research/on-policy-distillation-survey/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+fatal: Unable to create '/apdcephfs_cq8/share_1324356/nickmysong/daily_research/on-policy-distillation-survey/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+  survey repo: committed
+  awesome repo: no changes
+  survey repo: pushed
+  awesome repo: pushed
+
+================================================================
+  Pipeline complete  |  2026-07-17 10:42
+================================================================

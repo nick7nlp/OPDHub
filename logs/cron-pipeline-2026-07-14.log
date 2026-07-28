@@ -1,0 +1,173 @@
+
+================================================================
+  OPD Pipeline Phase 2-7  |  2026-07-14 10:30
+================================================================
+
+▶ Phase 2: batch deep-read (--from-staging --days-back 2)
+  _staging/ has 30 PDFs total
+[batch] from-staging: found 30 pending IDs in _staging/
+[batch] 30 papers to process: ['2607.08776', '2607.08783', '2607.08793', '2607.08837', '2607.08925', '2607.08960', '2607.08970', '2607.08984', '2607.08996', '2607.09039', '2607.09042', '2607.09068', '2607.09076', '2607.09092', '2607.09113', '2607.09114', '2607.09133', '2607.09153', '2607.09202', '2607.09218', '2607.09230', '2607.09232', '2607.09298', '2607.09336', '2607.09375', '2607.09428', '2607.09456', '2607.09520', '2607.09560', '2607.09616']
+[batch] 2607.08776 ← 2607.08776.pdf (model=claude)
+[batch] 2607.08783 ← 2607.08783.pdf (model=claude)
+[batch] 2607.08793 ← 2607.08793.pdf (model=claude)
+[batch] ✅ 2607.08783 (41.3s) is_opd=no §not-applicable
+[batch] 2607.08837 ← 2607.08837.pdf (model=claude)
+[batch] ✅ 2607.08793 (52.5s) is_opd=no §not-applicable
+[batch] 2607.08925 ← 2607.08925.pdf (model=claude)
+[batch] ✅ 2607.08837 (50.0s) is_opd=no §not-applicable
+[batch] 2607.08960 ← 2607.08960.pdf (model=claude)
+[batch] ✅ 2607.08925 (49.1s) is_opd=no §not-applicable
+[batch] 2607.08970 ← 2607.08970.pdf (model=claude)
+[batch] ✅ 2607.08776 (115.9s) is_opd=no §§7.1
+[batch] 2607.08984 ← 2607.08984.pdf (model=claude)
+[batch] ✅ 2607.08960 (46.3s) is_opd=no §not-applicable
+[batch] 2607.08996 ← 2607.08996.pdf (model=claude)
+[batch] ✅ 2607.08970 (36.9s) is_opd=no §not-applicable
+[batch] 2607.09039 ← 2607.09039.pdf (model=claude)
+[batch] ✅ 2607.08984 (42.5s) is_opd=no §not-applicable
+[batch] 2607.09042 ← 2607.09042.pdf (model=claude)
+[batch] ✅ 2607.09039 (44.3s) is_opd=no §not-applicable
+[batch] 2607.09068 ← 2607.09068.pdf (model=claude)
+[batch] ✅ 2607.08996 (46.4s) is_opd=no §not-applicable
+[batch] 2607.09076 ← 2607.09076.pdf (model=claude)
+[batch] ✅ 2607.09042 (46.4s) is_opd=no §not-applicable
+[batch] 2607.09092 ← 2607.09092.pdf (model=claude)
+[batch] ✅ 2607.09068 (32.4s) is_opd=no §not-applicable
+[batch] 2607.09113 ← 2607.09113.pdf (model=claude)
+[batch] ✅ 2607.09076 (35.2s) is_opd=no §not-applicable
+[batch] 2607.09114 ← 2607.09114.pdf (model=claude)
+[batch] ✅ 2607.09113 (30.0s) is_opd=no §not-applicable
+[batch] 2607.09133 ← 2607.09133.pdf (model=claude)
+[batch] ✅ 2607.09092 (41.1s) is_opd=no §not-applicable
+[batch] 2607.09153 ← 2607.09153.pdf (model=claude)
+[batch] ✅ 2607.09114 (39.1s) is_opd=no §not-applicable
+[batch] 2607.09202 ← 2607.09202.pdf (model=claude)
+[batch] ✅ 2607.09153 (40.7s) is_opd=no §not-applicable
+[batch] 2607.09218 ← 2607.09218.pdf (model=claude)
+[batch] ✅ 2607.09133 (48.6s) is_opd=no §not-applicable
+[batch] 2607.09230 ← 2607.09230.pdf (model=claude)
+[batch] ✅ 2607.09202 (50.0s) is_opd=no §not-applicable
+[batch] 2607.09232 ← 2607.09232.pdf (model=claude)
+[batch] ✅ 2607.09230 (35.4s) is_opd=no §not-applicable
+[batch] 2607.09298 ← 2607.09298.pdf (model=claude)
+[batch] ✅ 2607.09218 (46.0s) is_opd=no §not-applicable
+[batch] 2607.09336 ← 2607.09336.pdf (model=claude)
+[batch] ✅ 2607.09232 (34.6s) is_opd=no §not-applicable
+[batch] 2607.09375 ← 2607.09375.pdf (model=claude)
+[batch] ✅ 2607.09298 (32.1s) is_opd=no §not-applicable
+[batch] 2607.09428 ← 2607.09428.pdf (model=claude)
+[batch] ✅ 2607.09336 (33.6s) is_opd=no §not-applicable
+[batch] 2607.09456 ← 2607.09456.pdf (model=claude)
+[batch] ✅ 2607.09428 (29.8s) is_opd=no §not-applicable
+[batch] 2607.09520 ← 2607.09520.pdf (model=claude)
+[batch] ✅ 2607.09375 (65.3s) is_opd=yes §§5.1.1
+[batch] 2607.09560 ← 2607.09560.pdf (model=claude)
+[batch] ✅ 2607.09456 (51.5s) is_opd=no §not-applicable
+[batch] 2607.09616 ← 2607.09616.pdf (model=claude)
+[batch] ✅ 2607.09520 (35.2s) is_opd=no §not-applicable
+[batch] ✅ 2607.09560 (31.3s) is_opd=no §not-applicable
+[batch] ✅ 2607.09616 (29.6s) is_opd=no §not-applicable
+
+=== batch done ===
+  total: 30  ok: 30  fail: 0  duration: 447.3s
+  is_opd: yes=1 no=29 analysis=0
+  notes: +30 new, ~0 updated, -0 skipped
+  summary: /tmp/opd_pipeline_deep_read_summary.json
+  deep-read exit code: 0
+  deep-read: total=30 ok=30 opd_yes=1 opd_no=29
+  deep-read IDs: 2607.08783,2607.08793,2607.08837,2607.08925,2607.08776,2607.08960,2607.08970,2607.08984,2607.09039,2607.08996,2607.09042,2607.09068,2607.09076,2607.09113,2607.09092,2607.09114,2607.09153,2607.09133,2607.09202,2607.09230,2607.09218,2607.09232,2607.09298,2607.09336,2607.09428,2607.09375,2607.09456,2607.09520,2607.09560,2607.09616
+
+▶ Phase 3: triage
+[triage] 30 candidates 
+
+  🗑️ 2607.08783     [exclude] rm 2607.08783.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.08793     [exclude] rm 2607.08793.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.08837     [exclude] rm 2607.08837.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.08925     [exclude] rm 2607.08925.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.08776     [exclude] rm 2607.08776.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.08960     [exclude] rm 2607.08960.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.08970     [exclude] rm 2607.08970.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.08984     [exclude] rm 2607.08984.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.09039     [exclude] rm 2607.09039.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.08996     [exclude] rm 2607.08996.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.09042     [exclude] rm 2607.09042.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.09068     [exclude] rm 2607.09068.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.09076     [exclude] rm 2607.09076.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.09113     [exclude] rm 2607.09113.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.09092     [exclude] rm 2607.09092.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.09114     [exclude] rm 2607.09114.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.09153     [exclude] rm 2607.09153.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.09133     [exclude] rm 2607.09133.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.09202     [exclude] rm 2607.09202.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.09230     [exclude] rm 2607.09230.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.09218     [exclude] rm 2607.09218.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.09232     [exclude] rm 2607.09232.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.09298     [exclude] rm 2607.09298.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.09336     [exclude] rm 2607.09336.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.09428     [exclude] rm 2607.09428.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  ✅ 2607.09375     [keep   ] is_opd=yes; section=§5.1.1; title=Mach-Mind-4-Flash Technical Report
+  🗑️ 2607.09456     [exclude] rm 2607.09456.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.09520     [exclude] rm 2607.09520.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.09560     [exclude] rm 2607.09560.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.09616     [exclude] rm 2607.09616.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+
+[triage] summary: 1 kept, 29 excluded, 0 skipped
+  triage exit code: 0
+
+▶ Phase 3.5: 3-condition filter
+  Papers for 3-cond filter: 2607.09375
+  3-cond filter exit code: 0
+  Final KEEP (pre-2nd-opinion): 2607.09375
+
+▶ Phase 3.7: second-opinion verification (Gemini cross-check)
+[2nd-opinion] 2607.09375 ← 2607.09375.pdf (model=gemini)
+[2nd-opinion] 2607.09375: CONFIRM — The paper introduces Multi-Teacher On-Policy Distillation (MOPD), a novel method where a student mod
+
+[2nd-opinion] summary: 1 CONFIRM, 0 REJECT, 0 UNCERTAIN
+  2nd-opinion exit code: 0
+  Final KEEP (verified): 2607.09375
+
+▶ Phase 4: awesome list inserter
+Prepared 1 papers for insertion:
+  2607.09375 → §5.1 | Mach-Mind-4-Flash Technical Report
+[master 019ce17] Add 2607.09375 to §5.1 (Mach-Mind-4-Flash Technical Report)
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+[inserter] wrote /apdcephfs_cq8/share_1324356/nickmysong/daily_research/on-policy-distillation-survey/Awesome-LLM-On-Policy-Distillation/README.md
+  ✓ 2607.09375 → §5.1 (228→229)
+[git] committed: Add 2607.09375 to §5.1 (Mach-Mind-4-Flash Technical Report)
+  inserter exit code: 0
+
+▶ Phase 4.5: staging cleanup (mv kept PDFs to month bucket)
+  Moved 1 kept PDFs from staging to month buckets
+  Deleted 0 non-OPD PDFs from staging
+  Remaining in staging: 0
+
+▶ Phase 5: refresh known_arxiv_ids.txt
+✅ Refreshed known_arxiv_ids.txt: 375 IDs
+  known_arxiv_ids: 29 new IDs added, total 404
+
+▶ Phase 6: (skipped — heatmap/stats manual for now)
+
+▶ Phase 7: git commit + push
+fatal: Unable to create '/apdcephfs_cq8/share_1324356/nickmysong/daily_research/on-policy-distillation-survey/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+fatal: Unable to create '/apdcephfs_cq8/share_1324356/nickmysong/daily_research/on-policy-distillation-survey/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+  survey repo: committed
+  awesome repo: no changes
+  survey repo: pushed
+  awesome repo: pushed
+
+================================================================
+  Pipeline complete  |  2026-07-14 10:38
+================================================================

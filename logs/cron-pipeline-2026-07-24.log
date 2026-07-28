@@ -1,0 +1,189 @@
+
+================================================================
+  OPD Pipeline Phase 2-7  |  2026-07-24 10:30
+================================================================
+
+▶ Phase 2: batch deep-read (--from-staging --days-back 2)
+  _staging/ has 50 PDFs total
+[batch] from-staging: found 50 pending IDs in _staging/
+[batch] 50 papers to process: ['2607.18257', '2607.18264', '2607.18291', '2607.18292', '2607.18311', '2607.18325', '2607.18344', '2607.18345', '2607.18367', '2607.18859', '2607.19327', '2607.19338', '2607.19363', '2607.19371', '2607.19387', '2607.19393', '2607.19395', '2607.19398', '2607.19399', '2607.19406', '2607.19415', '2607.19424', '2607.19426', '2607.19450', '2607.19523', '2607.19563', '2607.19592', '2607.19674', '2607.19686', '2607.19691', '2607.19712', '2607.19719', '2607.19749', '2607.19782', '2607.19824', '2607.19830', '2607.19855', '2607.19865', '2607.19902', '2607.19919', '2607.19956', '2607.20046', '2607.20057', '2607.20062', '2607.20083', '2607.20162', '2607.20171', '2607.20173', '2607.20235', '2607.20372']
+[batch] 2607.18257 ← 2607.18257.pdf (model=claude)
+[batch] 2607.18264 ← 2607.18264.pdf (model=claude)
+[batch] 2607.18291 ← 2607.18291.pdf (model=claude)
+[batch] ✅ 2607.18257 (29.3s) is_opd=no §not-applicable
+[batch] 2607.18292 ← 2607.18292.pdf (model=claude)
+[batch] ✅ 2607.18264 (57.9s) is_opd=no §not-applicable
+[batch] 2607.18311 ← 2607.18311.pdf (model=claude)
+[batch] ✅ 2607.18292 (57.9s) is_opd=no §not-applicable
+[batch] 2607.18325 ← 2607.18325.pdf (model=claude)
+[batch] ✅ 2607.18311 (42.1s) is_opd=no §not-applicable
+[batch] 2607.18344 ← 2607.18344.pdf (model=claude)
+[batch] ✅ 2607.18325 (34.1s) is_opd=no §not-applicable
+[batch] 2607.18345 ← 2607.18345.pdf (model=claude)
+[batch] ✅ 2607.18344 (35.9s) is_opd=no §not-applicable
+[batch] 2607.18367 ← 2607.18367.pdf (model=claude)
+[batch] ✅ 2607.18345 (34.0s) is_opd=no §not-applicable
+[batch] 2607.18859 ← 2607.18859.pdf (model=claude)
+[batch] ✅ 2607.18367 (49.5s) is_opd=no §not-applicable
+[batch] 2607.19327 ← 2607.19327.pdf (model=claude)
+[batch] ✅ 2607.18859 (34.1s) is_opd=no §not-applicable
+[batch] 2607.19338 ← 2607.19338.pdf (model=claude)
+[batch] ✅ 2607.18291 (212.3s) is_opd=no §not-applicable
+[batch] 2607.19363 ← 2607.19363.pdf (model=claude)
+[batch] ✅ 2607.19327 (41.0s) is_opd=no §not-applicable
+[batch] 2607.19371 ← 2607.19371.pdf (model=claude)
+[batch] ✅ 2607.19338 (42.1s) is_opd=no §not-applicable
+[batch] 2607.19387 ← 2607.19387.pdf (model=claude)
+[batch] ✅ 2607.19363 (44.3s) is_opd=no §not-applicable
+[batch] 2607.19393 ← 2607.19393.pdf (model=claude)
+[batch] ✅ 2607.19371 (52.9s) is_opd=no §not-applicable
+[batch] 2607.19395 ← 2607.19395.pdf (model=claude)
+[batch] ✅ 2607.19387 (51.2s) is_opd=no §not-applicable
+[batch] 2607.19398 ← 2607.19398.pdf (model=claude)
+[batch] ✅ 2607.19393 (42.0s) is_opd=no §not-applicable
+[batch] 2607.19399 ← 2607.19399.pdf (model=claude)
+[batch] ✅ 2607.19395 (47.7s) is_opd=no §not-applicable
+[batch] 2607.19406 ← 2607.19406.pdf (model=claude)
+[batch] ❌ 2607.19398: worker exit 3
+[batch] 2607.19415 ← 2607.19415.pdf (model=claude)
+[batch] ✅ 2607.19399 (42.8s) is_opd=no §not-applicable
+[batch] 2607.19424 ← 2607.19424.pdf (model=claude)
+[batch] ✅ 2607.19406 (37.3s) is_opd=no §not-applicable
+[batch] 2607.19426 ← 2607.19426.pdf (model=claude)
+[batch] ✅ 2607.19415 (39.5s) is_opd=no §not-applicable
+[batch] 2607.19450 ← 2607.19450.pdf (model=claude)
+[batch] ✅ 2607.19424 (46.6s) is_opd=no §not-applicable
+[batch] 2607.19523 ← 2607.19523.pdf (model=claude)
+[batch] ✅ 2607.19426 (39.1s) is_opd=no §not-applicable
+[batch] 2607.19563 ← 2607.19563.pdf (model=claude)
+[batch] ✅ 2607.19450 (49.4s) is_opd=no §not-applicable
+[batch] 2607.19592 ← 2607.19592.pdf (model=claude)
+[batch] ✅ 2607.19563 (32.8s) is_opd=no §not-applicable
+[batch] 2607.19674 ← 2607.19674.pdf (model=claude)
+[batch] ✅ 2607.19523 (66.7s) is_opd=no §not-applicable
+[batch] 2607.19686 ← 2607.19686.pdf (model=claude)
+[batch] ✅ 2607.19592 (51.4s) is_opd=no §not-applicable
+[batch] 2607.19691 ← 2607.19691.pdf (model=claude)
+[batch] ✅ 2607.19674 (46.9s) is_opd=no §not-applicable
+[batch] 2607.19712 ← 2607.19712.pdf (model=claude)
+[batch] ✅ 2607.19686 (54.9s) is_opd=no §not-applicable
+[batch] 2607.19719 ← 2607.19719.pdf (model=claude)
+[batch] ✅ 2607.19691 (52.3s) is_opd=no §not-applicable
+[batch] 2607.19749 ← 2607.19749.pdf (model=claude)
+[batch] ✅ 2607.19712 (38.9s) is_opd=no §not-applicable
+[batch] 2607.19782 ← 2607.19782.pdf (model=claude)
+[batch] ✅ 2607.19782 (39.6s) is_opd=no §not-applicable
+[batch] 2607.19824 ← 2607.19824.pdf (model=claude)
+[batch] ✅ 2607.19719 (52.3s) is_opd=no §not-applicable
+[batch] 2607.19830 ← 2607.19830.pdf (model=claude)
+[batch] ✅ 2607.19749 (44.5s) is_opd=no §not-applicable
+[batch] 2607.19855 ← 2607.19855.pdf (model=claude)
+[batch] ✅ 2607.19830 (36.3s) is_opd=no §not-applicable
+[batch] 2607.19865 ← 2607.19865.pdf (model=claude)
+[batch] ✅ 2607.19824 (45.2s) is_opd=no §not-applicable
+[batch] 2607.19902 ← 2607.19902.pdf (model=claude)
+[batch] ✅ 2607.19855 (41.4s) is_opd=no §not-applicable
+[batch] 2607.19919 ← 2607.19919.pdf (model=claude)
+[batch] ✅ 2607.19865 (40.0s) is_opd=no §not-applicable
+[batch] 2607.19956 ← 2607.19956.pdf (model=claude)
+[batch] ✅ 2607.19902 (43.8s) is_opd=no §not-applicable
+[batch] 2607.20046 ← 2607.20046.pdf (model=claude)
+[batch] ✅ 2607.19919 (65.5s) is_opd=no §not-applicable
+[batch] 2607.20057 ← 2607.20057.pdf (model=claude)
+[batch] ✅ 2607.19956 (54.2s) is_opd=no §§6.1
+[batch] 2607.20062 ← 2607.20062.pdf (model=claude)
+[batch] ✅ 2607.20046 (54.4s) is_opd=no §not-applicable
+[batch] 2607.20083 ← 2607.20083.pdf (model=claude)
+[batch] ✅ 2607.20057 (44.9s) is_opd=no §not-applicable
+[batch] 2607.20162 ← 2607.20162.pdf (model=claude)
+[batch] ✅ 2607.20162 (31.1s) is_opd=no §not-applicable
+[batch] 2607.20171 ← 2607.20171.pdf (model=claude)
+[batch] ✅ 2607.20062 (57.8s) is_opd=yes §§5.1.1
+[batch] 2607.20173 ← 2607.20173.pdf (model=claude)
+[batch] ✅ 2607.20083 (54.5s) is_opd=no §§5.3.3
+[batch] 2607.20235 ← 2607.20235.pdf (model=claude)
+[batch] ✅ 2607.20173 (31.0s) is_opd=no §not-applicable
+[batch] 2607.20372 ← 2607.20372.pdf (model=claude)
+[batch] ✅ 2607.20171 (41.9s) is_opd=no §not-applicable
+[batch] ✅ 2607.20235 (39.9s) is_opd=no §not-applicable
+[batch] ✅ 2607.20372 (50.7s) is_opd=no §not-applicable
+
+=== batch done ===
+  total: 50  ok: 49  fail: 1  duration: 832.3s
+  is_opd: yes=1 no=48 analysis=0
+  notes: +49 new, ~0 updated, -1 skipped
+  summary: /tmp/opd_pipeline_deep_read_summary.json
+  deep-read exit code: 0
+  deep-read: total=50 ok=49 opd_yes=1 opd_no=48
+  deep-read IDs: 2607.18257,2607.18264,2607.18292,2607.18311,2607.18325,2607.18344,2607.18345,2607.18367,2607.18859,2607.18291,2607.19327,2607.19338,2607.19363,2607.19371,2607.19387,2607.19393,2607.19395,2607.19399,2607.19406,2607.19415,2607.19424,2607.19426,2607.19450,2607.19563,2607.19523,2607.19592,2607.19674,2607.19686,2607.19691,2607.19712,2607.19782,2607.19719,2607.19749,2607.19830,2607.19824,2607.19855,2607.19865,2607.19902,2607.19919,2607.19956,2607.20046,2607.20057,2607.20162,2607.20062,2607.20083,2607.20173,2607.20171,2607.20235,2607.20372
+
+▶ Phase 3: triage
+[triage] 49 candidates 
+
+  🗑️ 2607.18257     [exclude] rm 2607.18257.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.18264     [exclude] rm 2607.18264.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.18292     [exclude] rm 2607.18292.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.18311     [exclude] rm 2607.18311.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.18325     [exclude] rm 2607.18325.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.18344     [exclude] rm 2607.18344.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.18345     [exclude] rm 2607.18345.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.18367     [exclude] rm 2607.18367.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.18859     [exclude] rm 2607.18859.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.18291     [exclude] rm 2607.18291.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.19327     [exclude] rm 2607.19327.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.19338     [exclude] rm 2607.19338.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.19363     [exclude] rm 2607.19363.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.19371     [exclude] rm 2607.19371.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.19387     [exclude] rm 2607.19387.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.19393     [exclude] rm 2607.19393.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.19395     [exclude] rm 2607.19395.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.19399     [exclude] rm 2607.19399.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.19406     [exclude] rm 2607.19406.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.19415     [exclude] rm 2607.19415.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.19424     [exclude] rm 2607.19424.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.19426     [exclude] rm 2607.19426.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.19450     [exclude] rm 2607.19450.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.19563     [exclude] rm 2607.19563.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.19523     [exclude] rm 2607.19523.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.19592     [exclude] rm 2607.19592.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.19674     [exclude] rm 2607.19674.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.19686     [exclude] rm 2607.19686.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.19691     [exclude] rm 2607.19691.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.19712     [exclude] rm 2607.19712.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.19782     [exclude] rm 2607.19782.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.19719     [exclude] rm 2607.19719.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.19749     [exclude] rm 2607.19749.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.19830     [exclude] rm 2607.19830.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.19824     [exclude] rm 2607.19824.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.19855     [exclude] rm 2607.19855.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.19865     [exclude] rm 2607.19865.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.19902     [exclude] rm 2607.19902.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.19919     [exclude] rm 2607.19919.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.19956     [exclude] rm 2607.19956.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.20046     [exclude] rm 2607.20046.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.20057     [exclude] rm 2607.20057.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.20162     [exclude] rm 2607.20162.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  ✅ 2607.20062     [keep   ] is_opd=yes; section=§5.1.1; title=Solar Open 2 Technical Report
+  🗑️ 2607.20083     [exclude] rm 2607.20083.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.20173     [exclude] rm 2607.20173.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.20171     [exclude] rm 2607.20171.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.20235     [exclude] rm 2607.20235.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.20372     [exclude] rm 2607.20372.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+
+[triage] summary: 1 kept, 48 excluded, 0 skipped
+  triage exit code: 0
+
+▶ Phase 3.5: 3-condition filter
+  Papers for 3-cond filter: 2607.20062
+  3-cond filter exit code: 0
+  Final KEEP (pre-2nd-opinion): 2607.20062
+
+▶ Phase 3.7: second-opinion verification (Gemini cross-check)
+[2nd-opinion] 2607.20062 ← 2607.20062.pdf (model=gemini)
+[2nd-opinion] 2607.20062: UNCERTAIN — The excerpt introduces 'Multi-teacher On-Policy Distillation' (MOPD) using 12 specialist teachers, b
+
+[2nd-opinion] summary: 0 CONFIRM, 0 REJECT, 1 UNCERTAIN
+  2nd-opinion exit code: 0
+  ⚠️  2607.20062: UNCERTAIN — The excerpt introduces 'Multi-teacher On-Policy Distillation' (MOPD) using 12 specialist teachers, b
+  No papers confirmed by 2nd-opinion — skipping Phase 4-7.
+  Pipeline complete.

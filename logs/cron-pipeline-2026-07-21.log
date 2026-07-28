@@ -1,0 +1,204 @@
+
+================================================================
+  OPD Pipeline Phase 2-7  |  2026-07-21 10:30
+================================================================
+
+▶ Phase 2: batch deep-read (--from-staging --days-back 2)
+  _staging/ has 38 PDFs total
+[batch] from-staging: found 38 pending IDs in _staging/
+[batch] 38 papers to process: ['2607.15286', '2607.15298', '2607.15313', '2607.15414', '2607.15450', '2607.15456', '2607.15459', '2607.15467', '2607.15528', '2607.15587', '2607.15592', '2607.15610', '2607.15655', '2607.15711', '2607.15713', '2607.15736', '2607.15740', '2607.15745', '2607.15775', '2607.15778', '2607.15810', '2607.15829', '2607.15845', '2607.15880', '2607.15898', '2607.15919', '2607.15957', '2607.15970', '2607.15992', '2607.15995', '2607.16001', '2607.16010', '2607.16031', '2607.16053', '2607.16074', '2607.16076', '2607.16112', '2607.16178']
+[batch] 2607.15286 ← 2607.15286.pdf (model=claude)
+[batch] 2607.15298 ← 2607.15298.pdf (model=claude)
+[batch] 2607.15313 ← 2607.15313.pdf (model=claude)
+[batch] ✅ 2607.15313 (35.1s) is_opd=no §not-applicable
+[batch] 2607.15414 ← 2607.15414.pdf (model=claude)
+[batch] ✅ 2607.15286 (42.6s) is_opd=no §not-applicable
+[batch] 2607.15450 ← 2607.15450.pdf (model=claude)
+[batch] ✅ 2607.15298 (43.3s) is_opd=no §not-applicable
+[batch] 2607.15456 ← 2607.15456.pdf (model=claude)
+[batch] ✅ 2607.15414 (39.8s) is_opd=no §not-applicable
+[batch] 2607.15459 ← 2607.15459.pdf (model=claude)
+[batch] ✅ 2607.15450 (46.3s) is_opd=no §not-applicable
+[batch] 2607.15467 ← 2607.15467.pdf (model=claude)
+[batch] ✅ 2607.15456 (51.3s) is_opd=yes §§6.3
+[batch] 2607.15528 ← 2607.15528.pdf (model=claude)
+[batch] ✅ 2607.15459 (53.8s) is_opd=no §not-applicable
+[batch] 2607.15587 ← 2607.15587.pdf (model=claude)
+[batch] ✅ 2607.15528 (34.5s) is_opd=no §not-applicable
+[batch] 2607.15592 ← 2607.15592.pdf (model=claude)
+[batch] ✅ 2607.15467 (56.4s) is_opd=no §not-applicable
+[batch] 2607.15610 ← 2607.15610.pdf (model=claude)
+[batch] ✅ 2607.15592 (36.1s) is_opd=no §not-applicable
+[batch] 2607.15655 ← 2607.15655.pdf (model=claude)
+[batch] ✅ 2607.15587 (49.1s) is_opd=no §not-applicable
+[batch] 2607.15711 ← 2607.15711.pdf (model=claude)
+[batch] ✅ 2607.15610 (45.1s) is_opd=no §not-applicable
+[batch] 2607.15713 ← 2607.15713.pdf (model=claude)
+[batch] ✅ 2607.15655 (34.1s) is_opd=no §not-applicable
+[batch] 2607.15736 ← 2607.15736.pdf (model=claude)
+[batch] ✅ 2607.15711 (36.7s) is_opd=no §not-applicable
+[batch] 2607.15740 ← 2607.15740.pdf (model=claude)
+[batch] ✅ 2607.15713 (35.0s) is_opd=no §not-applicable
+[batch] 2607.15745 ← 2607.15745.pdf (model=claude)
+[batch] ✅ 2607.15736 (49.9s) is_opd=yes §§5.3.2
+[batch] 2607.15775 ← 2607.15775.pdf (model=claude)
+[batch] ✅ 2607.15740 (35.9s) is_opd=no §not-applicable
+[batch] 2607.15778 ← 2607.15778.pdf (model=claude)
+[batch] ✅ 2607.15745 (34.6s) is_opd=no §not-applicable
+[batch] 2607.15810 ← 2607.15810.pdf (model=claude)
+[batch] ✅ 2607.15775 (28.5s) is_opd=no §not-applicable
+[batch] 2607.15829 ← 2607.15829.pdf (model=claude)
+[batch] ✅ 2607.15778 (37.7s) is_opd=no §not-applicable
+[batch] 2607.15845 ← 2607.15845.pdf (model=claude)
+[batch] ✅ 2607.15810 (50.0s) is_opd=no §not-applicable
+[batch] 2607.15880 ← 2607.15880.pdf (model=claude)
+[batch] ✅ 2607.15829 (35.1s) is_opd=no §not-applicable
+[batch] 2607.15898 ← 2607.15898.pdf (model=claude)
+[batch] ✅ 2607.15845 (45.7s) is_opd=no §not-applicable
+[batch] 2607.15919 ← 2607.15919.pdf (model=claude)
+[batch] ✅ 2607.15880 (41.3s) is_opd=no §not-applicable
+[batch] 2607.15957 ← 2607.15957.pdf (model=claude)
+[batch] ✅ 2607.15898 (47.3s) is_opd=no §not-applicable
+[batch] 2607.15970 ← 2607.15970.pdf (model=claude)
+[batch] ✅ 2607.15919 (37.2s) is_opd=no §not-applicable
+[batch] 2607.15992 ← 2607.15992.pdf (model=claude)
+[batch] ✅ 2607.15957 (24.3s) is_opd=no §not-applicable
+[batch] 2607.15995 ← 2607.15995.pdf (model=claude)
+[batch] ✅ 2607.15970 (35.7s) is_opd=no §not-applicable
+[batch] 2607.16001 ← 2607.16001.pdf (model=claude)
+[batch] ✅ 2607.15992 (27.2s) is_opd=no §not-applicable
+[batch] 2607.16010 ← 2607.16010.pdf (model=claude)
+[batch] ✅ 2607.15995 (36.0s) is_opd=no §not-applicable
+[batch] 2607.16031 ← 2607.16031.pdf (model=claude)
+[batch] ✅ 2607.16010 (31.9s) is_opd=no §not-applicable
+[batch] 2607.16053 ← 2607.16053.pdf (model=claude)
+[batch] ✅ 2607.16001 (36.9s) is_opd=no §not-applicable
+[batch] 2607.16074 ← 2607.16074.pdf (model=claude)
+[batch] ✅ 2607.16031 (35.4s) is_opd=no §not-applicable
+[batch] 2607.16076 ← 2607.16076.pdf (model=claude)
+[batch] ✅ 2607.16053 (36.2s) is_opd=no §not-applicable
+[batch] 2607.16112 ← 2607.16112.pdf (model=claude)
+[batch] ✅ 2607.16074 (45.4s) is_opd=no §not-applicable
+[batch] 2607.16178 ← 2607.16178.pdf (model=claude)
+[batch] ✅ 2607.16076 (34.8s) is_opd=no §not-applicable
+[batch] ✅ 2607.16112 (36.0s) is_opd=no §not-applicable
+[batch] ✅ 2607.16178 (74.0s) is_opd=no §not-applicable
+
+=== batch done ===
+  total: 38  ok: 38  fail: 0  duration: 552.1s
+  is_opd: yes=2 no=36 analysis=0
+  notes: +38 new, ~0 updated, -0 skipped
+  summary: /tmp/opd_pipeline_deep_read_summary.json
+  deep-read exit code: 0
+  deep-read: total=38 ok=38 opd_yes=2 opd_no=36
+  deep-read IDs: 2607.15313,2607.15286,2607.15298,2607.15414,2607.15450,2607.15456,2607.15459,2607.15528,2607.15467,2607.15592,2607.15587,2607.15610,2607.15655,2607.15711,2607.15713,2607.15736,2607.15740,2607.15745,2607.15775,2607.15778,2607.15810,2607.15829,2607.15845,2607.15880,2607.15898,2607.15919,2607.15957,2607.15970,2607.15992,2607.15995,2607.16010,2607.16001,2607.16031,2607.16053,2607.16074,2607.16076,2607.16112,2607.16178
+
+▶ Phase 3: triage
+[triage] 38 candidates 
+
+  🗑️ 2607.15313     [exclude] rm 2607.15313.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.15286     [exclude] rm 2607.15286.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.15298     [exclude] rm 2607.15298.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.15414     [exclude] rm 2607.15414.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.15450     [exclude] rm 2607.15450.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  ✅ 2607.15456     [keep   ] is_opd=yes; section=§6.3; title=Looped Latent Attention: Cross-Loop KV Compression for Loope
+  🗑️ 2607.15459     [exclude] rm 2607.15459.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.15528     [exclude] rm 2607.15528.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.15467     [exclude] rm 2607.15467.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.15592     [exclude] rm 2607.15592.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.15587     [exclude] rm 2607.15587.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.15610     [exclude] rm 2607.15610.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.15655     [exclude] rm 2607.15655.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.15711     [exclude] rm 2607.15711.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.15713     [exclude] rm 2607.15713.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  ✅ 2607.15736     [keep   ] is_opd=yes; section=§5.3.2; title=Better Starts, Better Ends: Bootstrapped Iterative Self-Reas
+  🗑️ 2607.15740     [exclude] rm 2607.15740.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.15745     [exclude] rm 2607.15745.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.15775     [exclude] rm 2607.15775.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.15778     [exclude] rm 2607.15778.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.15810     [exclude] rm 2607.15810.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.15829     [exclude] rm 2607.15829.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.15845     [exclude] rm 2607.15845.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.15880     [exclude] rm 2607.15880.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.15898     [exclude] rm 2607.15898.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.15919     [exclude] rm 2607.15919.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.15957     [exclude] rm 2607.15957.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.15970     [exclude] rm 2607.15970.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.15992     [exclude] rm 2607.15992.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.15995     [exclude] rm 2607.15995.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.16010     [exclude] rm 2607.16010.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.16001     [exclude] rm 2607.16001.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.16031     [exclude] rm 2607.16031.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.16053     [exclude] rm 2607.16053.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.16074     [exclude] rm 2607.16074.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.16076     [exclude] rm 2607.16076.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.16112     [exclude] rm 2607.16112.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+  🗑️ 2607.16178     [exclude] rm 2607.16178.pdf; removed from paper_notes.json; logged to excluded-papers.md + known_arxiv_ids.txt
+
+[triage] summary: 2 kept, 36 excluded, 0 skipped
+  triage exit code: 0
+
+▶ Phase 3.5: 3-condition filter
+  Papers for 3-cond filter: 2607.15456,2607.15736
+  3-cond filter exit code: 0
+  Final KEEP (pre-2nd-opinion): 2607.15456,2607.15736
+
+▶ Phase 3.7: second-opinion verification (Gemini cross-check)
+[2nd-opinion] 2607.15456 ← 2607.15456.pdf (model=gemini)
+[2nd-opinion] 2607.15456: CONFIRM — The paper introduces a novel KV cache compression method (LLA) that utilizes an on-policy distillati
+[2nd-opinion] 2607.15736 ← 2607.15736.pdf (model=gemini)
+[2nd-opinion] 2607.15736: UNCERTAIN — JSON parse error: {
+  "C1_student_rollouts": "yes",
+  "C1_evidence": "The student samples a rollout 
+
+[2nd-opinion] summary: 1 CONFIRM, 0 REJECT, 1 UNCERTAIN
+  2nd-opinion exit code: 0
+  ⚠️  2607.15736: UNCERTAIN — JSON parse error: {
+  "C1_student_rollouts": "yes",
+  "C1_evidence": "The student samples a rollout 
+  Final KEEP (verified): 2607.15456
+
+▶ Phase 4: awesome list inserter
+Prepared 1 papers for insertion:
+  2607.15456 → §6.3 | Looped Latent Attention: Cross-Loop KV Compression for Loope
+[master a1b8eae] Add 2607.15456 to §6.3 (Looped Latent Attention: Cross-Loop KV Compression for Loope)
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+[inserter] wrote /apdcephfs_cq8/share_1324356/nickmysong/daily_research/on-policy-distillation-survey/Awesome-LLM-On-Policy-Distillation/README.md
+  ✓ 2607.15456 → §6.3 (230→231)
+[git] committed: Add 2607.15456 to §6.3 (Looped Latent Attention: Cross-Loop KV Compression for Loope)
+  inserter exit code: 0
+
+▶ Phase 4.5: staging cleanup (mv kept PDFs to month bucket)
+  Moved 2 kept PDFs from staging to month buckets
+  Deleted 0 non-OPD PDFs from staging
+  Remaining in staging: 0
+
+▶ Phase 5: refresh known_arxiv_ids.txt
+✅ Refreshed known_arxiv_ids.txt: 384 IDs
+  known_arxiv_ids: 36 new IDs added, total 420
+
+▶ Phase 6: (skipped — heatmap/stats manual for now)
+
+▶ Phase 7: git commit + push
+fatal: Unable to create '/apdcephfs_cq8/share_1324356/nickmysong/daily_research/on-policy-distillation-survey/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+fatal: Unable to create '/apdcephfs_cq8/share_1324356/nickmysong/daily_research/on-policy-distillation-survey/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+  survey repo: committed
+  awesome repo: no changes
+  survey repo: pushed
+  awesome repo: pushed
+
+================================================================
+  Pipeline complete  |  2026-07-21 10:40
+================================================================
