@@ -32,7 +32,7 @@ ARXIV_ID_PATTERN = re.compile(r'\b(\d{4}\.\d{4,5})\b')
 
 
 def refresh_known_ids() -> int:
-    """Regenerate known_arxiv_ids.txt from all 4 sources."""
+    """Regenerate known_arxiv_ids.txt from all 5 sources."""
     all_ids = set()
 
     # 1. references.bib
@@ -57,7 +57,13 @@ def refresh_known_ids() -> int:
             if ARXIV_ID_PATTERN.match(key):
                 all_ids.add(key)
 
-    # 4. Awesome List README
+    # 4. excluded-papers.md (rejected papers must stay in known to prevent re-scouting)
+    excluded = SURVEY_DIR / "papers-meta" / "excluded-papers.md"
+    if excluded.exists():
+        text = excluded.read_text(errors='ignore')
+        all_ids.update(ARXIV_ID_PATTERN.findall(text))
+
+    # 5. Awesome List README
     readme = SURVEY_DIR / "Awesome-LLM-On-Policy-Distillation" / "README.md"
     if readme.exists():
         text = readme.read_text(errors='ignore')

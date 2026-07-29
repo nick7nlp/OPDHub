@@ -44,7 +44,7 @@ if ! python3 scripts/scout_precheck.py --both >> "${LOG}" 2>&1; then
 fi
 
 # Phase 1 SCOUT
-python3 scripts/scout_arxiv.py --download --max 50 --output "${SCOUT_OUT}" >> "${LOG}" 2>&1
+python3 scripts/scout_arxiv.py --download --max 120 --output "${SCOUT_OUT}" >> "${LOG}" 2>&1
 SCOUT_RC=$?
 
 if [ ${SCOUT_RC} -ne 0 ]; then

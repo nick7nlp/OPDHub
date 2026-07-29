@@ -1,2 +1,5 @@
 
 ======== tclaude-cron pipeline | 2026-07-29 10:27 ========
+[wrapper] pipeline script exit 0
+Pipeline 的 Phase 2-7 在 2026-07-29 完成：**deep-read 50 篇，最终 keep 2 篇（2607.22629、2607.24720），git push 成功**（survey repo pushed + awesome repo pushed）。
+[wrapper] tclaude summary exit 0 @ 10:44:06

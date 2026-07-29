@@ -186,22 +186,28 @@ python3 "${SCRIPTS}/opd_second_opinion.py" \
 OPINION_RC=$?
 echo "  2nd-opinion exit code: ${OPINION_RC}"
 
-# Parse: only CONFIRM verdicts proceed to Phase 4
+# Parse verdicts: CONFIRM and UNCERTAIN pass through; only explicit REJECT blocks.
+# Rationale: deep-read + 3-cond filter already validated these papers. UNCERTAIN
+# typically means API timeout or JSON parse error — not a genuine quality signal.
+# In July 2026, 15/15 UNCERTAIN papers were confirmed real OPD, so blocking them
+# was pure false-negative waste.
 VERIFIED_IDS=$(python3 -c "
 import json
 results = json.load(open('/tmp/opd_2nd_opinion_result.json'))
-confirmed = [r['aid'] for r in results if r.get('verdict') == 'CONFIRM']
-print(','.join(confirmed))
+passed = [r['aid'] for r in results if r.get('verdict') != 'REJECT']
+print(','.join(passed))
 " 2>/dev/null || echo "")
 
-# Log rejected/uncertain papers
+# Log rejected papers (only explicit REJECT is meaningful now)
 python3 -c "
 import json
 results = json.load(open('/tmp/opd_2nd_opinion_result.json'))
 for r in results:
     v = r.get('verdict', '?')
-    if v != 'CONFIRM':
-        print(f\"  ⚠️  {r['aid']}: {v} — {r.get('reasoning', '')[:100]}\")
+    if v == 'REJECT':
+        print(f\"  🚫 {r['aid']}: REJECT — {r.get('reasoning', '')[:100]}\")
+    elif v not in ('CONFIRM',):
+        print(f\"  ⚠️  {r['aid']}: {v} (passed through) — {r.get('reasoning', '')[:100]}\")
 " 2>/dev/null
 
 # Fallback: if 2nd-opinion script fails entirely, pass through (don't block pipeline)
