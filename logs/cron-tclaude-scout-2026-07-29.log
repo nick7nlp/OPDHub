@@ -1,0 +1,5 @@
+
+======== tclaude-cron scout | 2026-07-29 09:27 ========
+[wrapper] scout script exit 0
+根据日志末尾和 _pipeline_queue.md 最新追加区块，2026-07-29 (Tue) scout 成功下载 **50 个新候选论文**到 pdfs/_staging/，待后续 Phase 2-7 处理。
+[wrapper] tclaude summary exit 0 @ 09:30:03

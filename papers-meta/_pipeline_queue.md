@@ -1601,3 +1601,59 @@
 - `2607.22434`  Robot Learning to Communicate through Projected Visual Abstractions
 - `2607.22463`  Beyond Perspectives: A Trio-Ethnography of Interpretation Evolution in LLM-Supported Programming Education
 
+
+## 2026-07-29 (Wed) 09:27 — scout completed
+
+**50 candidates** downloaded to `pdfs/_staging/`. Follow-up Phase 2-7 **pending**.
+
+- `2607.22552`  MioFFAn: an Annotation Software for Formula Formalization with LLM Automation Capabilities
+- `2607.22996`  Beyond Direct Answering: Aligning Educational LLMs as Socratic Guides via Heuristic Reinforcement Learning
+- `2607.23083`  LoRA for Gender-Inclusive Rewriting and Activation Steering for Counter-Narrative Generation
+- `2607.23481`  Mwando: Leveraging AI to Preserve and Teach shiKomori
+- `2607.23538`  Guiding Language Models to Be More Empathetic: Culturally Sensitive Mental Health Advice Generation Through Hu
+- `2607.23648`  EmoTrace: An Emotion Trajectory-Centered Framework for Psychological Support Dialogue Generation
+- `2607.23740`  Zing: Social Mind for LLMs
+- `2607.24040`  Pointer-Augmented Autoregressive Generation of Patent Claims with Joint Topology and Content Decoding
+- `2607.24191`  StanceFlip: A Comprehensive Multi-Dimensional Benchmark for Multimodal Conversational Stance Flipping Forecast
+- `2607.24268`  Accuracy Hides How Language Models Fail: Measuring Failure States Under Matched Output Budgets
+- `2607.24312`  CONSISTRE: A Unified Consistency-Aware Framework for Document-Level Relation Extraction with Large Language Mo
+- `2607.24371`  Closed-Loop Validation-Repair for Healthcare Interoperability: A Multi-Model Study of Schema Compliance in Cli
+- `2607.24435`  LEX-EC: A Lexical Evidence-Channel Audit Framework for Zero-Shot LLM Personality Classification in Black-Box S
+- `2607.24542`  From transcription to semantic corpus analysis: unsupervised learning of sentence representations for ancient 
+- `2607.24604`  Looping Is Not Reliability: State-Bound Evidence and Typed Revision Contracts for Agentic Code Repair
+- `2607.24653`  Kimi K3: Open Frontier Intelligence
+- `2607.24720`  The Physics of Multi-Turn Long-Horizon Planning: From Pre-training to Post-training via Single- and Multi-Teac
+- `2607.22592`  Structure Over Scale: Schema-Constrained Causal Graphs for RAG
+- `2607.22629`  Masked Distillation: Internalizing the Chain-of-Thought in Language Models
+- `2607.22642`  CRAFT: Learn the Schema, Execute the Plan
+- `2607.22688`  Co-Harness: Co-Evolving Harnesses and Model Weights for LLM Agents
+- `2607.22709`  RMS@CC-MMD 2026: Multimodal Misogyny Detection via Geometric Interaction and Multi-View Consensus
+- `2607.22720`  CausalGate: Causal Importance Distillation for Transformer Module Pruning
+- `2607.22837`  Frustratingly Simple Black-Box Adaptation of Language Models via Logit Bias
+- `2607.23054`  Through the Bottleneck: How Multi-head Latent Attention Separates Content from Position in Language Models
+- `2607.23597`  HiTMS: A High-Throughput Multi-Stream Linguistic Steganography Framework
+- `2607.24411`  Occluded Oculus: Operationalizing Stylistic Obscurement
+- `2607.24743`  ClinFusion: A Vision-Centric Multimodal LLM System for Holistic Medical Understanding
+- `2607.22724`  Progress-conditioned Group Policy Optimization for Long-Horizon Agentic Tasks
+- `2607.22769`  DomainPilot: Domain-Level Loss-Guided Two-Stage Data Mixture Optimization for Efficient Language Model Fine-Tu
+- `2607.22804`  LithoFormer: A Robust Framework for Stratigraphic Inference via Transformers
+- `2607.22832`  MEMENTO: Memory-Guided Memetic Code-as-Policy Evolution
+- `2607.22889`  Efficient Learning of Truncated Boolean Product Distributions: Influence to the Rescue
+- `2607.22931`  Spectral-Aware Analytic Class-Incremental Learning for Long-Tailed Distributions
+- `2607.22982`  Finite-Time Analysis of the Natural Policy Gradient in Finite-Horizon Markov Decision Processes
+- `2607.23125`  Self-Boosting Vision-Language Models with Noisy Student On-Policy Self-Distillation
+- `2607.23237`  Context-Aware Concept Distillation for Trustworthy Flood Prediction
+- `2607.23346`  SPRKD: Effective Knowledge Distillation for Deep Neural Networks via Saddle Region Approximation
+- `2607.23390`  When Can Depth Replace Precision? A Resource Theory of Quantized Neural Computation
+- `2607.23404`  Transfer Learning Architectures for Scalable Multi-Fidelity Bayesian Optimization
+- `2607.23731`  Outcome-Confounded Local Supervision in On-Policy Distillation
+- `2607.23735`  Source-Free Controlled Adaptation of Teachers for Continual Test-Time Adaptation
+- `2607.23765`  WISERouter: LLM Routing with Workload Budget Constraint
+- `2607.23865`  XMix: Combating Extremely Noisy Labels via Local Smoothness in Self-Supervised Feature Space
+- `2607.23987`  Adaptive Data Admission and Retention for Streaming Federated Learning
+- `2607.24083`  Learning Reusable Hybrid Motion Priors for Humanoid Locomotion from Motion Imitation
+- `2607.24160`  Calibrated Tree-Neural Fusion for Fine-Grained Vegetation Community Classification
+- `2607.24168`  Forecasting the Emergence and Evolution of Crash Hotspots: A Unified Deep Learning Framework for Proactive Tra
+- `2607.24522`  FlowCTS: On-policy Continuous Trajectory Supervision of Flow Models
+- `2607.24537`  The K-SCAN Clustering Algorithm
+

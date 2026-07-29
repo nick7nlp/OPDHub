@@ -1,0 +1,79 @@
+✅ Refreshed known_arxiv_ids.txt: 390 IDs
+[scout] DATE WINDOW (CST): 2026-07-28 → 2026-07-29  (days_back=1)
+[scout] accepting YYMM prefixes: ['2607']
+[scout] architecture: RSS-primary + API-verify + S2-crosscheck
+[scout] known IDs to skip: 390
+
+[scout] === Phase 1: RSS feeds (3 categories) ===
+[scout/rss] cs.CL: 228 total items, 28 OPD-keyword matches
+[scout/rss] cs.LG: 488 total items, 44 OPD-keyword matches
+[scout/rss] cs.AI: 223 total items, 27 OPD-keyword matches
+[scout/rss] total unique candidates: 92
+
+[scout] === Phase 2: S2 cross-check (4 queries) ===
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] added 13 papers not found in RSS
+
+[scout] combined unique: 105 (RSS: 92, S2-extra: 13)
+[scout] ⚠️ 13 rejected by DATE WINDOW: ['2509.22984', '2511.17041', '2507.08877', '2510.16079', '2510.01375', '2509.01566', '2510.06657', '2512.11755', '2510.05733', '2512.03737']
+[scout] 1 skipped (already known)
+
+[scout] === Phase 3: no S2-sourced papers to verify ===
+
+[scout] ✅ 50 new candidates for deep-read
+[scout] wrote /tmp/scout_arxiv_results.json
+
+## Scout Summary: 50 new in-window candidates
+
+  - 2607.22552 [rss/ok] MioFFAn: an Annotation Software for Formula Formalization with LLM Automation Ca
+  - 2607.22996 [rss/ok] Beyond Direct Answering: Aligning Educational LLMs as Socratic Guides via Heuris
+  - 2607.23083 [rss/ok] LoRA for Gender-Inclusive Rewriting and Activation Steering for Counter-Narrativ
+  - 2607.23481 [rss/ok] Mwando: Leveraging AI to Preserve and Teach shiKomori
+  - 2607.23538 [rss/ok] Guiding Language Models to Be More Empathetic: Culturally Sensitive Mental Healt
+  - 2607.23648 [rss/ok] EmoTrace: An Emotion Trajectory-Centered Framework for Psychological Support Dia
+  - 2607.23740 [rss/ok] Zing: Social Mind for LLMs
+  - 2607.24040 [rss/ok] Pointer-Augmented Autoregressive Generation of Patent Claims with Joint Topology
+  - 2607.24191 [rss/ok] StanceFlip: A Comprehensive Multi-Dimensional Benchmark for Multimodal Conversat
+  - 2607.24268 [rss/ok] Accuracy Hides How Language Models Fail: Measuring Failure States Under Matched 
+  - 2607.24312 [rss/ok] CONSISTRE: A Unified Consistency-Aware Framework for Document-Level Relation Ext
+  - 2607.24371 [rss/ok] Closed-Loop Validation-Repair for Healthcare Interoperability: A Multi-Model Stu
+  - 2607.24435 [rss/ok] LEX-EC: A Lexical Evidence-Channel Audit Framework for Zero-Shot LLM Personality
+  - 2607.24542 [rss/ok] From transcription to semantic corpus analysis: unsupervised learning of sentenc
+  - 2607.24604 [rss/ok] Looping Is Not Reliability: State-Bound Evidence and Typed Revision Contracts fo
+  - 2607.24653 [rss/ok] Kimi K3: Open Frontier Intelligence
+  - 2607.24720 [rss/ok] The Physics of Multi-Turn Long-Horizon Planning: From Pre-training to Post-train
+  - 2607.22592 [rss/ok] Structure Over Scale: Schema-Constrained Causal Graphs for RAG
+  - 2607.22629 [rss/ok] Masked Distillation: Internalizing the Chain-of-Thought in Language Models
+  - 2607.22642 [rss/ok] CRAFT: Learn the Schema, Execute the Plan
+  - 2607.22688 [rss/ok] Co-Harness: Co-Evolving Harnesses and Model Weights for LLM Agents
+  - 2607.22709 [rss/ok] RMS@CC-MMD 2026: Multimodal Misogyny Detection via Geometric Interaction and Mul
+  - 2607.22720 [rss/ok] CausalGate: Causal Importance Distillation for Transformer Module Pruning
+  - 2607.22837 [rss/ok] Frustratingly Simple Black-Box Adaptation of Language Models via Logit Bias
+  - 2607.23054 [rss/ok] Through the Bottleneck: How Multi-head Latent Attention Separates Content from P
+  - 2607.23597 [rss/ok] HiTMS: A High-Throughput Multi-Stream Linguistic Steganography Framework
+  - 2607.24411 [rss/ok] Occluded Oculus: Operationalizing Stylistic Obscurement
+  - 2607.24743 [rss/ok] ClinFusion: A Vision-Centric Multimodal LLM System for Holistic Medical Understa
+  - 2607.22724 [rss/ok] Progress-conditioned Group Policy Optimization for Long-Horizon Agentic Tasks
+  - 2607.22769 [rss/ok] DomainPilot: Domain-Level Loss-Guided Two-Stage Data Mixture Optimization for Ef
+  - 2607.22804 [rss/ok] LithoFormer: A Robust Framework for Stratigraphic Inference via Transformers
+  - 2607.22832 [rss/ok] MEMENTO: Memory-Guided Memetic Code-as-Policy Evolution
+  - 2607.22889 [rss/ok] Efficient Learning of Truncated Boolean Product Distributions: Influence to the 
+  - 2607.22931 [rss/ok] Spectral-Aware Analytic Class-Incremental Learning for Long-Tailed Distributions
+  - 2607.22982 [rss/ok] Finite-Time Analysis of the Natural Policy Gradient in Finite-Horizon Markov Dec
+  - 2607.23125 [rss/ok] Self-Boosting Vision-Language Models with Noisy Student On-Policy Self-Distillat
+  - 2607.23237 [rss/ok] Context-Aware Concept Distillation for Trustworthy Flood Prediction
+  - 2607.23346 [rss/ok] SPRKD: Effective Knowledge Distillation for Deep Neural Networks via Saddle Regi
+  - 2607.23390 [rss/ok] When Can Depth Replace Precision? A Resource Theory of Quantized Neural Computat
+  - 2607.23404 [rss/ok] Transfer Learning Architectures for Scalable Multi-Fidelity Bayesian Optimizatio
+  - 2607.23731 [rss/ok] Outcome-Confounded Local Supervision in On-Policy Distillation
+  - 2607.23735 [rss/ok] Source-Free Controlled Adaptation of Teachers for Continual Test-Time Adaptation
+  - 2607.23765 [rss/ok] WISERouter: LLM Routing with Workload Budget Constraint
+  - 2607.23865 [rss/ok] XMix: Combating Extremely Noisy Labels via Local Smoothness in Self-Supervised F
+  - 2607.23987 [rss/ok] Adaptive Data Admission and Retention for Streaming Federated Learning
+  - 2607.24083 [rss/ok] Learning Reusable Hybrid Motion Priors for Humanoid Locomotion from Motion Imita
+  - 2607.24160 [rss/ok] Calibrated Tree-Neural Fusion for Fine-Grained Vegetation Community Classificati
+  - 2607.24168 [rss/ok] Forecasting the Emergence and Evolution of Crash Hotspots: A Unified Deep Learni
+  - 2607.24522 [rss/ok] FlowCTS: On-policy Continuous Trajectory Supervision of Flow Models
+  - 2607.24537 [rss/ok] The K-SCAN Clustering Algorithm
