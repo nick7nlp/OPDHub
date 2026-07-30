@@ -58,7 +58,7 @@ echo "▶ Phase 2: batch deep-read (--from-staging --days-back 2)"
 STAGING_COUNT=$(ls "${PROJECT_ROOT}/pdfs/_staging/"*.pdf 2>/dev/null | wc -l)
 echo "  _staging/ has ${STAGING_COUNT} PDFs total"
 
-python3 /root/clawd/scripts/batch_deep_read.py \
+python3 "${SCRIPTS}/batch_deep_read.py" \
     --from-staging \
     --days-back 2 \
     --workers 3 \
@@ -214,6 +214,34 @@ for r in results:
 if [ "${OPINION_RC}" -ne 0 ] && [ -z "${VERIFIED_IDS}" ]; then
     echo "  ⚠️  2nd-opinion script failed — falling back to 3-cond filter results"
     VERIFIED_IDS="${FINAL_KEEP_IDS}"
+fi
+
+# Health monitor: track consecutive days with 0 CONFIRMs from 2nd-opinion.
+# If the Gemini API key expired or config broke, every paper returns UNCERTAIN
+# and 2nd-opinion becomes effectively disabled (still harmless but worth flagging).
+HEALTH_FILE="${PROJECT_ROOT}/.claude/2nd_opinion_health.txt"
+N_CONFIRM=$(python3 -c "
+import json
+results = json.load(open('/tmp/opd_2nd_opinion_result.json'))
+print(sum(1 for r in results if r.get('verdict') == 'CONFIRM'))
+" 2>/dev/null || echo 0)
+if [ "${N_CONFIRM}" -eq 0 ]; then
+    STREAK=$(cat "${HEALTH_FILE}" 2>/dev/null || echo 0)
+    STREAK=$((STREAK + 1))
+    echo "${STREAK}" > "${HEALTH_FILE}"
+    if [ "${STREAK}" -ge 5 ]; then
+        echo "  ⚠️  2nd-opinion: 0 CONFIRMs for ${STREAK} consecutive days — Gemini API may be broken"
+        ALERT_FILE="${PROJECT_ROOT}/.claude/pipeline_alerts.md"
+        {
+            echo ""
+            echo "## ⚠️ ${DATE_CST} — 2nd-opinion health warning"
+            echo ""
+            echo "0 CONFIRM verdicts for ${STREAK} consecutive pipeline days. Gemini API/config may need attention."
+            echo ""
+        } >> "${ALERT_FILE}"
+    fi
+else
+    echo "0" > "${HEALTH_FILE}"
 fi
 
 FINAL_KEEP_IDS="${VERIFIED_IDS}"

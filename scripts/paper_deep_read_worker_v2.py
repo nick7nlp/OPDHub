@@ -1,0 +1,1 @@
+/root/clawd/scripts/paper_deep_read_worker_v2.py

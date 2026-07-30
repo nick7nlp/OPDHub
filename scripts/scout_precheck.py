@@ -35,8 +35,10 @@ def refresh_known_ids() -> int:
     """Regenerate known_arxiv_ids.txt from all 5 sources."""
     all_ids = set()
 
-    # 1. references.bib
-    bib_path = SURVEY_DIR / "latex-v3" / "references.bib"
+    # 1. references.bib (active manuscript)
+    bib_path = SURVEY_DIR / "latex-v4" / "references.bib"
+    if not bib_path.exists():
+        bib_path = SURVEY_DIR / "latex-v3" / "references.bib"
     if bib_path.exists():
         text = bib_path.read_text(errors='ignore')
         all_ids.update(ARXIV_ID_PATTERN.findall(text))

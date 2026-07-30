@@ -65,6 +65,22 @@ bash "${TARGET}" >> "${WRAP_LOG}" 2>&1
 TARGET_RC=$?
 echo "[wrapper] ${PHASE} script exit ${TARGET_RC}" >> "${WRAP_LOG}"
 
+# (1.5) Failure detection: if the phase script failed or the log contains error markers,
+# write an alert file that will be noticed by the next interactive session.
+ALERT_FILE="${PROJECT_ROOT}/.claude/pipeline_alerts.md"
+if [ "${TARGET_RC}" -ne 0 ] || grep -qE "❌|FATAL|FAILED|commit FAILED|push failed" "${WRAP_LOG}" 2>/dev/null; then
+    {
+        echo ""
+        echo "## ⚠️ ${DATE_CST} ${PHASE} — FAILURE (exit ${TARGET_RC})"
+        echo ""
+        echo "Log: \`${WRAP_LOG}\`"
+        echo ""
+        tail -5 "${WRAP_LOG}" | sed 's/^/    /'
+        echo ""
+    } >> "${ALERT_FILE}"
+    echo "[wrapper] ⚠️ alert written to ${ALERT_FILE}" >> "${WRAP_LOG}"
+fi
+
 # (2) tclaude reviews the log and writes a concise status line (best-effort;
 #     failure here never masks the work already done in step 1).
 #     Read-only: `default` mode + a read-only allowlist avoids the root/sudo
