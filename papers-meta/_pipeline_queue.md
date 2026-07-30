@@ -1657,3 +1657,66 @@
 - `2607.24522`  FlowCTS: On-policy Continuous Trajectory Supervision of Flow Models
 - `2607.24537`  The K-SCAN Clustering Algorithm
 
+
+## 2026-07-30 (Thu) 09:27 — scout completed
+
+**57 candidates** downloaded to `pdfs/_staging/`. Follow-up Phase 2-7 **pending**.
+
+- `2607.24841`  Neuromorphic Diffusion Language Models: Addressing Compute and Memory Bottlenecks via Sparsity and Block Denoi
+- `2607.25182`  TabRank: Chain-of-Thought Distillation for Table Re-Rankers
+- `2607.25228`  Interpretable Column Annotation with LLM-Symbolized Decision Process Materialization
+- `2607.25308`  CAST: Game Solvers as Turn-Level Teachers for LLM Agents
+- `2607.25337`  Temporal-Distance JEPA: Plan-Aware Representation Learning for Latent World Model Predictive Control
+- `2607.25579`  IRIS: Reusable Identity Representations from Frozen LLMs for Entity Alignment
+- `2607.25633`  Construction-Driven Injection: Linguistically-Grounded Edit-Based Code-Mixing Fingerprints for Large Language 
+- `2607.25814`  Evaluation of Adversarial Robustness in Arabic Language Models
+- `2607.25933`  Evaluating Multi-Turn Multimodal Diagnostic Reasoning on Challenging Real-World Clinical Cases
+- `2607.26057`  Pass the Baton: Trajectory-Relayed On-Policy Distillation
+- `2607.22583`  Multi-Objective Structured Pruning of LLMs for Latency and Model Size Optimization
+- `2607.24772`  RSMeM: Knowledge-Enhanced Memory Evolution for Remote Sensing Agents with Systematic Evaluation
+- `2607.24784`  On the Use of LLMs for Specialised Terminology: A Good Alternative to Corpora?
+- `2607.25066`  Addressable Recall Compaction for Long Context-Window Control in AI Agents
+- `2607.25634`  AIriskEval-edu Demo: Auditing of Pedagogical Risks in Educational Explanations
+- `2607.25642`  Instruction-based Image Editing: A Survey on Data, Models, Evaluation, and Applications
+- `2607.25880`  Stemma: Induced Decision Regions Reveal LLM Provenance
+- `2607.24889`  GAUGE: Grading Agent-Built Financial Models Without a Golden Answer
+- `2607.24900`  Inverse RL Helps Align AI by Imitating Humans
+- `2607.25376`  Rethinking Likelihood distributions: Student's t Likelihood Boosts Bayesian Neural Network Performance
+- `2607.25531`  Multi-Scale Structural Features for Continual, Comprehensible Visual Recognition in a Developmental Learning F
+- `2607.25545`  OrthKD: Extracting Generalized Clinical Knowledge from Heterogeneous Teachers for Lightweight Deployment
+- `2607.26040`  Reinformed Dreamer: An Asymmetric World Model Efficiently Trained through Latent Guidance
+- `2607.24771`  RoCo-ACE: Rollout-Conditioned Online Distillation for Retention-Aware Knowledge Injection
+- `2607.24779`  HOBA: Hierarchical On-Policy Bidding Agents for Adaptive Online Advertising
+- `2607.24827`  Stronger Memory-Query Tradeoffs for Convex Optimization: The Limitations of Subquadratic Memory
+- `2607.24959`  Amortising Trajectory Optimisation for Residual MPC via Implicit Contact Differentiation
+- `2607.25439`  Robust Unsupervised Network Intrusion Detection via Federated Learning with Selective Aggregation under Anomal
+- `2607.25728`  Shared Voxel-Map-Based Cooperative Indoor UAV Guidance with a Multi-Agent Soft Actor-Critic Controller
+- `2607.25763`  WALoMA: A Multitask Wireless Foundation Model via Adaptive Low-Rank Masked Autoencoders
+- `2607.25989`  Untangling Co-Drift: Proactive Multi-Intent Failure Prediction and Root-Cause Disambiguation for Self-Driving 
+- `2607.26004`  Parallel Decoding Distillation for Fast Image and Video Generation
+- `2607.24780`  LivingArena: Do LLMs Know What Other LLMs Don't? Peer-Probing as Scalable Evaluation
+- `2607.24833`  AdaKP: Online Adaptive Knowledge-Point Selection for Reasoning-Oriented Reinforcement Learning
+- `2607.25020`  Localized Anomaly Detection via Differentiable D-vine Copulas
+- `2607.25042`  SAFAARI: Schema-Aware Framework for Accelerated Advertiser Response Intelligence
+- `2607.25136`  Less Data, Better Alignment: Data-Centric Multi-Evaluator Agreement for Preference Optimization
+- `2607.25322`  From Cellular Responses to Pharmacological Domains: Multimodal Zero-Shot Drug Representation Learning
+- `2607.25415`  A Control System, a Dataset, and a Recipe for Making Frozen LLM Agents Learn a Domain
+- `2607.25487`  CoTinyVLA: Chain-of-Thought Distillation for a Sub-Billion-Parameter Vision-Language-Action Model
+- `2607.25554`  Distilling Temporal Search and Reasoning: Evolving LLMs for Future Prediction via Harness-Assisted Efficient D
+- `2607.25669`  OmniDelta: Skill-Driven Budget Allocation for Token Compression in OmniLLMs
+- `2607.25816`  Speculate While You Reason: Teaching Agents to Predict Their Next Tool Call via Joint Agent-Speculator RL
+- `2607.25925`  dtControl2+$\varepsilon$: Trading Optimality for Explainability in MDPs via Decision Trees
+- `2607.24755`  Patterns of Learner-AI Interaction and Academic Performance in an Object-Oriented Programming Course
+- `2607.24757`  From Idea to Classroom in Days: Using "Vibe Coding" to Create a Programming Process Visualizer from IDE Activi
+- `2607.24818`  Dual-Level Atomic and Coordination Geometry Learning for Crystal Property Prediction Using Graph Neural Networ
+- `2607.24838`  MedJudgeRAG: Option-Wise Evidence Judgment with Dynamic Knowledge Graphs for Medical MCQA
+- `2607.25164`  OrganLens: Organ-Specific Representation Learning for CT Foundation Models
+- `2607.25268`  Structure-aware Relative Policy Optimization for Ranking
+- `2607.25275`  ScaleResfusion: Residual Rectified Flow based on Residual Vector Field
+- `2607.25297`  Hybrid Analysis for Secure MCP Tool Use in LLM Agents
+- `2607.25333`  Specula: Scaling formal specifications for autonomous model checking of system code
+- `2607.25647`  KQFuzz: Knowledge-Guided Fuzzing for Quantum Libraries via Large Language Models
+- `2607.25912`  SAM3D-Guided Object-Centric Representation Alignment for Vision-Language-Action Models
+- `2607.26005`  Pictura: Perspective-View Self-Play at Scale for Driving
+- `2607.26016`  MDTransformer: A Hardware-Software Co-Design of Mode-Division Photonic Transformer Accelerator with Inverse-De
+

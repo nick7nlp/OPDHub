@@ -1,0 +1,88 @@
+✅ Refreshed known_arxiv_ids.txt: 1804 IDs
+[scout] DATE WINDOW (CST): 2026-07-29 → 2026-07-30  (days_back=1)
+[scout] accepting YYMM prefixes: ['2607']
+[scout] architecture: RSS-primary + API-verify + S2-crosscheck
+[scout] known IDs to skip: 1804
+
+[scout] === Phase 1: RSS feeds (3 categories) ===
+[scout/rss] cs.CL: 115 total items, 17 OPD-keyword matches
+[scout/rss] cs.LG: 245 total items, 16 OPD-keyword matches
+[scout/rss] cs.AI: 340 total items, 42 OPD-keyword matches
+[scout/rss] total unique candidates: 57
+
+[scout] === Phase 2: S2 cross-check (4 queries) ===
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] added 12 papers not found in RSS
+
+[scout] combined unique: 69 (RSS: 57, S2-extra: 12)
+[scout] ⚠️ 9 rejected by DATE WINDOW: ['2605.28014', '2602.04577', '2601.18734', '2605.26132', '2604.17535', '2605.18141', '2605.06597', '2606.12072', '2601.20802']
+[scout] 2 skipped (already known)
+
+[scout] === Phase 3: verifying 1 S2-sourced candidates via id_list API ===
+[scout/verify] 2607.18850 rejected: published 2026-07-21 < window 2026-07-28
+[scout/verify] 0/1 S2 papers passed
+
+[scout] ✅ 57 new candidates for deep-read
+[scout] wrote /tmp/scout_arxiv_results.json
+
+## Scout Summary: 57 new in-window candidates
+
+  - 2607.24841 [rss/ok] Neuromorphic Diffusion Language Models: Addressing Compute and Memory Bottleneck
+  - 2607.25182 [rss/ok] TabRank: Chain-of-Thought Distillation for Table Re-Rankers
+  - 2607.25228 [rss/ok] Interpretable Column Annotation with LLM-Symbolized Decision Process Materializa
+  - 2607.25308 [rss/ok] CAST: Game Solvers as Turn-Level Teachers for LLM Agents
+  - 2607.25337 [rss/ok] Temporal-Distance JEPA: Plan-Aware Representation Learning for Latent World Mode
+  - 2607.25579 [rss/ok] IRIS: Reusable Identity Representations from Frozen LLMs for Entity Alignment
+  - 2607.25633 [rss/ok] Construction-Driven Injection: Linguistically-Grounded Edit-Based Code-Mixing Fi
+  - 2607.25814 [rss/ok] Evaluation of Adversarial Robustness in Arabic Language Models
+  - 2607.25933 [rss/ok] Evaluating Multi-Turn Multimodal Diagnostic Reasoning on Challenging Real-World 
+  - 2607.26057 [rss/ok] Pass the Baton: Trajectory-Relayed On-Policy Distillation
+  - 2607.22583 [rss/ok] Multi-Objective Structured Pruning of LLMs for Latency and Model Size Optimizati
+  - 2607.24772 [rss/ok] RSMeM: Knowledge-Enhanced Memory Evolution for Remote Sensing Agents with System
+  - 2607.24784 [rss/ok] On the Use of LLMs for Specialised Terminology: A Good Alternative to Corpora?
+  - 2607.25066 [rss/ok] Addressable Recall Compaction for Long Context-Window Control in AI Agents
+  - 2607.25634 [rss/ok] AIriskEval-edu Demo: Auditing of Pedagogical Risks in Educational Explanations
+  - 2607.25642 [rss/ok] Instruction-based Image Editing: A Survey on Data, Models, Evaluation, and Appli
+  - 2607.25880 [rss/ok] Stemma: Induced Decision Regions Reveal LLM Provenance
+  - 2607.24889 [rss/ok] GAUGE: Grading Agent-Built Financial Models Without a Golden Answer
+  - 2607.24900 [rss/ok] Inverse RL Helps Align AI by Imitating Humans
+  - 2607.25376 [rss/ok] Rethinking Likelihood distributions: Student's t Likelihood Boosts Bayesian Neur
+  - 2607.25531 [rss/ok] Multi-Scale Structural Features for Continual, Comprehensible Visual Recognition
+  - 2607.25545 [rss/ok] OrthKD: Extracting Generalized Clinical Knowledge from Heterogeneous Teachers fo
+  - 2607.26040 [rss/ok] Reinformed Dreamer: An Asymmetric World Model Efficiently Trained through Latent
+  - 2607.24771 [rss/ok] RoCo-ACE: Rollout-Conditioned Online Distillation for Retention-Aware Knowledge 
+  - 2607.24779 [rss/ok] HOBA: Hierarchical On-Policy Bidding Agents for Adaptive Online Advertising
+  - 2607.24827 [rss/ok] Stronger Memory-Query Tradeoffs for Convex Optimization: The Limitations of Subq
+  - 2607.24959 [rss/ok] Amortising Trajectory Optimisation for Residual MPC via Implicit Contact Differe
+  - 2607.25439 [rss/ok] Robust Unsupervised Network Intrusion Detection via Federated Learning with Sele
+  - 2607.25728 [rss/ok] Shared Voxel-Map-Based Cooperative Indoor UAV Guidance with a Multi-Agent Soft A
+  - 2607.25763 [rss/ok] WALoMA: A Multitask Wireless Foundation Model via Adaptive Low-Rank Masked Autoe
+  - 2607.25989 [rss/ok] Untangling Co-Drift: Proactive Multi-Intent Failure Prediction and Root-Cause Di
+  - 2607.26004 [rss/ok] Parallel Decoding Distillation for Fast Image and Video Generation
+  - 2607.24780 [rss/ok] LivingArena: Do LLMs Know What Other LLMs Don't? Peer-Probing as Scalable Evalua
+  - 2607.24833 [rss/ok] AdaKP: Online Adaptive Knowledge-Point Selection for Reasoning-Oriented Reinforc
+  - 2607.25020 [rss/ok] Localized Anomaly Detection via Differentiable D-vine Copulas
+  - 2607.25042 [rss/ok] SAFAARI: Schema-Aware Framework for Accelerated Advertiser Response Intelligence
+  - 2607.25136 [rss/ok] Less Data, Better Alignment: Data-Centric Multi-Evaluator Agreement for Preferen
+  - 2607.25322 [rss/ok] From Cellular Responses to Pharmacological Domains: Multimodal Zero-Shot Drug Re
+  - 2607.25415 [rss/ok] A Control System, a Dataset, and a Recipe for Making Frozen LLM Agents Learn a D
+  - 2607.25487 [rss/ok] CoTinyVLA: Chain-of-Thought Distillation for a Sub-Billion-Parameter Vision-Lang
+  - 2607.25554 [rss/ok] Distilling Temporal Search and Reasoning: Evolving LLMs for Future Prediction vi
+  - 2607.25669 [rss/ok] OmniDelta: Skill-Driven Budget Allocation for Token Compression in OmniLLMs
+  - 2607.25816 [rss/ok] Speculate While You Reason: Teaching Agents to Predict Their Next Tool Call via 
+  - 2607.25925 [rss/ok] dtControl2+$\varepsilon$: Trading Optimality for Explainability in MDPs via Deci
+  - 2607.24755 [rss/ok] Patterns of Learner-AI Interaction and Academic Performance in an Object-Oriente
+  - 2607.24757 [rss/ok] From Idea to Classroom in Days: Using "Vibe Coding" to Create a Programming Proc
+  - 2607.24818 [rss/ok] Dual-Level Atomic and Coordination Geometry Learning for Crystal Property Predic
+  - 2607.24838 [rss/ok] MedJudgeRAG: Option-Wise Evidence Judgment with Dynamic Knowledge Graphs for Med
+  - 2607.25164 [rss/ok] OrganLens: Organ-Specific Representation Learning for CT Foundation Models
+  - 2607.25268 [rss/ok] Structure-aware Relative Policy Optimization for Ranking
+  - 2607.25275 [rss/ok] ScaleResfusion: Residual Rectified Flow based on Residual Vector Field
+  - 2607.25297 [rss/ok] Hybrid Analysis for Secure MCP Tool Use in LLM Agents
+  - 2607.25333 [rss/ok] Specula: Scaling formal specifications for autonomous model checking of system c
+  - 2607.25647 [rss/ok] KQFuzz: Knowledge-Guided Fuzzing for Quantum Libraries via Large Language Models
+  - 2607.25912 [rss/ok] SAM3D-Guided Object-Centric Representation Alignment for Vision-Language-Action 
+  - 2607.26005 [rss/ok] Pictura: Perspective-View Self-Play at Scale for Driving
+  - 2607.26016 [rss/ok] MDTransformer: A Hardware-Software Co-Design of Mode-Division Photonic Transform
