@@ -1,2 +1,5 @@
 
 ======== tclaude-cron pipeline | 2026-07-30 10:27 ========
+[wrapper] pipeline script exit 0
+Deep-read 57 篇论文，其中 2 篇符合 OPD 主题（2607.24771、2607.26057），最终 keep 这 2 篇，git push 成功。
+[wrapper] tclaude summary exit 0 @ 10:43:18

@@ -59047,7 +59047,487 @@
       "score": 9,
       "_worker": "v2-direct-llm-api",
       "_model": "claude"
+    },
+    "2607.26246": {
+      "_schema_version": "v3",
+      "paper_id": "2607.26246",
+      "title": "Weak-to-Strong On-Policy Distillation",
+      "venue": "arXiv 2025",
+      "year": 2025,
+      "authors_first": "Fangxu Yu",
+      "affiliation_primary": "University of Maryland, College Park",
+      "summary": "On-policy distillation from weak models via contrastive logit directions anchored on student base",
+      "method": {
+        "training_loop": "Student generates on-policy rollouts; proxy teacher logits = softmax(z_base + α(z+ - z-)); student minimizes per-token reverse KL(πS || πT,α) on own rollouts for 100 steps",
+        "loss_formulation": "L = E_{x~D, y~πS(·|x)} [ Σ_t KL( πS(·|s_t) || πT,α(·|s_t) ) ] where πT,α(·|s_t) = softmax(z_base(s_t) + α(z+(s_t) - z-(s_t)))",
+        "data_source": "DeepMath-103K (level-6 subset) for math, Eurus-RL-Code for code",
+        "key_components": [
+          "contrastive logit direction from positive/negative weak model pair",
+          "proxy teacher synthesis via logit arithmetic anchored on student base",
+          "per-token reverse KL on student rollouts",
+          "three contrast pair instantiations: pre-RL/post-RL, smaller/larger, correct/wrong hints",
+          "multi-teacher composition via additive logit directions"
+        ]
+      },
+      "novelty": "Constructs a proxy teacher by adding the logit difference of a weak positive-negative model pair to the student's own base model, enabling on-policy distillation from models weaker than the student without distribution mismatch or capability ceiling",
+      "on_policy_mechanism": {
+        "student_rollout_in_training": "yes",
+        "rollout_frequency": "per-step",
+        "teacher_signal": "logits",
+        "signal_source": "PI(reference)",
+        "evidence_quote": "The student πS, initialized from the same base model, generates on-policy rollouts and minimizes the per-token reverse KL toward this proxy teacher."
+      },
+      "opd_classification": {
+        "is_opd": "yes",
+        "primary_section": "§5.1",
+        "secondary_sections": [
+          "§4.1",
+          "§5.3.1"
+        ],
+        "reasoning": "White-box logit-level proxy teacher constructed from weak models; student generates own rollouts and minimizes reverse KL against teacher logits, fitting the OPD paradigm with a novel teacher construction from weaker sources."
+      },
+      "teacher_student_pairs": [
+        {
+          "teacher": {
+            "name": "Proxy Teacher (Qwen3-4B-RL + Qwen3-4B + Qwen3-8B base)",
+            "family": "Qwen3",
+            "size_B": null,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": false,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "Qwen3-8B",
+            "family": "Qwen3",
+            "size_B": 8,
+            "type": "dense",
+            "init_from": "base",
+            "is_self": false
+          },
+          "vocab_match": "shared",
+          "scenario": "main"
+        },
+        {
+          "teacher": {
+            "name": "Proxy Teacher (Qwen3-4B + Qwen3-0.6B + Qwen3-8B base)",
+            "family": "Qwen3",
+            "size_B": null,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": false,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "Qwen3-8B",
+            "family": "Qwen3",
+            "size_B": 8,
+            "type": "dense",
+            "init_from": "base",
+            "is_self": false
+          },
+          "vocab_match": "shared",
+          "scenario": "main"
+        },
+        {
+          "teacher": {
+            "name": "Proxy Teacher (Qwen3-4B w/ correct hints + Qwen3-4B w/ wrong hints + Qwen3-8B base)",
+            "family": "Qwen3",
+            "size_B": null,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": false,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "Qwen3-8B",
+            "family": "Qwen3",
+            "size_B": 8,
+            "type": "dense",
+            "init_from": "base",
+            "is_self": false
+          },
+          "vocab_match": "shared",
+          "scenario": "main"
+        }
+      ],
+      "training_setup": {
+        "compute_budget": "2×NVIDIA B200 GPUs",
+        "tokens_seen_B": null,
+        "context_length": 16384,
+        "rollout_batch_size": 64,
+        "rollouts_per_iter": null,
+        "kl_coeff": null,
+        "rl_algorithm": "pure-KD",
+        "stabilization_tricks": [
+          "top-K truncation (K=32)",
+          "amplification coefficient α"
+        ],
+        "warmup_off_policy": "no",
+        "warmup_method": "n/a"
+      },
+      "datasets": {
+        "train": [
+          "DeepMath-103K (level-6)",
+          "Eurus-RL-Code"
+        ],
+        "eval": [
+          "AIME24",
+          "AIME25",
+          "HMMT25 (Feb.)",
+          "HMMT25 (Nov.)",
+          "HumanEval+",
+          "MBPP+",
+          "LiveCodeBench-V6",
+          "GPQA-Diamond",
+          "IFBench"
+        ],
+        "domain": "math"
+      },
+      "benchmarks": [
+        {
+          "name": "AIME24",
+          "metric": "accuracy@32",
+          "student_baseline": 62.1,
+          "student_after_OPD": 68.9,
+          "delta": 6.8,
+          "teacher_score": 62.0,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "AIME25",
+          "metric": "accuracy@32",
+          "student_baseline": 54.8,
+          "student_after_OPD": 60.1,
+          "delta": 5.3,
+          "teacher_score": 57.9,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "HMMT25 (Feb.)",
+          "metric": "accuracy@32",
+          "student_baseline": 30.6,
+          "student_after_OPD": 35.1,
+          "delta": 4.5,
+          "teacher_score": 34.8,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "HMMT25 (Nov.)",
+          "metric": "accuracy@32",
+          "student_baseline": 38.3,
+          "student_after_OPD": 43.1,
+          "delta": 4.8,
+          "teacher_score": 40.4,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "HumanEval+",
+          "metric": "accuracy@4",
+          "student_baseline": 83.1,
+          "student_after_OPD": 84.8,
+          "delta": 1.7,
+          "teacher_score": 86.3,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "MBPP+",
+          "metric": "accuracy@4",
+          "student_baseline": 71.2,
+          "student_after_OPD": 72.4,
+          "delta": 1.2,
+          "teacher_score": 71.0,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "LiveCodeBench-V6",
+          "metric": "accuracy@4",
+          "student_baseline": 22.0,
+          "student_after_OPD": 26.8,
+          "delta": 5.0,
+          "teacher_score": 27.1,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "GPQA-Diamond",
+          "metric": "accuracy",
+          "student_baseline": 38.9,
+          "student_after_OPD": 56.5,
+          "delta": 17.6,
+          "teacher_score": 51.8,
+          "gap_closed_pct": null,
+          "is_main_result": false
+        },
+        {
+          "name": "IFBench",
+          "metric": "accuracy",
+          "student_baseline": 26.3,
+          "student_after_OPD": 27.0,
+          "delta": 0.7,
+          "teacher_score": 26.0,
+          "gap_closed_pct": null,
+          "is_main_result": false
+        }
+      ],
+      "key_findings": [
+        "W2S-OPD outperforms OPD by 11.4% relative on math reasoning in the single-teacher pre-RL/post-RL setting (avg 51.8 vs 46.5)",
+        "W2S-OPD enables the 8B student to surpass the 4B domain expert teacher on math benchmarks",
+        "From two off-the-shelf weak base models (4B and 0.6B), both weaker than the student, W2S-OPD still improves the student by 6.0% absolute on math",
+        "Different contrasts reinforce complementary reasoning patterns: post-RL/hint contrasts emphasize planning/monitoring while scale contrast emphasizes solving procedure",
+        "W2S-OPD adds only 20% overhead over OPD per training step"
+      ],
+      "ablations_summary": "Amplification coefficient α analysis shows moderate α (around 1.0) is optimal; larger base model gap in smaller/larger setting yields stronger improvement (4B-0.6B: +6.0 vs 4B-1.7B: +4.7); OOD generalization shows W2S-OPD improves GPQA-Diamond and IFBench while OPD can degrade IFBench",
+      "limitations": [
+        "How far weak-to-strong supervision can push a stronger student before saturating remains unexplored",
+        "All experiments use Qwen3 family models with shared vocabulary",
+        "Limited to math and code domains in evaluation"
+      ],
+      "failure_modes": [
+        "Very large α distorts the proxy teacher distribution and degrades performance",
+        "When capability gap in contrast pair is small, improvement is reduced"
+      ],
+      "compute_efficiency": {
+        "teacher_inference_cost": "3× frozen forward passes (anchor + positive + negative) vs 1× for OPD",
+        "speedup_vs_baseline": "0.83× (20% slower than OPD per step)",
+        "memory_footprint": "unspecified"
+      },
+      "openness": {
+        "code_released": "promised",
+        "code_url": "https://github.com/Yu-Fangxu/W2S-OPD",
+        "model_released": "no",
+        "data_released": "no"
+      },
+      "theory": {
+        "has_theoretical_analysis": "yes",
+        "theoretical_claim": "Proxy teacher is the unique closed-form maximizer of E[r(s,a)] - (1/α)KL(q||π_base), showing logit arithmetic = KL-constrained reward maximization",
+        "proof_sketch": "Shows π_T,α is exponential tilting of base model by capability reward r; substituting into KL and rearranging yields variational form with unique optimum at proxy teacher"
+      },
+      "relevance_to_opd": "Directly extends on-policy distillation to the weak-to-strong setting by constructing a proxy teacher from contrastive logit differences of weak models, enabling OPD when no stronger teacher exists",
+      "comparable_papers": [
+        "2312.09390",
+        "2402.03300",
+        "2401.08565",
+        "2606.30406"
+      ],
+      "score": 8,
+      "_worker": "v2-direct-llm-api",
+      "_model": "claude"
+    },
+    "2607.27081": {
+      "_schema_version": "v3",
+      "paper_id": "2607.27081",
+      "title": "On-Policy Distillation for LLM Safety: A Routing Approach to Template-Robust Realignment",
+      "venue": "arXiv 2026",
+      "year": 2026,
+      "authors_first": "Yongjian Guo",
+      "affiliation_primary": "Tsinghua University",
+      "summary": "Dual-teacher on-policy distillation for template-robust safety realignment of fine-tuned LLMs",
+      "method": {
+        "training_loop": "Student initialized from misaligned model; each token routed to safety teacher (aligned model) or task teacher (misaligned model) by source label; matched via top-K KL divergence; gradient update on student",
+        "loss_formulation": "L = E_{x~D} 1/|x| sum_t [sum_{v in K_t} q_t(v) log(q_t(v)/p_t(v)) + q_bar_t log(q_bar_t/p_bar_t)]",
+        "data_source": "Mixture of downstream task data (SQL/SAMSum/NL2Bash) and BeaverTails harmful prompts",
+        "key_components": [
+          "dual-teacher routing by source label",
+          "top-K KL divergence with tail bucket",
+          "safety teacher from aligned model",
+          "task teacher from misaligned model",
+          "template-independent refusal prior distillation"
+        ]
+      },
+      "novelty": "Source-routed dual-teacher on-policy distillation that distills template-independent refusal prior from aligned model's output distribution rather than template-formatted refusals, decoupling safety from task preservation",
+      "on_policy_mechanism": {
+        "student_rollout_in_training": "yes",
+        "rollout_frequency": "per-step",
+        "teacher_signal": "logits",
+        "signal_source": "external-teacher",
+        "evidence_quote": "ROPD routes every realignment token to one of two frozen teachers—an original-model safety teacher that supplies a largely template-independent refusal prior, and a fine-tuned task teacher that preserves downstream ability—and matches the student to the routed teacher with a top-𝐾 KL objective."
+      },
+      "opd_classification": {
+        "is_opd": "yes",
+        "primary_section": "§5.1",
+        "secondary_sections": [
+          "§4.1",
+          "§8.2"
+        ],
+        "reasoning": "ROPD uses two white-box frozen teachers providing logit-level KL supervision on student-generated tokens, routing by data source—a novel dual-teacher OPD architecture applied to safety realignment."
+      },
+      "teacher_student_pairs": [
+        {
+          "teacher": {
+            "name": "Llama-2-7B-Chat (aligned)",
+            "family": "Llama",
+            "size_B": 7,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": false,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "Llama-2-7B-Chat (misaligned, realigned)",
+            "family": "Llama",
+            "size_B": 7,
+            "type": "dense",
+            "init_from": "RL-trained",
+            "is_self": false
+          },
+          "vocab_match": "shared",
+          "scenario": "main"
+        },
+        {
+          "teacher": {
+            "name": "Qwen2.5-7B-Instruct (aligned)",
+            "family": "Qwen3",
+            "size_B": 7,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": false,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "Qwen2.5-7B-Instruct (misaligned, realigned)",
+            "family": "Qwen3",
+            "size_B": 7,
+            "type": "dense",
+            "init_from": "RL-trained",
+            "is_self": false
+          },
+          "vocab_match": "shared",
+          "scenario": "main"
+        },
+        {
+          "teacher": {
+            "name": "Gemma-2-9B-it (aligned)",
+            "family": "Gemma",
+            "size_B": 9,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": false,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "Gemma-2-9B-it (misaligned, realigned)",
+            "family": "Gemma",
+            "size_B": 9,
+            "type": "dense",
+            "init_from": "RL-trained",
+            "is_self": false
+          },
+          "vocab_match": "shared",
+          "scenario": "main"
+        }
+      ],
+      "training_setup": {
+        "compute_budget": "unspecified",
+        "tokens_seen_B": null,
+        "context_length": null,
+        "rollout_batch_size": null,
+        "rollouts_per_iter": null,
+        "kl_coeff": null,
+        "rl_algorithm": "pure-KD",
+        "stabilization_tricks": [
+          "top-K KL with tail bucket"
+        ],
+        "warmup_off_policy": "no",
+        "warmup_method": "n/a"
+      },
+      "datasets": {
+        "train": [
+          "BeaverTails",
+          "Text-to-SQL",
+          "SAMSum",
+          "NL2Bash"
+        ],
+        "eval": [
+          "BeaverTails (700 harmful prompts)",
+          "SQL exact-match",
+          "SAMSum ROUGE",
+          "NL2Bash command accuracy"
+        ],
+        "domain": "general"
+      },
+      "benchmarks": [
+        {
+          "name": "SQL exact-match (Llama-2, attack=self, def=self)",
+          "metric": "task/ASR",
+          "student_baseline": null,
+          "student_after_OPD": null,
+          "delta": null,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "ASR (Llama-2, SQL, attack=self, def=self)",
+          "metric": "ASR%",
+          "student_baseline": 62.1,
+          "student_after_OPD": 2.4,
+          "delta": -59.7,
+          "teacher_score": 1.7,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "SQL task score (Llama-2, attack=self, def=self)",
+          "metric": "exact-match",
+          "student_baseline": 0.611,
+          "student_after_OPD": 0.626,
+          "delta": 0.015,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        }
+      ],
+      "key_findings": [
+        "ROPD reduces ASR from 62.1% to 2.4% under matched self defense template on Llama-2 SQL while maintaining task score at 0.626",
+        "Baseline defenses lose >30% effectiveness when defense template mismatches attack template; ROPD remains robust with ASR 2.1-11.1 across templates",
+        "Only 25% of data (1500 examples) is sufficient for ROPD to achieve near-full safety recovery",
+        "Ablation confirms safety teacher alone governs harm reduction while task teacher is necessary for skill retention",
+        "ROPD trains in 15.7 min comparable to SFT-based baselines and far below rollback's 117.9 min"
+      ],
+      "ablations_summary": "Safety-only teacher achieves comparable ASR reduction but collapses task; clean task teacher yields best task scores at comparable ASR; dual-teacher (misaligned as task teacher) offers best cost-quality tradeoff; data scaling shows 512→1500 examples is the key sufficiency knee",
+      "limitations": [
+        "ROPD is not entirely immune to template mismatch—residual ASR rises when deployment template differs from attack template",
+        "All weight-level realignment methods remain conditionally vulnerable to prompt rewriting by adversaries",
+        "Method assumes access to the original aligned model as a frozen teacher"
+      ],
+      "failure_modes": [
+        "When defense template is raw but attack used self, ASR rises to 28.3 on Llama-2 (reduced but not eliminated)",
+        "Adversary who controls the system prompt can re-elicit harmful behavior even after realignment"
+      ],
+      "compute_efficiency": {
+        "teacher_inference_cost": "1×",
+        "speedup_vs_baseline": "not-reported",
+        "memory_footprint": "unspecified"
+      },
+      "openness": {
+        "code_released": "no",
+        "code_url": null,
+        "model_released": "no",
+        "data_released": "no"
+      },
+      "theory": {
+        "has_theoretical_analysis": "no",
+        "theoretical_claim": null,
+        "proof_sketch": null
+      },
+      "relevance_to_opd": "Directly applies on-policy distillation to LLM safety realignment, using dual frozen teachers with source-routed top-K KL divergence on student-generated tokens; explicitly cites OPD literature and adapts the framework to a novel safety application",
+      "comparable_papers": [
+        "2404.09526",
+        "2604.00626",
+        "2603.25562",
+        "2605.07804"
+      ],
+      "score": 7,
+      "_worker": "v2-direct-llm-api",
+      "_model": "claude"
     }
   },
-  "last_updated": "2026-07-30T02:41:48.432048Z"
+  "last_updated": "2026-07-31T02:41:39.228935Z"
 }

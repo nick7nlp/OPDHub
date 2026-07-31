@@ -1,0 +1,75 @@
+✅ Refreshed known_arxiv_ids.txt: 1855 IDs
+[scout] DATE WINDOW (CST): 2026-07-30 → 2026-07-31  (days_back=1)
+[scout] accepting YYMM prefixes: ['2607']
+[scout] architecture: RSS-primary + API-verify + S2-crosscheck
+[scout] known IDs to skip: 1855
+
+[scout] === Phase 1: RSS feeds (3 categories) ===
+[scout/rss] cs.CL: 132 total items, 14 OPD-keyword matches
+[scout/rss] cs.LG: 237 total items, 28 OPD-keyword matches
+[scout/rss] cs.AI: 282 total items, 23 OPD-keyword matches
+[scout/rss] total unique candidates: 47
+
+[scout] === Phase 2: S2 cross-check (4 queries) ===
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] added 0 papers not found in RSS
+
+[scout] combined unique: 47 (RSS: 47, S2-extra: 0)
+
+[scout] === Phase 3: no S2-sourced papers to verify ===
+
+[scout] ✅ 47 new candidates for deep-read
+[scout] wrote /tmp/scout_arxiv_results.json
+
+## Scout Summary: 47 new in-window candidates
+
+  - 2607.26178 [rss/ok] DuplexGen: Adaptive Synthesis of Human-AI Turn-Taking Dialogues
+  - 2607.26375 [rss/ok] (Im)Paired Programming: Coding Agents Improve Productivity but Harm Understandin
+  - 2607.26448 [rss/ok] Mergeable Model-Side Aggregation States for Long-Context Language Models
+  - 2607.26555 [rss/ok] Where Detectors Fail: Closing the Tail-Domain Gap with Expert-Guided Mutual Dist
+  - 2607.26637 [rss/ok] Filesystem-Based Memory for LLM Agents: Organization, Evolution, and Sustainabil
+  - 2607.26760 [rss/ok] Metis: Memory Foundation Model
+  - 2607.26873 [rss/ok] SERPO: Self-Evolving Rubric Policy Optimization for Open-Ended Test-Time Reinfor
+  - 2607.26977 [rss/ok] TREK: A Travel Reasoning and Evaluation Kit for LLM Agents in Complex Trip Plann
+  - 2607.26115 [rss/ok] GPT-Red: Automated Red Teaming via Self-Play at Scale
+  - 2607.26119 [rss/ok] Probing the Origins of Reasoning Performance: Representational Quality for Mathe
+  - 2607.26473 [rss/ok] Learning Dynamic User Personas from Implicit Interaction Streams via Iterative R
+  - 2607.26998 [rss/ok] AgentSnare: Learning to Delay, Divert, and Defuse Autonomous Penetration Agents
+  - 2607.27081 [rss/ok] On-Policy Distillation for LLM Safety: A Routing Approach to Template-Robust Rea
+  - 2607.27146 [rss/ok] MindForge: Teaching Small Language Models Whole-Life-Cycle Software Engineering 
+  - 2607.26173 [rss/ok] Shared SFT Lessons Across Alignment, Model Organisms, and Toy Models
+  - 2607.26246 [rss/ok] Weak-to-Strong On-Policy Distillation
+  - 2607.26253 [rss/ok] Early Verdicts, Better Budgets: Sequential Adaptive Rollout Allocation for Compu
+  - 2607.26417 [rss/ok] SCOUT: Per-Context Reset Curricula for Sparse-Reward Reinforcement Learning
+  - 2607.26515 [rss/ok] HiFloat4 Format for End-To-End Reinforcement Learning Post-Training of Large Lan
+  - 2607.26577 [rss/ok] Simultaneous Coverage and Efficiency Guarantee in Online Conformal Prediction
+  - 2607.26784 [rss/ok] SkillRise: Agentic Reinforcement Learning for Cross-Task Skill Evolution
+  - 2607.26801 [rss/ok] FedTopo: Relation-Level Topology Sharing for Model-Heterogeneous Federated Learn
+  - 2607.26820 [rss/ok] Forecasting Trajectory-Level Safety Risks in Black-Box Multi-Turn Interactions
+  - 2607.26860 [rss/ok] Amortized Moment Matching for Visual Generation
+  - 2607.26862 [rss/ok] ReCo: Reweighting GRPO Against Distributional Concentration
+  - 2607.26924 [rss/ok] Temporally Centered SIGReg Improves Multi-Task LeWorldModel Learning: From Analy
+  - 2607.27054 [rss/ok] CoCaRS: Correlation Calibration-Based Redundancy Suppression for Heterogeneous K
+  - 2607.27143 [rss/ok] Cost-Sensitive Conformal Prediction and Human-in-the-Loop Abstention for Imbalan
+  - 2607.27203 [rss/ok] Do You Really Need to Pretrain Q-Functions for Online RL Fine-Tuning?
+  - 2607.26063 [rss/ok] Archetypes or ability? Clustering for modelling student mathematical competence
+  - 2607.26238 [rss/ok] Lightweight Image Classification of Raptor Species for Edge Devices: Rare-Specie
+  - 2607.26562 [rss/ok] Adaptive Gradient-Based Methods for a Broader Class of Optimization Problems und
+  - 2607.26722 [rss/ok] DREvo: Distilling Recalibrated Historical Experience for Harness Self-Evolution
+  - 2607.27000 [rss/ok] On the robustness of noisy solutions in non-convex neural networks
+  - 2607.27036 [rss/ok] Mitigating Compounding Error via Video Representation Regularization
+  - 2607.27105 [rss/ok] Detecting seizure onset and offset times using human intelligence: A critical-tr
+  - 2607.26367 [rss/ok] Exploring Structures in Physics Problems: Can AI Agents Discover Statistical Mec
+  - 2607.26452 [rss/ok] CG-World: A Large-Scale World-State Dataset and Protocol for World Models
+  - 2607.26903 [rss/ok] From Passive Video to Editable Experience: Physically Grounded Experience Synthe
+  - 2607.27177 [rss/ok] Partner Capability Estimation for Task-Agnostic Adaptation in Ad-Hoc Teamwork
+  - 2607.26067 [rss/ok] The Easy Trap: Why LLMs Underestimate Misconception-Driven Difficulty
+  - 2607.26651 [rss/ok] Physically Real-time Infrared Attack against Optical Flow Estimation Networks
+  - 2607.26656 [rss/ok] Graph Is the Verifier: Agentic Reinforcement Learning for Interprocedural Vulner
+  - 2607.26735 [rss/ok] Dual Inversion for Text-to-Image Diffusion Models: From Both Prompt and Noise Pe
+  - 2607.27066 [rss/ok] SciFigAlign: Scoring Scientific Figures by Fine-tuned Alignment of Visuals with 
+  - 2607.27172 [rss/ok] Improving Item Discoverability in e-Commerce Search via Related Intent Generatio
+  - 2607.27179 [rss/ok] The Social Cost of an AI Teammate: How an Artificial Teammate Reshapes Human-Hum

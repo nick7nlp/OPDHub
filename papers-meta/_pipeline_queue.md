@@ -1720,3 +1720,56 @@
 - `2607.26005`  Pictura: Perspective-View Self-Play at Scale for Driving
 - `2607.26016`  MDTransformer: A Hardware-Software Co-Design of Mode-Division Photonic Transformer Accelerator with Inverse-De
 
+
+## 2026-07-31 (Fri) 09:27 — scout completed
+
+**47 candidates** downloaded to `pdfs/_staging/`. Follow-up Phase 2-7 **pending**.
+
+- `2607.26178`  DuplexGen: Adaptive Synthesis of Human-AI Turn-Taking Dialogues
+- `2607.26375`  (Im)Paired Programming: Coding Agents Improve Productivity but Harm Understanding
+- `2607.26448`  Mergeable Model-Side Aggregation States for Long-Context Language Models
+- `2607.26555`  Where Detectors Fail: Closing the Tail-Domain Gap with Expert-Guided Mutual Distillation
+- `2607.26637`  Filesystem-Based Memory for LLM Agents: Organization, Evolution, and Sustainability
+- `2607.26760`  Metis: Memory Foundation Model
+- `2607.26873`  SERPO: Self-Evolving Rubric Policy Optimization for Open-Ended Test-Time Reinforcement Learning
+- `2607.26977`  TREK: A Travel Reasoning and Evaluation Kit for LLM Agents in Complex Trip Planning
+- `2607.26115`  GPT-Red: Automated Red Teaming via Self-Play at Scale
+- `2607.26119`  Probing the Origins of Reasoning Performance: Representational Quality for Mathematical Problem-Solving in RL 
+- `2607.26473`  Learning Dynamic User Personas from Implicit Interaction Streams via Iterative Refinement
+- `2607.26998`  AgentSnare: Learning to Delay, Divert, and Defuse Autonomous Penetration Agents
+- `2607.27081`  On-Policy Distillation for LLM Safety: A Routing Approach to Template-Robust Realignment
+- `2607.27146`  MindForge: Teaching Small Language Models Whole-Life-Cycle Software Engineering via Source-Free Program Synthe
+- `2607.26173`  Shared SFT Lessons Across Alignment, Model Organisms, and Toy Models
+- `2607.26246`  Weak-to-Strong On-Policy Distillation
+- `2607.26253`  Early Verdicts, Better Budgets: Sequential Adaptive Rollout Allocation for Compute-Efficient RLVR
+- `2607.26417`  SCOUT: Per-Context Reset Curricula for Sparse-Reward Reinforcement Learning
+- `2607.26515`  HiFloat4 Format for End-To-End Reinforcement Learning Post-Training of Large Language Models
+- `2607.26577`  Simultaneous Coverage and Efficiency Guarantee in Online Conformal Prediction
+- `2607.26784`  SkillRise: Agentic Reinforcement Learning for Cross-Task Skill Evolution
+- `2607.26801`  FedTopo: Relation-Level Topology Sharing for Model-Heterogeneous Federated Learning
+- `2607.26820`  Forecasting Trajectory-Level Safety Risks in Black-Box Multi-Turn Interactions
+- `2607.26860`  Amortized Moment Matching for Visual Generation
+- `2607.26862`  ReCo: Reweighting GRPO Against Distributional Concentration
+- `2607.26924`  Temporally Centered SIGReg Improves Multi-Task LeWorldModel Learning: From Analysis to Method
+- `2607.27054`  CoCaRS: Correlation Calibration-Based Redundancy Suppression for Heterogeneous Knowledge Distillation
+- `2607.27143`  Cost-Sensitive Conformal Prediction and Human-in-the-Loop Abstention for Imbalanced High-Stakes Decision Suppo
+- `2607.27203`  Do You Really Need to Pretrain Q-Functions for Online RL Fine-Tuning?
+- `2607.26063`  Archetypes or ability? Clustering for modelling student mathematical competence
+- `2607.26238`  Lightweight Image Classification of Raptor Species for Edge Devices: Rare-Species Dataset Expansion via Video 
+- `2607.26562`  Adaptive Gradient-Based Methods for a Broader Class of Optimization Problems under Performative Prediction
+- `2607.26722`  DREvo: Distilling Recalibrated Historical Experience for Harness Self-Evolution
+- `2607.27000`  On the robustness of noisy solutions in non-convex neural networks
+- `2607.27036`  Mitigating Compounding Error via Video Representation Regularization
+- `2607.27105`  Detecting seizure onset and offset times using human intelligence: A critical-transitions-based approach
+- `2607.26367`  Exploring Structures in Physics Problems: Can AI Agents Discover Statistical Mechanical Mappings?
+- `2607.26452`  CG-World: A Large-Scale World-State Dataset and Protocol for World Models
+- `2607.26903`  From Passive Video to Editable Experience: Physically Grounded Experience Synthesis for Embodied Intelligence
+- `2607.27177`  Partner Capability Estimation for Task-Agnostic Adaptation in Ad-Hoc Teamwork
+- `2607.26067`  The Easy Trap: Why LLMs Underestimate Misconception-Driven Difficulty
+- `2607.26651`  Physically Real-time Infrared Attack against Optical Flow Estimation Networks
+- `2607.26656`  Graph Is the Verifier: Agentic Reinforcement Learning for Interprocedural Vulnerability Detection
+- `2607.26735`  Dual Inversion for Text-to-Image Diffusion Models: From Both Prompt and Noise Perspectives
+- `2607.27066`  SciFigAlign: Scoring Scientific Figures by Fine-tuned Alignment of Visuals with Manuscript Evidence
+- `2607.27172`  Improving Item Discoverability in e-Commerce Search via Related Intent Generation
+- `2607.27179`  The Social Cost of an AI Teammate: How an Artificial Teammate Reshapes Human-Human Communication in Small-Team
+
