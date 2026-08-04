@@ -5,7 +5,7 @@
 #   30 10 * * 1-5 /apdcephfs_cq8/.../scripts/cron_pipeline_phase2_7.sh
 #
 # What it does:
-#   Phase 2: batch deep-read (LLM API) on all un-read PDFs in _staging/ (days_back=3)
+#   Phase 2: batch deep-read (LLM API) on all un-read PDFs in _staging/
 #   Phase 3: triage — keep OPD=yes, exclude OPD=no (mv to trash, log to excluded-papers.md)
 #   Phase 3.5: 3-condition filter — reject false-positives (self-play, off-policy, analysis-only)
 #   Phase 4: awesome list inserter — add confirmed OPD papers to README
@@ -14,7 +14,8 @@
 #   Phase 7: git commit + push
 #
 # Safety:
-#   - deep-read uses --from-staging --days-back 2 (today+yesterday only, dedup built-in)
+#   - deep-read uses --from-staging --days-back 35 (loose backstop; scout already
+#     vetted freshness at download time — see Phase 2 comment for month-boundary rationale)
 #   - triage deletes non-OPD PDFs directly (rm, no .trash accumulation)
 #   - awesome inserter is idempotent (already_present = skip)
 #   - git push only if there are actual changes
@@ -53,14 +54,23 @@ cd "${PROJECT_ROOT}" || { echo "FATAL: cannot cd to ${PROJECT_ROOT}"; exit 2; }
 # ──────────────────────────────────────────────
 # Phase 2: Deep-read (LLM API)
 # ──────────────────────────────────────────────
-echo "▶ Phase 2: batch deep-read (--from-staging --days-back 2)"
+echo "▶ Phase 2: batch deep-read (--from-staging --days-back 35)"
 
 STAGING_COUNT=$(ls "${PROJECT_ROOT}/pdfs/_staging/"*.pdf 2>/dev/null | wc -l)
 echo "  _staging/ has ${STAGING_COUNT} PDFs total"
 
+# days-back=35 (not 2): staging PDFs are already freshness-vetted by scout
+# (RSS announce_type=new/cross, or S2 + API date-verify before download), so this
+# window is a loose backstop, not the real freshness guarantee. A tight window
+# (2) recreates the month-boundary bug: arXiv IDs carry the *submission* month,
+# so a paper submitted late last month but announced on day 1-2 of this month
+# still has last month's YYMM prefix and gets silently, permanently dropped
+# (confirmed: 2026-08-04, 45 papers rejected, 0 processed). 35 days covers any
+# realistic submission-to-announcement lag without reintroducing stale papers,
+# since staging never accumulates old PDFs (Phase 3/4.5 always drains it).
 python3 "${SCRIPTS}/batch_deep_read.py" \
     --from-staging \
-    --days-back 2 \
+    --days-back 35 \
     --workers 3 \
     --model claude \
     --summary-out "${DEEP_READ_SUMMARY}"

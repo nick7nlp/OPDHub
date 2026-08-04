@@ -151,7 +151,18 @@ def judge_paper(notes_db: dict, aid: str) -> tuple[str, str, str]:
     domain = datasets.get("domain", "") if isinstance(datasets, dict) else ""
     title = n.get("title", "")
     summary_text = n.get("summary", "")
-    scope_text = f"{title} | {summary_text} | {domain} | {full_text}"
+    # Also scan teacher/student model names + the on_policy_mechanism evidence quote —
+    # this is where concrete backbone identifiers (e.g. "SD3.5-Medium") and telltale
+    # technical details (e.g. "classifier-free guidance", "denoising transitions") live
+    # when title/summary stay generic (see 2607.24522 FlowCTS false-KEEP case).
+    pairs_text = ""
+    for p in (n.get("teacher_student_pairs", []) or []):
+        if isinstance(p, dict):
+            t = p.get("teacher", {}) if isinstance(p.get("teacher"), dict) else {}
+            s = p.get("student", {}) if isinstance(p.get("student"), dict) else {}
+            pairs_text += f" {t.get('name','')} {s.get('name','')}"
+    evidence_quote = opm.get("evidence_quote", "") or ""
+    scope_text = f"{title} | {summary_text} | {domain} | {full_text} | {pairs_text} | {evidence_quote}"
 
     non_llm_pats = (
         r"\b(robot\w*|VLA|manipulation|motor|locomot|embodied.agent|grasping|sim.to.real)\b",
@@ -159,10 +170,27 @@ def judge_paper(notes_db: dict, aid: str) -> tuple[str, str, str]:
         r"\b(image.gen|video.gen|T2I|text.to.image)\b",
         r"\b(speech.synth|TTS|voice.clone)\b",
     )
+    # Hard non-text generative backbones — image/video diffusion models with ZERO language
+    # modeling component. Unlike non_llm_pats above, these NEVER get the OPD-in-title/summary
+    # exemption: "Awesome LLM On-Policy Distillation" is scoped to language models, and a paper
+    # can't out-argue that scope just by using OPD terminology on a non-text backbone (SD3.5,
+    # SDXL, FLUX are definitionally not LLMs). Added after 2607.24522 (FlowCTS) slipped through
+    # Exemption 1 because its summary literally said "on-policy distillation for flow models".
+    hard_non_text_pats = (
+        r"\b(stable.diffusion|SD3\.?5?\b|SDXL|FLUX\.1|rectified.flow|flow.matching|classifier.free.guidance)\b",
+    )
     # OPD-in-title exemption: if the paper explicitly targets OPD as its contribution
     # (e.g. "VLA-OPD", "ProteinOPD", "On-Policy Self-Distillation"), it's applying OPD to a new domain → keep
     opd_in_title = bool(re.search(r"\bOPD\b|on.policy.*distill", title, re.I))
     opd_in_summary = bool(re.search(r"\bOPD\b|on.policy.*distill", summary_text, re.I))
+
+    for pat in hard_non_text_pats:
+        if re.search(pat, scope_text, re.I):
+            return (
+                "REJECT",
+                "R5",
+                f"非文本生成骨干 (无语言模型成分): 匹配 '{pat}' → OUT OF SCOPE (LLM-only survey, OPD 措辞不豁免)",
+            )
 
     for pat in non_llm_pats:
         if re.search(pat, scope_text, re.I):

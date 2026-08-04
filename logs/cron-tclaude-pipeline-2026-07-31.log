@@ -1,2 +1,5 @@
 
 ======== tclaude-cron pipeline | 2026-07-31 10:27 ========
+[wrapper] pipeline script exit 0
+**pipeline 摘要**：deep-read 47 篇，其中 keep 2 篇（2607.26246、2607.27081），其余 45 篇排除，git push 成功（已提交并推送）。
+[wrapper] tclaude summary exit 0 @ 10:46:53

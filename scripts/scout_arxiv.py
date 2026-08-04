@@ -359,10 +359,20 @@ def main():
           flush=True)
 
     # === DATE WINDOW filter ===
+    # RSS-sourced candidates are already guaranteed fresh by announce_type=new/cross
+    # (stale replace/replace-cross re-announces are dropped in search_rss()). Applying
+    # the YYMM-prefix window on top of that is redundant AND actively harmful at month
+    # boundaries: arXiv IDs reflect submission month, not announcement date, so a paper
+    # submitted late last month but announced in the first day(s) of this month still
+    # carries last month's prefix. With days_back=1, "yesterday" is also already in the
+    # new month by day 2, so 100% of that day's genuinely-new RSS candidates get rejected.
+    # Confirmed recurring: 2026-07-02 (63 rejected, 0 kept) and 2026-08-04 (45 rejected,
+    # 0 kept) both hit this. RSS's own freshness guarantee is the correct signal here —
+    # only S2-sourced candidates (which don't carry that guarantee) need the YYMM check.
     in_window = []
     rejected_dw = []
     for aid, r in all_results.items():
-        if is_within_date_window(aid, days_back=args.days_back):
+        if r.get("source") != "semantic_scholar" or is_within_date_window(aid, days_back=args.days_back):
             in_window.append(r)
         else:
             rejected_dw.append(aid)

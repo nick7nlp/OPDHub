@@ -1773,3 +1773,11 @@
 - `2607.27172`  Improving Item Discoverability in e-Commerce Search via Related Intent Generation
 - `2607.27179`  The Social Cost of an AI Teammate: How an Artificial Teammate Reshapes Human-Human Communication in Small-Team
 
+
+## 2026-08-03 (Mon) — weekend skip (PRE-CHECK exit 1)
+
+
+## 2026-08-04 (Tue) 09:27 — scout completed
+
+**0 candidates.** No follow-up needed.
+
