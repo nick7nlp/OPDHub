@@ -1,0 +1,149 @@
+✅ Refreshed known_arxiv_ids.txt: 1947 IDs
+[scout] DATE WINDOW (CST): 2026-08-04 → 2026-08-05  (days_back=1)
+[scout] accepting YYMM prefixes: ['2608']
+[scout] architecture: RSS-primary + API-verify + S2-crosscheck
+[scout] known IDs to skip: 1947
+
+[scout] === Phase 1: RSS feeds (3 categories) ===
+[scout/rss] cs.CL: 302 total items, 42 OPD-keyword matches
+[scout/rss] cs.LG: 565 total items, 52 OPD-keyword matches
+[scout/rss] cs.AI: 710 total items, 88 OPD-keyword matches
+[scout/rss] total unique candidates: 138
+
+[scout] === Phase 2: S2 cross-check (4 queries) ===
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] added 13 papers not found in RSS
+
+[scout] combined unique: 151 (RSS: 138, S2-extra: 13)
+[scout] ⚠️ 13 rejected by DATE WINDOW: ['2605.07725', '2605.12483', '2503.02832', '2511.10643', '2510.23497', '2605.28014', '2606.00564', '2607.16303', '2606.06712', '2604.07944']
+
+[scout] === Phase 3: no S2-sourced papers to verify ===
+
+[scout] ✅ 120 new candidates for deep-read
+[scout] wrote /tmp/scout_arxiv_results.json
+
+## Scout Summary: 120 new in-window candidates
+
+  - 2608.00005 [rss/ok] RubricReviewer: From Direct Critique to Objective and Comprehensive Rubric-Drive
+  - 2608.00012 [rss/ok] Obshazard-bench: Benchmarking Multimodal Foundation Models for Real-Time Disaste
+  - 2608.00059 [rss/ok] Neural Circuit Function Inference with LLMs
+  - 2608.00146 [rss/ok] DiffusionGemma Technical Report
+  - 2608.00432 [rss/ok] Deep Research Pretraining via Predictive Navigation
+  - 2608.00485 [rss/ok] SERL-SQL: Selective Hindsight Distillation for Text-to-SQL Reinforcement Agentic
+  - 2608.00533 [rss/ok] Native Multilingual Chain-of-Thought Reasoning in Low-Resource Southeast Asian L
+  - 2608.00538 [rss/ok] DE-NER : Zero-shot Named Entity Recognition via Dialogue Elicitation of Large La
+  - 2608.00622 [rss/ok] A Heuristic Perspective on Debiasing Language Models
+  - 2608.00677 [rss/ok] OpenART: Scaling Agent Red Teaming via Open-Ended Environment Evolution
+  - 2608.00712 [rss/ok] Exploiting Intrinsic Duality for Multi-Hop Question Generation
+  - 2608.00782 [rss/ok] Distill Where You Fail: Recovering Learning Signals of Negative RL-Groups from A
+  - 2608.00814 [rss/ok] OoO-Spec: Out-of-Order Semantic Speculation for Fast Tool Calling
+  - 2608.01034 [rss/ok] Opt.Gear Technical Report
+  - 2608.01247 [rss/ok] RestoreKV: Recovering Full-Cache Behavior Under Aggressive Query-Agnostic KV Cac
+  - 2608.01311 [rss/ok] RH-RAG: Trustworthy Long-Form Generation for Privacy-Constrained Settings
+  - 2608.01321 [rss/ok] BiCAA: Bidirectional Credit Assignment for Search-Augmented Agent
+  - 2608.01359 [rss/ok] EviSD: Evidence-Conditioned Self-Distillation for Search-Augmented Agents
+  - 2608.01395 [rss/ok] Language Equality has a Price: A Systematic Investigation of Multi-turn LLM Perf
+  - 2608.01672 [rss/ok] Learning What to Remember: Test-Time Training via Context Distillation
+  - 2608.01867 [rss/ok] CRISP: Critical Step Perception for Training Efficient Deep Search Agents
+  - 2608.01953 [rss/ok] Look Ahead Before You Distill: Future Trajectory Validation of Teacher Guidance 
+  - 2608.02101 [rss/ok] Cross-Domain Hybrid OPD for Generalizable Search Agents
+  - 2608.02110 [rss/ok] IACM-RL: Intent-Aware Context Management and Reinforcement Learning for Complex 
+  - 2608.02139 [rss/ok] Self-Improving Large Language Models via Progressive Experience Evolution
+  - 2608.02345 [rss/ok] Can AI Agents Simulate A/B Test Outcomes? A Validation Framework for Agentic Exp
+  - 2608.02353 [rss/ok] Global Optimization and Inference-Time Region Grafting for Agentic Workflows
+  - 2608.02358 [rss/ok] ScrambleToolBench: Agents Search Exhaustively Even When Their Own Map Points to 
+  - 2608.02372 [rss/ok] PredAct-Bench: Benchmarking Tool-Augmented Dialogue under Controlled Tool Noise
+  - 2608.00200 [rss/ok] TRACE-TS: Attribution-Grounded and Traceable Sensor-Language Reasoning for Human
+  - 2608.00220 [rss/ok] Verifier-Induced Support Reshaping in On-Policy Optimization
+  - 2608.01050 [rss/ok] Don't Offer What Can't Be Done: Deterministic Executability Gating for LLM Skill
+  - 2608.01147 [rss/ok] UniHEAR: Unified Heterogeneous-Source Attentive Retrieval for Knowledge-Based Vi
+  - 2608.01522 [rss/ok] Question Begets Question: Self-Evolving Curriculum for Reinforcement Fine-Tuning
+  - 2608.01559 [rss/ok] Does the Competitive Component of Adversarial Self-Play Improve Legal Reasoning?
+  - 2608.01662 [rss/ok] LongCat Sparse Attention: Taming the Lightning via Streaming-aware Hierarchical 
+  - 2608.01704 [rss/ok] Floor, Ceiling, and the Fusion Gap: How Much of Crowd Reading Attention Can Mach
+  - 2608.01742 [rss/ok] MemSIF: From Structured Interactions to Dual-Track Fact Memory for LLM Agents
+  - 2608.01743 [rss/ok] Toward Plasticity-Preserving KL Regularization for Capability Retention in LLM R
+  - 2608.02087 [rss/ok] Instruction-Conditioned Exploration with Asymmetric Reinforcement Learning and S
+  - 2608.02352 [rss/ok] Qwen-CUA: Native Computer Use for (almost) Everything
+  - 2608.02583 [rss/ok] UEmbed: Unified Sparse and Dense Multimodal Embeddings
+  - 2608.00106 [rss/ok] Learning Compositional Meta-Routing for Agentic Workflows: An Executable Benchma
+  - 2608.00129 [rss/ok] Progressive$^2$: A Teacher-Student Progressive Co-Evolving Knowledge Distillatio
+  - 2608.00246 [rss/ok] Similarity-Aware Machine Unlearning
+  - 2608.00320 [rss/ok] Neural operator learning for collision-aware trajectory planning of spacecraft s
+  - 2608.00491 [rss/ok] HP-JEPA: Hierarchical Partitioning for Multi-Resolution Graph Joint-Embedding Pr
+  - 2608.00568 [rss/ok] Fairness Auditing: Lower Bounds on Company Manipulation
+  - 2608.00621 [rss/ok] RHEA: Reliability-Harmonized Reconstruction and Assignment for Robust Multimodal
+  - 2608.00630 [rss/ok] Relative Parameter Importance in Task-Agnostic Replay-Free Continual Learning
+  - 2608.00850 [rss/ok] Adaptive Quantum Physics-Informed Neural Networks for Differential Equations wit
+  - 2608.01023 [rss/ok] Caliber: Cross-Architecture Extraction-Cost Control for Score-Returning APIs
+  - 2608.01263 [rss/ok] Distill What the Student Can See: Fisher-Projected On-Policy Distillation for Vi
+  - 2608.01283 [rss/ok] Riemannian Attention Mechanisms for Transformers: A Theoretical Framework and Ar
+  - 2608.01285 [rss/ok] Stop When Memory Suffices: Evidence-Conditioned Progressive Execution for LLM Ag
+  - 2608.01303 [rss/ok] AlphaG-OPD: Reliability-Gated Sibling Counterfactuals for On-Policy Distillation
+  - 2608.01357 [rss/ok] Do Neural Networks Really Beat the Curse of Dimensionality? A Bit-Complexity Vie
+  - 2608.01434 [rss/ok] Statistical Mechanics of Learning on Product Wasserstein Manifolds
+  - 2608.01563 [rss/ok] Meganeura: Portable GPU Training and Inference through Vulkan and Metal
+  - 2608.01597 [rss/ok] HindSearch: Trajectory-Level Hindsight Critique for Search-Augmented Reinforceme
+  - 2608.01717 [rss/ok] Beyond On-Policy Exploration: Integrating External Policy Rollouts for Reinforce
+  - 2608.01804 [rss/ok] LEAP: Lean Environment-Feedback via Adaptive Pruning for Code RL in GPU Kernel G
+  - 2608.02128 [rss/ok] CoRe-GNN: Multilevel Message passing on Coarsened graphs
+  - 2608.02222 [rss/ok] CRIP: Channel Level Representation Injection for Personalized One-Shot Federated
+  - 2608.02332 [rss/ok] Diffusion Policy with Behavioral Advantage Correction for Offline Reinforcement 
+  - 2509.11924 [rss/ok] Enriched text-guided variational multimodal knowledge distillation network (VMD)
+  - 2608.00069 [rss/ok] Hybrid Quantum CNN for Cross-Sensor Spaceborne Volcanic Thermal Activity Recogni
+  - 2608.00584 [rss/ok] Element-Aware Group Learning for E-Commerce Image Generation
+  - 2608.00657 [rss/ok] Causal Inference with Unstructured Treatments
+  - 2608.00675 [rss/ok] Round-Trip Consistency: Bidirectional Diffusion Models Can Predict Their Own Rol
+  - 2608.00796 [rss/ok] An Uncertainty-Driven Hybrid Deep Learning Approach for Broad-Coverage RF Modula
+  - 2608.00916 [rss/ok] Tevatron Meets Megatron: Expert-Parallel LLM Reranker Training on an Academic Bu
+  - 2608.01208 [rss/ok] Climate-Dyna Deep Hedging for XVAs: Model-Based Reinforcement Learning, Residual
+  - 2608.01336 [rss/ok] Asleep at the Wheel: JEPA's Limitations in Evaluating Novel Driving Data
+  - 2608.01418 [rss/ok] Reusing Rollouts under Policy Lag: Prefix-Normalized Policy Optimization for LLM
+  - 2608.01425 [rss/ok] Training Small LLMs as Spatial Multi-Agent Policies
+  - 2608.01452 [rss/ok] DynamicManip: Enabling Dynamic Manipulation from a Single Static Demonstration
+  - 2608.01821 [rss/ok] DAVET: Denoising-Aware Visual Evidence Trajectory Allocation for Diffusion Visio
+  - 2608.02302 [rss/ok] Trajectories That Segment Themselves: Agent-Declared Boundaries as a Training Un
+  - 2608.02365 [rss/ok] Faster-WAM: Do World Action Models Need Deep Action Modules?
+  - 2608.00001 [rss/ok] Revisiting Classic Thought Experiments to Measure Consciousness for Artificial I
+  - 2608.00215 [rss/ok] Personalizing Large Language Model Agents with Small Policy Models
+  - 2608.00298 [rss/ok] WM-Cov: Test Adequacy for Interactive World-Model-Style Autonomous Driving Simul
+  - 2608.00423 [rss/ok] Diagnose Before You Compress: Prediction-Independent Bottleneck Witness Refineme
+  - 2608.00680 [rss/ok] Multi-Dimensional Assessment for AI Cognition (MAAC): A Theoretical Framework fo
+  - 2608.00888 [rss/ok] Neuro-Evolved Heuristics for Variable Gapped Common Subsequence Identification
+  - 2608.00969 [rss/ok] PROGRESS: Coverage-guided RL to Train Search-augmented LLM Agent
+  - 2608.01112 [rss/ok] Fighting Fire with Fire: On the Feasibility of Protecting Exercises Against AI C
+  - 2608.01197 [rss/ok] Reputation-driven Cooperation in Lattice-based Decentralized Federated Learning 
+  - 2608.01324 [rss/ok] G-ReAct: Graph-Guided Deep Search via Structure-State Co-Evolution
+  - 2608.01341 [rss/ok] 402Pilot: An x402 Decision Layer for Autonomous Agent Micropayments
+  - 2608.01389 [rss/ok] KoVRE: Training an Efficient Embedding Model for Korean Visual Document Retrieva
+  - 2608.01589 [rss/ok] Is More Privileged Information Better? From Solution Traces to Problem-Solving S
+  - 2608.01593 [rss/ok] Latent Thought Credit: Multi-Answer Credit Assignment for Latent Reasoning
+  - 2608.01637 [rss/ok] Salami Attack: Stealthy Collusive Memory Poisoning against OpenClaw
+  - 2608.01667 [rss/ok] TCPO: Turn-Level Credit Policy Optimization
+  - 2608.01684 [rss/ok] GABench: A Comprehensive Benchmark for Evaluating LLM Agents on Graph Analysis T
+  - 2608.01735 [rss/ok] DAPD: Dual-Anchored Policy Distillation
+  - 2608.01755 [rss/ok] Deferred Exposure of Future Trajectories for Verifiable Reasoning in Autonomous 
+  - 2608.01802 [rss/ok] CoNav-UAV: Cooperative Dual-Altitude Aerial Navigation via Stackelberg Learning
+  - 2608.01822 [rss/ok] SearchMaster: Grounded and Regulated Self-Play for Search Agents
+  - 2608.01837 [rss/ok] PCSD: Persistent Consistency for Self-Distillation in Agentic Reinforcement Lear
+  - 2608.01856 [rss/ok] EchoChange: A Diffusion Language Model with Dual Pass Remasking for Factual Remo
+  - 2608.01926 [rss/ok] ProWorld: Progress-Aware Hyperbolic World Models for Long-Horizon Visual Goal Re
+  - 2608.02024 [rss/ok] EduZone: A Framework for Evaluating LLM Safety for K-12 Students and Teachers
+  - 2608.02063 [rss/ok] Cross-Fitted Residual Utility for Primary-Preserving Cognitive Decision Correcti
+  - 2608.02149 [rss/ok] Beyond the Mean: Multi-Moment Policy Optimization for LLM Reasoning
+  - 2608.02154 [rss/ok] Auditing Data Provenance in LLM Fine-tuning via Intrinsic Distributional Fingerp
+  - 2608.02195 [rss/ok] MEGRAG: Multi-Granular Evidence Graphs for Answer-Aware Multi-Hop RAG
+  - 2608.02347 [rss/ok] Mamba with Hierarchical Memory: Solving Representation Bottleneck in Long Sequen
+  - 2608.02409 [rss/ok] MonitrLLM: A Community-Centered Evaluation Infrastructure for Large Language Mod
+  - 2608.02444 [rss/ok] ParEvalLayer: When Partial LLM-Agent Evaluations Support a Decision
+  - 2608.02553 [rss/ok] A Taxonomy of Cognitive Capability Gaps in Generative and Agentic AI
+  - 2608.00028 [rss/ok] Width, Memory, and Delay: A Resource Accounting for the Limits of Flat Multi-Age
+  - 2608.00043 [rss/ok] Multimodal Wearable-Based Olfactory-Induced Emotion Recognition in Arousal-Valen
+  - 2608.00181 [rss/ok] Cross-Benchmark Generalization in Long-Horizon Agents
+  - 2608.00361 [rss/ok] Artificial Intelligence for the Characterization of Particles and Fibers by Opti
+  - 2608.00366 [rss/ok] Artificial Intelligence and Modeling &amp; Simulation: An Overview
+  - 2608.00437 [rss/ok] Distilling Reasoning Traces into Advisory Prompts for Software Engineering Tasks
+  - 2608.00625 [rss/ok] Learning-Based Motion Planning for Dynamic Environments: From Foundational Algor

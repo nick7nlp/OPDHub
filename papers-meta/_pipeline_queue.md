@@ -1781,3 +1781,129 @@
 
 **0 candidates.** No follow-up needed.
 
+
+## 2026-08-05 (Wed) 09:27 — scout completed
+
+**120 candidates** downloaded to `pdfs/_staging/`. Follow-up Phase 2-7 **pending**.
+
+- `2608.00005`  RubricReviewer: From Direct Critique to Objective and Comprehensive Rubric-Driven Peer Review
+- `2608.00012`  Obshazard-bench: Benchmarking Multimodal Foundation Models for Real-Time Disaster Intelligence from Raw Earth 
+- `2608.00059`  Neural Circuit Function Inference with LLMs
+- `2608.00146`  DiffusionGemma Technical Report
+- `2608.00432`  Deep Research Pretraining via Predictive Navigation
+- `2608.00485`  SERL-SQL: Selective Hindsight Distillation for Text-to-SQL Reinforcement Agentic Learning
+- `2608.00533`  Native Multilingual Chain-of-Thought Reasoning in Low-Resource Southeast Asian Languages
+- `2608.00538`  DE-NER : Zero-shot Named Entity Recognition via Dialogue Elicitation of Large Language Models
+- `2608.00622`  A Heuristic Perspective on Debiasing Language Models
+- `2608.00677`  OpenART: Scaling Agent Red Teaming via Open-Ended Environment Evolution
+- `2608.00712`  Exploiting Intrinsic Duality for Multi-Hop Question Generation
+- `2608.00782`  Distill Where You Fail: Recovering Learning Signals of Negative RL-Groups from Adaptive Teacher Guidance
+- `2608.00814`  OoO-Spec: Out-of-Order Semantic Speculation for Fast Tool Calling
+- `2608.01034`  Opt.Gear Technical Report
+- `2608.01247`  RestoreKV: Recovering Full-Cache Behavior Under Aggressive Query-Agnostic KV Cache Eviction
+- `2608.01311`  RH-RAG: Trustworthy Long-Form Generation for Privacy-Constrained Settings
+- `2608.01321`  BiCAA: Bidirectional Credit Assignment for Search-Augmented Agent
+- `2608.01359`  EviSD: Evidence-Conditioned Self-Distillation for Search-Augmented Agents
+- `2608.01395`  Language Equality has a Price: A Systematic Investigation of Multi-turn LLM Performance for EU-24+
+- `2608.01672`  Learning What to Remember: Test-Time Training via Context Distillation
+- `2608.01867`  CRISP: Critical Step Perception for Training Efficient Deep Search Agents
+- `2608.01953`  Look Ahead Before You Distill: Future Trajectory Validation of Teacher Guidance for Agentic On-Policy Distilla
+- `2608.02101`  Cross-Domain Hybrid OPD for Generalizable Search Agents
+- `2608.02110`  IACM-RL: Intent-Aware Context Management and Reinforcement Learning for Complex Tool Invocation under Dynamic 
+- `2608.02139`  Self-Improving Large Language Models via Progressive Experience Evolution
+- `2608.02345`  Can AI Agents Simulate A/B Test Outcomes? A Validation Framework for Agentic Experimentation
+- `2608.02353`  Global Optimization and Inference-Time Region Grafting for Agentic Workflows
+- `2608.02358`  ScrambleToolBench: Agents Search Exhaustively Even When Their Own Map Points to the Next Step
+- `2608.02372`  PredAct-Bench: Benchmarking Tool-Augmented Dialogue under Controlled Tool Noise
+- `2608.00200`  TRACE-TS: Attribution-Grounded and Traceable Sensor-Language Reasoning for Human Activity Understanding
+- `2608.00220`  Verifier-Induced Support Reshaping in On-Policy Optimization
+- `2608.01050`  Don't Offer What Can't Be Done: Deterministic Executability Gating for LLM Skill Selection at Scale
+- `2608.01147`  UniHEAR: Unified Heterogeneous-Source Attentive Retrieval for Knowledge-Based Visual Question Answering
+- `2608.01522`  Question Begets Question: Self-Evolving Curriculum for Reinforcement Fine-Tuning on Competition Mathematics
+- `2608.01559`  Does the Competitive Component of Adversarial Self-Play Improve Legal Reasoning? A Controlled Negative Result
+- `2608.01662`  LongCat Sparse Attention: Taming the Lightning via Streaming-aware Hierarchical Cross-Layer Indexing
+- `2608.01704`  Floor, Ceiling, and the Fusion Gap: How Much of Crowd Reading Attention Can Machines Predict?
+- `2608.01742`  MemSIF: From Structured Interactions to Dual-Track Fact Memory for LLM Agents
+- `2608.01743`  Toward Plasticity-Preserving KL Regularization for Capability Retention in LLM Reinforcement Learning
+- `2608.02087`  Instruction-Conditioned Exploration with Asymmetric Reinforcement Learning and Self-Distillation
+- `2608.02352`  Qwen-CUA: Native Computer Use for (almost) Everything
+- `2608.02583`  UEmbed: Unified Sparse and Dense Multimodal Embeddings
+- `2608.00106`  Learning Compositional Meta-Routing for Agentic Workflows: An Executable Benchmark
+- `2608.00129`  Progressive$^2$: A Teacher-Student Progressive Co-Evolving Knowledge Distillation Method for Substantial Model
+- `2608.00246`  Similarity-Aware Machine Unlearning
+- `2608.00320`  Neural operator learning for collision-aware trajectory planning of spacecraft swarms
+- `2608.00491`  HP-JEPA: Hierarchical Partitioning for Multi-Resolution Graph Joint-Embedding Predictive Learning
+- `2608.00568`  Fairness Auditing: Lower Bounds on Company Manipulation
+- `2608.00621`  RHEA: Reliability-Harmonized Reconstruction and Assignment for Robust Multimodal-Attributed Graph Clustering
+- `2608.00630`  Relative Parameter Importance in Task-Agnostic Replay-Free Continual Learning
+- `2608.00850`  Adaptive Quantum Physics-Informed Neural Networks for Differential Equations with Applications to Fluid Dynami
+- `2608.01023`  Caliber: Cross-Architecture Extraction-Cost Control for Score-Returning APIs
+- `2608.01263`  Distill What the Student Can See: Fisher-Projected On-Policy Distillation for Vision-Language Models
+- `2608.01283`  Riemannian Attention Mechanisms for Transformers: A Theoretical Framework and Architecture Design
+- `2608.01285`  Stop When Memory Suffices: Evidence-Conditioned Progressive Execution for LLM Agents
+- `2608.01303`  AlphaG-OPD: Reliability-Gated Sibling Counterfactuals for On-Policy Distillation in Symbolic Alpha Factor Disc
+- `2608.01357`  Do Neural Networks Really Beat the Curse of Dimensionality? A Bit-Complexity View
+- `2608.01434`  Statistical Mechanics of Learning on Product Wasserstein Manifolds
+- `2608.01563`  Meganeura: Portable GPU Training and Inference through Vulkan and Metal
+- `2608.01597`  HindSearch: Trajectory-Level Hindsight Critique for Search-Augmented Reinforcement Learning
+- `2608.01717`  Beyond On-Policy Exploration: Integrating External Policy Rollouts for Reinforcement Learning in Diffusion Lan
+- `2608.01804`  LEAP: Lean Environment-Feedback via Adaptive Pruning for Code RL in GPU Kernel Generation
+- `2608.02128`  CoRe-GNN: Multilevel Message passing on Coarsened graphs
+- `2608.02222`  CRIP: Channel Level Representation Injection for Personalized One-Shot Federated Learning
+- `2608.02332`  Diffusion Policy with Behavioral Advantage Correction for Offline Reinforcement Learning
+- `2509.11924`  Enriched text-guided variational multimodal knowledge distillation network (VMD) for automated diagnosis of pl
+- `2608.00069`  Hybrid Quantum CNN for Cross-Sensor Spaceborne Volcanic Thermal Activity Recognition Worldwide
+- `2608.00584`  Element-Aware Group Learning for E-Commerce Image Generation
+- `2608.00657`  Causal Inference with Unstructured Treatments
+- `2608.00675`  Round-Trip Consistency: Bidirectional Diffusion Models Can Predict Their Own Rollout Errors
+- `2608.00796`  An Uncertainty-Driven Hybrid Deep Learning Approach for Broad-Coverage RF Modulation Recognition
+- `2608.00916`  Tevatron Meets Megatron: Expert-Parallel LLM Reranker Training on an Academic Budget
+- `2608.01208`  Climate-Dyna Deep Hedging for XVAs: Model-Based Reinforcement Learning, Residual Climate HVA, and Hedge-Instru
+- `2608.01336`  Asleep at the Wheel: JEPA's Limitations in Evaluating Novel Driving Data
+- `2608.01418`  Reusing Rollouts under Policy Lag: Prefix-Normalized Policy Optimization for LLM Reinforcement Learning
+- `2608.01425`  Training Small LLMs as Spatial Multi-Agent Policies
+- `2608.01452`  DynamicManip: Enabling Dynamic Manipulation from a Single Static Demonstration
+- `2608.01821`  DAVET: Denoising-Aware Visual Evidence Trajectory Allocation for Diffusion Vision-Language Models
+- `2608.02302`  Trajectories That Segment Themselves: Agent-Declared Boundaries as a Training Unit
+- `2608.02365`  Faster-WAM: Do World Action Models Need Deep Action Modules?
+- `2608.00001`  Revisiting Classic Thought Experiments to Measure Consciousness for Artificial Intelligence Safety
+- `2608.00215`  Personalizing Large Language Model Agents with Small Policy Models
+- `2608.00298`  WM-Cov: Test Adequacy for Interactive World-Model-Style Autonomous Driving Simulation
+- `2608.00423`  Diagnose Before You Compress: Prediction-Independent Bottleneck Witness Refinement for LLM Serving Traces
+- `2608.00680`  Multi-Dimensional Assessment for AI Cognition (MAAC): A Theoretical Framework for Process-Oriented Cognitive E
+- `2608.00888`  Neuro-Evolved Heuristics for Variable Gapped Common Subsequence Identification
+- `2608.00969`  PROGRESS: Coverage-guided RL to Train Search-augmented LLM Agent
+- `2608.01112`  Fighting Fire with Fire: On the Feasibility of Protecting Exercises Against AI Cheating
+- `2608.01197`  Reputation-driven Cooperation in Lattice-based Decentralized Federated Learning through Evolutionary Game Theo
+- `2608.01324`  G-ReAct: Graph-Guided Deep Search via Structure-State Co-Evolution
+- `2608.01341`  402Pilot: An x402 Decision Layer for Autonomous Agent Micropayments
+- `2608.01389`  KoVRE: Training an Efficient Embedding Model for Korean Visual Document Retrieval
+- `2608.01589`  Is More Privileged Information Better? From Solution Traces to Problem-Solving Structure in Self-Distilled Rea
+- `2608.01593`  Latent Thought Credit: Multi-Answer Credit Assignment for Latent Reasoning
+- `2608.01637`  Salami Attack: Stealthy Collusive Memory Poisoning against OpenClaw
+- `2608.01667`  TCPO: Turn-Level Credit Policy Optimization
+- `2608.01684`  GABench: A Comprehensive Benchmark for Evaluating LLM Agents on Graph Analysis Tasks
+- `2608.01735`  DAPD: Dual-Anchored Policy Distillation
+- `2608.01755`  Deferred Exposure of Future Trajectories for Verifiable Reasoning in Autonomous Driving VLMs
+- `2608.01802`  CoNav-UAV: Cooperative Dual-Altitude Aerial Navigation via Stackelberg Learning
+- `2608.01822`  SearchMaster: Grounded and Regulated Self-Play for Search Agents
+- `2608.01837`  PCSD: Persistent Consistency for Self-Distillation in Agentic Reinforcement Learning
+- `2608.01856`  EchoChange: A Diffusion Language Model with Dual Pass Remasking for Factual Remote Sensing Disaster Change Cap
+- `2608.01926`  ProWorld: Progress-Aware Hyperbolic World Models for Long-Horizon Visual Goal Reaching
+- `2608.02024`  EduZone: A Framework for Evaluating LLM Safety for K-12 Students and Teachers
+- `2608.02063`  Cross-Fitted Residual Utility for Primary-Preserving Cognitive Decision Correction in Automatic Modulation Cla
+- `2608.02149`  Beyond the Mean: Multi-Moment Policy Optimization for LLM Reasoning
+- `2608.02154`  Auditing Data Provenance in LLM Fine-tuning via Intrinsic Distributional Fingerprints
+- `2608.02195`  MEGRAG: Multi-Granular Evidence Graphs for Answer-Aware Multi-Hop RAG
+- `2608.02347`  Mamba with Hierarchical Memory: Solving Representation Bottleneck in Long Sequence Modeling
+- `2608.02409`  MonitrLLM: A Community-Centered Evaluation Infrastructure for Large Language Models
+- `2608.02444`  ParEvalLayer: When Partial LLM-Agent Evaluations Support a Decision
+- `2608.02553`  A Taxonomy of Cognitive Capability Gaps in Generative and Agentic AI
+- `2608.00028`  Width, Memory, and Delay: A Resource Accounting for the Limits of Flat Multi-Agent Systems
+- `2608.00043`  Multimodal Wearable-Based Olfactory-Induced Emotion Recognition in Arousal-Valence Dimensions
+- `2608.00181`  Cross-Benchmark Generalization in Long-Horizon Agents
+- `2608.00361`  Artificial Intelligence for the Characterization of Particles and Fibers by Optical Microscopy
+- `2608.00366`  Artificial Intelligence and Modeling &amp; Simulation: An Overview
+- `2608.00437`  Distilling Reasoning Traces into Advisory Prompts for Software Engineering Tasks
+- `2608.00625`  Learning-Based Motion Planning for Dynamic Environments: From Foundational Algorithms to Emerging Paradigms
+
