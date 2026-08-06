@@ -1,0 +1,7 @@
+
+======== tclaude-cron scout | 2026-08-06 09:27 ========
+[wrapper] scout script exit 0
+基于日志和队列文件的只读检查：
+
+**本次 scout (2026-08-06) 下载了 60 个新的 OPD 候选论文（RSS 130 + S2 额外 15 中，经日期窗口 + 已知 ID 去重后）。**
+[wrapper] tclaude summary exit 0 @ 09:30:43

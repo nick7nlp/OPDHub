@@ -471,3 +471,17 @@ Prepared 9 papers for insertion:
 ▶ Phase 6: (skipped — heatmap/stats manual for now)
 
 ▶ Phase 7: git commit + push
+[master 7d4c5e0] cron: pipeline Phase 2-7 — 2026-08-05 (119 deep-read, keep 2608.00782,2608.01263,2608.01589,2608.01597,2608.01735,2608.01837,2608.01953,2608.02101,2608.02139)
+ 9 files changed, 3843 insertions(+), 1074 deletions(-)
+ create mode 100644 logs/cron-pipeline-2026-08-05.log
+ create mode 100644 logs/cron-scout-2026-08-05.log
+ create mode 100644 logs/cron-tclaude-pipeline-2026-08-05.log
+ create mode 100644 logs/cron-tclaude-scout-2026-08-05.log
+  survey repo: committed
+  awesome repo: no changes
+  survey repo: pushed
+  awesome repo: pushed
+
+================================================================
+  Pipeline complete  |  2026-08-05 11:02
+================================================================

@@ -61862,7 +61862,1000 @@
       "score": 8,
       "_worker": "v2-direct-llm-api",
       "_model": "claude"
+    },
+    "2608.02942": {
+      "_schema_version": "v3",
+      "paper_id": "2608.02942",
+      "title": "OPTD: On-Policy Transition Distillation with Consistency-Guided Adaptive Compression for Few-Step Diffusion Language Models",
+      "venue": "arXiv 2026",
+      "year": 2026,
+      "authors_first": "Xiaocheng Lu",
+      "affiliation_primary": "HKUST",
+      "summary": "On-policy transition distillation with adaptive compression for few-step diffusion LLMs",
+      "method": {
+        "training_loop": "Sample student-visited partial states via student rollout; frozen teacher constructs outcome-preserving compressed transitions; train with set-bottleneck certainty loss + frozen-teacher KL anchor on student states",
+        "loss_formulation": "L = L_set + λ_anchor * L_anchor, where L_set = max_{i∈V(x)} [log τ - log p_θ(ŷ_i|q,x,i)]_+ and L_anchor = mean_{i∈M_G(x)\\V(x)} D_KL(p_T^i ∥ p_θ^i)",
+        "data_source": "Training questions from GSM8K, MATH-500, MBPP, HumanEval; no gold responses used",
+        "key_components": [
+          "on-policy state sampling from student rollouts",
+          "consistency-guided adaptive compression via frozen teacher",
+          "set-bottleneck certainty forcing loss",
+          "frozen-teacher KL anchor regularization",
+          "joint outcome-consistency verification"
+        ]
+      },
+      "novelty": "Introduces on-policy state collection for few-step dLLM distillation with a consistency-guided adaptive compression mechanism that selects the longest outcome-preserving prefix of future candidates, verified jointly rather than independently, unlike prior off-policy methods",
+      "on_policy_mechanism": {
+        "student_rollout_in_training": "yes",
+        "rollout_frequency": "per-step",
+        "teacher_signal": "logits",
+        "signal_source": "external-teacher",
+        "evidence_quote": "OPTD samples partial states from the evolving student's inference policy and queries a frozen, question-only teacher (it sees only the question and the current partial state) for outcome-aligned future candidates."
+      },
+      "opd_classification": {
+        "is_opd": "yes",
+        "primary_section": "§4.2",
+        "secondary_sections": [
+          "§6.1",
+          "§4.3"
+        ],
+        "reasoning": "The method performs on-policy distillation with an adaptive compression mechanism that selects state-dependent transition targets and uses KL divergence from a frozen teacher on student-visited states, fitting adaptive objective design (§4.2)."
+      },
+      "teacher_student_pairs": [
+        {
+          "teacher": {
+            "name": "LLaDA-8B-Instruct (frozen TAD-S checkpoint)",
+            "family": "Llama",
+            "size_B": 8,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": false,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "LLaDA-8B-Instruct (TAD-S init + LoRA)",
+            "family": "Llama",
+            "size_B": 8,
+            "type": "dense",
+            "init_from": "RL-trained",
+            "is_self": false
+          },
+          "vocab_match": "shared",
+          "scenario": "main"
+        },
+        {
+          "teacher": {
+            "name": "LLaDA-8B-Instruct (frozen base)",
+            "family": "Llama",
+            "size_B": 8,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": false,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "LLaDA-8B-Instruct (base + LoRA)",
+            "family": "Llama",
+            "size_B": 8,
+            "type": "dense",
+            "init_from": "SFT",
+            "is_self": false
+          },
+          "vocab_match": "shared",
+          "scenario": "ablation"
+        }
+      ],
+      "training_setup": {
+        "compute_budget": "unspecified",
+        "tokens_seen_B": null,
+        "context_length": 256,
+        "rollout_batch_size": null,
+        "rollouts_per_iter": null,
+        "kl_coeff": 1.0,
+        "rl_algorithm": "pure-KD",
+        "stabilization_tricks": [
+          "frozen teacher prevents recursive certainty drift",
+          "LoRA rank-128 alpha-128"
+        ],
+        "warmup_off_policy": "yes",
+        "warmup_method": "off-policy KD"
+      },
+      "datasets": {
+        "train": [
+          "GSM8K",
+          "MATH-500",
+          "MBPP",
+          "HumanEval"
+        ],
+        "eval": [
+          "GSM8K",
+          "MATH-500",
+          "MBPP",
+          "HumanEval"
+        ],
+        "domain": "math"
+      },
+      "benchmarks": [
+        {
+          "name": "GSM8K",
+          "metric": "accuracy",
+          "student_baseline": 76.5,
+          "student_after_OPD": 78.85,
+          "delta": 2.35,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "MATH-500",
+          "metric": "accuracy",
+          "student_baseline": 34.2,
+          "student_after_OPD": 34.0,
+          "delta": -0.2,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "HumanEval",
+          "metric": "pass@1",
+          "student_baseline": 36.59,
+          "student_after_OPD": 37.2,
+          "delta": 0.61,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "MBPP",
+          "metric": "pass@1",
+          "student_baseline": 40.0,
+          "student_after_OPD": 38.8,
+          "delta": -1.2,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        }
+      ],
+      "key_findings": [
+        "OPTD achieves 313.18 average quality-constrained AUP, 27.5% above the best prior method TAD-S (245.59)",
+        "OPTD reaches 7.87 average TPF (6.69× vanilla LLaDA) with 47.21% average accuracy",
+        "Only 33.7% of student-visited states occur on teacher trajectories; coverage falls from 55.0% early to 6.5% after step 40",
+        "On-policy training gains +1.88 accuracy points over off-policy at 1024 updates with matched TPF",
+        "Joint consistency verification is necessary: 10 of 416 unions of individually valid tokens fail the joint check",
+        "Decoder-matched comparison shows +0.67 accuracy points and +4.4% TPF over TAD-S baseline"
+      ],
+      "ablations_summary": "State source (on-policy vs off-policy): +1.88pp accuracy at matched TPF. Teacher update (frozen vs refreshed): frozen gains +1.07 acc. Loss (set-bottleneck vs mean-hinge vs proj-KL): set-bottleneck best accuracy. Verification unit (joint vs independent): joint gains 0.67-0.89 accuracy. Adaptive vs fixed horizon: adaptive yields 7.2-29.2% more TPF.",
+      "limitations": [
+        "Confidence calibration and cross-backbone transfer remain open",
+        "Guarantee covers teacher-verified targets not inference-time actions",
+        "Transfer from base LLaDA yields much narrower speed range than TAD-S-initialized model"
+      ],
+      "failure_modes": [
+        "MBPP task shows accuracy regression (-1.20 points) under OPTD",
+        "Adaptive compression at large horizons trades 1.05-1.53 accuracy points for TPF gains",
+        "Only 10.1% of states have full 8× compression available"
+      ],
+      "compute_efficiency": {
+        "teacher_inference_cost": "amortized",
+        "speedup_vs_baseline": "6.69×",
+        "memory_footprint": "unspecified"
+      },
+      "openness": {
+        "code_released": "no",
+        "code_url": null,
+        "model_released": "no",
+        "data_released": "no"
+      },
+      "theory": {
+        "has_theoretical_analysis": "yes",
+        "theoretical_claim": "Lemma 1: fallback consistency guarantee - verified action S(x) is jointly outcome-preserving under frozen teacher with at most n counterfactual checks",
+        "proof_sketch": "C_0=∅ is always consistent (ordinary first teacher release), so m* is well-defined; descending exhaustive scan finds longest prefix preserving teacher rollout outcome in at most n checks"
+      },
+      "relevance_to_opd": "Directly proposes on-policy distillation for diffusion LLMs where the student generates its own partial states during training and receives frozen-teacher distributional supervision (KL anchor) on those states, addressing state-distribution mismatch inherent in off-policy few-step distillation",
+      "comparable_papers": [
+        "2306.13649",
+        "2606.18195",
+        "2607.16872",
+        "2606.06712",
+        "2601.07568"
+      ],
+      "score": 7,
+      "_worker": "v2-direct-llm-api",
+      "_model": "claude"
+    },
+    "2608.02948": {
+      "_schema_version": "v3",
+      "paper_id": "2608.02948",
+      "title": "Rubrics as Privileged Information for Open-Ended Generation",
+      "venue": "arXiv 2026",
+      "year": 2026,
+      "authors_first": "Deepika Bablani",
+      "affiliation_primary": "Apple",
+      "summary": "Extends on-policy self-distillation to open-ended generation using rubrics as soft privileged information",
+      "method": {
+        "training_loop": "Student generates on-policy rollout; EMA teacher conditioned on rubric PI scores rollout; minimize per-token reverse KL between student and rubric-conditioned teacher distributions with clipping",
+        "loss_formulation": "L(x,r,ŷ) = (1/|ŷ|) Σ_t min(τ, D_KL(π_S(·|x,ŷ_{<t}) ∥ π_T(·|x,r,ŷ_{<t})))",
+        "data_source": "HealthBench (2000 training prompts with physician-created rubrics), RubricHub Science (1000 prompts)",
+        "key_components": [
+          "rubrics as soft privileged information for teacher conditioning",
+          "on-policy self-distillation with EMA teacher",
+          "per-token KL clipping",
+          "reverse KL for mode-seeking behavior"
+        ]
+      },
+      "novelty": "Extends OPSD from verifiable domains (hard PI like ground-truth answers) to open-ended generation using soft PI (rubrics), showing rubric conditioning provides 1.7x stronger per-token KL signal than reference completions on student rollouts",
+      "on_policy_mechanism": {
+        "student_rollout_in_training": "yes",
+        "rollout_frequency": "per-step",
+        "teacher_signal": "logits",
+        "signal_source": "self",
+        "evidence_quote": "Given a prompt x, rubric r, and the student's on-policy roll-out ŷ∼ π_S(·|x), the teacher's response is additionally conditioned on the rubric: π_T(· | x,r,ŷ_{<t}), whereas the student has no rubric access"
+      },
+      "opd_classification": {
+        "is_opd": "yes",
+        "primary_section": "§5.3.2",
+        "secondary_sections": [
+          "§4.1",
+          "§5.1"
+        ],
+        "reasoning": "Self-distillation where same model acts as both teacher (with rubric PI) and student (without PI), using on-policy rollouts and per-token KL divergence loss - pure self-distillation with privileged information"
+      },
+      "teacher_student_pairs": [
+        {
+          "teacher": {
+            "name": "Qwen2.5-7B-Instruct (EMA)",
+            "family": "Qwen3",
+            "size_B": 7,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": true,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "Qwen2.5-7B-Instruct",
+            "family": "Qwen3",
+            "size_B": 7,
+            "type": "dense",
+            "init_from": "SFT",
+            "is_self": true
+          },
+          "vocab_match": "shared",
+          "scenario": "main"
+        },
+        {
+          "teacher": {
+            "name": "Qwen2.5-14B-Instruct (EMA)",
+            "family": "Qwen3",
+            "size_B": 14,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": true,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "Qwen2.5-14B-Instruct",
+            "family": "Qwen3",
+            "size_B": 14,
+            "type": "dense",
+            "init_from": "SFT",
+            "is_self": true
+          },
+          "vocab_match": "shared",
+          "scenario": "scaling"
+        },
+        {
+          "teacher": {
+            "name": "Llama-3.1-8B-Instruct (EMA)",
+            "family": "Llama",
+            "size_B": 8,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": true,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "Llama-3.1-8B-Instruct",
+            "family": "Llama",
+            "size_B": 8,
+            "type": "dense",
+            "init_from": "SFT",
+            "is_self": true
+          },
+          "vocab_match": "shared",
+          "scenario": "cross-family"
+        }
+      ],
+      "training_setup": {
+        "compute_budget": "unspecified",
+        "tokens_seen_B": null,
+        "context_length": null,
+        "rollout_batch_size": 32,
+        "rollouts_per_iter": 32,
+        "kl_coeff": null,
+        "rl_algorithm": "pure-KD",
+        "stabilization_tricks": [
+          "per-token KL clipping at τ=5.0",
+          "EMA teacher decay µ=0.02"
+        ],
+        "warmup_off_policy": "no",
+        "warmup_method": "n/a"
+      },
+      "datasets": {
+        "train": [
+          "HealthBench (2000 prompts)",
+          "RubricHub Science (1000 prompts)"
+        ],
+        "eval": [
+          "HealthBench test",
+          "HealthBench Hard",
+          "ResearchQA",
+          "MMLU",
+          "GSM8K",
+          "IFEval",
+          "TruthfulQA"
+        ],
+        "domain": "general"
+      },
+      "benchmarks": [
+        {
+          "name": "HealthBench test (Qwen2.5-7B)",
+          "metric": "rubric satisfaction",
+          "student_baseline": 0.169,
+          "student_after_OPD": 0.215,
+          "delta": 0.046,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "HealthBench test (Qwen2.5-14B)",
+          "metric": "rubric satisfaction",
+          "student_baseline": 0.269,
+          "student_after_OPD": 0.347,
+          "delta": 0.078,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "HealthBench test (Llama-3.1-8B)",
+          "metric": "rubric satisfaction",
+          "student_baseline": 0.141,
+          "student_after_OPD": 0.213,
+          "delta": 0.072,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "ResearchQA (Qwen2.5-7B)",
+          "metric": "rubric-criterion coverage",
+          "student_baseline": 0.574,
+          "student_after_OPD": 0.666,
+          "delta": 0.092,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        }
+      ],
+      "key_findings": [
+        "RuPI beats RaR GRPO by up to +0.10 absolute score on HealthBench while using 8× fewer on-policy generations per training prompt",
+        "Rubric conditioning produces 1.7× more per-token KL than reference conditioning on student rollouts",
+        "Soft rubric PI outperforms hard reference PI by +0.034 to +0.079 absolute score under matched recipe and KL direction across three models",
+        "On-policy rollouts are critical: off-policy (λ=0) collapses the rubric advantage and fails to improve over base",
+        "On RubricHub Science/ResearchQA, RuPI outperforms both reference-PI distillation and RaR RL (66.6% vs 64.2% and 57.6%)"
+      ],
+      "ablations_summary": "Key ablations: on-policy fraction (λ=0 vs 0.5 vs 1 shows monotonic improvement with on-policy fraction); forward vs reverse KL (comparable in-domain but reverse KL better preserves OOD capabilities); per-token KL clipping (removing clip changes score by ≤0.014); SFT baselines (neither reference-SFT nor RCG-SFT recovers RuPI's gain, confirming on-policy dense-KL mechanism is essential)",
+      "limitations": [
+        "Evaluated on only two open-ended domains (medical and scientific Q&A)",
+        "LoRA hyperparameters, EMA decay, and KL clip threshold inherited from prior work without sensitivity sweep",
+        "Cross-domain suite limited to 4 tasks; contamination-resistant benchmarks would strengthen OOD claim",
+        "Assumes rubric and reference answer are both high-quality and aligned with evaluation criteria",
+        "Low-quality or misaligned rubrics may transfer harmful guidance"
+      ],
+      "failure_modes": [
+        "Off-policy distillation (λ=0) eliminates the rubric advantage and fails to improve over base",
+        "Forward KL degrades instruction-following (IFEval) on Qwen models",
+        "When rubrics are low-quality, synthetically generated, or misaligned with downstream task, the ordering rubric PI > reference PI need not hold"
+      ],
+      "compute_efficiency": {
+        "teacher_inference_cost": "1×",
+        "speedup_vs_baseline": "not-reported",
+        "memory_footprint": "shared"
+      },
+      "openness": {
+        "code_released": "no",
+        "code_url": null,
+        "model_released": "no",
+        "data_released": "no"
+      },
+      "theory": {
+        "has_theoretical_analysis": "no",
+        "theoretical_claim": null,
+        "proof_sketch": null
+      },
+      "relevance_to_opd": "Directly extends on-policy self-distillation (OPSD) to open-ended generation by using rubrics as soft privileged information; student generates on-policy rollouts, teacher (EMA of student conditioned on rubric) provides dense per-token KL supervision on those rollouts",
+      "comparable_papers": [
+        "2402.13228",
+        "2601.18734",
+        "2601.19897",
+        "2601.20802"
+      ],
+      "score": 8,
+      "_worker": "v2-direct-llm-api",
+      "_model": "claude"
+    },
+    "2608.03092": {
+      "_schema_version": "v3",
+      "paper_id": "2608.03092",
+      "title": "SMOPD: Multi-Reward Reinforcement Learning via Specialize-and-Merge Online Policy Distillation",
+      "venue": "arXiv 2026",
+      "year": 2026,
+      "authors_first": "Wen Wang",
+      "affiliation_primary": "Alibaba",
+      "summary": "Two-stage multi-reward RL: specialize teachers per reward, merge via on-policy distillation",
+      "method": {
+        "training_loop": "Stage1: Train reward-specialized teachers with skewed GDPO priority weights. Stage2: Student generates rollouts, teachers provide top-κ logits on student prefixes, student minimizes forward KL to teacher mixture + balanced GDPO anchor loss.",
+        "loss_formulation": "L = L_GDPO(π_θ; w_equal) + λ · Σ_t KL(p_T_mix(·|s_t) || p_θ(·|s_t))",
+        "data_source": "RLLA-4K train split (ToolRL) for complementary rewards; Alpaca prompt-only for conflicting rewards",
+        "key_components": [
+          "reward-priority teacher specialization",
+          "union top-κ teacher mixture distribution",
+          "forward KL on-policy distillation loss",
+          "balanced GDPO sequence-level anchor"
+        ]
+      },
+      "novelty": "Resolves dense-vs-sparse reward signal imbalance in multi-reward RL by training separate reward-prioritized teachers then merging them via token-level on-policy distillation with a uniform teacher mixture and task anchor, unlike prior work that balances rewards within a single policy.",
+      "on_policy_mechanism": {
+        "student_rollout_in_training": "yes",
+        "rollout_frequency": "per-step",
+        "teacher_signal": "logits",
+        "signal_source": "external-teacher",
+        "evidence_quote": "Unlike offline distillation, the student generates its own responses (on-policy), and teachers provide top-𝜅 log-probabilities on the student's sequences—following the on-policy distillation paradigm"
+      },
+      "opd_classification": {
+        "is_opd": "yes",
+        "primary_section": "§5.1",
+        "secondary_sections": [
+          "§4.3",
+          "§6.1"
+        ],
+        "reasoning": "The method uses multiple white-box teachers providing logit-level supervision on student-generated rollouts via forward KL, combining RL anchor with token-level OPD in a multi-reward setting."
+      },
+      "teacher_student_pairs": [
+        {
+          "teacher": {
+            "name": "Qwen2.5-1.5B-Instruct (Accuracy Teacher)",
+            "family": "Qwen2.5",
+            "size_B": 1.5,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": false,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "Qwen2.5-1.5B-Instruct (SMOPD Student)",
+            "family": "Qwen2.5",
+            "size_B": 1.5,
+            "type": "dense",
+            "init_from": "SFT",
+            "is_self": false
+          },
+          "vocab_match": "shared",
+          "scenario": "main"
+        },
+        {
+          "teacher": {
+            "name": "Qwen2.5-1.5B-Instruct (Format Teacher)",
+            "family": "Qwen2.5",
+            "size_B": 1.5,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": false,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "Qwen2.5-1.5B-Instruct (SMOPD Student)",
+            "family": "Qwen2.5",
+            "size_B": 1.5,
+            "type": "dense",
+            "init_from": "SFT",
+            "is_self": false
+          },
+          "vocab_match": "shared",
+          "scenario": "main"
+        },
+        {
+          "teacher": {
+            "name": "Qwen2.5-3B-Instruct (Accuracy Teacher)",
+            "family": "Qwen2.5",
+            "size_B": 3,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": false,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "Qwen2.5-3B-Instruct (SMOPD Student)",
+            "family": "Qwen2.5",
+            "size_B": 3,
+            "type": "dense",
+            "init_from": "SFT",
+            "is_self": false
+          },
+          "vocab_match": "shared",
+          "scenario": "main"
+        },
+        {
+          "teacher": {
+            "name": "Qwen2.5-3B-Instruct (Format Teacher)",
+            "family": "Qwen2.5",
+            "size_B": 3,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": false,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "Qwen2.5-3B-Instruct (SMOPD Student)",
+            "family": "Qwen2.5",
+            "size_B": 3,
+            "type": "dense",
+            "init_from": "SFT",
+            "is_self": false
+          },
+          "vocab_match": "shared",
+          "scenario": "main"
+        },
+        {
+          "teacher": {
+            "name": "Qwen2.5-7B-Instruct (Useful Teacher)",
+            "family": "Qwen2.5",
+            "size_B": 7,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": false,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "Qwen2.5-7B-Instruct (SMOPD Student)",
+            "family": "Qwen2.5",
+            "size_B": 7,
+            "type": "dense",
+            "init_from": "SFT",
+            "is_self": false
+          },
+          "vocab_match": "shared",
+          "scenario": "main"
+        },
+        {
+          "teacher": {
+            "name": "Qwen2.5-7B-Instruct (Harmless Teacher)",
+            "family": "Qwen2.5",
+            "size_B": 7,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": false,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "Qwen2.5-7B-Instruct (SMOPD Student)",
+            "family": "Qwen2.5",
+            "size_B": 7,
+            "type": "dense",
+            "init_from": "SFT",
+            "is_self": false
+          },
+          "vocab_match": "shared",
+          "scenario": "main"
+        },
+        {
+          "teacher": {
+            "name": "Llama-3.2-3B-Instruct (Useful Teacher)",
+            "family": "Llama",
+            "size_B": 3,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": false,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "Llama-3.2-3B-Instruct (SMOPD Student)",
+            "family": "Llama",
+            "size_B": 3,
+            "type": "dense",
+            "init_from": "SFT",
+            "is_self": false
+          },
+          "vocab_match": "shared",
+          "scenario": "main"
+        },
+        {
+          "teacher": {
+            "name": "Llama-3.2-3B-Instruct (Harmless Teacher)",
+            "family": "Llama",
+            "size_B": 3,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": false,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "Llama-3.2-3B-Instruct (SMOPD Student)",
+            "family": "Llama",
+            "size_B": 3,
+            "type": "dense",
+            "init_from": "SFT",
+            "is_self": false
+          },
+          "vocab_match": "shared",
+          "scenario": "main"
+        }
+      ],
+      "training_setup": {
+        "compute_budget": "8×H100",
+        "tokens_seen_B": null,
+        "context_length": 1024,
+        "rollout_batch_size": 512,
+        "rollouts_per_iter": null,
+        "kl_coeff": 1.0,
+        "rl_algorithm": "GRPO",
+        "stabilization_tricks": [
+          "clipped surrogate objective",
+          "batch-wise whitening"
+        ],
+        "warmup_off_policy": "no",
+        "warmup_method": "n/a"
+      },
+      "datasets": {
+        "train": [
+          "RLLA-4K (ToolRL)",
+          "Alpaca (prompt-only)"
+        ],
+        "eval": [
+          "RLLA-4K test",
+          "BFCL-v4",
+          "API-Bank",
+          "HH-RLHF",
+          "PKU-SafeRLHF",
+          "Alpaca"
+        ],
+        "domain": "general"
+      },
+      "benchmarks": [
+        {
+          "name": "RLLA Mean (1.5B)",
+          "metric": "composite reward (acc+format)",
+          "student_baseline": 1.849,
+          "student_after_OPD": 2.74,
+          "delta": 0.891,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "API-Bank LLM-Judge Avg (1.5B)",
+          "metric": "accuracy (%)",
+          "student_baseline": 83.6,
+          "student_after_OPD": 87.1,
+          "delta": 3.5,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "Safe Domain Overall (7B)",
+          "metric": "dual RM mean",
+          "student_baseline": 5.498,
+          "student_after_OPD": 5.646,
+          "delta": 0.148,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "Safe Domain Overall (3B, Qwen2.5)",
+          "metric": "dual RM mean",
+          "student_baseline": 5.598,
+          "student_after_OPD": 5.669,
+          "delta": 0.071,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "Safe Domain Overall (3B, Llama-3.2)",
+          "metric": "dual RM mean",
+          "student_baseline": 5.583,
+          "student_after_OPD": 5.59,
+          "delta": 0.007,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        }
+      ],
+      "key_findings": [
+        "On Qwen2.5-1.5B complementary rewards, SMOPD achieves +48% composite gain over GDPO baseline (2.740 vs 1.849) with format compliance jumping from 8.8% to 97.5%.",
+        "The merged SMOPD student surpasses both individual teachers on safe alignment across three backbones.",
+        "Top-16 teacher probability mass preserves ~0.994 of teacher distribution, making larger κ unnecessary.",
+        "Forward KL outperforms reverse KL by 0.082 Overall on 7B safe alignment due to mode-covering behavior preserving diverse teacher capabilities.",
+        "Uniform teacher mixing outperforms adaptive confidence-failure gates across most settings."
+      ],
+      "ablations_summary": "Task anchor adds +0.095 Overall beyond pure OPD (5.544→5.639 on 7B). Forward KL is stable across κ∈{16,32,64} (spread 0.007). Reverse KL underperforms forward KL by 0.082. Uniform mixing beats adaptive sequence/token gates. Moderate priority profiles (0.7/0.3) work as well as aggressive (0.9/0.1).",
+      "limitations": [
+        "Teachers are same size as student (no larger teacher benefit explored)",
+        "Anchor uses GDPO which could be improved with better advantage estimators like GD2PO",
+        "Evaluated only on up to 7B scale"
+      ],
+      "failure_modes": [
+        "On Llama-3.2-3B where teacher specialization is most challenging, both teachers degrade substantially and SMOPD only approaches but does not surpass the strongest scalarized baseline GD2PO"
+      ],
+      "compute_efficiency": {
+        "teacher_inference_cost": "1×",
+        "speedup_vs_baseline": "not-reported",
+        "memory_footprint": "unspecified"
+      },
+      "openness": {
+        "code_released": "no",
+        "code_url": null,
+        "model_released": "no",
+        "data_released": "no"
+      },
+      "theory": {
+        "has_theoretical_analysis": "yes",
+        "theoretical_claim": "Pure OPD is capped at teacher mixture (gradient vanishes at p_θ=q), while the anchor's policy gradient survives at this ceiling, enabling the student to exceed teachers.",
+        "proof_sketch": "Forward KL gradient equals zero when student matches mixture; policy gradient from GDPO anchor remains nonzero unless mixture already locally maximizes task reward; for sparse rewards, OPD activates the anchor by raising success rate above zero."
+      },
+      "relevance_to_opd": "Directly proposes a multi-teacher on-policy distillation method where the student generates rollouts, frozen reward-specialized teachers provide top-κ logit distributions on student sequences, and the student minimizes forward KL to the teacher mixture—a core OPD contribution for multi-reward balancing.",
+      "comparable_papers": [
+        "2312.11190",
+        "2306.08543",
+        "2402.13228",
+        "2505.11711"
+      ],
+      "score": 9,
+      "_worker": "v2-direct-llm-api",
+      "_model": "claude"
+    },
+    "2608.03610": {
+      "_schema_version": "v3",
+      "paper_id": "2608.03610",
+      "title": "Language-Specialized Multi-Teacher On-Policy Distillation for Multilingual LLM-Based ASR",
+      "venue": "arXiv 2026",
+      "year": 2026,
+      "authors_first": "Yuan Xie",
+      "affiliation_primary": "NIO",
+      "summary": "Multi-teacher on-policy distillation with language routing for multilingual LLM-based ASR",
+      "method": {
+        "training_loop": "Train language-specialized teachers via DAPO RL; student generates on-policy rollouts; route to top-K teachers per language; compute weighted reverse-KL token-level loss; update student",
+        "loss_formulation": "L_MOPD(θ) = E_{x~D} [Σ_{k=1}^K λ_k L_k(x;θ)], L_k = E_{τ~π_θ} [1/|τ| Σ_t D_KL(π_θ(·|s_t) ∥ π^T_{ϕ_{ℓ(x),k}}(·|s_t))]",
+        "data_source": "50k multilingual utterances from WenetSpeech, KeSpeech, WenetSpeech-Yue, LibriSpeech",
+        "key_components": [
+          "DAPO-based language-specialized teacher training",
+          "language-routed top-K teacher selection",
+          "weighted multi-teacher token-level reverse-KL aggregation",
+          "static vs dynamic acoustic prefix configurations"
+        ]
+      },
+      "novelty": "First application of multi-teacher on-policy distillation to ASR, introducing language routing, acoustic-prefix configurations (static/dynamic), and weighted multi-teacher aggregation that enables student to surpass all teachers",
+      "on_policy_mechanism": {
+        "student_rollout_in_training": "yes",
+        "rollout_frequency": "per-step",
+        "teacher_signal": "logits",
+        "signal_source": "external-teacher",
+        "evidence_quote": "the student generates an on-policy trajectory τ ∼ π_θ(· | x). Let s_t = (x, τ_{<t}) denote the decoding state at step t. The distillation loss from the k-th ranked teacher is defined as L_k(x;θ) = E_{τ∼π_θ} [1/|τ| Σ_t D_KL(π_θ(·|s_t) ∥ π^T_{ϕ_{ℓ(x),k}}(·|s_t))]"
+      },
+      "opd_classification": {
+        "is_opd": "yes",
+        "primary_section": "§8.2",
+        "secondary_sections": [
+          "§5.1",
+          "§6.1"
+        ],
+        "reasoning": "Paper applies on-policy distillation with multiple language-specialized teachers to a new domain (ASR), with language routing and weighted multi-teacher aggregation as the core contribution, fitting applications/new domains."
+      },
+      "teacher_student_pairs": [
+        {
+          "teacher": {
+            "name": "Language-specialized RL teacher (Mandarin)",
+            "family": "Qwen3",
+            "size_B": 2.3,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": false,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "NIM4-ASR student",
+            "family": "Qwen3",
+            "size_B": 2.3,
+            "type": "dense",
+            "init_from": "base",
+            "is_self": false
+          },
+          "vocab_match": "shared",
+          "scenario": "main"
+        },
+        {
+          "teacher": {
+            "name": "Language-specialized RL teacher (Chinese dialects)",
+            "family": "Qwen3",
+            "size_B": 2.3,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": false,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "NIM4-ASR student",
+            "family": "Qwen3",
+            "size_B": 2.3,
+            "type": "dense",
+            "init_from": "base",
+            "is_self": false
+          },
+          "vocab_match": "shared",
+          "scenario": "main"
+        },
+        {
+          "teacher": {
+            "name": "Language-specialized RL teacher (English)",
+            "family": "Qwen3",
+            "size_B": 2.3,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": false,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "NIM4-ASR student",
+            "family": "Qwen3",
+            "size_B": 2.3,
+            "type": "dense",
+            "init_from": "base",
+            "is_self": false
+          },
+          "vocab_match": "shared",
+          "scenario": "main"
+        },
+        {
+          "teacher": {
+            "name": "Generalist RL teacher",
+            "family": "Qwen3",
+            "size_B": 2.3,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": false,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "NIM4-ASR student",
+            "family": "Qwen3",
+            "size_B": 2.3,
+            "type": "dense",
+            "init_from": "base",
+            "is_self": false
+          },
+          "vocab_match": "shared",
+          "scenario": "ablation"
+        }
+      ],
+      "training_setup": {
+        "compute_budget": "8×A100",
+        "tokens_seen_B": null,
+        "context_length": null,
+        "rollout_batch_size": null,
+        "rollouts_per_iter": null,
+        "kl_coeff": null,
+        "rl_algorithm": "pure-KD",
+        "stabilization_tricks": [
+          "asymmetric clipping in DAPO teacher training",
+          "dynamic sampling",
+          "token-level objective"
+        ],
+        "warmup_off_policy": "no",
+        "warmup_method": "n/a"
+      },
+      "datasets": {
+        "train": [
+          "WenetSpeech",
+          "KeSpeech",
+          "WenetSpeech-Yue",
+          "LibriSpeech"
+        ],
+        "eval": [
+          "WeNet (meet/net)",
+          "KeSpeech test",
+          "WeNet-Yue (short/long)",
+          "LibriSpeech (clean/other)"
+        ],
+        "domain": "multi-modal"
+      },
+      "benchmarks": [
+        {
+          "name": "Average (offline)",
+          "metric": "CER/WER",
+          "student_baseline": 4.7,
+          "student_after_OPD": 4.45,
+          "delta": -0.25,
+          "teacher_score": 4.59,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "WeNet-meet (offline, static)",
+          "metric": "CER",
+          "student_baseline": 5.01,
+          "student_after_OPD": 4.6,
+          "delta": -0.41,
+          "teacher_score": 4.77,
+          "gap_closed_pct": null,
+          "is_main_result": false
+        },
+        {
+          "name": "LibriSpeech clean (offline, static)",
+          "metric": "WER",
+          "student_baseline": 1.23,
+          "student_after_OPD": 1.12,
+          "delta": -0.11,
+          "teacher_score": 1.18,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "Average (streaming, static)",
+          "metric": "CER/WER",
+          "student_baseline": 5.74,
+          "student_after_OPD": 5.18,
+          "delta": -0.56,
+          "teacher_score": 5.37,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        }
+      ],
+      "key_findings": [
+        "LS-MOPD with 3 teachers achieves 4.45% average error rate in offline setting, outperforming the best-teacher oracle (4.59%) and all open-source baselines",
+        "Static acoustic prefix yields better gradient alignment and distillation performance despite slightly weaker teachers compared to dynamic prefix",
+        "Multi-teacher aggregation consistently outperforms single-teacher distillation, with student surpassing all individual teachers on most benchmarks",
+        "In streaming setting, LS-MOPD with 3 teachers reduces average error from 5.74% to 5.18%, a 9.8% relative improvement"
+      ],
+      "ablations_summary": "Key ablations compare static vs dynamic acoustic prefix (static wins on gradient alignment and final performance), number of teachers (1/2/3, with diminishing but positive gains from additional teachers), and teacher aggregation weights (0.6/0.2/0.2 for 3 teachers)",
+      "limitations": [
+        "Evaluation covers only a single model backbone and limited set of target languages",
+        "Dynamic acoustic-prefix configuration remains preliminary and does not fully exploit its potential",
+        "Broader validation across model architectures and languages is still warranted"
+      ],
+      "failure_modes": [
+        "Dynamic acoustic prefix can cause teacher-student conditioning mismatch, reducing distillation effectiveness",
+        "In streaming with dynamic prefix, adding more teachers does not always improve performance on all subsets"
+      ],
+      "compute_efficiency": {
+        "teacher_inference_cost": "unknown",
+        "speedup_vs_baseline": "not-reported",
+        "memory_footprint": "unspecified"
+      },
+      "openness": {
+        "code_released": "no",
+        "code_url": null,
+        "model_released": "no",
+        "data_released": "no"
+      },
+      "theory": {
+        "has_theoretical_analysis": "no",
+        "theoretical_claim": null,
+        "proof_sketch": null
+      },
+      "relevance_to_opd": "Directly extends on-policy distillation to multilingual ASR with language-routed multi-teacher supervision on student-generated rollouts using reverse-KL loss, demonstrating student can surpass all teachers",
+      "comparable_papers": [
+        "2606.30406",
+        "2407.04675",
+        "2601.02780"
+      ],
+      "score": 8,
+      "_worker": "v2-direct-llm-api",
+      "_model": "claude"
     }
   },
-  "last_updated": "2026-08-05T00:00:00Z"
+  "last_updated": "2026-08-06T02:42:43.222115Z"
 }

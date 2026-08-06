@@ -1907,3 +1907,69 @@
 - `2608.00437`  Distilling Reasoning Traces into Advisory Prompts for Software Engineering Tasks
 - `2608.00625`  Learning-Based Motion Planning for Dynamic Environments: From Foundational Algorithms to Emerging Paradigms
 
+
+## 2026-08-06 (Thu) 09:27 — scout completed
+
+**60 candidates** downloaded to `pdfs/_staging/`. Follow-up Phase 2-7 **pending**.
+
+- `2608.02694`  Crayotter: Learning Long-Horizon Video Editing Agents via Group-Relative Preference Backpropagation
+- `2608.02867`  BODHI: Do LLMs Branch Out and Discover Heterogeneous Inferences?
+- `2608.02942`  OPTD: On-Policy Transition Distillation with Consistency-Guided Adaptive Compression for Few-Step Diffusion La
+- `2608.02975`  TQLite: Multi-LLM Jury Guided Distillation for Real-time MQM Translation Quality Evaluation
+- `2608.03089`  Scalable Frequency- and Length-Aware Subdocument Deduplication for Large Language Model Pretraining
+- `2608.03118`  From SQL Errors to Concept Gaps: An AI-Powered Knowledge Graph Analytics Platform for Personalized Feedback
+- `2608.03210`  ICO: Enhancing Semantic-Shift Jailbreaks via Iterative Context Optimization
+- `2608.03358`  ArtECulture: Benchmarking Culture-Conditioned Visual Emotion Understanding in Multimodal Large Language Models
+- `2608.03480`  Efficient Multilingual Neural Machine Translation via Corpus-Driven Vocabulary Pruning: An English-Arabic Case
+- `2608.03545`  Hi-TTRL: Regulating Consensus with Hints for Test-Time Reinforcement Learning
+- `2608.03573`  SFT Conflicts, RL Coexists: A Theoretical and Empirical Analysis of Multi-Task Learning for LLMs
+- `2608.03577`  Looking under the Wrong Lamppost: On the Limitations of Automated Translation Quality Estimation
+- `2608.03599`  Disentangling Language Modeling and Boundaries
+- `2608.03610`  Language-Specialized Multi-Teacher On-Policy Distillation for Multilingual LLM-Based ASR
+- `2608.03769`  MDLMPE: Distribution Aware Positional Encoding for Masked Diffusion Language Models
+- `2608.03796`  Efficient Knowledge Distillation for LLMs: Offline Top-K Logits and a Fused Chunked KL Loss
+- `2608.03930`  Logic Before Language: Pre-pretraining on Formal Derivations Fosters Skill Acquisition and Compressibility
+- `2608.04007`  TurnSight: Turn-Level Hindsight Self-Distillation for Tool-Integrated Reasoning
+- `2608.04009`  SocietyBench: Forecasting Counterfactual Social-World Evolution
+- `2608.02833`  CURV: Enhancing Chart Understanding Through Curriculum Visual Grounded Reasoning
+- `2608.03092`  SMOPD: Multi-Reward Reinforcement Learning via Specialize-and-Merge Online Policy Distillation
+- `2608.03206`  EduClaw-Bench: A Long-Horizon Benchmark for Pedagogical LLM Agents with Simulated Learners
+- `2608.03223`  Agentic Reinforcement Learning with Self-Distilled Reward Shaping
+- `2608.03700`  When Agents Learn to Be You: Benchmarking Privacy Leakage, Impersonation Risk, and Defenses in Persona Skills
+- `2608.02628`  Deep Divide-and-Reduce in Symbolic Regression
+- `2608.02663`  CT-HEG: A Bidirectional, Timestamp-Attributed Event Graph for ICU In-Hospital Mortality Prediction - An Archit
+- `2608.02705`  Can Training Logs Make Model Comparisons More Precise?
+- `2608.02948`  Rubrics as Privileged Information for Open-Ended Generation
+- `2608.03017`  Paired Recipient-based Evaluation of Survival Prediction for Deceased Donor Kidney Transplants
+- `2608.03069`  Revisiting TD Target Aggregation under Uncertainty in Q-Learning
+- `2608.03316`  Any-OPD: Heterogeneous On-Policy Distillation for Flow-Matching Models via Representation-Space Bridging
+- `2608.03324`  AS-FedBridge: Pseudo-Spike Bridge Distillation for Heterogeneous ANN-SNN Federated Learning
+- `2608.03498`  FedCARE: A Multi-Objective Personalised Federated Learning Framework for Smart Healthcare
+- `2608.03673`  CausalOPD: First-Wrong-Step Supervision for Distilling Causal Chain Reasoning
+- `2608.03674`  DiagLoop: A Counterfactual Data Flywheel with Stage-Localized Reinforcement for Diagnostic LLMs
+- `2608.03811`  UNVaMP: Neural Knowledge Tracing with Variational Regularization of Latent Knowledge Dynamics
+- `2608.03916`  Trajectory inference via Acceleration Matching
+- `2608.03929`  Latent Reward Registers for Diffusion Preference Alignment
+- `2608.03407`  Distilled Roads: Generalisable Road Network Extraction Across Sensors, Resolutions, and Region
+- `2608.03467`  When Correct Solutions Repeat: Rarity-Aware Credit Redistribution for GRPO
+- `2608.03483`  Continue or Replan? Bernoulli-Continuation Policy Learning for Adaptive Horizon Execution
+- `2608.03566`  Divide-and-Conquer: Towards Generalizable Amortized Bayesian Inference for the Drift Diffusion Model
+- `2608.00672`  From Chasing Ghosts to Missed Attacks: Perspectives and Perceptions of SOC Practitioners on LLM Integration, R
+- `2608.00714`  Coverage-Driven Adaptive Keyframe Selection for Video Understanding
+- `2608.00924`  RefactorAssist: Agentic Refinement for Reliable Code Refactoring
+- `2608.01035`  WAM-Diff2: Hierarchical AR-to-Diffusion Distillation for Highly Efficient Autonomous Driving VLA
+- `2608.01164`  Hybrid Lagrangian-Eulerian Model for Lagrangian Fluid Simulation
+- `2608.01402`  Demystifying When and Why VLAs Fail in Contact-Rich Tasks and How to Fix Them
+- `2608.01470`  VGER: Voxel-Guided Global Event Ranking for Event Cloud Attribution
+- `2608.01644`  CRAFT: Compression via Recursive Adaptive Fusion of Video Tokens for Vision-Language Models
+- `2608.01663`  Few-Shot Concept Prompt Learning for Segmentation Foundation Models via Visual Grounding
+- `2608.01696`  Entity-Aware Sequence Transduction for Player-Centric Ball Action Spotting
+- `2608.01705`  Rethinking Generative AI Literacy: An Integrative, Developmental, and Dialectical Framework for K-12 Teacher E
+- `2608.01825`  PartMat: Material-Aware 3D Part Decomposition with a Single Global Latent
+- `2608.01827`  DeepVoyager-VL: Incentivizing Vision-in-the-Loop Search for Long-Horizon Multimodal Agents
+- `2608.01955`  Agentic Self-Healing for Data and AI Pipelines: An Affordable Vendor-Agnostic Architecture using Open-Source S
+- `2608.01980`  AdaThinkV: Adaptive Thinking for Token-Efficient Video Reasoning
+- `2608.02056`  TBSG-Net: Temporal Bipartite Scene Graph Network for Fine-Grained Video Moment Retrieval
+- `2608.02104`  Uncertainty-Aware Crossmodal Fusion for Classification of Animal Behavior
+- `2608.02422`  Agentic Incident Response through Digital Twin-Enhanced Multiscale Planning
+

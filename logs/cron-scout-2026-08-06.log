@@ -1,0 +1,89 @@
+✅ Refreshed known_arxiv_ids.txt: 2066 IDs
+[scout] DATE WINDOW (CST): 2026-08-05 → 2026-08-06  (days_back=1)
+[scout] accepting YYMM prefixes: ['2608']
+[scout] architecture: RSS-primary + API-verify + S2-crosscheck
+[scout] known IDs to skip: 2066
+
+[scout] === Phase 1: RSS feeds (3 categories) ===
+[scout/rss] cs.CL: 200 total items, 24 OPD-keyword matches
+[scout/rss] cs.LG: 302 total items, 25 OPD-keyword matches
+[scout/rss] cs.AI: 710 total items, 88 OPD-keyword matches
+[scout/rss] total unique candidates: 130
+
+[scout] === Phase 2: S2 cross-check (4 queries) ===
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] added 15 papers not found in RSS
+
+[scout] combined unique: 145 (RSS: 130, S2-extra: 15)
+[scout] ⚠️ 15 rejected by DATE WINDOW: ['2606.09471', '2606.24143', '2605.31159', '2605.07865', '2605.16826', '2606.29869', '2604.00223', '2504.20445', '2506.02208', '2505.16297']
+[scout] 70 skipped (already known)
+
+[scout] === Phase 3: no S2-sourced papers to verify ===
+
+[scout] ✅ 60 new candidates for deep-read
+[scout] wrote /tmp/scout_arxiv_results.json
+
+## Scout Summary: 60 new in-window candidates
+
+  - 2608.02694 [rss/ok] Crayotter: Learning Long-Horizon Video Editing Agents via Group-Relative Prefere
+  - 2608.02867 [rss/ok] BODHI: Do LLMs Branch Out and Discover Heterogeneous Inferences?
+  - 2608.02942 [rss/ok] OPTD: On-Policy Transition Distillation with Consistency-Guided Adaptive Compres
+  - 2608.02975 [rss/ok] TQLite: Multi-LLM Jury Guided Distillation for Real-time MQM Translation Quality
+  - 2608.03089 [rss/ok] Scalable Frequency- and Length-Aware Subdocument Deduplication for Large Languag
+  - 2608.03118 [rss/ok] From SQL Errors to Concept Gaps: An AI-Powered Knowledge Graph Analytics Platfor
+  - 2608.03210 [rss/ok] ICO: Enhancing Semantic-Shift Jailbreaks via Iterative Context Optimization
+  - 2608.03358 [rss/ok] ArtECulture: Benchmarking Culture-Conditioned Visual Emotion Understanding in Mu
+  - 2608.03480 [rss/ok] Efficient Multilingual Neural Machine Translation via Corpus-Driven Vocabulary P
+  - 2608.03545 [rss/ok] Hi-TTRL: Regulating Consensus with Hints for Test-Time Reinforcement Learning
+  - 2608.03573 [rss/ok] SFT Conflicts, RL Coexists: A Theoretical and Empirical Analysis of Multi-Task L
+  - 2608.03577 [rss/ok] Looking under the Wrong Lamppost: On the Limitations of Automated Translation Qu
+  - 2608.03599 [rss/ok] Disentangling Language Modeling and Boundaries
+  - 2608.03610 [rss/ok] Language-Specialized Multi-Teacher On-Policy Distillation for Multilingual LLM-B
+  - 2608.03769 [rss/ok] MDLMPE: Distribution Aware Positional Encoding for Masked Diffusion Language Mod
+  - 2608.03796 [rss/ok] Efficient Knowledge Distillation for LLMs: Offline Top-K Logits and a Fused Chun
+  - 2608.03930 [rss/ok] Logic Before Language: Pre-pretraining on Formal Derivations Fosters Skill Acqui
+  - 2608.04007 [rss/ok] TurnSight: Turn-Level Hindsight Self-Distillation for Tool-Integrated Reasoning
+  - 2608.04009 [rss/ok] SocietyBench: Forecasting Counterfactual Social-World Evolution
+  - 2608.02833 [rss/ok] CURV: Enhancing Chart Understanding Through Curriculum Visual Grounded Reasoning
+  - 2608.03092 [rss/ok] SMOPD: Multi-Reward Reinforcement Learning via Specialize-and-Merge Online Polic
+  - 2608.03206 [rss/ok] EduClaw-Bench: A Long-Horizon Benchmark for Pedagogical LLM Agents with Simulate
+  - 2608.03223 [rss/ok] Agentic Reinforcement Learning with Self-Distilled Reward Shaping
+  - 2608.03700 [rss/ok] When Agents Learn to Be You: Benchmarking Privacy Leakage, Impersonation Risk, a
+  - 2608.02628 [rss/ok] Deep Divide-and-Reduce in Symbolic Regression
+  - 2608.02663 [rss/ok] CT-HEG: A Bidirectional, Timestamp-Attributed Event Graph for ICU In-Hospital Mo
+  - 2608.02705 [rss/ok] Can Training Logs Make Model Comparisons More Precise?
+  - 2608.02948 [rss/ok] Rubrics as Privileged Information for Open-Ended Generation
+  - 2608.03017 [rss/ok] Paired Recipient-based Evaluation of Survival Prediction for Deceased Donor Kidn
+  - 2608.03069 [rss/ok] Revisiting TD Target Aggregation under Uncertainty in Q-Learning
+  - 2608.03316 [rss/ok] Any-OPD: Heterogeneous On-Policy Distillation for Flow-Matching Models via Repre
+  - 2608.03324 [rss/ok] AS-FedBridge: Pseudo-Spike Bridge Distillation for Heterogeneous ANN-SNN Federat
+  - 2608.03498 [rss/ok] FedCARE: A Multi-Objective Personalised Federated Learning Framework for Smart H
+  - 2608.03673 [rss/ok] CausalOPD: First-Wrong-Step Supervision for Distilling Causal Chain Reasoning
+  - 2608.03674 [rss/ok] DiagLoop: A Counterfactual Data Flywheel with Stage-Localized Reinforcement for 
+  - 2608.03811 [rss/ok] UNVaMP: Neural Knowledge Tracing with Variational Regularization of Latent Knowl
+  - 2608.03916 [rss/ok] Trajectory inference via Acceleration Matching
+  - 2608.03929 [rss/ok] Latent Reward Registers for Diffusion Preference Alignment
+  - 2608.03407 [rss/ok] Distilled Roads: Generalisable Road Network Extraction Across Sensors, Resolutio
+  - 2608.03467 [rss/ok] When Correct Solutions Repeat: Rarity-Aware Credit Redistribution for GRPO
+  - 2608.03483 [rss/ok] Continue or Replan? Bernoulli-Continuation Policy Learning for Adaptive Horizon 
+  - 2608.03566 [rss/ok] Divide-and-Conquer: Towards Generalizable Amortized Bayesian Inference for the D
+  - 2608.00672 [rss/ok] From Chasing Ghosts to Missed Attacks: Perspectives and Perceptions of SOC Pract
+  - 2608.00714 [rss/ok] Coverage-Driven Adaptive Keyframe Selection for Video Understanding
+  - 2608.00924 [rss/ok] RefactorAssist: Agentic Refinement for Reliable Code Refactoring
+  - 2608.01035 [rss/ok] WAM-Diff2: Hierarchical AR-to-Diffusion Distillation for Highly Efficient Autono
+  - 2608.01164 [rss/ok] Hybrid Lagrangian-Eulerian Model for Lagrangian Fluid Simulation
+  - 2608.01402 [rss/ok] Demystifying When and Why VLAs Fail in Contact-Rich Tasks and How to Fix Them
+  - 2608.01470 [rss/ok] VGER: Voxel-Guided Global Event Ranking for Event Cloud Attribution
+  - 2608.01644 [rss/ok] CRAFT: Compression via Recursive Adaptive Fusion of Video Tokens for Vision-Lang
+  - 2608.01663 [rss/ok] Few-Shot Concept Prompt Learning for Segmentation Foundation Models via Visual G
+  - 2608.01696 [rss/ok] Entity-Aware Sequence Transduction for Player-Centric Ball Action Spotting
+  - 2608.01705 [rss/ok] Rethinking Generative AI Literacy: An Integrative, Developmental, and Dialectica
+  - 2608.01825 [rss/ok] PartMat: Material-Aware 3D Part Decomposition with a Single Global Latent
+  - 2608.01827 [rss/ok] DeepVoyager-VL: Incentivizing Vision-in-the-Loop Search for Long-Horizon Multimo
+  - 2608.01955 [rss/ok] Agentic Self-Healing for Data and AI Pipelines: An Affordable Vendor-Agnostic Ar
+  - 2608.01980 [rss/ok] AdaThinkV: Adaptive Thinking for Token-Efficient Video Reasoning
+  - 2608.02056 [rss/ok] TBSG-Net: Temporal Bipartite Scene Graph Network for Fine-Grained Video Moment R
+  - 2608.02104 [rss/ok] Uncertainty-Aware Crossmodal Fusion for Classification of Animal Behavior
+  - 2608.02422 [rss/ok] Agentic Incident Response through Digital Twin-Enhanced Multiscale Planning
