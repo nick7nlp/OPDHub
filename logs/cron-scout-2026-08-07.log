@@ -1,0 +1,70 @@
+✅ Refreshed known_arxiv_ids.txt: 2120 IDs
+[scout] DATE WINDOW (CST): 2026-08-06 → 2026-08-07  (days_back=1)
+[scout] accepting YYMM prefixes: ['2608']
+[scout] architecture: RSS-primary + API-verify + S2-crosscheck
+[scout] known IDs to skip: 2120
+
+[scout] === Phase 1: RSS feeds (3 categories) ===
+[scout/rss] cs.CL: 200 total items, 24 OPD-keyword matches
+[scout/rss] cs.LG: 291 total items, 25 OPD-keyword matches
+[scout/rss] cs.AI: 287 total items, 26 OPD-keyword matches
+[scout/rss] total unique candidates: 61
+
+[scout] === Phase 2: S2 cross-check (4 queries) ===
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] added 0 papers not found in RSS
+
+[scout] combined unique: 61 (RSS: 61, S2-extra: 0)
+[scout] 20 skipped (already known)
+
+[scout] === Phase 3: no S2-sourced papers to verify ===
+
+[scout] ✅ 41 new candidates for deep-read
+[scout] wrote /tmp/scout_arxiv_results.json
+
+## Scout Summary: 41 new in-window candidates
+
+  - 2608.03210 [rss/already-existed] ICO: Enhancing Semantic-Shift Jailbreaks via Iterative Context Optimization
+  - 2608.03545 [rss/already-existed] Hi-TTRL: Regulating Consensus with Hints for Test-Time Reinforcement Learning
+  - 2608.03577 [rss/already-existed] Looking under the Wrong Lamppost: On the Limitations of Automated Translation Qu
+  - 2608.03206 [rss/already-existed] EduClaw-Bench: A Long-Horizon Benchmark for Pedagogical LLM Agents with Simulate
+  - 2608.04013 [rss/ok] C$^2$MOE: Consistency and Complementarity-guided Mixture of Experts for Incomple
+  - 2608.04027 [rss/ok] Learning to Resolve Neutron Resonances with Fully Convolutional Neural Networks
+  - 2608.04060 [rss/ok] SJEPA: Learning Elegant Latent Dynamics with Hybrid Symbolic-Neural Predictors
+  - 2608.04213 [rss/ok] Attention-Only White-Box Transformer via LeJEPA-Based Self-Supervised Pretrainin
+  - 2608.04227 [rss/ok] Random features for Grassmannian kernel approximation with bounded rank-one proj
+  - 2608.04334 [rss/ok] ATLAS: Adaptive Topological Learning with Abstract Successors for Continual Lear
+  - 2608.04377 [rss/ok] Towards Trustworthy Hypergraph Neural Networks under Label Noise
+  - 2608.04408 [rss/ok] Not Every Divergence Should Be Suppressed: Counterfactual Recoverability in On-P
+  - 2608.04419 [rss/ok] SPOT: Sparse Probing and Outcome Calibration for On-Policy Distillation
+  - 2608.04616 [rss/ok] An entropic explanation of insistence on sameness in autism
+  - 2608.04788 [rss/ok] Agentic Reinforcement Learning with Observation-Calibrated Self-Distillation
+  - 2608.04805 [rss/ok] MGSB: Manifold Gated Signature Branch Pressure-Domain Baseline Architecture for 
+  - 2608.04930 [rss/ok] SVI-DAG: A Structured Variational Inference Approach to Bayesian Causal Discover
+  - 2608.04962 [rss/ok] SpecRoll: Fast-Slow Verifier-Feedback Adaptation for Speculative Reinforcement L
+  - 2608.05006 [rss/ok] Stochastic Emulation using Generalized Stratified Sampling for Performance-Based
+  - 2608.05080 [rss/ok] Optimizing What Policies Learn From: Recoverability-aware Rollout Intervention L
+  - 2608.05085 [rss/ok] Capability-Gated Planning: Cost-to-Goal Discovery and the Limits of Myopic Exper
+  - 2608.04050 [rss/ok] FM4WiFi: Flow Matching for Multi-AP Coordination in Dense Deployments of Beyond 
+  - 2608.04052 [rss/ok] When Modalities Fail to Tango: Conformal Backdoor Detection in Multimodal Contra
+  - 2608.04073 [rss/ok] FBID: Adaptive Personalized Federated Learning for Robust Out-of-Distribution At
+  - 2608.04358 [rss/ok] NeuMoSync: End-to-End Neuromodulatory Control for Plasticity and Adaptability in
+  - 2608.04794 [rss/ok] Privileged, but Biased: How PI-Conditioned Teachers Break Self-Distillation
+  - 2608.04827 [rss/ok] Intrinsic-Hybrid Latent Diffusion Models for Generative Modeling on Unknown Mani
+  - 2608.04872 [rss/ok] A-SR: Self-Evolving Agentic LLMs for Symbolic Regression via Hierarchical Coordi
+  - 2608.05115 [rss/ok] Robust and Efficient Motion Reasoning for Privacy-Aware Classroom Incident Recog
+  - 2608.04562 [rss/ok] What Is a Skill Worth? Structure-Aware Shapley Valuation of Agent Skills
+  - 2608.04625 [rss/ok] A/B Agent: A Self-Evolving Agent for Strategy Iteration in Industrial A/B Testin
+  - 2608.04896 [rss/ok] When Shared Rollouts Fail in Defensive Driving Evaluation: A NAVSIM Score Basis 
+  - 2608.04124 [rss/ok] Perception Before Reasoning: Dynamic Latent Reasoning for Video Understanding an
+  - 2608.04374 [rss/ok] FinReportBench: Measuring and Improving Institution-Grade Financial Report Gener
+  - 2608.04444 [rss/ok] D$^2$F-ReAG: Dynamic Decomposition and Filtering for Multi-Hop Reasoning-Augment
+  - 2608.04588 [rss/ok] EASy: Towards Efficient LLM-Based Agentic System
+  - 2608.04670 [rss/ok] Easy to Complete, Hard to Choose: Investigating LLM Performance on the ProverbIT
+  - 2608.04698 [rss/ok] Teaching MLLMs to Say No: Generalized Referring Expression Comprehension via Ref
+  - 2608.04999 [rss/ok] ORACLE: A Multi-Objective Reinforcement Learning-Based Analog Circuit Design Opt
+  - 2608.05026 [rss/ok] ArtAnno: Annotating Implicit Semantics in Artworks through LLM Agent-Driven Bidi
+  - 2608.05131 [rss/ok] OPD-V: Visual On-Policy Self-Distillation with Modality Balance

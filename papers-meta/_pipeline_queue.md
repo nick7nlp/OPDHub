@@ -1973,3 +1973,50 @@
 - `2608.02104`  Uncertainty-Aware Crossmodal Fusion for Classification of Animal Behavior
 - `2608.02422`  Agentic Incident Response through Digital Twin-Enhanced Multiscale Planning
 
+
+## 2026-08-07 (Fri) 09:27 — scout completed
+
+**41 candidates** downloaded to `pdfs/_staging/`. Follow-up Phase 2-7 **pending**.
+
+- `2608.03210`  ICO: Enhancing Semantic-Shift Jailbreaks via Iterative Context Optimization
+- `2608.03545`  Hi-TTRL: Regulating Consensus with Hints for Test-Time Reinforcement Learning
+- `2608.03577`  Looking under the Wrong Lamppost: On the Limitations of Automated Translation Quality Estimation
+- `2608.03206`  EduClaw-Bench: A Long-Horizon Benchmark for Pedagogical LLM Agents with Simulated Learners
+- `2608.04013`  C$^2$MOE: Consistency and Complementarity-guided Mixture of Experts for Incomplete Multimodal Emotion Learning
+- `2608.04027`  Learning to Resolve Neutron Resonances with Fully Convolutional Neural Networks
+- `2608.04060`  SJEPA: Learning Elegant Latent Dynamics with Hybrid Symbolic-Neural Predictors
+- `2608.04213`  Attention-Only White-Box Transformer via LeJEPA-Based Self-Supervised Pretraining
+- `2608.04227`  Random features for Grassmannian kernel approximation with bounded rank-one projections
+- `2608.04334`  ATLAS: Adaptive Topological Learning with Abstract Successors for Continual Learning
+- `2608.04377`  Towards Trustworthy Hypergraph Neural Networks under Label Noise
+- `2608.04408`  Not Every Divergence Should Be Suppressed: Counterfactual Recoverability in On-Policy Distillation
+- `2608.04419`  SPOT: Sparse Probing and Outcome Calibration for On-Policy Distillation
+- `2608.04616`  An entropic explanation of insistence on sameness in autism
+- `2608.04788`  Agentic Reinforcement Learning with Observation-Calibrated Self-Distillation
+- `2608.04805`  MGSB: Manifold Gated Signature Branch Pressure-Domain Baseline Architecture for Two-Phase Pipeline Flows Under
+- `2608.04930`  SVI-DAG: A Structured Variational Inference Approach to Bayesian Causal Discovery
+- `2608.04962`  SpecRoll: Fast-Slow Verifier-Feedback Adaptation for Speculative Reinforcement Learning Rollouts
+- `2608.05006`  Stochastic Emulation using Generalized Stratified Sampling for Performance-Based Risk Optimization of Structur
+- `2608.05080`  Optimizing What Policies Learn From: Recoverability-aware Rollout Intervention Learning
+- `2608.05085`  Capability-Gated Planning: Cost-to-Goal Discovery and the Limits of Myopic Experiment Selection
+- `2608.04050`  FM4WiFi: Flow Matching for Multi-AP Coordination in Dense Deployments of Beyond Wi-Fi 8 Networks
+- `2608.04052`  When Modalities Fail to Tango: Conformal Backdoor Detection in Multimodal Contrastive Learning
+- `2608.04073`  FBID: Adaptive Personalized Federated Learning for Robust Out-of-Distribution Attack Detection in IoT Networks
+- `2608.04358`  NeuMoSync: End-to-End Neuromodulatory Control for Plasticity and Adaptability in Continual Learning
+- `2608.04794`  Privileged, but Biased: How PI-Conditioned Teachers Break Self-Distillation
+- `2608.04827`  Intrinsic-Hybrid Latent Diffusion Models for Generative Modeling on Unknown Manifolds
+- `2608.04872`  A-SR: Self-Evolving Agentic LLMs for Symbolic Regression via Hierarchical Coordination
+- `2608.05115`  Robust and Efficient Motion Reasoning for Privacy-Aware Classroom Incident Recognition
+- `2608.04562`  What Is a Skill Worth? Structure-Aware Shapley Valuation of Agent Skills
+- `2608.04625`  A/B Agent: A Self-Evolving Agent for Strategy Iteration in Industrial A/B Testing
+- `2608.04896`  When Shared Rollouts Fail in Defensive Driving Evaluation: A NAVSIM Score Basis Audit
+- `2608.04124`  Perception Before Reasoning: Dynamic Latent Reasoning for Video Understanding and Question Answering
+- `2608.04374`  FinReportBench: Measuring and Improving Institution-Grade Financial Report Generation
+- `2608.04444`  D$^2$F-ReAG: Dynamic Decomposition and Filtering for Multi-Hop Reasoning-Augmented Generation
+- `2608.04588`  EASy: Towards Efficient LLM-Based Agentic System
+- `2608.04670`  Easy to Complete, Hard to Choose: Investigating LLM Performance on the ProverbIT Benchmark
+- `2608.04698`  Teaching MLLMs to Say No: Generalized Referring Expression Comprehension via Refusal Calibrated GRPO
+- `2608.04999`  ORACLE: A Multi-Objective Reinforcement Learning-Based Analog Circuit Design Optimizer with Large Language Mod
+- `2608.05026`  ArtAnno: Annotating Implicit Semantics in Artworks through LLM Agent-Driven Bidirectional Human-AI Augmentatio
+- `2608.05131`  OPD-V: Visual On-Policy Self-Distillation with Modality Balance
+

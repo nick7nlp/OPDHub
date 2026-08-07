@@ -62855,7 +62855,970 @@
       "score": 8,
       "_worker": "v2-direct-llm-api",
       "_model": "claude"
+    },
+    "2608.04408": {
+      "_schema_version": "v3",
+      "paper_id": "2608.04408",
+      "title": "Not Every Divergence Should Be Suppressed: Counterfactual Recoverability in On-Policy Distillation",
+      "venue": "arXiv 2026",
+      "year": 2026,
+      "authors_first": "De Jiang",
+      "affiliation_primary": "Tsinghua University",
+      "summary": "Counterfactual recoverability labels guide selective supervision in on-policy distillation",
+      "method": {
+        "training_loop": "Student generates rollouts; error states replayed with budget-matched teacher continuation & rollback branches; 3-way oracle label (recoverable/irreversible/ambiguous) controls retain/rollback/SOD training action",
+        "loss_formulation": "L_OPD(s) = -log π_θ(a*_T(s) | s) where a*_T = argmax_{a∈A(s)} P_T(a|s,A)",
+        "data_source": "30 AIME2024 training-manifest tasks in sequential agent environment",
+        "key_components": [
+          "counterfactual recoverability labels",
+          "budget-matched continuation/rollback branches",
+          "three-way oracle controller",
+          "candidate-conditioned distillation backbone",
+          "shared admissible action set"
+        ]
+      },
+      "novelty": "Introduces counterfactual recoverability as a decision variable for OPD, replacing divergence-only heuristics with budget-matched replay branches that reveal whether an error state warrants continuation or rollback, achieving AUC 1.000 vs 0.392 for divergence alone",
+      "on_policy_mechanism": {
+        "student_rollout_in_training": "yes",
+        "rollout_frequency": "per-step",
+        "teacher_signal": "logits",
+        "signal_source": "external-teacher",
+        "evidence_quote": "each training update first produces a student trajectory and records eligible error states. The online labeler then checks that the state has a remaining budget, runs matched branches, and records the label"
+      },
+      "opd_classification": {
+        "is_opd": "yes",
+        "primary_section": "§6.1",
+        "secondary_sections": [
+          "§4.2"
+        ],
+        "reasoning": "The paper proposes a selective supervision mechanism that determines per-state whether to retain, rollback, or default to SOD based on counterfactual recoverability labels, which is a token/state weighting strategy built on top of on-policy distillation."
+      },
+      "teacher_student_pairs": [
+        {
+          "teacher": {
+            "name": "Qwen3.5-27B",
+            "family": "Qwen3",
+            "size_B": 27,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": false,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "Qwen3.5-9B",
+            "family": "Qwen3",
+            "size_B": 9,
+            "type": "dense",
+            "init_from": "base",
+            "is_self": false
+          },
+          "vocab_match": "cross-tokenizer",
+          "scenario": "main"
+        }
+      ],
+      "training_setup": {
+        "compute_budget": "unspecified",
+        "tokens_seen_B": null,
+        "context_length": null,
+        "rollout_batch_size": null,
+        "rollouts_per_iter": null,
+        "kl_coeff": null,
+        "rl_algorithm": "pure-KD",
+        "stabilization_tricks": [
+          "SOD cumulative-ratio weighting",
+          "bounded amplification",
+          "budget mismatch assertion"
+        ],
+        "warmup_off_policy": "no",
+        "warmup_method": "n/a"
+      },
+      "datasets": {
+        "train": [
+          "AIME2024 training manifest (30 tasks)"
+        ],
+        "eval": [
+          "AIME2025 (30-task multi-step)",
+          "AIME2024-2025 (60-task)",
+          "GPQA-Diamond (198 questions)"
+        ],
+        "domain": "math"
+      },
+      "benchmarks": [
+        {
+          "name": "AIME2025 30-task multi-step",
+          "metric": "success",
+          "student_baseline": 0.5167,
+          "student_after_OPD": 0.5778,
+          "delta": 0.0611,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "AIME2024-2025 avg@32",
+          "metric": "avg@32",
+          "student_baseline": 0.2656,
+          "student_after_OPD": 0.3125,
+          "delta": 0.0469,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "AIME2024-2025 pass@32",
+          "metric": "pass@32",
+          "student_baseline": 0.3917,
+          "student_after_OPD": 0.4556,
+          "delta": 0.0639,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "GPQA-Diamond avg@32",
+          "metric": "avg@32",
+          "student_baseline": 0.2702,
+          "student_after_OPD": 0.307,
+          "delta": 0.0368,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "GPQA-Diamond pass@32",
+          "metric": "pass@32",
+          "student_baseline": 0.3939,
+          "student_after_OPD": 0.4461,
+          "delta": 0.0522,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        }
+      ],
+      "key_findings": [
+        "Recoverability proxy achieves AUC of 1.000 vs 0.392 for divergence alone on 99 non-ambiguous AIME states",
+        "Mean continuation-minus-rollback effect is +0.185 for recoverable states and -1.000 for irreversible-but-avoidable states",
+        "Oracle reaches 0.578 success on held-out AIME2025 vs 0.517 for SOD reproduction (best baseline)",
+        "Retaining teacher-correctable prefixes provides the largest individual contribution in ablations",
+        "101 of 200 states are ambiguous, bounding the oracle's applicability"
+      ],
+      "ablations_summary": "Full oracle achieves 0.583 on held-out 60-task; removing rollback drops to 0.550, removing retain drops to 0.483, removing both (label only) drops to 0.450, showing retention is the largest single contribution",
+      "limitations": [
+        "Oracle uses approximately 3× the teacher tokens of E0 controls",
+        "101 of 200 states are ambiguous with insufficient branch evidence",
+        "Results from one teacher, fixed manifests, and only 3 seeds",
+        "Not a deployable system; requires a state-only estimator for online use",
+        "Training costs are unmatched across methods"
+      ],
+      "failure_modes": [
+        "Ambiguous states (50.5% of diagnostic population) lack enough evidence for strong intervention",
+        "Divergence-only diagnostic achieves below no-skill AUC (0.392) in this setting"
+      ],
+      "compute_efficiency": {
+        "teacher_inference_cost": "unknown",
+        "speedup_vs_baseline": "not-reported",
+        "memory_footprint": "unspecified"
+      },
+      "openness": {
+        "code_released": "no",
+        "code_url": null,
+        "model_released": "no",
+        "data_released": "no"
+      },
+      "theory": {
+        "has_theoretical_analysis": "no",
+        "theoretical_claim": null,
+        "proof_sketch": null
+      },
+      "relevance_to_opd": "Directly advances OPD by proposing counterfactual recoverability as a decision variable for selective supervision on student-generated trajectories, replacing divergence-only heuristics with outcome-grounded branch diagnostics",
+      "comparable_papers": [
+        "2605.07725",
+        "2606.15912",
+        "2604.13016"
+      ],
+      "score": 8,
+      "_worker": "v2-direct-llm-api",
+      "_model": "claude"
+    },
+    "2608.04419": {
+      "_schema_version": "v3",
+      "paper_id": "2608.04419",
+      "title": "SPOT: Sparse Probing and Outcome Calibration for On-Policy Distillation",
+      "venue": "arXiv 2026",
+      "year": 2026,
+      "authors_first": "Zikun Qu",
+      "affiliation_primary": "The Chinese University of Hong Kong, Shenzhen",
+      "summary": "Outcome-calibrated targets for OPD via sparse probing and verifier-scored student continuations",
+      "method": {
+        "training_loop": "For each prompt: roll out student trajectory, score positions by teacher entropy×top-k mass×S-T gap, probe top-M positions with student continuations scored by verifier, construct KL-regularized outcome-calibrated targets, update with OPD + branch loss",
+        "loss_formulation": "L = (1/T) \\sum_t L^{OPD}_t + (\\beta / max(1,|B^+|)) \\sum_{t \\in B^+} L^{Branch}_t",
+        "data_source": "MATH (7,500 examples) and DAPO-Math-14k (14,116 examples)",
+        "key_components": [
+          "position acquisition score (entropy × top-k mass × S-T gap)",
+          "sparse probing with verifier-scored student continuations",
+          "outcome-calibrated targets via KL-regularized reward tilting",
+          "B+ gating (retain only positions with positive-reward candidates)"
+        ]
+      },
+      "novelty": "Introduces a two-decision framework (where to probe and what to distill) for OPD: uses multiplicative position scoring to allocate probing budget, then constructs closed-form KL-regularized targets by tilting teacher prior with verifier-scored student continuation values, unlike EOPD which uses only entropy threshold and uncalibrated teacher prior",
+      "on_policy_mechanism": {
+        "student_rollout_in_training": "yes",
+        "rollout_frequency": "per-outer-iter",
+        "teacher_signal": "logits",
+        "signal_source": "external-teacher",
+        "evidence_quote": "Rollout x ∼ π_θold(·|q) Query the teacher π_T(·|c_t) at every prefix c_t = (q, x_{<t}) Score every valid position by its position-level acquisition score"
+      },
+      "opd_classification": {
+        "is_opd": "yes",
+        "primary_section": "§4.3",
+        "secondary_sections": [
+          "§6.1",
+          "§5.3.3"
+        ],
+        "reasoning": "SPOT augments OPD with RL-style verifier signals to calibrate the teacher distribution target, combining token-level KL distillation with outcome-based reward tilting, fitting §4.3 (RL-augmented objective)."
+      },
+      "teacher_student_pairs": [
+        {
+          "teacher": {
+            "name": "Qwen3-8B",
+            "family": "Qwen3",
+            "size_B": 8,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": false,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "Qwen3-0.6B-Base",
+            "family": "Qwen3",
+            "size_B": 0.6,
+            "type": "dense",
+            "init_from": "base",
+            "is_self": false
+          },
+          "vocab_match": "shared",
+          "scenario": "main"
+        },
+        {
+          "teacher": {
+            "name": "Qwen3-8B",
+            "family": "Qwen3",
+            "size_B": 8,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": false,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "Qwen3-1.7B-Base",
+            "family": "Qwen3",
+            "size_B": 1.7,
+            "type": "dense",
+            "init_from": "base",
+            "is_self": false
+          },
+          "vocab_match": "shared",
+          "scenario": "main"
+        },
+        {
+          "teacher": {
+            "name": "Qwen3-8B",
+            "family": "Qwen3",
+            "size_B": 8,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": false,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "Qwen3-4B-Base",
+            "family": "Qwen3",
+            "size_B": 4,
+            "type": "dense",
+            "init_from": "base",
+            "is_self": false
+          },
+          "vocab_match": "shared",
+          "scenario": "main"
+        },
+        {
+          "teacher": {
+            "name": "Llama-3.1-8B-Instruct",
+            "family": "Llama",
+            "size_B": 8,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": false,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "Llama-3.2-3B-Instruct",
+            "family": "Llama",
+            "size_B": 3,
+            "type": "dense",
+            "init_from": "SFT",
+            "is_self": false
+          },
+          "vocab_match": "shared",
+          "scenario": "cross-family"
+        }
+      ],
+      "training_setup": {
+        "compute_budget": "4×A800",
+        "tokens_seen_B": null,
+        "context_length": 4096,
+        "rollout_batch_size": 128,
+        "rollouts_per_iter": null,
+        "kl_coeff": null,
+        "rl_algorithm": "PPO",
+        "stabilization_tricks": [
+          "PPO-style clipping (0.2)",
+          "gradient clipping at 1.0"
+        ],
+        "warmup_off_policy": "no",
+        "warmup_method": "n/a"
+      },
+      "datasets": {
+        "train": [
+          "MATH",
+          "DAPO-Math-14k"
+        ],
+        "eval": [
+          "MATH-500",
+          "AIME2024",
+          "AIME2025",
+          "AMC2023",
+          "MinervaMath",
+          "HMMT2025"
+        ],
+        "domain": "math"
+      },
+      "benchmarks": [
+        {
+          "name": "MATH-500",
+          "metric": "Avg@8",
+          "student_baseline": 50.1,
+          "student_after_OPD": 50.5,
+          "delta": 0.4,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "MATH-500",
+          "metric": "Pass@8",
+          "student_baseline": 73.2,
+          "student_after_OPD": 76.4,
+          "delta": 3.2,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "AIME2024",
+          "metric": "Avg@8",
+          "student_baseline": 8.33,
+          "student_after_OPD": 12.5,
+          "delta": 4.17,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "AIME2024",
+          "metric": "Pass@8",
+          "student_baseline": 20.0,
+          "student_after_OPD": 33.33,
+          "delta": 13.33,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "AMC2023",
+          "metric": "Pass@8",
+          "student_baseline": 70.0,
+          "student_after_OPD": 75.0,
+          "delta": 5.0,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "AIME2025",
+          "metric": "Avg@8",
+          "student_baseline": 6.25,
+          "student_after_OPD": 7.5,
+          "delta": 1.25,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "AIME2025",
+          "metric": "Pass@8",
+          "student_baseline": 16.67,
+          "student_after_OPD": 23.33,
+          "delta": 6.66,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        }
+      ],
+      "key_findings": [
+        "SPOT achieves the best macro Pass@8 at all three evaluated student scales, improving over OPD by 4.55–5.28 points and over EOPD by 2.49–3.19 points.",
+        "Relative to standard OPD, SPOT improves macro Avg@8 by 0.47–1.48 points across all student scales.",
+        "Verifier-guided calibration improves macro Avg@8/Pass@8 by 3.21/7.38 points over uncalibrated branch distillation (Qwen3-1.7B).",
+        "SPOT generalizes to Llama-3.2-3B-Instruct, raising macro Pass@8 from 29.65 (OPD) to 34.05.",
+        "Branch-distillation weight β=0.1 is optimal; the Full multiplicative acquisition score (H×C×G) outperforms all partial variants."
+      ],
+      "ablations_summary": "Full acquisition score (H×C×G) achieves 21.51/41.60 macro Avg@8/Pass@8 vs best partial variant HC-Mass at 20.47/37.91. Verifier guidance adds +3.21/+7.38 over uncalibrated targets. β=0.1 outperforms β∈{0.05,0.5,1.0} on competition benchmarks.",
+      "limitations": [],
+      "failure_modes": [],
+      "compute_efficiency": {
+        "teacher_inference_cost": "1×",
+        "speedup_vs_baseline": "not-reported",
+        "memory_footprint": "unspecified"
+      },
+      "openness": {
+        "code_released": "no",
+        "code_url": null,
+        "model_released": "no",
+        "data_released": "no"
+      },
+      "theory": {
+        "has_theoretical_analysis": "yes",
+        "theoretical_claim": "Closed-form KL-regularized target with monotone value-prior tradeoff and diminishing returns of KL budget",
+        "proof_sketch": "Gibbs variational identity shows unique optimizer is exponential tilt of teacher prior; trust-region equivalence via KKT; monotonicity via log-partition derivatives; Pinsker gives improvement-deviation bounds"
+      },
+      "relevance_to_opd": "Directly proposes a novel OPD method that improves where and what to distill by combining sparse position selection with verifier-calibrated teacher targets on student-generated trajectories",
+      "comparable_papers": [
+        "2306.13649",
+        "2603.07079",
+        "2306.08543",
+        "2604.13016"
+      ],
+      "score": 9,
+      "_worker": "v2-direct-llm-api",
+      "_model": "claude"
+    },
+    "2608.04794": {
+      "_schema_version": "v3",
+      "paper_id": "2608.04794",
+      "title": "Privileged, but Biased: How PI-Conditioned Teachers Break Self-Distillation",
+      "venue": "arXiv 2026",
+      "year": 2026,
+      "authors_first": "Sarthak Harne",
+      "affiliation_primary": "Microsoft Research",
+      "summary": "Shows PI-conditioned self-distillation fails as sole objective on hard reasoning tasks",
+      "method": {
+        "training_loop": "Student generates rollouts; PI-conditioned self-teacher (same model + reference solution) provides per-token JSD targets on student rollouts; student minimizes dense per-token divergence (Eq.1)",
+        "loss_formulation": "L_SD(θ) = E_{(x,r)} E_{ŷ∼sg(p_S)} [1/|ŷ| Σ_t D(sg(p_T(·|x,r,ŷ_{<t})) ∥ p_S(·|x,ŷ_{<t}))]",
+        "data_source": "MMLU-Pro, DAPO-Math-17k, CodeForces, BFCL multi-turn",
+        "key_components": [
+          "PI Bias Score",
+          "per-token JSD loss",
+          "EMA teacher",
+          "per-token clipping",
+          "correctness-blindness analysis",
+          "token-type loss attribution"
+        ]
+      },
+      "novelty": "Demonstrates that PI-conditioned self-distillation (SDPO/OPSD) as sole objective fails on difficult tasks via a measured causal chain: PI bias → loss blind to correctness → effort on uninformative tokens → exploration penalized → flattened student; introduces PI Bias Score metric",
+      "on_policy_mechanism": {
+        "student_rollout_in_training": "yes",
+        "rollout_frequency": "per-step",
+        "teacher_signal": "logits",
+        "signal_source": "self",
+        "evidence_quote": "the self-teacher is the same model additionally conditioned on the PI r: p_T(· | x,y_{<t}) = π_{θ'}(· | x,r,y_{<t}), where θ' is the student's own parameters or a slow copy that tracks them"
+      },
+      "opd_classification": {
+        "is_opd": "analysis",
+        "primary_section": "§7.2",
+        "secondary_sections": [
+          "§5.3.1",
+          "§4.1"
+        ],
+        "reasoning": "Paper is an analysis/critique of on-policy self-distillation methods (SDPO, OPSD), documenting failure modes rather than proposing a new OPD method; fits failure-mode analysis sections"
+      },
+      "teacher_student_pairs": [
+        {
+          "teacher": {
+            "name": "Qwen3-8B (PI-conditioned EMA)",
+            "family": "Qwen3",
+            "size_B": 8,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": true,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "Qwen3-8B",
+            "family": "Qwen3",
+            "size_B": 8,
+            "type": "dense",
+            "init_from": "base",
+            "is_self": true
+          },
+          "vocab_match": "shared",
+          "scenario": "main"
+        },
+        {
+          "teacher": {
+            "name": "Qwen3-32B (PI-conditioned EMA)",
+            "family": "Qwen3",
+            "size_B": 32,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": true,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "Qwen3-32B",
+            "family": "Qwen3",
+            "size_B": 32,
+            "type": "dense",
+            "init_from": "base",
+            "is_self": true
+          },
+          "vocab_match": "shared",
+          "scenario": "scaling"
+        }
+      ],
+      "training_setup": {
+        "compute_budget": "8×B200 GPUs / unspecified duration",
+        "tokens_seen_B": null,
+        "context_length": 16384,
+        "rollout_batch_size": 32,
+        "rollouts_per_iter": 8,
+        "kl_coeff": null,
+        "rl_algorithm": "pure-KD",
+        "stabilization_tricks": [
+          "per-token clipping τ=0.001",
+          "slow EMA teacher α=0.001"
+        ],
+        "warmup_off_policy": "no",
+        "warmup_method": "n/a"
+      },
+      "datasets": {
+        "train": [
+          "MMLU-Pro",
+          "DAPO-Math-17k",
+          "CodeForces",
+          "BFCL v3 Multi-turn"
+        ],
+        "eval": [
+          "MMLU-Pro",
+          "GPQA-D",
+          "SciKnowEval",
+          "DAPO-Math",
+          "AIME24",
+          "AIME25",
+          "OlympiadBench",
+          "CodeForces",
+          "MBPP+",
+          "HumanEval+",
+          "CodeElo",
+          "LCBv6",
+          "BFCL v4 Multi-turn"
+        ],
+        "domain": "general"
+      },
+      "benchmarks": [
+        {
+          "name": "MMLU-Pro",
+          "metric": "accuracy",
+          "student_baseline": 70.2,
+          "student_after_OPD": 69.8,
+          "delta": -0.4,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "GPQA-D",
+          "metric": "accuracy",
+          "student_baseline": 59.5,
+          "student_after_OPD": 57.6,
+          "delta": -1.9,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "DAPO-Math",
+          "metric": "accuracy",
+          "student_baseline": 79.1,
+          "student_after_OPD": 80.1,
+          "delta": 1.0,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "AIME24",
+          "metric": "accuracy",
+          "student_baseline": 67.5,
+          "student_after_OPD": 66.0,
+          "delta": -1.5,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "AIME25",
+          "metric": "accuracy",
+          "student_baseline": 53.3,
+          "student_after_OPD": 52.9,
+          "delta": -0.4,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "OlympiadBench",
+          "metric": "accuracy",
+          "student_baseline": 53.6,
+          "student_after_OPD": 53.4,
+          "delta": -0.2,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "CodeForces",
+          "metric": "pass_rate",
+          "student_baseline": 24.5,
+          "student_after_OPD": 25.0,
+          "delta": 0.5,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "BFCL Multi-Turn Base V3",
+          "metric": "accuracy",
+          "student_baseline": 86.0,
+          "student_after_OPD": 83.2,
+          "delta": -2.8,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        }
+      ],
+      "key_findings": [
+        "SD as sole objective degrades think-mode accuracy by up to 3.51 points average on agentic tasks and 7.0 on individual benchmarks",
+        "PI Bias Score reaches 0.52 on in-context solution vs ≤0.02 on different correct solution, showing teacher encodes one trajectory not correctness",
+        "Per-token loss overlaps at ~3.5×10−4 for correct and incorrect rollouts, confirming loss is blind to correctness",
+        "Stopwords, uncertainty markers, punctuation and whitespace absorb 55.4% of per-token loss",
+        "Off-path KL within correct rollouts is ~0.31 vs ~0.08 on-path (4× factor), penalizing exploration",
+        "Results hold under both SDPO and OPSD recipes, across model scales (8B, 32B), reasoning modes, and PI forms"
+      ],
+      "ablations_summary": "Three PI forms (whole solution, hints, skills) tested: whole solution has high PI bias but maintains near-base performance; hints/skills reduce bias but weaken signal, losing 5.1 and 3.5 points respectively. Response-length tertiles, difficulty splits, and model scale (8B vs 32B) all show consistent failure pattern.",
+      "limitations": [
+        "Study is observational, characterizing the objective rather than proposing a remedy",
+        "Evaluates only one model family (Qwen3) at two scales",
+        "Results average four rollouts; some per-domain differences are small relative to run-to-run variation",
+        "Hints and skills are model-generated, so weak-PI results may partly reflect their construction",
+        "Does not test SD combined with reward terms"
+      ],
+      "failure_modes": [
+        "PI-conditioned teacher encodes one specific trajectory rather than correctness in general",
+        "Loss cannot distinguish correct from incorrect rollouts",
+        "Dense loss concentrates on uninformative tokens (stopwords, punctuation)",
+        "Exploration/deliberation tokens are penalized most within correct rollouts",
+        "Student flattens rather than sharpens, producing earlier-committing but not more accurate policy"
+      ],
+      "compute_efficiency": {
+        "teacher_inference_cost": "1×",
+        "speedup_vs_baseline": "not-reported",
+        "memory_footprint": "shared"
+      },
+      "openness": {
+        "code_released": "yes",
+        "code_url": null,
+        "model_released": "no",
+        "data_released": "no"
+      },
+      "theory": {
+        "has_theoretical_analysis": "no",
+        "theoretical_claim": null,
+        "proof_sketch": null
+      },
+      "relevance_to_opd": "Directly analyzes on-policy self-distillation (SDPO, OPSD) where student generates rollouts and a PI-conditioned self-teacher provides dense per-token KL supervision; documents systematic failure modes of this OPD paradigm on hard tasks",
+      "comparable_papers": [
+        "2601.20802",
+        "2601.18734",
+        "2604.03128"
+      ],
+      "score": 7,
+      "_worker": "v2-direct-llm-api",
+      "_model": "claude"
+    },
+    "2608.05131": {
+      "_schema_version": "v3",
+      "paper_id": "2608.05131",
+      "title": "OPD-V: Visual On-Policy Self-Distillation with Modality Balance",
+      "venue": "arXiv 2026",
+      "year": 2026,
+      "authors_first": "Aniri",
+      "affiliation_primary": "National University of Singapore",
+      "summary": "Visual on-policy self-distillation using modality balance as privileged information via dual teachers",
+      "method": {
+        "training_loop": "Student generates rollouts from Original Image; Positive Teacher (Zoom-In Image) and Negative Teacher (Mask Image) score same tokens; positive Modality-Balance Logits Margin defines trust region; JSD distillation within region",
+        "loss_formulation": "L = E[1/(sum r_t) * sum_{t in R_MB} r_t * delta_t^MB * D_JS(q_t^+, p_{theta,t})]",
+        "data_source": "6.2K visual reasoning samples from Vision-OPD",
+        "key_components": [
+          "Positive Teacher with Zoom-In Image",
+          "Negative Teacher with Mask Image",
+          "Modality-Balance Logits Margin",
+          "Modality-Balance Trust Region",
+          "Jensen-Shannon distillation",
+          "EMA teacher update",
+          "Top-K distillation"
+        ]
+      },
+      "novelty": "Introduces Modality Balance as privileged information for OPSD by constructing dual teachers (Zoom-In and Mask Image) whose logit margin defines a trust region for selective self-distillation, addressing modality imbalance in MLLMs",
+      "on_policy_mechanism": {
+        "student_rollout_in_training": "yes",
+        "rollout_frequency": "per-step",
+        "teacher_signal": "logits",
+        "signal_source": "self",
+        "evidence_quote": "The trainable MLLM p receives only the Original Image and textual query, and samples the on-policy trajectory y =(y ,...,y )∼p (·|I,x)."
+      },
+      "opd_classification": {
+        "is_opd": "yes",
+        "primary_section": "§5.3.2",
+        "secondary_sections": [
+          "§4.1",
+          "§6.1"
+        ],
+        "reasoning": "Self-distillation where the student generates rollouts, a detached copy (same model with EMA) provides logit-level supervision on student-visited states, using JSD loss; the novelty is modality-balance-based token selection, which is a form of token weighting within pure self-distillation."
+      },
+      "teacher_student_pairs": [
+        {
+          "teacher": {
+            "name": "Qwen3.5-4B (EMA copy)",
+            "family": "Qwen3",
+            "size_B": 4,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": true,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "Qwen3.5-4B",
+            "family": "Qwen3",
+            "size_B": 4,
+            "type": "dense",
+            "init_from": "base",
+            "is_self": true
+          },
+          "vocab_match": "shared",
+          "scenario": "main"
+        },
+        {
+          "teacher": {
+            "name": "Qwen3.5-9B (EMA copy)",
+            "family": "Qwen3",
+            "size_B": 9,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": true,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "Qwen3.5-9B",
+            "family": "Qwen3",
+            "size_B": 9,
+            "type": "dense",
+            "init_from": "base",
+            "is_self": true
+          },
+          "vocab_match": "shared",
+          "scenario": "main"
+        },
+        {
+          "teacher": {
+            "name": "Qwen3-VL-4B-Instruct (EMA copy)",
+            "family": "Qwen3",
+            "size_B": 4,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": true,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "Qwen3-VL-4B-Instruct",
+            "family": "Qwen3",
+            "size_B": 4,
+            "type": "dense",
+            "init_from": "SFT",
+            "is_self": true
+          },
+          "vocab_match": "shared",
+          "scenario": "main"
+        },
+        {
+          "teacher": {
+            "name": "Qwen3-VL-8B-Instruct (EMA copy)",
+            "family": "Qwen3",
+            "size_B": 8,
+            "type": "dense",
+            "moe_active_B": null,
+            "is_self": true,
+            "is_api_only": false
+          },
+          "student": {
+            "name": "Qwen3-VL-8B-Instruct",
+            "family": "Qwen3",
+            "size_B": 8,
+            "type": "dense",
+            "init_from": "SFT",
+            "is_self": true
+          },
+          "vocab_match": "shared",
+          "scenario": "main"
+        }
+      ],
+      "training_setup": {
+        "compute_budget": "1 node, 4×H200",
+        "tokens_seen_B": null,
+        "context_length": 8192,
+        "rollout_batch_size": 48,
+        "rollouts_per_iter": 8,
+        "kl_coeff": null,
+        "rl_algorithm": "pure-KD",
+        "stabilization_tricks": [
+          "EMA teacher",
+          "top-K distillation",
+          "token-level rollout correction with threshold 2.0"
+        ],
+        "warmup_off_policy": "no",
+        "warmup_method": "n/a"
+      },
+      "datasets": {
+        "train": [
+          "Vision-OPD 6.2K visual reasoning samples"
+        ],
+        "eval": [
+          "V* Bench",
+          "ZoomBench",
+          "HR-Bench 4K",
+          "HR-Bench 8K",
+          "MME-RealWorld EN",
+          "MME-RealWorld CN"
+        ],
+        "domain": "multi-modal"
+      },
+      "benchmarks": [
+        {
+          "name": "V* Bench",
+          "metric": "accuracy",
+          "student_baseline": 80.63,
+          "student_after_OPD": 94.76,
+          "delta": 14.13,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "ZoomBench",
+          "metric": "accuracy",
+          "student_baseline": 49.82,
+          "student_after_OPD": 65.92,
+          "delta": 16.1,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "HR-Bench 4K",
+          "metric": "accuracy",
+          "student_baseline": 73.5,
+          "student_after_OPD": 85.75,
+          "delta": 12.25,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "HR-Bench 8K",
+          "metric": "accuracy",
+          "student_baseline": 67.5,
+          "student_after_OPD": 83.25,
+          "delta": 15.75,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "MME-RealWorld EN",
+          "metric": "accuracy",
+          "student_baseline": 55.78,
+          "student_after_OPD": 76.31,
+          "delta": 20.53,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "MME-RealWorld CN",
+          "metric": "accuracy",
+          "student_baseline": 58.56,
+          "student_after_OPD": 74.06,
+          "delta": 15.5,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        },
+        {
+          "name": "Average (6 benchmarks)",
+          "metric": "accuracy",
+          "student_baseline": 64.3,
+          "student_after_OPD": 80.01,
+          "delta": 15.71,
+          "teacher_score": null,
+          "gap_closed_pct": null,
+          "is_main_result": true
+        }
+      ],
+      "key_findings": [
+        "OPD-V raises Qwen3.5-4B average from 64.30% to 80.01%, a 15.71 percentage-point gain across 6 benchmarks.",
+        "OPD-V with 4B parameters outperforms 397B Qwen3.5 (77.44%) and 1T Kimi-K2.6 (72.81%) in average accuracy.",
+        "OPD-V reduces wall-clock step latency by 31.8% on 4B and 24.7% on 9B compared to standard OPSD.",
+        "Response length is reduced by 74.5% compared to OPSD (141 vs 554 tokens at final training steps).",
+        "Combining Positive and Negative Teachers yields 80.01% vs 74.62% (Positive only) and 71.98% (Negative only)."
+      ],
+      "ablations_summary": "Positive Teacher alone reaches 74.62%, Negative Teacher alone 71.98%, combined yields 80.01%. Zoom-In Image outperforms Repeat Image (80.01% vs 75.95%). Mask Image outperforms Blur (74.31%), Prune (73.74%), and No Image (72.17%).",
+      "limitations": [],
+      "failure_modes": [],
+      "compute_efficiency": {
+        "teacher_inference_cost": "2× (two teacher forward passes but offset by shorter rollouts)",
+        "speedup_vs_baseline": "1.32× (31.8% less step time vs OPSD on 4B)",
+        "memory_footprint": "shared"
+      },
+      "openness": {
+        "code_released": "yes",
+        "code_url": null,
+        "model_released": "yes",
+        "data_released": "no"
+      },
+      "theory": {
+        "has_theoretical_analysis": "no",
+        "theoretical_claim": null,
+        "proof_sketch": null
+      },
+      "relevance_to_opd": "Directly extends on-policy self-distillation (OPSD) for multimodal LLMs by introducing modality-balance-aware token selection through dual teacher logit margins, applying JSD distillation only on student-generated tokens within a trust region.",
+      "comparable_papers": [
+        "2601.18734",
+        "2605.18740",
+        "2605.21924"
+      ],
+      "score": 8,
+      "_worker": "v2-direct-llm-api",
+      "_model": "claude"
     }
   },
-  "last_updated": "2026-08-06T02:42:43.222115Z"
+  "last_updated": "2026-08-07T02:36:48.431192Z"
 }
