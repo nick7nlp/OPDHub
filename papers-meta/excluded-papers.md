@@ -1948,3 +1948,9 @@ V3 deep-read 内层 `is_opd=yes` 但外层字段未填，5/29 backlog 核对发�
 ## 2026-08-09 audit sync (2nd-opinion REJECT on 08-05, notes DB now synced)
 - 2608.01303 AlphaG-OPD — REJECT: non-LLM domain (symbolic alpha factor discovery for finance), Pattern 2
 - 2608.02087 ICE / Asymmetric-RL/SD — REJECT: teacher generates the rollouts (off-policy self-distillation), fails C1
+
+## 2026-08-09 boss ruling: 4 boundary cases rejected (not true OPD)
+- 2608.00485 — SERL-SQL: teacher rescore -> GRPO advantage reweight, no distillation loss (fails C3); teacher = synced copy of student (fails C2)
+- 2608.04788 — OCSD: same-model privileged replay rescore -> advantage modulation, no distill loss (fails C3), same pattern as SERL-SQL
+- 2509.14257 — SCoRe: teacher signal = correction data + key-step reward only, no KL/logit supervision anywhere (fails C2+C3); BC + short-horizon RL
+- 2605.22511 — Search-E1: distillation stage is explicitly OFFLINE self-distillation on trajectories sampled after GRPO converged, not in-loop rollouts (fails C1)

@@ -13682,14 +13682,15 @@
     "evidence_quote": "The initialized student model πˆ_init attempts unseen tasks. For each task, it independently generates a full trajectory τ_S = (σ_1,...,σ_H), where each step σ_i denotes a triplet of Thought–Code–Observation. After the final answer, the teacher π_E checks correctness. If incorrect, the teacher locates the first deviation step σ_k where the student diverges from the correct path. Instead of discarding the trajectory, π_E provides a minimal intervention by replacing σ_k with a corrected step σ'_k, after which the student resumes execution from (σ_1,...,σ_{k-1},σ'_k)."
    },
    "opd_classification": {
-    "is_opd": "yes",
+    "is_opd": "no",
     "primary_section": "§4.3",
     "secondary_sections": [
      "§5.3.1",
      "§5.3.3"
     ],
     "reasoning": "Student rollouts are generated within training (online); teacher model provides corrective logits/text at first error step (external teacher signal); RL phase also uses code execution (verifier) for reward computation — primarily §5.1 (external teacher model correction-based KD), with elements of §5.3.1 (GT-verified prefix filtering) and §5.3.3 (verifier/code execution for reward).",
-    "section": "§4.3"
+    "section": "§4.3",
+    "overridden_by": "boss ruling 2026-08-09: boundary case rejected — SCoRe: teacher signal = correction data + key-step reward only, no KL/logit supervision anywhere (fails C2+C3); BC + short-horizon RL"
    },
    "teacher_student_pairs": [
     {
@@ -34844,9 +34845,10 @@
     "signal_source": "Self-distillation from privileged sibling trajectory context"
    },
    "opd_classification": {
-    "is_opd": "yes",
+    "is_opd": "no",
     "section": "§5.3.2",
-    "output_modality": "text"
+    "output_modality": "text",
+    "overridden_by": "boss ruling 2026-08-09: boundary case rejected — Search-E1: distillation stage is explicitly OFFLINE self-distillation on trajectories sampled after GRPO converged, not in-loop rollouts (fails C1)"
    },
    "teacher_student_pairs": [
     {
@@ -59053,14 +59055,14 @@
     "evidence_quote": "A teacher policy π_T periodically synchronized with the student and treated as a stop-gradient model. For a student-generated token y_t,i, the teacher evaluates the same token with execution hindsight"
    },
    "opd_classification": {
-    "is_opd": "yes",
+    "is_opd": "no",
     "primary_section": "§4.3",
     "secondary_sections": [
      "§6.1",
      "§5.3.2"
     ],
     "reasoning": "The method augments GRPO RL with on-policy distillation where teacher (synchronized copy with privileged execution context) provides logit-level re-scoring on student rollouts, converting gaps into bounded reweighting of RL advantages — an RL-augmented OPD objective.",
-    "conflict_flag": "3cond-KEEP vs gemini-REJECT (same pattern as 2608.04788 OCSD: same-model privileged rescore -> GRPO advantage reweight, no distill loss); awaiting boss"
+    "overridden_by": "boss ruling 2026-08-09: boundary case rejected — SERL-SQL: teacher rescore -> GRPO advantage reweight, no distillation loss (fails C3); teacher = synced copy of student (fails C2)"
    },
    "teacher_student_pairs": [
     {
@@ -63851,13 +63853,14 @@
     "evidence_quote": "OCSD generates on-policy outputs under the original interaction context and re-scores the same tokens after rollout using replay evidence E_i,k. We denote the original-context and replay-conditioned token distributions by π_S and π_T, referred to as the student and teacher views, respectively."
    },
    "opd_classification": {
-    "is_opd": "yes",
+    "is_opd": "no",
     "primary_section": "§5.3.2",
     "secondary_sections": [
      "§4.3",
      "§6.1"
     ],
-    "reasoning": "Self-distillation where the same model acts as both student (original context) and teacher (privileged replay view), with on-policy rollouts scored under two replay views to derive a KL-like log-probability residual that modulates RL updates."
+    "reasoning": "Self-distillation where the same model acts as both student (original context) and teacher (privileged replay view), with on-policy rollouts scored under two replay views to derive a KL-like log-probability residual that modulates RL updates.",
+    "overridden_by": "boss ruling 2026-08-09: boundary case rejected — OCSD: same-model privileged replay rescore -> advantage modulation, no distill loss (fails C3), same pattern as SERL-SQL"
    },
    "teacher_student_pairs": [
     {
