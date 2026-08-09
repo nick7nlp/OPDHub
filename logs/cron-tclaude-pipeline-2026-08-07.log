@@ -1,2 +1,5 @@
 
 ======== tclaude-cron pipeline | 2026-08-07 10:27 ========
+[wrapper] pipeline script exit 0
+Pipeline 日志末尾摘要（2026-08-07）：Deep-read 成功 24 篇，最终 keep 3 篇（2608.04408、2608.04419、2608.05131），已成功 git push。
+[wrapper] tclaude summary exit 0 @ 10:39:06
