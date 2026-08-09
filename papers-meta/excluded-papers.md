@@ -1944,3 +1944,7 @@ V3 deep-read 内层 `is_opd=yes` 但外层字段未填，5/29 backlog 核对发�
 | 2026-08-08 | 2608.04670 | Easy to Complete, Hard to Choose: Investigating LLM Performance on the ProverbIT | This is a benchmark/evaluation paper with no training or distillation method proposed. |
 | 2026-08-08 | 2608.04698 | Teaching MLLMs to Say No: Generalized Referring Expression Comprehension via Ref | This is an RL paper using GRPO with verifiable rewards (IoU-based, rule-based rationale reward). No teacher provides log |
 | 2026-08-08 | 2608.04805 | MGSB: Manifold Gated Signature Branch Pressure-Domain Baseline Architecture for  | This paper is about pipeline leak detection using Mean-Teacher EMA self-ensembling for semi-supervised learning in a non |
+
+## 2026-08-09 audit sync (2nd-opinion REJECT on 08-05, notes DB now synced)
+- 2608.01303 AlphaG-OPD — REJECT: non-LLM domain (symbolic alpha factor discovery for finance), Pattern 2
+- 2608.02087 ICE / Asymmetric-RL/SD — REJECT: teacher generates the rollouts (off-policy self-distillation), fails C1
