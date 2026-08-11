@@ -181,15 +181,15 @@ Legacy code may reference `papers/opd/<aid>.pdf`. A symlink keeps it alive:
 
 ## 🔄 Daily Automation
 
-自 2026-07-27 起改为 **tclaude 驱动**：OS cron（永久、无人值守、重启自恢复）触发 `scripts/tclaude_cron.sh`，wrapper 先直接跑现有 phase 脚本（重活，绕开 Claude Code Bash 工具 10 分钟上限），再用 headless `tclaude -p`（haiku、只读）读当天日志、输出一行状态。
+自 2026-08-11 起改为 **CodeBuddy / systemd 驱动**：`codebuddy-opd-pipeline.timer` 是 root 的 systemd user timer（永久、无人值守、重启后恢复），每个工作日 09:27 CST 直接触发 `codebuddy-opd-pipeline.service`。服务直接运行 `scripts/codebuddy_opd_pipeline.sh run`，以三小时上限、单一锁和原子结果状态顺序执行已有 phase 脚本；CodeBuddy daemon 保留为其它需要模型分析的调度工作流。
 
-| Cron (CST) | Wrapper | 内部脚本 | What |
-|------------|---------|----------|------|
-| `27 9 * * 1-5` | `tclaude_cron.sh scout` | `cron_scout.sh` | Phase 0+1：scout + 下载候选到 `_staging/` |
-| `27 10 * * 1-5` | `tclaude_cron.sh pipeline` | `cron_pipeline_phase2_7.sh` | Phase 2-7：deep-read → triage → 3-cond → 2nd-opinion → insert → push |
+| Timer (CST) | CodeBuddy runner | 内部脚本 | What |
+|-------------|------------------|----------|------|
+| 工作日 09:27 | `codebuddy_opd_pipeline.sh` | `cron_scout.sh` → `cron_pipeline_phase2_7.sh` | Phase 0+1 后紧接 Phase 2-7：scout、deep-read、triage、3-cond、2nd-opinion、insert、push |
 
-> Wrapper 日志：`logs/cron-tclaude-{scout,pipeline}-YYYY-MM-DD.log`；phase 脚本原始日志：`logs/cron-{scout,pipeline}-YYYY-MM-DD.log`。
-> 未采用 tclaude 内置 scheduler（`.claude/scheduled_tasks.json`），因其 recurring 任务 7 天自动过期且需活跃会话，不适合永久无人值守。
+> 编排日志：`logs/codebuddy-opd-YYYY-MM-DD.log`；phase 原始日志：`logs/cron-{scout,pipeline}-YYYY-MM-DD.log`。失败会写入 `.claude/pipeline_alerts.md`。
+> 查看调度：`systemctl --user status codebuddy-opd-pipeline.timer`、`systemctl --user list-timers`；查看 CodeBuddy daemon：`codebuddy daemon status`。
+> CodeBuddy 原生 `durable:true` scheduler 在 v2.133.1 的 daemon 重启后不会重新绑定任务，因此未用于生产；`tclaude_cron.sh` 仅保留作回滚参考，已无 crontab 条目。
 
 ---
 

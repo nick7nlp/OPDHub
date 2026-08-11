@@ -77,6 +77,10 @@ python3 "${SCRIPTS}/batch_deep_read.py" \
 DEEP_RC=$?
 
 echo "  deep-read exit code: ${DEEP_RC}"
+if [ "${DEEP_RC}" -ne 0 ]; then
+    echo "  ❌ deep-read failed"
+    exit "${DEEP_RC}"
+fi
 
 if [ ! -f "${DEEP_READ_SUMMARY}" ]; then
     echo "  ⚠️  No summary file — deep-read produced nothing (0 new papers?)"
@@ -122,6 +126,10 @@ python3 "${SCRIPTS}/triage_after_deep_read.py" \
     --candidates "${DEEP_READ_IDS}"
 TRIAGE_RC=$?
 echo "  triage exit code: ${TRIAGE_RC}"
+if [ "${TRIAGE_RC}" -ne 0 ]; then
+    echo "  ❌ triage failed"
+    exit "${TRIAGE_RC}"
+fi
 echo ""
 
 # ──────────────────────────────────────────────
@@ -157,6 +165,10 @@ python3 "${SCRIPTS}/three_condition_filter.py" \
     --format json > /tmp/opd_3cond_result.json
 FILTER_RC=$?
 echo "  3-cond filter exit code: ${FILTER_RC}"
+if [ "${FILTER_RC}" -ne 0 ]; then
+    echo "  ❌ 3-condition filter failed"
+    exit "${FILTER_RC}"
+fi
 
 # Parse filter results — only KEEP verdicts proceed
 FINAL_KEEP_IDS=$(python3 -c "
@@ -220,10 +232,9 @@ for r in results:
         print(f\"  ⚠️  {r['aid']}: {v} (passed through) — {r.get('reasoning', '')[:100]}\")
 " 2>/dev/null
 
-# Fallback: if 2nd-opinion script fails entirely, pass through (don't block pipeline)
-if [ "${OPINION_RC}" -ne 0 ] && [ -z "${VERIFIED_IDS}" ]; then
-    echo "  ⚠️  2nd-opinion script failed — falling back to 3-cond filter results"
-    VERIFIED_IDS="${FINAL_KEEP_IDS}"
+if [ "${OPINION_RC}" -ne 0 ]; then
+    echo "  ❌ second-opinion verification failed"
+    exit "${OPINION_RC}"
 fi
 
 # Health monitor: track consecutive days with 0 CONFIRMs from 2nd-opinion.
@@ -322,6 +333,10 @@ python3 "${SCRIPTS}/awesome_list_inserter.py" \
     --commit
 INSERT_RC=$?
 echo "  inserter exit code: ${INSERT_RC}"
+if [ "${INSERT_RC}" -ne 0 ]; then
+    echo "  ❌ awesome list inserter failed"
+    exit "${INSERT_RC}"
+fi
 echo ""
 
 # ──────────────────────────────────────────────
@@ -425,6 +440,7 @@ else
         echo "  survey repo: committed"
     else
         echo "  ❌ survey repo: commit FAILED (rc=${rc}) — changes left uncommitted"
+        exit "${rc}"
     fi
 fi
 
@@ -448,15 +464,18 @@ print(m.group(1) if m else '?')
         echo "  awesome repo: committed (badge=${BADGE})"
     else
         echo "  ❌ awesome repo: commit FAILED (rc=${rc}) — changes left uncommitted"
+        exit "${rc}"
     fi
 fi
 
 # Push both repos
-cd "${PROJECT_ROOT}" || true
-git push 2>/dev/null && echo "  survey repo: pushed" || echo "  survey repo: push failed (will retry next run)"
+cd "${PROJECT_ROOT}" || exit 2
+git push || { echo "  ❌ survey repo: push failed"; exit 1; }
+echo "  survey repo: pushed"
 
-cd "${AWESOME_DIR}" || true
-git push 2>/dev/null && echo "  awesome repo: pushed" || echo "  awesome repo: push failed (will retry next run)"
+cd "${AWESOME_DIR}" || exit 2
+git push || { echo "  ❌ awesome repo: push failed"; exit 1; }
+echo "  awesome repo: pushed"
 
 echo ""
 echo "================================================================"

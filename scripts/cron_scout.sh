@@ -55,7 +55,7 @@ if [ ${SCOUT_RC} -ne 0 ]; then
         echo "See ${LOG} for details."
         echo ""
     } >> "${QUEUE}"
-    exit 0
+    exit "${SCOUT_RC}"
 fi
 
 # Parse candidate count
