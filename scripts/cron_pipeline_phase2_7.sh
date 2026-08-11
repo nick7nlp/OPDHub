@@ -428,12 +428,13 @@ clear_stale_git_lock() {
 }
 
 # Survey repo
-cd "${PROJECT_ROOT}" || true
+cd "${PROJECT_ROOT}" || exit 2
 clear_stale_git_lock "${PROJECT_ROOT}"
-if git diff --quiet && git diff --cached --quiet; then
-    echo "  survey repo: no changes"
+# Stage only pipeline-owned, tracked paths (pdfs/, .claude/ and the site dir are gitignored).
+git add -- notes papers-meta logs
+if git diff --cached --quiet; then
+    echo "  survey repo: no pipeline-owned changes to commit"
 else
-    git add -- notes pdfs papers-meta
     git commit -m "cron: pipeline Phase 2-7 — ${DATE_CST} (${OK} deep-read, keep ${FINAL_KEEP_IDS})"
     rc=$?
     if [ ${rc} -eq 0 ]; then
@@ -445,13 +446,13 @@ else
 fi
 
 # Awesome repo
-cd "${AWESOME_DIR}" || true
+cd "${AWESOME_DIR}" || exit 2
 clear_stale_git_lock "${AWESOME_DIR}"
-if git diff --quiet && git diff --cached --quiet; then
-    echo "  awesome repo: no changes"
+# Phase 4 inserter already commits; only stage the list file if a leftover remains.
+git add -- README.md
+if git diff --cached --quiet; then
+    echo "  awesome repo: no pipeline-owned changes to commit"
 else
-    # Phase 4 inserter already commits; only stage the list file if a leftover remains.
-    git add -- README.md
     BADGE=$(python3 -c "
 import re
 text = open('README.md').read()
