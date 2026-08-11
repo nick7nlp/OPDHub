@@ -77,8 +77,8 @@ run_pipeline() {
     fi
 
     cd "${PROJECT_ROOT}" || { echo "FATAL: cannot cd to ${PROJECT_ROOT}"; return 2; }
-    if [ -n "$(git status --porcelain)" ] || [ -n "$(git -C "${PROJECT_ROOT}/Awesome-LLM-On-Policy-Distillation" status --porcelain)" ]; then
-        echo "FATAL: repository has uncommitted changes; refusing automated pipeline commit"
+    if [ -n "$(git status --porcelain -- . ':!logs' ':!awesome-llm-opd-site')" ] || [ -n "$(git -C "${PROJECT_ROOT}/Awesome-LLM-On-Policy-Distillation" status --porcelain)" ]; then
+        echo "FATAL: repository has uncommitted source changes; refusing automated pipeline commit"
         return 2
     fi
     echo ""

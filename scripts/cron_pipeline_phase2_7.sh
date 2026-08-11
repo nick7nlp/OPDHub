@@ -433,7 +433,7 @@ clear_stale_git_lock "${PROJECT_ROOT}"
 if git diff --quiet && git diff --cached --quiet; then
     echo "  survey repo: no changes"
 else
-    git add -A
+    git add -- notes pdfs papers-meta
     git commit -m "cron: pipeline Phase 2-7 — ${DATE_CST} (${OK} deep-read, keep ${FINAL_KEEP_IDS})"
     rc=$?
     if [ ${rc} -eq 0 ]; then
@@ -450,8 +450,8 @@ clear_stale_git_lock "${AWESOME_DIR}"
 if git diff --quiet && git diff --cached --quiet; then
     echo "  awesome repo: no changes"
 else
-    # Phase 4 inserter already commits, but catch any leftovers
-    git add -A
+    # Phase 4 inserter already commits; only stage the list file if a leftover remains.
+    git add -- README.md
     BADGE=$(python3 -c "
 import re
 text = open('README.md').read()
