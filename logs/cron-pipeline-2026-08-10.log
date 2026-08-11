@@ -1,0 +1,21 @@
+
+================================================================
+  OPD Pipeline Phase 2-7  |  2026-08-10 10:27
+================================================================
+
+▶ Phase 2: batch deep-read (--from-staging --days-back 35)
+  _staging/ has 2 PDFs total
+[batch] from-staging: skipped 1 already in paper_notes.json: ['2608.04788']
+[batch] from-staging: found 1 pending IDs in _staging/
+[batch] ⚠️  DATE WINDOW (days_back=35) rejected 1 papers: ['2509.11924']
+[batch]    These should NOT be in --all-pending; investigate scout that added them.
+[batch] 0 papers to process: []
+
+=== batch done ===
+  total: 0  ok: 0  fail: 0  duration: 0.0s
+  is_opd: yes=0 no=0 analysis=0
+  notes: +0 new, ~0 updated, -0 skipped
+  summary: /tmp/opd_pipeline_deep_read_summary.json
+  deep-read exit code: 0
+  deep-read: total=0 ok=0 opd_yes=0 opd_no=0
+  0 papers to process — pipeline complete.

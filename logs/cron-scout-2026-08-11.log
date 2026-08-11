@@ -1,0 +1,81 @@
+✅ Refreshed known_arxiv_ids.txt: 2163 IDs
+[scout] DATE WINDOW (CST): 2026-08-10 → 2026-08-11  (days_back=1)
+[scout] accepting YYMM prefixes: ['2608']
+[scout] architecture: RSS-primary + API-verify + S2-crosscheck
+[scout] known IDs to skip: 2163
+
+[scout] === Phase 1: RSS feeds (3 categories) ===
+[scout/rss] cs.CL: 119 total items, 13 OPD-keyword matches
+[scout/rss] cs.LG: 237 total items, 17 OPD-keyword matches
+[scout/rss] cs.AI: 295 total items, 38 OPD-keyword matches
+[scout/rss] total unique candidates: 53
+
+[scout] === Phase 2: S2 cross-check (4 queries) ===
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] added 0 papers not found in RSS
+
+[scout] combined unique: 53 (RSS: 53, S2-extra: 0)
+
+[scout] === Phase 3: no S2-sourced papers to verify ===
+
+[scout] ✅ 53 new candidates for deep-read
+[scout] wrote /tmp/scout_arxiv_results.json
+
+## Scout Summary: 53 new in-window candidates
+
+  - 2608.06396 [rss/ok] TEXAS: Task-Expert-Aware Supervision for Downstream Mixture-of-Experts LLM Adapt
+  - 2608.06526 [rss/ok] GRASP: Reinforcing Language Model Anonymizers with Group Relative Policy Optimiz
+  - 2608.06672 [rss/ok] TA-RAG: Tone Awareness as a Design Imperative for Retrieval-Augmented Generation
+  - 2608.06802 [rss/ok] Simple-OPD: Demystifying Warm-up for On-policy Distillation
+  - 2608.06884 [rss/ok] Georeferencing Non-Gazetteered Place Names using Biological Specimen Records
+  - 2608.07283 [rss/ok] Grammar Engineering Meets LLMs: Development of Cantonese and Irish ParGram Treeb
+  - 2608.07353 [rss/ok] Geo-Spatial Concept Probing of Large Language Models: Abstraction, Compositional
+  - 2608.07439 [rss/ok] An Exploratory Evaluation of LLM-Assisted Rewriting of Moderate-Complexity Finan
+  - 2608.07460 [rss/ok] CreativeInstruct: Scalably Teaching LLMs to Balance Quality, Creativity, and Div
+  - 2608.06735 [rss/ok] IB-RL: Isolated Bilateral Reinforcement Learning for Strategic Dialogue Agents
+  - 2608.06752 [rss/ok] Mind the Gap: A Dual Knowledge Graph Framework for Unified Multi-task User Inten
+  - 2608.07067 [rss/ok] DocMemo: Dynamic Evidence Discovery via Probabilistic Memory-Guided Retrieval fo
+  - 2608.07371 [rss/ok] Trajectory-Relative Hindsight Distillation for Agentic Reinforcement Learning
+  - 2608.06486 [rss/ok] Beyond Attention: Signed Integrated Gradients Attribution in a BiomeGPT-Style Mi
+  - 2608.06706 [rss/ok] Dueling World Models: Advantage-Style Action Channels for Common-Mode Distractor
+  - 2608.06766 [rss/ok] Hidden Gauge Controls Feature Specialization in ReLU Networks
+  - 2608.06942 [rss/ok] ELMZip: Onboard Satellite Image Compression via Extreme Learning Machines for Ef
+  - 2608.07086 [rss/ok] Beyond Isolation: Unlocking Reinforcement Learning Component Synergy for Sample-
+  - 2608.07158 [rss/ok] Edge Sparsification via Temporal Forman-Ricci Curvature for Dynamic Graph Learni
+  - 2608.07420 [rss/ok] Beyond Myopic World Models: Long-Horizon End-to-End Training for Direct Future P
+  - 2608.06406 [rss/ok] Deep Evidential Regression for Sparse Forest Height Estimation from Multimodal S
+  - 2608.06447 [rss/ok] FedTransKD-IDS: Robust Federated Transfer Learning with Knowledge Distillation f
+  - 2608.06901 [rss/ok] Prune Once: Retraining-Free Task-Agnostic Pruning for Vision-Language Models
+  - 2608.07065 [rss/ok] AutoIntervene: Calibrated Intervention for Action-Chunking Imitation Learning Po
+  - 2608.07077 [rss/ok] Transformers Struggle to Use Their Emergent World Models: Revisiting the Tower o
+  - 2608.07169 [rss/ok] Agent Memory Distillation: Empowering Small LLM Agents with Hierarchical Teacher
+  - 2608.07408 [rss/ok] Addressable Memory for Video World Models
+  - 2608.07463 [rss/ok] MirrorWorld: Taming Video Diffusion Models for Mirror Reflection Generation
+  - 2608.06394 [rss/ok] Towards Multi-Label Graph Foundation Models: from Single-Vector Representation L
+  - 2608.06398 [rss/ok] EntropyMoE: Entropy-Aware Sparse Expert Routing for Tokenizer-Free LLMs
+  - 2608.06411 [rss/ok] Learning to Predict Middle-Layer Attention in MLLMs for Visual Token Prunin
+  - 2608.06530 [rss/ok] KNOWPLAN: Knowledge-Driven AI Agents for Smart Degree Pathway Planning
+  - 2608.06704 [rss/ok] WebRider: Persona-Conditioned Intent Controllers for Live-Web Assistance
+  - 2608.06756 [rss/ok] Capek 0.5: An Execution-Centric Vision-Language Model for Embodied Intelligence
+  - 2608.06808 [rss/ok] Evolving Parallel Algorithm Portfolios via Potential-Aware Instance Generation w
+  - 2608.06861 [rss/ok] Gated-BEPO: Confidence-Gated Bellman Credit Assignment for Large Language Model 
+  - 2608.06917 [rss/ok] ReGraph: Learning to Generate Recipe Graphs from Food Images
+  - 2608.06940 [rss/ok] Blind to the Pivotal Vote: Aggregate Independence Metrics Miss Where Verificatio
+  - 2608.06949 [rss/ok] Does Splitting a Triage Decision Across Agents Hide Bias or Help Catch It? A Mul
+  - 2608.07068 [rss/ok] MemOPD: On-Policy Distillation through Memory State Alignment for Long-Horizon A
+  - 2608.07118 [rss/ok] How Much, Then Where: Credit-Conserving Action-to-Token Allocation for Multi-Tur
+  - 2608.07188 [rss/ok] SetEasy: A Multi-Modal Classroom Engagement Assessment and Seating Optimization 
+  - 2608.07267 [rss/ok] WNM-3D: A World Navigation Model with 3D Scene Conditioning for Closed-Loop VLN
+  - 2608.07364 [rss/ok] Curriculum as Code: An AI-Assisted Architecture for Instructional Design in STEM
+  - 2608.06471 [rss/ok] CyberForge: Verified Vulnerability Injection at Repository Level for Cybersecuri
+  - 2608.06612 [rss/ok] SLED: Scalable Location Encoding via Distillation
+  - 2608.06650 [rss/ok] SoRoMoX: Fast, Differentiable, and Parallelizable Soft Robot Models
+  - 2608.06846 [rss/ok] Investigating Quantum-Embedded Transformers on Classical Datasets for Cross-Moda
+  - 2608.06865 [rss/ok] Multi-Agent Forensic Reasoning for Generalizable Deepfake Video Detection
+  - 2608.06938 [rss/ok] Debias in Text, Believe Your Eyes: Text-Anchored Cross-Modal Transfer for Visual
+  - 2608.07079 [rss/ok] LifelongCrossNav: Persistent 3D Semantic Memory for Cross-Floor Multi-Object Nav
+  - 2608.07116 [rss/ok] Geometry-Aware Camera Localization for Bronchoscopy
+  - 2608.07405 [rss/ok] GeoDistill-Refine: Silhouette-First Geometry Distillation for Annotation-Free Sp

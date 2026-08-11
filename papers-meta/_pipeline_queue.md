@@ -2020,3 +2020,65 @@
 - `2608.05026`  ArtAnno: Annotating Implicit Semantics in Artworks through LLM Agent-Driven Bidirectional Human-AI Augmentatio
 - `2608.05131`  OPD-V: Visual On-Policy Self-Distillation with Modality Balance
 
+
+## 2026-08-10 (Mon) — weekend skip (PRE-CHECK exit 1)
+
+
+## 2026-08-11 (Tue) 09:27 — scout completed
+
+**53 candidates** downloaded to `pdfs/_staging/`. Follow-up Phase 2-7 **pending**.
+
+- `2608.06396`  TEXAS: Task-Expert-Aware Supervision for Downstream Mixture-of-Experts LLM Adaptation
+- `2608.06526`  GRASP: Reinforcing Language Model Anonymizers with Group Relative Policy Optimization
+- `2608.06672`  TA-RAG: Tone Awareness as a Design Imperative for Retrieval-Augmented Generation
+- `2608.06802`  Simple-OPD: Demystifying Warm-up for On-policy Distillation
+- `2608.06884`  Georeferencing Non-Gazetteered Place Names using Biological Specimen Records
+- `2608.07283`  Grammar Engineering Meets LLMs: Development of Cantonese and Irish ParGram Treebanks
+- `2608.07353`  Geo-Spatial Concept Probing of Large Language Models: Abstraction, Compositionality, and Grounding
+- `2608.07439`  An Exploratory Evaluation of LLM-Assisted Rewriting of Moderate-Complexity Financial Sentences for DisCoCat-Ba
+- `2608.07460`  CreativeInstruct: Scalably Teaching LLMs to Balance Quality, Creativity, and Diversity
+- `2608.06735`  IB-RL: Isolated Bilateral Reinforcement Learning for Strategic Dialogue Agents
+- `2608.06752`  Mind the Gap: A Dual Knowledge Graph Framework for Unified Multi-task User Intent Inference
+- `2608.07067`  DocMemo: Dynamic Evidence Discovery via Probabilistic Memory-Guided Retrieval for Multi-Modal Document Underst
+- `2608.07371`  Trajectory-Relative Hindsight Distillation for Agentic Reinforcement Learning
+- `2608.06486`  Beyond Attention: Signed Integrated Gradients Attribution in a BiomeGPT-Style Microbiome Transformer
+- `2608.06706`  Dueling World Models: Advantage-Style Action Channels for Common-Mode Distractor Rejection
+- `2608.06766`  Hidden Gauge Controls Feature Specialization in ReLU Networks
+- `2608.06942`  ELMZip: Onboard Satellite Image Compression via Extreme Learning Machines for Efficient Downlink
+- `2608.07086`  Beyond Isolation: Unlocking Reinforcement Learning Component Synergy for Sample-Efficient Continuous Control
+- `2608.07158`  Edge Sparsification via Temporal Forman-Ricci Curvature for Dynamic Graph Learning
+- `2608.07420`  Beyond Myopic World Models: Long-Horizon End-to-End Training for Direct Future Prediction
+- `2608.06406`  Deep Evidential Regression for Sparse Forest Height Estimation from Multimodal Satellite Imagery
+- `2608.06447`  FedTransKD-IDS: Robust Federated Transfer Learning with Knowledge Distillation for Intrusion Detection in IoT
+- `2608.06901`  Prune Once: Retraining-Free Task-Agnostic Pruning for Vision-Language Models
+- `2608.07065`  AutoIntervene: Calibrated Intervention for Action-Chunking Imitation Learning Policies
+- `2608.07077`  Transformers Struggle to Use Their Emergent World Models: Revisiting the Tower of Hanoi, and the Illusion of T
+- `2608.07169`  Agent Memory Distillation: Empowering Small LLM Agents with Hierarchical Teacher Memory
+- `2608.07408`  Addressable Memory for Video World Models
+- `2608.07463`  MirrorWorld: Taming Video Diffusion Models for Mirror Reflection Generation
+- `2608.06394`  Towards Multi-Label Graph Foundation Models: from Single-Vector Representation Learning to Multi-Semantic Basi
+- `2608.06398`  EntropyMoE: Entropy-Aware Sparse Expert Routing for Tokenizer-Free LLMs
+- `2608.06411`  Learning to Predict Middle-Layer Attention in MLLMs for Visual Token Prunin
+- `2608.06530`  KNOWPLAN: Knowledge-Driven AI Agents for Smart Degree Pathway Planning
+- `2608.06704`  WebRider: Persona-Conditioned Intent Controllers for Live-Web Assistance
+- `2608.06756`  Capek 0.5: An Execution-Centric Vision-Language Model for Embodied Intelligence
+- `2608.06808`  Evolving Parallel Algorithm Portfolios via Potential-Aware Instance Generation with LLMs
+- `2608.06861`  Gated-BEPO: Confidence-Gated Bellman Credit Assignment for Large Language Model Agents
+- `2608.06917`  ReGraph: Learning to Generate Recipe Graphs from Food Images
+- `2608.06940`  Blind to the Pivotal Vote: Aggregate Independence Metrics Miss Where Verification Actually Helps
+- `2608.06949`  Does Splitting a Triage Decision Across Agents Hide Bias or Help Catch It? A Multi-Agent Simulation Study of L
+- `2608.07068`  MemOPD: On-Policy Distillation through Memory State Alignment for Long-Horizon Agents
+- `2608.07118`  How Much, Then Where: Credit-Conserving Action-to-Token Allocation for Multi-Turn Agent Reinforcement Learning
+- `2608.07188`  SetEasy: A Multi-Modal Classroom Engagement Assessment and Seating Optimization Framework
+- `2608.07267`  WNM-3D: A World Navigation Model with 3D Scene Conditioning for Closed-Loop VLN
+- `2608.07364`  Curriculum as Code: An AI-Assisted Architecture for Instructional Design in STEM Education
+- `2608.06471`  CyberForge: Verified Vulnerability Injection at Repository Level for Cybersecurity Agent Training
+- `2608.06612`  SLED: Scalable Location Encoding via Distillation
+- `2608.06650`  SoRoMoX: Fast, Differentiable, and Parallelizable Soft Robot Models
+- `2608.06846`  Investigating Quantum-Embedded Transformers on Classical Datasets for Cross-Modality Classification
+- `2608.06865`  Multi-Agent Forensic Reasoning for Generalizable Deepfake Video Detection
+- `2608.06938`  Debias in Text, Believe Your Eyes: Text-Anchored Cross-Modal Transfer for Visual Counter-Commonsense Reasoning
+- `2608.07079`  LifelongCrossNav: Persistent 3D Semantic Memory for Cross-Floor Multi-Object Navigation
+- `2608.07116`  Geometry-Aware Camera Localization for Bronchoscopy
+- `2608.07405`  GeoDistill-Refine: Silhouette-First Geometry Distillation for Annotation-Free Spacecraft Segmentation
+

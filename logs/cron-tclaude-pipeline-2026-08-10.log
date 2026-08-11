@@ -1,0 +1,5 @@
+
+======== tclaude-cron pipeline | 2026-08-10 10:27 ========
+[wrapper] pipeline script exit 0
+**Pipeline 2026-08-10 日志摘要：** Deep-read 0 篇（_staging 中1篇已存在记录、1篇超出时间窗口），无新论文 keep，无内容变更故无 push。
+[wrapper] tclaude summary exit 0 @ 10:27:22
