@@ -2110,3 +2110,15 @@ V3 deep-read 内层 `is_opd=yes` 但外层字段未填，5/29 backlog 核对发�
 | 2026-08-12 | 2608.09898 | Consilience for Verifier-Free Test-Time Scaling | This is a test-time inference selection method with no training, no distillation, no teacher-student setup — purely a sc |
 | 2026-08-11 | 2509.11924 | Enriched text-guided variational multimodal knowledge distillation network (VMD) for automated diagnosis of plaque in 3D carotid artery MRI | Medical-imaging multimodal KD (IEEE TMI), not LLM OPD. Also outside the 35-day date window (2025-09 submission), so it was re-scanned and rejected on 08-05/06/07/10/11. PDF moved to `.trash-2026-08-11-staging-stale/`; ID added to known_arxiv_ids.txt to stop re-download. |
 | 2026-08-12 | 2608.08294 | A Controlled Study of Feature-Based Knowledge Distillation Across Student Designs | Classic vision feature-based KD (CIFAR/ResNet); 0 mentions of on-policy or rollout, no LLM. Deep-read worker exited 3 (schema/parse failure), leaving it in `_staging/`. Manually verified non-OPD; PDF moved to `.trash-2026-08-11-staging-stale/`, ID added to known_arxiv_ids.txt. |
+
+## 2026-08-12 三条件严格审计 + 老大裁决
+
+| arXiv ID | Title | Verdict |
+|----------|-------|---------|
+| 2604.25110 | Knowledge Distillation Must Account for What It Loses | 老大裁决: 垃圾文章, 剔除。三条件 C1/C3 均不满足 (rollout=n/a, freq=n/a, signal=no-supervision), 是 position paper 讲评估缺失。V4 已发表正文保持不动, 不进 V5。PDF → `.trash-2026-08-12-3cond-reject/` |
+| 2605.10889 | Unmasking On-Policy Distillation: Where It Helps, Where It Hurts (Apple) | 老大裁决: 剔除。原文明确 "rollout generation is done once (Phase 1)" → `rollout_frequency=once-before-training`, C3 不满足 (off-policy 预生成)。V4 已发表正文保持不动, 不进 V5。PDF → trash |
+| 2606.23740 | Weight-Space Geometry of Offline Reasoning Training | 纯离线 (RFT/RIFT/DFT/Offline GRPO/DPO), "offline" 出现 45 次, rollout=no。C1+C3 不满足。无任何正文/Awesome 引用。PDF → trash |
+| 2607.03572 | Teacher Supervision over Representation Equivalence Classes | 固定数据集上的离线 logit KD 理论 `L_logit = KL(p_τ(z_T(x)) ‖ p_τ(z_S(x)))`, 全文 0 次 "on-policy", rollout=no。C1+C3 不满足。PDF → trash |
+| 2607.02966 | Distill Where the Student Goes: Teacher-Regularized RL for English-Evidence Cross-Lingual RAG | 老大裁决: 剔除。Figure 2 将 teacher-trajectory 变体标为 Off-Policy, 本质是跨语言 RAG 应用配方而非 OPD 方法贡献。已从 Awesome list 移除 (badge 282→281), PDF → trash |
+
+**根因**: backlog 生成脚本用 `is_opd in (yes, analysis)` 作为合格条件, 从未对 analysis 类跑三条件校验, 导致离线工作混入。已在下方规则中修正。

@@ -18002,11 +18002,12 @@
         "evidence_quote": "We do this by decomposing the generation process into a generation tree: given G trajectories sampled from the student π_θ on a prompt q, each trajectory shares prefixes with others, forming a tree where each node u corresponds to a token position and each edge corresponds to a next-token choice. At each node u, we observe which next tokens were chosen across rollouts and which of those rollouts ultimately reached a correct answer. This gives us an empirical estimate of the success probability P̂^k_succ: the probability of reaching a correct answer after choosing token k at node u."
       },
       "opd_classification": {
-        "is_opd": "analysis",
-        "primary_section": "§7.1",
+        "is_opd": "no",
+        "primary_section": "not-applicable",
         "secondary_sections": [],
-        "reasoning": "本文是诊断/分析框架而非训练方法，研究 OPD 的效果机制，不属于某一具体 OPD 方法分类节。",
-        "section": "§7.1"
+        "reasoning": "[2026-08-12 three-condition audit] RECLASSIFIED analysis→no. Analysis of OPD conditions, but rollouts are pre-generated: \"rollout generation is done once (Phase 1)\". rollout_frequency=once-before-training → off-policy. Fails C3. Project rule: all three conditions (student rollouts in training, concurrent teacher supervision, per-step updates) must hold.",
+        "section": "§7.1",
+        "_prev_is_opd": "analysis"
       },
       "teacher_student_pairs": [
         {
@@ -23995,10 +23996,11 @@
         "evidence_quote": "This position paper argues that knowledge distillation must account for what it loses: student models should be judged not only by retained task scores, but by whether they preserve the teacher capabilities that make those scores reliable. [...] We do not claim that distillation should be lossless, or that every student must preserve every teacher capability. We argue that distillation papers should identify which teacher capabilities matter for the intended use, measure whether the student preserves them when possible, and justify the losses they accept."
       },
       "opd_classification": {
-        "is_opd": "analysis",
-        "primary_section": "§7.2",
+        "is_opd": "no",
+        "primary_section": "not-applicable",
         "secondary_sections": [],
-        "reasoning": "Pure position paper with no new training method or on-policy mechanism; proposes a reporting/evaluation norm for knowledge distillation broadly."
+        "reasoning": "[2026-08-12 three-condition audit] RECLASSIFIED analysis→no. Position paper on KD evaluation/capability loss; on_policy_mechanism has rollout=n/a, freq=n/a, teacher_signal=none, signal_source=no-supervision. Fails C1 and C3. Project rule: all three conditions (student rollouts in training, concurrent teacher supervision, per-step updates) must hold.",
+        "_prev_is_opd": "analysis"
       },
       "teacher_student_pairs": [],
       "training_setup": {
@@ -45103,12 +45105,13 @@
         "evidence_quote": "Offline reinforcement-learning losses (RFT, RIFT, DFT, Offline GRPO, DPO) are widely used to distill reasoning from large teachers into smaller students"
       },
       "opd_classification": {
-        "is_opd": "analysis",
-        "primary_section": "§7.1",
+        "is_opd": "no",
+        "primary_section": "not-applicable",
         "secondary_sections": [
           "§4.1"
         ],
-        "reasoning": "This is an analysis paper comparing the weight-space geometry of multiple offline distillation/RL losses rather than proposing a new OPD method; it provides theoretical/empirical insights into when different losses converge."
+        "reasoning": "[2026-08-12 three-condition audit] RECLASSIFIED analysis→no. Weight-space geometry of OFFLINE reasoning losses (RFT/RIFT/DFT/Offline GRPO/DPO); rollout=no, freq=n/a, no-supervision. \"offline\" appears 45x. Fails C1 and C3. Project rule: all three conditions (student rollouts in training, concurrent teacher supervision, per-step updates) must hold.",
+        "_prev_is_opd": "analysis"
       },
       "teacher_student_pairs": [
         {
@@ -49475,13 +49478,14 @@
         "evidence_quote": "A compact student samples on-policy answers, while a stronger frozen teacher is queried only on those prefixes and provides a prefix-wise student-to-teacher reverse-KL anchor"
       },
       "opd_classification": {
-        "is_opd": "yes",
-        "primary_section": "§4.3",
+        "is_opd": "no",
+        "primary_section": "not-applicable",
         "secondary_sections": [
           "§4.1",
           "§8.1"
         ],
-        "reasoning": "The method couples reward optimization with on-policy distillation via reverse-KL from teacher on student-visited prefixes, combining RL rewards with distributional teacher supervision as an augmented objective."
+        "reasoning": "[2026-08-12 boss ruling] RECLASSIFIED yes->no. Excluded from OPD scope per manual review. The paper frames teacher supervision on student-visited prefixes for cross-lingual RAG; Figure 2 labels the teacher-trajectory variant as Off-Policy and the work is an application-level RAG recipe rather than an OPD method contribution. Removed from Awesome list and PDF trashed.",
+        "_prev_is_opd": "yes"
       },
       "teacher_student_pairs": [
         {
@@ -50615,13 +50619,14 @@
         "evidence_quote": "L_logit = (1/|X|) Σ KL(p_τ(z_T(x)) ∥ p_τ(z_S(x))), with τ = 1 in our experiments"
       },
       "opd_classification": {
-        "is_opd": "analysis",
-        "primary_section": "§7.1",
+        "is_opd": "no",
+        "primary_section": "not-applicable",
         "secondary_sections": [
           "§4.1",
           "§5.1"
         ],
-        "reasoning": "This is a theoretical/empirical analysis paper explaining why logit distillation works (output function is a class invariant) vs feature matching; it does not propose a new on-policy distillation algorithm but provides geometric theory relevant to understanding distillation objectives."
+        "reasoning": "[2026-08-12 three-condition audit] RECLASSIFIED analysis→no. Offline logit-KD theory on a fixed dataset: L_logit = KL(p_tau(z_T(x)) || p_tau(z_S(x))); rollout=no, freq=n/a, 0 mentions of \"on-policy\". Fails C1 and C3. Project rule: all three conditions (student rollouts in training, concurrent teacher supervision, per-step updates) must hold.",
+        "_prev_is_opd": "analysis"
       },
       "teacher_student_pairs": [
         {
@@ -68328,5 +68333,5 @@
       "_model": "claude"
     }
   },
-  "last_updated": "2026-08-12T02:02:50.181027Z"
+  "last_updated": "2026-08-12T11:20:00Z"
 }
