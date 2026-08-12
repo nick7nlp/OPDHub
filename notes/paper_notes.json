@@ -64441,12 +64441,12 @@
     "evidence_quote": "OPD follows an on-policy paradigm that trains the student on its own sampled rollouts and employs the teacher to provide token-level dense supervision"
    },
    "opd_classification": {
-    "is_opd": "yes",
+    "is_opd": "no",
     "primary_section": "§6.2",
     "secondary_sections": [
      "§5.1"
     ],
-    "reasoning": "The paper's core contribution is a curriculum/initialization technique (LoRA warm-up) that improves OPD stability and performance, fitting the efficiency/stability category of warm-up/curriculum for OPD."
+    "reasoning": "老大裁决 2026-08-12: 剔除。贡献是 off-policy warm-up 的消融性质研究（错误 CoT rollout 仍可用作初始化），OPD 目标本身未改动；增益约 1 点，属预处理配方而非 OPD 方法推进。已从 v5 正文与 awesome 移除。"
    },
    "teacher_student_pairs": [
     {

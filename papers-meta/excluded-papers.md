@@ -2162,3 +2162,11 @@ Awesome badge: 276 → 270。全部无 v4/v5 正文引用。
 | 2606.19120 | Seeing Before Reasoning: Decoupling Perception and Reasoning | §5.1 | 多模态 VLM 领域专用流水线, 非通用 OPD 方法 |
 
 Awesome badge: 270 → 266。全部无 v4/v5 正文引用。
+
+## 2026-08-12 表格集成后复核剔除 (老大裁决)
+
+| arXiv ID | Title | § | Verdict |
+|----------|-------|---|---------|
+| 2608.06802 | Simple-OPD: Demystifying Warm-up for On-policy Distillation | §6.2 | 老大裁决: 剔除。贡献是 off-policy warm-up 的消融性质研究 (错误 CoT rollout 仍可用作初始化), OPD 目标本身未改动; 增益约 1 点, 属预处理配方而非 OPD 方法推进 |
+
+Awesome badge: 266 → 265。已从 v5 正文、分类树 (6.2 badge 13→12)、tab:methods_efficiency、references.bib 全部移除。
