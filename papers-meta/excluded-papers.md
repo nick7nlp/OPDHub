@@ -2150,3 +2150,4 @@ Awesome badge: 281 → 277。全部无 v4/v5 正文引用, 可安全剔除。
 | 2607.27081 | On-Policy Distillation for LLM Safety: Routing Approach | §5.1 | 安全对齐窄场景应用, 非通用 OPD 方法 |
 
 Awesome badge: 276 → 270。全部无 v4/v5 正文引用。
+| 2026-08-12 | 2605.22731 | Post-Training is About States, Not Tokens: A State Distribution View of SFT, RL, and OPD | 老大裁决: 剔除 (score=6)。OPD 只是被分析的三种 post-training 范式之一, 非贡献。证据基础过薄, 撑不起"统一视角"论断: 单一 0.6B base model、单一目标数据集 (GSM8K)、仅 LoRA adapters、词汇特征 drift estimator、自述 "minimal on-policy" RL trainer。此前已不在 awesome/pdfs 中, 本次同步 notes 为 is_opd=no |

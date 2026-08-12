@@ -8,16 +8,16 @@
 | Metric | Count |
 |---|---:|
 | DB records | 306 |
-| Pass three conditions | 277 |
+| Pass three conditions | 276 |
 | Cited in V4 bib | 225 |
 | Cited in V5 bib | 223 |
-| **Pending V5 integration** | **78** |
+| **Pending V5 integration** | **77** |
 | Technical reports ignored by rule | 8 |
 | Awesome README entries | 276 |
 
-Pending by arXiv month: `2605`=3, `2606`=17, `2607`=29, `2608`=29
+Pending by arXiv month: `2605`=2, `2606`=17, `2607`=29, `2608`=29
 
-Backlog split: **70 method**, 8 analysis.
+Backlog split: **70 method**, 7 analysis.
 
 ## Pending papers by target section
 
@@ -143,12 +143,11 @@ Backlog split: **70 method**, 8 analysis.
 |---|---|---|---|
 | `2606.24143` | yes | yes | AsyncOPD: How Stale Can On-Policy Distillation Be? |
 
-### §7.1 — 5 papers
+### §7.1 — 4 papers
 
 | arXiv | OPD | In Awesome | Title |
 |---|---|---|---|
 | `2605.16826` | analysis | no (analysis-only, by policy) | Decoupling KL and Trajectories: A Unified Perspective for SFT, DAgger, Offline RL, and O |
-| `2605.22731` | analysis | no (analysis-only, by policy) | Post-Training is About States, Not Tokens: A State Distribution View of SFT, RL, and On- |
 | `2606.30923` | yes | yes | Behavior Cloning is Not All You Need: The Optimality of On-Policy Distillation for Noisy |
 | `2607.23731` | analysis | no (analysis-only, by policy) | Outcome-Confounded Local Supervision in On-Policy Distillation |
 | `2608.09263` | analysis | no (analysis-only, by policy) | Privileged Likelihood Is Not Automatically Value: Three Checks for Token Credit in On-Po |

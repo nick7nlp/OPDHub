@@ -35344,13 +35344,14 @@
         "evidence_quote": "OPD samples student states and trains from teacher continuations. RL uses group-relative exact-answer reward on GSM8K rollouts."
       },
       "opd_classification": {
-        "is_opd": "analysis",
-        "primary_section": "§7.1",
+        "is_opd": "no",
+        "primary_section": "not-applicable",
         "secondary_sections": [
           "§4.2",
           "§5.1"
         ],
-        "reasoning": "The paper's core contribution is a theoretical/conceptual framework analyzing why on-policy distillation works through the lens of state distributions, supported by controlled experiments—this is primarily a theoretical analysis/decision framework contribution."
+        "reasoning": "[2026-08-12 boss ruling] RECLASSIFIED analysis->no (score=6 review). OPD is one of three post-training paradigms being analysed, not a contribution. Evidence base is too thin to support its unifying claim: single 0.6B base model, single target dataset (GSM8K), LoRA adapters only, lexical-feature drift estimators, and a self-described \"minimal on-policy\" RL trainer. Excluded from V5 scope.",
+        "_prev_is_opd": "analysis"
       },
       "teacher_student_pairs": [
         {
@@ -68347,5 +68348,5 @@
       "_model": "claude"
     }
   },
-  "last_updated": "2026-08-12T12:40:00Z"
+  "last_updated": "2026-08-12T13:00:00Z"
 }
