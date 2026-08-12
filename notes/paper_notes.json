@@ -44304,13 +44304,14 @@
         "evidence_quote": "OPD reduces this gap by sampling trajectories from the student policy and using a teacher policy to provide dense token-level supervision on these trajectories"
       },
       "opd_classification": {
-        "is_opd": "yes",
-        "primary_section": "§5.1",
+        "is_opd": "no",
+        "primary_section": "not-applicable",
         "secondary_sections": [
           "§4.1",
           "§6.1"
         ],
-        "reasoning": "Core contribution is a multimodal on-policy self-distillation method with segment-wise teacher contexts (white-box self-distillation with frozen copy), assigning different supervision signals to different trajectory segments"
+        "reasoning": "[2026-08-12 boss ruling] RECLASSIFIED yes->no (score=8 review). Multimodal perception/reasoning decoupling for shortcut resilience; domain-specific VLM pipeline rather than a general OPD method. Excluded from V5 scope; removed from Awesome; PDF trashed.",
+        "_prev_is_opd": "yes"
       },
       "teacher_student_pairs": [
         {
@@ -47795,13 +47796,14 @@
         "evidence_quote": "For each prompt-domain pair (x_i, d_i), a frozen rollout student samples y_i ~ π_θs(· | x_i), while the optimized student θ'_s is supervised by the routed teacher θ_t,i ≜ θ^{d_i}_t."
       },
       "opd_classification": {
-        "is_opd": "yes",
-        "primary_section": "§4.1",
+        "is_opd": "no",
+        "primary_section": "not-applicable",
         "secondary_sections": [
           "§5.1",
           "§6.1"
         ],
-        "reasoning": "The paper proposes a novel OPD objective (SVA with domain-routed normalization) that replaces the standard sampled-token KL with a truncated reverse KL over teacher-selected top-k vocabulary, which is a new divergence/objective formulation."
+        "reasoning": "[2026-08-12 boss ruling] RECLASSIFIED yes->no (score=8 review). Model/system report on reaching trillion-parameter performance at 35B; salient-vocabulary alignment is a system-engineering detail inside a scaling report. Excluded from V5 scope; removed from Awesome; PDF trashed.",
+        "_prev_is_opd": "yes"
       },
       "teacher_student_pairs": [
         {
@@ -48128,13 +48130,14 @@
         "evidence_quote": "The converted model generates trajectories under its real decoding distribution (block-diffusion denoising as used at inference) and the AR model supplies dense, per-token supervision on exactly those samples."
       },
       "opd_classification": {
-        "is_opd": "yes",
-        "primary_section": "§8.1",
+        "is_opd": "no",
+        "primary_section": "not-applicable",
         "secondary_sections": [
           "§4.1",
           "§6.3"
         ],
-        "reasoning": "The paper applies on-policy distillation (student generates rollouts, teacher provides logit-level KL supervision) as a core stage in a domain-specific application (recommendation re-ranking with block-diffusion decoding), making it an application of OPD to a new domain/system."
+        "reasoning": "[2026-08-12 boss ruling] RECLASSIFIED yes->no (score=8 review). Diffusion-GR2: AR-to-block-diffusion conversion recipe for a recommendation re-ranker; OPD is a downstream conversion step, not an OPD method contribution. Excluded from V5 scope; removed from Awesome; PDF trashed.",
+        "_prev_is_opd": "yes"
       },
       "teacher_student_pairs": [
         {
@@ -62671,13 +62674,14 @@
         "evidence_quote": "the student generates an on-policy trajectory τ ∼ π_θ(· | x). Let s_t = (x, τ_{<t}) denote the decoding state at step t. The distillation loss from the k-th ranked teacher is defined as L_k(x;θ) = E_{τ∼π_θ} [1/|τ| Σ_t D_KL(π_θ(·|s_t) ∥ π^T_{ϕ_{ℓ(x),k}}(·|s_t))]"
       },
       "opd_classification": {
-        "is_opd": "yes",
-        "primary_section": "§8.2",
+        "is_opd": "no",
+        "primary_section": "not-applicable",
         "secondary_sections": [
           "§5.1",
           "§6.1"
         ],
-        "reasoning": "Paper applies on-policy distillation with multiple language-specialized teachers to a new domain (ASR), with language routing and weighted multi-teacher aggregation as the core contribution, fitting applications/new domains."
+        "reasoning": "[2026-08-12 boss ruling] RECLASSIFIED yes->no (score=8 review). Multilingual ASR application; contribution is language routing plus acoustic-prefix configurations for ASR rather than a general OPD advance. Excluded from V5 scope; removed from Awesome; PDF trashed.",
+        "_prev_is_opd": "yes"
       },
       "teacher_student_pairs": [
         {
@@ -68348,5 +68352,5 @@
       "_model": "claude"
     }
   },
-  "last_updated": "2026-08-12T13:00:00Z"
+  "last_updated": "2026-08-12T13:20:00Z"
 }

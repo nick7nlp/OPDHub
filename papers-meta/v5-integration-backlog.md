@@ -8,25 +8,24 @@
 | Metric | Count |
 |---|---:|
 | DB records | 306 |
-| Pass three conditions | 276 |
+| Pass three conditions | 272 |
 | Cited in V4 bib | 225 |
 | Cited in V5 bib | 223 |
-| **Pending V5 integration** | **77** |
+| **Pending V5 integration** | **73** |
 | Technical reports ignored by rule | 8 |
-| Awesome README entries | 276 |
+| Awesome README entries | 272 |
 
-Pending by arXiv month: `2605`=2, `2606`=17, `2607`=29, `2608`=29
+Pending by arXiv month: `2605`=2, `2606`=15, `2607`=28, `2608`=28
 
-Backlog split: **70 method**, 7 analysis.
+Backlog split: **66 method**, 7 analysis.
 
 ## Pending papers by target section
 
-### §4.1 — 10 papers
+### §4.1 — 9 papers
 
 | arXiv | OPD | In Awesome | Title |
 |---|---|---|---|
 | `2606.17199` | yes | yes | PowerOPD: Stabilizing On-Policy Distillation with Bounded Power Transformation |
-| `2606.30616` | yes | yes | Scaling the Horizon, Not the Parameters: Reaching Trillion-Parameter Performance with a  |
 | `2607.06855` | yes | yes | Geometric Self-Distillation for Reasoning Generalization |
 | `2607.16872` | yes | yes | Trace-Based On-Policy Distillation for Masked Diffusion Language Models |
 | `2607.22334` | yes | yes | Cross-Tokenizer On-Policy Distillation via Byte-Prefix Marginalization |
@@ -65,11 +64,10 @@ Backlog split: **70 method**, 7 analysis.
 | `2608.04419` | yes | yes | SPOT: Sparse Probing and Outcome Calibration for On-Policy Distillation |
 | `2608.07068` | yes | yes | MemOPD: On-Policy Distillation through Memory State Alignment for Long-Horizon Agents |
 
-### §5.1 — 9 papers
+### §5.1 — 8 papers
 
 | arXiv | OPD | In Awesome | Title |
 |---|---|---|---|
-| `2606.19120` | yes | yes | Seeing Before Reasoning: Decoupling Perception and Reasoning for Shortcut-Resilient Mult |
 | `2606.30406` | yes | yes | MOPD: Multi-Teacher On-Policy Distillation for Capability Integration in LLM Post-Traini |
 | `2606.30518` | yes | yes | Regime-Aware Peer Specialization for Robust RAG under Heterogeneous Knowledge Conflicts |
 | `2607.04425` | yes | yes | UI-MOPD: Multi-Platform On-Policy Distillation for Continual GUI Agent Learning |
@@ -160,18 +158,6 @@ Backlog split: **70 method**, 7 analysis.
 | `2607.13399` | analysis | no (analysis-only, by policy) | Demystifying On-Policy Distillation: Roles, Pathologies, and Regulations |
 | `2608.04794` | analysis | no (analysis-only, by policy) | Privileged, but Biased: How PI-Conditioned Teachers Break Self-Distillation |
 | `2608.09228` | analysis | no (analysis-only, by policy) | Privileged Solutions or Context-Induced Teacher Behavior? Dissecting On-Policy Self-Dist |
-
-### §8.1 — 1 papers
-
-| arXiv | OPD | In Awesome | Title |
-|---|---|---|---|
-| `2607.01170` | yes | yes | Diffusion-GR2: Diffusion Generative Reasoning Re-ranker |
-
-### §8.2 — 1 papers
-
-| arXiv | OPD | In Awesome | Title |
-|---|---|---|---|
-| `2608.03610` | yes | yes | Language-Specialized Multi-Teacher On-Policy Distillation for Multilingual LLM-Based ASR |
 
 ## Ignored by rule — technical reports without an OPD method contribution
 

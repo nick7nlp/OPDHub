@@ -2151,3 +2151,14 @@ Awesome badge: 281 → 277。全部无 v4/v5 正文引用, 可安全剔除。
 
 Awesome badge: 276 → 270。全部无 v4/v5 正文引用。
 | 2026-08-12 | 2605.22731 | Post-Training is About States, Not Tokens: A State Distribution View of SFT, RL, and OPD | 老大裁决: 剔除 (score=6)。OPD 只是被分析的三种 post-training 范式之一, 非贡献。证据基础过薄, 撑不起"统一视角"论断: 单一 0.6B base model、单一目标数据集 (GSM8K)、仅 LoRA adapters、词汇特征 drift estimator、自述 "minimal on-policy" RL trainer。此前已不在 awesome/pdfs 中, 本次同步 notes 为 is_opd=no |
+
+## 2026-08-12 score=8 复核剔除 (老大裁决)
+
+| arXiv ID | Title | § | Verdict |
+|----------|-------|---|---------|
+| 2607.01170 | Diffusion-GR2: Diffusion Generative Reasoning Re-ranker | §8.1 | 推荐重排的 AR→block-diffusion 转换配方, OPD 只是下游转换步骤 |
+| 2608.03610 | Language-Specialized Multi-Teacher OPD for Multilingual ASR | §8.2 | ASR 应用, 贡献是语言路由 + acoustic-prefix 配置, 非通用 OPD 推进 |
+| 2606.30616 | Scaling the Horizon, Not the Parameters (35B) | §4.1 | 规模化系统报告, salient-vocabulary alignment 属工程细节 |
+| 2606.19120 | Seeing Before Reasoning: Decoupling Perception and Reasoning | §5.1 | 多模态 VLM 领域专用流水线, 非通用 OPD 方法 |
+
+Awesome badge: 270 → 266。全部无 v4/v5 正文引用。
