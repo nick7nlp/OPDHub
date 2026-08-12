@@ -2136,3 +2136,17 @@ V3 deep-read 内层 `is_opd=yes` 但外层字段未填，5/29 backlog 核对发�
 | 2607.15456 | Looped Latent Attention: Cross-Loop KV Compression | 6 | 主题偏离: 贡献是 looped Transformer 的 KV cache 压缩, OPD 仅作下游 refinement 工具。Awesome 移除 |
 
 Awesome badge: 281 → 277。全部无 v4/v5 正文引用, 可安全剔除。
+
+## 2026-08-12 score=7 复核剔除 (老大裁决)
+
+| arXiv ID | Title | § | Verdict |
+|----------|-------|---|---------|
+| 2608.02942 | OPTD: On-Policy Transition Distillation for Few-Step dLLMs | §4.2 | 贡献是 dLLM 的一致性引导前缀压缩, 非 OPD 方法推进 |
+| 2606.29476 | CRAFT: Counterfactual Credit Assignment from Free Sibling Rollouts | §4.3 | agentic RL 的信用分配变体, 建立在 GRPO sibling rollouts 之上 |
+| 2608.01597 | HindSearch: Trajectory-Level Hindsight Critique | §4.3 | search-augmented RL, OPD 仅在 search-action token 上提供辅助信号 |
+| 2606.30445 | When Does Online Imitation Learning Help in LLM Post-Training? | §7.1 | online IL vs offline SFT 的理论分析, 非 OPD 贡献 |
+| 2607.29320 | MAGA: Multi-Platform Self-Fusion of GUI Agents | §6.1 | GUI agent 专用的 action-grammar token 加权, 非通用 OPD 方法 |
+| 2608.08146 | Long SKILL Compliance as Logical Reasoning | §6.2 | 合规检测流水线, OPD 只是其中的预算分配步骤 |
+| 2607.27081 | On-Policy Distillation for LLM Safety: Routing Approach | §5.1 | 安全对齐窄场景应用, 非通用 OPD 方法 |
+
+Awesome badge: 276 → 270。全部无 v4/v5 正文引用。

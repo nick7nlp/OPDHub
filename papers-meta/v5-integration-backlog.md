@@ -8,16 +8,16 @@
 | Metric | Count |
 |---|---:|
 | DB records | 306 |
-| Pass three conditions | 284 |
+| Pass three conditions | 277 |
 | Cited in V4 bib | 225 |
 | Cited in V5 bib | 223 |
-| **Pending V5 integration** | **85** |
+| **Pending V5 integration** | **78** |
 | Technical reports ignored by rule | 8 |
-| Awesome README entries | 283 |
+| Awesome README entries | 276 |
 
-Pending by arXiv month: `2605`=3, `2606`=19, `2607`=31, `2608`=32
+Pending by arXiv month: `2605`=3, `2606`=17, `2607`=29, `2608`=29
 
-Backlog split: **76 method**, 9 analysis.
+Backlog split: **70 method**, 8 analysis.
 
 ## Pending papers by target section
 
@@ -36,7 +36,7 @@ Backlog split: **76 method**, 9 analysis.
 | `2608.09745` | yes | yes | SR-OPSD: Self-Referenced On-Policy Self-Distillation |
 | `2608.09836` | yes | yes | Mismatch Matters: On-Policy Distillation Beyond Token Agreement |
 
-### §4.2 — 13 papers
+### §4.2 — 12 papers
 
 | arXiv | OPD | In Awesome | Title |
 |---|---|---|---|
@@ -51,24 +51,21 @@ Backlog split: **76 method**, 9 analysis.
 | `2607.24771` | yes | yes | RoCo-ACE: Rollout-Conditioned Online Distillation for Retention-Aware Knowledge Injectio |
 | `2607.26057` | yes | yes | Pass the Baton: Trajectory-Relayed On-Policy Distillation |
 | `2608.00782` | yes | yes | Distill Where You Fail: Recovering Learning Signals of Negative RL-Groups from Adaptive  |
-| `2608.02942` | yes | yes | OPTD: On-Policy Transition Distillation with Consistency-Guided Adaptive Compression for |
 | `2608.07935` | yes | yes | Adaptive Supervised Anchoring for On-Policy Self-Distillation |
 
-### §4.3 — 9 papers
+### §4.3 — 7 papers
 
 | arXiv | OPD | In Awesome | Title |
 |---|---|---|---|
 | `2606.27814` | yes | yes | ATOD: Annealed Turn-aware On-policy Distillation for Multi-turn Autonomous Agents |
-| `2606.29476` | yes | yes | CRAFT: Counterfactual Credit Assignment from Free Sibling Rollouts for Self-Distilled Ag |
 | `2607.04037` | yes | yes | Reward-Gated On-Policy Distillation |
 | `2607.05394` | yes | yes | Weak-to-Strong Generalization via Direct On-Policy Distillation |
 | `2607.18082` | yes | yes | Enhancing Rubric-based RL via Self-Distillation |
 | `2607.29209` | yes | yes | SAF-OPD: Stable Advantage Fusion for On-Policy Distillation |
-| `2608.01597` | yes | yes | HindSearch: Trajectory-Level Hindsight Critique for Search-Augmented Reinforcement Learn |
 | `2608.04419` | yes | yes | SPOT: Sparse Probing and Outcome Calibration for On-Policy Distillation |
 | `2608.07068` | yes | yes | MemOPD: On-Policy Distillation through Memory State Alignment for Long-Horizon Agents |
 
-### §5.1 — 10 papers
+### §5.1 — 9 papers
 
 | arXiv | OPD | In Awesome | Title |
 |---|---|---|---|
@@ -79,7 +76,6 @@ Backlog split: **76 method**, 9 analysis.
 | `2607.22629` | yes | yes | Masked Distillation: Internalizing the Chain-of-Thought in Language Models |
 | `2607.24720` | yes | yes | The Physics of Multi-Turn Long-Horizon Planning: From Pre-training to Post-training via  |
 | `2607.26246` | yes | yes | Weak-to-Strong On-Policy Distillation |
-| `2607.27081` | yes | yes | On-Policy Distillation for LLM Safety: A Routing Approach to Template-Robust Realignment |
 | `2608.01589` | yes | yes | Is More Privileged Information Better? From Solution Traces to Problem-Solving Structure |
 | `2608.03092` | yes | yes | SMOPD: Multi-Reward Reinforcement Learning via Specialize-and-Merge Online Policy Distil |
 
@@ -120,19 +116,18 @@ Backlog split: **76 method**, 9 analysis.
 |---|---|---|---|
 | `2607.18110` | yes | yes | LLM-as-a-Coach: Experiential Learning for Non-Verifiable Tasks |
 
-### §6.1 — 7 papers
+### §6.1 — 6 papers
 
 | arXiv | OPD | In Awesome | Title |
 |---|---|---|---|
 | `2606.28562` | yes | yes | SEAD: Competence-Aware On-Policy Distillation via Entropy-Guided Supervision |
 | `2607.07050` | yes | yes | Behavior Leverage Imbalance in Multi-Teacher On-Policy Distillation |
-| `2607.29320` | yes | yes | MAGA: Multi-Platform Self-Fusion of GUI Agents via Structured Action Distillation |
 | `2608.01837` | yes | yes | PCSD: Persistent Consistency for Self-Distillation in Agentic Reinforcement Learning |
 | `2608.01953` | yes | yes | Look Ahead Before You Distill: Future Trajectory Validation of Teacher Guidance for Agen |
 | `2608.04408` | yes | yes | Not Every Divergence Should Be Suppressed: Counterfactual Recoverability in On-Policy Di |
 | `2608.08176` | yes | yes | Matching Supervision to the Student's Learning Capacity: A Unified Framework for On-Poli |
 
-### §6.2 — 6 papers
+### §6.2 — 5 papers
 
 | arXiv | OPD | In Awesome | Title |
 |---|---|---|---|
@@ -141,7 +136,6 @@ Backlog split: **76 method**, 9 analysis.
 | `2607.29078` | yes | yes | DASH-OPD: Discrepancy-Aware Switching with Hysteresis for On-Policy Distillation |
 | `2607.29494` | yes | yes | Adaptive FastOPD: Progress-Aware Rollout Horizon Expansion for Efficient On-Policy Disti |
 | `2608.06802` | yes | yes | Simple-OPD: Demystifying Warm-up for On-policy Distillation |
-| `2608.08146` | yes | yes | Long SKILL Compliance as Logical Reasoning: Closure-Grounded Detection with Scaling-Guid |
 
 ### §6.3 — 1 papers
 
@@ -149,13 +143,12 @@ Backlog split: **76 method**, 9 analysis.
 |---|---|---|---|
 | `2606.24143` | yes | yes | AsyncOPD: How Stale Can On-Policy Distillation Be? |
 
-### §7.1 — 6 papers
+### §7.1 — 5 papers
 
 | arXiv | OPD | In Awesome | Title |
 |---|---|---|---|
 | `2605.16826` | analysis | no (analysis-only, by policy) | Decoupling KL and Trajectories: A Unified Perspective for SFT, DAgger, Offline RL, and O |
 | `2605.22731` | analysis | no (analysis-only, by policy) | Post-Training is About States, Not Tokens: A State Distribution View of SFT, RL, and On- |
-| `2606.30445` | analysis | no (analysis-only, by policy) | When Does Online Imitation Learning Help in LLM Post-Training? The Role of (Non-)Realiza |
 | `2606.30923` | yes | yes | Behavior Cloning is Not All You Need: The Optimality of On-Policy Distillation for Noisy |
 | `2607.23731` | analysis | no (analysis-only, by policy) | Outcome-Confounded Local Supervision in On-Policy Distillation |
 | `2608.09263` | analysis | no (analysis-only, by policy) | Privileged Likelihood Is Not Automatically Value: Three Checks for Token Credit in On-Po |

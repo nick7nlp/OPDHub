@@ -46588,13 +46588,14 @@
         "evidence_quote": "A second forward pass evaluates the same policy on the skill-augmented context s+ t — typically the prompt plus an oracle skill annotation, a verifier hint, or a retrieved successful trajectory — and yields the teacher log-prob logπ_T(y_t | s+_t). Because the teacher is just the student under a different context, it adds a single forward pass (no extra parameters, no extra optimiser state)"
       },
       "opd_classification": {
-        "is_opd": "yes",
-        "primary_section": "§4.3",
+        "is_opd": "no",
+        "primary_section": "not-applicable",
         "secondary_sections": [
           "§5.3.2",
           "§6.1"
         ],
-        "reasoning": "The method uses student-generated on-policy rollouts (C1), the same policy conditioned on privileged context provides logit-level supervision on those rollouts (C2), and the CTI loss includes KL-based distillation terms (C3). It augments RL with a distillation objective that is the central contribution, combining self-distillation with RL reward signal."
+        "reasoning": "[2026-08-12 boss ruling] RECLASSIFIED yes->no (score=7 review). CRAFT: counterfactual credit assignment for agentic RL; the OPD element is a credit-shaping variant on top of GRPO sibling rollouts. Excluded from V5 scope; removed from Awesome; PDF trashed.",
+        "_prev_is_opd": "yes"
       },
       "teacher_student_pairs": [
         {
@@ -48520,13 +48521,14 @@
         "evidence_quote": "the learner observes x_i ∼ D_x, executes a certain policy π_i to generate a response y_i ∼ π_i(·|x_i), and receives expert-provided information evaluated on this response... the expert reveals its conditional probability π^e(y_i | x_i) on that response"
       },
       "opd_classification": {
-        "is_opd": "analysis",
-        "primary_section": "§7.1",
+        "is_opd": "no",
+        "primary_section": "not-applicable",
         "secondary_sections": [
           "§7.2",
           "§7.3"
         ],
-        "reasoning": "This is a theoretical analysis paper studying when and why on-policy distillation helps, providing information-theoretic bounds and structural conditions rather than proposing a new OPD method"
+        "reasoning": "[2026-08-12 boss ruling] RECLASSIFIED analysis->no (score=7 review). Online imitation-learning theory (non-realizability); analysis of online IL vs offline SFT rather than an OPD contribution. Excluded from V5 scope; removed from Awesome; PDF trashed.",
+        "_prev_is_opd": "analysis"
       },
       "teacher_student_pairs": [
         {
@@ -57972,13 +57974,14 @@
         "evidence_quote": "ROPD routes every realignment token to one of two frozen teachers—an original-model safety teacher that supplies a largely template-independent refusal prior, and a fine-tuned task teacher that preserves downstream ability—and matches the student to the routed teacher with a top-𝐾 KL objective."
       },
       "opd_classification": {
-        "is_opd": "yes",
-        "primary_section": "§5.1",
+        "is_opd": "no",
+        "primary_section": "not-applicable",
         "secondary_sections": [
           "§4.1",
           "§8.2"
         ],
-        "reasoning": "ROPD uses two white-box frozen teachers providing logit-level KL supervision on student-generated tokens, routing by data source—a novel dual-teacher OPD architecture applied to safety realignment."
+        "reasoning": "[2026-08-12 boss ruling] RECLASSIFIED yes->no (score=7 review). LLM safety realignment via dual-teacher routing; narrow safety-alignment application rather than a general OPD method. Excluded from V5 scope; removed from Awesome; PDF trashed.",
+        "_prev_is_opd": "yes"
       },
       "teacher_student_pairs": [
         {
@@ -58644,12 +58647,13 @@
         "evidence_quote": "For a student π_θ generating tokens y = (y_1,...,y_{|y|}) with prefix y_{<t}, calculating the exact reverse KL divergence against T_d requires summing over the full vocabulary. For efficiency, we approximate this using only the single sampled token y_t"
       },
       "opd_classification": {
-        "is_opd": "yes",
-        "primary_section": "§6.1",
+        "is_opd": "no",
+        "primary_section": "not-applicable",
         "secondary_sections": [
           "§8.3"
         ],
-        "reasoning": "The core contribution is a token-weighting scheme that re-allocates distillation signal according to action structure on student-generated rollouts, fitting §6.1 (token weighting for OPD efficiency), applied in the GUI agent domain (§8.3)."
+        "reasoning": "[2026-08-12 boss ruling] RECLASSIFIED yes->no (score=7 review). MAGA: GUI-agent multi-platform fusion; action-grammar token weighting is domain-specific rather than a general OPD method. Excluded from V5 scope; removed from Awesome; PDF trashed.",
+        "_prev_is_opd": "yes"
       },
       "teacher_student_pairs": [
         {
@@ -60202,13 +60206,14 @@
         "evidence_quote": "after each rollout batch, we partition trajectories into T+ = {τ : r(τ) = 1} and T− = {τ : r(τ) = 0}. For each τ ∈ T−, a frozen judge πJ is queried with the rendered trajectory and the gold answer to produce a 1–2 sentence critique"
       },
       "opd_classification": {
-        "is_opd": "yes",
-        "primary_section": "§4.3",
+        "is_opd": "no",
+        "primary_section": "not-applicable",
         "secondary_sections": [
           "§5.3.1",
           "§6.1"
         ],
-        "reasoning": "The method augments GRPO (RL) with an auxiliary OPD loss using a hint-conditioned teacher on student-generated rollouts, combining RL and distillation objectives."
+        "reasoning": "[2026-08-12 boss ruling] RECLASSIFIED yes->no (score=7 review). HindSearch: search-augmented RL with hindsight critique; OPD supplies an auxiliary signal on search-action tokens only. Excluded from V5 scope; removed from Awesome; PDF trashed.",
+        "_prev_is_opd": "yes"
       },
       "teacher_student_pairs": [
         {
@@ -61910,13 +61915,14 @@
         "evidence_quote": "OPTD samples partial states from the evolving student's inference policy and queries a frozen, question-only teacher (it sees only the question and the current partial state) for outcome-aligned future candidates."
       },
       "opd_classification": {
-        "is_opd": "yes",
-        "primary_section": "§4.2",
+        "is_opd": "no",
+        "primary_section": "not-applicable",
         "secondary_sections": [
           "§6.1",
           "§4.3"
         ],
-        "reasoning": "The method performs on-policy distillation with an adaptive compression mechanism that selects state-dependent transition targets and uses KL divergence from a frozen teacher on student-visited states, fitting adaptive objective design (§4.2)."
+        "reasoning": "[2026-08-12 boss ruling] RECLASSIFIED yes->no (score=7 review). OPTD: few-step diffusion-LLM distillation; contribution is consistency-guided prefix compression for dLLMs rather than an OPD advance. Excluded from V5 scope; removed from Awesome; PDF trashed.",
+        "_prev_is_opd": "yes"
       },
       "teacher_student_pairs": [
         {
@@ -65307,13 +65313,14 @@
         "evidence_quote": "For each training prompt, the student samples one response from its current policy. At each response token a_t, the frozen teacher scores the same token conditioned on the student-generated prefix x_<t."
       },
       "opd_classification": {
-        "is_opd": "yes",
-        "primary_section": "§6.2",
+        "is_opd": "no",
+        "primary_section": "not-applicable",
         "secondary_sections": [
           "§4.3",
           "§6.1"
         ],
-        "reasoning": "The paper uses scaling-derived complexity metrics to prioritize training samples for on-policy distillation, combining curriculum/sample selection (§6.2) with RL-augmented KL-based distillation (§4.3)."
+        "reasoning": "[2026-08-12 boss ruling] RECLASSIFIED yes->no (score=7 review). Long SKILL compliance detection; OPD is a budget-allocation step inside a compliance-detection pipeline. Excluded from V5 scope; removed from Awesome; PDF trashed.",
+        "_prev_is_opd": "yes"
       },
       "teacher_student_pairs": [
         {
@@ -68340,5 +68347,5 @@
       "_model": "claude"
     }
   },
-  "last_updated": "2026-08-12T12:20:00Z"
+  "last_updated": "2026-08-12T12:40:00Z"
 }
