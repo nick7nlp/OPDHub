@@ -2082,3 +2082,129 @@
 - `2608.07116`  Geometry-Aware Camera Localization for Bronchoscopy
 - `2608.07405`  GeoDistill-Refine: Silhouette-First Geometry Distillation for Annotation-Free Spacecraft Segmentation
 
+
+## 2026-08-12 (Wed) 09:27 — scout completed
+
+**120 candidates** downloaded to `pdfs/_staging/`. Follow-up Phase 2-7 **pending**.
+
+- `2608.07531`  Search-G1: Grounded Search Agents via Representation-Based Intrinsic Rewards
+- `2608.08164`  STEMMA: An Adversarial Multi-Agent Framework for Evaluating Self-Identity Consistency in LLMs
+- `2608.08168`  Thinking vs. NoThinking: Towards Interpreting Reasoning Mechanisms of Large Language Models via Sparse Autoenc
+- `2608.08557`  OpenVisTool: An Open Recipe for Synthesizing Instructive Visual Tool-Use Trajectories
+- `2608.08801`  IDRAAK: From Multi-Agent NLP to Few-Shot Prompting for Semantic Drift Detection in Technical Requirements
+- `2608.09044`  Tree-of-Experience: Hierarchical Experience Management for Self-Evolving Agents
+- `2608.09080`  When Confidence Fails: Overconfidence in LLMs under Uncertainty and Missing Clinical Information
+- `2608.09106`  LexKairos: Benchmarking Legal Temporal Capabilities in LLMs
+- `2608.09128`  Social Gym and SPaRTan: Benchmarking and Improving LLM Social Reasoning via Multi-Agent Game Tournaments
+- `2608.09289`  Accurate but Natural? Diagnosing Grammatical and Idiomatic Gaps in Japanese EFL Writing
+- `2608.09420`  Intent Speaks Louder: Controllable User Simulation Beyond Response Imitation
+- `2608.09432`  ZetaGPT: A Reference Implementation of Positional--Encoding--Free State--Space--Attention Language Models
+- `2608.09772`  PragMatch: Separating Pragmatic Incongruity from Cross-Modal Mismatch in Large Vision-Language Models
+- `2608.09898`  Consilience for Verifier-Free Test-Time Scaling
+- `2608.07511`  How sensitive do we want AI to be? Socio-communicative competencies of large language models in healthcare
+- `2608.08237`  SAGE: SLO-Aware Adaptive Retrieval for Production RAG Systems
+- `2608.08239`  The Replay Gap: Static Evaluation of Model Switching in LLM Agents Scores the Wrong World
+- `2608.08503`  MathShikkha: A Controlled Study of Answer-Only and Chain-of-Thought Supervision for Bangla Mathematical Reason
+- `2608.08506`  Understanding Calibration and Truncation Error Propagation in Training-Free Low-Rank Compression for LLMs
+- `2608.08795`  Toward Metacognitive One-Shot Indirect Prompt Injection: Strategy Abstraction Via Outcome-Conditioned Reflecti
+- `2608.09703`  Matryoshka Language Model Suites
+- `2608.09805`  Parameter Exploration for RLVR via Variational Learning
+- `2608.09836`  Mismatch Matters: On-Policy Distillation Beyond Token Agreement
+- `2608.09861`  Towards Expert-level Medical AI for Real-time Video Consultations
+- `2608.07746`  LUCID: Latent-Skill Unified Control via Imagined Dynamics for Long-Horizon Humanoid Loco-Manipulation
+- `2608.07935`  Adaptive Supervised Anchoring for On-Policy Self-Distillation
+- `2608.07974`  ZeroLock: Concurrent Memory-Efficient LLM Training via Modular Update Decoupling
+- `2608.08288`  Causal State-Space Model for Causal Inference: Estimating Longitudinal Individual Treatment Effects
+- `2608.08294`  A Controlled Study of Feature-Based Knowledge Distillation Across Student Designs
+- `2608.08525`  Out-of-Distribution Federated Distillation with Domain-Aware Proxy
+- `2608.08722`  Gaming Without an Attacker: Benchmark Fingerprinting in LLM-Driven Search Under Selection Pressure
+- `2608.08726`  PAST: Privileged Adaptation from Complete Student Trajectories for On-Policy Self-Distillation
+- `2608.08764`  Learning from Consensus and Disagreement: Unsupervised On-Policy Self-Distillation with Minority-Trajectory Co
+- `2608.08815`  Distilling Vision-Language Models for Robust Traffic Sign Perception in Autonomous Vehicles
+- `2608.08878`  DistillCache: KL-Guided Adaptive KV-Cache Eviction for Memory-Efficient LLM Inference
+- `2608.08958`  Idea Search: Guiding Tree Search with Ideas to Explore Diverse Scientific Methods
+- `2608.08982`  Twin Rollouts: Noise-Coupled Counterfactual Branching in Interactive Video World Models
+- `2608.09228`  Privileged Solutions or Context-Induced Teacher Behavior? Dissecting On-Policy Self-Distillation
+- `2608.09233`  DreOPD: Degraded-Reference Extrapolative On-Policy Distillation for Flow-matching Models
+- `2608.09385`  Imaginative Generative AI: Crossing the Entropy Wall into Worlds Beyond Imitation
+- `2608.09447`  WDL-OPD: Weak-Driven On-Policy Distillation via Mixture-Constrained Co-Training
+- `2608.09453`  Learning to Modulate, Not to Cycle: Soft Actor---Critic Recovers Inverter-Style Heat-Pump Control
+- `2608.09468`  MixFormer: Linear Transformer with Mixture of Memory Experts
+- `2608.09523`  Generalized Convexity and Smoothness via Conjugate Duality: Optimization Theory for Deep Neural Networks
+- `2608.09542`  Dual-Adversarial Safety Alignment: Cultivating Intrinsic Threat Comprehension in LRMs
+- `2608.09596`  LEED: Local Embedding Evolution Distance for over-smoothing estimation and virtual node selection in GNN
+- `2608.09617`  Bayesian Symbolic Regression with Entropic Reinforcement Learning
+- `2608.09721`  PET/CT Radiogenomic Mutation Prediction in Non-Small Cell Lung Cancer Using Multi-Label Learning
+- `2608.09745`  SR-OPSD: Self-Referenced On-Policy Self-Distillation
+- `2608.09826`  Distill Skills into Weights, Not Prompts: Abstract Skills as Privileged Signals for On-Policy Self-Distillatio
+- `2608.07522`  Explainable Machine Learning in Healthcare: Methods, Interpretation, and Applications for Clinical Research
+- `2608.07545`  DarwinX: Evolving Agent Harnesses Through Natural Selection
+- `2608.07559`  MVMD: A Multi-View Approach for Enhanced Mirror Detection
+- `2608.07585`  LAVE: Latent Visual Evidence-Enhanced Planning for Video Tool-use Agents
+- `2608.07586`  MAGIC-SSCIL: Manifold Anchoring and Geometric Incremental Calibration for Semi-Supervised Class Incremental Le
+- `2608.07648`  Leveraging generative models to assist Monte Carlo sampling
+- `2608.07895`  Auditing Instruction-Trajectory Mismatches in Multimodal Robot Demonstrations
+- `2608.08068`  NeuroGuard: Neural Gradient Update Aware of Representation Damage
+- `2608.08138`  EFFEKT: Efficient Federated Knowledge Transfer to Foundation Models
+- `2608.08158`  A Unified Framework for Dynamic Reward Shaping in Reinforcement Learning
+- `2608.08176`  Matching Supervision to the Student's Learning Capacity: A Unified Framework for On-Policy Self-Distillation
+- `2608.08926`  Decoding Phenotypes: A Framework for Fusing Genomic Language Models and Neuroimaging
+- `2608.09016`  PreGress: Ranking-Native Pre-training and Prompting for Graph Node Ranking
+- `2608.09263`  Privileged Likelihood Is Not Automatically Value: Three Checks for Token Credit in On-Policy Self-Distillation
+- `2608.09303`  SAFE-CHEM: Uncertainty-Aware Policy Switching for Robust Robotic Chemistry
+- `2608.09382`  Coordinate-Residual Physics-Driven Neural Network for Electromagnetic Inverse Scattering
+- `2608.09775`  AirFlow: Context Preserving and Multi-Rate State Modeling for Air Quality Forecasting
+- `2608.09867`  Stealing Reasoning Traces from Proprietary LLM APIs
+- `2608.09880`  Financial Numerical Prediction and Allocation as Token Generation
+- `2608.07538`  When LLM Agents Negotiate: Private Information and Dynamic Bargaining in Supply Chains
+- `2608.07651`  An Agentic AI Framework Overcomes Fundamental Limitations of Large Language Models for Glaucoma Detection from
+- `2608.07779`  The Capability Ladder: A Curriculum-Modernization Framework for Workforce Readiness in the AI Era
+- `2608.07838`  Counterfactual Benchmarking and Training for Factuality Consistency and Order-Robust Grounded Reasoning in LLM
+- `2608.07885`  Reason Wide, Not Deep: Amortizing the Reasoning Premium into Distilled Skills
+- `2608.07965`  CyberAGENTS: Structured Autonomy for Agentic Gamified Learning in Cybersecurity
+- `2608.07994`  VDGR-RAG: Vectors, Directories, Graphs, and Reflection Are All You Need for Unified Reasoning over Hierarchica
+- `2608.08139`  TokenPrint: A Calibrated Token-Space Fingerprint for Language-Model Provenance
+- `2608.08146`  Long SKILL Compliance as Logical Reasoning: Closure-Grounded Detection with Scaling-Guided On-Policy Distillat
+- `2608.08303`  Query-Only Backdoor Attacks on Self-Evolving Skills via Trajectory Poisoning
+- `2608.08326`  StructReward: Efficient Structured Process Rewards for Self-Correcting Multimodal Reasoning
+- `2608.08398`  Estimating Uncertainty in Galaxy Morphology Classification
+- `2608.08445`  Forgotten History or Test-of-Time? Retrospect and Prospect on RAG from an IR Perspective
+- `2608.08466`  Hierarchical Self-Improvement: A Framework for Task-Specific Evolvable Agent Harnesses
+- `2608.08491`  TrustRoboReward: Preference-Ordered Isotonic Score Editing for Multi-Paradigm Robot Reward Models
+- `2608.08523`  Discovering Diverse Planning Policies for Multimodal Embodied Agents with Quality-Diversity Optimization
+- `2608.08570`  FailForge: Distilling Procedural Competence from Persistent Failures into Code Agents
+- `2608.08617`  Walking through Discussions: A Mobile Visual Analytics System for In-Situ Group Discussion Analysis
+- `2608.08623`  MedCalc-R1: Knowledge-Guided Reward Framework for Medical Mathematical Reasoning
+- `2608.08640`  SkillReason: Reasoning-Enhanced Agent Skill Retrieval for Implicit User Requests
+- `2608.08677`  Branch2Skill: Efficient Skill Evolution Through Reasoning Trees
+- `2608.08689`  A Structural Dynamics Graph World Model: Unified Modeling, Constrained Rollout, and Interpretable Calibration
+- `2608.08700`  PluginEval: A Diagnostic Benchmark for Fine-Grained Error Attribution in Function Calling
+- `2608.08888`  Full-bandwidth transformer
+- `2608.08935`  Integrated Multimodal AI System for Retrieval-Augmented Reasoning, Object Sensing, and Damage Analysis
+- `2608.08960`  Reading is not Reasoning: Bridging the Agentic Policy Gap in Vision-Text Compression
+- `2608.09109`  Different Feedback, Different Updates: Selective Self-Learning from User Interactions for Large Language Model
+- `2608.09119`  Motif 3: Technical Report
+- `2608.09123`  RISE-RL: Rubric-Informed Selective Exploration for Open-Ended Reinforcement Learning
+- `2608.09164`  CIDER: A Dataset of Contextual Disclosure Boundaries for Privacy Preference Alignment
+- `2608.09168`  From Relevance to Execution Utility: Reward-Aware Dynamic Execution Gating for Skill-Based LLM Agents
+- `2608.09202`  CRUISE: Vision-Language Model-Guided Uncertainty-Aware Cross-Modal Sensor Fusion for Robust Autonomous Driving
+- `2608.09227`  Omni2LoRA: Coherence-Preserving Parametric Memory for Efficient Omni Language Models
+- `2608.09273`  Entropy-based Code Adversarial Translation for Real-world Repository Migration
+- `2608.09443`  Coupled Graph--Policy Distillation for Personalized Medication Safety in Older Adults with Multimorbidity
+- `2608.09555`  Bidirectional Context Self-Distillation for Reinforcement Learning of Skill-Based LLM Agents
+- `2608.09586`  ICM Out! Better Tournament Strategy from Computed Continuations, vs. Solvers and LLMs
+- `2608.09666`  Open Evaluation Agent: Efficient and Promptable Evaluation of Visual Generative Models
+- `2608.09885`  SHE: Trajectory-driven Safety Harness Evolution for LLM Agents
+- `2608.07475`  Positioning Generative Artificial Intelligence in STEM Assessment: When to Require, Scaffold, or Restrict Its 
+- `2608.07509`  PIVOT: Preference-based Intervention Vectors for Pedagogical Tutor Steering
+- `2608.07523`  From Evaluated Models to Evaluation Aids: A Multi-Evidence Study of LLM-Based Difficulty Calibration for Progr
+- `2608.07544`  MOSAIC: Adversarial Co-evolution of Specialist Heuristics and Problem Instances for LLM-based Automated Heuris
+- `2608.07606`  Enhanced Real-Time 6-DOF Extended Reality Catheter Tracking for Evaluating Potential Improvement in Efficiency
+- `2608.07712`  SpikeWorld: Fast-State Adaptation for Frozen Spiking World Models
+- `2608.07857`  Distilling CT Foundation Models into Editable Concept Bottlenecks for Lung Nodule Malignancy Prediction
+- `2608.07902`  Beyond "I Can't Help With That": How Child Safety Experts Evaluate AI Chatbot Safety
+- `2608.07945`  ScaleSense: Cost-Intelligent Scaling Framework via Learned Resource Estimation in Alibaba AnalyticDB
+- `2608.08025`  DA-NBV: A Direction-Aware Next-Best-View Planner for Efficient 3D Reconstruction of Ships at Sea
+- `2608.08135`  Compositional Cross-Modality Translation via Whole-Volume Multitask Latent Flow Matching
+- `2608.08311`  Ouroboros: A Self-Developing Frontier Coding Agent with Reviewed Core Evolution
+

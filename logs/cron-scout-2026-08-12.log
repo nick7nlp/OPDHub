@@ -1,0 +1,149 @@
+✅ Refreshed known_arxiv_ids.txt: 2216 IDs
+[scout] DATE WINDOW (CST): 2026-08-11 → 2026-08-12  (days_back=1)
+[scout] accepting YYMM prefixes: ['2608']
+[scout] architecture: RSS-primary + API-verify + S2-crosscheck
+[scout] known IDs to skip: 2216
+
+[scout] === Phase 1: RSS feeds (3 categories) ===
+[scout/rss] cs.CL: 304 total items, 24 OPD-keyword matches
+[scout/rss] cs.LG: 570 total items, 51 OPD-keyword matches
+[scout/rss] cs.AI: 753 total items, 97 OPD-keyword matches
+[scout/rss] total unique candidates: 133
+
+[scout] === Phase 2: S2 cross-check (4 queries) ===
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] 429, retry in 5s...
+[scout/s2] added 13 papers not found in RSS
+
+[scout] combined unique: 146 (RSS: 133, S2-extra: 13)
+[scout] ⚠️ 13 rejected by DATE WINDOW: ['2509.22984', '2511.17041', '2507.08877', '2510.16079', '2510.01375', '2509.01566', '2510.05733', '2510.06657', '2512.11755', '2512.03737']
+
+[scout] === Phase 3: no S2-sourced papers to verify ===
+
+[scout] ✅ 120 new candidates for deep-read
+[scout] wrote /tmp/scout_arxiv_results.json
+
+## Scout Summary: 120 new in-window candidates
+
+  - 2608.07531 [rss/ok] Search-G1: Grounded Search Agents via Representation-Based Intrinsic Rewards
+  - 2608.08164 [rss/ok] STEMMA: An Adversarial Multi-Agent Framework for Evaluating Self-Identity Consis
+  - 2608.08168 [rss/ok] Thinking vs. NoThinking: Towards Interpreting Reasoning Mechanisms of Large Lang
+  - 2608.08557 [rss/ok] OpenVisTool: An Open Recipe for Synthesizing Instructive Visual Tool-Use Traject
+  - 2608.08801 [rss/ok] IDRAAK: From Multi-Agent NLP to Few-Shot Prompting for Semantic Drift Detection 
+  - 2608.09044 [rss/ok] Tree-of-Experience: Hierarchical Experience Management for Self-Evolving Agents
+  - 2608.09080 [rss/ok] When Confidence Fails: Overconfidence in LLMs under Uncertainty and Missing Clin
+  - 2608.09106 [rss/ok] LexKairos: Benchmarking Legal Temporal Capabilities in LLMs
+  - 2608.09128 [rss/ok] Social Gym and SPaRTan: Benchmarking and Improving LLM Social Reasoning via Mult
+  - 2608.09289 [rss/ok] Accurate but Natural? Diagnosing Grammatical and Idiomatic Gaps in Japanese EFL 
+  - 2608.09420 [rss/ok] Intent Speaks Louder: Controllable User Simulation Beyond Response Imitation
+  - 2608.09432 [rss/ok] ZetaGPT: A Reference Implementation of Positional--Encoding--Free State--Space--
+  - 2608.09772 [rss/ok] PragMatch: Separating Pragmatic Incongruity from Cross-Modal Mismatch in Large V
+  - 2608.09898 [rss/ok] Consilience for Verifier-Free Test-Time Scaling
+  - 2608.07511 [rss/ok] How sensitive do we want AI to be? Socio-communicative competencies of large lan
+  - 2608.08237 [rss/ok] SAGE: SLO-Aware Adaptive Retrieval for Production RAG Systems
+  - 2608.08239 [rss/ok] The Replay Gap: Static Evaluation of Model Switching in LLM Agents Scores the Wr
+  - 2608.08503 [rss/ok] MathShikkha: A Controlled Study of Answer-Only and Chain-of-Thought Supervision 
+  - 2608.08506 [rss/ok] Understanding Calibration and Truncation Error Propagation in Training-Free Low-
+  - 2608.08795 [rss/ok] Toward Metacognitive One-Shot Indirect Prompt Injection: Strategy Abstraction Vi
+  - 2608.09703 [rss/ok] Matryoshka Language Model Suites
+  - 2608.09805 [rss/ok] Parameter Exploration for RLVR via Variational Learning
+  - 2608.09836 [rss/ok] Mismatch Matters: On-Policy Distillation Beyond Token Agreement
+  - 2608.09861 [rss/ok] Towards Expert-level Medical AI for Real-time Video Consultations
+  - 2608.07746 [rss/ok] LUCID: Latent-Skill Unified Control via Imagined Dynamics for Long-Horizon Human
+  - 2608.07935 [rss/ok] Adaptive Supervised Anchoring for On-Policy Self-Distillation
+  - 2608.07974 [rss/ok] ZeroLock: Concurrent Memory-Efficient LLM Training via Modular Update Decoupling
+  - 2608.08288 [rss/ok] Causal State-Space Model for Causal Inference: Estimating Longitudinal Individua
+  - 2608.08294 [rss/ok] A Controlled Study of Feature-Based Knowledge Distillation Across Student Design
+  - 2608.08525 [rss/ok] Out-of-Distribution Federated Distillation with Domain-Aware Proxy
+  - 2608.08722 [rss/ok] Gaming Without an Attacker: Benchmark Fingerprinting in LLM-Driven Search Under 
+  - 2608.08726 [rss/ok] PAST: Privileged Adaptation from Complete Student Trajectories for On-Policy Sel
+  - 2608.08764 [rss/ok] Learning from Consensus and Disagreement: Unsupervised On-Policy Self-Distillati
+  - 2608.08815 [rss/ok] Distilling Vision-Language Models for Robust Traffic Sign Perception in Autonomo
+  - 2608.08878 [rss/ok] DistillCache: KL-Guided Adaptive KV-Cache Eviction for Memory-Efficient LLM Infe
+  - 2608.08958 [rss/ok] Idea Search: Guiding Tree Search with Ideas to Explore Diverse Scientific Method
+  - 2608.08982 [rss/ok] Twin Rollouts: Noise-Coupled Counterfactual Branching in Interactive Video World
+  - 2608.09228 [rss/ok] Privileged Solutions or Context-Induced Teacher Behavior? Dissecting On-Policy S
+  - 2608.09233 [rss/ok] DreOPD: Degraded-Reference Extrapolative On-Policy Distillation for Flow-matchin
+  - 2608.09385 [rss/ok] Imaginative Generative AI: Crossing the Entropy Wall into Worlds Beyond Imitatio
+  - 2608.09447 [rss/ok] WDL-OPD: Weak-Driven On-Policy Distillation via Mixture-Constrained Co-Training
+  - 2608.09453 [rss/ok] Learning to Modulate, Not to Cycle: Soft Actor---Critic Recovers Inverter-Style 
+  - 2608.09468 [rss/ok] MixFormer: Linear Transformer with Mixture of Memory Experts
+  - 2608.09523 [rss/ok] Generalized Convexity and Smoothness via Conjugate Duality: Optimization Theory 
+  - 2608.09542 [rss/ok] Dual-Adversarial Safety Alignment: Cultivating Intrinsic Threat Comprehension in
+  - 2608.09596 [rss/ok] LEED: Local Embedding Evolution Distance for over-smoothing estimation and virtu
+  - 2608.09617 [rss/ok] Bayesian Symbolic Regression with Entropic Reinforcement Learning
+  - 2608.09721 [rss/ok] PET/CT Radiogenomic Mutation Prediction in Non-Small Cell Lung Cancer Using Mult
+  - 2608.09745 [rss/ok] SR-OPSD: Self-Referenced On-Policy Self-Distillation
+  - 2608.09826 [rss/ok] Distill Skills into Weights, Not Prompts: Abstract Skills as Privileged Signals 
+  - 2608.07522 [rss/ok] Explainable Machine Learning in Healthcare: Methods, Interpretation, and Applica
+  - 2608.07545 [rss/ok] DarwinX: Evolving Agent Harnesses Through Natural Selection
+  - 2608.07559 [rss/ok] MVMD: A Multi-View Approach for Enhanced Mirror Detection
+  - 2608.07585 [rss/ok] LAVE: Latent Visual Evidence-Enhanced Planning for Video Tool-use Agents
+  - 2608.07586 [rss/ok] MAGIC-SSCIL: Manifold Anchoring and Geometric Incremental Calibration for Semi-S
+  - 2608.07648 [rss/ok] Leveraging generative models to assist Monte Carlo sampling
+  - 2608.07895 [rss/ok] Auditing Instruction-Trajectory Mismatches in Multimodal Robot Demonstrations
+  - 2608.08068 [rss/ok] NeuroGuard: Neural Gradient Update Aware of Representation Damage
+  - 2608.08138 [rss/ok] EFFEKT: Efficient Federated Knowledge Transfer to Foundation Models
+  - 2608.08158 [rss/ok] A Unified Framework for Dynamic Reward Shaping in Reinforcement Learning
+  - 2608.08176 [rss/ok] Matching Supervision to the Student's Learning Capacity: A Unified Framework for
+  - 2608.08926 [rss/ok] Decoding Phenotypes: A Framework for Fusing Genomic Language Models and Neuroima
+  - 2608.09016 [rss/ok] PreGress: Ranking-Native Pre-training and Prompting for Graph Node Ranking
+  - 2608.09263 [rss/ok] Privileged Likelihood Is Not Automatically Value: Three Checks for Token Credit 
+  - 2608.09303 [rss/ok] SAFE-CHEM: Uncertainty-Aware Policy Switching for Robust Robotic Chemistry
+  - 2608.09382 [rss/ok] Coordinate-Residual Physics-Driven Neural Network for Electromagnetic Inverse Sc
+  - 2608.09775 [rss/ok] AirFlow: Context Preserving and Multi-Rate State Modeling for Air Quality Foreca
+  - 2608.09867 [rss/ok] Stealing Reasoning Traces from Proprietary LLM APIs
+  - 2608.09880 [rss/ok] Financial Numerical Prediction and Allocation as Token Generation
+  - 2608.07538 [rss/ok] When LLM Agents Negotiate: Private Information and Dynamic Bargaining in Supply 
+  - 2608.07651 [rss/ok] An Agentic AI Framework Overcomes Fundamental Limitations of Large Language Mode
+  - 2608.07779 [rss/ok] The Capability Ladder: A Curriculum-Modernization Framework for Workforce Readin
+  - 2608.07838 [rss/ok] Counterfactual Benchmarking and Training for Factuality Consistency and Order-Ro
+  - 2608.07885 [rss/ok] Reason Wide, Not Deep: Amortizing the Reasoning Premium into Distilled Skills
+  - 2608.07965 [rss/ok] CyberAGENTS: Structured Autonomy for Agentic Gamified Learning in Cybersecurity
+  - 2608.07994 [rss/ok] VDGR-RAG: Vectors, Directories, Graphs, and Reflection Are All You Need for Unif
+  - 2608.08139 [rss/ok] TokenPrint: A Calibrated Token-Space Fingerprint for Language-Model Provenance
+  - 2608.08146 [rss/ok] Long SKILL Compliance as Logical Reasoning: Closure-Grounded Detection with Scal
+  - 2608.08303 [rss/ok] Query-Only Backdoor Attacks on Self-Evolving Skills via Trajectory Poisoning
+  - 2608.08326 [rss/ok] StructReward: Efficient Structured Process Rewards for Self-Correcting Multimoda
+  - 2608.08398 [rss/ok] Estimating Uncertainty in Galaxy Morphology Classification
+  - 2608.08445 [rss/ok] Forgotten History or Test-of-Time? Retrospect and Prospect on RAG from an IR Per
+  - 2608.08466 [rss/ok] Hierarchical Self-Improvement: A Framework for Task-Specific Evolvable Agent Har
+  - 2608.08491 [rss/ok] TrustRoboReward: Preference-Ordered Isotonic Score Editing for Multi-Paradigm Ro
+  - 2608.08523 [rss/ok] Discovering Diverse Planning Policies for Multimodal Embodied Agents with Qualit
+  - 2608.08570 [rss/ok] FailForge: Distilling Procedural Competence from Persistent Failures into Code A
+  - 2608.08617 [rss/ok] Walking through Discussions: A Mobile Visual Analytics System for In-Situ Group 
+  - 2608.08623 [rss/ok] MedCalc-R1: Knowledge-Guided Reward Framework for Medical Mathematical Reasoning
+  - 2608.08640 [rss/ok] SkillReason: Reasoning-Enhanced Agent Skill Retrieval for Implicit User Requests
+  - 2608.08677 [rss/ok] Branch2Skill: Efficient Skill Evolution Through Reasoning Trees
+  - 2608.08689 [rss/ok] A Structural Dynamics Graph World Model: Unified Modeling, Constrained Rollout, 
+  - 2608.08700 [rss/ok] PluginEval: A Diagnostic Benchmark for Fine-Grained Error Attribution in Functio
+  - 2608.08888 [rss/ok] Full-bandwidth transformer
+  - 2608.08935 [rss/ok] Integrated Multimodal AI System for Retrieval-Augmented Reasoning, Object Sensin
+  - 2608.08960 [rss/ok] Reading is not Reasoning: Bridging the Agentic Policy Gap in Vision-Text Compres
+  - 2608.09109 [rss/ok] Different Feedback, Different Updates: Selective Self-Learning from User Interac
+  - 2608.09119 [rss/ok] Motif 3: Technical Report
+  - 2608.09123 [rss/ok] RISE-RL: Rubric-Informed Selective Exploration for Open-Ended Reinforcement Lear
+  - 2608.09164 [rss/ok] CIDER: A Dataset of Contextual Disclosure Boundaries for Privacy Preference Alig
+  - 2608.09168 [rss/ok] From Relevance to Execution Utility: Reward-Aware Dynamic Execution Gating for S
+  - 2608.09202 [rss/ok] CRUISE: Vision-Language Model-Guided Uncertainty-Aware Cross-Modal Sensor Fusion
+  - 2608.09227 [rss/ok] Omni2LoRA: Coherence-Preserving Parametric Memory for Efficient Omni Language Mo
+  - 2608.09273 [rss/ok] Entropy-based Code Adversarial Translation for Real-world Repository Migration
+  - 2608.09443 [rss/ok] Coupled Graph--Policy Distillation for Personalized Medication Safety in Older A
+  - 2608.09555 [rss/ok] Bidirectional Context Self-Distillation for Reinforcement Learning of Skill-Base
+  - 2608.09586 [rss/ok] ICM Out! Better Tournament Strategy from Computed Continuations, vs. Solvers and
+  - 2608.09666 [rss/ok] Open Evaluation Agent: Efficient and Promptable Evaluation of Visual Generative 
+  - 2608.09885 [rss/ok] SHE: Trajectory-driven Safety Harness Evolution for LLM Agents
+  - 2608.07475 [rss/ok] Positioning Generative Artificial Intelligence in STEM Assessment: When to Requi
+  - 2608.07509 [rss/ok] PIVOT: Preference-based Intervention Vectors for Pedagogical Tutor Steering
+  - 2608.07523 [rss/ok] From Evaluated Models to Evaluation Aids: A Multi-Evidence Study of LLM-Based Di
+  - 2608.07544 [rss/ok] MOSAIC: Adversarial Co-evolution of Specialist Heuristics and Problem Instances 
+  - 2608.07606 [rss/ok] Enhanced Real-Time 6-DOF Extended Reality Catheter Tracking for Evaluating Poten
+  - 2608.07712 [rss/ok] SpikeWorld: Fast-State Adaptation for Frozen Spiking World Models
+  - 2608.07857 [rss/ok] Distilling CT Foundation Models into Editable Concept Bottlenecks for Lung Nodul
+  - 2608.07902 [rss/ok] Beyond "I Can't Help With That": How Child Safety Experts Evaluate AI Chatbot Sa
+  - 2608.07945 [rss/ok] ScaleSense: Cost-Intelligent Scaling Framework via Learned Resource Estimation i
+  - 2608.08025 [rss/ok] DA-NBV: A Direction-Aware Next-Best-View Planner for Efficient 3D Reconstruction
+  - 2608.08135 [rss/ok] Compositional Cross-Modality Translation via Whole-Volume Multitask Latent Flow 
+  - 2608.08311 [rss/ok] Ouroboros: A Self-Developing Frontier Coding Agent with Reviewed Core Evolution
