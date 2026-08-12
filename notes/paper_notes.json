@@ -32165,15 +32165,16 @@
         "evidence_quote": "The student generates a rollout y∼π stud(·|x). The teacher then provides token-level supervision for this specific rollout, and the student minimizes the divergence between the two distributions."
       },
       "opd_classification": {
-        "is_opd": "analysis",
-        "primary_section": "§5.3.2",
+        "is_opd": "no",
+        "primary_section": "not-applicable",
         "secondary_sections": [
           "§4.1",
           "§5.3.1",
           "§6.1",
           "§6.2"
         ],
-        "reasoning": "This is a survey/overview paper analyzing OPSD methods where the same model serves as both teacher and student (pure self-distillation with privileged information), covering multiple design dimensions."
+        "reasoning": "[2026-08-12 boss ruling] RECLASSIFIED analysis->no. score=4. Competing third-party OPSD overview/survey, not a method or an original analysis contribution. Excluded from V5 scope; PDF trashed.",
+        "_prev_is_opd": "analysis"
       },
       "teacher_student_pairs": [
         {
@@ -44820,13 +44821,14 @@
         "evidence_quote": "GKD enables distillation on a mixture of supervised and student-generated data, guided by token-level feedback from the teacher model."
       },
       "opd_classification": {
-        "is_opd": "analysis",
-        "primary_section": "§6.2",
+        "is_opd": "no",
+        "primary_section": "not-applicable",
         "secondary_sections": [
           "§5.1",
           "§7.1"
         ],
-        "reasoning": "The paper's core contribution is an empirical analysis of when KD helps/fails across data scales (curriculum/scaling analysis), using GKD as the representative on-policy distillation method."
+        "reasoning": "[2026-08-12 boss ruling] RECLASSIFIED analysis->no. score=5. KD data-scale study in post-training; OPD/GKD is one baseline among several, not the contribution. Excluded from V5 scope; PDF trashed.",
+        "_prev_is_opd": "analysis"
       },
       "teacher_student_pairs": [
         {
@@ -45280,12 +45282,13 @@
         "evidence_quote": "OPD follows the same central principle: the student samples trajectories from its own policy, and the teacher provides dense feedback on the prefixes that the student actually visits."
       },
       "opd_classification": {
-        "is_opd": "yes",
-        "primary_section": "§6.1",
+        "is_opd": "no",
+        "primary_section": "not-applicable",
         "secondary_sections": [
           "§4.2"
         ],
-        "reasoning": "Core contribution is a token-weighting mechanism (blockwise drift gating) that reweights OPD position losses based on old-current student drift, fitting §6.1 (token/position weighting for efficiency/stability)."
+        "reasoning": "[2026-08-12 boss ruling] RECLASSIFIED yes->no. score=6. Purely incremental: adds a blockwise drift weight to an existing OPD loss; no substantive OPD method contribution. Excluded from V5 scope; PDF trashed.",
+        "_prev_is_opd": "yes"
       },
       "teacher_student_pairs": [
         {
@@ -53980,13 +53983,14 @@
         "evidence_quote": "Qwen-OPD first samples rollouts from the student model and then distills token-level supervision from DeepSeek-R1-Distill-Qwen-32B through dense KL divergence"
       },
       "opd_classification": {
-        "is_opd": "analysis",
-        "primary_section": "§7.1",
+        "is_opd": "no",
+        "primary_section": "not-applicable",
         "secondary_sections": [
           "§7.2",
           "§7.3"
         ],
-        "reasoning": "This is an analysis paper that studies the calibration properties of OPD/SFT/RL models rather than proposing a new OPD method; it provides empirical insights about confidence dynamics in OPD-trained models."
+        "reasoning": "[2026-08-12 boss ruling] RECLASSIFIED analysis->no. score=5. Confidence-calibration study across SFT/RL/OPD; OPD is one of three compared paradigms, not an OPD contribution. Excluded from V5 scope; PDF trashed.",
+        "_prev_is_opd": "analysis"
       },
       "teacher_student_pairs": [
         {
@@ -54176,12 +54180,13 @@
         "evidence_quote": "On-policy distillation instead uses student prefixes y˜sampled from the current compressed model. The stop-gradient blocks gradients through sampling, so updates still come only from the KL term."
       },
       "opd_classification": {
-        "is_opd": "yes",
-        "primary_section": "§6.3",
+        "is_opd": "no",
+        "primary_section": "not-applicable",
         "secondary_sections": [
           "§5.1"
         ],
-        "reasoning": "The paper introduces an on-policy distillation stage where the student (compressed codec) generates its own rollouts and the frozen teacher provides logit-level KL supervision on those student-generated prefixes, primarily for compute-efficient long-generation stability."
+        "reasoning": "[2026-08-12 boss ruling] RECLASSIFIED yes->no. score=6. Off-topic: the contribution is cross-loop KV-cache compression for looped Transformers; OPD is only a downstream refinement tool. Excluded from V5 scope; PDF trashed.",
+        "_prev_is_opd": "yes"
       },
       "teacher_student_pairs": [
         {
@@ -56655,13 +56660,14 @@
         "evidence_quote": "Joint OPD and mixed-reward GRPO then refine the remaining unstable capabilities by combining teacher-guided process regularization with outcome and rubric rewards"
       },
       "opd_classification": {
-        "is_opd": "yes",
-        "primary_section": "§8.1",
+        "is_opd": "no",
+        "primary_section": "not-applicable",
         "secondary_sections": [
           "§4.3",
           "§6.2"
         ],
-        "reasoning": "The paper applies on-policy distillation as part of a staged training system for social intelligence, which is an application/system paper using OPD as a core training component in Stage 2."
+        "reasoning": "[2026-08-12 boss ruling] RECLASSIFIED yes->no. Application/system paper excluded from OPD scope. Zing social-intelligence technical report; OPD appears as one stage of a staged training recipe, not an OPD method contribution. Removed from Awesome list; PDF trashed.",
+        "_prev_is_opd": "yes"
       },
       "teacher_student_pairs": [
         {
@@ -61359,14 +61365,15 @@
         "evidence_quote": "Generatetrajectories{y i } i G =1 fromπ θ (·|x). Routethesampletothecorrespondingexpertteacherπ ϕd . Queryteacherservertoobtaintoken-levellogprobabilitieslogπ ϕd (y i,t |x,y i,<t )."
       },
       "opd_classification": {
-        "is_opd": "yes",
-        "primary_section": "§8.1",
+        "is_opd": "no",
+        "primary_section": "not-applicable",
         "secondary_sections": [
           "§5.1",
           "§6.2",
           "§4.1"
         ],
-        "reasoning": "System/application paper that proposes a novel hybrid OPD framework combining cross-domain expert routing with on-policy reverse-KL distillation for search agents; best fits applications/systems domain (§8.1) with elements of white-box teacher signal (§5.1), curriculum learning (§6.2), and reverse-KL objective (§4.1)."
+        "reasoning": "[2026-08-12 boss ruling] RECLASSIFIED yes->no. Application/system paper excluded from OPD scope. Cross-domain search-agent system paper; OPD is one component of an application pipeline, not an OPD method contribution. Removed from Awesome list; PDF trashed.",
+        "_prev_is_opd": "yes"
       },
       "teacher_student_pairs": [
         {
@@ -68333,5 +68340,5 @@
       "_model": "claude"
     }
   },
-  "last_updated": "2026-08-12T11:20:00Z"
+  "last_updated": "2026-08-12T12:20:00Z"
 }

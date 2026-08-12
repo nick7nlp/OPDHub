@@ -2122,3 +2122,17 @@ V3 deep-read 内层 `is_opd=yes` 但外层字段未填，5/29 backlog 核对发�
 | 2607.02966 | Distill Where the Student Goes: Teacher-Regularized RL for English-Evidence Cross-Lingual RAG | 老大裁决: 剔除。Figure 2 将 teacher-trajectory 变体标为 Off-Policy, 本质是跨语言 RAG 应用配方而非 OPD 方法贡献。已从 Awesome list 移除 (badge 282→281), PDF → trash |
 
 **根因**: backlog 生成脚本用 `is_opd in (yes, analysis)` 作为合格条件, 从未对 analysis 类跑三条件校验, 导致离线工作混入。已在下方规则中修正。
+
+## 2026-08-12 应用类 + 低分清理 (老大裁决)
+
+| arXiv ID | Title | score | Verdict |
+|----------|-------|-------|---------|
+| 2608.02101 | Cross-Domain Hybrid OPD for Generalizable Search Agents | 8 | 应用/系统论文: OPD 是搜索 agent 流水线的一个组件, 非 OPD 方法贡献。Awesome 移除, PDF → trash |
+| 2607.23740 | Zing (知境) Technical Report: Social Mind for LLMs | 4 | 技术报告 + 应用: OPD 只是分阶段训练配方的一环。Awesome 移除, PDF → trash |
+| 2605.18141 | A Brief Overview: On-Policy Self-Distillation In LLMs | 4 | 第三方 OPSD 综述, 非方法也非原创分析 |
+| 2606.22942 | Understanding Knowledge Distillation in Post-Training | 5 | KD 数据规模研究, GKD/OPD 只是若干 baseline 之一 |
+| 2607.13753 | Post-Training Shifts Confidence: Three-Stage Analysis | 5 | 置信度校准研究, OPD 是三个被比较范式之一, 非 OPD 贡献 |
+| 2606.24084 | Blockwise Policy-Drift Gating for On-Policy Distillation | 6 | 纯增量: 给已有 OPD loss 加 block 级 drift 权重。Awesome 移除 |
+| 2607.15456 | Looped Latent Attention: Cross-Loop KV Compression | 6 | 主题偏离: 贡献是 looped Transformer 的 KV cache 压缩, OPD 仅作下游 refinement 工具。Awesome 移除 |
+
+Awesome badge: 281 → 277。全部无 v4/v5 正文引用, 可安全剔除。
