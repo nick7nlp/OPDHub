@@ -1198,7 +1198,7 @@ Wednesday 2026-06-03 (regular weekday cron).
 - Phase 3 TRIAGE: 17 keep / 140 exclude (140 PDFs moved to trash + logged to excluded-papers.md)
 - Phase 3.5 3-CONDITION on 17 keeps:
   - 15 KEEP (all already in awesome from prior catch-up runs)
-  - 1 REJECT (R3) — `2605.29584` GAPD: RL-only公式, signal=self, no teacher-distill term (consistent with prior R3 verdict)
+  - 1 REJECT (R3) — `2605.29584` GAPD: RL-only公式, signal=self, no teacher-distill term (consistent with prior R3 verdict) — **此判定已于 2026-08-11 经 PDF 原文复核推翻，见下方 Reject details 订正**
   - 1 UNKNOWN — `2606.01080` ThinkSwitch: `student_rollout_in_training=no`, `rollout_frequency=n/a`; v3 reasoning admits "thinking checkpoint generates traces ... decode deterministically with temperature 0" = pre-computed offline traces. Same-class as 6/03 cleanup batch (14 内部矛盾论文 is_opd=yes 但 rollout=no). **Per scope 铁律 #6+#8 reject; not added to awesome.**
 - Phase 4 awesome list: **0 new insertions** (all today's qualifying OPD papers were already in awesome via prior daily runs; only failures fell through both filters)
 - Phase 5 refresh ids: 400 IDs (after triage cleanup)
@@ -1207,7 +1207,7 @@ Wednesday 2026-06-03 (regular weekday cron).
 
 | aid | rule | reason |
 |---|---|---|
-| 2605.29584 | R3 | GAPD: GRPO-style RL公式 + 无 teacher-distill 项, signal=self → 伪 OPD |
+| 2605.29584 | ~~R3~~ → **OVERTURNED 2026-08-11** | ~~GAPD: GRPO-style RL公式 + 无 teacher-distill 项, signal=self → 伪 OPD~~ — PDF 原文复核推翻。Eq. (8) `d_ik = log p_teach(y_ik｜x̃_ik) − log p_stud(y_ik｜x_ik)` 是真实 teacher log-prob 项；Eq. (9)/(11) 以 `Â_ik = A_grpo_i + λ_gapd·A_gapd_ik` 融合进 GRPO。`teacher_signal=logits` 使 R3 前提不成立（R3 仅当 `teacher_signal != logits` 才触发），与 PSDISTILL（仅 ref-policy 正则）非同类。三条件全满足，`three_condition_filter.py` 复核 = KEEP/OK。**结论：保留 `is_opd=yes`，已于 2026-08-11 列入 V5 backlog。** |
 | 2606.01080 | scope (rollout=no) | ThinkSwitch: 离线 trace 预生成 + LoRA + SLERP 权重插值, 训练循环内无 student rollout, 是 context distillation (offline KD between thinking↔instruct checkpoints) 不是 OPD |
 
 ### Awesome list commits today
@@ -1263,7 +1263,7 @@ Phase 1 scout: 30 in-window candidates from RSS. Phase 2 deep-read on 80 staged 
 
 | arxiv | 标题 | rule | 理由 |
 |---|---|---|---|
-| `2605.29584` | GAPD: Gold-Action Policy Distillation for Agentic RL in KBQA | R3 (auto) | GRPO advantage shaping with `lambda_gapd * A_gapd_ik`; signal=self, no `D_KL(π‖π_T)` teacher distill term. 同 PSDISTILL 体系。 |
+| `2605.29584` | GAPD: Gold-Action Policy Distillation for Agentic RL in KBQA | ~~R3 (auto)~~ → **OVERTURNED 2026-08-11** | ~~GRPO advantage shaping with `lambda_gapd * A_gapd_ik`; signal=self, no `D_KL(π‖π_T)` teacher distill term. 同 PSDISTILL 体系。~~ — 原文 Eq. (8) 存在真实 teacher log-prob 项 `log p_teach − log p_stud`，`teacher_signal=logits` 使 R3 前提不成立；三条件全满足，判定改为 KEEP（`is_opd=yes`）。 |
 | `2606.01080` | ThinkSwitch: Context Distillation with LoRA + Weight Interpolation | R1 (manual) | Iterative weight-merging via SLERP + offline QLoRA SFT on answer-only pairs. No student rollout in loss-loop. v3 LLM 偏宽松判 yes, 实为 model-merging recipe。 |
 | `2606.01215` | Distilling Neuro-Symbolic Programs into 3D Multi-modal LLMs | R3 (manual) | Three-stage curriculum: perception SFT → CoT-SFT on offline symbolic traces → GRPO with format/grounding rewards. "Distillation" 指离线 program-to-CoT 翻译, 非 on-policy teacher distribution distill. |
 

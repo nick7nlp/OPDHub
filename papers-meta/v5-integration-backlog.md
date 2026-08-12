@@ -1,26 +1,26 @@
 # V5 Integration Backlog — deep-read after V4, not yet cited
 
-> Generated 2026-08-11. Source of truth: `notes/paper_notes.json`.
+> Regenerated 2026-08-12 after the first CodeBuddy-scheduled pipeline run. Source of truth: `notes/paper_notes.json`.
 
 ## Summary
 
 | Metric | Count |
 |---|---:|
-| DB records | 292 |
-| Eligible OPD (yes+analysis, arXiv-id) | 282 |
+| DB records | 306 |
+| Eligible OPD (yes+analysis, arXiv-id) | 296 |
 | Cited in V4 bib | 225 |
 | Cited in V5 bib | 223 |
-| **Pending V5 integration** | **89** |
-| Awesome README entries | 276 |
-| Method papers missing from Awesome | 0 (verified) |
+| **Pending V5 integration** | **103** |
+| Awesome README entries | 288 |
+| Method papers missing from Awesome | 0 (verified 2026-08-12) |
 
-Pending by arXiv month: `2605`=4, `2606`=23, `2607`=41, `2608`=21
+Pending by arXiv month: `2605`=4, `2606`=23, `2607`=41, `2608`=35
 
-Method (`is_opd=yes`) vs analysis split of the backlog: **77 method**, 12 analysis.
+Backlog split: **89 method**, 14 analysis.
 
 ## Pending papers by target section
 
-### §4.1 — 7 papers
+### §4.1 — 10 papers
 
 | arXiv | OPD | In Awesome | Title |
 |---|---|---|---|
@@ -31,8 +31,11 @@ Method (`is_opd=yes`) vs analysis split of the backlog: **77 method**, 12 analys
 | `2607.22334` | yes | yes | Cross-Tokenizer On-Policy Distillation via Byte-Prefix Marginalization |
 | `2608.01263` | yes | yes | Distill What the Student Can See: Fisher-Projected On-Policy Distillation for Vision-Lan |
 | `2608.01735` | yes | yes | DAPD: Dual-Anchored Policy Distillation |
+| `2608.09447` | yes | yes | WDL-OPD: Weak-Driven On-Policy Distillation via Mixture-Constrained Co-Training |
+| `2608.09745` | yes | yes | SR-OPSD: Self-Referenced On-Policy Self-Distillation |
+| `2608.09836` | yes | yes | Mismatch Matters: On-Policy Distillation Beyond Token Agreement |
 
-### §4.2 — 12 papers
+### §4.2 — 13 papers
 
 | arXiv | OPD | In Awesome | Title |
 |---|---|---|---|
@@ -48,6 +51,7 @@ Method (`is_opd=yes`) vs analysis split of the backlog: **77 method**, 12 analys
 | `2607.26057` | yes | yes | Pass the Baton: Trajectory-Relayed On-Policy Distillation |
 | `2608.00782` | yes | yes | Distill Where You Fail: Recovering Learning Signals of Negative RL-Groups from Adaptive  |
 | `2608.02942` | yes | yes | OPTD: On-Policy Transition Distillation with Consistency-Guided Adaptive Compression for |
+| `2608.07935` | yes | yes | Adaptive Supervised Anchoring for On-Policy Self-Distillation |
 
 ### §4.3 — 11 papers
 
@@ -65,7 +69,7 @@ Method (`is_opd=yes`) vs analysis split of the backlog: **77 method**, 12 analys
 | `2608.04419` | yes | yes | SPOT: Sparse Probing and Outcome Calibration for On-Policy Distillation |
 | `2608.07068` | yes | yes | MemOPD: On-Policy Distillation through Memory State Alignment for Long-Horizon Agents |
 
-### §5.1 — 12 papers
+### §5.1 — 13 papers
 
 | arXiv | OPD | In Awesome | Title |
 |---|---|---|---|
@@ -81,6 +85,7 @@ Method (`is_opd=yes`) vs analysis split of the backlog: **77 method**, 12 analys
 | `2607.27081` | yes | yes | On-Policy Distillation for LLM Safety: A Routing Approach to Template-Robust Realignment |
 | `2608.01589` | yes | yes | Is More Privileged Information Better? From Solution Traces to Problem-Solving Structure |
 | `2608.03092` | yes | yes | SMOPD: Multi-Reward Reinforcement Learning via Specialize-and-Merge Online Policy Distil |
+| `2608.09119` | yes | yes | Motif 3: Technical Report |
 
 ### §5.1.1 — 3 papers
 
@@ -89,6 +94,12 @@ Method (`is_opd=yes`) vs analysis split of the backlog: **77 method**, 12 analys
 | `2607.09375` | yes | yes | Mach-Mind-4-Flash Technical Report |
 | `2607.20062` | yes | yes | Solar Open 2 Technical Report |
 | `2608.06756` | yes | yes | Capek 0.5: An Execution-Centric Vision-Language Model for Embodied Intelligence |
+
+### §5.1.2 — 1 papers
+
+| arXiv | OPD | In Awesome | Title |
+|---|---|---|---|
+| `2608.08726` | yes | yes | PAST: Privileged Adaptation from Complete Student Trajectories for On-Policy Self-Distil |
 
 ### §5.3.1 — 4 papers
 
@@ -99,7 +110,7 @@ Method (`is_opd=yes`) vs analysis split of the backlog: **77 method**, 12 analys
 | `2607.04428` | yes | yes | dOPSD: On-Policy Self-Distillation for Diffusion Language Models |
 | `2607.24653` | yes | yes | Kimi K3: Open Frontier Intelligence |
 
-### §5.3.2 — 9 papers
+### §5.3.2 — 13 papers
 
 | arXiv | OPD | In Awesome | Title |
 |---|---|---|---|
@@ -112,6 +123,10 @@ Method (`is_opd=yes`) vs analysis split of the backlog: **77 method**, 12 analys
 | `2608.02948` | yes | yes | Rubrics as Privileged Information for Open-Ended Generation |
 | `2608.05131` | yes | yes | OPD-V: Visual On-Policy Self-Distillation with Modality Balance |
 | `2608.07371` | yes | yes | Trajectory-Relative Hindsight Distillation for Agentic Reinforcement Learning |
+| `2608.08764` | yes | yes | Learning from Consensus and Disagreement: Unsupervised On-Policy Self-Distillation with  |
+| `2608.08960` | yes | yes | Reading is not Reasoning: Bridging the Agentic Policy Gap in Vision–Text Compression |
+| `2608.09555` | yes | yes | Bidirectional Context Self-Distillation for Reinforcement Learning of Skill-Based LLM Ag |
+| `2608.09826` | yes | yes | Distill Skills into Weights, Not Prompts: Abstract Skills as Privileged Signals for On-P |
 
 ### §5.3.3 — 1 papers
 
@@ -119,7 +134,7 @@ Method (`is_opd=yes`) vs analysis split of the backlog: **77 method**, 12 analys
 |---|---|---|---|
 | `2607.18110` | yes | yes | LLM-as-a-Coach: Experiential Learning for Non-Verifiable Tasks |
 
-### §6.1 — 7 papers
+### §6.1 — 8 papers
 
 | arXiv | OPD | In Awesome | Title |
 |---|---|---|---|
@@ -130,8 +145,9 @@ Method (`is_opd=yes`) vs analysis split of the backlog: **77 method**, 12 analys
 | `2608.01837` | yes | yes | PCSD: Persistent Consistency for Self-Distillation in Agentic Reinforcement Learning |
 | `2608.01953` | yes | yes | Look Ahead Before You Distill: Future Trajectory Validation of Teacher Guidance for Agen |
 | `2608.04408` | yes | yes | Not Every Divergence Should Be Suppressed: Counterfactual Recoverability in On-Policy Di |
+| `2608.08176` | yes | yes | Matching Supervision to the Student's Learning Capacity: A Unified Framework for On-Poli |
 
-### §6.2 — 6 papers
+### §6.2 — 7 papers
 
 | arXiv | OPD | In Awesome | Title |
 |---|---|---|---|
@@ -141,6 +157,7 @@ Method (`is_opd=yes`) vs analysis split of the backlog: **77 method**, 12 analys
 | `2607.29078` | yes | yes | DASH-OPD: Discrepancy-Aware Switching with Hysteresis for On-Policy Distillation |
 | `2607.29494` | yes | yes | Adaptive FastOPD: Progress-Aware Rollout Horizon Expansion for Efficient On-Policy Disti |
 | `2608.06802` | yes | yes | Simple-OPD: Demystifying Warm-up for On-policy Distillation |
+| `2608.08146` | yes | yes | Long SKILL Compliance as Logical Reasoning: Closure-Grounded Detection with Scaling-Guid |
 
 ### §6.3 — 2 papers
 
@@ -149,7 +166,7 @@ Method (`is_opd=yes`) vs analysis split of the backlog: **77 method**, 12 analys
 | `2606.24143` | yes | yes | AsyncOPD: How Stale Can On-Policy Distillation Be? |
 | `2607.15456` | yes | yes | Looped Latent Attention: Cross-Loop KV Compression for Looped Transformers |
 
-### §7.1 — 8 papers
+### §7.1 — 9 papers
 
 | arXiv | OPD | In Awesome | Title |
 |---|---|---|---|
@@ -161,14 +178,16 @@ Method (`is_opd=yes`) vs analysis split of the backlog: **77 method**, 12 analys
 | `2607.03572` | analysis | no (analysis-only, by policy) | Teacher Supervision over Representation Equivalence Classes: Why Distillation Transfers  |
 | `2607.13753` | analysis | no (analysis-only, by policy) | Post-Training Shifts Confidence: A Three-Stage Analysis of How SFT, RL, and OPD Shape Pr |
 | `2607.23731` | analysis | no (analysis-only, by policy) | Outcome-Confounded Local Supervision in On-Policy Distillation |
+| `2608.09263` | analysis | no (analysis-only, by policy) | Privileged Likelihood Is Not Automatically Value: Three Checks for Token Credit in On-Po |
 
-### §7.2 — 3 papers
+### §7.2 — 4 papers
 
 | arXiv | OPD | In Awesome | Title |
 |---|---|---|---|
 | `2606.26091` | analysis | no (analysis-only, by policy) | On-Policy Self-Distillation with Sampled Demonstrations Reduces Output Diversity |
 | `2607.13399` | analysis | no (analysis-only, by policy) | Demystifying On-Policy Distillation: Roles, Pathologies, and Regulations |
 | `2608.04794` | analysis | no (analysis-only, by policy) | Privileged, but Biased: How PI-Conditioned Teachers Break Self-Distillation |
+| `2608.09228` | analysis | no (analysis-only, by policy) | Privileged Solutions or Context-Induced Teacher Behavior? Dissecting On-Policy Self-Dist |
 
 ### §8.1 — 3 papers
 
@@ -184,8 +203,15 @@ Method (`is_opd=yes`) vs analysis split of the backlog: **77 method**, 12 analys
 |---|---|---|---|
 | `2608.03610` | yes | yes | Language-Specialized Multi-Teacher On-Policy Distillation for Multilingual LLM-Based ASR |
 
+## Audit trail (2026-08-11 / 08-12)
+
+- Full cross-check of `paper_notes.json` against `excluded-papers.md` (1933 ids) and `opd-new-papers.md` found **no genuine pseudo-OPD entries needing removal**.
+- `2605.29584` (GAPD): the old R3 REJECT was **overturned** after reading the PDF — Eq. (8) `log p_teach − log p_stud` is a real teacher log-prob term and `teacher_signal=logits` makes the R3 precondition false. Retained as `is_opd=yes`.
+- Second-opinion (Gemini) systematically rejects on *novelty/domain* grounds, which is **not** an OPD-definition criterion. Three such false rejections were corrected and inserted into Awesome: `2608.06756`, `2608.09119`, `2608.09555`.
+- Stale/non-OPD PDFs removed from `pdfs/_staging/` to `.trash-2026-08-11-staging-stale/` (7-day retention) and added to `known_arxiv_ids.txt`: `2509.11924` (medical-imaging KD, out of date window), `2608.08294` (vision CIFAR/ResNet feature KD, deep-read worker exit 3).
+- `_staging/` is now empty; no recurring rejection backlog remains.
+
 ## Policy notes
 
 - Awesome README tracks method papers (`is_opd=yes`); analysis-only entries are intentionally excluded.
 - V4-only citations dropped in V5 per the 2026-08-09 boundary ruling: `2509.14257`, `2605.22511`.
-- `2608.06756` (Capek 0.5) was added to Awesome §5.1 on 2026-08-11: the 3-condition filter returned KEEP; the earlier Gemini REJECT cited novelty/domain, which is not an OPD-definition criterion.

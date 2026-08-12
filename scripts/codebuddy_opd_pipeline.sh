@@ -57,8 +57,11 @@ run_phase() {
     rc=$?
     echo "[runner] ${phase} script exit ${rc} @ $(date '+%H:%M:%S')"
 
-    if [ "${rc}" -ne 0 ] || grep -qE "❌|FATAL|FAILED|commit FAILED|push failed" "${phase_log}" 2>/dev/null; then
-        echo "[runner] ${phase} failure marker detected"
+    # Trust the script's exit code for success/failure. Only treat terminal
+    # pipeline-level markers as failures; per-paper worker errors (e.g.
+    # "[batch] ❌ <aid>: worker exit N") are expected attrition, not a run failure.
+    if [ "${rc}" -ne 0 ] || grep -qE "FATAL|commit FAILED|push failed|❌ (survey|awesome) repo" "${phase_log}" 2>/dev/null; then
+        echo "[runner] ${phase} failure detected (exit ${rc})"
         return 1
     fi
     return 0
