@@ -209,6 +209,7 @@ These three axes map onto independent terms of the unified OPD objective. The $f
 \definecolor{sdcolor}{HTML}{6C4FA0}
 \definecolor{sdcolormid}{HTML}{9B7FBF}
 \definecolor{dycolor}{HTML}{C0392B}
+\definecolor{agcolor}{HTML}{B7791F}
 \resizebox{\textwidth}{!}{
 \tikzset{
   rbox/.style={fill=rootblue, text=white, rounded corners=10pt,
@@ -224,6 +225,9 @@ These three axes map onto independent terms of the unified OPD objective. The $f
     font=\small\bfseries, minimum height=0.75cm,
     align=center, inner xsep=8pt},
   catDyn/.style={fill=dycolor, text=white, rounded corners=8pt,
+    font=\small\bfseries, minimum height=0.75cm,
+    align=center, inner xsep=8pt},
+  catAg/.style={fill=agcolor, text=white, rounded corners=8pt,
     font=\small\bfseries, minimum height=0.75cm,
     align=center, inner xsep=8pt},
   badge/.style={fill=#1, text=white, rounded corners=3pt,
@@ -252,19 +256,25 @@ These three axes map onto independent terms of the unified OPD objective. The $f
   [\textbf{On-Policy}\\\textbf{Distillation}, rbox, text width=2.0cm
     %% ===== Stage 1: Objective Functions and Optimization (§4) =====
     [{\S 4 Objective Functions\\and Optimization}, catObj, edge={draw=tgcolor!60, line width=1.2pt}
-      [{\textbf{4.1 Fixed Divergence Objectives}~{\tikz[baseline=-0.5ex]\node[badge=tgcolor]{12};}\\[2pt]%
+      [{\textbf{4.1 Fixed Divergence Objectives}~{\tikz[baseline=-0.5ex]\node[badge=tgcolor]{21};}\\[2pt]%
         GKD~\citep{2306.13649}, MiniLLM~\citep{2306.08543}, DistiLLM~\citep{2402.03898},\\[1pt]%
         DistiLLM-2~\citep{2503.07067}, KETCHUP~\citep{2504.19024}, vOPD~\citep{2605.07865},\\[1pt]%
         AntiSD~\citep{2605.11609}, OPD+~\citep{2606.01039}, Bridging~\citep{2606.00305},\\[1pt]%
         Decomposed-OPD~\citep{2606.00564}, Surgical-PT~\citep{2603.01683},\\[1pt]%
-        Distributional DAgger~\citep{2606.05152}%
+        Distributional DAgger~\citep{2606.05152},\\[1pt]%
+        PowerOPD~\citep{2606.17199}, GEOSD~\citep{2607.06855}, TIDE~\citep{2608.09836},\\[1pt]%
+        TOPD~\citep{2607.16872}, BPM~\citep{2607.22334}, FP-OPD~\citep{2608.01263},\\[1pt]%
+        DAPD~\citep{2608.01735}, WDL-OPD~\citep{2608.09447}, SR-OPSD~\citep{2608.09745}%
         }, leaf=tgcolor, edge={draw=tgcolor!30}]
-      [{\textbf{4.2 Adaptive Divergence Objectives}~{\tikz[baseline=-0.5ex]\node[badge=tgcolor]{11};}\\[2pt]%
+      [{\textbf{4.2 Adaptive Divergence Objectives}~{\tikz[baseline=-0.5ex]\node[badge=tgcolor]{15};}\\[2pt]%
         EOPD~\citep{2603.07079}, AOPD~\citep{2605.06387},\\[1pt]%
         Position-Weighted OPSD~\citep{2605.21606}, Token-Teachability~\citep{2605.26844},\\[1pt]%
-        Lookahead Group Reward~\citep{2605.30833}, Trust-Region OPD~\citep{2606.01249}%
+        Lookahead Group Reward~\citep{2605.30833}, Trust-Region OPD~\citep{2606.01249},\\[1pt]%
+        DOPD~\citep{2606.30626}, AD-OPSD~\citep{2607.10805}, RoCo-ACE~\citep{2607.24771},\\[1pt]%
+        TOP-D~\citep{2607.04751}, CADENCE~\citep{2607.16955}, PADD~\citep{2606.10369},\\[1pt]%
+        Relay-OPD~\citep{2607.26057}, RSTG~\citep{2608.00782}, SDS~\citep{2608.07935}%
         }, leaf=tgcolor, edge={draw=tgcolor!30}]
-      [{\textbf{4.3 RL-Augmented Objectives}~{\tikz[baseline=-0.5ex]\node[badge=tgcolor]{20};}\\[2pt]%
+      [{\textbf{4.3 RL-Augmented Objectives}~{\tikz[baseline=-0.5ex]\node[badge=tgcolor]{24};}\\[2pt]%
         G-OPD~\citep{2602.12125}, RLKD~\citep{2505.16142}, KDRL~\citep{2506.02208},\\[1pt]%
         RLAD~\citep{2602.22495}, SuperCorrect~\citep{2410.09008},\\[1pt]%
         AlignDistil~\citep{2503.02832}, $\mathcal{X}$-KD~\citep{2602.12674}, TSD-KD~\citep{2603.13260},\\[1pt]%
@@ -272,20 +282,25 @@ These three axes map onto independent terms of the unified OPD objective. The $f
         CoDistill-GRPO~\citep{2605.08873}, dGRPO~\citep{2605.12227},\\[1pt]%
         Sparse-to-Dense~\citep{2605.12483}, KEPO~\citep{2602.00400},\\[1pt]%
         TGPO~\citep{2605.13230}, AMR-SD~\citep{2605.18529}, OPPO~\citep{2605.21851},\\[1pt]%
-        StepOPSD~\citep{2605.27140}, Self-Evaluation~\citep{2606.05122}%
+        StepOPSD~\citep{2605.27140}, Self-Evaluation~\citep{2606.05122},\\[1pt]%
+        RG-OPD~\citep{2607.04037}, SPOT~\citep{2608.04419}, CriPO~\citep{2607.18082},\\[1pt]%
+        SAF-OPD~\citep{2607.29209}, Direct-OPD~\citep{2607.05394}%
         }, leaf=tgcolor, edge={draw=tgcolor!30}]
     ]
     %% ===== Stage 2: Signal Source and Teacher Architecture (§5) =====
     [{\S 5 Signal Source and\\Teacher Architecture}, catSig, edge={draw=sdcolor!60, line width=1.2pt}
-      [{{\S 5.1 External Teacher Distillation}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{22};}}, catSigMid, edge={draw=sdcolor!30}
-        [{{\S 5.1.1 White-Box Logit Supervision}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{12};}}, catSigMid, edge={draw=sdcolor!30}
+      [{{\S 5.1 External Teacher Distillation}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{27};}}, catSigMid, edge={draw=sdcolor!30}
+        [{{\S 5.1.1 White-Box Logit Supervision}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{17};}}, catSigMid, edge={draw=sdcolor!30}
           [{\textbf{Same-Family}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{4};}\\[2pt]%
             MAD-OPD~\citep{2605.01347}, MPD~\citep{2605.08776}, BRTS~\citep{2605.09725},\\[1pt]%
-            Pair-In, Pair-Out~\citep{2605.27255}%
+            Pair-In, Pair-Out~\citep{2605.27255},\\[1pt]%
+          MOPD~\citep{2606.30406}, SMOPD~\citep{2608.03092}, Masked Distill~\citep{2607.22629},\\[1pt]%
+          PS-OPSD~\citep{2608.01589}%
             }, leaf=sdcolor, edge={draw=sdcolor!30}]
           [{\textbf{Cross-Family}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{8};}\\[2pt]%
             Veto~\citep{2601.07155}, PromptKD~\citep{2402.12842}, DSKD~\citep{2504.11426},\\[1pt]%
-            CSD~\citep{2509.25837}, SimCT~\citep{2605.07711}, DuDi~\citep{2606.04694}%
+            CSD~\citep{2509.25837}, SimCT~\citep{2605.07711}, DuDi~\citep{2606.04694},\\[1pt]%
+          W2S-OPD~\citep{2607.26246}, RAPS-DA~\citep{2606.30518}, UI-MOPD~\citep{2607.04425}%
             }, leaf=sdcolor, edge={draw=sdcolor!30}]
         ]
         [{\textbf{\S 5.1.2 Black-Box and API-Constrained}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{10};}\\[2pt]%
@@ -295,8 +310,8 @@ These three axes map onto independent terms of the unified OPD objective. The $f
           ORPO-Distill~\citep{2509.25100}, OmniOPD~\citep{2606.01476}%
           }, leaf=sdcolor, edge={draw=sdcolor!30}]
       ]
-      [{{\S 5.2 Self-Distillation}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{62};}}, catSigMid, edge={draw=sdcolor!30}
-        [{\textbf{5.2.1 Privileged Information}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{32};}\\[2pt]%
+      [{{\S 5.2 Self-Distillation}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{65};}}, catSigMid, edge={draw=sdcolor!30}
+        [{\textbf{5.2.1 Privileged Information}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{33};}\\[2pt]%
           OPSD~\citep{2601.18734}, GATES~\citep{2602.20574}, $\pi$-Distill~\citep{2602.04942},\\[1pt]%
           OPCD~\citep{2602.12275}, OEL~\citep{2603.16856}, HDPO~\citep{2603.23871},\\[1pt]%
           CRISP~\citep{2603.05433}, OPSDL~\citep{2604.17535}, GUI-SD~\citep{2605.00642},\\[1pt]%
@@ -305,44 +320,71 @@ These three axes map onto independent terms of the unified OPD objective. The $f
           ATESD~\citep{2605.11458}, TRACE~\citep{2605.10194}, AVSD~\citep{2605.20643},\\[1pt]%
           Skill-Cond.\ SD~\citep{2605.28791}, Critique-Distill~\citep{2606.00424},\\[1pt]%
           Constitutional Cross-SFT~\citep{2606.03089}, World-Model PI~\citep{2606.03603},\\[1pt]%
-          SD-PG~\citep{2606.04036}%
+          SD-PG~\citep{2606.04036},\\[1pt]%
+          RCSD~\citep{2606.19327}, RuPI~\citep{2608.02948}, SKALD~\citep{2608.09826},\\[1pt]%
+          PAST~\citep{2608.08726}, dOPSD~\citep{2607.04428}, SPEE~\citep{2608.02139},\\[1pt]%
+          BIRD~\citep{2607.15736}, OPD-V~\citep{2608.05131}, BCSD~\citep{2608.09555},\\[1pt]%
+          CODA~\citep{2608.08764}%
           }, leaf=sdcolor, edge={draw=sdcolor!30}]
-        [{\textbf{5.2.2 Pure Self-Distillation}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{15};}\\[2pt]%
+        [{\textbf{5.2.2 Pure Self-Distillation}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{16};}\\[2pt]%
           SDFT~\citep{2601.19897}, MTP-SD~\citep{2602.06019}, UniSD~\citep{2605.06597},\\[1pt]%
           VPG~\citep{2605.11019}, Self-Sup OPD~\citep{2605.17497}, HINT-SD~\citep{2605.17873},\\[1pt]%
           SD-Search~\citep{2605.18299}, Vision-OPD~\citep{2605.18740}, It Takes Two~\citep{2605.20258},\\[1pt]%
           TOD Proactivity~\citep{2605.22240}, MAIGO~\citep{2605.27186},\\[1pt]%
-          ROSD~\citep{2605.28014}, Canonical-Ctx OPD~\citep{2605.30251}, COMAP~\citep{2606.02372}%
+          ROSD~\citep{2605.28014}, Canonical-Ctx OPD~\citep{2605.30251}, COMAP~\citep{2606.02372},\\[1pt]%
+          DRIFT~\citep{2606.30345}, NOPD~\citep{2607.23125}%
           }, leaf=sdcolor, edge={draw=sdcolor!30}]
-        [{\textbf{5.2.3 External Feedback}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{15};}\\[2pt]%
+        [{\textbf{5.2.3 External Feedback}~{\tikz[baseline=-0.5ex]\node[badge=sdcolor]{16};}\\[2pt]%
           SDPO~\citep{2601.20802}, SD-ZERO~\citep{2604.12002}, RLSD~\citep{2604.03128},\\[1pt]%
           SRPO~\citep{2604.02288}, RLTF~\citep{2602.02482}, CoPD~\citep{2604.27083},\\[1pt]%
           RLRT~\citep{2605.10781}, $\pi$-Play~\citep{2604.14054}, PAINT~\citep{2604.26573},\\[1pt]%
           CREDIT~\citep{2605.11613}, OGLS-SD~\citep{2605.12400}, VPD~\citep{2605.15113},\\[1pt]%
-          RESD~\citep{2605.12741}, SDAR~\citep{2605.15155}, OPCT~\citep{2605.21834}%
+          RESD~\citep{2605.12741}, SDAR~\citep{2605.15155}, OPCT~\citep{2605.21834},\\[1pt]%
+          EL~\citep{2607.18110}%
           }, leaf=sdcolor, edge={draw=sdcolor!30}]
       ]
     ]
     %% ===== Stage 3: Training Efficiency and Stabilization (§6) =====
     [{\S 6 Training Efficiency\\and Stabilization}, catDyn, edge={draw=dycolor!60, line width=1.2pt}
-      [{\textbf{6.1 Token and Sample Weighting}~{\tikz[baseline=-0.5ex]\node[badge=dycolor]{11};}\\[2pt]%
+      [{\textbf{6.1 Token and Sample Weighting}~{\tikz[baseline=-0.5ex]\node[badge=dycolor]{15};}\\[2pt]%
         TIP~\citep{2604.14084}, SCOPE~\citep{2604.10688}, SelecTKD~\citep{2510.24021}, AdaSwitch~\citep{2510.07842},\\[1pt]%
         R-OPD~\citep{2603.25562}, SOD~\citep{2605.07725}, MOPD~\citep{2605.12652}, EGRSD~\citep{2605.13255},\\[1pt]%
         Visual-Adv.\ OPD~\citep{2605.21924}, Filter-Then-Reweight~\citep{2606.02684},\\[1pt]%
-        Less-is-More~\citep{2605.27028}%
+        Less-is-More~\citep{2605.27028},\\[1pt]%
+        SEAD~\citep{2606.28562}, Behavior Leverage~\citep{2607.07050}, Counterfactual Recov.~\citep{2608.04408},\\[1pt]%
+        Capacity-Matched~\citep{2608.08176}%
         }, leaf=dycolor, edge={draw=dycolor!30}]
-      [{\textbf{6.2 Curriculum and Difficulty Adaptation}~{\tikz[baseline=-0.5ex]\node[badge=dycolor]{10};}\\[2pt]%
+      [{\textbf{6.2 Curriculum and Difficulty Adaptation}~{\tikz[baseline=-0.5ex]\node[badge=dycolor]{13};}\\[2pt]%
         PACED~\citep{2603.11178}, Stable-OPD~\citep{2604.08527},\\[1pt]%
         CaOPD~\citep{2604.16830}, TCOD~\citep{2604.24005}, Uni-OPD~\citep{2605.03677},\\[1pt]%
         DeltaPrompts~\citep{2605.15532}, f-OPD~\citep{2605.17862},\\[1pt]%
         TR-Behav.\ Blend~\citep{2605.31159}, Adaptive Refresh~\citep{2606.03532},\\[1pt]%
-        CEI~\citep{2606.04703}%
+        CEI~\citep{2606.04703},\\[1pt]%
+        ShortOPD~\citep{2607.13124}, Adaptive FastOPD~\citep{2607.29494}, Simple-OPD~\citep{2608.06802}%
         }, leaf=dycolor, edge={draw=dycolor!30}]
-      [{\textbf{6.3 Compute Optimization}~{\tikz[baseline=-0.5ex]\node[badge=dycolor]{8};}\\[2pt]%
+      [{\textbf{6.3 Compute Optimization}~{\tikz[baseline=-0.5ex]\node[badge=dycolor]{9};}\\[2pt]%
         FOPD~\citep{2602.15260}, Lightning-OPD~\citep{2604.13010}, SKD~\citep{2410.11325},\\[1pt]%
         NPD~\citep{2605.05940}, Prune-OPD~\citep{2605.07804}, EffOPD~\citep{2605.11739},\\[1pt]%
-        POPD/TOPD~\citep{2605.31490}, SafeSteer~\citep{2606.02530}%
+        POPD/TOPD~\citep{2605.31490}, SafeSteer~\citep{2606.02530},\\[1pt]%
+        AsyncOPD~\citep{2606.24143}%
         }, leaf=dycolor, edge={draw=dycolor!30}]
+    ]
+    %% ===== Stage 4: Agentic and Multi-Turn OPD (§7) =====
+    [{\S 7 Agentic and\\Multi-Turn OPD}, catAg, edge={draw=agcolor!60, line width=1.2pt}
+      [{\textbf{7.2 Turn-Level Credit Assignment}~{\tikz[baseline=-0.5ex]\node[badge=agcolor]{6};}\\[2pt]%
+        ATOD~\citep{2606.27814}, GAPD~\citep{2605.29584}, TRIAL~\citep{2608.07371},\\[1pt]%
+        PCSD~\citep{2608.01837}, UCOB~\citep{2606.29502}, KbSD~\citep{2606.29863}%
+        }, leaf=agcolor, edge={draw=agcolor!30}]
+      [{\textbf{7.3 State and Memory Alignment}~{\tikz[baseline=-0.5ex]\node[badge=agcolor]{4};}\\[2pt]%
+        MemOPD~\citep{2608.07068}, ReOPD~\citep{2607.04763},\\[1pt]%
+        FTB~\citep{2608.01953}, CAPS~\citep{2608.08960}%
+        }, leaf=agcolor, edge={draw=agcolor!30}]
+      [{\textbf{7.4 Temporal Depth and Rollout Budget}~{\tikz[baseline=-0.5ex]\node[badge=agcolor]{2};}\\[2pt]%
+        TurnOPD~\citep{2607.05804}, DASH-OPD~\citep{2607.29078}%
+        }, leaf=agcolor, edge={draw=agcolor!30}]
+      [{\textbf{7.5 Agentic Failure Modes}~{\tikz[baseline=-0.5ex]\node[badge=agcolor]{2};}\\[2pt]%
+        Physics of Multi-Turn~\citep{2607.24720}, Two-Phase Agentic~\citep{2606.30044}%
+        }, leaf=agcolor, edge={draw=agcolor!30}]
     ]
   ]
 \end{forest}
@@ -1111,7 +1153,7 @@ A separate limitation arises when all rollouts for a given prompt fail (the ``cl
 \subsubsection{Pure Self-Distillation}
 \label{subsec:self_play}
 
-Where privileged information creates asymmetry through additional context, the methods in this section extract a training signal from the model's own output distribution without any auxiliary input. The common mechanism is \emph{rollout diversity}: by sampling at non-zero temperature, the model produces a population of completions whose quality varies, and the variance itself supplies a selection or distillation signal. These methods sit on a staleness spectrum that ranges from fully on-policy (the training distribution is regenerated every gradient step) to mildly stale (rollouts are generated once per epoch and reused), with the degree of staleness trading off compute cost against distributional alignment.
+Where the privileged-information methods of Section~\ref{subsec:self_pi} create asymmetry by \emph{adding} context to the teacher, the methods in this section obtain it without any instance-specific annotation. Two constructions qualify. The first extracts the signal from \emph{rollout diversity} alone, sampling at non-zero temperature so that the model produces a population of completions whose quality varies, with the variance itself supplying a selection or distillation signal. The second withholds information from the student rather than granting it to the teacher, so that a restricted or corrupted view of one shared input plays the student role against an unrestricted view of the same input. Both avoid the annotation dependence that constrains privileged-information methods, and neither requires an external model. These methods sit on a staleness spectrum that ranges from fully on-policy (the training distribution is regenerated every gradient step) to mildly stale (rollouts are generated once per epoch and reused), with the degree of staleness trading off compute cost against distributional alignment.
 
 \textbf{Forgetting resistance through self-distillation.} SDFT~\citep{2601.19897} positions on-policy self-distillation as a mechanism for forgetting resistance. It uses the model's own in-context learning ability to construct a demonstration-conditioned teacher from itself, then trains the student via reverse KL on its own rollouts, which is mathematically equivalent to trust-region RL with implicit KL regularization. This reframing converts continual learning from demonstrations into an on-policy distillation problem, where the trust-region constraint prevents catastrophic forgetting of previously acquired capabilities while accommodating new ones. The approach is fully on-policy (fresh rollouts at each step), placing it at the freshest end of the staleness spectrum.
 
@@ -1123,7 +1165,7 @@ Where privileged information creates asymmetry through additional context, the m
 
 \textbf{Multi-turn and agentic self-distillation.} A second cluster extends pure self-distillation to settings where the student rolls out a long trajectory and the supervision target is constructed retrospectively. HINT-SD~\citep{2605.17873} and SD-Search~\citep{2605.18299} both apply hindsight relabeling but at different granularities. HINT-SD selects only the failure-relevant turns from a long-horizon agent rollout and runs token-level self-distillation against a hindsight-relabeled successful continuation, while SD-Search localizes the supervision to step-level search queries inside a search-augmented reasoning trajectory, combining the resulting per-step signal with outer-loop GRPO. MAIGO~\citep{2605.27186} addresses the lost-in-conversation gap that emerges in pure multi-turn settings by constructing a history-cleaned privileged teacher (the same model conditioned on a single-turn reformulation of the task) and supervising student rollouts on the original noisy multi-turn conversations, raising the sharded-to-full accuracy ratio from 66.5\% to 84.1\% on Qwen2.5-7B-Instruct while keeping full-context accuracy within 2.3 points. Canonical-Context OPD~\citep{2605.30251} pursues the same multi-turn alignment from a different angle. The student rolls out from a raw-sharded conversation history, while a frozen same-backbone teacher answers the same prompt under a canonical full-context history, and an answer-masked reverse KL aligns the student's behavior with the canonical-context teacher across same-prefix relabeling. COMAP~\citep{2606.02372} couples the agent and a textual world model in a co-evolution loop where on-policy self-distillation with an EMA teacher is applied to the world model while the agent uses future-aware reflection with an action gate, with a world-state gate curriculum and a suffix-based refinement initialization keeping the loop stable. Across these five methods, the common pattern is that the supervision target is reconstructed from the rollout itself (hindsight relabeling, history-cleaned reformulation, canonical context, world-model future), turning the multi-turn structure into the source of asymmetry rather than a complication to be tolerated.
 
-\textbf{Domain-specific self-distillation.} Three further methods specialize pure self-distillation to domains where the asymmetry comes from a domain-native split. Vision-OPD~\citep{2605.18740} introduces a regional-to-global split for fine-grained MLLM understanding, where the regional-conditioned variant of the model serves as the self-teacher for the global-conditioned student that lacks region annotations at inference, applying token-level reverse KL on student rollouts. TOD Proactivity~\citep{2605.22240} treats privileged user-concern annotations as the asymmetric signal in task-oriented dialogue, training an asymmetric self-teacher conditioned on annotated user concerns and distilling onto a student that observes only raw utterances, so that the proactive information-gathering behavior is internalized without inference-time access to the annotation. It Takes Two~\citep{2605.20258} pursues complementary self-distillation for contextual-integrity privacy alignment, where two parallel rollouts under complementary contextual splits supply mutual supervision, anchoring privacy decisions across context perturbations rather than against any single static teacher. The three methods adapt the rollout-diversity principle of pure self-distillation to multimodal grounding (Vision-OPD), dialogue policy (TOD Proactivity), and privacy alignment (It Takes Two), evidence that the architectural pattern transfers across modalities once a domain-appropriate asymmetry is identified.
+\textbf{Domain-specific self-distillation.} Three further methods specialize self-distillation to domains where the asymmetry comes from a domain-native split. Vision-OPD~\citep{2605.18740} introduces a regional-to-global split for fine-grained MLLM understanding, where the regional-conditioned variant of the model serves as the self-teacher for the global-conditioned student that lacks region annotations at inference, applying token-level reverse KL on student rollouts. It Takes Two~\citep{2605.20258} pursues complementary self-distillation for contextual-integrity privacy alignment, where two parallel rollouts under complementary contextual splits supply mutual supervision, anchoring privacy decisions across context perturbations rather than against any single static teacher. Both derive their asymmetry from views of one shared input, so no annotation enters the teacher that the task itself does not already provide. TOD Proactivity~\citep{2605.22240} is the boundary case, training an asymmetric self-teacher conditioned on annotated user concerns and distilling onto a student that observes only raw utterances, so that proactive information-gathering behavior is internalized without inference-time access to the annotation. Because that annotation is external to the input rather than a restricted view of it, TOD Proactivity is better read as a privileged-information method in the sense of Section~\ref{subsec:self_pi} that happens to share parameters between teacher and student, and we retain it here only because its domain-native framing follows the same pattern as the other two. Taken together, the three show that the architectural pattern transfers across multimodal grounding, privacy alignment, and dialogue policy once a domain-appropriate asymmetry is identified, while also marking where the boundary between view restriction and privileged annotation actually falls.
 
 \textbf{Cross-domain co-distillation.} OPCoD~\citep{2606.14368} extends the mutual-supervision idea from a single model's complementary rollouts to two specialist models that tutor each other across domains. Each model runs on-policy self-distillation whose self-teacher is conditioned on both its own verified-correct rollout and a natural-language feedback message from its peer, so the two self-distillation loops are coupled and co-evolve during training. A cognizance-based gate exchanges feedback only when the peer is more competent on the current domain, mitigating the negative transfer that ordinarily arises when mixing data from different fields, and a feedback-anchoring term grounds the message in the problem to prevent it from corrupting an already-correct rollout. On science question-answering across domain pairs such as physics-chemistry and chemistry-materials, OPCoD reaches mutual Pareto improvement on Qwen3-8B, with each model gaining out-of-domain capability without losing its original specialty. Where CoPD~\citep{2604.27083} couples two models within a single capability and It Takes Two splits one model's context, OPCoD targets the multi-domain regime where the asymmetry is the peer's distinct specialization.
 
