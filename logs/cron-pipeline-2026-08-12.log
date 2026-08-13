@@ -485,3 +485,21 @@ Prepared 10 papers for insertion:
 ▶ Phase 6: (skipped — heatmap/stats manual for now)
 
 ▶ Phase 7: git commit + push
+[master b120afd] cron: pipeline Phase 2-7 — 2026-08-12 (119 deep-read, keep 2608.07935,2608.08146,2608.08176,2608.08726,2608.08764,2608.08960,2608.09447,2608.09745,2608.09826,2608.09836)
+ 10 files changed, 4303 insertions(+), 1 deletion(-)
+ create mode 100644 logs/codebuddy-opd-2026-08-11.log
+ create mode 100644 logs/codebuddy-opd-2026-08-12.log
+ create mode 100644 logs/cron-pipeline-2026-08-12.log
+ create mode 100644 logs/cron-scout-2026-08-12.log
+  survey repo: committed
+  awesome repo: no pipeline-owned changes to commit
+To https://github.com/nick7nlp/OPDHub.git
+   6922364..b120afd  master -> master
+  survey repo: pushed
+To https://github.com/nick7nlp/Awesome-LLM-On-Policy-Distillation.git
+   2e6154f..5c58428  master -> master
+  awesome repo: pushed
+
+================================================================
+  Pipeline complete  |  2026-08-12 10:08
+================================================================

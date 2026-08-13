@@ -3,3 +3,6 @@
 [runner] starting scout: /apdcephfs_cq8/share_1324356/nickmysong/daily_research/on-policy-distillation-survey/scripts/cron_scout.sh @ 09:27:04
 [runner] scout script exit 0 @ 09:33:00
 [runner] starting pipeline: /apdcephfs_cq8/share_1324356/nickmysong/daily_research/on-policy-distillation-survey/scripts/cron_pipeline_phase2_7.sh @ 09:33:00
+[runner] pipeline script exit 0 @ 10:08:05
+[runner] pipeline failure marker detected
+[runner] finished with failures: scout=0 pipeline=1
