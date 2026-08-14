@@ -2208,3 +2208,61 @@
 - `2608.08135`  Compositional Cross-Modality Translation via Whole-Volume Multitask Latent Flow Matching
 - `2608.08311`  Ouroboros: A Self-Developing Frontier Coding Agent with Reviewed Core Evolution
 
+
+## 2026-08-14 (Fri) 09:27 — scout completed
+
+**52 candidates** downloaded to `pdfs/_staging/`. Follow-up Phase 2-7 **pending**.
+
+- `2608.11236`  TRACE Bench: Task-driven Roleplay Agentic Checklist Evaluation
+- `2608.11249`  Diffuse to Compress: Leveraging Diffusion LMs for Lossless Compression
+- `2608.11350`  Self-Evolving Embodied Agents via Skill-Harness Evolution
+- `2608.11460`  Principal Trait Analysis: Towards Deriving "Skills" in Human-AI Collaboration
+- `2608.11573`  Reinforcing Step-level Reasoning for Effective Self-Correction in LLMs
+- `2608.11660`  Hybrid-Policy Self-Editing for Composable Unstructured Knowledge Editing
+- `2608.11981`  Benchmarking Trustworthiness of SLMs: Pre-trained vs. Compressed
+- `2608.12008`  Asymptotic Risk Calibration for Selective Question Answering
+- `2608.11224`  Harnessing agent memory to build lifelong AI partners for materials scientists
+- `2608.11244`  BEST-KAG: Enhancing Question Answering of Building Engineering Standards with Multimodal Knowledge Graph Model
+- `2608.11434`  Benchmarking LLM Judges for Mobile Agent Evaluation
+- `2608.11669`  Rubric Dropout: A Simple Way to Mitigate Reward Hacking in Rubric-as-Reward RL
+- `2608.11755`  MuseCritic: Learning Multi-Aspect Song Rewards through Natural-Language Aesthetic Critiques
+- `2608.11829`  Towards Understanding On-Policy Distillation through the Lens of Test-Time Scaling
+- `2608.12283`  Large Language Model-Driven Small-Capitalization Trading: Integrating Financial News Sentiment, Macroeconomic 
+- `2608.12307`  AI4AI at Test-Time: Strong-to-Weak Capability Transfer via Harnesses
+- `2608.11349`  Dynamics Models for Offline Hyperparameter Selection in Real-World RL
+- `2608.11368`  PAIR: Pairwise-Aware Inclusion Reweighting for Adaptive Rollout Allocation in RLVR
+- `2608.11410`  Unmasking Toxic Mimicry in Medical Offline Reinforcement Learning for ICU Sepsis Management via Counterfactual
+- `2608.11674`  GCPO: Diagnosing and Constraining Subspace Geometry in Rollout RL for LLMs
+- `2608.11698`  REOPD: Reliability-Adaptive Reward Extrapolation for On-Policy Distillation
+- `2608.11859`  Small-Scale Experiments: Are We There Yet?
+- `2608.11951`  TailBooster: A Dual-Layer Generative Framework for Extreme Value Augmentation with Operational Validity Enforc
+- `2608.11967`  LoongReflect: Boosting Long-Horizon Reflection in Search Agents via Global Perspective Distillation
+- `2608.12037`  Clustered Randomized Smoothing for Stochastic Prediction Functions
+- `2608.12302`  A Framework for Designing Reward Functions: From Objectives to Features to Human-Aligned Reward Functions
+- `2602.14419`  WavePhaseNet: A DFT-Based Method for Constructing Semantic Conceptual Hierarchy Structures (SCHS)
+- `2608.11269`  CosMAP: Contrastive Manifold Approximation and Projection for Dimensionality Reduction of Omics and Genealogic
+- `2608.11492`  Cross-Corpus Evaluation of Generalizable Vulnerability Detection in IoT Firmware
+- `2608.11544`  Fine-Tuning Generative Models for Extreme Events via CVaR-Penalized Wasserstein Gradient Flows
+- `2608.11216`  AutoWorldModel-Bench: A State-Centric Benchmark for Automated World-Model Research
+- `2608.11221`  A Conceptual Framework for Refining Influence Knowledge from Simulation Evidence in Cyber-Physical Systems
+- `2608.11226`  Cutting AI Datacenter Energy with Reinforcement Learning: Measured Power Control of LLM Training from One GPU 
+- `2608.11229`  Synchronizing Beliefs with Second-Order Theory-of-Mind in Human-Autonomy Teams (Extended Version)
+- `2608.11248`  EvoGraph-Mem: Failure-Aware Editable Graph Memory for Long-Term Language Agents
+- `2608.11588`  CoAdapt-GUI: Joint Workflow Context and Policy Adaptation for Unseen GUI Applications
+- `2608.11604`  Learning from Online User Feedback for Shopping Agents
+- `2608.11605`  Foresight Without Seeing: Latent Futures for World Action Models
+- `2608.11625`  Making AI-Generated Feedback Matter: From Provision to Student Enactment
+- `2608.11705`  Making Your LLMs More Objective: Stabilizing LLM Safety Behavior Across Traits with Trait-Invariant Safety Tun
+- `2608.11259`  Methodologies for Improving the Quality of AI Tutoring in K-12 Education
+- `2608.11295`  Backdoor Decontamination Dynamics in LLM Agents
+- `2608.11367`  Gaze Target Estimation Anywhere with Concepts
+- `2608.11521`  Keep the Future, Drop the Rollout: RIFT for World Action Models
+- `2608.11540`  A Conceptual Framework for Enhancing Workforce Readiness for Smart Manufacturing in the AI Era
+- `2608.11741`  JieZi: A Large-Scale Expert-Audited Dataset and Benchmark for Ancient Chinese Character Exegesis
+- `2608.11766`  Instruction Alignment for Binary Code Representation Learning
+- `2608.11884`  CoQui: A Coordinate-Conditioned Quantum Implicit Generative Adversarial Network for End-to-End Image Generatio
+- `2608.11907`  Do You See What You Draw? A Semantic Closed-Loop Framework for Holistic Evaluation of Unified Multimodal Model
+- `2608.12004`  RealisticTritonBench: A Benchmark for Triton-Kernel Generation in Real-World AI Frameworks
+- `2608.12063`  Learning Loco-Manipulation From SMPC Demonstrations With Sparse Offline-to-Online RL
+- `2608.12290`  Beyond Trial-and-Error: Agentic Optimization for Image-to-Video Adherence
+
