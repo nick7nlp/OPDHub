@@ -7,19 +7,149 @@
 
 | Metric | Count |
 |---|---:|
-| DB records | 306 |
-| Pass three conditions | 271 |
+| DB records | 390 |
+| Pass three conditions | 331 |
 | Cited in V4 bib | 225 |
 | Cited in V5 bib | 295 |
-| **Pending V5 integration** | **0** |
+| **Pending V5 integration** | **60** |
 | Technical reports ignored by rule | 8 |
 | Awesome README entries | 271 |
 
-Pending by arXiv month: 
+Pending by arXiv month: `2608`=17, `2609`=43
 
-Backlog split: **0 method**, 0 analysis.
+Backlog split: **49 method**, 11 analysis.
 
 ## Pending papers by target section
+
+### §4.1 — 4 papers
+
+| arXiv | OPD | In Awesome | Title |
+|---|---|---|---|
+| `2609.08337` | yes | no (analysis-only, by policy) | Distillation as Probability Transport: Routed On-Policy Distillation |
+| `2609.08341` | yes | no (analysis-only, by policy) | TV-Regulated OPD: Direction Matters in On-Policy Distillation |
+| `2609.10154` | yes | no (analysis-only, by policy) | CompassOPD: Cross-Family On-Policy Distillation via Within-Family Likelihood Shifts |
+| `2609.27421` | yes | no (analysis-only, by policy) | Counterfactual Constraint-Conditioned On-Policy Distillation for Multi-Constraint Instru |
+
+### §4.2 — 4 papers
+
+| arXiv | OPD | In Awesome | Title |
+|---|---|---|---|
+| `2609.16459` | yes | no (analysis-only, by policy) | OPD-Aha: From Linguistic Momentum to Visual Reflection in Multimodal On-Policy Distillat |
+| `2609.22254` | yes | no (analysis-only, by policy) | Teacher Should Think Ahead: Adaptive Continuations for Reliable On-Policy Distillation |
+| `2609.23697` | yes | no (analysis-only, by policy) | Distill What You Trust: Reliability-Aware Multi-Teacher On-Policy Distillation |
+| `2609.23989` | yes | no (analysis-only, by policy) | ACLArena: Agent Continual Learning in Multi-stage Post-training |
+
+### §4.3 — 9 papers
+
+| arXiv | OPD | In Awesome | Title |
+|---|---|---|---|
+| `2608.19181` | yes | no (analysis-only, by policy) | Beyond Teacher Likelihood: Group-Calibrated On-Policy Distillation for Long-Context Reas |
+| `2608.20831` | yes | no (analysis-only, by policy) | STAR-OPD: Structured Aspect-Cascade-Aware On-Policy Reward Distillation for ABSA Quadrup |
+| `2608.24696` | yes | no (analysis-only, by policy) | On-policy Distillation with Verifiable Reward |
+| `2609.02998` | yes | no (analysis-only, by policy) | Verify Before You Distill: Prompt-Level Teacher Gating for On-Policy Distillation |
+| `2609.04108` | yes | no (analysis-only, by policy) | Sequential Beats Joint: On the Interplay between On-Policy Distillation and RLVR |
+| `2609.16937` | yes | no (analysis-only, by policy) | Beyond Token-Local Imitation: Reward-Compatible Temporal Credit Assignment for On-Policy |
+| `2609.28385` | yes | no (analysis-only, by policy) | When and Where to Trust the Teacher: Unifying On-Policy Distillation and GRPO Through En |
+| `2609.28554` | yes | no (analysis-only, by policy) | Pistis Technical Report |
+| `2609.28778` | yes | no (analysis-only, by policy) | Reward-Tilted On-Policy Distillation for Acoustic Grounding in Audio-Language Models |
+
+### §5.1 — 1 papers
+
+| arXiv | OPD | In Awesome | Title |
+|---|---|---|---|
+| `2609.29464` | yes | no (analysis-only, by policy) | TS-OPD: Reconciling ASR and QA in Speech Language Models via Task-Specific On-Policy Dis |
+
+### §5.3.1 — 6 papers
+
+| arXiv | OPD | In Awesome | Title |
+|---|---|---|---|
+| `2608.21500` | yes | no (analysis-only, by policy) | SecOPD: Mitigating Adaptive Prompt Injections by On-Policy Distillation |
+| `2608.26658` | yes | no (analysis-only, by policy) | PailitaoGR: Latent Think-with-Images for Generative Image Retrieval |
+| `2609.02548` | yes | no (analysis-only, by policy) | Learn from Whoever Is Right: Answer-Verified Multi-Teacher Distillation for Multi-Domain |
+| `2609.23038` | yes | no (analysis-only, by policy) | Spatial-Interactor: Learning Spatial Reasoning through Interaction with the Observable P |
+| `2609.23435` | yes | no (analysis-only, by policy) | Tool-Augmented On-Policy Distillation for LLM Domain Adaptation in Sequence-Based Omics  |
+| `2609.24244` | yes | no (analysis-only, by policy) | Look Where It Counts: A Free, Label-Free Visual Evidence Signal for Fine-Grained Vision– |
+
+### §5.3.2 — 1 papers
+
+| arXiv | OPD | In Awesome | Title |
+|---|---|---|---|
+| `2609.05295` | yes | no (analysis-only, by policy) | RISE: Recursive Improvement via Self-Extrapolating Policy Distillation |
+
+### §6.1 — 11 papers
+
+| arXiv | OPD | In Awesome | Title |
+|---|---|---|---|
+| `2608.19098` | yes | no (analysis-only, by policy) | Open-MOPD: Diagnosing and Fixing Capability Imbalance in Multi-Teacher On-Policy Distill |
+| `2608.19408` | yes | no (analysis-only, by policy) | Beyond Imitation: Filtering On-Policy Distillation by Reasoning Progress |
+| `2608.25643` | yes | no (analysis-only, by policy) | A Token-Level Analysis of Sampled-Token Reverse-KL On-Policy Distillation |
+| `2608.26735` | yes | no (analysis-only, by policy) | Preserving General Capabilities During Domain Specialization with Uncertainty-Calibrated |
+| `2608.27960` | yes | no (analysis-only, by policy) | When Teacher Guidance Misleads: Reward-Aligned On-Policy Distillation |
+| `2608.29846` | yes | no (analysis-only, by policy) | Influence-Directed Distillation: Solving the Diversity Bottleneck in Sampled-Token On-Po |
+| `2609.07103` | analysis | no (analysis-only, by policy) | Revisiting Complete Reasoning Traces for Post-Training |
+| `2609.11127` | yes | no (analysis-only, by policy) | KuaiRP Series Role-playing Models Technical Report |
+| `2609.15404` | yes | no (analysis-only, by policy) | Who Teaches Which Token? Verifier-Gated Multi-Expert On-Policy Distillation for Scientif |
+| `2609.24432` | yes | no (analysis-only, by policy) | 1% of Tokens Can Be Enough: On Gradient Estimation in On-Policy Distillation |
+| `2609.29142` | yes | no (analysis-only, by policy) | Not Every Token Is Worth Distilling: Selective Supervision for Direct-OPD |
+
+### §6.2 — 6 papers
+
+| arXiv | OPD | In Awesome | Title |
+|---|---|---|---|
+| `2608.24987` | yes | no (analysis-only, by policy) | D3-MOPD: Dynamic Domain ScheDuling for Efficient Multi-Teacher Distillation |
+| `2609.02401` | yes | no (analysis-only, by policy) | CA-OPD: Confidence-Aware On-Policy Distillation for Structured Visual Prediction |
+| `2609.05198` | yes | no (analysis-only, by policy) | What Matters in On-Policy Distillation? A Perspective on Data Efficiency and Data Select |
+| `2609.08183` | yes | no (analysis-only, by policy) | NeoHorse-1: Towards Recursive Self-Improvement via Agentic Post-Training with Routing Ha |
+| `2609.20784` | yes | no (analysis-only, by policy) | RetireOPD: Self-Retiring On-Policy Distillation for Agentic Reinforcement Learning |
+| `2609.28845` | yes | no (analysis-only, by policy) | LastOPD: Taming Collapse in Latent On-Policy Distillation |
+
+### §6.3 — 3 papers
+
+| arXiv | OPD | In Awesome | Title |
+|---|---|---|---|
+| `2609.14193` | yes | no (analysis-only, by policy) | Data-free On-policy Distillation |
+| `2609.14636` | yes | no (analysis-only, by policy) | Know When to Stop, Where to Restart: Accelerating Multi-Turn Agentic On-Policy Distillat |
+| `2609.24141` | yes | no (analysis-only, by policy) | CLOOPD: Closing the Learner Loop in On-Policy Distillation |
+
+### §7.1 — 3 papers
+
+| arXiv | OPD | In Awesome | Title |
+|---|---|---|---|
+| `2609.04172` | analysis | no (analysis-only, by policy) | Rethinking On-Policy Distillation of Large Language Models II: One Training Example |
+| `2609.05111` | analysis | no (analysis-only, by policy) | Unifying ICL, SFT, KL-Regularized RL Through a Bayesian Lens |
+| `2609.26355` | analysis | no (analysis-only, by policy) | PACT: From Credit Assignment to Critic Alignment |
+
+### §7.2 — 5 papers
+
+| arXiv | OPD | In Awesome | Title |
+|---|---|---|---|
+| `2608.21811` | analysis | no (analysis-only, by policy) | Hints, Critics, and Teachers: Prior Injection for Sparse-Reward RL in Vision–Language Ma |
+| `2608.25936` | analysis | no (analysis-only, by policy) | One Symptom, Three Levers: A Critical Review of On-Policy Self-Distillation |
+| `2608.31046` | analysis | no (analysis-only, by policy) | Does On-Policy Distillation Really Distill? From Noisy Teacher to Self-Improvement |
+| `2609.20511` | analysis | no (analysis-only, by policy) | When EOS Tokens Disagree: Understanding Length Inflation in On-Policy Distillation |
+| `2609.25048` | analysis | no (analysis-only, by policy) | Prompt Breadth and Rollout Refresh Interact in On-Policy Distillation |
+
+### §8.1 — 2 papers
+
+| arXiv | OPD | In Awesome | Title |
+|---|---|---|---|
+| `2609.09300` | yes | no (analysis-only, by policy) | Video-MOPD: Multi-Teacher On-Policy Distillation for Video Understanding |
+| `2609.23377` | yes | no (analysis-only, by policy) | One to More, More to One: Category-Aware Iterative Expert Training for Software Engineer |
+
+### §7.4 — 2 papers
+
+| arXiv | OPD | In Awesome | Title |
+|---|---|---|---|
+| `2608.27409` | analysis | no (analysis-only, by policy) | Consolidating RLVR Capabilities Across Domains: A Deep Dive into Fusion Paradigms |
+| `2609.28145` | analysis | no (analysis-only, by policy) | RL Starts before RL: On Policy Distillation for Better Reinforcement Learning |
+
+### §8.3 — 3 papers
+
+| arXiv | OPD | In Awesome | Title |
+|---|---|---|---|
+| `2608.27857` | yes | no (analysis-only, by policy) | SpikeOPD: Stable On-Policy Distillation for Autoregressive Spiking Language Models |
+| `2609.25176` | yes | no (analysis-only, by policy) | Qwen-Audio-3.1-Realtime: Towards Reliable Agentic Voice Interaction |
+| `2609.26708` | yes | no (analysis-only, by policy) | Train Where the Quantized Model Goes: On-Policy Distillation for Low-Bit Reasoning |
 
 ## Ignored by rule — technical reports without an OPD method contribution
 
@@ -36,7 +166,12 @@ Backlog split: **0 method**, 0 analysis.
 
 ## Excluded by three-condition enforcement
 
-None currently classified `yes`/`analysis` violate the three conditions.
+| arXiv | Title |
+|---|---|
+| `2608.20554` | aiXamine: Unified Black-Box Evaluation of Cross-Dimensional Trade-offs in LLM Safety, Se |
+| `2609.14708` | Lightning Weave: Improving the Accuracy–Efficiency Frontier of Reasoning Models through  |
+| `2609.15313` | Reducing the Output-Mode Gap in Speech Language Models via Joint-Output On-Policy Distil |
+| `2609.18321` | Trajectory Learnability for Offline On-Policy Distillation with Imperfect Teachers |
 
 ## Policy notes
 

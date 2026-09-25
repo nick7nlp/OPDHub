@@ -2266,3 +2266,6 @@
 - `2608.12063`  Learning Loco-Manipulation From SMPC Demonstrations With Sparse Offline-to-Online RL
 - `2608.12290`  Beyond Trial-and-Error: Agentic Optimization for Image-to-Video Adherence
 
+
+## 2026-08-17 (Mon) — weekend skip (PRE-CHECK exit 1)
+
