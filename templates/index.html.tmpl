@@ -2,170 +2,59 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="A Survey of On-Policy Distillation for Large Language Models — companion website with searchable paper atlas.">
-  <meta property="og:title" content="On-Policy Distillation Survey"/>
-  <meta property="og:description" content="Companion website for arXiv:2604.00626 — searchable current catalog, including background references."/>
-  <meta property="og:url" content="https://nick7nlp.github.io/OPDHub/"/>
-  <meta property="og:image" content="static/images/opd-overview.png"/>
-  <meta name="twitter:title" content="On-Policy Distillation Survey">
-  <meta name="twitter:description" content="OPD papers organized by objective, signal source, and training dynamics.">
-  <meta name="twitter:image" content="static/images/opd-overview.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="keywords" content="on-policy distillation, knowledge distillation, LLM, RLHF, survey, AwesomeOPD, OPDHub, OPD survey, awesome-llm-opd, awesome-opd, on-policy KD">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>On-Policy Distillation Survey</title>
+  <meta name="description" content="Search papers on on-policy distillation for language models.">
+  <title>OPDHub — Paper Search</title>
   <link rel="icon" type="image/png" href="static/images/opd-overview.png">
-
-  <!-- Inter + JetBrains Mono -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="static/css/bulma.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link rel="stylesheet" href="static/css/style.css?v={{ASSET_VERSION}}">
-  <style>
-    li.paper-card { grid-template-columns: minmax(0, 1fr) auto; }
-    li.paper-card .paper-title, li.paper-card .paper-desc { min-width: 0; overflow-wrap: anywhere; }
-    li.paper-card .paper-meta { max-width: 24rem; flex-wrap: wrap; justify-content: flex-end; }
-    @media (max-width: 760px) {
-      li.paper-card { grid-template-columns: minmax(0, 1fr); }
-      li.paper-card .paper-meta { max-width: 100%; justify-content: flex-start; }
-    }
-  </style>
 </head>
 <body>
-
-<!-- Hero -->
-<section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop has-text-centered">
-      <div class="hero-wordmark">
-        <span class="wordmark-glyph">OPD</span><span class="wordmark-tail">Hub</span>
-      </div>
-      <h1 class="publication-title">A Survey of On-Policy Distillation for Large Language Models</h1>
-      <p class="mt-4">
-        <a href="https://arxiv.org/abs/2604.00626" target="_blank" rel="noopener">Companion survey</a>
-        &middot; <a href="https://github.com/nick7nlp/Awesome-LLM-On-Policy-Distillation" target="_blank" rel="noopener">Current Awesome catalog</a>
-        &middot; <a href="https://github.com/nick7nlp/Awesome-LLM-On-Policy-Distillation/blob/master/resources/catalog.json" target="_blank" rel="noopener">Catalog JSON</a>
-      </p>
-      <p class="monthly-chart-caption">{{PAPER_COUNT}} catalog entries, including background references
-        &middot; Updated: <time datetime="{{UPDATED_ON}}">{{UPDATED_ON}}</time></p>
+<header class="search-header">
+  <div class="container header-inner">
+    <h1><a class="wordmark" href="./"><span>OPD</span>Hub</a></h1>
+    <nav aria-label="Project links">
+      <a href="https://arxiv.org/abs/2604.00626" target="_blank" rel="noopener">Survey</a>
+      <a href="https://github.com/nick7nlp/Awesome-LLM-On-Policy-Distillation" target="_blank" rel="noopener">Reading list</a>
+    </nav>
+  </div>
+</header>
+<main class="container search-main">
+  <div class="search-wrap">
+    <label class="sr-only" for="search-input">Search papers</label>
+    <input id="search-input" type="search" placeholder="Search title, author, method, or paper ID…" autocomplete="off" autofocus>
+  </div>
+  <div class="search-toolbar">
+    <span id="visible-count" class="search-count" role="status" aria-live="polite">{{PAPER_COUNT}} papers</span>
+    <div class="search-actions">
+      <button id="clear-filters" type="button" class="clear-btn">Clear</button>
+      <button id="export-bibtex" type="button" class="export-btn">Export BibTeX</button>
     </div>
   </div>
-</section>
-
-<section class="section section-news" id="news">
-  <div class="container is-max-desktop">
-    <h2 class="section-title">News</h2>
-    {{NEWS}}
-  </div>
-</section>
-
-<section class="section section-model-atlas" id="model-atlas">
-  <div class="container is-max-desktop">
-    <h2 class="section-title">Teacher–Student Model Atlas</h2>
-    <p class="model-atlas-caption">June 2026 snapshot of teacher and student model combinations.
-      Rows represent teachers and columns represent students. This historical figure is not a count
-      of the current catalog or a ranking of model quality.</p>
-    <a href="static/images/model-atlas-heatmap.png">
-      <img src="static/images/model-atlas-heatmap.png" alt="Teacher–student model combinations, June 2026 snapshot"
-           class="model-atlas-image" loading="lazy">
-    </a>
-    <p class="model-atlas-caption">Open the image for a larger view. Same-name models may use different conditioning information.</p>
-  </div>
-</section>
-
-<!-- Literature timeline -->
-<section class="section section-stat">
-  <div class="container is-max-desktop">
-    {{MONTHLY_CHART}}
-  </div>
-</section>
-
-<!-- Paper Atlas -->
-<section class="section section-atlas">
-  <div class="container">
-    <!-- Search box -->
-    <div class="search-wrap">
-      <span class="search-icon"><i class="fas fa-search"></i></span>
-      <input id="search-input" type="search" aria-label="Search catalog" placeholder="Search title, author, description, version...">
-      <span id="visible-count" class="search-count" aria-live="polite"></span>
-    </div>
-
-    <!-- Filter chips -->
+  <details class="filter-panel">
+    <summary>Filters</summary>
     <div class="filter-grid">
       <div class="filter-row">
-        <span class="filter-label">Section</span>
-        <div class="filter-chips" data-filter-group="section">
-          {{FILTER_SECTIONS}}
-        </div>
+        <span class="filter-label">Topic</span>
+        <div class="filter-chips" data-filter-group="section">{{FILTER_SECTIONS}}</div>
       </div>
       <div class="filter-row">
         <span class="filter-label">Mechanism</span>
-        <div class="filter-chips" data-filter-group="mechanism">
-          {{FILTER_MECHANISMS}}
-        </div>
+        <div class="filter-chips" data-filter-group="mechanism">{{FILTER_MECHANISMS}}</div>
       </div>
       <div class="filter-row">
         <span class="filter-label">Year</span>
-        <div class="filter-chips" data-filter-group="year">
-          {{FILTER_YEARS}}
-        </div>
-      </div>
-      <div class="filter-row filter-actions">
-        <span class="filter-label">&nbsp;</span>
-        <button id="clear-filters" class="clear-btn">
-          <i class="fas fa-times"></i> &nbsp;clear filters
-        </button>
-        <button id="export-bibtex" class="export-btn">
-          <i class="fas fa-file-export"></i> &nbsp;export&nbsp;bib
-        </button>
+        <div class="filter-chips" data-filter-group="year">{{FILTER_YEARS}}</div>
       </div>
     </div>
-
-    <!-- Paper list -->
-    <div id="paper-list">
-      {{PAPER_LIST}}
-    </div>
-
-    <div id="empty-state" class="empty-state is-hidden">
-      <i class="fas fa-search-minus"></i>
-      <p>No papers match the current filter.</p>
-    </div>
-  </div>
-</section>
-
-<!-- BibTeX -->
-<section class="section section-bibtex" id="bibtex">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-three-quarters">
-        <h2 class="section-title">Citation</h2>
-        <div class="bibtex-wrap">
-          <button id="bibtex-copy" class="copy-btn" title="Copy to clipboard">
-            <i class="far fa-copy"></i><span class="copy-label">copy</span>
-          </button>
-          <pre><code id="bibtex-block">{{BIBTEX}}</code></pre>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Footer -->
+  </details>
+  <div id="paper-list">{{PAPER_LIST}}</div>
+  <div id="empty-state" class="empty-state is-hidden">No papers match your search.</div>
+</main>
 <footer class="site-footer">
-  <div class="container has-text-centered">
-    <p>
-      Adapted from the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>
-      &middot; <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC&nbsp;BY-SA&nbsp;4.0</a>
-    </p>
-  </div>
+  <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noopener">Template credits</a>
+  · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>
 </footer>
-
 <script src="static/js/fuse.min.js"></script>
 <script src="static/js/search.js?v={{ASSET_VERSION}}"></script>
-<script src="static/js/bibtex.js?v={{ASSET_VERSION}}"></script>
 </body>
 </html>
