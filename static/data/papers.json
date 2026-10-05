@@ -1,6 +1,6 @@
 {
-  "updated_on": "2026-10-05",
-  "total": 321,
+  "updated_on": "2026-10-06",
+  "total": 273,
   "papers": [
     {
       "paper_id": "1011.0686",
@@ -550,7 +550,7 @@
       "paper_url": "https://arxiv.org/abs/2402.12842",
       "description": "On student-generated responses, PromptKD alternates student-guided tuning of soft teacher prompts with reverse-KL updates of the student toward the prompted teacher. Teacher weights stay fixed, while an early, decaying regularizer limits how far the prompted teacher departs from its unprompted distribution.",
       "objective": "Update prompts using teacher-to-student KL plus a decaying prompted-to-unprompted-teacher KL regularizer; update the student using student-to-prompted-teacher reverse KL on student-generated response prefixes.",
-      "mechanism": "hybrid_opd",
+      "mechanism": "direct_opd",
       "home": "5",
       "code_urls": [
         "https://github.com/gmkim-ai/PromptKD"
@@ -902,34 +902,6 @@
       "bibtex": "@misc{opd_323430392e3139323536,\n  title = {{HybridFlow: A Flexible and Efficient RLHF Framework}},\n  author = {Sheng, Guangming and Zhang, Chi and Ye, Zilingfeng and Wu, Xibin and Zhang, Wang and Zhang, Ru and Peng, Yanghua and Lin, Haibin and Wu, Chuan},\n  year = {2024},\n  url = {https://arxiv.org/abs/2409.19256},\n  eprint = {2409.19256},\n  archivePrefix = {arXiv}\n}"
     },
     {
-      "paper_id": "2410.09008",
-      "title": "SuperCorrect: Advancing Small LLM Reasoning with Thought Template Distillation and Self-Correction",
-      "authors": [
-        "Yang, Ling",
-        "Yu, Zhaochen",
-        "Zhang, Tianjun",
-        "Xu, Minkai",
-        "Gonzalez, Joseph E.",
-        "Cui, Bin",
-        "Yan, Shuicheng"
-      ],
-      "year": 2024,
-      "submitted": "2024-10-11",
-      "paper_url": "https://arxiv.org/abs/2410.09008",
-      "description": "SuperCorrect fine-tunes a student on teacher-generated hierarchical reasoning templates, then uses preference optimization to favor teacher corrections of the first erroneous step over student self-corrections. Training uses collected correction pairs and depends on teacher analysis grounded in reference solutions.",
-      "objective": "Supervised log-likelihood of teacher thought templates and solutions, followed by a reference-relative DPO preference loss favoring teacher error analysis and correction over student self-correction.",
-      "mechanism": "offline_distillation",
-      "home": "5",
-      "code_urls": [
-        "https://github.com/YangLing0818/SuperCorrect-llm"
-      ],
-      "source_version": "[Submitted on 11 Oct 2024 ( v1 ), last revised 26 Feb 2025 (this version, v3)]",
-      "code_status": "linked",
-      "arxiv_id": "2410.09008",
-      "year_month": "2024-10",
-      "bibtex": "@misc{opd_323431302e3039303038,\n  title = {{SuperCorrect: Advancing Small LLM Reasoning with Thought Template Distillation and Self-Correction}},\n  author = {Yang, Ling and Yu, Zhaochen and Zhang, Tianjun and Xu, Minkai and Gonzalez, Joseph E. and Cui, Bin and Yan, Shuicheng},\n  year = {2024},\n  url = {https://arxiv.org/abs/2410.09008},\n  eprint = {2410.09008},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
       "paper_id": "2410.11325",
       "title": "Speculative Knowledge Distillation: Bridging the Teacher-Student Gap Through Interleaved Sampling",
       "authors": [
@@ -1244,7 +1216,7 @@
       "paper_url": "https://arxiv.org/abs/2503.02832",
       "description": "AlignDistil constructs a token-level target by extrapolating logits from normal and reverse preference-trained models, with token-specific weights based on their distributional difference. It matches this target on student-sampled prefixes, but also provides an off-policy loss on fixed responses.",
       "objective": "Minimize token-weighted KL from the student distribution to the extrapolated target distribution, on either student-sampled or fixed response prefixes.",
-      "mechanism": "hybrid_opd",
+      "mechanism": "direct_opd",
       "home": "4",
       "code_urls": [
         "https://github.com/songmzhang/AlignDistil"
@@ -1310,35 +1282,6 @@
       "arxiv_id": "2504.11426",
       "year_month": "2025-04",
       "bibtex": "@misc{opd_323530342e3131343236,\n  title = {{A Dual-Space Framework for General Knowledge Distillation of Large Language Models}},\n  author = {Zhang, Xue and Zhang, Songming and Liang, Yunlong and Meng, Fandong and Chen, Yufeng and Xu, Jinan and Zhou, Jie},\n  year = {2025},\n  url = {https://arxiv.org/abs/2504.11426},\n  eprint = {2504.11426},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
-      "paper_id": "2504.14945",
-      "title": "Learning to Reason under Off-Policy Guidance",
-      "authors": [
-        "Yan, Jianhao",
-        "Li, Yafu",
-        "Hu, Zican",
-        "Wang, Zhi",
-        "Cui, Ganqu",
-        "Qu, Xiaoye",
-        "Cheng, Yu",
-        "Zhang, Yue"
-      ],
-      "year": 2025,
-      "submitted": "2025-04-21",
-      "paper_url": "https://arxiv.org/abs/2504.14945",
-      "description": "LUFFY combines off-policy reasoning demonstrations with student rollouts in group-relative policy optimization and reshapes demonstration weights to emphasize unlikely actions. Answer verification supplies rewards; practical training replaces demonstration-policy probabilities with a constant, limiting the interpretation of its importance weights.",
-      "objective": "Maximize a mixed-policy group-relative policy-gradient surrogate using verifier-correctness advantages, with clipped student-rollout ratios and shaped off-policy weights.",
-      "mechanism": "teacher_mediated_rl",
-      "home": "6",
-      "code_urls": [
-        "https://github.com/Simplified-Reasoning/LUFFY"
-      ],
-      "source_version": "[Submitted on 21 Apr 2025 ( v1 ), last revised 22 Jun 2025 (this version, v5)]",
-      "code_status": "linked",
-      "arxiv_id": "2504.14945",
-      "year_month": "2025-04",
-      "bibtex": "@misc{opd_323530342e3134393435,\n  title = {{Learning to Reason under Off-Policy Guidance}},\n  author = {Yan, Jianhao and Li, Yafu and Hu, Zican and Wang, Zhi and Cui, Ganqu and Qu, Xiaoye and Cheng, Yu and Zhang, Yue},\n  year = {2025},\n  url = {https://arxiv.org/abs/2504.14945},\n  eprint = {2504.14945},\n  archivePrefix = {arXiv}\n}"
     },
     {
       "paper_id": "2504.19024",
@@ -1468,36 +1411,6 @@
       "bibtex": "@misc{opd_323530352e3133313131,\n  title = {{Why Knowledge Distillation Works in Generative Models: A Minimal Working Explanation}},\n  author = {Cha, Sungmin and Cho, Kyunghyun},\n  year = {2025},\n  url = {https://arxiv.org/abs/2505.13111},\n  eprint = {2505.13111},\n  archivePrefix = {arXiv}\n}"
     },
     {
-      "paper_id": "2505.16142",
-      "title": "RLKD: Distilling LLMs' Reasoning via Reinforcement Learning",
-      "authors": [
-        "Xu, Shicheng",
-        "Pang, Liang",
-        "Zhu, Yunchang",
-        "Gu, Jia",
-        "Wei, Zihao",
-        "Deng, Jingcheng",
-        "Pan, Feiyang",
-        "Shen, Huawei",
-        "Cheng, Xueqi"
-      ],
-      "year": 2025,
-      "submitted": "2025-05-22",
-      "paper_url": "https://arxiv.org/abs/2505.16142",
-      "description": "RLKD scores how student-generated reasoning aligns with teacher traces after both are decomposed into meta-reasoning and solving steps. It combines this structural score with task-outcome reward for a group-relative policy update; the teacher supplies a reward reference, not token-level distribution targets.",
-      "objective": "Optimize a weighted combination of structural-alignment and task-outcome rewards with group-relative policy optimization.",
-      "mechanism": "teacher_mediated_rl",
-      "home": "5",
-      "code_urls": [
-        "https://github.com/xsc1234/RLKD"
-      ],
-      "source_version": "[Submitted on 22 May 2025 ( v1 ), last revised 31 Jan 2026 (this version, v4)]",
-      "code_status": "linked",
-      "arxiv_id": "2505.16142",
-      "year_month": "2025-05",
-      "bibtex": "@misc{opd_323530352e3136313432,\n  title = {{RLKD: Distilling LLMs' Reasoning via Reinforcement Learning}},\n  author = {Xu, Shicheng and Pang, Liang and Zhu, Yunchang and Gu, Jia and Wei, Zihao and Deng, Jingcheng and Pan, Feiyang and Shen, Huawei and Cheng, Xueqi},\n  year = {2025},\n  url = {https://arxiv.org/abs/2505.16142},\n  eprint = {2505.16142},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
       "paper_id": "2506.02208",
       "title": "KDRL: Post-Training Reasoning LLMs via Unified Knowledge Distillation and Reinforcement Learning",
       "authors": [
@@ -1524,28 +1437,6 @@
       "arxiv_id": "2506.02208",
       "year_month": "2025-06",
       "bibtex": "@misc{opd_323530362e3032323038,\n  title = {{KDRL: Post-Training Reasoning LLMs via Unified Knowledge Distillation and Reinforcement Learning}},\n  author = {Xu, Hongling and Zhu, Qi and Deng, Heyuan and Li, Jinpeng and Hou, Lu and Wang, Yasheng and Shang, Lifeng and Xu, Ruifeng and Mi, Fei},\n  year = {2025},\n  url = {https://arxiv.org/abs/2506.02208},\n  eprint = {2506.02208},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
-      "paper_id": "2509.25100",
-      "title": "ORPO-Distill: Mixed-Policy Preference Optimization for Cross-Architecture LLM Distillation",
-      "authors": [
-        "Singh, Aasheesh",
-        "Vaddina, Vishal",
-        "Birru, Dagnachew"
-      ],
-      "year": 2025,
-      "submitted": "2025-09-29",
-      "paper_url": "https://arxiv.org/abs/2509.25100",
-      "description": "ORPO-Distill pairs pre-sampled correct teacher reasoning traces with incorrect student traces, training through positive-trace likelihood and an odds-ratio preference penalty. Its mixed sampling draws negatives from initial and recent student checkpoints; the experiments focus on labeled question answering, not open-ended tasks.",
-      "objective": "Minimize negative log-likelihood of chosen teacher traces plus an odds-ratio preference penalty favoring those traces over rejected student traces.",
-      "mechanism": "hybrid_opd",
-      "home": "4",
-      "code_urls": [],
-      "source_version": "[Submitted on 29 Sep 2025]",
-      "code_status": "No repository listed",
-      "arxiv_id": "2509.25100",
-      "year_month": "2025-09",
-      "bibtex": "@misc{opd_323530392e3235313030,\n  title = {{ORPO-Distill: Mixed-Policy Preference Optimization for Cross-Architecture LLM Distillation}},\n  author = {Singh, Aasheesh and Vaddina, Vishal and Birru, Dagnachew},\n  year = {2025},\n  url = {https://arxiv.org/abs/2509.25100},\n  eprint = {2509.25100},\n  archivePrefix = {arXiv}\n}"
     },
     {
       "paper_id": "2509.25837",
@@ -1599,51 +1490,6 @@
       "arxiv_id": "2510.07842",
       "year_month": "2025-10",
       "bibtex": "@misc{opd_323531302e3037383432,\n  title = {{AdaSwitch: Balancing Exploration and Guidance in Knowledge Distillation via Adaptive Switching}},\n  author = {Peng, Jingyu and Wang, Maolin and Cai, Hengyi and Li, Yuchen and Zhang, Kai and Wang, Shuaiqiang and Yin, Dawei and Zhao, Xiangyu},\n  year = {2025},\n  url = {https://arxiv.org/abs/2510.07842},\n  eprint = {2510.07842},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
-      "paper_id": "2510.23497",
-      "title": "VOLD: Reasoning Transfer from LLMs to Vision-Language Models via On-Policy Distillation",
-      "authors": [
-        "Bousselham, Walid",
-        "Kuehne, Hilde",
-        "Schmid, Cordelia"
-      ],
-      "year": 2025,
-      "submitted": "2025-10-27",
-      "paper_url": "https://arxiv.org/abs/2510.23497",
-      "description": "VOLD first aligns a vision-language student with text-only teacher traces, then combines reward-based training with teacher token guidance on student rollouts. Training uses text-only reasoning problems; visual reasoning is evaluated afterward, rather than supervised through student-generated visual traces.",
-      "objective": "Group-relative policy optimization using binary answer rewards, plus teacher-to-student token KL on student-generated prefixes; a reward-masked variant applies the KL only to incorrect responses.",
-      "mechanism": "hybrid_opd",
-      "home": "9",
-      "code_urls": [],
-      "source_version": "[Submitted on 27 Oct 2025 ( v1 ), last revised 3 Jun 2026 (this version, v3)]",
-      "code_status": "No repository listed",
-      "arxiv_id": "2510.23497",
-      "year_month": "2025-10",
-      "bibtex": "@misc{opd_323531302e3233343937,\n  title = {{VOLD: Reasoning Transfer from LLMs to Vision-Language Models via On-Policy Distillation}},\n  author = {Bousselham, Walid and Kuehne, Hilde and Schmid, Cordelia},\n  year = {2025},\n  url = {https://arxiv.org/abs/2510.23497},\n  eprint = {2510.23497},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
-      "paper_id": "2510.24021",
-      "title": "SelecTKD: Selective Token-Weighted Knowledge Distillation for LLMs",
-      "authors": [
-        "Huang, Haiduo",
-        "Song, Jiangcheng",
-        "Zhang, Yadong",
-        "Ren, Pengju"
-      ],
-      "year": 2025,
-      "submitted": "2025-10-28",
-      "paper_url": "https://arxiv.org/abs/2510.24021",
-      "description": "SelecTKD verifies student token proposals against a teacher and gives accepted positions full distillation weight while masking or reducing weight at rejected positions. Its token weighting can be applied to teacher- or student-generated data; it does not prescribe a single divergence or require on-policy data.",
-      "objective": "A token-wise distillation divergence weighted by detached propose-and-verify acceptance: full weight for accepted positions and zero or reduced weight for rejected positions.",
-      "mechanism": "hybrid_opd",
-      "home": "6",
-      "code_urls": [],
-      "source_version": "[Submitted on 28 Oct 2025 ( v1 ), last revised 16 Nov 2025 (this version, v2)]",
-      "code_status": "No repository listed",
-      "arxiv_id": "2510.24021",
-      "year_month": "2025-10",
-      "bibtex": "@misc{opd_323531302e3234303231,\n  title = {{SelecTKD: Selective Token-Weighted Knowledge Distillation for LLMs}},\n  author = {Huang, Haiduo and Song, Jiangcheng and Zhang, Yadong and Ren, Pengju},\n  year = {2025},\n  url = {https://arxiv.org/abs/2510.24021},\n  eprint = {2510.24021},\n  archivePrefix = {arXiv}\n}"
     },
     {
       "paper_id": "2511.10643",
@@ -1883,7 +1729,7 @@
       "paper_url": "https://arxiv.org/abs/2601.08310",
       "description": "ORBIT trains reasoning-budget specialists through staged reinforcement learning under progressively tighter context limits, then initializes a unified student by merging them and distills their mode-specific behavior on student-generated responses. Its evaluation mainly covers reasoning tasks with structured correctness signals.",
       "objective": "Correctness-reward reinforcement learning for budget-specific experts, followed by mode-conditioned reverse KL against the corresponding expert on student-sampled responses.",
-      "mechanism": "hybrid_opd",
+      "mechanism": "direct_opd",
       "home": "9",
       "code_urls": [],
       "source_version": "[Submitted on 13 Jan 2026 ( v1 ), last revised 16 Apr 2026 (this version, v2)]",
@@ -1891,67 +1737,6 @@
       "arxiv_id": "2601.08310",
       "year_month": "2026-01",
       "bibtex": "@misc{opd_323630312e3038333130,\n  title = {{ORBIT: On-policy Exploration-Exploitation for Controllable Multi-Budget Reasoning}},\n  author = {Liang, Kun and Bai, Clive and Xu, Xin and Tang, Chenming and Lee, Sanwoo and Liu, Weijie and Yang, Saiyong and Wu, Yunfang},\n  year = {2026},\n  url = {https://arxiv.org/abs/2601.08310},\n  eprint = {2601.08310},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
-      "paper_id": "2601.09088",
-      "title": "Distribution-Aligned Sequence Distillation for Superior Long-CoT Reasoning",
-      "authors": [
-        "Yan, Shaotian",
-        "Liu, Kaiyuan",
-        "Shen, Chen",
-        "Wang, Bing",
-        "Fan, Sinan",
-        "Zhang, Jun",
-        "Wu, Yue",
-        "Wang, Zheng",
-        "Ye, Jieping"
-      ],
-      "year": 2026,
-      "submitted": "2026-01-14",
-      "paper_url": "https://arxiv.org/abs/2601.09088",
-      "description": "DASD first fine-tunes on teacher responses selected through temperature scheduling and teacher–student probability gaps. A later mixed-policy stage fine-tunes on filtered teacher completions of truncated student-generated prefixes; using those prefixes does not make its supervised loss token-level KL.",
-      "objective": "Supervised fine-tuning on selected teacher-generated responses, followed by fine-tuning on quality-filtered teacher continuations from truncated student-generated prefixes.",
-      "mechanism": "hybrid_opd",
-      "home": "6",
-      "code_urls": [
-        "https://github.com/D2I-ai/dasd-thinking"
-      ],
-      "source_version": "[Submitted on 14 Jan 2026]",
-      "code_status": "linked",
-      "arxiv_id": "2601.09088",
-      "year_month": "2026-01",
-      "bibtex": "@misc{opd_323630312e3039303838,\n  title = {{Distribution-Aligned Sequence Distillation for Superior Long-CoT Reasoning}},\n  author = {Yan, Shaotian and Liu, Kaiyuan and Shen, Chen and Wang, Bing and Fan, Sinan and Zhang, Jun and Wu, Yue and Wang, Zheng and Ye, Jieping},\n  year = {2026},\n  url = {https://arxiv.org/abs/2601.09088},\n  eprint = {2601.09088},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
-      "paper_id": "2601.16547",
-      "title": "CORD: Bridging the Audio-Text Reasoning Gap via Weighted On-policy Cross-modal Distillation",
-      "authors": [
-        "Hu, Jing",
-        "Zhu, Danxiang",
-        "Luo, Xianlong",
-        "Zhang, Dan",
-        "He, Shuwei",
-        "Lei, Yishu",
-        "Zheng, Haitao",
-        "Feng, Shikun",
-        "He, Jingzhou",
-        "Sun, Yu",
-        "Wu, Hua",
-        "Wang, Haifeng"
-      ],
-      "year": 2026,
-      "submitted": "2026-01-23",
-      "paper_url": "https://arxiv.org/abs/2601.16547",
-      "description": "CORD uses audio-conditioned rollouts to align a model’s next-token predictions with its text-conditioned predictions, weighting high-divergence and early tokens. It also trains on a judge’s answer-level reward; the cross-modal setup requires semantically equivalent audio and text inputs.",
-      "objective": "Importance- and position-weighted token-level reverse KL on audio rollouts, plus a group-relative policy-gradient loss using a judge’s binary answer-consistency reward.",
-      "mechanism": "hybrid_opd",
-      "home": "5",
-      "code_urls": [],
-      "source_version": "[Submitted on 23 Jan 2026]",
-      "code_status": "No repository listed",
-      "arxiv_id": "2601.16547",
-      "year_month": "2026-01",
-      "bibtex": "@misc{opd_323630312e3136353437,\n  title = {{CORD: Bridging the Audio-Text Reasoning Gap via Weighted On-policy Cross-modal Distillation}},\n  author = {Hu, Jing and Zhu, Danxiang and Luo, Xianlong and Zhang, Dan and He, Shuwei and Lei, Yishu and Zheng, Haitao and Feng, Shikun and He, Jingzhou and Sun, Yu and Wu, Hua and Wang, Haifeng},\n  year = {2026},\n  url = {https://arxiv.org/abs/2601.16547},\n  eprint = {2601.16547},\n  archivePrefix = {arXiv}\n}"
     },
     {
       "paper_id": "2601.18734",
@@ -2105,9 +1890,9 @@
       "year": 2026,
       "submitted": "2026-02-04",
       "paper_url": "https://arxiv.org/abs/2602.04942",
-      "description": "For multi-turn tool use without access to a frontier agent’s reasoning traces, π-Distill jointly trains a shared-parameter privileged teacher and unconditioned student on teacher-generated trajectories. Its separate on-policy alternative instead trains on student rollouts; the privileged information studied here is derived from observed frontier-agent actions.",
+      "description": "The study compares privileged-information transfer through teacher-sampled π-Distill and a separate student-sampled OPSD procedure. Its experiments vary information type, model and objective strength, including failure cases. The teacher-sampled main algorithm and the on-policy comparison should be distinguished.",
       "objective": "π-Distill combines teacher-sampled reward and a teacher-to-stopped-student KL penalty with importance-weighted student learning and a teacher-to-student KL penalty on those trajectories. The on-policy alternative uses student-sampled environment reward minus student-to-stopped-teacher KL.",
-      "mechanism": "hybrid_opd",
+      "mechanism": "analysis",
       "home": "5",
       "code_urls": [],
       "source_version": "[Submitted on 4 Feb 2026 ( v1 ), last revised 16 Feb 2026 (this version, v3)]",
@@ -2169,32 +1954,6 @@
       "arxiv_id": "2602.12125",
       "year_month": "2026-02",
       "bibtex": "@misc{opd_323630322e3132313235,\n  title = {{Learning beyond Teacher: Generalized On-Policy Distillation with Reward Extrapolation}},\n  author = {Yang, Wenkai and Liu, Weijie and Xie, Ruobing and Yang, Kai and Yang, Saiyong and Lin, Yankai},\n  year = {2026},\n  url = {https://arxiv.org/abs/2602.12125},\n  eprint = {2602.12125},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
-      "paper_id": "2602.12275",
-      "title": "On-Policy Context Distillation for Language Models",
-      "authors": [
-        "Ye, Tianzhu",
-        "Dong, Li",
-        "Wu, Xun",
-        "Huang, Shaohan",
-        "Wei, Furu"
-      ],
-      "year": 2026,
-      "submitted": "2026-02-12",
-      "paper_url": "https://arxiv.org/abs/2602.12275",
-      "description": "On-policy context distillation trains a context-free student on its own responses by matching token distributions to a teacher given extracted experiential knowledge or an optimized system prompt. The teacher can share the student’s weights; consolidation is examined in the reported reasoning, game, medical and safety settings.",
-      "objective": "Minimize token-level reverse KL from the context-free student to the context-conditioned teacher along student-generated responses.",
-      "mechanism": "direct_opd",
-      "home": "5",
-      "code_urls": [
-        "https://github.com/ZijunSong/On-Policy-Context-Distillation"
-      ],
-      "source_version": "[Submitted on 12 Feb 2026 ( v1 ), last revised 23 Mar 2026 (this version, v2)]",
-      "code_status": "Unofficial reproduction; repository self-identifies as a personal implementation",
-      "arxiv_id": "2602.12275",
-      "year_month": "2026-02",
-      "bibtex": "@misc{opd_323630322e3132323735,\n  title = {{On-Policy Context Distillation for Language Models}},\n  author = {Ye, Tianzhu and Dong, Li and Wu, Xun and Huang, Shaohan and Wei, Furu},\n  year = {2026},\n  url = {https://arxiv.org/abs/2602.12275},\n  eprint = {2602.12275},\n  archivePrefix = {arXiv}\n}"
     },
     {
       "paper_id": "2602.15260",
@@ -2263,9 +2022,9 @@
       "year": 2026,
       "submitted": "2026-02-26",
       "paper_url": "https://arxiv.org/abs/2602.22495",
-      "description": "RL-aware distillation incorporates teacher guidance into an advantage-weighted, clipped likelihood-ratio update on student rollouts, using a teacher–old-student anchor. It replaces a separate teacher KL penalty within reward-based reasoning training; its guidance therefore depends on the policy update’s advantage signal.",
-      "objective": "Maximize an advantage-weighted clipped policy objective on old-student rollouts; version 1 geometrically combines student/old-student and student/teacher likelihood ratios. A separate reference-policy KL remains in Eq. (4).",
-      "mechanism": "hybrid_opd",
+      "description": "RLAD puts teacher probabilities inside an advantage-weighted policy ratio on student rollouts. Its weak-teacher controls compare this reward-dependent guidance with a separate teacher-KL penalty. The empirical comparison does not establish the claimed hard trust-region bound or DPO equivalence.",
+      "objective": "Advantage-weighted clipped policy optimization on student rollouts, with teacher probabilities in a geometric teacher/old-policy ratio denominator and a separate reference KL; no standalone teacher-matching loss.",
+      "mechanism": "teacher_mediated_rl",
       "home": "4",
       "code_urls": [],
       "source_version": "[Submitted on 26 Feb 2026 ( v1 ), last revised 17 Jun 2026 (this version, v3)]",
@@ -2273,29 +2032,6 @@
       "arxiv_id": "2602.22495",
       "year_month": "2026-02",
       "bibtex": "@misc{opd_323630322e3232343935,\n  title = {{Reinforcement-aware Knowledge Distillation for LLM Reasoning}},\n  author = {Zhang, Zhaoyang and Jiang, Shuli and Shen, Yantao and Zhang, Yuting and Ram, Dhananjay and Yang, Shuo and Tu, Zhuowen and Xia, Wei and Soatto, Stefano},\n  year = {2026},\n  url = {https://arxiv.org/abs/2602.22495},\n  eprint = {2602.22495},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
-      "paper_id": "2603.01683",
-      "title": "Surgical Post-Training: Proximal On-Policy Distillation for Reasoning with Knowledge Retention",
-      "authors": [
-        "Lin, Wenye",
-        "Han, Kai"
-      ],
-      "year": 2026,
-      "submitted": "2026-03-02",
-      "paper_url": "https://arxiv.org/abs/2603.01683",
-      "description": "Surgical Post-Training collects the student's erroneous reasoning, has an oracle minimally correct it, and trains on the resulting fixed pairs with binary classification of reference-relative implicit rewards. The oracle is queried once per failure, so training is not live teacher-logit distillation.",
-      "objective": "Binary cross-entropy separately raises the reference-relative implicit reward of corrected responses and lowers that of erroneous responses.",
-      "mechanism": "offline_distillation",
-      "home": "4",
-      "code_urls": [
-        "https://github.com/Visual-AI/SPoT"
-      ],
-      "source_version": "[Submitted on 2 Mar 2026 ( v1 ), last revised 15 May 2026 (this version, v2)]",
-      "code_status": "linked",
-      "arxiv_id": "2603.01683",
-      "year_month": "2026-03",
-      "bibtex": "@misc{opd_323630332e3031363833,\n  title = {{Surgical Post-Training: Proximal On-Policy Distillation for Reasoning with Knowledge Retention}},\n  author = {Lin, Wenye and Han, Kai},\n  year = {2026},\n  url = {https://arxiv.org/abs/2603.01683},\n  eprint = {2603.01683},\n  archivePrefix = {arXiv}\n}"
     },
     {
       "paper_id": "2603.05433",
@@ -2364,7 +2100,7 @@
       "year": 2026,
       "submitted": "2026-03-10",
       "paper_url": "https://arxiv.org/abs/2603.10165",
-      "description": "OpenClaw-RL uses next-state feedback for scalar process rewards and, when usable corrections are available, hindsight-conditioned teacher guidance on student actions. Its combined reward-and-distillation update supports interactive agents; the personal-agent experiments use simulated users.",
+      "description": "OpenClaw-RL turns subsequent interaction feedback into hints for a privileged self-teacher that scores the student’s original response prefixes. The updated report compares overlap-based hint selection with random hints and tests support and clipping choices. Its asynchronous agent results have task-specific training and evaluation limits.",
       "objective": "A PPO-style clipped update combines a judged scalar reward with token-level teacher–student log-probability differences on hint-accepted turns.",
       "mechanism": "hybrid_opd",
       "home": "7",
@@ -2539,31 +2275,6 @@
       "bibtex": "@misc{opd_323630332e3234343732,\n  title = {{Why Does Self-Distillation (Sometimes) Degrade the Reasoning Capability of LLMs?}},\n  author = {Kim, Jeonghye and Luo, Xufang and Kim, Minbeom and Lee, Sangmook and Kim, Dohyung and Jeon, Jiwon and Li, Dongsheng and Yang, Yuqing},\n  year = {2026},\n  url = {https://arxiv.org/abs/2603.24472},\n  eprint = {2603.24472},\n  archivePrefix = {arXiv}\n}"
     },
     {
-      "paper_id": "2603.24596",
-      "title": "X-OPD: Cross-Modal On-Policy Distillation for Capability Alignment in Speech LLMs",
-      "authors": [
-        "Cao, Di",
-        "Fu, Dongjie",
-        "Yu, Hai",
-        "Zheng, Siqi",
-        "Tan, Xu",
-        "Jin, Tao"
-      ],
-      "year": 2026,
-      "submitted": "2026-03-06",
-      "paper_url": "https://arxiv.org/abs/2603.24596",
-      "description": "A speech-capable student samples responses to paired audio and text prompts while a separate text teacher scores the trajectories using matched text inputs. In-modal and cross-modal token log-probability advantages drive policy-gradient updates; the method requires semantically aligned inputs.",
-      "objective": "A weighted policy-gradient loss using teacher-minus-student token log-probability advantages for text-conditioned and speech-conditioned student responses, with sampling-policy probability ratios.",
-      "mechanism": "direct_opd",
-      "home": "5",
-      "code_urls": [],
-      "source_version": "[Submitted on 6 Mar 2026 ( v1 ), last revised 12 Jun 2026 (this version, v3)]",
-      "code_status": "No repository listed",
-      "arxiv_id": "2603.24596",
-      "year_month": "2026-03",
-      "bibtex": "@misc{opd_323630332e3234353936,\n  title = {{X-OPD: Cross-Modal On-Policy Distillation for Capability Alignment in Speech LLMs}},\n  author = {Cao, Di and Fu, Dongjie and Yu, Hai and Zheng, Siqi and Tan, Xu and Jin, Tao},\n  year = {2026},\n  url = {https://arxiv.org/abs/2603.24596},\n  eprint = {2603.24596},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
       "paper_id": "2603.25562",
       "title": "Revisiting On-Policy Distillation: Empirical Failure Modes and Simple Fixes",
       "authors": [
@@ -2588,71 +2299,6 @@
       "arxiv_id": "2603.25562",
       "year_month": "2026-03",
       "bibtex": "@misc{opd_323630332e3235353632,\n  title = {{Revisiting On-Policy Distillation: Empirical Failure Modes and Simple Fixes}},\n  author = {Fu, Yuqian and Huang, Haohuan and Jiang, Kaiwen and Liu, Jiacai and Jiang, Zhuo and Zhu, Yuanheng and Zhao, Dongbin},\n  year = {2026},\n  url = {https://arxiv.org/abs/2603.25562},\n  eprint = {2603.25562},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
-      "paper_id": "2603.27703",
-      "title": "KAT-Coder-V2 Technical Report",
-      "authors": [
-        "Li, Fengxiang",
-        "Zhang, Han",
-        "Huang, Haoyang",
-        "Wang, Jinghui",
-        "Hao, Jinhua",
-        "Yuan, Kun",
-        "Li, Mengtong",
-        "Zhang, Minglei",
-        "Xu, Pengcheng",
-        "Zhuang, Wenhao",
-        "Shao, Yizhen",
-        "Feng, Zongxian",
-        "Tang, Can",
-        "Wang, Chao",
-        "Tong, Chengxiao",
-        "Yang, Fan",
-        "Xiong, Gang",
-        "Gao, Haixuan",
-        "Gao, Han",
-        "Wang, Hao",
-        "Liu, Haochen",
-        "Sun, Hongliang",
-        "Li, Jiabao",
-        "Chang, Jingwen",
-        "Du, Jun",
-        "Peng, Junyi",
-        "Cui, Leizhen",
-        "Jing, Meimei",
-        "Wu, Mingqi",
-        "Yan, Shangpeng",
-        "Qi, Shaotong",
-        "Xu, Suzhe",
-        "Zhao, Wenxuan",
-        "Sun, Xianda",
-        "Xie, Xuan",
-        "Wang, Yanbo",
-        "Xia, Yao",
-        "Cui, Yinghan",
-        "Chen, Yingpeng",
-        "Wang, Yong",
-        "Shi, Yuze",
-        "Shen, Zhiwei",
-        "Wang, Ziyu",
-        "Sun, Ming",
-        "Ye, Lin",
-        "Chen, Bin"
-      ],
-      "year": 2026,
-      "submitted": "2026-03-29",
-      "paper_url": "https://arxiv.org/abs/2603.27703",
-      "description": "KAT-Coder-V2 consolidates domain experts through teacher log-probability guidance on student-generated coding trajectories, jointly with environment-reward optimization. Its coding results evaluate the complete training pipeline; they do not isolate the effect of expert distillation from other post-training stages.",
-      "objective": "Joint environment-reward optimization and expert log-probability guidance on student coding trajectories.",
-      "mechanism": "application",
-      "home": "9",
-      "code_urls": [],
-      "source_version": "[Submitted on 29 Mar 2026]",
-      "code_status": "No repository listed",
-      "arxiv_id": "2603.27703",
-      "year_month": "2026-03",
-      "bibtex": "@misc{opd_323630332e3237373033,\n  title = {{KAT-Coder-V2 Technical Report}},\n  author = {Li, Fengxiang and Zhang, Han and Huang, Haoyang and Wang, Jinghui and Hao, Jinhua and Yuan, Kun and Li, Mengtong and Zhang, Minglei and Xu, Pengcheng and Zhuang, Wenhao and Shao, Yizhen and Feng, Zongxian and Tang, Can and Wang, Chao and Tong, Chengxiao and Yang, Fan and Xiong, Gang and Gao, Haixuan and Gao, Han and Wang, Hao and Liu, Haochen and Sun, Hongliang and Li, Jiabao and Chang, Jingwen and Du, Jun and Peng, Junyi and Cui, Leizhen and Jing, Meimei and Wu, Mingqi and Yan, Shangpeng and Qi, Shaotong and Xu, Suzhe and Zhao, Wenxuan and Sun, Xianda and Xie, Xuan and Wang, Yanbo and Xia, Yao and Cui, Yinghan and Chen, Yingpeng and Wang, Yong and Shi, Yuze and Shen, Zhiwei and Wang, Ziyu and Sun, Ming and Ye, Lin and Chen, Bin},\n  year = {2026},\n  url = {https://arxiv.org/abs/2603.27703},\n  eprint = {2603.27703},\n  archivePrefix = {arXiv}\n}"
     },
     {
       "paper_id": "2604.02288",
@@ -2681,73 +2327,6 @@
       "arxiv_id": "2604.02288",
       "year_month": "2026-04",
       "bibtex": "@misc{opd_323630342e3032323838,\n  title = {{Unifying Group-Relative and Self-Distillation Policy Optimization via Sample Routing}},\n  author = {Li, Gengsheng and Yang, Tianyu and Fang, Junfeng and Song, Mingyang and Zheng, Mao and Guo, Haiyun and Zhang, Dan and Wang, Jinqiao and Chua, Tat-Seng},\n  year = {2026},\n  url = {https://arxiv.org/abs/2604.02288},\n  eprint = {2604.02288},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
-      "paper_id": "2604.04461",
-      "title": "DP-OPD: Differentially Private On-Policy Distillation for Language Models",
-      "authors": [
-        "Khadem, Fatemeh",
-        "Mousavi, Sajad",
-        "Fang, Yi",
-        "Liu, Yuhong"
-      ],
-      "year": 2026,
-      "submitted": "2026-04-06",
-      "paper_url": "https://arxiv.org/abs/2604.04461",
-      "description": "DP-OPD distills a frozen teacher into a student using clipped, noised student gradients and teacher targets on student-generated continuations, mixed with teacher-forced sequences. Its privacy guarantee concerns the released student and assumes a public teacher or one trained independently of the private corpus.",
-      "objective": "Generalized teacher–student distribution divergence on continuation tokens, with optional hard labels; per-example student gradients are clipped and noised by DP-SGD.",
-      "mechanism": "application",
-      "home": "9",
-      "code_urls": [],
-      "source_version": "[Submitted on 6 Apr 2026]",
-      "code_status": "No repository listed",
-      "arxiv_id": "2604.04461",
-      "year_month": "2026-04",
-      "bibtex": "@misc{opd_323630342e3034343631,\n  title = {{DP-OPD: Differentially Private On-Policy Distillation for Language Models}},\n  author = {Khadem, Fatemeh and Mousavi, Sajad and Fang, Yi and Liu, Yuhong},\n  year = {2026},\n  url = {https://arxiv.org/abs/2604.04461},\n  eprint = {2604.04461},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
-      "paper_id": "2604.07430",
-      "title": "HY-Embodied-0.5: Embodied Foundation Models for Real-World Agents",
-      "authors": [
-        "X, Tencent Robotics",
-        "Team, HY Vision",
-        ":",
-        "Yu, Xumin",
-        "Liu, Zuyan",
-        "Wang, Ziyi",
-        "Zhang, He",
-        "Rao, Yongming",
-        "Liu, Fangfu",
-        "Zhang, Yani",
-        "Zhao, Ruowen",
-        "Wang, Oran",
-        "Liang, Yves",
-        "Lin, Haitao",
-        "Wang, Minghui",
-        "Dong, Yubo",
-        "Cheng, Kevin",
-        "Ni, Bolin",
-        "Huang, Rui",
-        "Hu, Han",
-        "Zhang, Zhengyou",
-        "Linus",
-        "Yao, Shunyu"
-      ],
-      "year": 2026,
-      "submitted": "2026-04-08",
-      "paper_url": "https://arxiv.org/abs/2604.07430",
-      "description": "HY-Embodied transfers reasoning from a large embodied vision-language model to a compact student by matching teacher next-token distributions on student-generated prefixes with forward KL. Distillation follows reinforcement learning and rejection fine-tuning, so the complete training pipeline contains several sources of capability improvement.",
-      "objective": "Minimize teacher-to-student next-token forward KL, averaged over response positions on student-generated trajectories, following large-model RL and rejection fine-tuning.",
-      "mechanism": "application",
-      "home": "9",
-      "code_urls": [
-        "https://github.com/Tencent-Hunyuan/HY-Embodied"
-      ],
-      "source_version": "[Submitted on 8 Apr 2026]",
-      "code_status": "linked",
-      "arxiv_id": "2604.07430",
-      "year_month": "2026-04",
-      "bibtex": "@misc{opd_323630342e3037343330,\n  title = {{HY-Embodied-0.5: Embodied Foundation Models for Real-World Agents}},\n  author = {X, Tencent Robotics and Team, HY Vision and : and Yu, Xumin and Liu, Zuyan and Wang, Ziyi and Zhang, He and Rao, Yongming and Liu, Fangfu and Zhang, Yani and Zhao, Ruowen and Wang, Oran and Liang, Yves and Lin, Haitao and Wang, Minghui and Dong, Yubo and Cheng, Kevin and Ni, Bolin and Huang, Rui and Hu, Han and Zhang, Zhengyou and Linus and Yao, Shunyu},\n  year = {2026},\n  url = {https://arxiv.org/abs/2604.07430},\n  eprint = {2604.07430},\n  archivePrefix = {arXiv}\n}"
     },
     {
       "paper_id": "2604.08527",
@@ -3551,30 +3130,6 @@
       "bibtex": "@misc{opd_323630352e3037383635,\n  title = {{KL for a KL: On-Policy Distillation with Control Variate Baseline}},\n  author = {Oh, Minjae and Song, Sangjun and Choi, Gyubin and Choi, Yunho and Jo, Yohan},\n  year = {2026},\n  url = {https://arxiv.org/abs/2605.07865},\n  eprint = {2605.07865},\n  archivePrefix = {arXiv}\n}"
     },
     {
-      "paper_id": "2605.08737",
-      "title": "The Extrapolation Cliff in On-Policy Distillation of Near-Deterministic Structured Outputs",
-      "authors": [
-        "Li, Xin",
-        "Jiang, Hao",
-        "Wang, Annan",
-        "Zhang, Yichi",
-        "Yuen, Chau"
-      ],
-      "year": 2026,
-      "submitted": "2026-05-09",
-      "paper_url": "https://arxiv.org/abs/2605.08737",
-      "description": "This study derives a clipping threshold for extrapolated distillation in near-deterministic structured outputs. Calibrated listwise JSON experiments primarily show changes in format adherence, with stable ranking quality among parsed outputs; the threshold depends on teacher concentration, the warm start, and the clipping setup.",
-      "objective": "Analyze the clip-safety threshold for a base-relative, extrapolated teacher–student token log-ratio; the tested ListOPD update weights that advantage by a clipped token-level importance ratio.",
-      "mechanism": "analysis",
-      "home": "8",
-      "code_urls": [],
-      "source_version": "[Submitted on 9 May 2026]",
-      "code_status": "No repository listed",
-      "arxiv_id": "2605.08737",
-      "year_month": "2026-05",
-      "bibtex": "@misc{opd_323630352e3038373337,\n  title = {{The Extrapolation Cliff in On-Policy Distillation of Near-Deterministic Structured Outputs}},\n  author = {Li, Xin and Jiang, Hao and Wang, Annan and Zhang, Yichi and Yuen, Chau},\n  year = {2026},\n  url = {https://arxiv.org/abs/2605.08737},\n  eprint = {2605.08737},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
       "paper_id": "2605.08741",
       "title": "Training with Harnesses: On-Policy Harness Self-Distillation for Complex Reasoning",
       "authors": [
@@ -3615,7 +3170,7 @@
       "paper_url": "https://arxiv.org/abs/2605.08776",
       "description": "The student generates a reasoning trace, which a larger teacher rewrites concisely; the student then matches teacher token distributions on the rewritten trace. The training contexts are therefore not the original student prefixes, and the objective does not enforce answer correctness.",
       "objective": "Minimize student-to-teacher token-level KL divergence on teacher-compressed student trajectories.",
-      "mechanism": "hybrid_opd",
+      "mechanism": "interactive_imitation",
       "home": "6",
       "code_urls": [],
       "source_version": "[Submitted on 9 May 2026]",
@@ -3694,34 +3249,6 @@
       "arxiv_id": "2605.09548",
       "year_month": "2026-05",
       "bibtex": "@misc{opd_323630352e3039353438,\n  title = {{Crosslingual On-Policy Self-Distillation for Multilingual Reasoning}},\n  author = {Liu, Yihong and Zhao, Raoyuan and Hedderich, Michael A. and Schütze, Hinrich},\n  year = {2026},\n  url = {https://arxiv.org/abs/2605.09548},\n  eprint = {2605.09548},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
-      "paper_id": "2605.09725",
-      "title": "On-Policy Distillation with Best-of-N Teacher Rollout Selection",
-      "authors": [
-        "Zhang, Ke",
-        "Tian, Yunjie",
-        "Zhao, Dongdi",
-        "Li, Yijiang",
-        "Liu, Yuanye",
-        "Patel, Vishal M",
-        "Fu, Di"
-      ],
-      "year": 2026,
-      "submitted": "2026-05-10",
-      "paper_url": "https://arxiv.org/abs/2605.09725",
-      "description": "The method retains distillation on student-generated trajectories while adding supervision on a selected teacher trajectory. It selects for correctness before student alignment and attempts answer-guided recovery when samples fail; if recovery fails too, the selected trajectory may be incorrect.",
-      "objective": "Student-to-teacher reverse KL on student prefixes plus a weighted teacher-to-student forward KL on the selected teacher prefixes.",
-      "mechanism": "hybrid_opd",
-      "home": "5",
-      "code_urls": [
-        "https://github.com/BWGZK-keke/BRTS"
-      ],
-      "source_version": "[Submitted on 10 May 2026 ( v1 ), last revised 11 Aug 2026 (this version, v3)]",
-      "code_status": "linked",
-      "arxiv_id": "2605.09725",
-      "year_month": "2026-05",
-      "bibtex": "@misc{opd_323630352e3039373235,\n  title = {{On-Policy Distillation with Best-of-N Teacher Rollout Selection}},\n  author = {Zhang, Ke and Tian, Yunjie and Zhao, Dongdi and Li, Yijiang and Liu, Yuanye and Patel, Vishal M and Fu, Di},\n  year = {2026},\n  url = {https://arxiv.org/abs/2605.09725},\n  eprint = {2605.09725},\n  archivePrefix = {arXiv}\n}"
     },
     {
       "paper_id": "2605.10194",
@@ -3905,35 +3432,6 @@
       "bibtex": "@misc{opd_323630352e3131373339,\n  title = {{Learning to Foresee: Unveiling the Unlocking Efficiency of On-Policy Distillation}},\n  author = {Cai, Yuchen and Cao, Ding and Lin, Liang and Luo, Chunxi and Xu, Xin and Yang, Kai and Liu, Weijie and Yang, Saiyong and Zhao, Tianxiang and Sun, Guangzhong and Liu, Guiquan and Fang, Junfeng},\n  year = {2026},\n  url = {https://arxiv.org/abs/2605.11739},\n  eprint = {2605.11739},\n  archivePrefix = {arXiv}\n}"
     },
     {
-      "paper_id": "2605.11853",
-      "title": "GEAR: Granularity-Adaptive Advantage Reweighting for LLM Agents via Self-Distillation",
-      "authors": [
-        "Li, Sijia",
-        "Huang, Yuchen",
-        "Liu, Zifan",
-        "Li, Yanping",
-        "Fu, Jingjing",
-        "Zhao, Li",
-        "Bian, Jiang",
-        "Zhang, Ling",
-        "Zhang, Jun",
-        "Wang, Rui"
-      ],
-      "year": 2026,
-      "submitted": "2026-05-12",
-      "paper_url": "https://arxiv.org/abs/2605.11853",
-      "description": "GEAR uses divergence from a ground-truth-conditioned self-teacher to start credit regions, entropy to end them, and outcome-dependent weights to redistribute advantage across on-policy agent trajectories. It updates through the reweighted reinforcement-learning objective rather than a distillation loss, and requires suitable ground truth.",
-      "objective": "Clipped group-relative policy optimization using trajectory outcome advantages reweighted at token or segment level by teacher–student discrepancy; no direct distillation loss.",
-      "mechanism": "teacher_mediated_rl",
-      "home": "7",
-      "code_urls": [],
-      "source_version": "[Submitted on 12 May 2026 ( v1 ), last revised 14 May 2026 (this version, v2)]",
-      "code_status": "No repository listed",
-      "arxiv_id": "2605.11853",
-      "year_month": "2026-05",
-      "bibtex": "@misc{opd_323630352e3131383533,\n  title = {{GEAR: Granularity-Adaptive Advantage Reweighting for LLM Agents via Self-Distillation}},\n  author = {Li, Sijia and Huang, Yuchen and Liu, Zifan and Li, Yanping and Fu, Jingjing and Zhao, Li and Bian, Jiang and Zhang, Ling and Zhang, Jun and Wang, Rui},\n  year = {2026},\n  url = {https://arxiv.org/abs/2605.11853},\n  eprint = {2605.11853},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
       "paper_id": "2605.12227",
       "title": "A Recipe for Long-Context Reasoning in Large Language Models via On-Policy Optimization and Distillation",
       "authors": [
@@ -4094,30 +3592,6 @@
       "bibtex": "@misc{opd_323630352e3132393133,\n  title = {{Revisiting DAgger in the Era of LLM-Agents}},\n  author = {Li, Changhao and Qiang, Rushi and Huang, Jiawei and Gao, Chenxiao and Zhang, Chao and He, Niao and Dai, Bo},\n  year = {2026},\n  url = {https://arxiv.org/abs/2605.12913},\n  eprint = {2605.12913},\n  archivePrefix = {arXiv}\n}"
     },
     {
-      "paper_id": "2605.13255",
-      "title": "Respecting Self-Uncertainty in On-Policy Self-Distillation for Efficient LLM Reasoning",
-      "authors": [
-        "Ke, Junlong",
-        "Wen, Zichen",
-        "Li, Weijia",
-        "He, Conghui",
-        "Zhang, Linfeng"
-      ],
-      "year": 2026,
-      "submitted": "2026-05-13",
-      "paper_url": "https://arxiv.org/abs/2605.13255",
-      "description": "EGRSD weights student-generated reasoning tokens using outcome-reward advantages, teacher–student likelihood ratios, and an entropy gate with a nonzero floor. Its self-teacher receives a reference solution; a lookahead variant retains transient uncertain pivots, while teacher entropy remains a confidence proxy rather than proof of correctness.",
-      "objective": "Minimize a policy-gradient-style negative log-likelihood loss on sampled tokens, weighted by a reward-derived advantage, a clipped teacher–student likelihood-ratio magnitude, and a teacher-entropy gate; the weighting terms are stop-gradient.",
-      "mechanism": "hybrid_opd",
-      "home": "6",
-      "code_urls": [],
-      "source_version": "[Submitted on 13 May 2026]",
-      "code_status": "No repository listed",
-      "arxiv_id": "2605.13255",
-      "year_month": "2026-05",
-      "bibtex": "@misc{opd_323630352e3133323535,\n  title = {{Respecting Self-Uncertainty in On-Policy Self-Distillation for Efficient LLM Reasoning}},\n  author = {Ke, Junlong and Wen, Zichen and Li, Weijia and He, Conghui and Zhang, Linfeng},\n  year = {2026},\n  url = {https://arxiv.org/abs/2605.13255},\n  eprint = {2605.13255},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
       "paper_id": "2605.13501",
       "title": "Reward-Weighted On-Policy Distillation with an Open Property-Equivalence Verifier for NL-to-SVA Generation",
       "authors": [
@@ -4165,61 +3639,6 @@
       "arxiv_id": "2605.13643",
       "year_month": "2026-05",
       "bibtex": "@misc{opd_323630352e3133363433,\n  title = {{Prefix Teach, Suffix Fade: Local Teachability Collapse in Strong-to-Weak On-Policy Distillation}},\n  author = {Liu, Kaiyuan and Zhuang, Ziyuan and Bai, Yang and Wang, Bing and Weng, Rongxiang and Ye, Jieping},\n  year = {2026},\n  url = {https://arxiv.org/abs/2605.13643},\n  eprint = {2605.13643},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
-      "paper_id": "2605.15113",
-      "title": "Learning from Language Feedback via Variational Policy Distillation",
-      "authors": [
-        "Li, Yang",
-        "Nijkamp, Erik",
-        "Yavuz, Semih",
-        "Joty, Shafiq"
-      ],
-      "year": 2026,
-      "submitted": "2026-05-14",
-      "paper_url": "https://arxiv.org/abs/2605.15113",
-      "description": "VPD trains a feedback-conditioned teacher view and distills its predictions on collected student trajectories. Its controlled comparisons examine the reference prior and update frequency; those empirical results do not establish the proposed EM monotonicity guarantee.",
-      "objective": "Feedback-view preference updates followed by student matching; task-specific divergences and reused rollouts.",
-      "mechanism": "hybrid_opd",
-      "home": "5",
-      "code_urls": [],
-      "source_version": "[Submitted on 14 May 2026 ( v1 ), last revised 18 May 2026 (this version, v2)]",
-      "code_status": "No repository listed",
-      "arxiv_id": "2605.15113",
-      "year_month": "2026-05",
-      "bibtex": "@misc{opd_323630352e3135313133,\n  title = {{Learning from Language Feedback via Variational Policy Distillation}},\n  author = {Li, Yang and Nijkamp, Erik and Yavuz, Semih and Joty, Shafiq},\n  year = {2026},\n  url = {https://arxiv.org/abs/2605.15113},\n  eprint = {2605.15113},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
-      "paper_id": "2605.15155",
-      "title": "Self-Distilled Agentic Reinforcement Learning",
-      "authors": [
-        "Lu, Zhengxi",
-        "Yao, Zhiyuan",
-        "Han, Zhuowen",
-        "Wang, Zi-Han",
-        "Wu, Jinyang",
-        "Gu, Qi",
-        "Cai, Xunliang",
-        "Lu, Weiming",
-        "Xiao, Jun",
-        "Zhuang, Yueting",
-        "Shen, Yongliang"
-      ],
-      "year": 2026,
-      "submitted": "2026-05-14",
-      "paper_url": "https://arxiv.org/abs/2605.15155",
-      "description": "For multi-turn agents, the method keeps environment-reward policy optimization as the main loss and adds a sigmoid-gated self-distillation term on student trajectories. A skill-conditioned self-teacher’s positive sampled-token probability gaps receive more weight than negative gaps, which may reflect unreliable retrieved skills.",
-      "objective": "Clipped group-relative policy-gradient loss from environment rewards plus an auxiliary sampled-token teacher–student log-probability-gap term weighted by a detached sigmoid gate.",
-      "mechanism": "hybrid_opd",
-      "home": "7",
-      "code_urls": [
-        "https://github.com/ZJU-REAL/SDAR"
-      ],
-      "source_version": "[Submitted on 14 May 2026]",
-      "code_status": "linked",
-      "arxiv_id": "2605.15155",
-      "year_month": "2026-05",
-      "bibtex": "@misc{opd_323630352e3135313535,\n  title = {{Self-Distilled Agentic Reinforcement Learning}},\n  author = {Lu, Zhengxi and Yao, Zhiyuan and Han, Zhuowen and Wang, Zi-Han and Wu, Jinyang and Gu, Qi and Cai, Xunliang and Lu, Weiming and Xiao, Jun and Zhuang, Yueting and Shen, Yongliang},\n  year = {2026},\n  url = {https://arxiv.org/abs/2605.15155},\n  eprint = {2605.15155},\n  archivePrefix = {arXiv}\n}"
     },
     {
       "paper_id": "2605.15239",
@@ -4758,33 +4177,6 @@
       "bibtex": "@misc{opd_323630352e3237313836,\n  title = {{MAIGO: Mitigating Lost-in-Conversation with History-Cleaned On-Policy Self-Distillation}},\n  author = {Zheng, Haoyu and Zhu, Yun and Yuan, Shu and Chen, Shangming and Wang, Qing and Zhang, Wenqiao and Xiao, Jun and Zhuang, Yueting},\n  year = {2026},\n  url = {https://arxiv.org/abs/2605.27186},\n  eprint = {2605.27186},\n  archivePrefix = {arXiv}\n}"
     },
     {
-      "paper_id": "2605.27255",
-      "title": "Pair-In, Pair-Out: Latent Multi-Token Prediction for Efficient LLMs",
-      "authors": [
-        "Tan, Wenhui",
-        "Li, Minghao",
-        "Ma, Xiaoqian",
-        "Fan, Siqi",
-        "Huang, Xiusheng",
-        "Zhang, Liujie",
-        "Song, Ruihua",
-        "Chen, Weihang"
-      ],
-      "year": 2026,
-      "submitted": "2026-05-26",
-      "paper_url": "https://arxiv.org/abs/2605.27255",
-      "description": "PIPO combines paired-token latent input compression with multi-token prediction and learns a confidence head from teacher-to-student acceptance probabilities during on-policy distillation. The head replaces inference-time verifier passes; experiments cover pairwise compression on the tested Qwen3.5 backbones.",
-      "objective": "On-policy sampled-token reverse-KL distillation for backbone and draft positions, plus binary cross-entropy for confidence against detached teacher-to-student draft acceptance probabilities; an earlier supervised stage uses token cross-entropy.",
-      "mechanism": "application",
-      "home": "9",
-      "code_urls": [],
-      "source_version": "[Submitted on 26 May 2026 ( v1 ), last revised 29 May 2026 (this version, v2)]",
-      "code_status": "No repository listed",
-      "arxiv_id": "2605.27255",
-      "year_month": "2026-05",
-      "bibtex": "@misc{opd_323630352e3237323535,\n  title = {{Pair-In, Pair-Out: Latent Multi-Token Prediction for Efficient LLMs}},\n  author = {Tan, Wenhui and Li, Minghao and Ma, Xiaoqian and Fan, Siqi and Huang, Xiusheng and Zhang, Liujie and Song, Ruihua and Chen, Weihang},\n  year = {2026},\n  url = {https://arxiv.org/abs/2605.27255},\n  eprint = {2605.27255},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
       "paper_id": "2605.28014",
       "title": "Beyond Imitation: Reflective On-Policy Self-Distillation for LLM Reasoning",
       "authors": [
@@ -4898,37 +4290,6 @@
       "bibtex": "@misc{opd_323630352e3330323531,\n  title = {{Same Evidence, Different Answers: Canonical-Context On-Policy Distillation for Multi-Turn Language Models}},\n  author = {Lin, Zizhuo and Liu, Quanling and Quan, Jinsheng and Zhang, Chao and Zhu, Yifan and Shi, Xing and Xu, Jingtao and Li, Zhihui and Luo, Yawei},\n  year = {2026},\n  url = {https://arxiv.org/abs/2605.30251},\n  eprint = {2605.30251},\n  archivePrefix = {arXiv}\n}"
     },
     {
-      "paper_id": "2605.30833",
-      "title": "Your Teacher Can't Help You Here: Combating Supervision Fidelity Decay in On-Policy Distillation",
-      "authors": [
-        "Liu, Yanjiang",
-        "Lou, Jie",
-        "Guan, Xinyan",
-        "Ji, Yuqiu",
-        "Lin, Hongyu",
-        "He, Ben",
-        "Han, Xianpei",
-        "Sun, Le",
-        "Yu, Xing",
-        "Lu, Yaojie"
-      ],
-      "year": 2026,
-      "submitted": "2026-05-29",
-      "paper_url": "https://arxiv.org/abs/2605.30833",
-      "description": "On student-generated reasoning prefixes, this method addresses declining teacher confidence by rewarding candidate tokens that leave the teacher more confident at the next position, alongside reverse-KL distillation. The extra signal is gated by student entropy and requires access to teacher logits.",
-      "objective": "Per-token reverse-KL teacher feedback plus a group-normalized, one-step teacher-confidence reward at high-student-entropy positions; reverse KL alone elsewhere.",
-      "mechanism": "hybrid_opd",
-      "home": "4",
-      "code_urls": [
-        "https://github.com/zui-jiang/LGR"
-      ],
-      "source_version": "[Submitted on 29 May 2026]",
-      "code_status": "linked",
-      "arxiv_id": "2605.30833",
-      "year_month": "2026-05",
-      "bibtex": "@misc{opd_323630352e3330383333,\n  title = {{Your Teacher Can't Help You Here: Combating Supervision Fidelity Decay in On-Policy Distillation}},\n  author = {Liu, Yanjiang and Lou, Jie and Guan, Xinyan and Ji, Yuqiu and Lin, Hongyu and He, Ben and Han, Xianpei and Sun, Le and Yu, Xing and Lu, Yaojie},\n  year = {2026},\n  url = {https://arxiv.org/abs/2605.30833},\n  eprint = {2605.30833},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
       "paper_id": "2605.31159",
       "title": "Trust-Region Behavior Blending for On-Policy Distillation",
       "authors": [
@@ -5006,51 +4367,6 @@
       "arxiv_id": "2606.00147",
       "year_month": "2026-05",
       "bibtex": "@misc{opd_323630362e3030313437,\n  title = {{RAFT: Data Refinement and Adaptive Distillation for Domain Fine-Tuning with Alleviated Forgetting}},\n  author = {Li, Yuduo and Shi, Xiaofeng and Kou, Qian and Yu, Longbin and Zhou, Hua},\n  year = {2026},\n  url = {https://arxiv.org/abs/2606.00147},\n  eprint = {2606.00147},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
-      "paper_id": "2606.00305",
-      "title": "Bridging Reasoning Trajectories in On-Policy Distillation via Near-Future Guidance",
-      "authors": [
-        "Jiang, Yuxuan",
-        "Ferraro, Francis"
-      ],
-      "year": 2026,
-      "submitted": "2026-05-29",
-      "paper_url": "https://arxiv.org/abs/2606.00305",
-      "description": "TOPD compares short teacher and student continuations from the same student prefix to identify consequential divergence, then adds optimal-transport-aligned guidance across future tokens to ordinary distillation. Its correction uses a short future window and requires additional teacher and student continuations.",
-      "objective": "Token-level on-policy reverse-KL loss plus a weighted teacher-to-student KL loss against optimal-transport-aligned soft targets at selected future positions.",
-      "mechanism": "direct_opd",
-      "home": "4",
-      "code_urls": [],
-      "source_version": "[Submitted on 29 May 2026 ( v1 ), last revised 29 Jun 2026 (this version, v2)]",
-      "code_status": "No repository listed",
-      "arxiv_id": "2606.00305",
-      "year_month": "2026-05",
-      "bibtex": "@misc{opd_323630362e3030333035,\n  title = {{Bridging Reasoning Trajectories in On-Policy Distillation via Near-Future Guidance}},\n  author = {Jiang, Yuxuan and Ferraro, Francis},\n  year = {2026},\n  url = {https://arxiv.org/abs/2606.00305},\n  eprint = {2606.00305},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
-      "paper_id": "2606.00424",
-      "title": "Weak Critics Make Strong Learners: On-Policy Critique Distillation for Scalable Oversight",
-      "authors": [
-        "Jin, Can",
-        "Li, Jiakang",
-        "Wu, Rui",
-        "Zhang, Eddy Z.",
-        "Metaxas, Dimitris N."
-      ],
-      "year": 2026,
-      "submitted": "2026-05-29",
-      "paper_url": "https://arxiv.org/abs/2606.00424",
-      "description": "A weak model critiques the strong model’s sampled answers; outcome and rubric checks select critiques before a critique-conditioned copy of the strong model supplies token distributions to its unconditioned student. Training refreshes answers and critiques, although its procedure also retains earlier selected examples.",
-      "objective": "Minimize token-level KL from the unconditioned student distribution to a stopped-gradient, critique-conditioned self-teacher distribution on selected answer trajectories.",
-      "mechanism": "direct_opd",
-      "home": "5",
-      "code_urls": [],
-      "source_version": "[Submitted on 29 May 2026 ( v1 ), last revised 21 Aug 2026 (this version, v2)]",
-      "code_status": "No repository listed",
-      "arxiv_id": "2606.00424",
-      "year_month": "2026-05",
-      "bibtex": "@misc{opd_323630362e3030343234,\n  title = {{Weak Critics Make Strong Learners: On-Policy Critique Distillation for Scalable Oversight}},\n  author = {Jin, Can and Li, Jiakang and Wu, Rui and Zhang, Eddy Z. and Metaxas, Dimitris N.},\n  year = {2026},\n  url = {https://arxiv.org/abs/2606.00424},\n  eprint = {2606.00424},\n  archivePrefix = {arXiv}\n}"
     },
     {
       "paper_id": "2606.00564",
@@ -5247,30 +4563,6 @@
       "bibtex": "@misc{opd_323630362e3033303839,\n  title = {{Constitutional On-Policy Safe Distillation}},\n  author = {Wen, Ming and Liu, Yuxuan and Yang, Kun and Feng, Yunhao and Xu, Zhuoer and Sun, Yuhao and Cui, Shiwen and Zheng, Xiang and Liu, Yi and Ma, Xingjun and Jiang, Yu-Gang},\n  year = {2026},\n  url = {https://arxiv.org/abs/2606.03089},\n  eprint = {2606.03089},\n  archivePrefix = {arXiv}\n}"
     },
     {
-      "paper_id": "2606.03532",
-      "title": "When Should the Teacher Move? Temporal Coupling and Stability in Self On-Policy Distillation",
-      "authors": [
-        "Guo, Haowei",
-        "Bi, Baolong",
-        "Zhang, Ruicheng",
-        "Sun, Bingqian",
-        "Zhang, Wentao"
-      ],
-      "year": 2026,
-      "submitted": "2026-06-02",
-      "paper_url": "https://arxiv.org/abs/2606.03532",
-      "description": "The paper studies freezing and refreshing a historical self-teacher, then proposes hard refreshes gated by a minimum isolation period, reward improvement, and response-length tail safety. Its stability findings are empirical and confined to the evaluated model and task settings.",
-      "objective": "A group-relative reward policy-gradient loss plus teacher distillation approximated by top-k Jensen–Shannon divergence with importance-sampling correction.",
-      "mechanism": "hybrid_opd",
-      "home": "6",
-      "code_urls": [],
-      "source_version": "[Submitted on 2 Jun 2026]",
-      "code_status": "No repository listed",
-      "arxiv_id": "2606.03532",
-      "year_month": "2026-06",
-      "bibtex": "@misc{opd_323630362e3033353332,\n  title = {{When Should the Teacher Move? Temporal Coupling and Stability in Self On-Policy Distillation}},\n  author = {Guo, Haowei and Bi, Baolong and Zhang, Ruicheng and Sun, Bingqian and Zhang, Wentao},\n  year = {2026},\n  url = {https://arxiv.org/abs/2606.03532},\n  eprint = {2606.03532},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
       "paper_id": "2606.03603",
       "title": "World Models Meet Language Models: On the Complementarity of Concrete and Abstract Reasoning",
       "authors": [
@@ -5375,31 +4667,6 @@
       "arxiv_id": "2606.04703",
       "year_month": "2026-06",
       "bibtex": "@misc{opd_323630362e3034373033,\n  title = {{Rethinking Continual Experience Internalization for Self-Evolving LLM Agents}},\n  author = {Chen, Jingwen and Yang, Wenkai and Fan, Shengda and Nie, Wenbo and Sun, Chenxing and Zheng, Shaodong and Hu, Yangen and Pan, Lu and Zeng, Ke and Lin, Yankai},\n  year = {2026},\n  url = {https://arxiv.org/abs/2606.04703},\n  eprint = {2606.04703},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
-      "paper_id": "2606.05122",
-      "title": "Self-Evaluation Is Already There: Eliciting Latent Judge Calibration in Base LLMs with Minimal Data",
-      "authors": [
-        "Zhang, XiuYu",
-        "Shan, Yi",
-        "Fang, Junfeng",
-        "Liang, Zhenkai"
-      ],
-      "year": 2026,
-      "submitted": "2026-06-03",
-      "paper_url": "https://arxiv.org/abs/2606.05122",
-      "description": "SEE alternates reinforcement learning from external-judge quality and calibration rewards with masked training on collected model responses, replacing their self-ratings with the judge’s scores. The masked loss supervises self-evaluation score tokens, not answer tokens or a judge’s token distribution.",
-      "objective": "Optimize the full response with a reward combining judge-rated answer quality and agreement between self-scores and judge scores; then apply masked cross-entropy to judge-score tokens in reused rollouts.",
-      "mechanism": "hybrid_opd",
-      "home": "5",
-      "code_urls": [
-        "https://github.com/YiShan05/SEE_official"
-      ],
-      "source_version": "[Submitted on 3 Jun 2026 ( v1 ), last revised 28 Aug 2026 (this version, v2)]",
-      "code_status": "linked",
-      "arxiv_id": "2606.05122",
-      "year_month": "2026-06",
-      "bibtex": "@misc{opd_323630362e3035313232,\n  title = {{Self-Evaluation Is Already There: Eliciting Latent Judge Calibration in Base LLMs with Minimal Data}},\n  author = {Zhang, XiuYu and Shan, Yi and Fang, Junfeng and Liang, Zhenkai},\n  year = {2026},\n  url = {https://arxiv.org/abs/2606.05122},\n  eprint = {2606.05122},\n  archivePrefix = {arXiv}\n}"
     },
     {
       "paper_id": "2606.05152",
@@ -5512,31 +4779,6 @@
       "bibtex": "@misc{opd_323630362e3037303832,\n  title = {{On the Geometry of On-Policy Distillation}},\n  author = {Shen, Zhennan and Li, Yanshu and Yin, Qingyu and Leong, Chak Tou and Wang, Zhilin and Chen, Yanxu and Han, Rongduo and Lee, Sunbowen and Fung, Yi R.},\n  year = {2026},\n  url = {https://arxiv.org/abs/2606.07082},\n  eprint = {2606.07082},\n  archivePrefix = {arXiv}\n}"
     },
     {
-      "paper_id": "2606.08432",
-      "title": "Trajectory-Refined Distillation",
-      "authors": [
-        "Jiang, Li",
-        "Xu, Haoran",
-        "Ding, Yichuan",
-        "Zhang, Amy"
-      ],
-      "year": 2026,
-      "submitted": "2026-06-07",
-      "paper_url": "https://arxiv.org/abs/2606.08432",
-      "description": "A student first generates a rollout, which a teacher refines using that rollout and a reference solution; distillation then matches token distributions along the refined trajectory rather than the original student prefixes. Teacher-generated corrections change the supervised state distribution, so this is not pure direct on-policy matching.",
-      "objective": "Full-vocabulary teacher-to-student token-distribution KL along teacher-refined trajectories seeded by student rollouts.",
-      "mechanism": "hybrid_opd",
-      "home": "6",
-      "code_urls": [
-        "https://github.com/louieworth/trd"
-      ],
-      "source_version": "[Submitted on 7 Jun 2026]",
-      "code_status": "linked",
-      "arxiv_id": "2606.08432",
-      "year_month": "2026-06",
-      "bibtex": "@misc{opd_323630362e3038343332,\n  title = {{Trajectory-Refined Distillation}},\n  author = {Jiang, Li and Xu, Haoran and Ding, Yichuan and Zhang, Amy},\n  year = {2026},\n  url = {https://arxiv.org/abs/2606.08432},\n  eprint = {2606.08432},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
       "paper_id": "2606.08719",
       "title": "Thinking Without Images: Internalizing Visual Manipulation with On-Policy Self-Distillation",
       "authors": [
@@ -5646,26 +4888,6 @@
       "arxiv_id": "2606.09471",
       "year_month": "2026-06",
       "bibtex": "@misc{opd_323630362e3039343731,\n  title = {{Escaping the KL Agreement Trap in On-Policy Distillation}},\n  author = {Xin, Haoran and Zhao, Anhao and Sun, Ying and Li, Jin and Shen, Xiaoyu and Xiong, Hui},\n  year = {2026},\n  url = {https://arxiv.org/abs/2606.09471},\n  eprint = {2606.09471},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
-      "paper_id": "2606.10334",
-      "title": "Self-Distillation Policy Optimization via Visual Feedback: Bridging Code and Visual Artifacts",
-      "authors": [
-        "Dong, Haoyu"
-      ],
-      "year": 2026,
-      "submitted": "2026-06-09",
-      "paper_url": "https://arxiv.org/abs/2606.10334",
-      "description": "On student-generated code for charts, interfaces, and slides, a weight-sharing teacher re-scores tokens with rendered feedback. Defect-to-statement mapping weights token-level KL alongside a sequence-level reward; failed executions instead supply error traces to the teacher.",
-      "objective": "Statement-weighted token-level student-to-teacher KL on student rollouts, jointly with a sequence-level GRPO objective using execution success and visual-quality reward.",
-      "mechanism": "hybrid_opd",
-      "home": "5",
-      "code_urls": [],
-      "source_version": "[Submitted on 9 Jun 2026]",
-      "code_status": "No repository listed",
-      "arxiv_id": "2606.10334",
-      "year_month": "2026-06",
-      "bibtex": "@misc{opd_323630362e3130333334,\n  title = {{Self-Distillation Policy Optimization via Visual Feedback: Bridging Code and Visual Artifacts}},\n  author = {Dong, Haoyu},\n  year = {2026},\n  url = {https://arxiv.org/abs/2606.10334},\n  eprint = {2606.10334},\n  archivePrefix = {arXiv}\n}"
     },
     {
       "paper_id": "2606.10385",
@@ -5976,32 +5198,6 @@
       "bibtex": "@misc{opd_323630362e3237383134,\n  title = {{ATOD: Annealed Turn-Aware On-Policy Distillation for Multi-Turn Agentic Tasks}},\n  author = {Tan, Qitai and Zong, Zefang and Li, Mo and Shi, Yipeng and Li, Yang and Chen, Peng},\n  year = {2026},\n  url = {https://arxiv.org/abs/2606.27814},\n  eprint = {2606.27814},\n  archivePrefix = {arXiv}\n}"
     },
     {
-      "paper_id": "2606.28562",
-      "title": "SEAD: Competence-Aware On-Policy Distillation via Entropy-Guided Supervision",
-      "authors": [
-        "Lee, Chia-Hsuan",
-        "Cheng, Zelei",
-        "Wang, Yu",
-        "Ni, Renkun",
-        "Sahu, Sambit",
-        "Zhang, Shi-Xiong",
-        "Campbell, William"
-      ],
-      "year": 2026,
-      "submitted": "2026-06-26",
-      "paper_url": "https://arxiv.org/abs/2606.28562",
-      "description": "SEAD trains on student rollouts scored by a teacher, routing tokens by joint entropy to no update, reverse KL, or forward KL. It reduces the forward-KL branch over training and orders math prompts by initial student pass rate; difficulty scores are not refreshed.",
-      "objective": "Reverse KL on teacher-confident, student-uncertain tokens; a scheduled, diminishing forward-KL term on teacher-uncertain tokens; and zero gradient on skipped tokens, using an easy-to-hard prompt curriculum.",
-      "mechanism": "direct_opd",
-      "home": "6",
-      "code_urls": [],
-      "source_version": "[Submitted on 26 Jun 2026]",
-      "code_status": "No repository listed",
-      "arxiv_id": "2606.28562",
-      "year_month": "2026-06",
-      "bibtex": "@misc{opd_323630362e3238353632,\n  title = {{SEAD: Competence-Aware On-Policy Distillation via Entropy-Guided Supervision}},\n  author = {Lee, Chia-Hsuan and Cheng, Zelei and Wang, Yu and Ni, Renkun and Sahu, Sambit and Zhang, Shi-Xiong and Campbell, William},\n  year = {2026},\n  url = {https://arxiv.org/abs/2606.28562},\n  eprint = {2606.28562},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
       "paper_id": "2606.29502",
       "title": "UCOB: Learning to Utilize and Evolve Agentic Skills via Credit-Aware On-Policy Bidirectional Self-Distillation",
       "authors": [
@@ -6032,28 +5228,6 @@
       "bibtex": "@misc{opd_323630362e3239353032,\n  title = {{UCOB: Learning to Utilize and Evolve Agentic Skills via Credit-Aware On-Policy Bidirectional Self-Distillation}},\n  author = {Tu, Songjun and Xu, Chengdong and Zhang, Qichao and Ma, Yiwen and Zhang, Yaocheng and Li, Linjing and Li, Dong and Lan, Xiangyuan and Zhao, Dongbin},\n  year = {2026},\n  url = {https://arxiv.org/abs/2606.29502},\n  eprint = {2606.29502},\n  archivePrefix = {arXiv}\n}"
     },
     {
-      "paper_id": "2606.29863",
-      "title": "KbSD: Knowledge Boundary aware Self-Distillation for Behavioral Calibration in Agentic Search",
-      "authors": [
-        "Feng, Tao",
-        "Jiang, Xinke",
-        "Wu, Chao"
-      ],
-      "year": 2026,
-      "submitted": "2026-06-29",
-      "paper_url": "https://arxiv.org/abs/2606.29863",
-      "description": "For agentic search, KbSD uses a boundary-hinted self-teacher to supervise a hint-free student, selecting reverse matching on student rollouts, teacher-trajectory likelihood, or a gradient-balanced combination by knowledge quadrant alongside reward optimization. Its teacher-generated forward examples are not student-state OPD.",
-      "objective": "Quadrant-selected reverse KL on student rollouts, teacher-trajectory likelihood for the forward branch, or a gradient-balanced combination, jointly with group-relative reward policy optimization and reference-policy KL regularization.",
-      "mechanism": "hybrid_opd",
-      "home": "7",
-      "code_urls": [],
-      "source_version": "[Submitted on 29 Jun 2026]",
-      "code_status": "No repository listed",
-      "arxiv_id": "2606.29863",
-      "year_month": "2026-06",
-      "bibtex": "@misc{opd_323630362e3239383633,\n  title = {{KbSD: Knowledge Boundary aware Self-Distillation for Behavioral Calibration in Agentic Search}},\n  author = {Feng, Tao and Jiang, Xinke and Wu, Chao},\n  year = {2026},\n  url = {https://arxiv.org/abs/2606.29863},\n  eprint = {2606.29863},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
       "paper_id": "2606.30044",
       "title": "Building Multi-Task Agentic LLMs via Two-Phase Distillation",
       "authors": [
@@ -6075,41 +5249,6 @@
       "arxiv_id": "2606.30044",
       "year_month": "2026-06",
       "bibtex": "@misc{opd_323630362e3330303434,\n  title = {{Building Multi-Task Agentic LLMs via Two-Phase Distillation}},\n  author = {Wang, Huaijie and Xu, Shusheng and Wu, Yi and Lyu, Kaifeng},\n  year = {2026},\n  url = {https://arxiv.org/abs/2606.30044},\n  eprint = {2606.30044},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
-      "paper_id": "2606.30345",
-      "title": "DRIFT: Difficulty Routing Self-DIstillation with Rhythm-Gated Exploration and Success BuFfer Training",
-      "authors": [
-        "Luo, Haisen",
-        "Liu, Yiwei",
-        "Wang, Haoning",
-        "Liu, Dan",
-        "Yin, Junxi",
-        "Wang, Haotian",
-        "Zhang, Lei",
-        "Tian, Xiaoyu",
-        "Chen, Shuaiting",
-        "Song, Yuansheng",
-        "Guo, Baoyan",
-        "Yan, Xiongfei",
-        "Yang, Bolan",
-        "Liu, Chengwei",
-        "Cui, Ming",
-        "Chen, Jiong"
-      ],
-      "year": 2026,
-      "submitted": "2026-06-29",
-      "paper_url": "https://arxiv.org/abs/2606.30345",
-      "description": "DRIFT warms up with self-distillation, then applies privileged-sibling token distillation to failed student rollouts and difficulty-weighted, rhythm-gated policy updates to successful ones. A historical success buffer supplies sibling context when the current group has no success, so teacher context is not always newly sampled.",
-      "objective": "Stop-gradient Jensen–Shannon distillation from a success-conditioned self-teacher on incorrect rollouts; clipped group-relative policy-gradient updates on correct rollouts, weighted by problem difficulty and token-level rhythm gating.",
-      "mechanism": "hybrid_opd",
-      "home": "6",
-      "code_urls": [],
-      "source_version": "[Submitted on 29 Jun 2026 ( v1 ), last revised 10 Aug 2026 (this version, v4)]",
-      "code_status": "No repository listed",
-      "arxiv_id": "2606.30345",
-      "year_month": "2026-06",
-      "bibtex": "@misc{opd_323630362e3330333435,\n  title = {{DRIFT: Difficulty Routing Self-DIstillation with Rhythm-Gated Exploration and Success BuFfer Training}},\n  author = {Luo, Haisen and Liu, Yiwei and Wang, Haoning and Liu, Dan and Yin, Junxi and Wang, Haotian and Zhang, Lei and Tian, Xiaoyu and Chen, Shuaiting and Song, Yuansheng and Guo, Baoyan and Yan, Xiongfei and Yang, Bolan and Liu, Chengwei and Cui, Ming and Chen, Jiong},\n  year = {2026},\n  url = {https://arxiv.org/abs/2606.30345},\n  eprint = {2606.30345},\n  archivePrefix = {arXiv}\n}"
     },
     {
       "paper_id": "2606.30406",
@@ -6231,31 +5370,6 @@
       "bibtex": "@misc{opd_323630362e3330393233,\n  title = {{Behavior Cloning is Not All You Need: The Optimality of On-Policy Distillation for Noisy Expert Feedback}},\n  author = {Sriraman, Ved and Liu, Peihan and Hsu, Daniel and Block, Adam},\n  year = {2026},\n  url = {https://arxiv.org/abs/2606.30923},\n  eprint = {2606.30923},\n  archivePrefix = {arXiv}\n}"
     },
     {
-      "paper_id": "2607.04037",
-      "title": "Reward-Gated On-Policy Distillation",
-      "authors": [
-        "Akhondzadeh, Mohammad Sadegh",
-        "Lingam, Vijay",
-        "Tejaswi, Atula",
-        "Ekbote, Chanakya",
-        "Sanghavi, Sujay",
-        "Bojchevski, Aleksandar"
-      ],
-      "year": 2026,
-      "submitted": "2026-07-04",
-      "paper_url": "https://arxiv.org/abs/2607.04037",
-      "description": "RG-OPD samples student trajectories and uses verifier feedback together with the teacher–student trajectory likelihood gap to admit or discard each trajectory. It applies token-level reverse-KL distillation only to admitted trajectories; verifier reward gates supervision rather than supplying a separate reward-maximization loss.",
-      "objective": "Minimize top-k-approximated student-to-teacher reverse KL on student-visited states, restricted to trajectories whose verifier advantage and teacher–student likelihood gap agree in direction.",
-      "mechanism": "direct_opd",
-      "home": "4",
-      "code_urls": [],
-      "source_version": "[Submitted on 4 Jul 2026]",
-      "code_status": "No repository listed",
-      "arxiv_id": "2607.04037",
-      "year_month": "2026-07",
-      "bibtex": "@misc{opd_323630372e3034303337,\n  title = {{Reward-Gated On-Policy Distillation}},\n  author = {Akhondzadeh, Mohammad Sadegh and Lingam, Vijay and Tejaswi, Atula and Ekbote, Chanakya and Sanghavi, Sujay and Bojchevski, Aleksandar},\n  year = {2026},\n  url = {https://arxiv.org/abs/2607.04037},\n  eprint = {2607.04037},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
       "paper_id": "2607.04425",
       "title": "UI-MOPD: Multi-Platform On-Policy Distillation for Unified GUI Agents",
       "authors": [
@@ -6274,7 +5388,7 @@
       "year": 2026,
       "submitted": "2026-07-05",
       "paper_url": "https://arxiv.org/abs/2607.04425",
-      "description": "UI-MOPD trains a shared GUI student on its own rollouts, routing each desktop or mobile trajectory to the corresponding platform specialist. Teacher guidance preserves platform-specific behavior during adaptation; the reported evidence concerns the evaluated desktop and mobile environments.",
+      "description": "UI-MOPD routes GUI responses to platform-specific teachers and combines masked distribution guidance with reward-based updates. Current controls compare matched student and data settings with unified, platform-specific, randomly routed and unmasked supervision, supporting platform-dependent teacher selection in the tested desktop and mobile tasks.",
       "objective": "Student-rollout distillation from the platform-selected teacher; the local v1 combines clipped policy optimization with an adaptively masked teacher divergence, while the current v2 abstract does not specify the complete loss.",
       "mechanism": "hybrid_opd",
       "home": "5",
@@ -6509,60 +5623,6 @@
       "arxiv_id": "2607.13124",
       "year_month": "2026-07",
       "bibtex": "@misc{opd_323630372e3133313234,\n  title = {{ShortOPD: Recovering Pruned LLMs with Short-to-Long On-Policy Distillation}},\n  author = {Zhang, Qingyu and Yuan, Qianhao and Lin, Hongyu and Lu, Yaojie and Han, Xianpei and Sun, Le and Xu, Ming and Li, Jiarui},\n  year = {2026},\n  url = {https://arxiv.org/abs/2607.13124},\n  eprint = {2607.13124},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
-      "paper_id": "2607.13399",
-      "title": "Demystifying On-Policy Distillation: Roles, Pathologies, and Regulations",
-      "authors": [
-        "Wang, Rui",
-        "Wang, Hongru",
-        "Chen, Yi",
-        "Xue, Boyang",
-        "Fang, Tianqing",
-        "Yu, Wenhao",
-        "Wong, Kam-Fai"
-      ],
-      "year": 2026,
-      "submitted": "2026-07-15",
-      "paper_url": "https://arxiv.org/abs/2607.13399",
-      "description": "This study tests whether OPD improves access to already reachable solutions and diagnoses misleading teacher signals and incentives to pad or truncate responses. It examines clipping and log compression of token advantages, but its coverage and regulation findings come chiefly from mathematical reasoning experiments.",
-      "objective": "Clipped-ratio policy-gradient updates use sampled-token teacher-minus-student log-probability differences as advantages, either unregulated, bounded by advantage clipping, or signed-log compressed.",
-      "mechanism": "analysis",
-      "home": "8",
-      "code_urls": [],
-      "source_version": "[Submitted on 15 Jul 2026]",
-      "code_status": "No repository listed",
-      "arxiv_id": "2607.13399",
-      "year_month": "2026-07",
-      "bibtex": "@misc{opd_323630372e3133333939,\n  title = {{Demystifying On-Policy Distillation: Roles, Pathologies, and Regulations}},\n  author = {Wang, Rui and Wang, Hongru and Chen, Yi and Xue, Boyang and Fang, Tianqing and Yu, Wenhao and Wong, Kam-Fai},\n  year = {2026},\n  url = {https://arxiv.org/abs/2607.13399},\n  eprint = {2607.13399},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
-      "paper_id": "2607.15736",
-      "title": "Better Starts, Better Ends: Bootstrapped Iterative Self-Reasoning Distillation for Compressed Reasoning",
-      "authors": [
-        "Dong, Leichao",
-        "Zhang, Dongxu",
-        "Sun, Yiding",
-        "Wang, Qirui",
-        "Wang, Yuhan",
-        "Chen, Lin",
-        "Zhu, Jihua"
-      ],
-      "year": 2026,
-      "submitted": "2026-07-17",
-      "paper_url": "https://arxiv.org/abs/2607.15736",
-      "description": "BIRD first fine-tunes on answer-correct concise traces generated under a brevity instruction but learned under the original prompt. It then matches a periodically refreshed concise self-teacher on warm-started student prefixes using reverse KL; its reported evaluations concern mathematical reasoning.",
-      "objective": "First maximize the likelihood of correctness-filtered self-generated traces under the original prompt; then minimize token-level student-to-concise-self-teacher KL on student-sampled prefixes.",
-      "mechanism": "hybrid_opd",
-      "home": "6",
-      "code_urls": [
-        "https://github.com/KawhiC/BIRD"
-      ],
-      "source_version": "[Submitted on 17 Jul 2026]",
-      "code_status": "linked",
-      "arxiv_id": "2607.15736",
-      "year_month": "2026-07",
-      "bibtex": "@misc{opd_323630372e3135373336,\n  title = {{Better Starts, Better Ends: Bootstrapped Iterative Self-Reasoning Distillation for Compressed Reasoning}},\n  author = {Dong, Leichao and Zhang, Dongxu and Sun, Yiding and Wang, Qirui and Wang, Yuhan and Chen, Lin and Zhu, Jihua},\n  year = {2026},\n  url = {https://arxiv.org/abs/2607.15736},\n  eprint = {2607.15736},\n  archivePrefix = {arXiv}\n}"
     },
     {
       "paper_id": "2607.16872",
@@ -6858,7 +5918,7 @@
       "year": 2026,
       "submitted": "2026-07-31",
       "paper_url": "https://arxiv.org/abs/2607.29078",
-      "description": "DASH-OPD alternates student and teacher as turn executors, accumulating action-token log-probability discrepancies as separate drift and recovery evidence before switching. Its distillation direction depends on the executor, with hysteresis reducing repeated handoffs in the evaluated interactive tasks.",
+      "description": "DASH-OPD accumulates drift and recovery evidence to alternate student and teacher execution, applying different losses to each source. Updated controls isolate recovery and evidence accumulation with matched tuning budgets. Fewer switches and teacher turns are measured execution properties, not a demonstrated end-to-end speedup.",
       "objective": "Reverse KL on valid response tokens in student turns and forward KL on valid response tokens in teacher turns, with a teacher-turn weight.",
       "mechanism": "hybrid_opd",
       "home": "7",
@@ -6870,35 +5930,6 @@
       "arxiv_id": "2607.29078",
       "year_month": "2026-07",
       "bibtex": "@misc{opd_323630372e3239303738,\n  title = {{DASH-OPD: Discrepancy-Aware Switching with Hysteresis for On-Policy Distillation}},\n  author = {Xia, Yuchen and Sun, Qianguo and Song, Chao and Wu, Junlong and Qi, Yiyan and Xu, Yunjian},\n  year = {2026},\n  url = {https://arxiv.org/abs/2607.29078},\n  eprint = {2607.29078},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
-      "paper_id": "2607.29209",
-      "title": "SAF-OPD: Stable Advantage Fusion for On-Policy Distillation",
-      "authors": [
-        "Ding, Yifan",
-        "Wei, Xincheng",
-        "Li, Yoshua Y.",
-        "Li, Ziheng",
-        "Lu, Yuquan",
-        "Zhang, Siyu",
-        "Ma, Dongsheng",
-        "Weng, Rongxiang",
-        "Cai, Xunliang",
-        "Chen, Yun"
-      ],
-      "year": 2026,
-      "submitted": "2026-07-31",
-      "paper_url": "https://arxiv.org/abs/2607.29209",
-      "description": "SAF-OPD combines verifier advantages with teacher-relative token advantages on student rollouts. It sparsifies and bounds only the teacher-derived advantages, then warms up and anneals their contribution; the reported evaluations cover mathematical reasoning and code generation.",
-      "objective": "Policy-gradient update using the unchanged group-normalized verifier advantage plus a sparsified, bounded, warm-up-and-annealed sampled-token teacher-minus-student log-probability advantage.",
-      "mechanism": "hybrid_opd",
-      "home": "4",
-      "code_urls": [],
-      "source_version": "[Submitted on 31 Jul 2026]",
-      "code_status": "No repository listed",
-      "arxiv_id": "2607.29209",
-      "year_month": "2026-07",
-      "bibtex": "@misc{opd_323630372e3239323039,\n  title = {{SAF-OPD: Stable Advantage Fusion for On-Policy Distillation}},\n  author = {Ding, Yifan and Wei, Xincheng and Li, Yoshua Y. and Li, Ziheng and Lu, Yuquan and Zhang, Siyu and Ma, Dongsheng and Weng, Rongxiang and Cai, Xunliang and Chen, Yun},\n  year = {2026},\n  url = {https://arxiv.org/abs/2607.29209},\n  eprint = {2607.29209},\n  archivePrefix = {arXiv}\n}"
     },
     {
       "paper_id": "2607.29494",
@@ -7092,38 +6123,6 @@
       "arxiv_id": "2608.01953",
       "year_month": "2026-08",
       "bibtex": "@misc{opd_323630382e3031393533,\n  title = {{Look Ahead Before You Distill: Future Trajectory Validation of Teacher Guidance for Agentic On-Policy Distillation}},\n  author = {Chen, Chishui and Fan, Yaoyou and Sun, Te and Yang, Yi and Sun, Chenghao and Mao, Delin and Qiao, Hongbo and Zhang, Zuowei and Wang, Junxi and Sun, Chenxing and Hu, Yangen and Pan, Lu and Liu, Xuyang and Zhang, Linfeng},\n  year = {2026},\n  url = {https://arxiv.org/abs/2608.01953},\n  eprint = {2608.01953},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
-      "paper_id": "2608.02139",
-      "title": "Self-Improving Large Language Models via Progressive Experience Evolution",
-      "authors": [
-        "Ren, Shijie",
-        "Wang, Xiting",
-        "Li, Meng",
-        "Guo, Yujie",
-        "Yao, Yunhang",
-        "Peng, Ziheng",
-        "Wang, Xunlong",
-        "Chen, Yuetan",
-        "Zhou, Haoyang",
-        "Liang, Yunlong",
-        "Meng, Fandong"
-      ],
-      "year": 2026,
-      "submitted": "2026-08-03",
-      "paper_url": "https://arxiv.org/abs/2608.02139",
-      "description": "SPEE extracts and filters reusable experience from successful and failed math-reasoning trajectories into a shared pool. A detached, experience-conditioned branch then supervises current-policy student rollouts through reverse-KL self-distillation, after which reward-driven policy optimization runs as a separate stage; the reported pipeline does not isolate the pool with a matched warm-start control.",
-      "objective": "Reverse KL from the student to a detached, experience-conditioned teacher distribution on student rollouts, followed by a separate clipped group-relative policy objective using response rewards.",
-      "mechanism": "hybrid_opd",
-      "home": "5",
-      "code_urls": [
-        "https://github.com/rrrsj/SPEE"
-      ],
-      "source_version": "[Submitted on 3 Aug 2026 ( v1 ), last revised 4 Aug 2026 (this version, v2)]",
-      "code_status": "linked",
-      "arxiv_id": "2608.02139",
-      "year_month": "2026-08",
-      "bibtex": "@misc{opd_323630382e3032313339,\n  title = {{Self-Improving Large Language Models via Progressive Experience Evolution}},\n  author = {Ren, Shijie and Wang, Xiting and Li, Meng and Guo, Yujie and Yao, Yunhang and Peng, Ziheng and Wang, Xunlong and Chen, Yuetan and Zhou, Haoyang and Liang, Yunlong and Meng, Fandong},\n  year = {2026},\n  url = {https://arxiv.org/abs/2608.02139},\n  eprint = {2608.02139},\n  archivePrefix = {arXiv}\n}"
     },
     {
       "paper_id": "2608.02948",
@@ -7332,33 +6331,6 @@
       "bibtex": "@misc{opd_323630382e3037333731,\n  title = {{Trajectory-Relative Hindsight Distillation for Agentic Reinforcement Learning}},\n  author = {Zheng, Haoyu and Zhu, Yun and Wang, Qing and Zhang, Wenqiao},\n  year = {2026},\n  url = {https://arxiv.org/abs/2608.07371},\n  eprint = {2608.07371},\n  archivePrefix = {arXiv}\n}"
     },
     {
-      "paper_id": "2608.07935",
-      "title": "Adaptive Supervised Anchoring for On-Policy Self-Distillation",
-      "authors": [
-        "Yang, Meilin",
-        "Ding, Zixuan",
-        "Nie, Jianhao",
-        "Zhang, Weite",
-        "Zhang, Yuxin",
-        "Shao, Zhiming",
-        "Yu, Li",
-        "Fu, Zhe"
-      ],
-      "year": 2026,
-      "submitted": "2026-08-08",
-      "paper_url": "https://arxiv.org/abs/2608.07935",
-      "description": "Adaptive supervised anchoring matches a privileged self-teacher on student-generated prefixes while separately training on ground-truth prefixes. Rollout–target alignment controls the supervised weight, keeping the conditioning contexts separate. Evaluation is limited to one model family and two adaptation tasks.",
-      "objective": "Rollout-conditioned token-distribution matching with a generalized Jensen–Shannon divergence, plus alignment-weighted supervised cross-entropy on canonical ground-truth prefixes.",
-      "mechanism": "hybrid_opd",
-      "home": "4",
-      "code_urls": [],
-      "source_version": "[Submitted on 8 Aug 2026 ( v1 ), last revised 11 Aug 2026 (this version, v2)]",
-      "code_status": "No repository listed",
-      "arxiv_id": "2608.07935",
-      "year_month": "2026-08",
-      "bibtex": "@misc{opd_323630382e3037393335,\n  title = {{Adaptive Supervised Anchoring for On-Policy Self-Distillation}},\n  author = {Yang, Meilin and Ding, Zixuan and Nie, Jianhao and Zhang, Weite and Zhang, Yuxin and Shao, Zhiming and Yu, Li and Fu, Zhe},\n  year = {2026},\n  url = {https://arxiv.org/abs/2608.07935},\n  eprint = {2608.07935},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
       "paper_id": "2608.08176",
       "title": "Matching Supervision to the Student's Learning Capacity: A Unified Framework for On-Policy Self-Distillation",
       "authors": [
@@ -7411,30 +6383,6 @@
       "arxiv_id": "2608.08726",
       "year_month": "2026-08",
       "bibtex": "@misc{opd_323630382e3038373236,\n  title = {{PAST: Privileged Adaptation from Complete Student Trajectories for On-Policy Self-Distillation}},\n  author = {Feng, Yangyang and Feng, Zhuoyan and Chen, Junlan},\n  year = {2026},\n  url = {https://arxiv.org/abs/2608.08726},\n  eprint = {2608.08726},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
-      "paper_id": "2608.08764",
-      "title": "Learning from Consensus and Disagreement: Unsupervised On-Policy Self-Distillation with Minority-Trajectory Contrast",
-      "authors": [
-        "Guo, Jiaxin",
-        "Yue, Yanwei",
-        "Fan, Xuanbo",
-        "Yang, Chunyu",
-        "Zhang, Yan"
-      ],
-      "year": 2026,
-      "submitted": "2026-08-09",
-      "paper_url": "https://arxiv.org/abs/2608.08764",
-      "description": "CODA constructs a self-teacher’s privileged context from answer agreement among unlabeled student rollouts, then matches distributions on a fresh student trajectory. A reference-anchored loss discourages minority trajectories; because consensus can be wrong, that branch supplies weak regularization rather than verified negative feedback.",
-      "objective": "Clipped forward KL from a consensus-conditioned frozen self-teacher on a fresh student rollout, plus a weighted, reference-anchored undesirable-response loss on minority-trajectory token probabilities.",
-      "mechanism": "hybrid_opd",
-      "home": "5",
-      "code_urls": [],
-      "source_version": "[Submitted on 9 Aug 2026]",
-      "code_status": "No repository listed",
-      "arxiv_id": "2608.08764",
-      "year_month": "2026-08",
-      "bibtex": "@misc{opd_323630382e3038373634,\n  title = {{Learning from Consensus and Disagreement: Unsupervised On-Policy Self-Distillation with Minority-Trajectory Contrast}},\n  author = {Guo, Jiaxin and Yue, Yanwei and Fan, Xuanbo and Yang, Chunyu and Zhang, Yan},\n  year = {2026},\n  url = {https://arxiv.org/abs/2608.08764},\n  eprint = {2608.08764},\n  archivePrefix = {arXiv}\n}"
     },
     {
       "paper_id": "2608.08960",
@@ -7890,34 +6838,6 @@
       "bibtex": "@misc{opd_323630382e3235393336,\n  title = {{One Symptom, Three Levers: A Critical Review of On-Policy Self-Distillation}},\n  author = {Robert, Justin and Qader, Raheel},\n  year = {2026},\n  url = {https://arxiv.org/abs/2608.25936},\n  eprint = {2608.25936},\n  archivePrefix = {arXiv}\n}"
     },
     {
-      "paper_id": "2608.26658",
-      "title": "PailitaoGR: Latent Think-with-Images for Generative Image Retrieval",
-      "authors": [
-        "Fan, Xiaomeng",
-        "Liu, Yueran",
-        "Zhou, Shengyu",
-        "Fu, Chenghan",
-        "Guan, Wanxian",
-        "Li, Feng",
-        "Yu, Chuan",
-        "Xu, Jian",
-        "Zheng, Bo"
-      ],
-      "year": 2026,
-      "submitted": "2026-08-27",
-      "paper_url": "https://arxiv.org/abs/2608.26658",
-      "description": "For product image search, a full-image retriever learns target focus from a crop teacher on student-generated identifier prefixes, alongside target-region and attention-entropy guidance. It selectively transfers additional OCR-teacher information when useful and accessible to the student; this is an image-retrieval application.",
-      "objective": "Ground-truth identifier cross-entropy, crop-teacher distillation on student-generated prefixes, target-region and attention-entropy losses, plus selective incremental contrastive OCR transfer. The method defines the distillation divergence as Jensen–Shannon, but its implementation description says forward KL.",
-      "mechanism": "application",
-      "home": "9",
-      "code_urls": [],
-      "source_version": "[Submitted on 27 Aug 2026]",
-      "code_status": "No repository listed",
-      "arxiv_id": "2608.26658",
-      "year_month": "2026-08",
-      "bibtex": "@misc{opd_323630382e3236363538,\n  title = {{PailitaoGR: Latent Think-with-Images for Generative Image Retrieval}},\n  author = {Fan, Xiaomeng and Liu, Yueran and Zhou, Shengyu and Fu, Chenghan and Guan, Wanxian and Li, Feng and Yu, Chuan and Xu, Jian and Zheng, Bo},\n  year = {2026},\n  url = {https://arxiv.org/abs/2608.26658},\n  eprint = {2608.26658},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
       "paper_id": "2608.26735",
       "title": "Recovering General Capabilities via Uncertainty-Calibrated Multi-Teacher On-Policy Distillation",
       "authors": [
@@ -8074,34 +6994,6 @@
       "arxiv_id": "2608.31046",
       "year_month": "2026-08",
       "bibtex": "@misc{opd_323630382e3331303436,\n  title = {{Does On-Policy Distillation Really Distill? From Noisy Teacher to Self-Improvement}},\n  author = {Ding, Yi and Zhang, Ruqi},\n  year = {2026},\n  url = {https://arxiv.org/abs/2608.31046},\n  eprint = {2608.31046},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
-      "paper_id": "2609.02401",
-      "title": "CA-OPD: Confidence-Aware On-Policy Distillation for Structured Visual Prediction",
-      "authors": [
-        "Li, Menghao",
-        "Mu, Linjie",
-        "Wang, Yin",
-        "Hu, Haotian",
-        "Gu, Yannian",
-        "Xue, Lujiayi",
-        "Tang, Liujian",
-        "Zhang, Yu",
-        "Wang, Fanyi"
-      ],
-      "year": 2026,
-      "submitted": "2026-09-02",
-      "paper_url": "https://arxiv.org/abs/2609.02401",
-      "description": "For structured visual prediction, a teacher checks student-proposed tokens, replaces weakly supported proposals in the rollout prefix, and gradually relaxes intervention. Replaced positions receive teacher-token cross-entropy; retained positions receive distributional supervision, so the prefixes are not purely student-generated.",
-      "objective": "Teacher-token cross-entropy at replaced positions and teacher-distribution matching at retained positions.",
-      "mechanism": "hybrid_opd",
-      "home": "6",
-      "code_urls": [],
-      "source_version": "[Submitted on 2 Sep 2026 ( v1 ), last revised 7 Sep 2026 (this version, v2)]",
-      "code_status": "No repository listed",
-      "arxiv_id": "2609.02401",
-      "year_month": "2026-09",
-      "bibtex": "@misc{opd_323630392e3032343031,\n  title = {{CA-OPD: Confidence-Aware On-Policy Distillation for Structured Visual Prediction}},\n  author = {Li, Menghao and Mu, Linjie and Wang, Yin and Hu, Haotian and Gu, Yannian and Xue, Lujiayi and Tang, Liujian and Zhang, Yu and Wang, Fanyi},\n  year = {2026},\n  url = {https://arxiv.org/abs/2609.02401},\n  eprint = {2609.02401},\n  archivePrefix = {arXiv}\n}"
     },
     {
       "paper_id": "2609.02548",
@@ -8289,64 +7181,6 @@
       "arxiv_id": "2609.07103",
       "year_month": "2026-09",
       "bibtex": "@misc{opd_323630392e3037313033,\n  title = {{Revisiting Complete Reasoning Traces for Post-Training}},\n  author = {Hwang, Jaehui and Yun, Sangdoo and Heo, Byeongho and Han, Dongyoon},\n  year = {2026},\n  url = {https://arxiv.org/abs/2609.07103},\n  eprint = {2609.07103},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
-      "paper_id": "2609.08183",
-      "title": "NeoHorse-1: Towards Recursive Self-Improvement via Agentic Post-Training with Routing Harness",
-      "authors": [
-        "NeoHorse Team",
-        "Cao, Guoliang",
-        "Dai, Guohao",
-        "Guo, Tianyu",
-        "Han, Kai",
-        "Hu, Hailin",
-        "Jiang, Zihan",
-        "Kuang, Xiang",
-        "Li, Boxun",
-        "Li, Yulong",
-        "Pei, Zehua",
-        "Tian, Yuchuan",
-        "Wang, Jiamin",
-        "Wang, Yu",
-        "Wang, Yunhe",
-        "Wu, Yihong",
-        "Xu, Haiyang",
-        "Zhang, Shuo",
-        "Zhou, Hang",
-        "Cheng, Siyang",
-        "Fan, Jiayu",
-        "He, Wei",
-        "Jiao, Qingrui",
-        "Li, Hongguang",
-        "Li, Zhiyuan",
-        "Liu, Runke",
-        "Liu, Xi",
-        "Liu, Xinchen",
-        "Pan, Sinno Jialin",
-        "Ren, Yi",
-        "Song, Liuyang",
-        "Wang, Chenyu",
-        "Yu, Bei",
-        "Zhang, Quanlu",
-        "Zhang, Xiangyu",
-        "Zheng, Mengyu",
-        "Zong, Yingjie"
-      ],
-      "year": 2026,
-      "submitted": "2026-09-08",
-      "paper_url": "https://arxiv.org/abs/2609.08183",
-      "description": "NeoHorse-1 uses routing estimates to stage supervised training and teacher guidance on student-generated responses. Its distillation minimizes reverse KL over shared candidate tokens plus a residual-probability bin; the report presents an initial post-training prototype rather than demonstrated sustained recursive improvement.",
-      "objective": "Supervised training on recorded assistant responses followed by response-normalized student-to-teacher reverse KL on student-generated prefixes, using the rollout student's top-K candidate tokens plus one bin for the remaining probability mass.",
-      "mechanism": "application",
-      "home": "9",
-      "code_urls": [
-        "https://github.com/TokenRhythm/NeoHorse"
-      ],
-      "source_version": "[Submitted on 8 Sep 2026]",
-      "code_status": "linked",
-      "arxiv_id": "2609.08183",
-      "year_month": "2026-09",
-      "bibtex": "@misc{opd_323630392e3038313833,\n  title = {{NeoHorse-1: Towards Recursive Self-Improvement via Agentic Post-Training with Routing Harness}},\n  author = {NeoHorse Team and Cao, Guoliang and Dai, Guohao and Guo, Tianyu and Han, Kai and Hu, Hailin and Jiang, Zihan and Kuang, Xiang and Li, Boxun and Li, Yulong and Pei, Zehua and Tian, Yuchuan and Wang, Jiamin and Wang, Yu and Wang, Yunhe and Wu, Yihong and Xu, Haiyang and Zhang, Shuo and Zhou, Hang and Cheng, Siyang and Fan, Jiayu and He, Wei and Jiao, Qingrui and Li, Hongguang and Li, Zhiyuan and Liu, Runke and Liu, Xi and Liu, Xinchen and Pan, Sinno Jialin and Ren, Yi and Song, Liuyang and Wang, Chenyu and Yu, Bei and Zhang, Quanlu and Zhang, Xiangyu and Zheng, Mengyu and Zong, Yingjie},\n  year = {2026},\n  url = {https://arxiv.org/abs/2609.08183},\n  eprint = {2609.08183},\n  archivePrefix = {arXiv}\n}"
     },
     {
       "paper_id": "2609.08337",
@@ -8724,41 +7558,6 @@
       "bibtex": "@misc{opd_323630392e3233333737,\n  title = {{One to More, More to One: Category-Aware Iterative Expert Training for Software Engineering Agents}},\n  author = {Zhao, Jie and Jiang, Ziyu and Zheng, Suhang and Shan, Minghui and Xu, Xiaoxiao and Qu, Lin},\n  year = {2026},\n  url = {https://arxiv.org/abs/2609.23377},\n  eprint = {2609.23377},\n  archivePrefix = {arXiv}\n}"
     },
     {
-      "paper_id": "2609.23435",
-      "title": "Tool-Augmented On-Policy Distillation for LLM Domain Adaptation in Sequence-Based Omics Tasks",
-      "authors": [
-        "Ying, Jie",
-        "Wang, Zhefan",
-        "Chen, Zihong",
-        "Li, Zhengqing",
-        "Li, Jinzhe",
-        "Li, Gang",
-        "Liu, Jian",
-        "Hu, Fang",
-        "Luo, Tao",
-        "Yuan, Zhonghang",
-        "Ouyang, Wanli",
-        "Li, Stan Z.",
-        "Yang, Fan",
-        "Dong, Nanqing"
-      ],
-      "year": 2026,
-      "submitted": "2026-09-20",
-      "paper_url": "https://arxiv.org/abs/2609.23435",
-      "description": "TA-OPD adapts language models for omics question answering using tool-agent answers and evidence as privileged teacher context. The student generates its own responses and learns through a sampled-token log-ratio policy-gradient update; the tools and privileged information are absent at evaluation.",
-      "objective": "Sampled-token k1 teacher–student log-ratio signal with policy-gradient optimization on student responses.",
-      "mechanism": "application",
-      "home": "9",
-      "code_urls": [
-        "https://github.com/SeedScientist/OmicsBench"
-      ],
-      "source_version": "[Submitted on 20 Sep 2026]",
-      "code_status": "linked",
-      "arxiv_id": "2609.23435",
-      "year_month": "2026-09",
-      "bibtex": "@misc{opd_323630392e3233343335,\n  title = {{Tool-Augmented On-Policy Distillation for LLM Domain Adaptation in Sequence-Based Omics Tasks}},\n  author = {Ying, Jie and Wang, Zhefan and Chen, Zihong and Li, Zhengqing and Li, Jinzhe and Li, Gang and Liu, Jian and Hu, Fang and Luo, Tao and Yuan, Zhonghang and Ouyang, Wanli and Li, Stan Z. and Yang, Fan and Dong, Nanqing},\n  year = {2026},\n  url = {https://arxiv.org/abs/2609.23435},\n  eprint = {2609.23435},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
       "paper_id": "2609.23697",
       "title": "Distill What You Trust: Reliability-Aware Multi-Teacher On-Policy Distillation",
       "authors": [
@@ -8900,71 +7699,6 @@
       "bibtex": "@misc{opd_323630392e3235303438,\n  title = {{Teaching a Moving Student: Rethinking the Curriculum of On-Policy Distillation}},\n  author = {Hu, Lingxiang and Xia, Tianle and Sun, Yiding and Xu, Ming and Shang, Linfang and Xu, Lan and Zheng, Ning and Xu, Wei and Jiang, Jie},\n  year = {2026},\n  url = {https://arxiv.org/abs/2609.25048},\n  eprint = {2609.25048},\n  archivePrefix = {arXiv}\n}"
     },
     {
-      "paper_id": "2609.25176",
-      "title": "Qwen-Audio-3.1-Realtime: Towards Reliable Agentic Voice Interaction",
-      "authors": [
-        "Bao, Lujia",
-        "Chen, Qian",
-        "Cheng, Luyao",
-        "Deng, Chong",
-        "Kong, Yuxiang",
-        "Li, Xiangang",
-        "Li, Xu",
-        "Liu, Jiaqing",
-        "Tan, Chao-Hong",
-        "Wang, Haoyu",
-        "Wang, Wen",
-        "Wang, Xilou",
-        "Xu, Haoxiang",
-        "Xu, Junhao",
-        "Yi, Liang",
-        "Zhang, Binbin",
-        "Zhang, Qinglin",
-        "Zhang, Qiquan"
-      ],
-      "year": 2026,
-      "submitted": "2026-09-21",
-      "paper_url": "https://arxiv.org/abs/2609.25176",
-      "description": "This real-time voice assistant report places two on-policy distillation stages after supervised initialization: text and audio references supervise student-generated audio trajectories, then domain specialists provide token-level supervision. Action learning and speech coordination are separate components, so reported voice outcomes do not isolate distillation.",
-      "objective": "Teacher-distribution supervision on student-generated audio-conditioned trajectories, followed by specialist token-level supervision on student-generated trajectories; action learning separately uses rollout feedback for GRPO.",
-      "mechanism": "application",
-      "home": "9",
-      "code_urls": [],
-      "source_version": "[Submitted on 21 Sep 2026 ( v1 ), last revised 24 Sep 2026 (this version, v2)]",
-      "code_status": "No repository listed",
-      "arxiv_id": "2609.25176",
-      "year_month": "2026-09",
-      "bibtex": "@misc{opd_323630392e3235313736,\n  title = {{Qwen-Audio-3.1-Realtime: Towards Reliable Agentic Voice Interaction}},\n  author = {Bao, Lujia and Chen, Qian and Cheng, Luyao and Deng, Chong and Kong, Yuxiang and Li, Xiangang and Li, Xu and Liu, Jiaqing and Tan, Chao-Hong and Wang, Haoyu and Wang, Wen and Wang, Xilou and Xu, Haoxiang and Xu, Junhao and Yi, Liang and Zhang, Binbin and Zhang, Qinglin and Zhang, Qiquan},\n  year = {2026},\n  url = {https://arxiv.org/abs/2609.25176},\n  eprint = {2609.25176},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
-      "paper_id": "2609.26355",
-      "title": "PACT: From Credit Assignment to Critic Alignment",
-      "authors": [
-        "Fu, Jiayan",
-        "Xu, Hang",
-        "Zhang, Yong",
-        "Luo, Zhaokai",
-        "Hu, Yao",
-        "Zhao, Dongyan",
-        "Chuan, Mu"
-      ],
-      "year": 2026,
-      "submitted": "2026-09-22",
-      "paper_url": "https://arxiv.org/abs/2609.26355",
-      "description": "The paper defines token credit through completeness, prefix consistency, and neutrality, then shows that an ideal teacher's on-policy distillation update matches the credit-induced policy gradient only in expectation and up to scale. Its proposed method instead updates an actor before training a critic with a truncated importance correction.",
-      "objective": "An actor update uses estimated token credit; the critic is trained afterward with binary cross-entropy on masked, current-token importance-weighted reward targets. The ideal-teacher distillation result analyzes an expected policy gradient, not PACT's training objective.",
-      "mechanism": "analysis",
-      "home": "8",
-      "code_urls": [
-        "https://github.com/AllSpark-Research/PACT"
-      ],
-      "source_version": "[Submitted on 22 Sep 2026]",
-      "code_status": "linked",
-      "arxiv_id": "2609.26355",
-      "year_month": "2026-09",
-      "bibtex": "@misc{opd_323630392e3236333535,\n  title = {{PACT: From Credit Assignment to Critic Alignment}},\n  author = {Fu, Jiayan and Xu, Hang and Zhang, Yong and Luo, Zhaokai and Hu, Yao and Zhao, Dongyan and Chuan, Mu},\n  year = {2026},\n  url = {https://arxiv.org/abs/2609.26355},\n  eprint = {2609.26355},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
       "paper_id": "2609.26708",
       "title": "Train Where the Quantized Model Goes: On-Policy Distillation for Low-Bit Reasoning",
       "authors": [
@@ -9072,94 +7806,6 @@
       "bibtex": "@misc{opd_323630392e3238313435,\n  title = {{RL Starts before RL: On Policy Distillation for Better Reinforcement Learning}},\n  author = {Dong, Shuai and Zhu, Yongfu and Xu, Yuqi and Xie, Weichu and Liuwenpu and Wang, Ziyue and Tuo, Kaiwen and Wang, Congcong and Wang, Siyuan and Shao, Wenqi and Yang, Shuai and Zhao, Ji and Ma, Caoyuan and Chang, Wenzheng and Wu, Taiqiang and Yu, Xinlei and Wu, Hongrui and He, Xiaoxuan and Chen, Fangke and Wang, Dianyi and Tian, Kanghui and Chen, Sirry and Liu, Xingyu and Wu, Xiangnan and Guo, Jiawei and Hou, Haowen and Chen, LingHan and Wei, Zhongyu and Wang, Jiaqi},\n  year = {2026},\n  url = {https://arxiv.org/abs/2609.28145},\n  eprint = {2609.28145},\n  archivePrefix = {arXiv}\n}"
     },
     {
-      "paper_id": "2609.28385",
-      "title": "When and Where to Trust the Teacher: Unifying On-Policy Distillation and GRPO through Entropy-Calibrated Credit Assignment",
-      "authors": [
-        "Zhang, Jie",
-        "Yang, Jingxiao",
-        "Huang, Zhehao",
-        "Liu, Yuhang",
-        "Huang, Xiaolin"
-      ],
-      "year": 2026,
-      "submitted": "2026-09-23",
-      "paper_url": "https://arxiv.org/abs/2609.28385",
-      "description": "This hybrid update combines verifier reward and a length-normalized teacher score before group normalization, then uses teacher token gaps and entropy to redistribute verifier-derived credit. Total credit and token-wise sign are preserved before clipping; teacher preferences remain distinct from correctness labels.",
-      "objective": "A clipped group-relative policy update using jointly normalized verifier reward and teacher score, with entropy-attenuated, zero-sum redistribution of the verifier-derived token credit.",
-      "mechanism": "hybrid_opd",
-      "home": "4",
-      "code_urls": [],
-      "source_version": "[Submitted on 23 Sep 2026]",
-      "code_status": "No repository listed",
-      "arxiv_id": "2609.28385",
-      "year_month": "2026-09",
-      "bibtex": "@misc{opd_323630392e3238333835,\n  title = {{When and Where to Trust the Teacher: Unifying On-Policy Distillation and GRPO through Entropy-Calibrated Credit Assignment}},\n  author = {Zhang, Jie and Yang, Jingxiao and Huang, Zhehao and Liu, Yuhang and Huang, Xiaolin},\n  year = {2026},\n  url = {https://arxiv.org/abs/2609.28385},\n  eprint = {2609.28385},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
-      "paper_id": "2609.28554",
-      "title": "Pistis Technical Report",
-      "authors": [
-        "Chen, Heyun",
-        "Lan, Xiaohan",
-        "Li, Jiaxi",
-        "Lu, Zhilin",
-        "She, Qi",
-        "Xu, Weiwen",
-        "Yu, Fei",
-        "Zhong, Yujie",
-        "Chen, Jinghuan",
-        "Feng, Zijian",
-        "Jiao, Siyu",
-        "Lin, Yiheng",
-        "Wang, Xinhao",
-        "Yang, Sihan",
-        "You, Jieyu",
-        "Zhang, Changbin",
-        "Zhang, Hengyu",
-        "Zhang, Xudong",
-        "Zhao, Yunqing",
-        "Zheng, Shuai"
-      ],
-      "year": 2026,
-      "submitted": "2026-09-23",
-      "paper_url": "https://arxiv.org/abs/2609.28554",
-      "description": "After supervised fine-tuning, Pistis alternates student-trajectory teacher matching with reward-based updates, then switches to pure RL when monitored entropy plateaus. This interleaved schedule is used for the smaller multimodal variants; the larger variants use pure RL and supply their teachers.",
-      "objective": "Alternating on-policy teacher-distribution matching and task-reward RL updates, followed by pure RL.",
-      "mechanism": "hybrid_opd",
-      "home": "6",
-      "code_urls": [],
-      "source_version": "[Submitted on 23 Sep 2026]",
-      "code_status": "No repository listed",
-      "arxiv_id": "2609.28554",
-      "year_month": "2026-09",
-      "bibtex": "@misc{opd_323630392e3238353534,\n  title = {{Pistis Technical Report}},\n  author = {Chen, Heyun and Lan, Xiaohan and Li, Jiaxi and Lu, Zhilin and She, Qi and Xu, Weiwen and Yu, Fei and Zhong, Yujie and Chen, Jinghuan and Feng, Zijian and Jiao, Siyu and Lin, Yiheng and Wang, Xinhao and Yang, Sihan and You, Jieyu and Zhang, Changbin and Zhang, Hengyu and Zhang, Xudong and Zhao, Yunqing and Zheng, Shuai},\n  year = {2026},\n  url = {https://arxiv.org/abs/2609.28554},\n  eprint = {2609.28554},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
-      "paper_id": "2609.28778",
-      "title": "Reward-Tilted On-Policy Distillation for Acoustic Grounding in Audio-Language Models",
-      "authors": [
-        "Li, Kaiyang",
-        "Han, Shaobo",
-        "Tian, Yue",
-        "Ji, Shihao"
-      ],
-      "year": 2026,
-      "submitted": "2026-09-23",
-      "paper_url": "https://arxiv.org/abs/2609.28778",
-      "description": "On student-generated audio responses, the method contrasts one frozen teacher’s predictions with audio present and absent, then tilts its token target toward candidates gaining support from audio. Reverse-KL distillation is gated by teacher correctness and accompanies gold-answer training; audio perturbations provide indirect grounding evidence.",
-      "objective": "Gold-answer cross-entropy plus correctness-gated reverse KL from the student to an audio-contrast-tilted teacher token distribution.",
-      "mechanism": "direct_opd",
-      "home": "5",
-      "code_urls": [
-        "https://github.com/kaiyangli-ml/RT-OPD"
-      ],
-      "source_version": "[Submitted on 23 Sep 2026]",
-      "code_status": "linked",
-      "arxiv_id": "2609.28778",
-      "year_month": "2026-09",
-      "bibtex": "@misc{opd_323630392e3238373738,\n  title = {{Reward-Tilted On-Policy Distillation for Acoustic Grounding in Audio-Language Models}},\n  author = {Li, Kaiyang and Han, Shaobo and Tian, Yue and Ji, Shihao},\n  year = {2026},\n  url = {https://arxiv.org/abs/2609.28778},\n  eprint = {2609.28778},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
       "paper_id": "2609.28845",
       "title": "LastOPD: Taming Collapse in Latent On-Policy Distillation",
       "authors": [
@@ -9212,31 +7858,6 @@
       "arxiv_id": "2609.29142",
       "year_month": "2026-09",
       "bibtex": "@misc{opd_323630392e3239313432,\n  title = {{Not Every Token Is Worth Distilling: Selective Supervision for Direct-OPD}},\n  author = {Zhao, Yibo and Yang, Zixuan and Lan, Yunshi and Li, Xiang},\n  year = {2026},\n  url = {https://arxiv.org/abs/2609.29142},\n  eprint = {2609.29142},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
-      "paper_id": "2609.29464",
-      "title": "TS-OPD: Reconciling ASR and QA in Speech Language Models via Task-Specific On-Policy Distillation",
-      "authors": [
-        "Guo, Yujie",
-        "Chen, Hongjie",
-        "Kang, Jian",
-        "Li, Jie",
-        "Li, Yongxiang",
-        "Qin, Yong"
-      ],
-      "year": 2026,
-      "submitted": "2026-09-24",
-      "paper_url": "https://arxiv.org/abs/2609.29464",
-      "description": "TS-OPD generates separate speech-conditioned student trajectories for transcription and question answering, routing each to its corresponding post- or pre-specialization teacher. It combines their forward-KL losses to address the recognition–answering trade-off; only the student’s speech adapter is updated in the reported setup.",
-      "objective": "A weighted sum of teacher-to-student forward token KL on separate student-generated transcription and question-answering trajectories, each scored only by its task’s teacher.",
-      "mechanism": "direct_opd",
-      "home": "5",
-      "code_urls": [],
-      "source_version": "[Submitted on 24 Sep 2026]",
-      "code_status": "No repository listed",
-      "arxiv_id": "2609.29464",
-      "year_month": "2026-09",
-      "bibtex": "@misc{opd_323630392e3239343634,\n  title = {{TS-OPD: Reconciling ASR and QA in Speech Language Models via Task-Specific On-Policy Distillation}},\n  author = {Guo, Yujie and Chen, Hongjie and Kang, Jian and Li, Jie and Li, Yongxiang and Qin, Yong},\n  year = {2026},\n  url = {https://arxiv.org/abs/2609.29464},\n  eprint = {2609.29464},\n  archivePrefix = {arXiv}\n}"
     },
     {
       "paper_id": "deepseekv4",

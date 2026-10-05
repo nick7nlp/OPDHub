@@ -22,7 +22,7 @@ SECTION_LABELS = {
     "background": "Background",
 }
 MECHANISM_LABELS = {
-    'direct_opd': 'Direct OPD', 'hybrid_opd': 'Mixed / replayed',
+    'direct_opd': 'Direct OPD', 'hybrid_opd': 'Hybrid OPD',
     'teacher_mediated_rl': 'Teacher-mediated RL', 'interactive_imitation': 'Interactive imitation',
     'offline_distillation': 'Offline distillation', 'analysis': 'Analysis',
     'application': 'Application', 'background': 'Background',
