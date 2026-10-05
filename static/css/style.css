@@ -388,6 +388,32 @@ li.paper-card .paper-desc {
   line-height: 1.5;
 }
 
+.release-news {
+  padding-left: 1.2rem;
+  line-height: 1.65;
+}
+
+.release-news li {
+  margin: 0.55rem 0;
+}
+
+.release-news time {
+  font-weight: 600;
+}
+
+.model-atlas-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 1rem auto;
+}
+
+.model-atlas-caption {
+  color: var(--c-muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
 .paper-author-list summary {
   cursor: pointer;
 }

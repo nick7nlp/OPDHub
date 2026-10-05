@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build OPDHub from public catalog JSON, without network or private notes."""
+"""Build OPDHub from the public reading catalog and release announcements."""
 
 from __future__ import annotations
 
@@ -24,7 +24,7 @@ SECTION_LABELS = {
 PUBLIC_FIELDS = (
     "paper_id", "title", "authors", "year", "submitted", "paper_url",
     "description", "objective", "mechanism", "home", "code_urls",
-    "source_version", "metadata_checked_on", "code_status",
+    "source_version", "code_status",
 )
 SURVEY_BIBTEX = """@article{song2026opdsurvey,
   title  = {A Survey of On-Policy Distillation for Large Language Models},
@@ -56,7 +56,7 @@ def load_catalog(path: Path) -> tuple[list[dict], str]:
     if not path.is_file():
         raise FileNotFoundError(
             f"Public catalog not found: {path}. Supply --catalog with the real "
-            "catalog; legacy notes are not a fallback."
+            "catalog."
         )
     doc = json.loads(path.read_text(encoding="utf-8"))
     validate_date(doc["updated_on"], "updated_on")
@@ -67,7 +67,7 @@ def load_catalog(path: Path) -> tuple[list[dict], str]:
         missing = set(PUBLIC_FIELDS) - row.keys()
         if missing:
             raise ValueError(f"Missing public fields: {', '.join(sorted(missing))}")
-        # A whitelist prevents local QA fields from leaking into public output.
+        # Serialize only documented public catalog fields.
         record = {field: row[field] for field in PUBLIC_FIELDS}
         pid = record["paper_id"]
         if not isinstance(pid, str) or not pid or pid in seen:
@@ -77,8 +77,7 @@ def load_catalog(path: Path) -> tuple[list[dict], str]:
             raise ValueError(f"{pid}: unsupported home {record['home']!r}")
         if type(record["year"]) is not int:
             raise ValueError(f"{pid}: year must be an integer")
-        for field in ("title", "description", "submitted", "paper_url",
-                      "metadata_checked_on", "code_status"):
+        for field in ("title", "description", "submitted", "paper_url", "code_status"):
             if not isinstance(record[field], str):
                 raise ValueError(f"{pid}: {field} must be a string")
         for field in ("authors", "code_urls"):
@@ -97,7 +96,6 @@ def load_catalog(path: Path) -> tuple[list[dict], str]:
         # Software references may only have a public year; do not invent a day.
         if not re.fullmatch(r"\d{4}", record["submitted"]):
             validate_date(record["submitted"], f"{pid}: submitted", allow_empty=True)
-        validate_date(record["metadata_checked_on"], f"{pid}: metadata_checked_on", allow_empty=True)
         validate_url(record["paper_url"], f"{pid}: paper_url", allow_empty=True)
         for url in record["code_urls"]:
             validate_url(url, f"{pid}: code_urls")
@@ -106,11 +104,6 @@ def load_catalog(path: Path) -> tuple[list[dict], str]:
             if row["arxiv_id"] is not None and not isinstance(row["arxiv_id"], str):
                 raise ValueError(f"{pid}: arxiv_id must be a string or null")
             record["arxiv_id"] = row["arxiv_id"]
-        for field in ("code_checked_on", "description_source"):
-            if field in row:
-                if not isinstance(row[field], str):
-                    raise ValueError(f"{pid}: {field} must be a string")
-                record[field] = row[field]
         record["year_month"] = record["submitted"][:7] if len(record["submitted"]) == 10 else ""
         record["bibtex"] = make_bibtex(record)
         records.append(record)
@@ -227,8 +220,6 @@ def render_paper_card(record: dict) -> str:
             labels.append(f'Source date (year only): {record["submitted"]}')
     if record["source_version"] != "":
         labels.append(f'Source version: {escape(field_text(record["source_version"]))}')
-    if record["metadata_checked_on"]:
-        labels.append(f'Metadata checked: {record["metadata_checked_on"]}')
     details.append('<span class="paper-provenance">' + " · ".join(labels) + '</span>')
     # Embed exactly the public row so search still works when fetching JSON fails.
     fallback = escape(json.dumps(record, ensure_ascii=False))
@@ -376,7 +367,22 @@ def html_monthly_chart(records: list[dict], updated_on: str, start_ym: str = "20
     return svg + caption
 
 
-def build(catalog: Path, site: Path, output: Path) -> int:
+def html_news(path: Path) -> str:
+    """Render reader-facing release announcements from the shared resource."""
+    if not path.exists():
+        return ''
+    items = json.loads(path.read_text())['items']
+    lines = []
+    for item in items:
+        validate_date(item['date'], 'news date')
+        validate_url(item['url'], 'news link')
+        lines.append(f'<li><time datetime="{item["date"]}">{item["date"]}</time> — '
+                     f'{escape(item["text"])} <a href="{escape(item["url"])}">'
+                     f'{escape(item["label"])}</a></li>')
+    return '<ul class="release-news">' + ''.join(lines) + '</ul>'
+
+
+def build(catalog: Path, site: Path, output: Path, news: Path | None = None) -> int:
     """Write the page and search index only after validating the entire catalog."""
     records, updated_on = load_catalog(catalog)
     payload = {"updated_on": updated_on, "total": len(records), "papers": records}
@@ -394,6 +400,7 @@ def build(catalog: Path, site: Path, output: Path) -> int:
         "BIBTEX": escape(SURVEY_BIBTEX),
         "UPDATED_ON": updated_on,
         "PAPER_COUNT": str(len(records)),
+        "NEWS": html_news(news or catalog.with_name('news.json')),
     }
     template = (site / "templates" / "index.html.tmpl").read_text(encoding="utf-8")
     # Single-pass substitution keeps literal {{...}} in catalog descriptions intact.
@@ -403,7 +410,7 @@ def build(catalog: Path, site: Path, output: Path) -> int:
     data_dir.mkdir(parents=True, exist_ok=True)
     (output / "index.html").write_text(html, encoding="utf-8")
     (data_dir / "papers.json").write_text(serialized, encoding="utf-8")
-    print(f"Built {len(records)} catalog entries; checked snapshot {updated_on}; output: {output}")
+    print(f"Built {len(records)} catalog entries; updated {updated_on}; output: {output}")
     return len(records)
 
 
@@ -412,9 +419,10 @@ def main() -> None:
     parser.add_argument("--catalog", type=Path, default=DEFAULT_CATALOG, help="Path to the real public catalog")
     parser.add_argument("--site-dir", type=Path, default=SITE, help="Site containing templates and static assets")
     parser.add_argument("--output-dir", type=Path, help="Output directory (default: site directory)")
+    parser.add_argument("--news", type=Path, help="Release announcements (default: news.json beside catalog)")
     args = parser.parse_args()
     try:
-        build(args.catalog, args.site_dir, args.output_dir or args.site_dir)
+        build(args.catalog, args.site_dir, args.output_dir or args.site_dir, args.news)
     except (OSError, ValueError, KeyError, TypeError) as exc:
         parser.exit(1, f"Build failed: {exc}\n")
 

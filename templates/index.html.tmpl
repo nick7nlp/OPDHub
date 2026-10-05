@@ -51,19 +51,38 @@
         &middot; <a href="https://github.com/nick7nlp/Awesome-LLM-On-Policy-Distillation/blob/master/resources/catalog.json" target="_blank" rel="noopener">Catalog JSON</a>
       </p>
       <p class="monthly-chart-caption">{{PAPER_COUNT}} catalog entries, including background references
-        &middot; Catalog checked: <time datetime="{{UPDATED_ON}}">{{UPDATED_ON}}</time></p>
+        &middot; Updated: <time datetime="{{UPDATED_ON}}">{{UPDATED_ON}}</time></p>
     </div>
   </div>
 </section>
 
-<!-- Catalog snapshot by actual submitted date -->
+<section class="section section-news" id="news">
+  <div class="container is-max-desktop">
+    <h2 class="section-title">News</h2>
+    {{NEWS}}
+  </div>
+</section>
+
+<section class="section section-model-atlas" id="model-atlas">
+  <div class="container is-max-desktop">
+    <h2 class="section-title">Teacher–Student Model Atlas</h2>
+    <p class="model-atlas-caption">June 2026 snapshot of teacher and student model combinations.
+      Rows represent teachers and columns represent students. This historical figure is not a count
+      of the current catalog or a ranking of model quality.</p>
+    <a href="static/images/model-atlas-heatmap.png">
+      <img src="static/images/model-atlas-heatmap.png" alt="Teacher–student model combinations, June 2026 snapshot"
+           class="model-atlas-image" loading="lazy">
+    </a>
+    <p class="model-atlas-caption">Open the image for a larger view. Same-name models may use different conditioning information.</p>
+  </div>
+</section>
+
+<!-- Literature timeline -->
 <section class="section section-stat">
   <div class="container is-max-desktop">
     {{MONTHLY_CHART}}
   </div>
 </section>
-
-<!-- Abstract & Carousel removed: hero + paper atlas is the whole story -->
 
 <!-- Paper Atlas -->
 <section class="section section-atlas">
