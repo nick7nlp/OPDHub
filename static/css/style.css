@@ -361,6 +361,8 @@ li.paper-card.is-hidden {
 
 li.paper-card .paper-title {
   grid-area: title;
+  min-width: 0;
+  overflow-wrap: anywhere;
   font-family: var(--font-sans);
   font-size: 0.95rem;
   font-weight: 500;
@@ -378,10 +380,20 @@ li.paper-card .paper-meta {
 
 li.paper-card .paper-desc {
   grid-area: desc;
+  min-width: 0;
+  overflow-wrap: anywhere;
   font-family: var(--font-mono);
   font-size: 0.8rem;
   color: var(--c-muted);
   line-height: 1.5;
+}
+
+.paper-author-list summary {
+  cursor: pointer;
+}
+
+.paper-author-list[open] summary {
+  margin-bottom: 0.3rem;
 }
 
 /* Badges */

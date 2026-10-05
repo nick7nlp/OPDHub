@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="description" content="A Survey of On-Policy Distillation for Large Language Models — companion website with searchable paper atlas.">
   <meta property="og:title" content="On-Policy Distillation Survey"/>
-  <meta property="og:description" content="Companion website for arXiv:2604.00626 — paper atlas with live taxonomy filter."/>
+  <meta property="og:description" content="Companion website for arXiv:2604.00626 — searchable current catalog, including background references."/>
   <meta property="og:url" content="https://nick7nlp.github.io/OPDHub/"/>
   <meta property="og:image" content="static/images/opd-overview.png"/>
   <meta name="twitter:title" content="On-Policy Distillation Survey">
@@ -24,8 +24,16 @@
 
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
   <link rel="stylesheet" href="static/css/style.css?v={{ASSET_VERSION}}">
+  <style>
+    li.paper-card { grid-template-columns: minmax(0, 1fr) auto; }
+    li.paper-card .paper-title, li.paper-card .paper-desc { min-width: 0; overflow-wrap: anywhere; }
+    li.paper-card .paper-meta { max-width: 24rem; flex-wrap: wrap; justify-content: flex-end; }
+    @media (max-width: 760px) {
+      li.paper-card { grid-template-columns: minmax(0, 1fr); }
+      li.paper-card .paper-meta { max-width: 100%; justify-content: flex-start; }
+    }
+  </style>
 </head>
 <body>
 
@@ -37,11 +45,18 @@
         <span class="wordmark-glyph">OPD</span><span class="wordmark-tail">Hub</span>
       </div>
       <h1 class="publication-title">A Survey of On-Policy Distillation for Large Language Models</h1>
+      <p class="mt-4">
+        <a href="https://arxiv.org/abs/2604.00626" target="_blank" rel="noopener">Companion survey</a>
+        &middot; <a href="https://github.com/nick7nlp/Awesome-LLM-On-Policy-Distillation" target="_blank" rel="noopener">Current Awesome catalog</a>
+        &middot; <a href="https://github.com/nick7nlp/Awesome-LLM-On-Policy-Distillation/blob/master/resources/catalog.json" target="_blank" rel="noopener">Catalog JSON</a>
+      </p>
+      <p class="monthly-chart-caption">{{PAPER_COUNT}} catalog entries, including background references
+        &middot; Catalog checked: <time datetime="{{UPDATED_ON}}">{{UPDATED_ON}}</time></p>
     </div>
   </div>
 </section>
 
-<!-- Monthly OPD paper count -->
+<!-- Catalog snapshot by actual submitted date -->
 <section class="section section-stat">
   <div class="container is-max-desktop">
     {{MONTHLY_CHART}}
@@ -56,52 +71,28 @@
     <!-- Search box -->
     <div class="search-wrap">
       <span class="search-icon"><i class="fas fa-search"></i></span>
-      <input id="search-input" type="text" placeholder="Search title, author, method...">
-      <span id="visible-count" class="search-count"></span>
+      <input id="search-input" type="search" aria-label="Search catalog" placeholder="Search title, author, description, version...">
+      <span id="visible-count" class="search-count" aria-live="polite"></span>
     </div>
 
     <!-- Filter chips -->
     <div class="filter-grid">
       <div class="filter-row">
-        <span class="filter-label">Loss</span>
-        <div class="filter-chips" data-filter-group="loss">
-          {{FILTER_LOSSES}}
+        <span class="filter-label">Section</span>
+        <div class="filter-chips" data-filter-group="section">
+          {{FILTER_SECTIONS}}
         </div>
       </div>
       <div class="filter-row">
-        <span class="filter-label">Teacher</span>
-        <div class="filter-chips" data-filter-group="signal">
-          {{FILTER_SIGNALS}}
-        </div>
-      </div>
-      <div class="filter-row">
-        <span class="filter-label">Topic</span>
-        <div class="filter-chips" data-filter-group="domain">
-          {{FILTER_DOMAINS}}
-        </div>
-      </div>
-      <div class="filter-row">
-        <span class="filter-label">Cadence</span>
-        <div class="filter-chips" data-filter-group="freq">
-          {{FILTER_FREQS}}
-        </div>
-      </div>
-      <div class="filter-row">
-        <span class="filter-label">Size</span>
-        <div class="filter-chips" data-filter-group="size">
-          {{FILTER_SIZES}}
+        <span class="filter-label">Mechanism</span>
+        <div class="filter-chips" data-filter-group="mechanism">
+          {{FILTER_MECHANISMS}}
         </div>
       </div>
       <div class="filter-row">
         <span class="filter-label">Year</span>
         <div class="filter-chips" data-filter-group="year">
           {{FILTER_YEARS}}
-        </div>
-      </div>
-      <div class="filter-row">
-        <span class="filter-label">Recent</span>
-        <div class="filter-chips" data-filter-group="recent">
-          {{FILTER_RECENT}}
         </div>
       </div>
       <div class="filter-row filter-actions">
@@ -155,9 +146,7 @@
 </footer>
 
 <script src="static/js/fuse.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
 <script src="static/js/search.js?v={{ASSET_VERSION}}"></script>
 <script src="static/js/bibtex.js?v={{ASSET_VERSION}}"></script>
-<script src="static/js/katex-init.js?v={{ASSET_VERSION}}" defer></script>
 </body>
 </html>
