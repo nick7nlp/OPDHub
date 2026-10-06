@@ -1,6 +1,6 @@
 {
   "updated_on": "2026-10-06",
-  "total": 273,
+  "total": 271,
   "papers": [
     {
       "paper_id": "1011.0686",
@@ -7504,35 +7504,6 @@
       "bibtex": "@misc{opd_323630392e3232323534,\n  title = {{Teacher Should Think Ahead: Adaptive Continuations for Reliable On-Policy Distillation}},\n  author = {Zhou, Jingang and Zhou, Yuyi and Guo, Haiyang and Wang, Xukai and Feng, Shuai and Gao, Sirui and Xu, Jian and Guo, Qingpei and Zhang, Xu-Yao},\n  year = {2026},\n  url = {https://arxiv.org/abs/2609.22254},\n  eprint = {2609.22254},\n  archivePrefix = {arXiv}\n}"
     },
     {
-      "paper_id": "2609.23038",
-      "title": "Spatial-Interactor: Learning Spatial Reasoning through Interaction with the Observable Physical World",
-      "authors": [
-        "Yao, Kaixiang",
-        "Wang, Xu",
-        "Pan, Miao",
-        "Xiyue, Hu",
-        "Wang, Weishi",
-        "Dahlmeier, Daniel",
-        "Chen, Jintao",
-        "Shen, Yongliang",
-        "Zhang, Xuhong",
-        "Zhang, Wenqi"
-      ],
-      "year": 2026,
-      "submitted": "2026-09-19",
-      "paper_url": "https://arxiv.org/abs/2609.23038",
-      "description": "For spatial reasoning in vision-language models, the framework first trains on local changes derived from interaction trajectories. Its later on-policy stage uses segment-level transition descriptions available only to a teacher branch to supervise student-generated reasoning over long trajectories; it is an application-specific training pipeline.",
-      "objective": "Supervised fine-tuning on local-transition tasks, followed by privileged teacher supervision of the student’s on-policy reasoning for long-trajectory tasks.",
-      "mechanism": "application",
-      "home": "9",
-      "code_urls": [],
-      "source_version": "[Submitted on 19 Sep 2026]",
-      "code_status": "No repository listed",
-      "arxiv_id": "2609.23038",
-      "year_month": "2026-09",
-      "bibtex": "@misc{opd_323630392e3233303338,\n  title = {{Spatial-Interactor: Learning Spatial Reasoning through Interaction with the Observable Physical World}},\n  author = {Yao, Kaixiang and Wang, Xu and Pan, Miao and Xiyue, Hu and Wang, Weishi and Dahlmeier, Daniel and Chen, Jintao and Shen, Yongliang and Zhang, Xuhong and Zhang, Wenqi},\n  year = {2026},\n  url = {https://arxiv.org/abs/2609.23038},\n  eprint = {2609.23038},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
       "paper_id": "2609.23377",
       "title": "One to More, More to One: Category-Aware Iterative Expert Training for Software Engineering Agents",
       "authors": [
@@ -7586,39 +7557,6 @@
       "arxiv_id": "2609.23697",
       "year_month": "2026-09",
       "bibtex": "@misc{opd_323630392e3233363937,\n  title = {{Distill What You Trust: Reliability-Aware Multi-Teacher On-Policy Distillation}},\n  author = {Sun, Jie and Zheng, Mao and Song, Mingyang and Liu, Zeyuan and Li, Gengsheng and Jiang, Houcheng and Cheng, Yilin and Feng, Bichuan and Cai, Yuchen and Fang, Junfeng and Wang, Xiang},\n  year = {2026},\n  url = {https://arxiv.org/abs/2609.23697},\n  eprint = {2609.23697},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
-      "paper_id": "2609.23989",
-      "title": "ACLArena: Agent Continue Learning in Multi-stage Post-training",
-      "authors": [
-        "Wang, Haixin",
-        "Wang, Xiaoxuan",
-        "Zhang, Junkai",
-        "Zhang, Han",
-        "Sun, Renliang",
-        "Taylor, Alexander K",
-        "Shi, Yidan",
-        "Deng, Haoran",
-        "Wang, Chenguang",
-        "Cong, Jason",
-        "Sun, Yizhou",
-        "Wang, Wei"
-      ],
-      "year": 2026,
-      "submitted": "2026-09-21",
-      "paper_url": "https://arxiv.org/abs/2609.23989",
-      "description": "ACLArena examines forgetting and transfer across sequential agent post-training stages, comparing multi-teacher on-policy distillation with offline self-distillation and model merging. Its proposed retention recipe instead replays specialist trajectories and trains routed reinforcement-learning adapters; the reported study chiefly uses one backbone and a fixed stage order.",
-      "objective": "Compare capability retention under mixed reverse- and forward-KL multi-teacher distillation, offline trajectory fine-tuning, and model merging; the proposed recipe uses offline replay followed by environment-reward training of routed adapters.",
-      "mechanism": "analysis",
-      "home": "8",
-      "code_urls": [
-        "https://github.com/WillDreamer/ACLArena"
-      ],
-      "source_version": "[Submitted on 21 Sep 2026]",
-      "code_status": "linked",
-      "arxiv_id": "2609.23989",
-      "year_month": "2026-09",
-      "bibtex": "@misc{opd_323630392e3233393839,\n  title = {{ACLArena: Agent Continue Learning in Multi-stage Post-training}},\n  author = {Wang, Haixin and Wang, Xiaoxuan and Zhang, Junkai and Zhang, Han and Sun, Renliang and Taylor, Alexander K and Shi, Yidan and Deng, Haoran and Wang, Chenguang and Cong, Jason and Sun, Yizhou and Wang, Wei},\n  year = {2026},\n  url = {https://arxiv.org/abs/2609.23989},\n  eprint = {2609.23989},\n  archivePrefix = {arXiv}\n}"
     },
     {
       "paper_id": "2609.24141",
