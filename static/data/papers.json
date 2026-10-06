@@ -1,6 +1,6 @@
 {
   "updated_on": "2026-10-06",
-  "total": 305,
+  "total": 303,
   "papers": [
     {
       "paper_id": "1011.0686",
@@ -3747,28 +3747,6 @@
       "bibtex": "@misc{opd_323630352e3038383733,\n  title = {{CoDistill-GRPO: A Co-Distillation Recipe for Efficient Group Relative Policy Optimization}},\n  author = {Kwon, Soo Min and Sun, Ziteng and Suresh, Ananda Theertha and Jain, Himanshu and Kumar, Sanjiv},\n  year = {2026},\n  url = {https://arxiv.org/abs/2605.08873},\n  eprint = {2605.08873},\n  archivePrefix = {arXiv}\n}"
     },
     {
-      "paper_id": "2605.09329",
-      "title": "Test-Time Speculation",
-      "authors": [
-        "Kumar, Avinash",
-        "Sanghavi, Sujay",
-        "Das, Poulami"
-      ],
-      "year": 2026,
-      "submitted": "2026-05-10",
-      "paper_url": "https://arxiv.org/abs/2605.09329",
-      "description": "During speculative decoding, the draft model adapts within a generation using target-model distributions already computed to verify its proposed tokens. Position-weighted distillation includes a penalty against drifting from the previous draft; gradient updates add serving-time work even though the target remains unchanged.",
-      "objective": "Minimize position-weighted target-to-draft token KL on drafted tokens, plus a weighted KL penalty from the previous draft distribution to the updated draft.",
-      "mechanism": "application",
-      "home": "9",
-      "code_urls": [],
-      "source_version": "[Submitted on 10 May 2026 ( v1 ), last revised 19 May 2026 (this version, v2)]",
-      "code_status": "No repository listed",
-      "arxiv_id": "2605.09329",
-      "year_month": "2026-05",
-      "bibtex": "@misc{opd_323630352e3039333239,\n  title = {{Test-Time Speculation}},\n  author = {Kumar, Avinash and Sanghavi, Sujay and Das, Poulami},\n  year = {2026},\n  url = {https://arxiv.org/abs/2605.09329},\n  eprint = {2605.09329},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
       "paper_id": "2605.09548",
       "title": "Crosslingual On-Policy Self-Distillation for Multilingual Reasoning",
       "authors": [
@@ -4880,35 +4858,6 @@
       "arxiv_id": "2605.27186",
       "year_month": "2026-05",
       "bibtex": "@misc{opd_323630352e3237313836,\n  title = {{MAIGO: Mitigating Lost-in-Conversation with History-Cleaned On-Policy Self-Distillation}},\n  author = {Zheng, Haoyu and Zhu, Yun and Yuan, Shu and Chen, Shangming and Wang, Qing and Zhang, Wenqiao and Xiao, Jun and Zhuang, Yueting},\n  year = {2026},\n  url = {https://arxiv.org/abs/2605.27186},\n  eprint = {2605.27186},\n  archivePrefix = {arXiv}\n}"
-    },
-    {
-      "paper_id": "2605.27255",
-      "title": "Pair-In, Pair-Out: Latent Multi-Token Prediction for Efficient LLMs",
-      "authors": [
-        "Tan, Wenhui",
-        "Li, Minghao",
-        "Ma, Xiaoqian",
-        "Fan, Siqi",
-        "Huang, Xiusheng",
-        "Zhang, Liujie",
-        "Song, Ruihua",
-        "Chen, Weihang"
-      ],
-      "year": 2026,
-      "submitted": "2026-05-26",
-      "paper_url": "https://arxiv.org/abs/2605.27255",
-      "description": "PIPO scores cleaned versions of pair-decoded student trajectories with an uncompressed teacher and jointly trains generation and draft acceptance. It reuses teacher-student probability ratios as acceptance labels, while stricter teacher-success filtering does not uniformly improve solution coverage.",
-      "objective": "Pair-decoder distillation plus acceptance-head binary cross-entropy",
-      "mechanism": "direct_opd",
-      "home": "9",
-      "code_urls": [
-        "https://github.com/redai-studio/PIPO"
-      ],
-      "source_version": "[Submitted on 26 May 2026 ( v1 ), last revised 29 May 2026 (this version, v2)]",
-      "code_status": "linked",
-      "arxiv_id": "2605.27255",
-      "year_month": "2026-05",
-      "bibtex": "@misc{opd_323630352e3237323535,\n  title = {{Pair-In, Pair-Out: Latent Multi-Token Prediction for Efficient LLMs}},\n  author = {Tan, Wenhui and Li, Minghao and Ma, Xiaoqian and Fan, Siqi and Huang, Xiusheng and Zhang, Liujie and Song, Ruihua and Chen, Weihang},\n  year = {2026},\n  url = {https://arxiv.org/abs/2605.27255},\n  eprint = {2605.27255},\n  archivePrefix = {arXiv}\n}"
     },
     {
       "paper_id": "2605.28014",
