@@ -6,7 +6,7 @@
   <meta name="description" content="Search papers on on-policy distillation for language models.">
   <title>OPDHub — Paper Search</title>
   <link rel="icon" type="image/png" href="static/images/opd-overview.png">
-  <link rel="stylesheet" href="static/css/style.css?v=149bdf57bacd">
+  <link rel="stylesheet" href="static/css/style.css?v=da1f6435e5f3">
 </head>
 <body>
 <header class="search-header">
@@ -24,7 +24,7 @@
     <input id="search-input" type="search" placeholder="Search title, author, method, or paper ID…" autocomplete="off" autofocus>
   </div>
   <div class="search-toolbar">
-    <span id="visible-count" class="search-count" role="status" aria-live="polite">271 papers</span>
+    <span id="visible-count" class="search-count" role="status" aria-live="polite">270 papers</span>
     <div class="search-actions">
       <button id="clear-filters" type="button" class="clear-btn">Clear</button>
       <button id="export-bibtex" type="button" class="export-btn">Export BibTeX</button>
@@ -35,7 +35,7 @@
     <div class="filter-grid">
       <div class="filter-row">
         <span class="filter-label">Topic</span>
-        <div class="filter-chips" data-filter-group="section"><button type="button" class="chip" data-value="4" aria-pressed="false">Objectives<span class="chip-count">58</span></button>
+        <div class="filter-chips" data-filter-group="section"><button type="button" class="chip" data-value="4" aria-pressed="false">Objectives<span class="chip-count">57</span></button>
 <button type="button" class="chip" data-value="5" aria-pressed="false">Supervision<span class="chip-count">74</span></button>
 <button type="button" class="chip" data-value="6" aria-pressed="false">Training<span class="chip-count">41</span></button>
 <button type="button" class="chip" data-value="7" aria-pressed="false">Agentic<span class="chip-count">26</span></button>
@@ -52,12 +52,12 @@
 <button type="button" class="chip" data-value="hybrid_opd" aria-pressed="false">Hybrid OPD<span class="chip-count">72</span></button>
 <button type="button" class="chip" data-value="interactive_imitation" aria-pressed="false">Interactive imitation<span class="chip-count">3</span></button>
 <button type="button" class="chip" data-value="offline_distillation" aria-pressed="false">Offline distillation<span class="chip-count">2</span></button>
-<button type="button" class="chip" data-value="teacher_mediated_rl" aria-pressed="false">Teacher-mediated RL<span class="chip-count">11</span></button></div>
+<button type="button" class="chip" data-value="teacher_mediated_rl" aria-pressed="false">Teacher-mediated RL<span class="chip-count">10</span></button></div>
       </div>
       <div class="filter-row">
         <span class="filter-label">Year</span>
         <div class="filter-chips" data-filter-group="year"><button type="button" class="chip" data-value="2026" aria-pressed="false">2026<span class="chip-count">230</span></button>
-<button type="button" class="chip" data-value="2025" aria-pressed="false">2025<span class="chip-count">14</span></button>
+<button type="button" class="chip" data-value="2025" aria-pressed="false">2025<span class="chip-count">13</span></button>
 <button type="button" class="chip" data-value="2024" aria-pressed="false">2024<span class="chip-count">12</span></button>
 <button type="button" class="chip" data-value="2023" aria-pressed="false">2023<span class="chip-count">8</span></button>
 <button type="button" class="chip" data-value="2022" aria-pressed="false">2022<span class="chip-count">2</span></button>
@@ -478,14 +478,6 @@
   eprint = {2506.02208},
   archivePrefix = {arXiv}
 }"><a class="paper-title" href="https://arxiv.org/abs/2506.02208" target="_blank" rel="noopener">KDRL: Post-Training Reasoning LLMs via Unified Knowledge Distillation and Reinforcement Learning</a><div class="paper-meta"><span class="paper-date">2025-06-02</span><a class="badge badge-arxiv" href="https://arxiv.org/abs/2506.02208" target="_blank" rel="noopener">arXiv</a><button type="button" class="badge badge-cite" title="Copy BibTeX to clipboard"><span class="cite-label">Cite</span></button></div><div class="paper-desc"><details class="paper-author-list"><summary>Xu, Hongling; Zhu, Qi; Deng, Heyuan; and 6 more authors</summary><span class="paper-authors">Xu, Hongling; Zhu, Qi; Deng, Heyuan; Li, Jinpeng; Hou, Lu; Wang, Yasheng; Shang, Lifeng; Xu, Ruifeng; Mi, Fei</span></details><span class="paper-description">KDRL trains on student-generated reasoning trajectories, combining rule-based outcome-reward updates with an auxiliary teacher-directed reverse-KL loss. It also studies masking distillation for rewarded responses; its main evaluation concerns mathematical reasoning.</span></div></li>
-<li class="paper-card" data-paper-id="2504.19024" data-paper="{&quot;paper_id&quot;: &quot;2504.19024&quot;, &quot;title&quot;: &quot;KETCHUP: K-Step Return Estimation for Sequential Knowledge Distillation&quot;, &quot;authors&quot;: [&quot;Fan, Jiabin&quot;, &quot;Luo, Guoqing&quot;, &quot;Bowling, Michael&quot;, &quot;Mou, Lili&quot;], &quot;year&quot;: 2025, &quot;submitted&quot;: &quot;2025-04-26&quot;, &quot;paper_url&quot;: &quot;https://arxiv.org/abs/2504.19024&quot;, &quot;description&quot;: &quot;KETCHUP trains on student-generated text using a policy-gradient update weighted by approximate multi-step returns constructed from teacher-derived token values. The return estimator trades lower variance for bias, so it is not a token-distribution matching objective.&quot;, &quot;objective&quot;: &quot;Maximize teacher-derived approximate returns on student trajectories using a REINFORCE policy-gradient estimator.&quot;, &quot;mechanism&quot;: &quot;teacher_mediated_rl&quot;, &quot;home&quot;: &quot;4&quot;, &quot;code_urls&quot;: [], &quot;source_version&quot;: &quot;[Submitted on 26 Apr 2025]&quot;, &quot;code_status&quot;: &quot;No repository listed&quot;, &quot;arxiv_id&quot;: &quot;2504.19024&quot;, &quot;year_month&quot;: &quot;2025-04&quot;, &quot;bibtex&quot;: &quot;@misc{opd_323530342e3139303234,\n  title = {{KETCHUP: K-Step Return Estimation for Sequential Knowledge Distillation}},\n  author = {Fan, Jiabin and Luo, Guoqing and Bowling, Michael and Mou, Lili},\n  year = {2025},\n  url = {https://arxiv.org/abs/2504.19024},\n  eprint = {2504.19024},\n  archivePrefix = {arXiv}\n}&quot;}" data-home="4" data-year="2025" data-bibtex="@misc{opd_323530342e3139303234,
-  title = {{KETCHUP: K-Step Return Estimation for Sequential Knowledge Distillation}},
-  author = {Fan, Jiabin and Luo, Guoqing and Bowling, Michael and Mou, Lili},
-  year = {2025},
-  url = {https://arxiv.org/abs/2504.19024},
-  eprint = {2504.19024},
-  archivePrefix = {arXiv}
-}"><a class="paper-title" href="https://arxiv.org/abs/2504.19024" target="_blank" rel="noopener">KETCHUP: K-Step Return Estimation for Sequential Knowledge Distillation</a><div class="paper-meta"><span class="paper-date">2025-04-26</span><a class="badge badge-arxiv" href="https://arxiv.org/abs/2504.19024" target="_blank" rel="noopener">arXiv</a><button type="button" class="badge badge-cite" title="Copy BibTeX to clipboard"><span class="cite-label">Cite</span></button></div><div class="paper-desc"><span class="paper-authors">Fan, Jiabin; Luo, Guoqing; Bowling, Michael; Mou, Lili</span><span class="paper-description">KETCHUP trains on student-generated text using a policy-gradient update weighted by approximate multi-step returns constructed from teacher-derived token values. The return estimator trades lower variance for bias, so it is not a token-distribution matching objective.</span></div></li>
 <li class="paper-card" data-paper-id="2503.07067" data-paper="{&quot;paper_id&quot;: &quot;2503.07067&quot;, &quot;title&quot;: &quot;DistiLLM-2: A Contrastive Approach Boosts the Distillation of LLMs&quot;, &quot;authors&quot;: [&quot;Ko, Jongwoo&quot;, &quot;Chen, Tianyi&quot;, &quot;Kim, Sungnyun&quot;, &quot;Ding, Tianyu&quot;, &quot;Liang, Luming&quot;, &quot;Zharkov, Ilya&quot;, &quot;Yun, Se-Young&quot;], &quot;year&quot;: 2025, &quot;submitted&quot;: &quot;2025-03-10&quot;, &quot;paper_url&quot;: &quot;https://arxiv.org/abs/2503.07067&quot;, &quot;description&quot;: &quot;DistiLLM-2 applies skewed forward divergence to teacher-generated responses and skewed reverse divergence to student-generated responses, while adapting the skew and loss balance during training. Student responses are generated in batches before each epoch, rather than freshly for every update.&quot;, &quot;objective&quot;: &quot;Minimize a weighted sum of skewed forward KL on teacher responses and skewed reverse KL on student responses, with adaptive skew coefficients and a changing weight between terms.&quot;, &quot;mechanism&quot;: &quot;hybrid_opd&quot;, &quot;home&quot;: &quot;4&quot;, &quot;code_urls&quot;: [&quot;https://github.com/jongwooko/distillm-2&quot;], &quot;source_version&quot;: &quot;[Submitted on 10 Mar 2025 ( v1 ), last revised 30 May 2025 (this version, v2)]&quot;, &quot;code_status&quot;: &quot;linked&quot;, &quot;arxiv_id&quot;: &quot;2503.07067&quot;, &quot;year_month&quot;: &quot;2025-03&quot;, &quot;bibtex&quot;: &quot;@misc{opd_323530332e3037303637,\n  title = {{DistiLLM-2: A Contrastive Approach Boosts the Distillation of LLMs}},\n  author = {Ko, Jongwoo and Chen, Tianyi and Kim, Sungnyun and Ding, Tianyu and Liang, Luming and Zharkov, Ilya and Yun, Se-Young},\n  year = {2025},\n  url = {https://arxiv.org/abs/2503.07067},\n  eprint = {2503.07067},\n  archivePrefix = {arXiv}\n}&quot;}" data-home="4" data-year="2025" data-bibtex="@misc{opd_323530332e3037303637,
   title = {{DistiLLM-2: A Contrastive Approach Boosts the Distillation of LLMs}},
   author = {Ko, Jongwoo and Chen, Tianyi and Kim, Sungnyun and Ding, Tianyu and Liang, Luming and Zharkov, Ilya and Yun, Se-Young},
@@ -2260,6 +2252,6 @@
   · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>
 </footer>
 <script src="static/js/fuse.min.js"></script>
-<script src="static/js/search.js?v=149bdf57bacd"></script>
+<script src="static/js/search.js?v=da1f6435e5f3"></script>
 </body>
 </html>
