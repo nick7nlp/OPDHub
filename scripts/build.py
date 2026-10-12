@@ -21,6 +21,15 @@ SECTION_LABELS = {
     "7": "Agentic", "8": "Analysis", "9": "Applications",
     "background": "Background",
 }
+SECTION_DESCRIPTIONS = {
+    "4": "What is matched, and how does the student update?",
+    "5": "Which teacher signals are available on student trajectories?",
+    "6": "How are rollouts, supervision, and updates organized?",
+    "7": "How does distillation extend to tools, environments, and multiple agents?",
+    "8": "When does knowledge transfer, and where does it fail?",
+    "9": "How is distillation used across tasks, modalities, and systems?",
+    "background": "Foundations and neighboring methods for interpreting on-policy learning.",
+}
 MECHANISM_LABELS = {
     'direct_opd': 'Direct OPD', 'hybrid_opd': 'Hybrid OPD',
     'teacher_mediated_rl': 'Teacher-mediated RL', 'interactive_imitation': 'Interactive imitation',
@@ -179,6 +188,23 @@ def html_filter_chips(records: list[dict]) -> dict[str, str]:
     }
 
 
+def html_topic_nav(records: list[dict]) -> str:
+    homes = Counter(r["home"] for r in records)
+    parts = [
+        '<a class="topic-link is-active" href="#paper-list" data-topic="" aria-current="true">'
+        '<span class="topic-index" aria-hidden="true">↳</span><span>All topics</span>'
+        f'<span class="topic-count">{len(records)}</span></a>'
+    ]
+    for index, (home, label) in enumerate(SECTION_LABELS.items(), 1):
+        if homes[home]:
+            parts.append(
+                f'<a class="topic-link" href="#topic-{home}" data-topic="{home}">'
+                f'<span class="topic-index" aria-hidden="true">{index:02d}</span>'
+                f'<span>{escape(label)}</span><span class="topic-count">{homes[home]}</span></a>'
+            )
+    return "\n".join(parts)
+
+
 def render_paper_card(record: dict) -> str:
     source_label = "arXiv" if arxiv_identifier(record) else "Source"
     badges = []
@@ -197,7 +223,7 @@ def render_paper_card(record: dict) -> str:
             f'{label}</a>'
         )
     badges.append(
-        '<button type="button" class="badge badge-cite" title="Copy BibTeX to clipboard">'
+        '<button type="button" class="badge badge-cite js-only" title="Copy BibTeX to clipboard">'
         '<span class="cite-label">Cite</span></button>'
     )
     author_text = f'<span class="paper-authors">{escape("; ".join(record["authors"]))}</span>'
@@ -206,32 +232,44 @@ def render_paper_card(record: dict) -> str:
         author_text = (f'<details class="paper-author-list"><summary>{escape(preview)}; '
                        f'and {len(record["authors"]) - 3} more authors</summary>{author_text}</details>')
     details = [author_text]
-    details.append(f'<span class="paper-description">{escape(record["description"])}</span>')
+    details.append(f'<p class="paper-description">{escape(record["description"])}</p>')
     display_date = record['submitted'] or str(record['year'])
-    date_html = f'<span class="paper-date">{escape(display_date)}</span>'
+    date_html = f'<span class="paper-date" title="{escape(display_date)}">{record["year"]}</span>'
+    mechanism_html = "".join(
+        f'<span class="mechanism-tag" data-mechanism="{escape(value)}">'
+        f'{escape(MECHANISM_LABELS.get(value, value))}</span>'
+        for value in mechanisms(record)
+    )
     # Embed exactly the public row so search still works when fetching JSON fails.
     fallback = escape(json.dumps(record, ensure_ascii=False))
     return (
         f'<li class="paper-card" data-paper-id="{escape(record["paper_id"])}" '
         f'data-paper="{fallback}" data-home="{record["home"]}" '
         f'data-year="{record["year"]}" data-bibtex="{escape(record["bibtex"])}">'
-        f'<a class="paper-title" href="{escape(record["paper_url"])}" target="_blank" rel="noopener">{escape(record["title"])}</a>'
-        f'<div class="paper-meta">{date_html}{"".join(badges)}</div>'
-        f'<div class="paper-desc">{"".join(details)}</div></li>'
+        f'<div class="paper-heading"><a class="paper-title" href="{escape(record["paper_url"])}" target="_blank" rel="noopener">{escape(record["title"])}</a>{date_html}</div>'
+        f'<div class="paper-desc">{"".join(details)}</div>'
+        f'<div class="paper-meta">{"".join(badges)}{mechanism_html}</div></li>'
     )
 
 
 def html_paper_list(records: list[dict]) -> str:
     parts = []
-    for home, label in SECTION_LABELS.items():
+    for index, (home, label) in enumerate(SECTION_LABELS.items(), 1):
         items = [r for r in records if r["home"] == home]
         if not items:
             continue
         items.sort(key=lambda r: (r["submitted"], r["year"], r["paper_id"]), reverse=True)
-        parts.append(f'<div class="paper-section-group" data-parent="{home}"><h2>{escape(label)}</h2>')
+        parts.append(
+            f'<section class="paper-section-group" id="topic-{home}" data-parent="{home}" '
+            f'aria-labelledby="heading-{home}"><div class="section-heading">'
+            f'<span class="section-number" aria-hidden="true">{index:02d}</span>'
+            f'<h2 id="heading-{home}">{escape(label)}</h2>'
+            f'<span class="section-total">{len(items)} papers</span></div>'
+            f'<p class="section-description">{escape(SECTION_DESCRIPTIONS[home])}</p>'
+        )
         parts.append('<ul class="paper-group">')
         parts.extend(render_paper_card(record) for record in items)
-        parts.append('</ul></div>')
+        parts.append('</ul></section>')
     return "\n".join(parts)
 
 
@@ -243,7 +281,7 @@ def build(catalog: Path, site: Path, output: Path) -> int:
     payload = {"updated_on": updated_on, "total": len(records), "papers": records}
     serialized = json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
     content_hash = hashlib.sha256(serialized.encode("utf-8"))
-    for asset in ("static/css/style.css", "static/js/search.js", "static/js/bibtex.js"):
+    for asset in ("templates/index.html.tmpl", "static/css/style.css", "static/js/search.js", "static/js/bibtex.js"):
         path = site / asset
         if path.exists():
             content_hash.update(path.read_bytes())
@@ -252,6 +290,7 @@ def build(catalog: Path, site: Path, output: Path) -> int:
         "ASSET_VERSION": content_hash.hexdigest()[:12],
         "PAPER_LIST": html_paper_list(records),
         "PAPER_COUNT": str(len(records)),
+        "TOPIC_NAV": html_topic_nav(records),
     }
     template = (site / "templates" / "index.html.tmpl").read_text(encoding="utf-8")
     # Single-pass substitution keeps literal {{...}} in catalog descriptions intact.

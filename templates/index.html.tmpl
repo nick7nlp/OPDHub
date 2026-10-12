@@ -3,57 +3,89 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Search papers on on-policy distillation for language models.">
-  <title>OPDHub — Paper Search</title>
+  <meta name="description" content="Explore research on on-policy distillation: objectives, supervision, training, agents, analysis, and applications.">
+  <meta name="theme-color" content="#f7f7f2">
+  <title>OPDHub — On-Policy Distillation Research</title>
   <link rel="icon" type="image/png" href="static/images/opd-overview.png">
   <link rel="stylesheet" href="static/css/style.css?v={{ASSET_VERSION}}">
 </head>
 <body>
-<header class="search-header">
+<a class="skip-link" href="#paper-list">Skip to papers</a>
+<header class="site-header">
   <div class="container header-inner">
-    <h1><a class="wordmark" href="./"><span>OPD</span>Hub</a></h1>
+    <a class="wordmark" href="./" aria-label="OPDHub home"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>OPD<span>Hub</span></a>
     <nav aria-label="Project links">
-      <a href="https://arxiv.org/abs/2604.00626" target="_blank" rel="noopener">Survey</a>
-      <a href="https://github.com/nick7nlp/Awesome-LLM-On-Policy-Distillation" target="_blank" rel="noopener">Reading list</a>
+      <a href="https://arxiv.org/abs/2604.00626" target="_blank" rel="noopener">Read the survey <span aria-hidden="true">↗</span></a>
+      <a href="https://github.com/nick7nlp/Awesome-LLM-On-Policy-Distillation" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
     </nav>
   </div>
 </header>
-<main class="container search-main">
-  <div class="search-wrap">
-    <label class="sr-only" for="search-input">Search papers</label>
-    <input id="search-input" type="search" placeholder="Search title, author, method, or paper ID…" autocomplete="off" autofocus>
-  </div>
-  <div class="search-toolbar">
-    <span id="visible-count" class="search-count" role="status" aria-live="polite">{{PAPER_COUNT}} papers</span>
-    <div class="search-actions">
-      <button id="clear-filters" type="button" class="clear-btn">Clear</button>
-      <button id="export-bibtex" type="button" class="export-btn">Export BibTeX</button>
+<main class="container">
+  <section class="intro" aria-labelledby="page-title">
+    <div class="intro-copy">
+      <p class="eyebrow">A research companion</p>
+      <h1 id="page-title">On-policy distillation.<br><span>Connected perspectives.</span></h1>
+      <p class="intro-description">How students learn from teachers on their own trajectories.<br class="desktop-break"> Explore the objectives, supervision, and systems behind the methods.</p>
     </div>
+    <a class="survey-note" href="https://arxiv.org/abs/2604.00626" target="_blank" rel="noopener">
+      <span class="note-label">Start with the survey <span aria-hidden="true">↗</span></span>
+      <span class="note-title">A map of the field,<br>one question at a time.</span>
+      <span class="note-detail">Foundations · Methods · Open problems</span>
+    </a>
+  </section>
+  <nav class="reading-paths" aria-label="Reading paths">
+    <a href="#topic-4"><span class="path-number" aria-hidden="true">01</span><span><strong>Understand the learning signal</strong><span class="path-detail">Objectives, supervision &amp; training</span></span><span class="path-arrow" aria-hidden="true">↗</span></a>
+    <a href="#topic-7"><span class="path-number" aria-hidden="true">02</span><span><strong>Follow the agent into interaction</strong><span class="path-detail">Agents, tools &amp; applications</span></span><span class="path-arrow" aria-hidden="true">↗</span></a>
+    <a href="#topic-8"><span class="path-number" aria-hidden="true">03</span><span><strong>Examine what transfers</strong><span class="path-detail">Analysis, evaluation &amp; foundations</span></span><span class="path-arrow" aria-hidden="true">↗</span></a>
+  </nav>
+  <div class="library-layout">
+    <aside class="topic-sidebar" aria-label="Browse by topic">
+      <div class="sidebar-inner">
+        <p class="sidebar-label">The collection</p>
+        <nav class="topic-nav" aria-label="Paper topics">{{TOPIC_NAV}}</nav>
+        <p class="sidebar-note">Read across topics.<br>Compare the signal, the rollout,<br>and the update.</p>
+        <a class="sidebar-link" href="https://github.com/nick7nlp/Awesome-LLM-On-Policy-Distillation/issues" target="_blank" rel="noopener">Suggest a paper <span aria-hidden="true">↗</span></a>
+      </div>
+    </aside>
+    <section class="library-content" aria-label="Research papers">
+      <div class="search-tools js-only">
+        <div class="search-wrap">
+          <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.6"/><path d="m15.5 15.5 4.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <label class="sr-only" for="search-input">Search title, author, method, or paper ID</label>
+          <input id="search-input" type="search" placeholder="Search title, author, method, or paper ID" autocomplete="off">
+          <kbd class="search-shortcut" aria-hidden="true">/</kbd>
+        </div>
+        <div class="search-toolbar">
+          <span id="visible-count" class="search-count" role="status" aria-live="polite">{{PAPER_COUNT}} papers</span>
+          <div class="search-actions">
+            <button id="clear-filters" type="button" class="clear-btn">Reset</button>
+            <button id="export-bibtex" type="button" class="export-btn">Export BibTeX <span aria-hidden="true">↓</span></button>
+          </div>
+        </div>
+        <details class="filter-panel">
+          <summary><span>Refine results</span><span class="filter-summary-detail">Mechanism &amp; year</span></summary>
+          <div class="filter-grid">
+            <div class="filter-row"><span class="filter-label">Mechanism</span><div class="filter-chips" data-filter-group="mechanism">{{FILTER_MECHANISMS}}</div></div>
+            <div class="filter-row"><span class="filter-label">Year</span><div class="filter-chips" data-filter-group="year">{{FILTER_YEARS}}</div></div>
+          </div>
+        </details>
+      </div>
+      <noscript><p class="static-note">Browse all {{PAPER_COUNT}} papers below. Enable JavaScript to search, filter, and export citations.</p></noscript>
+      <p class="list-order">Newest first within each topic</p>
+      <div id="paper-list" tabindex="-1">{{PAPER_LIST}}</div>
+      <div id="empty-state" class="empty-state is-hidden"><span class="empty-symbol" aria-hidden="true">∅</span><h2>No matching papers</h2><p>Try another search or reset the filters.</p></div>
+    </section>
   </div>
-  <details class="filter-panel">
-    <summary>Filters</summary>
-    <div class="filter-grid">
-      <div class="filter-row">
-        <span class="filter-label">Topic</span>
-        <div class="filter-chips" data-filter-group="section">{{FILTER_SECTIONS}}</div>
-      </div>
-      <div class="filter-row">
-        <span class="filter-label">Mechanism</span>
-        <div class="filter-chips" data-filter-group="mechanism">{{FILTER_MECHANISMS}}</div>
-      </div>
-      <div class="filter-row">
-        <span class="filter-label">Year</span>
-        <div class="filter-chips" data-filter-group="year">{{FILTER_YEARS}}</div>
-      </div>
-    </div>
-  </details>
-  <div id="paper-list">{{PAPER_LIST}}</div>
-  <div id="empty-state" class="empty-state is-hidden">No papers match your search.</div>
 </main>
 <footer class="site-footer">
-  <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noopener">Template credits</a>
-  · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>
+  <div class="container footer-inner"><span>OPDHub <span class="footer-separator" aria-hidden="true">/</span> A reading companion for on-policy distillation</span><span><a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noopener">Credits</a><span class="footer-separator" aria-hidden="true">·</span><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a></span></div>
 </footer>
+<div id="copy-status" class="copy-status" role="status" aria-live="polite"></div>
+<dialog id="citation-dialog" aria-labelledby="citation-heading" aria-describedby="citation-instructions">
+  <form method="dialog"><h2 id="citation-heading">BibTeX citation</h2><button class="dialog-close" aria-label="Close citation" value="close">×</button></form>
+  <p id="citation-instructions">Clipboard access is unavailable. Select and copy the citation below.</p>
+  <label class="sr-only" for="citation-text">BibTeX</label><textarea id="citation-text" readonly rows="12" spellcheck="false"></textarea>
+</dialog>
 <script src="static/js/fuse.min.js"></script>
 <script src="static/js/search.js?v={{ASSET_VERSION}}"></script>
 </body>

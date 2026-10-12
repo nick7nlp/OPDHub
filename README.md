@@ -1,13 +1,22 @@
 # OPDHub
 
-A focused search interface for papers on on-policy distillation.
+**A reading companion for on-policy distillation.**
 
-[Search papers](https://nick7nlp.github.io/OPDHub/) · [Survey](https://arxiv.org/abs/2604.00626) · [Reading list and news](https://github.com/nick7nlp/Awesome-LLM-On-Policy-Distillation)
+[Explore the collection](https://nick7nlp.github.io/OPDHub/) · [Read the survey](https://arxiv.org/abs/2604.00626) · [Awesome reading list](https://github.com/nick7nlp/Awesome-LLM-On-Policy-Distillation)
 
-Search titles, authors, methods and paper identifiers. Expand Filters to narrow
-results by topic, mechanism or year. Each result provides a short description,
-source and repository links, and a citation button. Export BibTeX for the current
-results with one click.
+Explore the field through objectives, supervision, training, agents, analysis,
+and applications. Research questions connect the topics; each paper includes
+a concise contribution description and links to its source and available code.
+
+- Search titles, authors, methods, and exact paper identifiers. Press `/` to search.
+- Choose a topic, then refine by mechanism and year.
+- Copy individual citations or export the visible results as BibTeX.
+- Browse the complete collection without JavaScript. Search and filters also
+  work from the embedded catalog when the separate data request fails.
+
+The interface uses a compact reading layout with a persistent topic index on
+desktop and a horizontal topic bar on mobile. All fonts and assets are local
+or provided by the browser.
 
 ## Build
 
@@ -17,19 +26,19 @@ With OPDHub and the Awesome repository checked out as siblings:
 python3 scripts/build.py
 ```
 
-Or specify the public catalog:
+Or supply the public catalog explicitly:
 
 ```sh
 python3 scripts/build.py --catalog /path/to/catalog.json
 ```
 
-Python 3.10 or later is required. Use `--output-dir` for a preview and copy
-the site's `static/` assets into that directory.
+Python 3.10 or later is required. To preview in a separate directory, pass
+`--output-dir` and copy the site's `static/` assets into that directory.
 
 ## Contributing
 
 Suggest paper additions and corrections in
-[Awesome-LLM-On-Policy-Distillation](https://github.com/nick7nlp/Awesome-LLM-On-Policy-Distillation).
+[Awesome-LLM-On-Policy-Distillation](https://github.com/nick7nlp/Awesome-LLM-On-Policy-Distillation/issues).
 Website improvements are welcome here.
 
 ## Credits and license
