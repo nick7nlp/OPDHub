@@ -113,6 +113,14 @@ def load_catalog(path: Path) -> tuple[list[dict], str]:
             if row["arxiv_id"] is not None and not isinstance(row["arxiv_id"], str):
                 raise ValueError(f"{pid}: arxiv_id must be a string or null")
             record["arxiv_id"] = row["arxiv_id"]
+        if "latest_version" in row:
+            latest = row["latest_version"]
+            aid = record.get("arxiv_id")
+            if not aid or not isinstance(latest, str) or not re.fullmatch(
+                re.escape(aid) + r"v[1-9]\d*", latest
+            ):
+                raise ValueError(f"{pid}: latest_version must identify a version of this arXiv paper")
+            record["latest_version"] = latest
         record["year_month"] = record["submitted"][:7] if len(record["submitted"]) == 10 else ""
         record["bibtex"] = make_bibtex(record)
         records.append(record)

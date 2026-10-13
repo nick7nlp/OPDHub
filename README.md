@@ -35,6 +35,10 @@ python3 scripts/build.py --catalog /path/to/catalog.json
 Python 3.10 or later is required. To preview in a separate directory, pass
 `--output-dir` and copy the site's `static/` assets into that directory.
 
+The data export preserves `source_version` and, when available, `latest_version`.
+The former records the source used for the description; the latter identifies
+the latest arXiv version checked in the catalog metadata.
+
 ## Contributing
 
 Suggest paper additions and corrections in
